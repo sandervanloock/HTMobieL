@@ -61,48 +61,50 @@
 %\listoffigures
 %\listoftables
 % Bij een beperkt aantal figuren en tabellen gebruik je liever het volgende:
-\listoffiguresandtables
+%\listoffiguresandtables
 % De lijst van symbolen is eveneens optioneel.
 % Deze lijst moet wel manueel aangemaakt worden, bv. als volgt:
-\chapter{Lijst van afkortingen en symbolen}
-\section*{Afkortingen}
-\begin{flushleft}
-  \renewcommand{\arraystretch}{1.1}
-  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
-    LoG   & Laplacian-of-Gaussian \\
-    MSE   & Mean Square error \\
-    PSNR  & Peak Signal-to-Noise ratio \\
-  \end{tabularx}
-\end{flushleft}
-\section*{Symbolen}
-\begin{flushleft}
-  \renewcommand{\arraystretch}{1.1}
-  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
-    42    & ``The Answer to the Ultimate Question of Life, the Universe,
-            and Everything'' volgens de \cite{h2g2} \\
-    $c$   & Lichtsnelheid \\
-    $E$   & Energie \\
-    $m$   & Massa \\
-    $\pi$ & Het getal pi \\
-  \end{tabularx}
-\end{flushleft}
+%\chapter{Lijst van afkortingen en symbolen}
+%\section*{Afkortingen}
+%\begin{flushleft}
+%  \renewcommand{\arraystretch}{1.1}
+%  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+%    LoG   & Laplacian-of-Gaussian \\
+%    MSE   & Mean Square error \\
+%    PSNR  & Peak Signal-to-Noise ratio \\
+%  \end{tabularx}
+%\end{flushleft}
+%\section*{Symbolen}
+%\begin{flushleft}
+%  \renewcommand{\arraystretch}{1.1}
+%  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+%    42    & ``The Answer to the Ultimate Question of Life, the Universe,
+%            and Everything'' volgens de \cite{h2g2} \\
+%    $c$   & Lichtsnelheid \\
+%    $E$   & Energie \\
+%    $m$   & Massa \\
+%    $\pi$ & Het getal pi \\
+%  \end{tabularx}
+%\end{flushleft}
 
 % Nu begint de eigenlijke tekst
 \mainmatter
 
-\include{inleiding}
-\include{hfdst-1}
-\include{hfdst-2}
-% ... en zo verder tot
-\include{hfdst-n}
-\include{besluit}
+\include{literatuurstudie}
 
-% Indien er bijlagen zijn:
-\appendixpage*          % indien gewenst
-\appendix
-\include{app-A}
-% ... en zo verder tot
-\include{app-n}
+%\include{inleiding}
+%\include{hfdst-1}
+%\include{hfdst-2}
+%% ... en zo verder tot
+%\include{hfdst-n}
+%\include{besluit}
+%
+%% Indien er bijlagen zijn:
+%\appendixpage*          % indien gewenst
+%\appendix
+%\include{app-A}
+%% ... en zo verder tot
+%\include{app-n}
 
 \backmatter
 % Na de bijlagen plaatst men nog de bibliografie.

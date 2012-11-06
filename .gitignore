@@ -1,11 +1,10 @@
-# latex zelf compileren, dus onderstaande files worden niet gecommit #
+# londerstaande latex files worden niet gecommit #
 ##########################################################
 *.aux
 *.lof
 *.log
 *.lot
 *.out
-*.pdf
 *.synctex.gz
 *.toc
 

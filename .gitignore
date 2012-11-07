@@ -1,4 +1,8 @@
-# londerstaande latex files worden niet gecommit #
+# configuratiefiles van mijn editor #
+##########################################################
+.idea/
+
+# onderstaande latex files worden niet gecommit #
 ##########################################################
 *.aux
 *.lof

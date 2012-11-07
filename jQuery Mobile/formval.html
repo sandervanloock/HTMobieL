@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+</head>
+
+<body>
+
+<div data-role="page">
+
+    <div data-role="header">
+        <a href="index.html" data-rel="back">Home</a>
+
+        <h1>Register Page</h1>
+    </div>
+
+    <div data-role="content">
+
+        <form action="process.cfm" method="post">
+
+            <fieldset data-role="fieldcontain">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+            </fieldset>
+
+            <fieldset data-role="fieldcontain">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </fieldset>
+
+            <fieldset data-role="fieldcontain">
+                <label for="password2">Confirm Password:</label>
+                <input type="password" name="password2" id="password2">
+            </fieldset>
+
+            <fieldset data-role="fieldcontain">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+            </fieldset>
+
+            <fieldset data-role="fieldcontain">
+                <label for="favcolor">Favorite Color:</label>
+                <select id="favcolor" name="favcolor">
+                    <option>Select One</option>
+                    <option>Green</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                    <option>Yellow</option>
+                </select>
+            </fieldset>
+
+            <fieldset data-role="fieldcontain">
+                <label for="hometown">Home Town:</label>
+                <input type="text" name="hometown" id="hometown">
+            </fieldset>
+
+            <input type="submit" value="Register">
+
+        </form>
+
+    </div>
+
+    <div data-role="footer">
+        <h4>Footer content</h4>
+    </div>
+
+</div>
+
+</body>
+</html>

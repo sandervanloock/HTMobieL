@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>POC</title>
+    <title>Expense App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css"/>
@@ -11,14 +11,28 @@
 </head>
 <body>
 
-<div data-role="page">
+<div data-role="page" id="pagelogin">
 
     <div data-role="header">
-        <h1>My Title</h1>
+        <h1>Expense App</h1>
     </div>
 
     <div data-role="content">
-        <p>Hello world</p>
+        <form action="form.php" method="post">
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" value="" placeholder="Username">
+            </div>
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" value="" placeholder="Password">
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
     </div>
 
 </div>

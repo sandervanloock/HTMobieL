@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
+    <link rel="stylesheet" href="css/splitview.css">
+
+    <script src="js/jquery-1.8.2.js"></script>
+    <script src="js/jquery.mobile-1.2.0.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/custom.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="login">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="formlogin" action="index.html" method="post">
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="username">Username:</label>
+                <input type="text" class="required" name="username" id="username" value="" placeholder="Username">
+            </div>
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="password">Password:</label>
+                <input type="password" class="required" name="password" id="password" value="" placeholder="Password">
+            </div>
+            <input type="submit" data-role="submit" value="Log in">
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="home">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#" class="ui-btn-right">Log out</a>
+    </div>
+
+    <div data-role="content">
+        <p>Welcome, John Smith.</p>
+
+        <p>I want to:</p>
+        <a href="#createnewexpense" data-role="button">Create New Expense</a>
+        <a href="#" data-role="button">View My Expenses</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="createnewexpense" class="type-interior">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <div class="content-primary">
+            <p>Tekst 123</p>
+        </div>
+
+        <div class="content-secondary">
+            <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
+                <h3>In this section</h3>
+
+                <ol data-role="listview" data-theme="c" data-dividertheme="d">
+                    <li data-role="list-divider">New Expense</li>
+                    <li>Your Info</li>
+                    <li>Overview</li>
+                    <li>Add Expense</li>
+                    <li>Sign & Send</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+</body>
+</html>

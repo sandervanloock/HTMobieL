@@ -1,0 +1,57 @@
+{
+    "type": "container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Page",
+        "designer|userAlias": "page",
+        "layout": "card"
+    },
+    "id": "ExtBox1-ext-gen12690",
+    "designerId": "0d922d33-a526-4141-ad94-92de5419e052",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "e005fdd2-4f8c-4092-a2db-9cb266ff63ef",
+            "masterInstanceId": "ExtBox1-ext-gen15804"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "4dcff67b-aea6-485b-a6eb-b6bf97e147c3",
+            "masterInstanceId": "ExtBox1-ext-gen25446"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "88491687-677f-4e53-b434-fd266ea7ad1e",
+            "masterInstanceId": "ExtBox1-ext-gen40970"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "51d4e09c-5b0f-4bba-b5df-b7adfaba3004",
+            "masterInstanceId": "ExtBox1-ext-gen20854"
+        }
+    ]
+}

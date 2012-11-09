@@ -1,0 +1,16 @@
+{
+    "type": "store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "EmployeeStore",
+        "designer|userAlias": "employeestore",
+        "model": "Employee",
+        "storeId": "employeestore"
+    },
+    "id": "ExtBox1-ext-gen54627",
+    "designerId": "d11db33a-14b6-4109-8717-3cb894f44a0d"
+}

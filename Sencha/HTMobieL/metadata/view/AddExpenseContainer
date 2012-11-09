@@ -1,0 +1,76 @@
+{
+    "type": "container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AddExpenseContainer",
+        "designer|userAlias": "addexpensecontainer"
+    },
+    "id": "ExtBox1-ext-gen40970",
+    "designerId": "9c585c74-6ce8-436d-baa0-3132178b8357",
+    "cn": [
+        {
+            "type": "tabpanel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|animation": "pop",
+                "designer|userClassName": "AddExpense",
+                "designer|userAlias": "addexpense",
+                "designer|displayName": "ExpenseTab",
+                "docked": "top",
+                "height": 1000,
+                "ui": "light"
+            },
+            "designerId": "71226e23-0224-458a-9c6d-455a0009317b",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Abroad"
+                    },
+                    "designerId": "bdad8e04-bed9-4b49-b28d-221888912bbb",
+                    "masterInstanceId": "ExtBox1-ext-gen40312"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Domestic"
+                    },
+                    "designerId": "69963fff-31b2-4712-a8ec-e10b7d5bbdfb",
+                    "masterInstanceId": "ExtBox1-ext-gen32931"
+                },
+                {
+                    "type": "tabbar",
+                    "reference": {
+                        "name": "tabBar",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "center",
+                        "designer|userClassName": "MyTabBar",
+                        "docked": "top"
+                    },
+                    "designerId": "efbf79d8-ed73-4711-a934-9be89bd8c762"
+                }
+            ]
+        }
+    ]
+}

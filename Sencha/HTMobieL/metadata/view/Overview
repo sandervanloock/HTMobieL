@@ -1,0 +1,50 @@
+{
+    "type": "container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Overview",
+        "designer|userAlias": "overview"
+    },
+    "id": "ExtBox1-ext-gen25446",
+    "designerId": "440cf9ed-5877-49b9-b438-74b818669d10",
+    "cn": [
+        {
+            "type": "navigationview",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyNavigationView",
+                "designer|displayName": "OverviewList",
+                "height": 744,
+                "ui": "round",
+                "width": 1016
+            },
+            "designerId": "e3732222-ca10-446e-917e-b5ef5c3bf4c2",
+            "cn": [
+                {
+                    "type": "template",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "itemTpl",
+                        "implHandler": [
+                            "<div>{doe:date(\"d/m/Y\")} &mdash; <small>Description({currency}{amount})</small></div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "c2c69c68-caa6-4566-aeca-73029febc03e"
+                }
+            ]
+        }
+    ]
+}

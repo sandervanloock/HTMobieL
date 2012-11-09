@@ -1,0 +1,36 @@
+{
+    "type": "application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Expense",
+            "Employee"
+        ],
+        "stores": [
+            "MenuStore",
+            "ExpenseStore",
+            "EmployeeStore"
+        ],
+        "views": [
+            "Viewport",
+            "Info",
+            "Menu",
+            "DomesticExpense",
+            "AbroadExpense",
+            "Page",
+            "Sign",
+            "Overview",
+            "AddExpenseContainer"
+        ],
+        "name": "Expense",
+        "controllers": [
+            "MenuController"
+        ]
+    },
+    "id": "ExtBox1-ext-gen1703",
+    "designerId": "application"
+}

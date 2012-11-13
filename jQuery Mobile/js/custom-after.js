@@ -24,3 +24,17 @@ $(document).live("pageinit", "#login", function () {
         }
     });
 });
+
+$(document).live("pageinit", "#step1", function () {
+    $("#step1firstname").val("Tim");
+    $("#step1lastname").val("Ameye");
+    $("#step1employeenumber").val("001");
+    $("#step1email").val("tim.ameye@student.kuleuven.be");
+
+    $("#formstep1").validate({
+        submitHandler:function (form) {
+            console.log("Step1 of the form was validaded successfully.");
+            $.mobile.changePage("#step2");
+        }
+    });
+});

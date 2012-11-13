@@ -21,6 +21,10 @@ $(document).live("pageinit", "#login", function () {
 
              });*/
             $.mobile.changePage("#home");
+        },
+        invalidHandler: function(form, validator) {
+            // mogelijkheid voor een alert
+            //alert("There were " + validator.numberOfInvalids() + " invalid form elements.");
         }
     });
 });
@@ -28,13 +32,12 @@ $(document).live("pageinit", "#login", function () {
 $(document).live("pageinit", "#step1", function () {
     $("#step1firstname").val("Tim");
     $("#step1lastname").val("Ameye");
-    $("#step1employeenumber").val("001");
+    $("#step1employeenumber").val("1");
     $("#step1email").val("tim.ameye@student.kuleuven.be");
 
     $("#formstep1").validate({
         submitHandler:function (form) {
-            console.log("Step1 of the form was validaded successfully.");
-            $.mobile.changePage("#step2");
+            alert('ok');
         }
     });
 });

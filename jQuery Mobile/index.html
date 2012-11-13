@@ -77,8 +77,8 @@
             <div data-role="fieldcontain">
                 <fieldset data-role="controlgroup" data-type="horizontal">
                     <label for="formdatemonth">Month</label>
-                    <select name="formdatemonth" id="formdatemonth">
-                        <option>Month</option>
+                    <select id="formdatemonth" name="formdatemonth" class="required">
+                        <option value="">Month</option>
                         <option value="jan">January</option>
                         <option value="dec">December</option>
                         <option value="feb">February</option>
@@ -95,8 +95,8 @@
                     </select>
 
                     <label for="formdateyear">Year</label>
-                    <select name="formdateyear" id="formdateyear">
-                        <option>Year</option>
+                    <select name="formdateyear" id="formdateyear" class="required">
+                        <option value="">Year</option>
                         <option value="2012">2012</option>
                     </select>
                 </fieldset>
@@ -126,7 +126,7 @@
 
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="step1email">Email</label>
-                <input type="email" name="step1email" id="step1email" placeholder="Email">
+                <input class="required" type="email" name="step1email" id="step1email" placeholder="Email">
             </div>
 
             <input type="submit" data-role="submit" value="Next">

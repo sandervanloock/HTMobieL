@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
+    <style>
+        #profilepicture {
+            text-align: center;
+        }
+    </style>
+
+    <script src="js/jquery-1.8.2.js"></script>
+    <script src="js/jquery.mobile-1.2.0.js"></script>
+    <script>
+        $(document).on("click", '[id^=update]', function (event, ui) {
+            var id = $(this).attr('id');
+            $.ajax({
+                type:"GET",
+                dataType:"json",
+                url:"https://graph.facebook.com/" + id.replace('update-', '') + "?fields=name,picture.type(square)",
+                success:function (data) {
+                    $("#name").text(data.name);
+                    $("#profilepicture").html("<img src=\"" + data.picture.data.url + "\">");
+                    $.mobile.changePage("#detail");
+                },
+                error:function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+
+<div data-role="page" id="master">
+
+    <div data-role="header">
+        <h1>Master</h1>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview">
+            <li><a id="update-1084740780">Tim Ameye</a></li>
+            <li><a id="update-1218425743">Koen Wellens</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div data-role="page" id="detail">
+
+    <div data-role="header">
+        <a href="#master" data-icon="back">Master</a>
+
+        <h1 id="name"></h1>
+    </div>
+
+    <div data-role="content">
+        <div id="profilepicture"></div>
+    </div>
+
+</div>
+
+</body>
+</html>

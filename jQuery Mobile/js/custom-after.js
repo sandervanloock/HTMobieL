@@ -22,8 +22,19 @@ $(document).on("pageinit", "#login", function () {
             $.mobile.changePage("#home");
         },
         invalidHandler:function (form, validator) {
-            // mogelijkheid voor een alert
-            alert("There were " + validator.numberOfInvalids() + " invalid form elements.");
+            $('<div>').simpledialog2({
+                mode: 'button',
+                headerText: 'Error',
+                headerClose: false,
+                buttonPrompt: 'Some of the fields were not filled in correctly. Please correct the indicated fields.',
+                buttons : {
+                    'I understand': {
+                        click: function () {
+                            this.close();
+                        }
+                    }
+                }
+            })
         }
     });
 });

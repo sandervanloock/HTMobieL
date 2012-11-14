@@ -1,4 +1,4 @@
-$(document).live("pageinit", "#login", function () {
+$(document).on("pageinit", "#login", function () {
     $("#formlogin").validate({
         submitHandler:function (form) {
             console.log("Login form was validaded successfully.");
@@ -29,7 +29,7 @@ $(document).live("pageinit", "#login", function () {
     });
 });
 
-$(document).live("pageinit", "#step1", function () {
+$(document).on("pageinit", "#step1", function () {
     $("#step1firstname").val("Tim");
     $("#step1lastname").val("Ameye");
     $("#step1employeenumber").val("1");

@@ -14,8 +14,8 @@
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/jquery.mobile-1.2.0.js"></script>
     <script>
-        $(document).on("click", '[id^=detail]', function () {
-            var facebookId = $(this).attr('id').replace('detail-', '');
+        $(document).on("tap", "[id^=detail]", function () {
+            var facebookId = $(this).attr("id").replace("detail-", "");
             $.ajax({
                 type:"GET",
                 dataType:"json",

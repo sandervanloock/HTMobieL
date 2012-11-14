@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
-    <link rel="stylesheet" href="css/jquery.mobile.simpledialog.css">
 
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/custom-before.js"></script>
     <script src="js/jquery.mobile-1.2.0.js"></script>
-    <script src="js/jquery.mobile.simpledialog2.js"></script>
     <script src="js/custom-functions.js"></script>
-    <script src="js/custom-after.js"></script>
+    <script src="js/custom-login.js"></script>
+    <script src="js/custom-step1.js"></script>
 </head>
 <body>
 
@@ -145,11 +144,11 @@
 
 <div data-role="dialog" id="error">
     <div data-role="header">
-        <h1>Error</h1>
+        <h1 id="errortitle"></h1>
     </div>
     <div data-role="content">
         <p id="errormessage"></p>
-        <a data-role="button" data-theme="b">Ok</a>
+        <a href="#" data-role="button" data-rel="back" data-theme="b">Ok</a>
     </div>
 </div>
 

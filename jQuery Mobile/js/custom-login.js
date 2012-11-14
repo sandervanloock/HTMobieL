@@ -1,5 +1,6 @@
 $(document).on("pageinit", "#login", function () {
     $("#formlogin").validate({
+        focusInvalid: false,
         submitHandler:function (form) {
             console.log("Login form was validaded successfully.");
             /*$.ajax({
@@ -22,20 +23,7 @@ $(document).on("pageinit", "#login", function () {
             $.mobile.changePage("#home");
         },
         invalidHandler:function (form, validator) {
-            EA.showErrorDialog("Some of the fields were not filled in correctly. Please correct the indicated fields.");
-        }
-    });
-});
-
-$(document).on("pageinit", "#step1", function () {
-    $("#step1firstname").val("Tim");
-    $("#step1lastname").val("Ameye");
-    $("#step1employeenumber").val("1");
-    $("#step1email").val("tim.ameye@student.kuleuven.be");
-
-    $("#formstep1").validate({
-        submitHandler:function (form) {
-            alert('ok');
+            EA.showErrorDialog("Validation error","Some of the fields were not filled in correctly. Please correct the indicated fields.");
         }
     });
 });

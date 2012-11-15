@@ -38,12 +38,14 @@ Ext.application({
         'AddExpenseContainer',
         'OverviewList',
         'Overview',
+        'LoginPanel',
         'ExpenseDetail'
     ],
     name: 'Expense',
     controllers: [
         'MenuController',
-        'ExpenseController'
+        'ExpenseController',
+        'MyInfoController'
     ],
 
     launch: function() {

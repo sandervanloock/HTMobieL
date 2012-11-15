@@ -1,9 +1,9 @@
 {
     "name": "HTMobieL",
     "settings": {
-        "urlPrefix": "",
+        "urlPrefix": "http://localhost/Sencha/HTMobieL/",
         "spacesToIndent": 4,
-        "exportPath": "",
+        "exportPath": "/var/www/Sencha/HTMobieL",
         "lineEnding": "LF",
         "genTimestamps": false,
         "cacheBust": false
@@ -163,6 +163,38 @@
                 "app/controller/ExpenseController.js"
             ],
             "className": "ExpenseController"
+        },
+        "cda3d5e2-3c1b-4493-8859-81ef86e69b04": {
+            "paths": [
+                "metadata/view/LoginPanel",
+                "app/view/override/LoginPanel.js",
+                "app/view/LoginPanel.js"
+            ],
+            "className": "LoginPanel"
+        },
+        "58c81c82-7016-4ba9-b57a-dccc266d97b1": {
+            "paths": [
+                "metadata/controller/MyInfoController",
+                "app/controller/override/MyInfoController.js",
+                "app/controller/MyInfoController.js"
+            ],
+            "className": "MyInfoController"
+        },
+        "b034fcc3-e267-43e6-aee9-b35c7091f63e": {
+            "paths": [
+                "metadata/controller/LoginController",
+                "app/controller/override/LoginController.js",
+                "app/controller/LoginController.js"
+            ],
+            "className": "LoginController"
+        },
+        "eb09be5c-e832-4b91-99dd-f6bbe398e0cf": {
+            "paths": [
+                "metadata/controller/MyController2",
+                "app/controller/override/MyController2.js",
+                "app/controller/MyController2.js"
+            ],
+            "className": "MyController2"
         }
     },
     "viewOrderMap": {
@@ -177,7 +209,8 @@
             "77171558-7e94-4fbe-9311-8d89b0411b93",
             "a994f7d8-7f8a-4836-bd55-1751a04cd99a",
             "9c585c74-6ce8-436d-baa0-3132178b8357",
-            "e58f882c-2968-4b18-8fd0-871c927f9e68"
+            "e58f882c-2968-4b18-8fd0-871c927f9e68",
+            "cda3d5e2-3c1b-4493-8859-81ef86e69b04"
         ],
         "store": [
             "d273f987-2beb-4e3b-8548-b279604a36d6",
@@ -185,8 +218,11 @@
             "d11db33a-14b6-4109-8717-3cb894f44a0d"
         ],
         "controller": [
+            "b034fcc3-e267-43e6-aee9-b35c7091f63e",
+            "eb09be5c-e832-4b91-99dd-f6bbe398e0cf",
             "fea705dc-f330-4f98-83e5-d90340f5bd87",
-            "f39515f1-ebff-48de-94d6-aeb3cd56bda2"
+            "f39515f1-ebff-48de-94d6-aeb3cd56bda2",
+            "58c81c82-7016-4ba9-b57a-dccc266d97b1"
         ],
         "model": [
             "b342052b-d445-4cc4-b2a3-197f55b1f8c9",

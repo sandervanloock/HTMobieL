@@ -20,11 +20,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "expense",
-                "ref": "expense",
+                "designer|userClassName": "nav",
+                "ref": "nav",
                 "selector": "overview"
             },
-            "designerId": "8e8bfabd-df83-4446-b439-95c623635fe5"
+            "designerId": "13134a5f-fddd-439b-9340-63e2c1b34e3d"
         },
         {
             "type": "controlleraction",
@@ -37,18 +37,16 @@
                 "designer|userClassName": "onListDisclose",
                 "fn": "onListDisclose",
                 "implHandler": [
-                    "var htmlcode = ",
-                    "this.getExpense().push({",
+                    "this.getNav().push({",
                     "    xtype: 'expensedetail',",
                     "    data: record.getData()",
-                    "});",
-                    "console.log(record);"
+                    "});"
                 ],
                 "name": "disclose",
                 "designer|targetType": "Ext.dataview.List",
-                "designer|controlQuery": "list"
+                "designer|controlQuery": "#overviewlist"
             },
-            "designerId": "76ace495-feca-487a-a6f5-b431c801d9a5"
+            "designerId": "7b53e158-f9bb-48fb-b1be-39cb80f6152f"
         }
     ]
 }

@@ -19,6 +19,7 @@ Ext.define('Expense.view.OverviewList', {
 
     config: {
         height: 770,
+        id: 'overviewlist',
         ui: 'round',
         store: 'expensestore',
         onItemDisclosure: true,

@@ -19,23 +19,21 @@ Ext.define('Expense.controller.ExpenseController', {
 
     config: {
         refs: {
-            expense: 'overview'
+            nav: 'overview'
         },
 
         control: {
-            "list": {
+            "#overviewlist": {
                 disclose: 'onListDisclose'
             }
         }
     },
 
     onListDisclose: function(list, record, target, index, e, options) {
-        var htmlcode = 
-        this.getExpense().push({
+        this.getNav().push({
             xtype: 'expensedetail',
             data: record.getData()
         });
-        console.log(record);
     }
 
 });

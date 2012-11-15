@@ -8,9 +8,41 @@
     "userConfig": {
         "designer|userClassName": "EmployeeStore",
         "designer|userAlias": "employeestore",
+        "autoLoad": true,
         "model": "Employee",
         "storeId": "employeestore"
     },
     "id": "ExtBox1-ext-gen54627",
-    "designerId": "d11db33a-14b6-4109-8717-3cb894f44a0d"
+    "designerId": "d11db33a-14b6-4109-8717-3cb894f44a0d",
+    "cn": [
+        {
+            "type": "ajaxproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyAjaxProxy2",
+                "extraParams": null,
+                "filterParam": null,
+                "url": "employee.json"
+            },
+            "designerId": "c613b50b-ecd1-4395-98ee-f029e6cce1d3",
+            "cn": [
+                {
+                    "type": "jsonreader",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyJsonReader4"
+                    },
+                    "designerId": "5eb7329d-aff8-4ca1-9a09-4c5faa25325f"
+                }
+            ]
+        }
+    ]
 }

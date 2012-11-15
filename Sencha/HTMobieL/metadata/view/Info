@@ -21,6 +21,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "MyFieldSet",
+                "id": "infofield",
                 "title": "1. Your info"
             },
             "designerId": "6f8299b3-35e4-40ff-b1b1-6ef652ad7484",

@@ -22,7 +22,15 @@ Ext.define('Expense.store.EmployeeStore', {
     ],
 
     config: {
+        autoLoad: true,
         model: 'Expense.model.Employee',
-        storeId: 'employeestore'
+        storeId: 'employeestore',
+        proxy: {
+            type: 'ajax',
+            url: 'employee.json',
+            reader: {
+                type: 'json'
+            }
+        }
     }
 });

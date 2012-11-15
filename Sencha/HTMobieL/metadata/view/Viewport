@@ -6,12 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
+        "container|pack": "center",
         "designer|userClassName": "Viewport",
         "designer|userAlias": "viewport",
         "designer|initialView": true,
         "fullscreen": true,
-        "height": 765,
-        "width": 1018,
+        "height": null,
+        "width": null,
         "layout": "hbox"
     },
     "id": "ExtBox1-ext-gen8596",
@@ -25,10 +26,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "container|align": "center",
                 "designer|userClassName": "MyToolbar",
                 "docked": "top",
                 "id": "toolbar",
+                "style": null,
                 "ui": "light",
                 "title": "Expense App"
             },
@@ -43,13 +44,13 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|userClassName": "MyButton",
-                        "docked": "right",
+                        "docked": "left",
                         "right": null,
-                        "ui": "back",
+                        "ui": "confirm-round",
                         "icon": "",
-                        "iconCls": "home",
+                        "iconCls": "action",
                         "iconMask": true,
-                        "text": "Home"
+                        "text": "Login"
                     },
                     "designerId": "41bd57cd-7514-4869-ba66-9fa0e12afa68"
                 }
@@ -62,6 +63,9 @@
                 "type": "array"
             },
             "codeClass": null,
+            "userConfig": {
+                "docked": "left"
+            },
             "designerId": "5184b00c-c9af-4996-abc0-d865cefeb16e",
             "masterInstanceId": "ExtBox1-ext-gen24753"
         },
@@ -73,10 +77,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "docked": "right",
-                "width": 687
+                "docked": null,
+                "height": null,
+                "ui": "light",
+                "width": "100%",
+                "scrollable": true
             },
-            "designerId": "d48890ed-13e8-4fbd-94ad-a16058667704",
+            "designerId": "b71517fb-3268-4d26-a0c9-cb52f584f546",
             "masterInstanceId": "ExtBox1-ext-gen12690"
         }
     ]

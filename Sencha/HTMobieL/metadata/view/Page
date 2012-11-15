@@ -8,6 +8,7 @@
     "userConfig": {
         "designer|userClassName": "Page",
         "designer|userAlias": "page",
+        "fullscreen": false,
         "layout": "card"
     },
     "id": "ExtBox1-ext-gen12690",

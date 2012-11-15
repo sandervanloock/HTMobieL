@@ -15,7 +15,7 @@
 
 Ext.define('Expense.view.Menu', {
     extend: 'Ext.Panel',
-    alias: 'widget.menu',
+    alias: 'widget.menuPanel',
 
     config: {
         border: '',

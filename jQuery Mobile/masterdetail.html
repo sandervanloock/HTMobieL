@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
+    <style>
+        #detailpicture {
+            text-align: center;
+        }
+    </style>
+
+    <script src="js/jquery-1.8.2.js"></script>
+    <script src="js/jquery.mobile-1.2.0.js"></script>
+    <script>
+        $(document).on("tap", "[id^=detail]", function () {
+            var facebookId = $(this).attr("id").replace("detail-", "");
+            $.ajax({
+                type:"GET",
+                dataType:"json",
+                data:{
+                    fields:"name,picture.type(large)"
+                },
+                url:"https://graph.facebook.com/" + facebookId,
+                success:function (data) {
+                    $("#detailname").text(data.name);
+                    $("#detailpicture").html("<img src=\"" + data.picture.data.url + "\">");
+                    $.mobile.changePage("#detailpage");
+                },
+                error:function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+
+<div data-role="page" id="masterpage">
+
+    <div data-role="header">
+        <h1>Master</h1>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview">
+            <li><a id="detail-1084740780">Tim Ameye</a></li>
+            <li><a id="detail-1218425743">Koen Wellens</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div data-role="page" id="detailpage">
+
+    <div data-role="header">
+        <a href="#masterpage" data-icon="back">Master</a>
+        <h1 id="detailname"></h1>
+    </div>
+
+    <div data-role="content">
+        <div id="detailpicture"></div>
+    </div>
+
+</div>
+
+</body>
+</html>

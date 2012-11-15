@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
-    <link rel="stylesheet" href="css/splitview.css">
 
     <script src="js/jquery-1.8.2.js"></script>
-    <script src="js/jquery.mobile-1.2.0.js"></script>
     <script src="js/jquery.validate.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="js/custom-before.js"></script>
+    <script src="js/jquery.mobile-1.2.0.js"></script>
+    <script src="js/custom-functions.js"></script>
+    <script src="js/custom-login.js"></script>
+    <script src="js/custom-step1.js"></script>
 </head>
 <body>
 
@@ -21,15 +23,18 @@
     </div>
 
     <div data-role="content">
-        <form id="formlogin" action="index.html" method="post">
+        <form id="formlogin">
+
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="username">Username:</label>
-                <input type="text" class="required" name="username" id="username" value="" placeholder="Username">
+                <label for="loginusername">Username:</label>
+                <input type="text" class="required" name="loginusername" id="loginusername" placeholder="Username">
             </div>
+
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="password">Password:</label>
-                <input type="password" class="required" name="password" id="password" value="" placeholder="Password">
+                <label for="loginpassword">Password:</label>
+                <input type="password" class="required" name="loginpassword" id="loginpassword" placeholder="Password">
             </div>
+
             <input type="submit" data-role="submit" value="Log in">
         </form>
     </div>
@@ -51,7 +56,7 @@
         <p>Welcome, John Smith.</p>
 
         <p>I want to:</p>
-        <a href="#createnewexpense" data-role="button">Create New Expense</a>
+        <a href="#step1" data-role="button">Create New Expense</a>
         <a href="#" data-role="button">View My Expenses</a>
     </div>
 
@@ -61,7 +66,7 @@
 
 </div>
 
-<div data-role="page" id="createnewexpense" class="type-interior">
+<div data-role="page" id="step1">
 
     <div data-role="header">
         <h1>Expense App</h1>
@@ -69,29 +74,82 @@
     </div>
 
     <div data-role="content">
-        <div class="content-primary">
-            <p>Tekst 123</p>
-        </div>
+        <form id="formstep1">
 
-        <div class="content-secondary">
-            <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
-                <h3>In this section</h3>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <label for="formdatemonth">Month</label>
+                    <select id="formdatemonth" name="formdatemonth" class="required">
+                        <option value="">Month</option>
+                        <option value="jan">January</option>
+                        <option value="dec">December</option>
+                        <option value="feb">February</option>
+                        <option value="mar">March</option>
+                        <option value="apr">April</option>
+                        <option value="may">May</option>
+                        <option value="jun">June</option>
+                        <option value="jul">July</option>
+                        <option value="aug">August</option>
+                        <option value="sep">September</option>
+                        <option value="oct">October</option>
+                        <option value="nov">November</option>
+                        <option value="dec">December</option>
+                    </select>
 
-                <ol data-role="listview" data-theme="c" data-dividertheme="d">
-                    <li data-role="list-divider">New Expense</li>
-                    <li>Your Info</li>
-                    <li>Overview</li>
-                    <li>Add Expense</li>
-                    <li>Sign & Send</li>
-                </ol>
+                    <label for="formdateyear">Year</label>
+                    <select name="formdateyear" id="formdateyear" class="required">
+                        <option value="">Year</option>
+                        <option value="2012">2012</option>
+                    </select>
+                </fieldset>
             </div>
-        </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step1firstname">First Name:</label>
+                <input type="text" name="step1firstname" id="step1firstname" placeholder="First Name" readonly>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step1lastname">Last Name:</label>
+                <input type="text" name="step1lastname" id="step1lastname" placeholder="Last Name" readonly>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step1employeenumber">Employee Number</label>
+                <input type="number" class="required" name="step1employeenumber" id="step1employeenumber"
+                       placeholder="Employee Number">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step1units" class="select">Unit:</label>
+                <select name="step1units" id="step1units">
+                    <option>Unit</option>
+                </select>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step1email">Email</label>
+                <input class="required" type="email" name="step1email" id="step1email" placeholder="Email">
+            </div>
+
+            <input type="submit" data-role="submit" value="Next">
+        </form>
     </div>
 
     <div data-role="footer" data-position="fixed">
         <h6>KU Leuven & Capgemini</h6>
     </div>
 
+</div>
+
+<div data-role="dialog" id="error">
+    <div data-role="header">
+        <h1 id="errortitle"></h1>
+    </div>
+    <div data-role="content">
+        <p id="errormessage"></p>
+        <a href="#" data-role="button" data-rel="back" data-theme="b">Ok</a>
+    </div>
 </div>
 
 </body>

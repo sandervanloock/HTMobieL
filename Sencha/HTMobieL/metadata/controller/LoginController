@@ -1,0 +1,77 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginController"
+    },
+    "id": "ExtBox1-ext-gen19404",
+    "designerId": "b034fcc3-e267-43e6-aee9-b35c7091f63e",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "login",
+                "ref": "login",
+                "selector": "loginpanel"
+            },
+            "designerId": "cbeb7acc-e760-4f4a-a063-8b3de3c9539a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onButtonTap",
+                "fn": "onButtonTap",
+                "implHandler": [
+                    "",
+                    "//display Loading indicator to user",
+                    "//mainPanel.setLoading(true, false);",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'http://kulcapexpenseapp.appspot.com/resources/userService/login',",
+                    "        method: 'post',",
+                    "        params: {",
+                    "            UserName: this.getLogin().email,",
+                    "            Password: this.getLogin().password",
+                    "            //, RememberMe: Ext.getCmp(‘RememberMe’).isChecked()},",
+                    "            //failure : function(response){",
+                    "            //data = Ext.decode(response.responseText);",
+                    "            //Ext.Msg.alert(‘Login Error’, data.errorMessage, Ext.emptyFn);",
+                    "        }",
+                    "        /*,",
+                    "        success: function(response, opts) {",
+                    "            data = Ext.decode(response.responseText);",
+                    "            if (data.errorMessage != null)",
+                    "            {",
+                    "                Ext.Msg.alert(‘Login Error’, data.errorMessage, Ext.emptyFn);",
+                    "                mainPanel.setLoading(false);",
+                    "            } else {",
+                    "                //hide the Loading mask",
+                    "                mainPanel.setLoading(false);",
+                    "                //show the next screen",
+                    "                mainPanel.setActiveItem(dashboard, ‘slide’);",
+                    "        }*/",
+                    "});",
+                    ""
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#login"
+            },
+            "designerId": "2c2bf273-1e86-4395-8335-e66e9149f856"
+        }
+    ]
+}

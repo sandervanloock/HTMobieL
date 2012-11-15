@@ -1,0 +1,63 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyInfoController"
+    },
+    "id": "ExtBox1-ext-gen2595",
+    "designerId": "58c81c82-7016-4ba9-b57a-dccc266d97b1",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "myinfo",
+                "ref": "myinfo",
+                "selector": "infofield"
+            },
+            "designerId": "a130e1d3-007e-433d-875c-1efa3e645925"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onFieldsetInitialize",
+                "fn": "onFieldsetInitialize",
+                "implHandler": [
+                    "var store = Ext.create('Expense.store.EmployeeStore',",
+                    "      {",
+                    "        autoLoad: true,",
+                    "        model: 'Expense.model.Employee',",
+                    "        storeId: 'employeestore',",
+                    "        proxy: {",
+                    "            type: 'ajax',",
+                    "            url: 'employee.json',",
+                    "            reader: {",
+                    "                type: 'json'",
+                    "            }",
+                    "        }",
+                    "                       });",
+                    "var employee = store.getData()[0];",
+                    "console.log(employee);",
+                    "//this.getMyinfo().setRecord("
+                ],
+                "name": "initialize",
+                "designer|targetType": "Ext.form.FieldSet",
+                "designer|controlQuery": "#infofield"
+            },
+            "designerId": "0046b343-6a1e-4681-bee3-6d956356acba"
+        }
+    ]
+}

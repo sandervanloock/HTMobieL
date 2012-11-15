@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userClassName": "ExpenseStore",
         "designer|userAlias": "expensestore",
-        "data": "[{\n    type: true,\n    doe: \"21/09/1990\",\n    projectCode: \"123456\",\n    amount: 200,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"21/09/1990\",\n    projectCode: \"123456\",\n    amount: 300990,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"21/09/1990\",\n    projectCode: \"123456\",\n    amount: 5500,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"21/09/1990\",\n    projectCode: \"123456\",\n    amount: 350.5,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"21/09/1990\",\n    projectCode: \"123456\",\n    amount: 300,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"21/09/1990\",\n    projectCode: \"123456\",\n    amount: 300,\n    remarks: \"test\",\n    currency: \"€\"\n}]",
+        "data": "[{\n    type: true,\n    doe: \"21/09/1990\",\n    projectCode: \"123456\",\n    amount: 200,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"20/09/1990\",\n    projectCode: \"123456\",\n    amount: 300990,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"19/09/1990\",\n    projectCode: \"123456\",\n    amount: 5500,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"18/09/1990\",\n    projectCode: \"123456\",\n    amount: 350.5,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"17/09/1990\",\n    projectCode: \"123456\",\n    amount: 300,\n    remarks: \"test\",\n    currency: \"€\"\n},{\n    type: true,\n    doe: \"16/09/1990\",\n    projectCode: \"123456\",\n    amount: 300,\n    remarks: \"test\",\n    currency: \"€\"\n}]",
         "model": "Expense",
         "storeId": "expensestore"
     },
@@ -40,6 +40,20 @@
                     "designerId": "116d11f2-9027-4ef4-9a89-52f2cf233172"
                 }
             ]
+        },
+        {
+            "type": "sorter",
+            "reference": {
+                "name": "sorters",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MySorter",
+                "designer|displayName": "DateSorter",
+                "property": "doe"
+            },
+            "designerId": "99cc52a5-4efd-4de7-a377-fba1be3c3157"
         }
     ]
 }

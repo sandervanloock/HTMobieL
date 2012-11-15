@@ -33,7 +33,7 @@ Ext.define('Expense.store.ExpenseStore', {
             },
             {
                 type: true,
-                doe: '21/09/1990',
+                doe: '20/09/1990',
                 projectCode: '123456',
                 amount: 300990,
                 remarks: 'test',
@@ -41,7 +41,7 @@ Ext.define('Expense.store.ExpenseStore', {
             },
             {
                 type: true,
-                doe: '21/09/1990',
+                doe: '19/09/1990',
                 projectCode: '123456',
                 amount: 5500,
                 remarks: 'test',
@@ -49,7 +49,7 @@ Ext.define('Expense.store.ExpenseStore', {
             },
             {
                 type: true,
-                doe: '21/09/1990',
+                doe: '18/09/1990',
                 projectCode: '123456',
                 amount: 350.5,
                 remarks: 'test',
@@ -57,7 +57,7 @@ Ext.define('Expense.store.ExpenseStore', {
             },
             {
                 type: true,
-                doe: '21/09/1990',
+                doe: '17/09/1990',
                 projectCode: '123456',
                 amount: 300,
                 remarks: 'test',
@@ -65,7 +65,7 @@ Ext.define('Expense.store.ExpenseStore', {
             },
             {
                 type: true,
-                doe: '21/09/1990',
+                doe: '16/09/1990',
                 projectCode: '123456',
                 amount: 300,
                 remarks: 'test',
@@ -79,6 +79,9 @@ Ext.define('Expense.store.ExpenseStore', {
             reader: {
                 type: 'json'
             }
+        },
+        sorters: {
+            property: 'doe'
         }
     }
 });

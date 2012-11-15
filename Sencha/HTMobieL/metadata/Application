@@ -23,12 +23,15 @@
             "AbroadExpense",
             "Page",
             "Sign",
+            "AddExpenseContainer",
+            "OverviewList",
             "Overview",
-            "AddExpenseContainer"
+            "MyPanel1"
         ],
         "name": "Expense",
         "controllers": [
-            "MenuController"
+            "MenuController",
+            "ExpenseController"
         ]
     },
     "id": "ExtBox1-ext-gen1703",

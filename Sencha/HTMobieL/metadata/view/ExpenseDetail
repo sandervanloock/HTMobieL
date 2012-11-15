@@ -1,0 +1,40 @@
+{
+    "type": "panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ExpenseDetail",
+        "designer|userAlias": "expensedetail",
+        "designer|displayName": "DetailExpense",
+        "html": ""
+    },
+    "id": "ExtBox1-ext-gen75888",
+    "designerId": "a994f7d8-7f8a-4836-bd55-1751a04cd99a",
+    "cn": [
+        {
+            "type": "template",
+            "reference": {
+                "name": "tpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "tpl",
+                "implHandler": [
+                    "<h3>Overview Expense</h3>",
+                    "Type: {type}<br/>",
+                    "Date: {doe:date(\"d/m/Y\")}<br />",
+                    "Project Code: {projectCode} <br />",
+                    "<large>Amount: {amount}</large> {currency} <br />",
+                    "Remarks: {remarks}",
+                    ""
+                ],
+                "designer|displayName": "ExpenseTpl"
+            },
+            "designerId": "41931935-aa17-4d8d-857b-6ba6b1e67e26"
+        }
+    ]
+}

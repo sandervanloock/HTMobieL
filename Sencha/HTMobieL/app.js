@@ -35,12 +35,15 @@ Ext.application({
         'AbroadExpense',
         'Page',
         'Sign',
+        'AddExpenseContainer',
+        'OverviewList',
         'Overview',
-        'AddExpenseContainer'
+        'ExpenseDetail'
     ],
     name: 'Expense',
     controllers: [
-        'MenuController'
+        'MenuController',
+        'ExpenseController'
     ],
 
     launch: function() {

@@ -100,14 +100,6 @@
             ],
             "className": "Sign"
         },
-        "440cf9ed-5877-49b9-b438-74b818669d10": {
-            "paths": [
-                "metadata/view/Overview",
-                "app/view/override/Overview.js",
-                "app/view/Overview.js"
-            ],
-            "className": "Overview"
-        },
         "c3e38fbf-785d-4c5c-a4bf-bb742624f5db": {
             "paths": [
                 "metadata/store/ExpenseStore",
@@ -139,6 +131,38 @@
                 "app/model/Employee.js"
             ],
             "className": "Employee"
+        },
+        "77171558-7e94-4fbe-9311-8d89b0411b93": {
+            "paths": [
+                "metadata/view/Overview",
+                "app/view/override/Overview.js",
+                "app/view/Overview.js"
+            ],
+            "className": "Overview"
+        },
+        "a994f7d8-7f8a-4836-bd55-1751a04cd99a": {
+            "paths": [
+                "metadata/view/ExpenseDetail",
+                "app/view/override/ExpenseDetail.js",
+                "app/view/ExpenseDetail.js"
+            ],
+            "className": "ExpenseDetail"
+        },
+        "e58f882c-2968-4b18-8fd0-871c927f9e68": {
+            "paths": [
+                "metadata/view/OverviewList",
+                "app/view/override/OverviewList.js",
+                "app/view/OverviewList.js"
+            ],
+            "className": "OverviewList"
+        },
+        "f39515f1-ebff-48de-94d6-aeb3cd56bda2": {
+            "paths": [
+                "metadata/controller/ExpenseController",
+                "app/controller/override/ExpenseController.js",
+                "app/controller/ExpenseController.js"
+            ],
+            "className": "ExpenseController"
         }
     },
     "viewOrderMap": {
@@ -150,8 +174,10 @@
             "f6b822a5-53e9-4788-956f-340cbb3f9b50",
             "0d922d33-a526-4141-ad94-92de5419e052",
             "d44f7a59-973c-4382-b8c4-edd5edc26727",
-            "440cf9ed-5877-49b9-b438-74b818669d10",
-            "9c585c74-6ce8-436d-baa0-3132178b8357"
+            "77171558-7e94-4fbe-9311-8d89b0411b93",
+            "a994f7d8-7f8a-4836-bd55-1751a04cd99a",
+            "9c585c74-6ce8-436d-baa0-3132178b8357",
+            "e58f882c-2968-4b18-8fd0-871c927f9e68"
         ],
         "store": [
             "d273f987-2beb-4e3b-8548-b279604a36d6",
@@ -159,7 +185,8 @@
             "d11db33a-14b6-4109-8717-3cb894f44a0d"
         ],
         "controller": [
-            "fea705dc-f330-4f98-83e5-d90340f5bd87"
+            "fea705dc-f330-4f98-83e5-d90340f5bd87",
+            "f39515f1-ebff-48de-94d6-aeb3cd56bda2"
         ],
         "model": [
             "b342052b-d445-4cc4-b2a3-197f55b1f8c9",

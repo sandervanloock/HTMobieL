@@ -24,8 +24,8 @@ Ext.define('Expense.view.Menu', {
             {
                 xtype: 'list',
                 height: 764,
-                id: 'menu',
-                itemId: 'mylist1',
+                id: 'menulist',
+                itemId: 'menulist',
                 ui: 'round',
                 width: 320,
                 scrollable: false,
@@ -33,8 +33,7 @@ Ext.define('Expense.view.Menu', {
                     '<div>{item}</div>'
                 ],
                 scrollToTopOnRefresh: false,
-                store: 'MyJsonStore',
-                onItemDisclosure: true
+                store: 'MyJsonStore'
             }
         ]
     }

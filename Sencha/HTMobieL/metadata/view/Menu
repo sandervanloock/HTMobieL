@@ -27,9 +27,10 @@
             "userConfig": {
                 "designer|userClassName": "Menu",
                 "designer|userAlias": "menu",
+                "designer|displayName": "MenuList",
                 "height": 764,
-                "id": "menu",
-                "itemId": "mylist1",
+                "id": "menulist",
+                "itemId": "menulist",
                 "ui": "round",
                 "width": 320,
                 "layout": null,
@@ -37,8 +38,10 @@
                     "false"
                 ],
                 "scrollToTopOnRefresh": false,
-                "store": "MyJsonStore",
-                "onItemDisclosure": true
+                "store": "MyJsonStore"
+            },
+            "configAlternates": {
+                "onItemDisclosure": "function"
             },
             "designerId": "c12997e9-4013-4ffb-bd12-fe9f0d20f3f7",
             "cn": [

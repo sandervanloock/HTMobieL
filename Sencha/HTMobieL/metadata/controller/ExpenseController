@@ -1,0 +1,54 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ExpenseController",
+        "designer|userAlias": "expensecontroller"
+    },
+    "id": "ExtBox1-ext-gen78752",
+    "designerId": "f39515f1-ebff-48de-94d6-aeb3cd56bda2",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "expense",
+                "ref": "expense",
+                "selector": "overview"
+            },
+            "designerId": "8e8bfabd-df83-4446-b439-95c623635fe5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onListDisclose",
+                "fn": "onListDisclose",
+                "implHandler": [
+                    "var htmlcode = ",
+                    "this.getExpense().push({",
+                    "    xtype: 'expensedetail',",
+                    "    data: record.getData()",
+                    "});",
+                    "console.log(record);"
+                ],
+                "name": "disclose",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "list"
+            },
+            "designerId": "76ace495-feca-487a-a6f5-b431c801d9a5"
+        }
+    ]
+}

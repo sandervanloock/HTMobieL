@@ -1,5 +1,5 @@
 {
-    "type": "container",
+    "type": "navigationview",
     "reference": {
         "name": "items",
         "type": "array"
@@ -9,42 +9,18 @@
         "designer|userClassName": "Overview",
         "designer|userAlias": "overview"
     },
-    "id": "ExtBox1-ext-gen25446",
-    "designerId": "440cf9ed-5877-49b9-b438-74b818669d10",
+    "id": "ExtBox1-ext-gen75235",
+    "designerId": "77171558-7e94-4fbe-9311-8d89b0411b93",
     "cn": [
         {
-            "type": "navigationview",
+            "type": "linkedinstance",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "MyNavigationView",
-                "designer|displayName": "OverviewList",
-                "height": 744,
-                "ui": "round",
-                "width": 1016
-            },
-            "designerId": "e3732222-ca10-446e-917e-b5ef5c3bf4c2",
-            "cn": [
-                {
-                    "type": "template",
-                    "reference": {
-                        "name": "itemTpl",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "itemTpl",
-                        "implHandler": [
-                            "<div>{doe:date(\"d/m/Y\")} &mdash; <small>Description({currency}{amount})</small></div>"
-                        ],
-                        "designer|displayName": "itemTpl"
-                    },
-                    "designerId": "c2c69c68-caa6-4566-aeca-73029febc03e"
-                }
-            ]
+            "designerId": "8e610feb-4114-4d97-8573-53bd068cbbd9",
+            "masterInstanceId": "ExtBox1-ext-gen73760"
         }
     ]
 }

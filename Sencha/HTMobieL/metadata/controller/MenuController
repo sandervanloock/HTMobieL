@@ -12,20 +12,6 @@
     "designerId": "fea705dc-f330-4f98-83e5-d90340f5bd87",
     "cn": [
         {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "nav",
-                "ref": "nav",
-                "selector": "menu"
-            },
-            "designerId": "2b493335-a376-4575-875b-a545a5fea7f2"
-        },
-        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -40,7 +26,7 @@
                 ],
                 "name": "itemtap",
                 "designer|targetType": "Ext.dataview.List",
-                "designer|controlQuery": "list"
+                "designer|controlQuery": "#menulist"
             },
             "designerId": "5e4795f2-a8c4-47e6-8887-551070aa38df"
         },

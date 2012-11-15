@@ -1,0 +1,37 @@
+{
+    "type": "list",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "OverviewList",
+        "designer|userAlias": "overviewlist",
+        "designer|displayName": "OverviewList",
+        "height": 770,
+        "ui": "round",
+        "store": "expensestore",
+        "onItemDisclosure": true
+    },
+    "id": "ExtBox1-ext-gen73760",
+    "designerId": "e58f882c-2968-4b18-8fd0-871c927f9e68",
+    "cn": [
+        {
+            "type": "template",
+            "reference": {
+                "name": "itemTpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "itemTpl",
+                "implHandler": [
+                    "<div>{doe:date(\"d/m/Y\")} &mdash; <small>Description({currency}{amount})</small></div>"
+                ],
+                "designer|displayName": "itemTpl"
+            },
+            "designerId": "c2c69c68-caa6-4566-aeca-73029febc03e"
+        }
+    ]
+}

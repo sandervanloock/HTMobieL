@@ -8,11 +8,12 @@
 
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/jquery.validate.js"></script>
-    <script src="js/custom-before.js"></script>
+    <script src="js/ea-before.js"></script>
     <script src="js/jquery.mobile-1.2.0.js"></script>
-    <script src="js/custom-functions.js"></script>
-    <script src="js/custom-login.js"></script>
-    <script src="js/custom-step1.js"></script>
+    <script src="js/ea-functions.js"></script>
+    <script src="js/ea-login.js"></script>
+    <script src="js/ea-home.js"></script>
+    <script src="js/ea-step1.js"></script>
 </head>
 <body>
 
@@ -23,16 +24,16 @@
     </div>
 
     <div data-role="content">
-        <form id="loginform">
+        <form id="login-form">
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="loginusername">Username:</label>
-                <input type="text" class="required" name="loginusername" id="loginusername" placeholder="Username">
+                <label for="login-username">Username:</label>
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="loginpassword">Password:</label>
-                <input type="password" class="required" name="loginpassword" id="loginpassword" placeholder="Password">
+                <label for="login-password">Password:</label>
+                <input type="password" class="required" name="login-password" id="login-password" placeholder="Password">
             </div>
 
             <input type="submit" data-role="submit" value="Log in">
@@ -49,11 +50,11 @@
 
     <div data-role="header">
         <h1>Expense App</h1>
-        <a href="#" class="ui-btn-right">Log out</a>
+        <a id="home-logout" class="ui-btn-right">Log out</a>
     </div>
 
     <div data-role="content">
-        <p>Welcome, John Smith.</p>
+        <p>Welcome, <span id="home-employee-name"></span>.</p>
 
         <p>I want to:</p>
         <a href="#step1" data-role="button">Create New Expense</a>
@@ -153,6 +154,7 @@
         <ul data-role="listview">
             <li><a href="#">
                 <h1>DD/MM/YYY</h1>
+
                 <p>Description (amount)</p>
             </a></li>
         </ul>

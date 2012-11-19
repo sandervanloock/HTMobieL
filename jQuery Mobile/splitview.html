@@ -1,17 +1,18 @@
 <html>
 <head>
-    <title>SimpleSplitView</title>
-    <link href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" type="text/css" rel="stylesheet" />
+    <title>Expense App</title>
+    <link href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" type="text/css" rel="stylesheet"/>
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
     <script src='http://simplesplitview.sourceforge.net/simplesplitview-1.0.js'></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <style type="text/css">
         .padsidestwenty {
             padding-left: 20px;
             padding-right: 20px;
         }
+
         pre {
             overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
             white-space: pre-wrap; /* css-3 */
@@ -40,7 +41,7 @@
             $('#splitviewcontainer').simplesplitview('navBack');
         }
 
-        $('#mainpage').live('pageshow', function(event) {
+        $('#mainpage').live('pageshow', function (event) {
             document.getElementById('splitviewcontainer').padding = 44;
             $('#splitviewcontainer').simplesplitview();
         });
@@ -49,270 +50,44 @@
 </head>
 <body>
 
-<!-- ////////////// main split view page /////////////  -->
+<div data-role="page" id="mainpage" data-title="Expense App" data-theme="a">
 
-<div data-role="page" id="mainpage" data-title="SimpleSplitView" data-theme="a">
+    <div data-role="header" data-position="fixed" data-theme="a">
+        <a onclick="navBack();" data-icon="back" style="display: none;" id="splitviewcontainer_backbutton">Back</a>
 
-<!-- ////////////// main split view header /////////////  -->
-
-<div data-role="header" data-position="fixed" data-theme="a">
-    <a onclick="navBack();" data-icon="back" style="display: none;" id="splitviewcontainer_backbutton">Back</a>
-    <h1 id='appmaintitle'>SimpleSplitView</h1>
-    <a onclick="navHome();" data-icon="home" style="display: none;" id="splitviewcontainer_homebutton">Home</a>
-</div><!-- /header -->
-<div data-role="content" id="splitviewcontainer" class="splitviewcontainer" data-theme="d">
-<div class='leftside padsidestwenty' id='startpageleft'>
-    <h2>Home</h2>
-    <ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="a">
-        <li data-role="list-divider">Main Menu</li>
-        <li><a onclick="showRight('aboutSSV');">About SimpleSplitView</a></li>
-        <li><a onclick="showLeft('docsmenu', 'usage');">Documentation</a></li>
-        <li><a onclick="showRight('download');">Download</a></li>
-        <li><a onclick="showRight('license');">License</a></li>
-    </ul>
-    <br><br><br><br><br><br>
-</div>
-<div class='leftside padsidestwenty' id='docsmenu'>
-    <h2>Documentation</h2>
-    <ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="a">
-        <li data-role="list-divider">Topics</li>
-        <li><a onclick="showRight('usage');">Usage</a></li>
-        <li><a onclick="showRight('panels');">Panels</a></li>
-        <li><a onclick="showRight('navigation');">Navigation</a></li>
-        <li><a onclick="showRight('navbuttons');">Buttons</a></li>
-    </ul>
-    <br><br><br><br><br><br>
-</div>
-<div class='rightside padsidestwenty' id='aboutSSV'>
-    <h3>About SimpleSplitView</h3>
-    <p>
-        SimpleSplitView is pretty much exactly what it sounds like: A very simple
-        jQuery plugin that provides an iPad-style split view for mobile devices wide
-        enough to support it. For browsers with a horizontal resolution of 700 or fewer
-        pixels, the plugin renders the two sides as subsequent pages. It works great in
-        conjunction with jQuery Mobile, although it is not technically required.
-    </p>
-    <p>
-        Unlike other split view implementations for jQuery Mobile, SimpleSplitView does not fork the jQuery Mobile project.
-    </p>
-    <p>
-        SimpleSplitView is open source software and you are free to use it in
-        commercial projects as long as the copyright header is left intact.
-        It was originally written by <a href='http://yared.com'>Peter Yared</a> and
-        <a href='http://ironetics.com'>Marc Raiser</a>, and is currently maintained by
-        <a href='http://newbound.com'>Newbound, Inc.</a>
-    </p>
-    <br><br><br><br><br><br>
-</div>
-<div class='rightside padsidestwenty' id='usage'>
-    <h3>Usage</h3>
-    <p>
-        It's easy to add SimpleSplitView to any jQuery project. Just include the JavaScript
-        file in your web page and you can turn any div into a split view container by
-        adding the splitviewcontainer class to it and invoking the simplesplitview() function
-        on it. If you are using jQuery Mobile, the div should be the content div of a jQuery
-        Mobile page and you should make your call to simplesplitview() after the page has been loaded.
-    </p>
-						<pre>
-&lt;head&gt;
-	...
-	&lt;script type='text/javascript' src='SimpleSplitView.js'&gt;&lt;/script&gt;
-	&lt;script type='text/javascript'&gt;
-		$('#PAGEID').live('pageshow', function(event) { // Necessary for jQuery Mobile
-			$('#CONTAINERID').simplesplitview();
-		});
-	&lt;/script&gt;
-	...
-&lt;/head&gt;
-						</pre>
-    <p>
-        <b>NOTE:</b> <i>Replace PAGEID with the id of the jQuery Mobile page div id and CONTAINERID
-        with the id of the div within that page which should contain the split view.</i>
-    </p>
-    <br><br><br><br><br><br>
-</div>
-<div class='rightside padsidestwenty' id='panels'>
-    <h3>Panels</h3>
-    <p>
-        When you invoke simplesplitview() on a div, the SimpleSplitView plugin rearranges
-        the contents of that div into a table with two columns and a line between them which
-        form the left and right panels of the split view. The split view container must be a
-        member of the class "splitviewcontainer".  If you are using jQuery Mobile, the div
-        should be the content div of a jQuery Mobile page. You can define any number of div tags
-        to display in either the left or right panel by assigning the 'leftside' or 'rightside'
-        class respectively to direct children of the container div. The first div of each class
-        will be the ones visible when the page loads.
-    </p>
-						<pre>
-&lt;div data-role='page' id='mainpage' data-title='SimpleSplitView' data-theme='a'&gt;
-	&lt;div data-role='content' id='splitviewcontainer' class='splitviewcontainer'&gt;
-		&lt;div class='leftside' id='leftpanel1'&gt;
-			&lt;h2&gt;Left Panel 1&lt;/h2&gt;
-			...
-		&lt;/div&gt;
-		&lt;div class='leftside' id='leftpanel2'&gt;
-			&lt;h2&gt;Left Panel 2&lt;/h2&gt;
-			...
-		&lt;/div&gt;
-		&lt;div class='rightside' id='rightpanel1'&gt;
-			&lt;h2&gt;Right Panel 1&lt;/h2&gt;
-			...
-		&lt;/div&gt;
-		&lt;div class='rightside' id='rightpanel2'&gt;
-			&lt;h2&gt;Right Panel 2&lt;/h2&gt;
-			...
-		&lt;/div&gt;
-		&lt;span&gt;This will be discarded&lt;/span&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-						</pre>
-    <p>
-        <b>NOTE:</b> <i>Any direct children of the container div that are not members of either
-        the "leftside" or "rightside" class will be discarded by the SimpleSplitView
-        plugin at runtime.</i>
-    </p>
-    <br><br><br><br><br><br>
-</div>
-<div class='rightside padsidestwenty' id='navigation'>
-    <h3>Navigation</h3>
-    <p>
-        In order to avoid forking the jQuery Mobile project, the split view contents are not defined
-        as jQuery Mobile pages, opting instead to use classes to define "leftside" and "rightside" views.
-        Unfortunately, this means you cannot simply hyperlink to them in order to switch from one view to
-        another.
-    </p>
-    <p>
-        There are four navigational functions supported by SimpleSplitView: showLeft, showRight, navBack
-        and navHome. SimpleSplitView uses the traditional jQuery plugin syntax for the navigational methods
-        it supports, which is essentially the same as the initialization call but with additional
-        paramters. For example:
-    </p>
-						<pre>
-$('#CONTAINERID').simplesplitview('showRight', 'RIGHTDIVID');
-						</pre>
-    <p>
-        <b>Functions:</b><br>
-    <table border='1' cellpadding='3' cellspacing='0'>
-        <thead>
-        <tr>
-            <th>Method</th>
-            <th>Description</th>
-            <th>Arguments</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td><pre>showLeft</pre></td>
-            <td>Display a 'leftside' view. Optional parameters specify a default "rightside" view, and allow the suppression of the transition animation for the right and left sides. The rightdiv parameter is ignored when not in split view mode.</td>
-            <td><pre>leftdiv, [rightdiv], [dontscrollright], [dontscrollleft]</pre></td>
-        </tr>
-        <tr>
-            <td><pre>showRight</pre></td>
-            <td>Display a 'rightside' view. Optional parameter allows the suppression of the transition animation.</td>
-            <td><pre>rightdiv, [dontscroll]</pre></td>
-        </tr>
-        <tr>
-            <td><pre>navBack</pre></td>
-            <td>Navigate to the previous view.</td>
-            <td><i>none</i></td>
-        </tr>
-        <tr>
-            <td><pre>navHome</pre></td>
-            <td>Navigate to the default startup view.</td>
-            <td><i>none</i></td>
-        </tr>
-        </tbody>
-    </table>
-    </p>
-    <p>
-        <br><b>Invoking:</b><br><br>
-        Typically you will want to define shortcut function calls to invoke the plugin functions. For example:
-    </p>
-						<pre>
-function showLeft(leftdiv, rightdiv, dontscrollright, dontscrollleft) {
-	$('#CONTAINERID').simplesplitview('showLeft', leftdiv, rightdiv, dontscrollright, dontscrollleft);
-}
-
-function showRight(rightdiv, dontscroll) {
-	$('#CONTAINERID').simplesplitview('showRight', rightdiv, dontscroll);
-}
-
-function navHome() {
-	$('#CONTAINERID').simplesplitview('navHome');
-}
-
-function navBack() {
-	$('#CONTAINERID').simplesplitview('navBack');
-}
-						</pre>
-    <p>This will allow for simple linking in your HTML:</p>
-						<pre>
-&lt;a onclick="showLeft('leftpanel2', 'rightpanel2');"&gt;Panel 2&lt;/a&gt;
-						</pre>
-    <br><br><br><br><br><br>
-</div>
-<div class='rightside padsidestwenty' id='navbuttons'>
-    <h3>Buttons</h3>
-    <p>
-        In order to get "back" and "home" buttons that are only visible after navigating away from
-        the default startup view, you must give each button an id that is a variation on the
-        container's id: Specifically, the container's id plus either "_backbutton" or "_homebutton".
-        For example:
-    </p>
-						<pre>
-&lt;div data-role='header' data-position='fixed' data-theme='a'&gt;
-	&lt;a onclick='navBack();' data-icon='back' style='display: none;' id='CONTAINERID_backbutton'&gt;Back&lt;/a&gt;
-	&lt;h1 id='appmaintitle'&gt;SimpleSplitView&lt;/h1&gt;
-	&lt;a onclick='navHome();' data-icon='home' style='display: none;' id='CONTAINERID_homebutton'&gt;Home&lt;/a&gt;
-&lt;/div&gt;
-						</pre>
-    <br><br><br><br><br><br>
-</div>
-<div class='rightside padsidestwenty' id='download'>
-    <h3>Download</h3>
-    CURRENT VERSION: 1.0.1<br>
-    RELEASE DATE: March 21, 2012
-    <br><br>
-    <a target='_blank' href='http://sourceforge.net/projects/simplesplitview/files/simplesplitview-1.0.js/download'>simplesplitview-1.0.js</a><br>
-    <a target='_blank' href='http://sourceforge.net/projects/simplesplitview/files/index.html/download'>Example HTML (this page)</a><br>
-    <br><br><br><br><br><br>
-</div>
-<div class='rightside padsidestwenty' id='license'>
-    <h3>License</h3>
-    SimpleSplitView is open source software and you are free to use it in
-    commercial projects as long as the copyright header is left intact.
-    SimpleSplitView is released under the same
-    <a href='http://jquery.org/license/' target='_blank'>licensing terms</a> as
-    <a href='http://jquery.com' target='_blank'>jQuery</a> and
-    <a href='http://jquerymobile.com' target='_blank'>jQuery Mobile</a>,
-    which means you may use it under the terms of either the MIT License or the
-    GNU General Public License (GPL) Version 2.
-    <br><br>
-    <ul style="font-size:16px;">
-        <li><a href="http://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt" target='_blank'>MIT License</a> (<a href="http://en.wikipedia.org/wiki/MIT_License" target='_blank'>More Information</a>)</li>
-        <li><a href="http://github.com/jquery/jquery/blob/master/GPL-LICENSE.txt" target='_blank'>GPL</a> (<a href="http://en.wikipedia.org/wiki/GNU_General_Public_License" target='_blank'>More Information</a>)</li>
-    </ul>
-    <br><br><br><br><br><br>
-</div>
-
-</div><!-- /content -->
-
-</div><!-- /page -->
-
-<!-- ////////////// non-split view pages /////////////  -->
-
-<div data-role="dialog" id = "newdatasourcedialog" data-title="dialogpage">
-    <div data-role="header">
-        <h1 id='dialogtitle'>New Data Source</h1>
+        <h1 id='appmaintitle'>Expense App</h1>
+        <a onclick="navHome();" data-icon="home" style="display: none;" id="splitviewcontainer_homebutton">Home</a>
     </div>
-    <div data-role="content" id="newdatasourcepopup">
-        [dialogcontent]
-    </div>
-</div><!-- /dialog -->
 
-<div data-role="page" id="deletedatasourcedialog" data-title="fullscreenpage">
-    [fullscreenpage content]
-</div><!-- /page -->
+    <div data-role="content" id="splitviewcontainer" class="splitviewcontainer" data-theme="d">
+        <div class='leftside padsidestwenty' id='startpageleft'>
+            <h2>New Expense</h2>
+            <ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="a">
+                <li><a onclick="showRight('your-info');">Your info</a></li>
+                <li><a onclick="showRight('overview');">Overview</a></li>
+                <li><a onclick="showRight('add-expense');">Add Expense</a></li>
+                <li><a onclick="showRight('sign-send');">Sign & Send</a></li>
+            </ul>
+        </div>
+        <div class='rightside padsidestwenty' id='your-info'>
+            <h3>Your info</h3>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate odio non enim laoreet sed
+                molestie diam faucibus. Quisque accumsan arcu dui, ac pellentesque neque. Donec aliquet eleifend dui, eu
+                condimentum metus facilisis ut. Vestibulum elementum hendrerit ligula. Nunc velit enim, porta a
+                convallis non, porta et eros. Phasellus erat metus, fringilla sed facilisis sed, ornare sed eros.
+                Phasellus adipiscing nulla ut lectus suscipit ultricies. Pellentesque egestas, lectus non imperdiet
+                ornare, augue augue aliquam massa, eget placerat neque nisi id quam. Sed gravida egestas eros. In hac
+                habitasse platea dictumst.
+            </p>
+        </div>
+
+    </div>
+    <!-- /content -->
+
+</div>
+<!-- /page -->
 
 </body>
 </html>

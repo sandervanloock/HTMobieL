@@ -1,8 +1,21 @@
 var EA = {
 
-    token: null,
+    token:null,
 
-    showErrorDialog:function (title,message) {
+    isLoggedIn:function () {
+        if (this.token == null) {
+            return false;
+        } else {
+            return true;
+        }
+    },
+
+    redirectNotLoggedIn:function () {
+        console.log("User is not logged in. Redirecting to login page.");
+        $.mobile.changePage("#login");
+    },
+
+    showErrorDialog:function (title, message) {
         $("#errortitle").text(title);
         $("#errormessage").text(message);
         $.mobile.changePage("#error");

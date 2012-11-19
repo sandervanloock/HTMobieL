@@ -18,35 +18,6 @@
 </head>
 <body>
 
-<div data-role="page" id="login">
-
-    <div data-role="header">
-        <h1>Expense App</h1>
-    </div>
-
-    <div data-role="content">
-        <form id="login-form">
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="login-username">Username:</label>
-                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username">
-            </div>
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="login-password">Password:</label>
-                <input type="password" class="required" name="login-password" id="login-password" placeholder="Password">
-            </div>
-
-            <input type="submit" data-role="submit" data-theme="f" value="Log in">
-        </form>
-    </div>
-
-    <div data-role="footer" data-position="fixed">
-        <h6>KU Leuven & Capgemini</h6>
-    </div>
-
-</div>
-
 <div data-role="page" id="home">
 
     <div data-role="header">
@@ -159,6 +130,36 @@
                 <p>Description (amount)</p>
             </a></li>
         </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="login">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="login-form">
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-username">Username:</label>
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-password">Password:</label>
+                <input type="password" class="required" name="login-password" id="login-password"
+                       placeholder="Password">
+            </div>
+
+            <input type="submit" data-role="submit" data-theme="f" value="Log in">
+        </form>
     </div>
 
     <div data-role="footer" data-position="fixed">

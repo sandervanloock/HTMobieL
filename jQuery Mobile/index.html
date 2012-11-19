@@ -30,7 +30,31 @@
 
         <p>I want to:</p>
         <a href="#add" data-role="button" data-theme="b">Create New Expense</a>
-        <a href="#" data-role="button" data-theme="b">View My Expenses</a>
+        <a href="#overview" data-role="button" data-theme="b">View My Expenses</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="overview">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right" data-direction="reverse">Home</a>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview">
+            <li>
+                <a href="#">
+                    <h1>DD/MM/YYY</h1>
+                    <p>Status</p>
+                </a>
+            </li>
+        </ul>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -43,6 +67,7 @@
 
     <div data-role="header">
         <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right" data-direction="reverse">Home</a>
     </div>
 
     <div data-role="content">
@@ -65,69 +90,69 @@
 
     <div data-role="header">
         <h1>Expense App</h1>
-        <a href="#home" class="ui-btn-right">Home</a>
     </div>
 
     <div data-role="content">
-        <form id="formstep1">
+        <form id="step1-form">
 
             <div data-role="fieldcontain">
                 <fieldset data-role="controlgroup" data-type="horizontal">
-                    <label for="step1datemonth">Month</label>
-                    <select id="step1datemonth" name="step1datemonth" class="required">
+                    <label for="step1-date-month">Month</label>
+                    <select id="step1-date-month" name="step1-date-month" class="required">
                         <option value="">Month</option>
-                        <option value="jan">January</option>
-                        <option value="dec">December</option>
-                        <option value="feb">February</option>
-                        <option value="mar">March</option>
-                        <option value="apr">April</option>
-                        <option value="may">May</option>
-                        <option value="jun">June</option>
-                        <option value="jul">July</option>
-                        <option value="aug">August</option>
-                        <option value="sep">September</option>
-                        <option value="oct">October</option>
-                        <option value="nov">November</option>
-                        <option value="dec">December</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
                     </select>
 
-                    <label for="step1dateyear">Year</label>
-                    <select name="step1dateyear" id="step1dateyear" class="required">
+                    <label for="step1-date-year">Year</label>
+                    <select name="step1-date-year" id="step1-date-year" class="required">
                         <option value="">Year</option>
                         <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2011">2010</option>
                     </select>
                 </fieldset>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1firstname">First Name:</label>
-                <input type="text" name="step1firstname" id="step1firstname" placeholder="First Name" readonly>
+                <label for="step1-firstname">First Name:</label>
+                <input type="text" name="step1-firstname" id="step1-firstname" placeholder="First Name" readonly>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1lastname">Last Name:</label>
-                <input type="text" name="step1lastname" id="step1lastname" placeholder="Last Name" readonly>
+                <label for="step1-lastname">Last Name:</label>
+                <input type="text" name="step1-lastname" id="step1-lastname" placeholder="Last Name" readonly>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1employeenumber">Employee Number</label>
-                <input type="number" class="required" name="step1employeenumber" id="step1employeenumber"
+                <label for="step1-employee-number">Employee Number</label>
+                <input type="number" class="required" name="step1-employee-number" id="step1-employee-number"
                        placeholder="Employee Number">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1units" class="select">Unit:</label>
-                <select name="step1units" id="step1units">
+                <label for="step1-units" class="select">Unit:</label>
+                <select name="step1-units" id="step1-units">
                     <option>Unit</option>
                 </select>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1email">Email</label>
-                <input class="required" type="email" name="step1email" id="step1email" placeholder="Email">
+                <label for="step1-email">Email</label>
+                <input class="required" type="email" name="step1-email" id="step1-email" placeholder="Email">
             </div>
 
-            <input type="submit" data-role="submit" value="Next">
+            <input type="submit" data-role="submit" data-theme="f" value="Next">
         </form>
     </div>
 

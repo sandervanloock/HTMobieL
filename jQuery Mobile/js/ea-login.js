@@ -1,16 +1,15 @@
 $(document).on("pageinit", "#login", function () {
-    $("#loginform").validate({
+    $("#login-form").validate({
         focusInvalid:false,
         submitHandler:function (form) {
             console.log("Login form was validaded successfully.");
             $.ajax({
                 type:"POST",
-                crossDomain:true,
                 dataType:"html",
                 url:"http://kulcapexpenseapp.appspot.com/resources/userService/login",
                 data:{
-                    'email':$("#loginusername").val(),
-                    'password':$("#loginpassword").val()
+                    'email':$("#login-username").val(),
+                    'password':$("#login-password").val()
                 },
                 success:function (data) {
                     if (data == '') {

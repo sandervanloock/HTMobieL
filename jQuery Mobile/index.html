@@ -4,60 +4,33 @@
     <title>Expense App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="css/ea.css">
     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
 
     <script src="js/jquery-1.8.2.js"></script>
     <script src="js/jquery.validate.js"></script>
-    <script src="js/custom-before.js"></script>
+    <script src="js/ea-before.js"></script>
     <script src="js/jquery.mobile-1.2.0.js"></script>
-    <script src="js/custom-functions.js"></script>
-    <script src="js/custom-login.js"></script>
-    <script src="js/custom-step1.js"></script>
+    <script src="js/ea-functions.js"></script>
+    <script src="js/ea-login.js"></script>
+    <script src="js/ea-home.js"></script>
+    <script src="js/ea-step1.js"></script>
 </head>
 <body>
-
-<div data-role="page" id="login">
-
-    <div data-role="header">
-        <h1>Expense App</h1>
-    </div>
-
-    <div data-role="content">
-        <form id="formlogin">
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="loginusername">Username:</label>
-                <input type="text" class="required" name="loginusername" id="loginusername" placeholder="Username">
-            </div>
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="loginpassword">Password:</label>
-                <input type="password" class="required" name="loginpassword" id="loginpassword" placeholder="Password">
-            </div>
-
-            <input type="submit" data-role="submit" value="Log in">
-        </form>
-    </div>
-
-    <div data-role="footer" data-position="fixed">
-        <h6>KU Leuven & Capgemini</h6>
-    </div>
-
-</div>
 
 <div data-role="page" id="home">
 
     <div data-role="header">
         <h1>Expense App</h1>
-        <a href="#" class="ui-btn-right">Log out</a>
+        <a id="home-logout" class="ui-btn-right" data-theme="b">Log out</a>
     </div>
 
     <div data-role="content">
-        <p>Welcome, John Smith.</p>
+        <p>Welcome, <span id="home-employee-name"></span>.</p>
 
         <p>I want to:</p>
-        <a href="#step1" data-role="button">Create New Expense</a>
-        <a href="#" data-role="button">View My Expenses</a>
+        <a href="#step1" data-role="button" data-theme="b">Create New Expense</a>
+        <a href="#" data-role="button" data-theme="b">View My Expenses</a>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -78,8 +51,8 @@
 
             <div data-role="fieldcontain">
                 <fieldset data-role="controlgroup" data-type="horizontal">
-                    <label for="formdatemonth">Month</label>
-                    <select id="formdatemonth" name="formdatemonth" class="required">
+                    <label for="step1datemonth">Month</label>
+                    <select id="step1datemonth" name="step1datemonth" class="required">
                         <option value="">Month</option>
                         <option value="jan">January</option>
                         <option value="dec">December</option>
@@ -96,8 +69,8 @@
                         <option value="dec">December</option>
                     </select>
 
-                    <label for="formdateyear">Year</label>
-                    <select name="formdateyear" id="formdateyear" class="required">
+                    <label for="step1dateyear">Year</label>
+                    <select name="step1dateyear" id="step1dateyear" class="required">
                         <option value="">Year</option>
                         <option value="2012">2012</option>
                     </select>
@@ -133,6 +106,59 @@
             </div>
 
             <input type="submit" data-role="submit" value="Next">
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="step2">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview">
+            <li><a href="#">
+                <h1>DD/MM/YYY</h1>
+
+                <p>Description (amount)</p>
+            </a></li>
+        </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="login">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="login-form">
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-username">Username:</label>
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-password">Password:</label>
+                <input type="password" class="required" name="login-password" id="login-password"
+                       placeholder="Password">
+            </div>
+
+            <input type="submit" data-role="submit" data-theme="f" value="Log in">
         </form>
     </div>
 

@@ -4,6 +4,7 @@
     <title>Expense App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="css/ea.css">
     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
 
     <script src="js/jquery-1.8.2.js"></script>
@@ -17,27 +18,19 @@
 </head>
 <body>
 
-<div data-role="page" id="login">
+<div data-role="page" id="home">
 
     <div data-role="header">
         <h1>Expense App</h1>
+        <a id="home-logout" class="ui-btn-right" data-theme="b">Log out</a>
     </div>
 
     <div data-role="content">
-        <form id="login-form">
+        <p>Welcome, <span id="home-employee-name"></span>.</p>
 
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="login-username">Username:</label>
-                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username">
-            </div>
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="login-password">Password:</label>
-                <input type="password" class="required" name="login-password" id="login-password" placeholder="Password">
-            </div>
-
-            <input type="submit" data-role="submit" value="Log in">
-        </form>
+        <p>I want to:</p>
+        <a href="#add" data-role="button" data-theme="b">Create New Expense</a>
+        <a href="#" data-role="button" data-theme="b">View My Expenses</a>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -46,19 +39,20 @@
 
 </div>
 
-<div data-role="page" id="home">
+<div data-role="page" id="add">
 
     <div data-role="header">
         <h1>Expense App</h1>
-        <a id="home-logout" class="ui-btn-right">Log out</a>
     </div>
 
     <div data-role="content">
-        <p>Welcome, <span id="home-employee-name"></span>.</p>
-
-        <p>I want to:</p>
-        <a href="#step1" data-role="button">Create New Expense</a>
-        <a href="#" data-role="button">View My Expenses</a>
+        <ol data-role="listview">
+            <li data-role="list-divider">New expense</li>
+            <li><a href="#step1">Your info</a></li>
+            <li><a>Overview</a></li>
+            <li><a>Add Expense</a></li>
+            <li><a>Sign and send</a></li>
+        </ol>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -158,6 +152,36 @@
                 <p>Description (amount)</p>
             </a></li>
         </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="login">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="login-form">
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-username">Username:</label>
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-password">Password:</label>
+                <input type="password" class="required" name="login-password" id="login-password"
+                       placeholder="Password">
+            </div>
+
+            <input type="submit" data-role="submit" data-theme="f" value="Log in">
+        </form>
     </div>
 
     <div data-role="footer" data-position="fixed">

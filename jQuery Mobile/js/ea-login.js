@@ -11,6 +11,9 @@ $(document).on("pageinit", "#login", function () {
                     'email':$("#login-username").val(),
                     'password':$("#login-password").val()
                 },
+                beforeSend:function () {
+                    $.mobile.loading('show');
+                },
                 success:function (data) {
                     if (data == '') {
                         EA.showErrorDialog("Login error", "The username and/or password are incorrect.");
@@ -22,6 +25,9 @@ $(document).on("pageinit", "#login", function () {
                 },
                 error:function (xhr, textStatus, errorThrown) {
                     EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
+                },
+                complete:function () {
+                    $.mobile.loading('hide');
                 }
             });
         },

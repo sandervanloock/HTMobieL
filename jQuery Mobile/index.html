@@ -29,8 +29,30 @@
         <p>Welcome, <span id="home-employee-name"></span>.</p>
 
         <p>I want to:</p>
-        <a href="#step1" data-role="button" data-theme="b">Create New Expense</a>
+        <a href="#add" data-role="button" data-theme="b">Create New Expense</a>
         <a href="#" data-role="button" data-theme="b">View My Expenses</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="add">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <ol data-role="listview">
+            <li data-role="list-divider">New expense</li>
+            <li><a href="#step1">Your info</a></li>
+            <li><a>Overview</a></li>
+            <li><a>Add Expense</a></li>
+            <li><a>Sign and send</a></li>
+        </ol>
     </div>
 
     <div data-role="footer" data-position="fixed">

@@ -12,7 +12,7 @@ var EA = {
 
     redirectNotLoggedIn:function () {
         console.log("User is not logged in. Redirecting to login page.");
-        $.mobile.changePage("#login");
+        $.mobile.changePage("#login", { transition:"fade"});
     },
 
     showErrorDialog:function (title, message) {

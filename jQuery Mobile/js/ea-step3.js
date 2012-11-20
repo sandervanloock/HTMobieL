@@ -1,5 +1,9 @@
 $(document).on("pageinit", "#step3", function () {
 
+    $("#step3-tabbar").change(function(){
+        console.log("tabbar changed");
+    });
+
     $("#step3-project-code").autocomplete({
         target:$("#step3-suggestions"),
         source:EA.projectCodeSuggestions,

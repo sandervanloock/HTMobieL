@@ -16,7 +16,7 @@ $(document).on("pageshow", "#overview", function () {
         success:function (xml) {
             var expenseForms = new Array();
 
-            $(xml).find("expenseForm").each(function (i) {
+            $(xml).find("expenseForm").each(function () {
                 // making an object for it
                 var expenseForm = new Object();
 

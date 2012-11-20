@@ -196,22 +196,62 @@
     </div>
 
     <div data-role="content">
-        <div data-role="fieldcontain" class="ui-hide-label">
-            <fieldset data-role="controlgroup" data-type="horizontal">
-                <legend>Type:</legend>
+        <form id="step3-form">
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend>Type:</legend>
 
-                <label for="step3-tabbar-abroad">Abroad</label>
-                <input type="radio" name="step3-tabbar" id="step3-tabbar-abroad" value="choice-1" checked="checked"/>
+                    <label for="step3-tabbar-abroad">Abroad</label>
+                    <input type="radio" name="step3-tabbar" id="step3-tabbar-abroad" value="choice-1" checked="checked">
 
-                <label for="step3-tabbar-domestic">Domestic</label>
-                <input type="radio" name="step3-tabbar" id="step3-tabbar-domestic" value="choice-2"/>
-            </fieldset>
-        </div>
+                    <label for="step3-tabbar-domestic">Domestic</label>
+                    <input type="radio" name="step3-tabbar" id="step3-tabbar-domestic" value="choice-2">
+                </fieldset>
+            </div>
 
-        <div data-role="fieldcontain" class="ui-hide-label">
-            <label for="step3-date">Date of Expense:</label>
-            <input type="date" name="step3-date" id="step3-date">
-        </div>
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step3-date">Date of Expense:</label>
+                <input type="date" name="step3-date" id="step3-date">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step3-project-code">Project Code:</label>
+                <input type="text" name="step3-project-code" id="step3-project-code" placeholder="Project Code">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <fieldset data-role="controlgroup">
+                    <legend>Choose the type:</legend>
+
+                    <label for="step3-type-hotel">Hotel</label>
+                    <input type="radio" name="step3-type" id="step3-type-hotel" checked="checked">
+
+                    <label for="step3-type-train">Train</label>
+                    <input type="radio" name="step3-type" id="step3-type-train">
+
+                    <label for="step3-type-restaurant-lunch">Restaurant (Lunch)</label>
+                    <input type="radio" name="step3-type" id="step3-type-restaurant-lunch">
+
+                    <label for="step3-type-restaurant-diner">Restaurant (Diner)</label>
+                    <input type="radio" name="step3-type" id="step3-type-restaurant-diner">
+
+                    <label for="step3-type-other">Other</label>
+                    <input type="radio" name="step3-type" id="step3-type-other">
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step3-amount">Amount:</label>
+                <input type="number" name="step3-amount" id="step3-amount" placeholder="Amount">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step3-remarks">Remarks:</label>
+                <textarea name="step3-remarks" id="step3-remarks" placeholder="Remarks"></textarea>
+            </div>
+
+            <input type="submit" data-role="submit" data-theme="f" value="Add">
+        </form>
     </div>
 
     <div data-role="footer" data-position="fixed">

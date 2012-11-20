@@ -176,9 +176,36 @@
 
         </ul>
         <p class="align-right">
-            <a href="#" data-role="button" data-theme="f" data-inline="true">Add Expense</a>
+            <a href="#step3" data-role="button" data-theme="f" data-inline="true">Add Expense</a>
             <a href="#" data-role="button" data-theme="f" data-inline="true">Sign & Send</a>
         </p>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="step3">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal" class="ui-hide-label">
+                <legend>Type:</legend>
+
+                <label for="step3-tabbar-abroad">Abroad</label>
+                <input type="radio" name="step3-tabbar" id="step3-tabbar-abroad" value="choice-1" checked="checked" />
+
+                <label for="step3-tabbar-domestic">Domestic</label>
+                <input type="radio" name="step3-tabbar" id="step3-tabbar-domestic" value="choice-2"  />
+            </fieldset>
+        </div>
     </div>
 
     <div data-role="footer" data-position="fixed">

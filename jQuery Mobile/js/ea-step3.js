@@ -1,9 +1,29 @@
 $(document).on("pageinit", "#step3", function () {
 
-    $("#step3-tabbar").change(function(){
-        console.log("tabbar changed");
+    /**
+     * Tabbar Abroad or Domestic
+     */
+    $("#step3-type-restaurant").parent().hide();
+
+    $("#step3-tabbar-abroad").change(function () {
+        console.log("abroad tabbar selected");
+        $("#step3-type-train").parent().hide();
+        $("#step3-type-restaurant-lunch").parent().hide();
+        $("#step3-type-restaurant-diner").parent().hide();
+        $("#step3-type-restaurant").parent().show();
     });
 
+    $("#step3-tabbar-domestic").change(function () {
+        console.log("domestic tabbar selected");
+        $("#step3-type-train").parent().show();
+        $("#step3-type-restaurant-lunch").parent().show();
+        $("#step3-type-restaurant-diner").parent().show();
+        $("#step3-type-restaurant").parent().hide();
+    });
+
+    /**
+     * Autocomplete for project code
+     */
     $("#step3-project-code").autocomplete({
         target:$("#step3-suggestions"),
         source:EA.projectCodeSuggestions,
@@ -15,6 +35,9 @@ $(document).on("pageinit", "#step3", function () {
         minLength:1
     });
 
+    /**
+     * Form validation
+     */
     $("#step3-form").validate({
         rules:{
             "step3-date":{

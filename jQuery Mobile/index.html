@@ -164,7 +164,6 @@
 
     <div data-role="header">
         <h1>Expense App</h1>
-        <a href="#home" class="ui-btn-right">Home</a>
     </div>
 
     <div data-role="content">
@@ -194,13 +193,12 @@
 
     <div data-role="header">
         <h1>Expense App</h1>
-        <a href="#home" class="ui-btn-right">Home</a>
     </div>
 
     <div data-role="content">
         <form id="step3-form">
             <div data-role="fieldcontain" class="ui-hide-label">
-                <fieldset data-role="controlgroup" data-type="horizontal">
+                <fieldset data-role="controlgroup" data-type="horizontal" id="#step3-tabbar">
                     <legend>Type:</legend>
 
                     <label for="step3-tabbar-abroad">Abroad</label>
@@ -213,7 +211,7 @@
 
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="step3-date">Date of Expense:</label>
-                <input type="date" name="step3-date" id="step3-date">
+                <input type="date" name="step3-date" id="step3-date" placeholder="Date of expense">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
@@ -224,13 +222,13 @@
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <fieldset data-role="controlgroup">
+                <fieldset data-role="controlgroup" id="step3-type">
                     <legend>Choose the type:</legend>
 
                     <label for="step3-type-hotel">Hotel</label>
                     <input type="radio" name="step3-type" id="step3-type-hotel" checked="checked">
 
-                    <label for="step3-type-train">Train</label>
+                    <label for="step3-type-train">Train/Plane tickets</label>
                     <input type="radio" name="step3-type" id="step3-type-train">
 
                     <label for="step3-type-restaurant-lunch">Restaurant (Lunch)</label>
@@ -239,7 +237,7 @@
                     <label for="step3-type-restaurant-diner">Restaurant (Diner)</label>
                     <input type="radio" name="step3-type" id="step3-type-restaurant-diner">
 
-                    <label for="step3-type-other">Other</label>
+                    <label for="step3-type-other">Other (please specify)</label>
                     <input type="radio" name="step3-type" id="step3-type-other">
                 </fieldset>
             </div>

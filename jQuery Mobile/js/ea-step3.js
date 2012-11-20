@@ -12,7 +12,9 @@ $(document).on("pageinit", "#step3", function () {
                 min:0 // a negative amount is not valid
             },
             "step3-remarks":{
-
+                required:function () {
+                    return $("#step3-type-other").is(":checked");
+                }
             }
         },
         focusInvalid:false,

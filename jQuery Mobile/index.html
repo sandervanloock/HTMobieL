@@ -167,12 +167,18 @@
 
     <div data-role="content">
         <ul data-role="listview">
-            <li><a href="#">
-                <h1>DD/MM/YYY</h1>
+            <li>
+                <a href="#">
+                    <h1>DD/MM/YYY</h1>
+                    <p>Description (amount)</p>
+                </a>
+            </li>
 
-                <p>Description (amount)</p>
-            </a></li>
         </ul>
+        <p class="align-right">
+            <a href="#" data-role="button" data-theme="f" data-inline="true">Add Expense</a>
+            <a href="#" data-role="button" data-theme="f" data-inline="true">Sign & Send</a>
+        </p>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -192,7 +198,8 @@
 
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="login-username">Username:</label>
-                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username" value="">
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username"
+                       value="">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">

@@ -12,7 +12,7 @@ $(document).on("pageinit", "#login", function () {
                     'password':$("#login-password").val()
                 },
                 beforeSend:function () {
-                    $.mobile.loading('show');
+                    $.mobile.loading("show");
                 },
                 success:function (data) {
                     if (data == '') {
@@ -27,7 +27,7 @@ $(document).on("pageinit", "#login", function () {
                     EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
                 },
                 complete:function () {
-                    $.mobile.loading('hide');
+                    $.mobile.loading("hide");
                 }
             });
         },

@@ -31,7 +31,7 @@ $(document).on("pagebeforeshow", "#step1", function () {
     $("#step1-date-month option[value='" + month + "']").attr("selected", "selected");
 
     // refresh select menus
-    $('select').selectmenu('refresh');
+    $('select').selectmenu("refresh");
 
     $.ajax({
         type:"POST",

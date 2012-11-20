@@ -26,3 +26,19 @@ $(document).on("pageinit", "#step3", function () {
         }
     });
 });
+
+$(document).on("pageinit", "#step3", function () {
+
+    var availableTags = ['tim', 'tam', 'tom'];
+
+    $("#step3-project-code").autocomplete({
+        target:$("#step3-suggestions"),
+        source:availableTags,
+        callback:function (e) {
+            var $a = $(e.currentTarget);
+            $('#step3-project-code').val($a.text());
+            $("#step3-project-code").autocomplete('clear');
+        },
+        minLength:1
+    });
+});

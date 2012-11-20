@@ -10,7 +10,7 @@ $(document).on("pageinit", "#step1", function () {
     });
 });
 
-$(document).on("pagebeforeshow", "#step1", function () {
+$(document).on("pagebeforecreate", "#step1", function () {
     // month and year should be equal to this month if day > 15th
     var fullDate = new Date();
 
@@ -29,9 +29,6 @@ $(document).on("pagebeforeshow", "#step1", function () {
         }
     }
     $("#step1-date-month option[value='" + month + "']").attr("selected", "selected");
-
-    // refresh select menus
-    $('select').selectmenu("refresh");
 
     $.ajax({
         type:"POST",

@@ -2,6 +2,13 @@ var EA = {
 
     token:null,
 
+    projectCodeSuggestions:[
+        'G20AZER',
+        'G20ARRRR',
+        'G20BEEEE',
+        'G20AZERRR'
+    ],
+
     isLoggedIn:function () {
         if (this.token == null) {
             return false;

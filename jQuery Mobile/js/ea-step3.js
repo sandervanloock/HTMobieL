@@ -1,4 +1,16 @@
 $(document).on("pageinit", "#step3", function () {
+
+    $("#step3-project-code").autocomplete({
+        target:$("#step3-suggestions"),
+        source:EA.projectCodeSuggestions,
+        callback:function (e) {
+            var $a = $(e.currentTarget);
+            $('#step3-project-code').val($a.text());
+            $("#step3-project-code").autocomplete('clear');
+        },
+        minLength:1
+    });
+
     $("#step3-form").validate({
         rules:{
             "step3-date":{
@@ -25,20 +37,5 @@ $(document).on("pageinit", "#step3", function () {
             EA.showErrorDialog("Validation error", "Some of the fields were not filled in correctly. Please correct the indicated fields.");
         }
     });
-});
 
-$(document).on("pageinit", "#step3", function () {
-
-    var availableTags = ['tim', 'tam', 'tom'];
-
-    $("#step3-project-code").autocomplete({
-        target:$("#step3-suggestions"),
-        source:availableTags,
-        callback:function (e) {
-            var $a = $(e.currentTarget);
-            $('#step3-project-code').val($a.text());
-            $("#step3-project-code").autocomplete('clear');
-        },
-        minLength:1
-    });
 });

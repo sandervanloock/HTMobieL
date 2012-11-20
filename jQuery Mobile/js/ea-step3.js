@@ -1,20 +1,29 @@
 $(document).on("pageinit", "#step3", function () {
 
+    $.each(EA.currencies, function (i, currency) {
+        $("#step3-currency").append("<option value=\"" + currency + "\">" + currency + "</option>")
+    });
+
+    $("#step3-currency").selectmenu('refresh');
+
     /**
      * Tabbar Abroad or Domestic
      */
     $("#step3-type-restaurant").parent().hide();
 
     $("#step3-tabbar-abroad").change(function () {
-        console.log("abroad tabbar selected");
         $("#step3-type-train").parent().hide();
         $("#step3-type-restaurant-lunch").parent().hide();
         $("#step3-type-restaurant-diner").parent().hide();
         $("#step3-type-restaurant").parent().show();
+
+        $("#step3-type input:radio").each(function () {
+            $(this).prop('checked', false);
+            $(this).checkboxradio("refresh");
+        });
     });
 
     $("#step3-tabbar-domestic").change(function () {
-        console.log("domestic tabbar selected");
         $("#step3-type-train").parent().show();
         $("#step3-type-restaurant-lunch").parent().show();
         $("#step3-type-restaurant-diner").parent().show();

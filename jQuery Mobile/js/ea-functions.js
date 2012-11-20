@@ -3,10 +3,47 @@ var EA = {
     token:null,
 
     projectCodeSuggestions:[
-        'G20AZER',
-        'G20ARRRR',
-        'G20BEEEE',
-        'G20AZERRR'
+        "G20AZER",
+        "G20ARRRR",
+        "G20BEEEE",
+        "G20AZERRR"
+    ],
+
+    currencies:[
+        "EUR",
+        "USD",
+        "JPY",
+        "BGN",
+        "CZK",
+        "DKK",
+        "GBP",
+        "HUF",
+        "LTL",
+        "LVL",
+        "PLN",
+        "RON",
+        "SEK",
+        "CHF",
+        "NOK",
+        "HRK",
+        "RUB",
+        "TRY",
+        "AUD",
+        "BRL",
+        "CAD",
+        "CNY",
+        "HKD",
+        "IDR",
+        "ILS",
+        "INR",
+        "KRW",
+        "MXN",
+        "MYR",
+        "NZD",
+        "PHP",
+        "SGD",
+        "THB",
+        "ZAR"
     ],
 
     isLoggedIn:function () {

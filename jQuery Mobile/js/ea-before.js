@@ -1,6 +1,6 @@
 $(document).on('mobileinit', function () {
 
-    // laadscherm
+    // load screen
     $.mobile.loader.prototype.options.text = "Loading";
     $.mobile.loader.prototype.options.textVisible = true;
 

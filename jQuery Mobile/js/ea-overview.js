@@ -1,8 +1,8 @@
-$(document).on("pagebeforeshow", "#overview", function () {
-    $("#overview-list").empty();
+$(document).on("pagebeforeshow", "#my-expenses", function () {
+    $("#my-expenses-list").empty();
 });
 
-$(document).on("pageshow", "#overview", function () {
+$(document).on("pageshow", "#my-expenses", function () {
     $.ajax({
         type:"POST",
         dataType:"xml",
@@ -17,7 +17,6 @@ $(document).on("pageshow", "#overview", function () {
             var expenseForms = new Array();
 
             $(xml).find("expenseForm").each(function () {
-                // making an object for it
                 var expenseForm = new Object();
 
                 // put $(this) in a variable for performance reasons
@@ -31,15 +30,15 @@ $(document).on("pageshow", "#overview", function () {
             });
 
             if (expenseForms.length == 0) {
-                $("#overview-list").append("<li>No expenses submitted.</li>");
+                $("#my-expenses-list").append("<li>No expenses submitted.</li>");
             } else {
                 $.each(expenseForms, function (i, expense) {
                     var dateString = expense.date.getDate() + "/" + expense.date.getMonth() + "/" + expense.date.getFullYear();
-                    $("#overview-list").append("<li><a id=\"overview-show-pdf-" + expense.id + "\"><h1>" + dateString + "</h1><p>Status</p></a></li>");
+                    $("#my-expenses-list").append("<li><a id=\"my-expenses-show-pdf-" + expense.id + "\"><h1>" + dateString + "</h1><p>Status</p></a></li>");
                 });
             }
 
-            $("#overview-list").listview("refresh");
+            $("#my-expenses-list").listview("refresh");
         },
         error:function (xhr, textStatus, errorThrown) {
             EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
@@ -50,8 +49,8 @@ $(document).on("pageshow", "#overview", function () {
     });
 });
 
-$(document).on("tap", "[id^=overview-show-pdf]", function () {
-    var expenseFormId = $(this).attr("id").replace("overview-show-pdf-", "");
+$(document).on("tap", "[id^=my-expenses-show-pdf]", function () {
+    var expenseFormId = $(this).attr("id").replace("my-expenses-show-pdf-", "");
     $.ajax({
         type:"POST",
         url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getExpenseFormPDF",
@@ -63,7 +62,7 @@ $(document).on("tap", "[id^=overview-show-pdf]", function () {
             $.mobile.loading("show");
         },
         success:function (data) {
-            pdf = data;
+            // TODO do something with the data
         },
         error:function (xhr, textStatus, errorThrown) {
             EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);

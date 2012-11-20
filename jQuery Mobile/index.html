@@ -14,6 +14,7 @@
     <script src="js/ea-functions.js"></script>
     <script src="js/ea-login.js"></script>
     <script src="js/ea-home.js"></script>
+    <script src="js/ea-overview.js"></script>
     <script src="js/ea-step1.js"></script>
 </head>
 <body>
@@ -47,13 +48,8 @@
     </div>
 
     <div data-role="content">
-        <ul data-role="listview">
-            <li>
-                <a href="#">
-                    <h1>DD/MM/YYY</h1>
-                    <p>Status</p>
-                </a>
-            </li>
+        <ul data-role="listview" id="overview-list">
+
         </ul>
     </div>
 
@@ -196,13 +192,13 @@
 
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="login-username">Username:</label>
-                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username">
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username" value="">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="login-password">Password:</label>
                 <input type="password" class="required" name="login-password" id="login-password"
-                       placeholder="Password">
+                       placeholder="Password" value="">
             </div>
 
             <input type="submit" data-role="submit" data-theme="f" value="Log in">

@@ -1,3 +1,7 @@
+$(document).on("pagebeforeshow", "#overview", function () {
+    $("#overview-list").empty();
+});
+
 $(document).on("pageshow", "#overview", function () {
     $.ajax({
         type:"POST",
@@ -10,7 +14,6 @@ $(document).on("pageshow", "#overview", function () {
             $.mobile.loading("show");
         },
         success:function (xml) {
-            $("#overview-list").empty();
             $(xml).find("expenseForm").each(function () {
                 // put $(this) in avariable for performance reasons
                 var $this = $(this);

@@ -10,12 +10,14 @@ $(document).on("pageinit", "#step3", function () {
      * Tabbar Abroad or Domestic
      */
     $("#step3-type-restaurant").parent().hide();
+    $("#step3-currency-div").hide();
 
     $("#step3-tabbar-abroad").change(function () {
         $("#step3-type-train").parent().hide();
         $("#step3-type-restaurant-lunch").parent().hide();
         $("#step3-type-restaurant-diner").parent().hide();
         $("#step3-type-restaurant").parent().show();
+        $("#step3-currency-div").show();
 
         $("#step3-type input:radio").each(function () {
             $(this).prop('checked', false);
@@ -28,6 +30,7 @@ $(document).on("pageinit", "#step3", function () {
         $("#step3-type-restaurant-lunch").parent().show();
         $("#step3-type-restaurant-diner").parent().show();
         $("#step3-type-restaurant").parent().hide();
+        $("#step3-currency-div").hide();
     });
 
     /**

@@ -46,6 +46,9 @@ $(document).on("pageinit", "#step3", function () {
             "step3-project-code":{
                 required:true
             },
+            "step3-type":{
+                required:true
+            },
             "step3-amount":{
                 required:true,
                 min:0 // a negative amount is not valid

@@ -1,8 +1,8 @@
-$(document).on("pageinit", "#step1", function () {
-    $("#step1-form").validate({
+$(document).on("pageinit", "#your-info", function () {
+    $("#your-info-form").validate({
         focusInvalid:false,
         submitHandler:function (form) {
-            $.mobile.changePage("#step2");
+            $.mobile.changePage("#overview");
         },
         invalidHandler:function (form, validator) {
             EA.showErrorDialog("Validation error", "Some of the fields were not filled in correctly. Please correct the indicated fields.");
@@ -10,13 +10,13 @@ $(document).on("pageinit", "#step1", function () {
     });
 });
 
-$(document).on("pagebeforecreate", "#step1", function () {
+$(document).on("pagebeforecreate", "#your-info", function () {
     // month and year should be equal to this month if day > 15th
     var fullDate = new Date();
 
     // year
     var year = fullDate.getFullYear();
-    $("#step1-date-year option[value='" + year + "']").attr("selected", "selected");
+    $("#your-info-date-year option[value='" + year + "']").attr("selected", "selected");
 
     // month
     var day = fullDate.getDate();
@@ -28,7 +28,7 @@ $(document).on("pagebeforecreate", "#step1", function () {
             month--;
         }
     }
-    $("#step1-date-month option[value='" + month + "']").attr("selected", "selected");
+    $("#your-info-date-month option[value='" + month + "']").attr("selected", "selected");
 
     $.ajax({
         type:"POST",
@@ -38,10 +38,10 @@ $(document).on("pagebeforecreate", "#step1", function () {
             'token':EA.token
         },
         success:function (data) {
-            $("#step1-firstname").val(data.firstName);
-            $("#step1-lastname").val(data.lastName);
-            $("#step1-employee-number").val(data.employeeNumber);
-            $("#step1-email").val(data.email);
+            $("#your-info-firstname").val(data.firstName);
+            $("#your-info-lastname").val(data.lastName);
+            $("#your-info-employee-number").val(data.employeeNumber);
+            $("#your-info-email").val(data.email);
         },
         error:function (xhr, textStatus, errorThrown) {
             EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);

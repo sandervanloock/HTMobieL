@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="css/ea.css">
     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
 
-    <script src="js/jquery-1.8.2.js"></script>
-    <script src="js/jquery.validate.js"></script>
-    <script src="js/ea-before.js"></script>
-    <script src="js/jquery.mobile-1.2.0.js"></script>
-    <script src="js/jqm.autoComplete-1.5.0.js"></script>
-    <script src="js/ea-functions.js"></script>
-    <script src="js/ea-login.js"></script>
-    <script src="js/ea-home.js"></script>
-    <script src="js/ea-overview.js"></script>
-    <script src="js/ea-step1.js"></script>
-    <script src="js/ea-step3.js"></script>
+    <script src="js/external/jquery-1.8.2.js"></script>
+    <script src="js/external/jquery.validate.js"></script>
+    <script src="js/ea/before.js"></script>
+    <script src="js/external/jquery.mobile-1.2.0.js"></script>
+    <script src="js/external/jqm.autoComplete-1.5.0.js"></script>
+    <script src="js/ea/functions.js"></script>
+    <script src="js/ea/login.js"></script>
+    <script src="js/ea/home.js"></script>
+    <script src="js/ea/my-expenses.js"></script>
+    <script src="js/ea/your-info.js"></script>
+    <script src="js/ea/expense.js"></script>
+    <script src="js/ea/sign-and-send.js"></script>
 </head>
 <body>
 
@@ -71,10 +72,10 @@
     <div data-role="content">
         <ol data-role="listview">
             <li data-role="list-divider">New expense</li>
-            <li><a href="#step1">Your info</a></li>
-            <li><a href="#step2">Overview</a></li>
-            <li><a href="#step3">Add Expense</a></li>
-            <li><a href="#step4">Sign and send</a></li>
+            <li><a href="#your-info">Your info</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#expense">Add Expense</a></li>
+            <li><a href="#sign-and-send">Sign and send</a></li>
         </ol>
     </div>
 
@@ -84,19 +85,19 @@
 
 </div>
 
-<div data-role="page" id="step1">
+<div data-role="page" id="your-info">
 
     <div data-role="header">
         <h1>Expense App</h1>
     </div>
 
     <div data-role="content">
-        <form id="step1-form">
+        <form id="your-info-form">
 
             <div data-role="fieldcontain">
                 <fieldset data-role="controlgroup" data-type="horizontal">
-                    <label for="step1-date-month">Month</label>
-                    <select id="step1-date-month" name="step1-date-month" class="required">
+                    <label for="your-info-date-month">Month</label>
+                    <select id="your-info-date-month" name="your-info-date-month" class="required">
                         <option value="">Month</option>
                         <option value="1">January</option>
                         <option value="2">February</option>
@@ -112,8 +113,8 @@
                         <option value="12">December</option>
                     </select>
 
-                    <label for="step1-date-year">Year</label>
-                    <select name="step1-date-year" id="step1-date-year" class="required">
+                    <label for="your-info-date-year">Year</label>
+                    <select name="your-info-date-year" id="your-info-date-year" class="required">
                         <option value="">Year</option>
                         <option value="2012">2012</option>
                         <option value="2011">2011</option>
@@ -123,31 +124,31 @@
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1-firstname">First Name:</label>
-                <input type="text" name="step1-firstname" id="step1-firstname" placeholder="First Name" readonly>
+                <label for="your-info-firstname">First Name:</label>
+                <input type="text" name="your-info-firstname" id="your-info-firstname" placeholder="First Name" readonly>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1-lastname">Last Name:</label>
-                <input type="text" name="step1-lastname" id="step1-lastname" placeholder="Last Name" readonly>
+                <label for="your-info-lastname">Last Name:</label>
+                <input type="text" name="your-info-lastname" id="your-info-lastname" placeholder="Last Name" readonly>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1-employee-number">Employee Number</label>
-                <input type="number" class="required" name="step1-employee-number" id="step1-employee-number"
+                <label for="your-info-employee-number">Employee Number</label>
+                <input type="number" class="required" name="your-info-employee-number" id="your-info-employee-number"
                        placeholder="Employee Number">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1-units" class="select">Unit:</label>
-                <select name="step1-units" id="step1-units">
+                <label for="your-info-units" class="select">Unit:</label>
+                <select name="your-info-units" id="your-info-units">
                     <option>Unit</option>
                 </select>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step1-email">Email</label>
-                <input class="required" type="email" name="step1-email" id="step1-email" placeholder="Email">
+                <label for="your-info-email">Email</label>
+                <input class="required" type="email" name="your-info-email" id="your-info-email" placeholder="Email">
             </div>
 
             <input type="submit" data-role="submit" data-theme="f" value="Next">
@@ -160,7 +161,7 @@
 
 </div>
 
-<div data-role="page" id="step2">
+<div data-role="page" id="overview">
 
     <div data-role="header">
         <h1>Expense App</h1>
@@ -188,8 +189,8 @@
             </li>
         </ul>
         <p class="align-right">
-            <a href="#step3" data-role="button" data-theme="f" data-inline="true">Add Expense</a>
-            <a href="#step4" data-role="button" data-theme="f" data-inline="true">Sign & Send</a>
+            <a href="#expense" data-role="button" data-theme="f" data-inline="true">Add Expense</a>
+            <a href="#sign-and-send" data-role="button" data-theme="f" data-inline="true">Sign & Send</a>
         </p>
     </div>
 
@@ -199,77 +200,77 @@
 
 </div>
 
-<div data-role="page" id="step3">
+<div data-role="page" id="expense">
 
     <div data-role="header">
         <h1>Expense App</h1>
     </div>
 
     <div data-role="content">
-        <form id="step3-form">
+        <form id="expense-form">
             <div data-role="fieldcontain" class="ui-hide-label">
-                <fieldset data-role="controlgroup" data-type="horizontal" id="step3-tabbar">
+                <fieldset data-role="controlgroup" data-type="horizontal" id="expense-tabbar">
                     <legend>Type:</legend>
 
-                    <label for="step3-tabbar-abroad">Abroad</label>
-                    <input type="radio" name="step3-tabbar" id="step3-tabbar-abroad" value="choice-1">
+                    <label for="expense-tabbar-abroad">Abroad</label>
+                    <input type="radio" name="expense-tabbar" id="expense-tabbar-abroad" value="choice-1">
 
-                    <label for="step3-tabbar-domestic">Domestic</label>
-                    <input type="radio" name="step3-tabbar" id="step3-tabbar-domestic" value="choice-2" checked>
+                    <label for="expense-tabbar-domestic">Domestic</label>
+                    <input type="radio" name="expense-tabbar" id="expense-tabbar-domestic" value="choice-2" checked>
                 </fieldset>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step3-date">Date of Expense:</label>
-                <input type="date" name="step3-date" id="step3-date">
+                <label for="expense-date">Date of Expense:</label>
+                <input type="date" name="expense-date" id="expense-date">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step3-project-code">Project Code:</label>
-                <input type="text" name="step3-project-code" id="step3-project-code"
+                <label for="expense-project-code">Project Code:</label>
+                <input type="text" name="expense-project-code" id="expense-project-code"
                        placeholder="Project Code">
-                <ul id="step3-suggestions" data-role="listview" data-inset="true"></ul>
+                <ul id="expense-suggestions" data-role="listview" data-inset="true"></ul>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <fieldset data-role="controlgroup" id="step3-type">
+                <fieldset data-role="controlgroup" id="expense-type">
                     <legend>Choose the type:</legend>
 
-                    <label for="step3-type-hotel">Hotel</label>
-                    <input type="radio" name="step3-type" id="step3-type-hotel">
+                    <label for="expense-type-hotel">Hotel</label>
+                    <input type="radio" name="expense-type" id="expense-type-hotel">
 
-                    <label for="step3-type-train">Train/Plane tickets</label>
-                    <input type="radio" name="step3-type" id="step3-type-train">
+                    <label for="expense-type-train">Train/Plane tickets</label>
+                    <input type="radio" name="expense-type" id="expense-type-train">
 
-                    <label for="step3-type-restaurant">Restaurant</label>
-                    <input type="radio" name="step3-type" id="step3-type-restaurant">
+                    <label for="expense-type-restaurant">Restaurant</label>
+                    <input type="radio" name="expense-type" id="expense-type-restaurant">
 
-                    <label for="step3-type-restaurant-lunch">Restaurant (Lunch)</label>
-                    <input type="radio" name="step3-type" id="step3-type-restaurant-lunch">
+                    <label for="expense-type-restaurant-lunch">Restaurant (Lunch)</label>
+                    <input type="radio" name="expense-type" id="expense-type-restaurant-lunch">
 
-                    <label for="step3-type-restaurant-diner">Restaurant (Diner)</label>
-                    <input type="radio" name="step3-type" id="step3-type-restaurant-diner">
+                    <label for="expense-type-restaurant-diner">Restaurant (Diner)</label>
+                    <input type="radio" name="expense-type" id="expense-type-restaurant-diner">
 
-                    <label for="step3-type-other">Other (please specify)</label>
-                    <input type="radio" name="step3-type" id="step3-type-other">
+                    <label for="expense-type-other">Other (please specify)</label>
+                    <input type="radio" name="expense-type" id="expense-type-other">
                 </fieldset>
             </div>
 
-            <div data-role="fieldcontain" class="ui-hide-label" id="step3-currency-div">
-                <label for="step3-currency" class="select">Currency:</label>
-                <select name="step3-currency" id="step3-currency">
+            <div data-role="fieldcontain" class="ui-hide-label" id="expense-currency-div">
+                <label for="expense-currency" class="select">Currency:</label>
+                <select name="expense-currency" id="expense-currency">
                     <option value="">Currency</option>
                 </select>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step3-amount">Amount:</label>
-                <input type="number" name="step3-amount" id="step3-amount" placeholder="Amount">
+                <label for="expense-amount">Amount:</label>
+                <input type="number" name="expense-amount" id="expense-amount" placeholder="Amount">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step3-remarks">Remarks:</label>
-                <textarea name="step3-remarks" id="step3-remarks" placeholder="Remarks"></textarea>
+                <label for="expense-remarks">Remarks:</label>
+                <textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks"></textarea>
             </div>
 
             <input type="submit" data-role="submit" data-theme="f" value="Add">
@@ -282,22 +283,22 @@
 
 </div>
 
-<div data-role="page" id="step4">
+<div data-role="page" id="sign-and-send">
 
     <div data-role="header">
         <h1>Expense App</h1>
     </div>
 
     <div data-role="content">
-        <form id="step4-form">
+        <form id="sign-and-send-form">
             <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="step4-remarks">Remarks:</label>
-                <textarea name="step4-remarks" id="step4-remarks" placeholder="Remarks"></textarea>
+                <label for="sign-and-send-remarks">Remarks:</label>
+                <textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea>
             </div>
 
             <div data-role="fieldcontain">
-                <label for="step4-notification">Status notification via Email:</label>
-                <select name="step4-notification" id="step4-notification" data-role="slider">
+                <label for="sign-and-send-notification">Status notification via Email:</label>
+                <select name="sign-and-send-notification" id="sign-and-send-notification" data-role="slider">
                     <option value="off">Off</option>
                     <option value="on" selected>On</option>
                 </select>

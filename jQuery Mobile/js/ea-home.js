@@ -27,8 +27,9 @@ $(document).on("tap", "#home-logout", function () {
         data:{
             'token':EA.token
         },
-        success:function (data) {
-            $.mobile.changePage("#login");
+        success:function () {
+            EA.token = null;
+            $.mobile.changePage("#login", { transition:"fade"});
         },
         error:function (xhr, textStatus, errorThrown) {
             EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);

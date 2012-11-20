@@ -269,7 +269,24 @@
     </div>
 
     <div data-role="content">
+        <form id="step4-form">
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="step4-remarks">Remarks:</label>
+                <textarea name="step4-remarks" id="step4-remarks" placeholder="Remarks"></textarea>
+            </div>
 
+            <div data-role="fieldcontain">
+                <label for="step4-notification">Status notification via Email:</label>
+                <select name="step4-notification" id="step4-notification" data-role="slider">
+                    <option value="off">Off</option>
+                    <option value="on" selected>On</option>
+                </select>
+            </div>
+
+            <p class="align-right">
+                <input type="submit" data-role="submit" data-theme="f" data-inline="true" value="Send">
+            </p>
+        </form>
     </div>
 
     <div data-role="footer" data-position="fixed">

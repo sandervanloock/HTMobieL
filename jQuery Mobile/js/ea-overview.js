@@ -25,6 +25,11 @@ $(document).on("pageshow", "#overview", function () {
                 var dateString = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
                 $("#overview-list").append("<li><a id=\"overview-show-pdf-" + id + "\"><h1>" + dateString + "</h1><p>Status</p></a></li>");
             });
+
+            if ($("#overview-list li").size() == 0) {
+                $("#overview-list").append("<li>No expenses submitted.</li>");
+            }
+
             $("#overview-list").listview("refresh");
         },
         error:function (xhr, textStatus, errorThrown) {
@@ -59,4 +64,4 @@ $(document).on("tap", "[id^=overview-show-pdf]", function () {
             $.mobile.loading("hide");
         }
     });
-})
+});

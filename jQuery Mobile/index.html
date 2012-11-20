@@ -170,6 +170,7 @@
             <li>
                 <a href="#">
                     <h1>DD/MM/YYY</h1>
+
                     <p>Description (amount)</p>
                 </a>
             </li>
@@ -195,16 +196,21 @@
     </div>
 
     <div data-role="content">
-        <div data-role="fieldcontain">
-            <fieldset data-role="controlgroup" data-type="horizontal" class="ui-hide-label">
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <fieldset data-role="controlgroup" data-type="horizontal">
                 <legend>Type:</legend>
 
                 <label for="step3-tabbar-abroad">Abroad</label>
-                <input type="radio" name="step3-tabbar" id="step3-tabbar-abroad" value="choice-1" checked="checked" />
+                <input type="radio" name="step3-tabbar" id="step3-tabbar-abroad" value="choice-1" checked="checked"/>
 
                 <label for="step3-tabbar-domestic">Domestic</label>
-                <input type="radio" name="step3-tabbar" id="step3-tabbar-domestic" value="choice-2"  />
+                <input type="radio" name="step3-tabbar" id="step3-tabbar-domestic" value="choice-2"/>
             </fieldset>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="step3-date">Date of Expense:</label>
+            <input type="date" name="step3-date" id="step3-date">
         </div>
     </div>
 

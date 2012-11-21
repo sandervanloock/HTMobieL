@@ -27,7 +27,8 @@ $(document).on("tap", "#home-logout", function () {
         data:{
             'token':EA.token
         },
-        success:function (data) {
+        success:function () {
+            EA.token = null;
             $.mobile.changePage("#login");
         },
         error:function (xhr, textStatus, errorThrown) {

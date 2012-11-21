@@ -29,28 +29,36 @@ Ext.application({
     ],
     views: [
         'Viewport',
-        'Info',
         'Menu',
         'DomesticExpense',
         'AbroadExpense',
         'Page',
-        'Sign',
-        'AddExpenseContainer',
         'OverviewList',
         'Overview',
         'LoginPanel',
-        'ExpenseDetail'
+        'ExpenseDetail',
+        'SignField',
+        'AddExpenseContainer',
+        'InfoPanel'
     ],
     name: 'Expense',
     controllers: [
+        'MainController',
         'MenuController',
         'ExpenseController',
-        'MyInfoController'
+        'MyInfoController',
+        'LoginController'
     ],
+    
+    init: function(){
+    	//Ext.create('Expense.view.Viewport',{fullscreen: true});
+    },
 
     launch: function() {
-
-        Ext.create('Expense.view.Viewport', {fullscreen: true});
-    }
+        Ext.create('Expense.view.LoginPanel', {fullscreen: true});
+        Ext.create('Expense.view.Viewport',{fullscreen: true});
+    },
+    token: '',
+    
 
 });

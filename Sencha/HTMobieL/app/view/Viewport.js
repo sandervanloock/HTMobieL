@@ -16,6 +16,8 @@
 Ext.define('Expense.view.Viewport', {
     extend: 'Ext.Container',
     alias: 'widget.viewport',
+    xtype: 'viewport',
+    
 
     requires: [
         'Expense.view.Menu',
@@ -24,6 +26,7 @@ Ext.define('Expense.view.Viewport', {
 
     config: {
         fullscreen: true,
+        id: 'viewport',
         layout: {
             pack: 'center',
             type: 'hbox'
@@ -43,7 +46,8 @@ Ext.define('Expense.view.Viewport', {
                         icon: '',
                         iconCls: 'action',
                         iconMask: true,
-                        text: 'Login'
+                        text: 'Logout',
+                        id: 'logout'
                     }
                 ]
             },

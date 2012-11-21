@@ -17,23 +17,24 @@
         ],
         "views": [
             "Viewport",
-            "Info",
             "Menu",
             "DomesticExpense",
             "AbroadExpense",
             "Page",
-            "Sign",
-            "AddExpenseContainer",
             "OverviewList",
             "Overview",
             "LoginPanel",
-            "ExpenseDetail"
+            "ExpenseDetail",
+            "SignField",
+            "AddExpenseContainer",
+            "InfoPanel"
         ],
         "name": "Expense",
         "controllers": [
             "MenuController",
             "ExpenseController",
-            "MyInfoController"
+            "MyInfoController",
+            "LoginController"
         ]
     },
     "id": "ExtBox1-ext-gen1703",

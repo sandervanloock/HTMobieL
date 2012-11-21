@@ -22,6 +22,7 @@ Ext.define('Expense.store.ExpenseStore', {
     ],
 
     config: {
+    	autoLoad: true,
         data: [
             {
                 type: true,
@@ -76,6 +77,13 @@ Ext.define('Expense.store.ExpenseStore', {
         storeId: 'expensestore',
         proxy: {
             type: 'ajax',
+            url: 'http://localhost:8888/resources/expenseService/getExpenseForms',
+            extraParams: {
+            	token: '77bd4685-71a8-410a-bfda-4e95534be445'
+            },
+            actionMethod: {
+            	read: 'POST'
+            },
             reader: {
                 type: 'json'
             }

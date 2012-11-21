@@ -24,40 +24,43 @@ Ext.define('Expense.controller.LoginController', {
         control: {
             "#login": {
                 tap: 'onButtonTap'
-            }
+            }	
         }
     },
 
     onButtonTap: function(button, e, options) {
-
-        //display Loading indicator to user
-        //mainPanel.setLoading(true, false);
-
+        var fields= this.getLogin().getValues();  
         Ext.Ajax.request({
-            url: 'http://kulcapexpenseapp.appspot.com/resources/userService/login',
-            method: 'post',
-            params: {
-                UserName: this.getLogin().email,
-                Password: this.getLogin().password
-                //, RememberMe: Ext.getCmp(‘RememberMe’).isChecked()},
-                //failure : function(response){
-                //data = Ext.decode(response.responseText);
-                //Ext.Msg.alert(‘Login Error’, data.errorMessage, Ext.emptyFn);
-            }
-            /*,
-            success: function(response, opts) {
-            data = Ext.decode(response.responseText);
-            if (data.errorMessage != null)
-            {
-            Ext.Msg.alert(‘Login Error’, data.errorMessage, Ext.emptyFn);
-            mainPanel.setLoading(false);
-            } else {
-            //hide the Loading mask
-            mainPanel.setLoading(false);
-            //show the next screen
-            mainPanel.setActiveItem(dashboard, ‘slide’);
-        }*/
-    });
+			url : 'http://localhost:8888/resources/userService/login',
+			method : 'POST',
+			useDefaultXhrHeader: false, //http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
+			params: {
+                email: fields.email,
+                password: fields.password
+            },
+			callback : function(options, success, response) {
+				console.log("callback LOGIN");
+				console.log(response.responseText);
+				Expense.app.token = response.responseText;
+				Ext.Viewport.setActiveItem(Ext.getCmp('viewport'));
+				var store = Ext.getStore('employeestore');
+				var formPanel = Ext.getCmp('infopanel'); //TODO niet met id's werken! 
+				Ext.Ajax.request({
+							url : 'http://localhost:8888/resources/userService/getEmployee',
+							method : 'POST',
+							useDefaultXhrHeader : false, // http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
+							params : {
+								token : Expense.app.token
+							},
+							callback : function(options, success,response) {
+								store.setData(response.responseText);
+								console.log(store.getCount());
+								var employee = store.getAt(0);
+								formPanel.setRecord(employee);
+							}
+				});
+			}
+		});
 
     }
 

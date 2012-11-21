@@ -44,14 +44,6 @@
             ],
             "className": "Viewport"
         },
-        "c5ac3754-68bc-439d-b6cb-a5a1659ab03f": {
-            "paths": [
-                "metadata/view/Info",
-                "app/view/override/Info.js",
-                "app/view/Info.js"
-            ],
-            "className": "Info"
-        },
         "f3cd84bd-093c-4689-a323-9c1d42289990": {
             "paths": [
                 "metadata/view/Menu",
@@ -92,14 +84,6 @@
             ],
             "className": "Page"
         },
-        "d44f7a59-973c-4382-b8c4-edd5edc26727": {
-            "paths": [
-                "metadata/view/Sign",
-                "app/view/override/Sign.js",
-                "app/view/Sign.js"
-            ],
-            "className": "Sign"
-        },
         "c3e38fbf-785d-4c5c-a4bf-bb742624f5db": {
             "paths": [
                 "metadata/store/ExpenseStore",
@@ -107,14 +91,6 @@
                 "app/store/ExpenseStore.js"
             ],
             "className": "ExpenseStore"
-        },
-        "9c585c74-6ce8-436d-baa0-3132178b8357": {
-            "paths": [
-                "metadata/view/AddExpenseContainer",
-                "app/view/override/AddExpenseContainer.js",
-                "app/view/AddExpenseContainer.js"
-            ],
-            "className": "AddExpenseContainer"
         },
         "d11db33a-14b6-4109-8717-3cb894f44a0d": {
             "paths": [
@@ -188,29 +164,45 @@
             ],
             "className": "LoginController"
         },
-        "eb09be5c-e832-4b91-99dd-f6bbe398e0cf": {
+        "0c6ac389-2e76-4a5f-b0a8-0605866c720b": {
             "paths": [
-                "metadata/controller/MyController2",
-                "app/controller/override/MyController2.js",
-                "app/controller/MyController2.js"
+                "metadata/view/SignField",
+                "app/view/override/SignField.js",
+                "app/view/SignField.js"
             ],
-            "className": "MyController2"
+            "className": "SignField"
+        },
+        "d881aa0f-25e6-46d4-a79f-8555396a68f2": {
+            "paths": [
+                "metadata/view/AddExpenseContainer",
+                "app/view/override/AddExpenseContainer.js",
+                "app/view/AddExpenseContainer.js"
+            ],
+            "className": "AddExpenseContainer"
+        },
+        "74ca280d-948f-46dc-b448-7e8ead164887": {
+            "paths": [
+                "metadata/view/InfoPanel",
+                "app/view/override/InfoPanel.js",
+                "app/view/InfoPanel.js"
+            ],
+            "className": "InfoPanel"
         }
     },
     "viewOrderMap": {
         "view": [
             "09c49a29-4ac2-4119-9632-1cf64b273a58",
             "f3cd84bd-093c-4689-a323-9c1d42289990",
-            "c5ac3754-68bc-439d-b6cb-a5a1659ab03f",
             "25e69aee-17d8-4b23-9fd8-5f9660a21a93",
             "f6b822a5-53e9-4788-956f-340cbb3f9b50",
             "0d922d33-a526-4141-ad94-92de5419e052",
-            "d44f7a59-973c-4382-b8c4-edd5edc26727",
+            "0c6ac389-2e76-4a5f-b0a8-0605866c720b",
             "77171558-7e94-4fbe-9311-8d89b0411b93",
             "a994f7d8-7f8a-4836-bd55-1751a04cd99a",
-            "9c585c74-6ce8-436d-baa0-3132178b8357",
             "e58f882c-2968-4b18-8fd0-871c927f9e68",
-            "cda3d5e2-3c1b-4493-8859-81ef86e69b04"
+            "cda3d5e2-3c1b-4493-8859-81ef86e69b04",
+            "d881aa0f-25e6-46d4-a79f-8555396a68f2",
+            "74ca280d-948f-46dc-b448-7e8ead164887"
         ],
         "store": [
             "d273f987-2beb-4e3b-8548-b279604a36d6",
@@ -219,7 +211,6 @@
         ],
         "controller": [
             "b034fcc3-e267-43e6-aee9-b35c7091f63e",
-            "eb09be5c-e832-4b91-99dd-f6bbe398e0cf",
             "fea705dc-f330-4f98-83e5-d90340f5bd87",
             "f39515f1-ebff-48de-94d6-aeb3cd56bda2",
             "58c81c82-7016-4ba9-b57a-dccc266d97b1"

@@ -21,7 +21,7 @@
             "userConfig": {
                 "designer|userClassName": "myinfo",
                 "ref": "myinfo",
-                "selector": "infofield"
+                "selector": "infopanel"
             },
             "designerId": "a130e1d3-007e-433d-875c-1efa3e645925"
         },
@@ -33,31 +33,53 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onFieldsetInitialize",
-                "fn": "onFieldsetInitialize",
+                "designer|userClassName": "onFormpanelInitialize",
+                "fn": "onFormpanelInitialize",
                 "implHandler": [
-                    "var store = Ext.create('Expense.store.EmployeeStore',",
-                    "      {",
-                    "        autoLoad: true,",
-                    "        model: 'Expense.model.Employee',",
-                    "        storeId: 'employeestore',",
-                    "        proxy: {",
-                    "            type: 'ajax',",
-                    "            url: 'employee.json',",
-                    "            reader: {",
-                    "                type: 'json'",
+                    "",
+                    "var token = '3ddb2161-3bf4-4d90-92ae-9261beaea6dd';",
+                    "",
+                    "var store = Ext.getStore('employeestore');",
+                    "",
+                    "/*Ext.Ajax.request({",
+                    "    url: 'http://localhost:8888/resources/userService/getEmployee',",
+                    "    method: 'POST',",
+                    "",
+                    "    params: {",
+                    "        token: '3ddb2161-3bf4-4d90-92ae-9261beaea6dd'",
+                    "    },",
+                    "    ",
+                    "    callback: function(response) {",
+                    "        console.log(response.responseText);",
+                    "    }",
+                    "});*/",
+                    "",
+                    "var formPanel = this.getMyinfo();",
+                    "",
+                    "formPanel.add({",
+                    "    xtype: 'toolbar',",
+                    "    docked: 'bottom',",
+                    "    layout: { pack: 'center' },",
+                    "    items: [",
+                    "        {",
+                    "            xtype: 'button',",
+                    "            text: 'LOAD',",
+                    "            handler: function() {",
+                    "                console.log(store.getCount());",
+                    "                var employee = store.getAt(0);",
+                    "                formPanel.setRecord(employee);",
                     "            }",
                     "        }",
-                    "                       });",
-                    "var employee = store.getData()[0];",
-                    "console.log(employee);",
-                    "//this.getMyinfo().setRecord("
+                    "    ]",
+                    "});",
+                    "",
+                    ""
                 ],
                 "name": "initialize",
-                "designer|targetType": "Ext.form.FieldSet",
-                "designer|controlQuery": "#infofield"
+                "designer|targetType": "InfoPanel",
+                "designer|controlQuery": "formpanel"
             },
-            "designerId": "0046b343-6a1e-4681-bee3-6d956356acba"
+            "designerId": "bddde222-db44-4c6f-ac3b-3ff36ee57ced"
         }
     ]
 }

@@ -13,38 +13,39 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Expense.controller.MyInfoController', {
-    extend: 'Ext.app.Controller',
-
-    config: {
-        refs: {
-            myinfo: 'infofield'
-        },
-
-        control: {
-            "#infofield": {
-                initialize: 'onFieldsetInitialize'
-            }
-        }
-    },
-
-    onFieldsetInitialize: function(component, options) {
-        var store = Ext.create('Expense.store.EmployeeStore',
-            {
-                autoLoad: true,
-                model: 'Expense.model.Employee',
-                storeId: 'employeestore',
-                proxy: {
-                    type: 'ajax',
-                    url: 'employee.json',
-                    reader: {
-                        type: 'json'
-                    }
-                }
-            });
-        var employee = store.getData()[0];
-        console.log(employee);
-        //this.getMyinfo().setRecord(
-    }
-
+Ext.define('Expense.controller.MyInfoController',{
+	extend : 'Ext.app.Controller',
+	
+	config : {
+		refs : {
+			myinfo : 'infopanel'
+		},
+		control : {
+			"formpanel" : {
+				show : 'onFormpanelInitialize' //TODO oproepen op juiste moment,  nu in callback van login
+			}
+		}
+	},
+	
+	onFormpanelInitialize : function(component, options) {
+		var store = Ext.getStore('employeestore');
+		var formPanel = this.getMyinfo();
+		if (Expense.app.token != '') {
+			Ext.Ajax.request({
+						url : 'http://localhost:8888/resources/userService/getEmployee',
+						method : 'POST',
+						useDefaultXhrHeader : false, // http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
+						params : {
+							token : Expense.app.token
+						},
+						callback : function(options, success,response) {
+							console.log("callback myINFO onFormPanelInitialize");
+							store.setData(response.responseText);
+							console.log(store.getCount());
+							var employee = store.getAt(0);
+							formPanel.setRecord(employee);
+						}
+					});
+		}
+	}
 });

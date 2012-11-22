@@ -26,7 +26,7 @@ Ext.define('Expense.store.ExpenseStore', {
         storeId: 'expensestore',
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8888/resources/expenseService/getExpenseForms',
+            url: 'http://kulcapexpenseapp.appspot.com/resources/expenseService/getExpenseForms', //TODO url
             extraParams:{
                 token: Expense.app.token
             },

@@ -22,30 +22,14 @@ Ext.define('Expense.controller.MyInfoController',{
 		},
 		control : {
 			"formpanel" : {
-				show : 'onFormpanelInitialize' //TODO oproepen op juiste moment,  nu in callback van login
+				painted : 'onFormpanelShow'
 			}
 		}
 	},
 	
-	onFormpanelInitialize : function(component, options) {
-		var store = Ext.getStore('employeestore');
-		var formPanel = this.getMyinfo();
-		if (Expense.app.token != '') {
-			Ext.Ajax.request({
-						url : 'http://localhost:8888/resources/userService/getEmployee',
-						method : 'POST',
-						useDefaultXhrHeader : false, // http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
-						params : {
-							token : Expense.app.token
-						},
-						callback : function(options, success,response) {
-							console.log("callback myINFO onFormPanelInitialize");
-							store.setData(response.responseText);
-							console.log(store.getCount());
-							var employee = store.getAt(0);
-							formPanel.setRecord(employee);
-						}
-					});
-		}
+	onFormpanelShow : function(component, options) {
+		var employeeStore = Ext.getStore('employeestore');
+    	var employee = employeeStore.getAt(0);
+		Ext.getCmp('infopanel').setRecord(employee); //TODO niet met ids werken!
 	}
 });

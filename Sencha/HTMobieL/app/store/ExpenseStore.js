@@ -22,70 +22,24 @@ Ext.define('Expense.store.ExpenseStore', {
     ],
 
     config: {
-    	autoLoad: true,
-        data: [
-            {
-                type: true,
-                doe: '21/09/1990',
-                projectCode: '123456',
-                amount: 200,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '20/09/1990',
-                projectCode: '123456',
-                amount: 300990,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '19/09/1990',
-                projectCode: '123456',
-                amount: 5500,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '18/09/1990',
-                projectCode: '123456',
-                amount: 350.5,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '17/09/1990',
-                projectCode: '123456',
-                amount: 300,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '16/09/1990',
-                projectCode: '123456',
-                amount: 300,
-                remarks: 'test',
-                currency: '€'
-            }
-        ],
         model: 'Expense.model.Expense',
         storeId: 'expensestore',
         proxy: {
             type: 'ajax',
             url: 'http://localhost:8888/resources/expenseService/getExpenseForms',
-            extraParams: {
-            	token: '77bd4685-71a8-410a-bfda-4e95534be445'
+            extraParams:{
+                token: Expense.app.token
             },
-            actionMethod: {
-            	read: 'POST'
+            actionMethods: {
+                create : 'POST',
+                read   : 'POST', // by default GET
+                update : 'POST',
+                destroy: 'POST'
             },
             reader: {
-                type: 'json'
+                type: 'xml',
+                rootProperty: 'expenseForms',
+                record: 'expenseForm'
             }
         },
         sorters: {

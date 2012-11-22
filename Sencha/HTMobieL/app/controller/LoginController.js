@@ -40,24 +40,35 @@ Ext.define('Expense.controller.LoginController', {
             },
 			callback : function(options, success, response) {
 				console.log("callback LOGIN");
-				console.log(response.responseText);
-				Expense.app.token = response.responseText;
+				
+				Expense.app.setToken(response.responseText);
+				console.log(Expense.app.getToken());
+				
 				Ext.Viewport.setActiveItem(Ext.getCmp('viewport'));
-				var store = Ext.getStore('employeestore');
-				var formPanel = Ext.getCmp('infopanel'); //TODO niet met id's werken! 
-				Ext.Ajax.request({
-							url : 'http://localhost:8888/resources/userService/getEmployee',
-							method : 'POST',
-							useDefaultXhrHeader : false, // http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
-							params : {
-								token : Expense.app.token
-							},
-							callback : function(options, success,response) {
-								store.setData(response.responseText);
-								console.log(store.getCount());
-								var employee = store.getAt(0);
-								formPanel.setRecord(employee);
-							}
+				
+				var employeeStore = Ext.getStore('employeestore');
+				employeeStore.getProxy().setExtraParams({
+					token: Expense.app.token
+				});
+				employeeStore.load({
+				    callback: function(records, operation, success) {
+						var employee = employeeStore.getAt(0);
+						Ext.getCmp('infopanel').setRecord(employee); //TODO niet met ids werken!
+				    }
+				});
+				
+				var expenseStore = Ext.getStore('expensestore');
+				expenseStore.getProxy().setExtraParams({
+					token: Expense.app.token
+				});
+				expenseStore.load({
+				    callback: function(records, operation, success) {
+						//var employee = store.getAt(0);
+						//Ext.getCmp('infopanel').setRecord(employee);
+				    },
+				    extraParams:{
+		                token: Expense.app.getToken()
+		            }
 				});
 			}
 		});

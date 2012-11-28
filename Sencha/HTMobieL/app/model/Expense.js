@@ -20,12 +20,16 @@ Ext.define('Expense.model.Expense', {
     config: {
         fields: [
             {
-                name: 'type',
-                type: 'boolean'
+                name: 'expenseTypeId',
+                type: 'int'
             },
             {
-                name: 'doe',
-                dateFormat: 'd/m/Y',
+            	name: 'expenseLocationId',
+            	type: 'int'
+            },
+            {
+                name: 'date',
+                //dateFormat: 'd/m/Y',
                 type: 'date'
             },
             {

@@ -22,28 +22,20 @@ Ext.define('Expense.store.ExpenseStore', {
     ],
 
     config: {
+    	autoLoad: true,
         model: 'Expense.model.Expense',
         storeId: 'expensestore',
         proxy: {
             type: 'ajax',
-            url: 'http://kulcapexpenseapp.appspot.com/resources/expenseService/getExpenseForms', //TODO url
-            extraParams:{
-                token: Expense.app.token
-            },
-            actionMethods: {
-                create : 'POST',
-                read   : 'POST', // by default GET
-                update : 'POST',
-                destroy: 'POST'
-            },
+            url: 'expenses.json',
             reader: {
-                type: 'xml',
-                rootProperty: 'expenseForms',
-                record: 'expenseForm'
+                type: 'json',
+                record: '',
+                model: 'Expense.model.Expense'
             }
         },
         sorters: {
-            property: 'doe'
+            property: 'date'
         }
     }
 });

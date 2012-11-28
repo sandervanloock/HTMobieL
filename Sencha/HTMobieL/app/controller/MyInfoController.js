@@ -30,6 +30,6 @@ Ext.define('Expense.controller.MyInfoController',{
 	onFormpanelShow : function(component, options) {
 		var employeeStore = Ext.getStore('employeestore');
     	var employee = employeeStore.getAt(0);
-		Ext.getCmp('infopanel').setRecord(employee); //TODO niet met ids werken!
+		this.getMyinfo().setRecord(employee);
 	}
 });

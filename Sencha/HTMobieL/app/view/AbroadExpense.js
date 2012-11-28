@@ -29,13 +29,32 @@ Ext.define('Expense.view.AbroadExpense', {
                         id: 'date',
                         label: 'Date Of Expense',
                         placeHolder: 'mm/dd/yyyy',
-                        readOnly: true
+                        value: new Date()
                     },
                     {
-                        xtype: 'textfield',
-                        id: 'projectcode',
+                        xtype: 'autocompletefield',
                         label: 'Project Code',
-                        readOnly: true
+                        value: '',
+                        name: 'data',
+                        config: {
+                            proxy: {
+                                type: 'ajax',
+                                url: 'http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion', //TODO url
+                                reader: {
+                                    type: 'json',
+                                    rootproperty: 'data'
+                                },
+                                actionMethods: {
+                                    create : 'POST',
+                                    read   : 'POST',
+                                    update : 'POST',
+                                    destroy: 'POST'
+                                }
+                            },
+					        resultsHeight: 5,
+							needleKey: 'data',
+							labelKey: 'data'
+                        }
                     },
                     {
                         xtype: 'radiofield',
@@ -55,8 +74,7 @@ Ext.define('Expense.view.AbroadExpense', {
                     {
                         xtype: 'textfield',
                         id: 'amount',
-                        label: 'Amount',
-                        readOnly: true
+                        label: 'Amount'
                     },
                     {
                         xtype: 'selectfield',
@@ -65,8 +83,7 @@ Ext.define('Expense.view.AbroadExpense', {
                     {
                         xtype: 'textareafield',
                         id: 'remarks',
-                        label: 'Remarks',
-                        readOnly: true
+                        label: 'Remarks'
                     },
                     {
                         xtype: 'button',
@@ -76,7 +93,8 @@ Ext.define('Expense.view.AbroadExpense', {
                         width: 230,
                         iconCls: 'download',
                         iconMask: true,
-                        text: 'Upload Evidence'
+                        text: 'Upload Evidence',
+                        action: 'uploadEvidence'
                     },
                     {
                         xtype: 'button',
@@ -85,7 +103,8 @@ Ext.define('Expense.view.AbroadExpense', {
                         width: 229,
                         iconCls: 'add',
                         iconMask: true,
-                        text: 'Add'
+                        text: 'Add',
+                        action: 'sendAbroadExpense'
                     }
                 ]
             }

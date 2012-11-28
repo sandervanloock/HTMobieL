@@ -15,7 +15,7 @@
 
 Ext.define('Expense.view.DomesticExpense', {
     extend: 'Ext.Container',
-    alias: 'widget.domesticExpense',
+    alias: 'widget.domesticexpense',
 
     config: {
         scrollable: 'vertical',
@@ -25,17 +25,16 @@ Ext.define('Expense.view.DomesticExpense', {
                 title: '3. Add Expense',
                 items: [
                     {
-                        xtype: 'datepickerfield',
-                        id: 'date',
-                        label: 'Date Of Expense',
-                        placeHolder: 'mm/dd/yyyy',
-                        readOnly: false
+                    	  xtype: 'datepickerfield',
+                          id: 'date',
+                          label: 'Date Of Expense',
+                          placeHolder: 'mm/dd/yyyy',
+                          value: new Date()
                     },
                     {
                         xtype: 'textfield',
                         id: 'projectcode',
-                        label: 'Project Code',
-                        readOnly: true
+                        label: 'Project Code'
                     },
                     {
                         xtype: 'radiofield',
@@ -63,14 +62,12 @@ Ext.define('Expense.view.DomesticExpense', {
                     {
                         xtype: 'textfield',
                         id: 'amount',
-                        label: 'Amount (€)',
-                        readOnly: false
+                        label: 'Amount (€)'
                     },
                     {
                         xtype: 'textareafield',
                         id: 'remarks',
-                        label: 'Remarks',
-                        readOnly: true
+                        label: 'Remarks'
                     },
                     {
                         xtype: 'button',
@@ -80,7 +77,8 @@ Ext.define('Expense.view.DomesticExpense', {
                         width: 241,
                         iconCls: 'download',
                         iconMask: true,
-                        text: 'Upload Evidence'
+                        text: 'Upload Evidence',
+                        action: 'uploadEvidence'
                     },
                     {
                         xtype: 'button',
@@ -90,7 +88,8 @@ Ext.define('Expense.view.DomesticExpense', {
                         width: 240,
                         iconCls: 'add',
                         iconMask: true,
-                        text: 'Add'
+                        text: 'Add',
+                        action: 'addDomesticExpense'
                     }
                 ]
             }

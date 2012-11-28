@@ -53,23 +53,18 @@ Ext.define('Expense.controller.LoginController', {
 				employeeStore.load({
 				    callback: function(records, operation, success) {
 						var employee = employeeStore.getAt(0);
-						Ext.getCmp('infopanel').setRecord(employee); //TODO niet met ids werken!
+						var infopanel = Ext.getCmp('infopanel');
+						infopanel.setRecord(employee); //TODO niet met ids werken!
+						var today = new Date();
+						console.log(today.getUTCMonth());
+						if(today.getUTCDate() < 14)
+							infopanel.getComponent('infofield').getComponent('month').setValue((today.getUTCMonth()+1) % 13);
+						else
+							infopanel.getComponent('infofield').getComponent('month').setValue((today.getUTCMonth()+2) % 13);
+						infopanel.getComponent('infofield').getComponent('year').setValue('7'); //TODO welk jaar invullen en waarop gebaseerd?
+						
 				    }
-				});
-				
-				var expenseStore = Ext.getStore('expensestore');
-				expenseStore.getProxy().setExtraParams({
-					token: Expense.app.token
-				});
-				expenseStore.load({
-				    callback: function(records, operation, success) {
-						//var employee = store.getAt(0);
-						//Ext.getCmp('infopanel').setRecord(employee);
-				    },
-				    extraParams:{
-		                token: Expense.app.getToken()
-		            }
-				});
+				});	
 			}
 		});
 

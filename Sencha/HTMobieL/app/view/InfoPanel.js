@@ -28,45 +28,84 @@ Ext.define('Expense.view.InfoPanel', {
                     {
                         xtype: 'selectfield',
                         label: 'Month',
-                        name: 'month'
+                        id: 'month',
+                        name: 'month',
+                        options: [
+                             {text: 'January', value: '1'},
+                             {text: 'February', value: '2'},
+                             {text: 'March', value: '3'},
+                             {text: 'April', value: '4'},
+                             {text: 'May', value: '5'},
+                             {text: 'June', value: '6'},
+                             {text: 'July', value: '7'},
+                             {text: 'August', value: '8'},
+                             {text: 'September', value: '9'},
+                             {text: 'October', value: '10'},
+                             {text: 'November', value: '11'},
+                             {text: 'December', value: '12'},
+                         ]
                     },
                     {
                         xtype: 'selectfield',
                         label: 'Year',
-                        name: 'year'
+                        id: 'year',
+                        name: 'year',
+                        options: [
+                           {text: '2006', value: '1'},
+                           {text: '2007', value: '2'},
+                           {text: '2008', value: '3'},
+                           {text: '2009', value: '4'},
+                           {text: '2010', value: '5'},
+                           {text: '2011', value: '6'},
+                           {text: '2012', value: '7'},
+                           {text: '2013', value: '8'},
+                           {text: '2014', value: '9'},
+                           {text: '2015', value: '10'},
+                           {text: '2016', value: '11'},
+                           {text: '2017', value: '12'},
+                         ]
                     },
                     {
                         xtype: 'textfield',
-                        id: 'firstName',
                         label: 'First Name',
                         name: 'firstName',
                         readOnly: true
                     },
                     {
                         xtype: 'textfield',
-                        id: 'lastName',
                         label: 'Last Name',
                         name: 'lastName',
                         readOnly: true
                     },
                     {
                         xtype: 'textfield',
-                        id: 'employeeNumber',
                         label: 'Employee Number',
                         name: 'employeeNumber'
                     },
                     {
                         xtype: 'selectfield',
-                        id: 'unit',
                         label: 'Unit',
-                        name: 'unitId'
+                        name: 'unitId',
+                        options:[
+							{text: '1', value: '1'},
+							{text: '2', value: '2'},
+							{text: '3', value: '3'},
+							{text: '4', value: '4'},
+							{text: '5', value: '5'},
+							{text: '6', value: '6'},
+							{text: '7', value: '7'},
+                        ]
                     },
                     {
                         xtype: 'emailfield',
-                        id: 'email',
                         label: 'Email',
                         name: 'email',
                         placeHolder: 'email@example.com'
+                    },
+                    {
+                    	xtype: 'button',
+                    	text: 'Next',
+                    	action: 'showExpenseOverview'
                     }
                 ]
             }

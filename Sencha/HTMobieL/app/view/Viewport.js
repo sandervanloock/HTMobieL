@@ -43,7 +43,6 @@ Ext.define('Expense.view.Viewport', {
                         xtype: 'button',
                         docked: 'left',
                         ui: 'confirm-round',
-                        icon: '',
                         iconCls: 'action',
                         iconMask: true,
                         text: 'Logout',

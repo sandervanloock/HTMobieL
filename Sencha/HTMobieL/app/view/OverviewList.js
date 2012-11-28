@@ -24,7 +24,7 @@ Ext.define('Expense.view.OverviewList', {
         store: 'expensestore',
         onItemDisclosure: true,
         itemTpl: [
-            '<div>{doe:date("d/m/Y")} &mdash; <small>Description({currency}{amount})</small></div>'
+            '<div>{date:date("d/m/Y")} &mdash; <small>Description({amount}   {currency})</small></div>'
         ]
     }
 

@@ -81,7 +81,7 @@ $(document).on("pageinit", "#expense", function () {
             $.mobile.changePage("#sign-and-send");
         },
         invalidHandler:function (form, validator) {
-            EA.showErrorDialog("Validation error", "Some of the fields were not filled in correctly. Please correct the indicated fields.");
+            EA.showError("Validation error", "Some of the fields were not filled in correctly. Please correct the indicated fields.");
         }
     });
 

@@ -16,15 +16,62 @@ $(document).on("pageinit", "#login", function () {
                 },
                 success:function (data) {
                     if (data == '') {
-                        EA.showErrorDialog("Login error", "The username and/or password are incorrect.");
+                        EA.showError("Login error", "The username and/or password are incorrect.");
                     } else {
                         EA.token = data;
                         console.log("User was logged in successfully: " + EA.token);
                         $.mobile.changePage("#home");
+
+                        // fetch projectcodes asynchronous at logon time
+                        $.ajax({
+                            type:"POST",
+                            dataType:"json",
+                            data:{
+                                'keyword':""
+                            },
+                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
+                            beforeSend:function () {
+                                $.mobile.loading("show");
+                            },
+                            success:function (json) {
+                                EA.projectCodeSuggestions = json.data;
+                            },
+                            error:function (xhr, textStatus, errorThrown) {
+                                EA.showBackendError("Could not fetch project codes.");
+                            },
+                            complete:function () {
+                                $.mobile.loading("hide");
+                            }
+                        });
+
+                        // fetch currencies asynchronous at logon time
+                        $.ajax({
+                            type:"POST",
+                            dataType:"xml",
+                            url:"http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies",
+                            beforeSend:function () {
+                                $.mobile.loading("show");
+                            },
+                            success:function (xml) {
+                                var $xml = $("Cube", xml);
+                                $xml.find("Cube").each(function () {
+                                    var $this = $(this);
+                                    var currency = $this.attr("currency");
+                                    var rate = $this.attr("rate");
+                                    EA.currencies.push(currency);
+                                });
+                            },
+                            error:function (xhr, textStatus, errorThrown) {
+                                EA.showBackendError("Could not fetch currencies.");
+                            },
+                            complete:function () {
+                                $.mobile.loading("hide");
+                            }
+                        });
                     }
                 },
                 error:function (xhr, textStatus, errorThrown) {
-                    EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
+                    EA.showBackendError("Could not log in.");
                 },
                 complete:function () {
                     $.mobile.loading("hide");
@@ -32,7 +79,7 @@ $(document).on("pageinit", "#login", function () {
             });
         },
         invalidHandler:function (form, validator) {
-            EA.showErrorDialog("Validation error", "Some of the fields were not filled in correctly. Please correct the indicated fields.");
+            EA.showValidationError("Some of the fields were not filled in correctly. Please correct the indicated fields.");
         }
     });
 });

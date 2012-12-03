@@ -13,7 +13,7 @@ $(document).on("pagebeforeshow", "#home", function () {
                 $("#home-employee-name").text(data.firstName + " " + data.lastName);
             },
             error:function (xhr, textStatus, errorThrown) {
-                EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
+                EA.showError("Backend error: " + xhr.status, errorThrown);
             }
         });
     }
@@ -32,7 +32,7 @@ $(document).on("tap", "#home-logout", function () {
             $.mobile.changePage("#login");
         },
         error:function (xhr, textStatus, errorThrown) {
-            EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
+            EA.showError("Backend error: " + xhr.status, errorThrown);
         }
     });
 });

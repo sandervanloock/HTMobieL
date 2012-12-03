@@ -63,6 +63,10 @@ var EA = {
         $("#errortitle").text(title);
         $("#errormessage").text(message);
         $.mobile.changePage("#error");
+    },
+
+    showBackendErrorDialog:function (message) {
+        this.showErrorDialog("Backend error", message);
     }
 
 };

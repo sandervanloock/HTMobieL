@@ -2,12 +2,7 @@ var EA = {
 
     token:null,
 
-    projectCodeSuggestions:[
-        "G20AZER",
-        "G20ARRRR",
-        "G20BEEEE",
-        "G20AZERRR"
-    ],
+    projectCodeSuggestions:new Array(),
 
     currencies:new Array(),
 

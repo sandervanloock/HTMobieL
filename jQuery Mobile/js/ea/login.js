@@ -23,15 +23,18 @@ $(document).on("pageinit", "#login", function () {
                         $.mobile.changePage("#home");
 
                         // fetch projectcodes asynchronous at logon time
-                        /*$.ajax({
+                        $.ajax({
                             type:"POST",
                             dataType:"json",
+                            data:{
+                                'keyword':""
+                            },
                             url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
                             beforeSend:function () {
                                 $.mobile.loading("show");
                             },
-                            success:function (data) {
-                                console.log(data);
+                            success:function (json) {
+                                EA.projectCodeSuggestions = json.data;
                             },
                             error:function (xhr, textStatus, errorThrown) {
                                 EA.showBackendError("Could not fetch project codes.");
@@ -39,7 +42,7 @@ $(document).on("pageinit", "#login", function () {
                             complete:function () {
                                 $.mobile.loading("hide");
                             }
-                        });*/
+                        });
 
                         // fetch currencies asynchronous at logon time
                         $.ajax({

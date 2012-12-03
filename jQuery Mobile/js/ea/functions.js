@@ -9,42 +9,7 @@ var EA = {
         "G20AZERRR"
     ],
 
-    currencies:[
-        "EUR",
-        "USD",
-        "JPY",
-        "BGN",
-        "CZK",
-        "DKK",
-        "GBP",
-        "HUF",
-        "LTL",
-        "LVL",
-        "PLN",
-        "RON",
-        "SEK",
-        "CHF",
-        "NOK",
-        "HRK",
-        "RUB",
-        "TRY",
-        "AUD",
-        "BRL",
-        "CAD",
-        "CNY",
-        "HKD",
-        "IDR",
-        "ILS",
-        "INR",
-        "KRW",
-        "MXN",
-        "MYR",
-        "NZD",
-        "PHP",
-        "SGD",
-        "THB",
-        "ZAR"
-    ],
+    currencies:new Array(),
 
     isLoggedIn:function () {
         if (this.token == null) {
@@ -59,14 +24,18 @@ var EA = {
         $.mobile.changePage("#login");
     },
 
-    showErrorDialog:function (title, message) {
+    showError:function (title, message) {
         $("#errortitle").text(title);
         $("#errormessage").text(message);
         $.mobile.changePage("#error");
     },
 
-    showBackendErrorDialog:function (message) {
-        this.showErrorDialog("Backend error", message);
+    showBackendError:function (message) {
+        this.showError("Backend error", message);
+    },
+
+    showValidationError:function (message) {
+        this.showError("Validation error", message);
     }
 
 };

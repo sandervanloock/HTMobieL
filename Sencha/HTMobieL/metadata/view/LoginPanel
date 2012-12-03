@@ -10,7 +10,9 @@
         "designer|userAlias": "loginpanel",
         "height": 754,
         "id": "loginpanel",
-        "width": 1017
+        "width": 1017,
+        "standardSubmit": true,
+        "url": "http://localhost:8888/resources/userService/login"
     },
     "id": "ExtBox1-ext-gen3926",
     "designerId": "cda3d5e2-3c1b-4493-8859-81ef86e69b04",
@@ -25,7 +27,9 @@
             "userConfig": {
                 "designer|userClassName": "MyEmailField1",
                 "designer|displayName": "email",
+                "id": "email",
                 "label": "Email",
+                "name": "email",
                 "value": [
                     "tim.ameye@student.kuleuven.be"
                 ],
@@ -43,7 +47,9 @@
             "userConfig": {
                 "designer|userClassName": "MyPasswordField",
                 "designer|displayName": "password",
+                "id": "password",
                 "label": "Password",
+                "name": "password",
                 "value": [
                     "test123"
                 ]
@@ -66,46 +72,7 @@
                 "iconAlign": "center",
                 "text": "Login"
             },
-            "designerId": "7cf6cbcb-c52e-42fc-bc80-a5cd18040891",
-            "cn": [
-                {
-                    "type": "fixedfunction",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "handler",
-                        "fn": "handler",
-                        "designer|params": [
-                            "button",
-                            "event"
-                        ],
-                        "implHandler": [
-                            "var form = Ext.getCmp('loginpanel');",
-                            "form.submit({",
-                            "    url: 'http://localhost:8888/resources/userService/login',",
-                            "    method: 'POST',",
-                            "    params: {",
-                            "        email: 'tim.ameye@student.kuleuven.be',",
-                            "        password: 'test123'",
-                            "    },",
-                            "    success: function (frm, res)  {",
-                            "        alert('Form submitted: ' + res);",
-                            "    },",
-                            "    failure: function (frm, res) {",
-                            "        alert('Form no submit!');",
-                            "    }",
-                            "});",
-                            "",
-                            "        ",
-                            "    "
-                        ]
-                    },
-                    "designerId": "80d159df-82f3-4619-9ea7-8338ad6665cb"
-                }
-            ]
+            "designerId": "7cf6cbcb-c52e-42fc-bc80-a5cd18040891"
         }
     ]
 }

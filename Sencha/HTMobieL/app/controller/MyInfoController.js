@@ -13,38 +13,23 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('Expense.controller.MyInfoController', {
-    extend: 'Ext.app.Controller',
-
-    config: {
-        refs: {
-            myinfo: 'infofield'
-        },
-
-        control: {
-            "#infofield": {
-                initialize: 'onFieldsetInitialize'
-            }
-        }
-    },
-
-    onFieldsetInitialize: function(component, options) {
-        var store = Ext.create('Expense.store.EmployeeStore',
-            {
-                autoLoad: true,
-                model: 'Expense.model.Employee',
-                storeId: 'employeestore',
-                proxy: {
-                    type: 'ajax',
-                    url: 'employee.json',
-                    reader: {
-                        type: 'json'
-                    }
-                }
-            });
-        var employee = store.getData()[0];
-        console.log(employee);
-        //this.getMyinfo().setRecord(
-    }
-
+Ext.define('Expense.controller.MyInfoController',{
+	extend : 'Ext.app.Controller',
+	
+	config : {
+		refs : {
+			myinfo : 'infopanel'
+		},
+		control : {
+			"formpanel" : {
+				painted : 'onFormpanelShow'
+			}
+		}
+	},
+	
+	onFormpanelShow : function(component, options) {
+		var employeeStore = Ext.getStore('employeestore');
+    	var employee = employeeStore.getAt(0);
+		this.getMyinfo().setRecord(employee);
+	}
 });

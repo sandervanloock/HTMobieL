@@ -21,9 +21,10 @@ Ext.define('Expense.view.ExpenseDetail', {
         html: '',
         tpl: [
             '<h3>Overview Expense</h3>',
-            'Type: {type}<br/>',
-            'Date: {doe:date("d/m/Y")}<br />',
+            'Type: {expenseTypeId}<br/>',
+            'Date: {date:date("d/m/Y")}<br />',
             'Project Code: {projectCode} <br />',
+            'Expense Type: {expenseTypeId} <br />',
             '<large>Amount: {amount}</large> {currency} <br />',
             'Remarks: {remarks}',
             ''

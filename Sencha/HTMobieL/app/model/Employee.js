@@ -29,7 +29,6 @@ Ext.define('Expense.model.Employee', {
             },
             {
                 name: 'employeeNumber',
-                allowNull: false,
                 type: 'string'
             },
             {

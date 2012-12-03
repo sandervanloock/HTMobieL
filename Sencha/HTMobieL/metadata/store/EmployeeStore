@@ -9,6 +9,7 @@
         "designer|userClassName": "EmployeeStore",
         "designer|userAlias": "employeestore",
         "autoLoad": true,
+        "autoSync": true,
         "model": "Employee",
         "storeId": "employeestore"
     },
@@ -26,10 +27,23 @@
                 "designer|userClassName": "MyAjaxProxy2",
                 "extraParams": null,
                 "filterParam": null,
-                "url": "employee.json"
+                "url": "http://localhost:8888/resources/userService/getEmployee",
+                "headers": null
             },
             "designerId": "c613b50b-ecd1-4395-98ee-f029e6cce1d3",
             "cn": [
+                {
+                    "type": "jsonwriter",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyJsonWriter"
+                    },
+                    "designerId": "84c259cc-d10e-4323-b240-070989a729ad"
+                },
                 {
                     "type": "jsonreader",
                     "reference": {
@@ -38,9 +52,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "MyJsonReader4"
+                        "designer|userClassName": "MyJsonReader2"
                     },
-                    "designerId": "5eb7329d-aff8-4ca1-9a09-4c5faa25325f"
+                    "designerId": "d491fc7a-bab0-47f1-86bb-5580587d3d7c"
                 }
             ]
         }

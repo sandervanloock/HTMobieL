@@ -22,12 +22,20 @@ Ext.define('Expense.store.EmployeeStore', {
     ],
 
     config: {
-        autoLoad: true,
         model: 'Expense.model.Employee',
         storeId: 'employeestore',
         proxy: {
             type: 'ajax',
-            url: 'employee.json',
+            url: 'http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee', //TODO url
+            extraParams:{
+                token: Expense.app.getToken()
+            },
+            actionMethods: {
+                create : 'POST',
+                read   : 'POST',
+                update : 'POST',
+                destroy: 'POST'
+            },
             reader: {
                 type: 'json'
             }

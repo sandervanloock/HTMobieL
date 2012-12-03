@@ -22,66 +22,20 @@ Ext.define('Expense.store.ExpenseStore', {
     ],
 
     config: {
-        data: [
-            {
-                type: true,
-                doe: '21/09/1990',
-                projectCode: '123456',
-                amount: 200,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '20/09/1990',
-                projectCode: '123456',
-                amount: 300990,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '19/09/1990',
-                projectCode: '123456',
-                amount: 5500,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '18/09/1990',
-                projectCode: '123456',
-                amount: 350.5,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '17/09/1990',
-                projectCode: '123456',
-                amount: 300,
-                remarks: 'test',
-                currency: '€'
-            },
-            {
-                type: true,
-                doe: '16/09/1990',
-                projectCode: '123456',
-                amount: 300,
-                remarks: 'test',
-                currency: '€'
-            }
-        ],
+    	autoLoad: true,
         model: 'Expense.model.Expense',
         storeId: 'expensestore',
         proxy: {
             type: 'ajax',
+            url: 'expenses.json',
             reader: {
-                type: 'json'
+                type: 'json',
+                record: '',
+                model: 'Expense.model.Expense'
             }
         },
         sorters: {
-            property: 'doe'
+            property: 'date'
         }
     }
 });

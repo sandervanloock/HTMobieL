@@ -20,47 +20,34 @@ Ext.define('Expense.view.LoginPanel', {
     config: {
         height: 754,
         id: 'loginpanel',
-        width: 1017,
+        width: '100%',
+        //standardSubmit: true,
+        url: 'http://localhost:8888/resources/userService/login',
         items: [
             {
                 xtype: 'emailfield',
+                id: 'email',
                 label: 'Email',
+                name: 'email',
                 value: 'tim.ameye@student.kuleuven.be',
                 placeHolder: 'email@example.com'
             },
             {
                 xtype: 'passwordfield',
+                id: 'password',
                 label: 'Password',
+                name: 'password',
                 value: 'test123'
             },
             {
                 xtype: 'button',
-                handler: function(button, event) {
-                    var form = Ext.getCmp('loginpanel');
-                    form.submit({
-                        url: 'http://localhost:8888/resources/userService/login',
-                        method: 'POST',
-                        params: {
-                            email: 'tim.ameye@student.kuleuven.be',
-                            password: 'test123'
-                        },
-                        success: function (frm, res)  {
-                            alert('Form submitted: ' + res);
-                        },
-                        failure: function (frm, res) {
-                            alert('Form no submit!');
-                        }
-                    });
-
-
-
-                },
                 height: 46,
                 id: 'login',
                 ui: 'action-round',
                 width: 212,
                 iconAlign: 'center',
-                text: 'Login'
+                text: 'Login',
+                go: 'viewport'
             }
         ]
     }

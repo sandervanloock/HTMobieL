@@ -24,40 +24,49 @@ Ext.define('Expense.controller.LoginController', {
         control: {
             "#login": {
                 tap: 'onButtonTap'
-            }
+            }	
         }
     },
 
     onButtonTap: function(button, e, options) {
-
-        //display Loading indicator to user
-        //mainPanel.setLoading(true, false);
-
+        var fields= this.getLogin().getValues();  
         Ext.Ajax.request({
-            url: 'http://kulcapexpenseapp.appspot.com/resources/userService/login',
-            method: 'post',
-            params: {
-                UserName: this.getLogin().email,
-                Password: this.getLogin().password
-                //, RememberMe: Ext.getCmp(‘RememberMe’).isChecked()},
-                //failure : function(response){
-                //data = Ext.decode(response.responseText);
-                //Ext.Msg.alert(‘Login Error’, data.errorMessage, Ext.emptyFn);
-            }
-            /*,
-            success: function(response, opts) {
-            data = Ext.decode(response.responseText);
-            if (data.errorMessage != null)
-            {
-            Ext.Msg.alert(‘Login Error’, data.errorMessage, Ext.emptyFn);
-            mainPanel.setLoading(false);
-            } else {
-            //hide the Loading mask
-            mainPanel.setLoading(false);
-            //show the next screen
-            mainPanel.setActiveItem(dashboard, ‘slide’);
-        }*/
-    });
+			url : 'http://kulcapexpenseapp.appspot.com/resources/userService/login', //TODO url
+			method : 'POST',
+			useDefaultXhrHeader: false, //http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
+			params: {
+                email: fields.email,
+                password: fields.password
+            },
+			callback : function(options, success, response) {
+				console.log("callback LOGIN");
+				
+				Expense.app.setToken(response.responseText);
+				console.log(Expense.app.getToken());
+				
+				Ext.Viewport.setActiveItem(Ext.getCmp('viewport'));
+				
+				var employeeStore = Ext.getStore('employeestore');
+				employeeStore.getProxy().setExtraParams({
+					token: Expense.app.token
+				});
+				employeeStore.load({
+				    callback: function(records, operation, success) {
+						var employee = employeeStore.getAt(0);
+						var infopanel = Ext.getCmp('infopanel');
+						infopanel.setRecord(employee); //TODO niet met ids werken!
+						var today = new Date();
+						console.log(today.getUTCMonth());
+						if(today.getUTCDate() < 14)
+							infopanel.getComponent('infofield').getComponent('month').setValue((today.getUTCMonth()+1) % 13);
+						else
+							infopanel.getComponent('infofield').getComponent('month').setValue((today.getUTCMonth()+2) % 13);
+						infopanel.getComponent('infofield').getComponent('year').setValue('7'); //TODO welk jaar invullen en waarop gebaseerd?
+						
+				    }
+				});	
+			}
+		});
 
     }
 

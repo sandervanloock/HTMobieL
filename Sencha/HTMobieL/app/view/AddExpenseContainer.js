@@ -39,7 +39,7 @@ Ext.define('Expense.view.AddExpenseContainer', {
                         title: 'Abroad'
                     },
                     {
-                        xtype: 'domesticExpense',
+                        xtype: 'domesticexpense',
                         title: 'Domestic'
                     }
                 ],

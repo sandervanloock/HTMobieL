@@ -17,6 +17,7 @@
     <script src="js/ea/home.js"></script>
     <script src="js/ea/my-expenses.js"></script>
     <script src="js/ea/your-info.js"></script>
+    <script src="js/ea/overview.js"></script>
     <script src="js/ea/expense.js"></script>
     <script src="js/ea/sign-and-send.js"></script>
 </head>
@@ -117,7 +118,6 @@
                         <option value="">Year</option>
                         <option value="2012">2012</option>
                         <option value="2011">2011</option>
-                        <option value="2011">2010</option>
                     </select>
                 </fieldset>
             </div>
@@ -172,7 +172,7 @@
     </div>
 
     <div data-role="content">
-        <ul data-role="listview">
+        <ul data-role="listview" id="overview-list">
             <li>
                 <a href="#">
                     <h1>DD/MM/YYY</h1>

@@ -6,26 +6,7 @@ var EA = {
 
     currencies:new Array(),
 
-    localExpenses:[
-        {
-            "date":"2012-10-23T22:00:00.000Z",
-            "projectCode":"G20AERZ",
-            "currency":"EUR",
-            "amount":10.2,
-            "remarks":"parking",
-            "expenseTypeId":6,
-            "expenseLocationId":1
-        },
-        {
-            "date":"2012-10-11T22:00:00.000Z",
-            "projectCode":"G35AERZ",
-            "amount":250.5,
-            "currency":"USD",
-            "remarks":"hotel test",
-            "expenseTypeId":1,
-            "expenseLocationId":2
-        }
-    ],
+    localExpenses:new Array(),
 
     isLoggedIn:function () {
         if (this.token == null) {

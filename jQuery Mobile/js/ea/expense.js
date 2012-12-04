@@ -14,6 +14,7 @@ $(document).on("pageinit", "#expense", function () {
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
 
+    // dingen tonen voor abroad
     $("#expense-tabbar-abroad").change(function () {
         $("#expense-type-train").parent().hide();
         $("#expense-type-restaurant-lunch").parent().hide();
@@ -26,6 +27,7 @@ $(document).on("pageinit", "#expense", function () {
         });
     });
 
+    // dingen tonen voor domestic
     $("#expense-tabbar-domestic").change(function () {
         $("#expense-type-train").parent().show();
         $("#expense-type-restaurant-lunch").parent().show();
@@ -78,6 +80,15 @@ $(document).on("pageinit", "#expense", function () {
         },
         focusInvalid:false,
         submitHandler:function (form) {
+            EA.localExpenses.push({
+                "date":$("#expense-date").val(),
+                "projectCode":$("#expense-project-code").val(),
+                "currency":$("#expense-currency").val(),
+                "amount":$("#expense-amount").val(),
+                "remarks":$("#expense-remarks").val(),
+                "expenseTypeId":$("input[name=expense-type]:checked").val(),
+                "expenseLocationId":$("input[name=expense-tabbar]:checked").val()
+            });
             $.mobile.changePage("#sign-and-send");
         },
         invalidHandler:function (form, validator) {

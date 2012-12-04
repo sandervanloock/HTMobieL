@@ -27,14 +27,18 @@ $(document).on("pageinit", "#login", function () {
                             type:"POST",
                             dataType:"json",
                             data:{
-                                'keyword':""
+                                "keyword":""
                             },
                             url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
                             beforeSend:function () {
                                 $.mobile.loading("show");
                             },
                             success:function (json) {
-                                EA.projectCodeSuggestions = json.data;
+                                if (json != null) {
+                                    EA.projectCodeSuggestions = json.data;
+                                } else {
+                                    console.log("No project code suggestions were returned.");
+                                }
                             },
                             error:function (xhr, textStatus, errorThrown) {
                                 EA.showBackendError("Could not fetch project codes.");

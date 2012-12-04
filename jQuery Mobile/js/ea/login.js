@@ -2,7 +2,6 @@ $(document).on("pageinit", "#login", function () {
     $("#login-form").validate({
         focusInvalid:false,
         submitHandler:function (form) {
-            console.log("Login form was validaded successfully.");
             $.ajax({
                 type:"POST",
                 dataType:"html",

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
+    <style>
+        .error{
+            border: 3px solid red;
+        }
+    </style>
+
+    <script src="js/external/jquery-1.8.2.js"></script>
+    <script src="js/external/jquery.validate.js"></script>
+    <script src="js/external/jquery.mobile-1.2.0.js"></script>
+    <script>
+        $(document).on("pageinit", "#login", function () {
+            $("#login-form").validate({
+                errorPlacement:function (error, element) {
+                    // no body, because we want no error labels
+                },
+                focusInvalid:false,
+                submitHandler:function (form) {
+                    console.log("validated");
+                },
+                invalidHandler:function (form, validator) {
+                    console.log("not validated");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div data-role="page" id="login">
+    <form id="login-form">
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="login-username">Username:</label>
+            <input type="text" class="required" name="login-username" id="login-username" placeholder="Username">
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="login-password">Password:</label>
+            <input type="password" class="required" name="login-password" id="login-password"
+                   placeholder="Password">
+        </div>
+
+        <input type="submit" data-role="submit" value="Log in">
+    </form>
+</div>
+</body>
+</html>

@@ -21,9 +21,9 @@ var EA = {
         $.mobile.changePage("#login");
     },
 
-    showError:function (title, message) {
-        $("#errortitle").text(title);
-        $("#errormessage").text(message);
+    showError:function (title, html) {
+        $("#error-title").text(title);
+        $("#error-message").html(html);
         $.mobile.changePage("#error");
     },
 
@@ -31,8 +31,15 @@ var EA = {
         this.showError("Backend error", message);
     },
 
-    showValidationError:function (message) {
-        this.showError("Validation error", message);
+    showValidationError:function (count) {
+        var html = "<p>There ";
+        if (count == 1) {
+            html += "is 1 validation error."
+        } else {
+            html += "are " + count + " validation errors."
+        }
+        html += "</p>";
+        this.showError("Validation error", html);
     }
 
 };

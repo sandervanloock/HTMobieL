@@ -1,6 +1,9 @@
 $(document).on("pageinit", "#login", function () {
     $("#login-form").validate({
         focusInvalid:false,
+        errorPlacement:function (error, element) {
+            // no body, because we want no error labels on the form
+        },
         submitHandler:function (form) {
             $.ajax({
                 type:"POST",
@@ -82,7 +85,7 @@ $(document).on("pageinit", "#login", function () {
             });
         },
         invalidHandler:function (form, validator) {
-            EA.showValidationError("Some of the fields were not filled in correctly. Please correct the indicated fields.");
+            EA.showValidationError(validator.numberOfInvalids());
         }
     });
 });

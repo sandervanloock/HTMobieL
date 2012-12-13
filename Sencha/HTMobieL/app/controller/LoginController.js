@@ -31,7 +31,7 @@ Ext.define('Expense.controller.LoginController', {
     onButtonTap: function(button, e, options) {
         var fields= this.getLogin().getValues();  
         Ext.Ajax.request({
-			url : 'http://kulcapexpenseapp.appspot.com/resources/userService/login', //TODO url
+			url : 'http://localhost:8888/resources/userService/login', //TODO url
 			method : 'POST',
 			useDefaultXhrHeader: false, //http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
 			params: {
@@ -53,8 +53,8 @@ Ext.define('Expense.controller.LoginController', {
 				employeeStore.load({
 				    callback: function(records, operation, success) {
 						var employee = employeeStore.getAt(0);
-						var infopanel = Ext.getCmp('infopanel');
-						infopanel.setRecord(employee); //TODO niet met ids werken!
+						var infopanel = Ext.getCmp('infopanel'); //TODO niet met ids werken!
+						infopanel.setRecord(employee); 
 						var today = new Date();
 						console.log(today.getUTCMonth());
 						if(today.getUTCDate() < 14)

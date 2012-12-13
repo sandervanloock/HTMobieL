@@ -58,6 +58,7 @@ Ext.define('Expense.view.Viewport', {
                 xtype: 'page',
                 ui: 'light',
                 width: '100%',
+                height: '10000',
                 scrollable: true
             }
         ]

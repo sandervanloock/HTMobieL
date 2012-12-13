@@ -18,7 +18,6 @@ Ext.define('Expense.view.OverviewList', {
     alias: 'widget.overviewlist',
 
     config: {
-        height: 770,
         id: 'overviewlist',
         ui: 'round',
         store: 'expensestore',

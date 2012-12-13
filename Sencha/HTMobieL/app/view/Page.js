@@ -25,7 +25,6 @@ Ext.define('Expense.view.Page', {
     ],
 
     config: {
-        fullscreen: false,
         layout: {
             type: 'card'
         },

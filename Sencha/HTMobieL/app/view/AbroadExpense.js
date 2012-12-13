@@ -14,11 +14,10 @@
  */
 
 Ext.define('Expense.view.AbroadExpense', {
-    extend: 'Ext.Container',
+    extend: 'Ext.form.Panel',
     alias: 'widget.abroadexpense',
 
     config: {
-        scrollable: 'vertical',
         items: [
             {
                 xtype: 'fieldset',
@@ -26,23 +25,23 @@ Ext.define('Expense.view.AbroadExpense', {
                 items: [
                     {
                         xtype: 'datepickerfield',
-                        id: 'date',
                         label: 'Date Of Expense',
                         placeHolder: 'mm/dd/yyyy',
-                        value: new Date()
+                        value: new Date(),
+                        name: 'date'
                     },
                     {
                         xtype: 'autocompletefield',
                         label: 'Project Code',
                         value: '',
-                        name: 'data',
+                        name: 'projectCode',
                         config: {
                             proxy: {
                                 type: 'ajax',
-                                url: 'http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion', //TODO url
+                                url: 'http://localhost:8888/resources/expenseService/getProjectCodeSuggestion', //TODO url
                                 reader: {
                                     type: 'json',
-                                    rootproperty: 'data'
+                                    rootProperty: 'data'
                                 },
                                 actionMethods: {
                                     create : 'POST',
@@ -52,38 +51,39 @@ Ext.define('Expense.view.AbroadExpense', {
                                 }
                             },
 					        resultsHeight: 5,
-							needleKey: 'data',
+							needleKey: 'term',
 							labelKey: 'data'
                         }
                     },
                     {
                         xtype: 'radiofield',
-                        id: 'hotel',
-                        label: 'Hotel'
+                        label: 'Hotel',
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'radiofield',
-                        id: 'lunch',
-                        label: 'Restaurant (Diner)'
+                        label: 'Restaurant (Diner)',
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'radiofield',
-                        id: 'other',
-                        label: 'Other (please specify)'
+                        label: 'Other (please specify)',
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'textfield',
-                        id: 'amount',
-                        label: 'Amount'
+                        label: 'Amount',
+                        name: 'amount'
                     },
                     {
                         xtype: 'selectfield',
-                        label: 'Currency'
+                        label: 'Currency',
+                        name: 'currency'
                     },
                     {
                         xtype: 'textareafield',
-                        id: 'remarks',
-                        label: 'Remarks'
+                        label: 'Remarks',
+                        name: 'remarks'
                     },
                     {
                         xtype: 'button',

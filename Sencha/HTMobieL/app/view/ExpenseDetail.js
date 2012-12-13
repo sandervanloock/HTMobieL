@@ -24,7 +24,7 @@ Ext.define('Expense.view.ExpenseDetail', {
             'Type: {expenseTypeId}<br/>',
             'Date: {date:date("d/m/Y")}<br />',
             'Project Code: {projectCode} <br />',
-            'Expense Type: {expenseTypeId} <br />',
+            'Expense Location: {expenseLocationId} <br />',
             '<large>Amount: {amount}</large> {currency} <br />',
             'Remarks: {remarks}',
             ''

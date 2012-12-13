@@ -16,6 +16,7 @@
 Ext.define('Expense.store.ExpenseStore', {
     extend: 'Ext.data.Store',
     alias: 'store.expensestore',
+    id: 'expensestore',
 
     requires: [
         'Expense.model.Expense'

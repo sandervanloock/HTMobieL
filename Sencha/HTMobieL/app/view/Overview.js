@@ -22,7 +22,6 @@ Ext.define('Expense.view.Overview', {
     ],
 
     config: {
-        fullscreen: true,
         items: [
             {
                 xtype: 'overviewlist'

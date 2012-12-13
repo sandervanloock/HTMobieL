@@ -8,12 +8,12 @@ Ext.define('Expense.store.ProjectCodeStore', {
 
     config: {
         fields: [
-                 {name: 'id', type: 'string'}
+               {name: 'id', type: 'string'}
         ],
         storeId: 'projectcodestore',
         proxy: {
             type: 'ajax',
-            url: 'http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion', //TODO url
+            url: 'http://localhost:8888/resources/expenseService/getProjectCodeSuggestion', //TODO url
             extraParams:{
             	keyword: ''
             },
@@ -24,7 +24,7 @@ Ext.define('Expense.store.ProjectCodeStore', {
                 destroy: 'POST'
             },
             reader: {
-                type: 'json',
+                type: 'xml',
                 rootProperty: 'data'
             }
         }

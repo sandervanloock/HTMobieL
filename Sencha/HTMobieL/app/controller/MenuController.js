@@ -29,7 +29,6 @@ Ext.define('Expense.controller.MenuController', {
     },
 
     onListItemTap: function(dataview, index, target, record, e, options) {
-    	console.log(target);
         this.getDetail().setActiveItem(index);
     }
 

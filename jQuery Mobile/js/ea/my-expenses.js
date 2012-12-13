@@ -41,7 +41,7 @@ $(document).on("pageshow", "#my-expenses", function () {
             $("#my-expenses-list").listview("refresh");
         },
         error:function (xhr, textStatus, errorThrown) {
-            EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
+            EA.showError("Backend error: " + xhr.status, errorThrown);
         },
         complete:function () {
             $.mobile.loading("hide");
@@ -65,7 +65,7 @@ $(document).on("tap", "[id^=my-expenses-show-pdf]", function () {
             // TODO do something with the data
         },
         error:function (xhr, textStatus, errorThrown) {
-            EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
+            EA.showError("Backend error: " + xhr.status, errorThrown);
         },
         complete:function () {
             $.mobile.loading("hide");

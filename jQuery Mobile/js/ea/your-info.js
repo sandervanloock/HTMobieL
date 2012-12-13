@@ -5,7 +5,7 @@ $(document).on("pageinit", "#your-info", function () {
             $.mobile.changePage("#overview");
         },
         invalidHandler:function (form, validator) {
-            EA.showErrorDialog("Validation error", "Some of the fields were not filled in correctly. Please correct the indicated fields.");
+            EA.showError("Validation error", "Some of the fields were not filled in correctly. Please correct the indicated fields.");
         }
     });
 });
@@ -44,7 +44,7 @@ $(document).on("pagebeforecreate", "#your-info", function () {
             $("#your-info-email").val(data.email);
         },
         error:function (xhr, textStatus, errorThrown) {
-            EA.showErrorDialog("Backend error: " + xhr.status, errorThrown);
+            EA.showError("Backend error: " + xhr.status, errorThrown);
         }
     });
 });

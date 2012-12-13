@@ -16,6 +16,8 @@
 Ext.define('Expense.view.Viewport', {
     extend: 'Ext.Container',
     alias: 'widget.viewport',
+    xtype: 'viewport',
+    
 
     requires: [
         'Expense.view.Menu',
@@ -24,9 +26,9 @@ Ext.define('Expense.view.Viewport', {
 
     config: {
         fullscreen: true,
-        height: 765,
-        width: 1018,
+        id: 'viewport',
         layout: {
+            pack: 'center',
             type: 'hbox'
         },
         items: [
@@ -36,29 +38,28 @@ Ext.define('Expense.view.Viewport', {
                 id: 'toolbar',
                 ui: 'light',
                 title: 'Expense App',
-                layout: {
-                    align: 'center',
-                    type: 'hbox'
-                },
                 items: [
                     {
                         xtype: 'button',
-                        docked: 'right',
-                        ui: 'back',
-                        icon: '',
-                        iconCls: 'home',
+                        docked: 'left',
+                        ui: 'confirm-round',
+                        iconCls: 'action',
                         iconMask: true,
-                        text: 'Home'
+                        text: 'Logout',
+                        id: 'logout'
                     }
                 ]
             },
             {
-                xtype: 'menu'
+                xtype: 'menuPanel',
+                docked: 'left'
             },
             {
                 xtype: 'page',
-                docked: 'right',
-                width: 687
+                ui: 'light',
+                width: '100%',
+                height: '10000',
+                scrollable: true
             }
         ]
     }

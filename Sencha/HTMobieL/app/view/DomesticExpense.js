@@ -14,83 +14,100 @@
  */
 
 Ext.define('Expense.view.DomesticExpense', {
-    extend: 'Ext.Container',
-    alias: 'widget.domesticExpense',
+    extend: 'Ext.form.Panel',
+    alias: 'widget.domesticexpense',
+    id: 'domesticexpense',
 
     config: {
-        scrollable: 'vertical',
         items: [
             {
                 xtype: 'fieldset',
                 title: '3. Add Expense',
                 items: [
                     {
-                        xtype: 'datepickerfield',
-                        id: 'date',
-                        label: 'Date Of Expense',
-                        placeHolder: 'mm/dd/yyyy',
-                        readOnly: false
+                    	  xtype: 'datepickerfield',
+                          label: 'Date Of Expense',
+                          placeHolder: 'mm/dd/yyyy',
+                          value: new Date(),
+                          name: 'date'
                     },
                     {
                         xtype: 'textfield',
-                        id: 'projectcode',
                         label: 'Project Code',
-                        readOnly: true
+                        name: 'projectCode'
                     },
                     {
                         xtype: 'radiofield',
-                        id: 'hotel',
-                        label: 'Hotel'
+                        label: 'Hotel',
+                        value: 1,
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'radiofield',
-                        id: 'restaurant',
-                        label: 'Restaurant'
+                        label: 'Restaurant',
+                        value: 2,
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'radiofield',
                         id: 'other',
-                        label: 'Other (please specify)'
+                        value: 6,
+                        label: 'Other (please specify)',
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'radiofield',
-                        label: 'Train / Plane tickets'
+                        label: 'Train / Plane tickets',
+                        value: 4,
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'radiofield',
-                        label: 'Restaurant (Diner)'
+                        label: 'Restaurant (Diner)',
+                        value:  3,
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'textfield',
-                        id: 'amount',
-                        label: 'Amount (€)',
-                        readOnly: false
+                        name: 'amount',
+                        label: 'Amount (€)'
                     },
                     {
                         xtype: 'textareafield',
-                        id: 'remarks',
                         label: 'Remarks',
-                        readOnly: true
+                        name: 'remarks'
+                    },
+                    {
+                        xtype: 'textfield',
+                        name: 'expenseTypeId',
+                        hidden: true,
+                        value: 1
+                    },
+                    {
+                        xtype: 'textfield',
+                        name: 'currency',
+                        hidden: true,
+                        value: 'EUR'
                     },
                     {
                         xtype: 'button',
                         height: 50,
-                        id: 'upload',
                         ui: 'action-round',
                         width: 241,
                         iconCls: 'download',
                         iconMask: true,
-                        text: 'Upload Evidence'
+                        text: 'Upload Evidence',
+                        action: 'uploadEvidence'
                     },
                     {
                         xtype: 'button',
                         height: 47,
-                        id: 'back',
                         ui: 'confirm-round',
                         width: 240,
                         iconCls: 'add',
                         iconMask: true,
-                        text: 'Add'
+                        text: 'Add',
+                        action: 'addDomesticExpense'
                     }
                 ]
             }

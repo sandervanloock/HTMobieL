@@ -1,0 +1,73 @@
+{
+    "type": "fieldset",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SignField",
+        "designer|userAlias": "singfield",
+        "title": "4. Sign & Send"
+    },
+    "id": "ExtBox1-ext-gen2124",
+    "designerId": "0c6ac389-2e76-4a5f-b0a8-0605866c720b",
+    "cn": [
+        {
+            "type": "textareafield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyTextArea2",
+                "designer|displayName": "signature",
+                "label": "Signature"
+            },
+            "designerId": "8edad95b-7a24-4cc6-9896-994903e80cf0"
+        },
+        {
+            "type": "textareafield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyTextArea3",
+                "designer|displayName": "remarks",
+                "label": "Remarks"
+            },
+            "designerId": "919f93b3-b05e-43b9-bf1b-75a68f0774d2"
+        },
+        {
+            "type": "togglefield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToggleField",
+                "designer|displayName": "emailnotification",
+                "label": "Status notification via Email:"
+            },
+            "designerId": "ed3b5809-8d95-4626-94b3-9a3cce1df0cf"
+        },
+        {
+            "type": "button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyButton7",
+                "designer|displayName": "send",
+                "text": "Send"
+            },
+            "designerId": "4c2ab656-9a73-4a96-b0f4-437084b3852c"
+        }
+    ]
+}

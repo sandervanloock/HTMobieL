@@ -1,16 +1,16 @@
 {
-    "type": "container",
+    "type": "formpanel",
     "reference": {
         "name": "items",
         "type": "array"
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "Info",
-        "designer|userAlias": "info"
+        "designer|userClassName": "InfoPanel",
+        "designer|userAlias": "infopanel"
     },
-    "id": "ExtBox1-ext-gen15804",
-    "designerId": "c5ac3754-68bc-439d-b6cb-a5a1659ab03f",
+    "id": "ExtBox1-ext-gen19886",
+    "designerId": "74ca280d-948f-46dc-b448-7e8ead164887",
     "cn": [
         {
             "type": "fieldset",
@@ -20,11 +20,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyFieldSet",
+                "designer|userClassName": "InfoField",
+                "designer|userAlias": "infofield",
                 "id": "infofield",
                 "title": "1. Your info"
             },
-            "designerId": "6f8299b3-35e4-40ff-b1b1-6ef652ad7484",
+            "designerId": "9fb61a46-963e-4b09-ba58-865b9ecdd224",
             "cn": [
                 {
                     "type": "selectfield",
@@ -36,9 +37,10 @@
                     "userConfig": {
                         "designer|userClassName": "MySelectField2",
                         "designer|displayName": "month",
-                        "label": "Month"
+                        "label": "Month",
+                        "name": "month"
                     },
-                    "designerId": "c737f895-5955-48e8-9734-6ef93019428c"
+                    "designerId": "4120cd29-e5a5-497f-9398-ade734841c0b"
                 },
                 {
                     "type": "selectfield",
@@ -50,9 +52,10 @@
                     "userConfig": {
                         "designer|userClassName": "MySelectField3",
                         "designer|displayName": "year",
-                        "label": "Year"
+                        "label": "Year",
+                        "name": "year"
                     },
-                    "designerId": "8db0dac6-d47d-4638-b4cc-f2dea7c6fab2"
+                    "designerId": "5f83ac4a-da3c-400c-8c2f-49d1e27d7887"
                 },
                 {
                     "type": "textfield",
@@ -65,9 +68,10 @@
                         "designer|userClassName": "MyTextField",
                         "id": "firstName",
                         "label": "First Name",
+                        "name": "firstName",
                         "readOnly": true
                     },
-                    "designerId": "5bf40324-174a-4eae-929d-b658155c9967"
+                    "designerId": "c2c993a6-92a7-41f3-b8d9-03662bec2fe1"
                 },
                 {
                     "type": "textfield",
@@ -80,9 +84,10 @@
                         "designer|userClassName": "MyTextField1",
                         "id": "lastName",
                         "label": "Last Name",
+                        "name": "lastName",
                         "readOnly": true
                     },
-                    "designerId": "07691423-f104-4ea6-ae06-cd583766b1fa"
+                    "designerId": "c326b7e5-630f-4b14-b988-e9134d326a5a"
                 },
                 {
                     "type": "textfield",
@@ -94,9 +99,10 @@
                     "userConfig": {
                         "designer|userClassName": "MyTextField2",
                         "id": "employeeNumber",
-                        "label": "Employee Number"
+                        "label": "Employee Number",
+                        "name": "employeeNumber"
                     },
-                    "designerId": "f3a9ebb8-65e2-4856-8c3d-b88f08afec27"
+                    "designerId": "97188dc0-9941-4faa-a624-b09137a07d65"
                 },
                 {
                     "type": "selectfield",
@@ -108,9 +114,10 @@
                     "userConfig": {
                         "designer|userClassName": "MySelectField",
                         "id": "unit",
-                        "label": "Unit"
+                        "label": "Unit",
+                        "name": "unitId"
                     },
-                    "designerId": "c4d79839-32e6-4eb2-9458-95dc5b276cef"
+                    "designerId": "0f5fef97-33ee-4ce2-9dfc-dd38a7245a51"
                 },
                 {
                     "type": "emailfield",
@@ -123,9 +130,10 @@
                         "designer|userClassName": "MyEmailField",
                         "id": "email",
                         "label": "Email",
+                        "name": "email",
                         "placeHolder": "email@example.com"
                     },
-                    "designerId": "02899a1d-7bf7-4082-a169-4b3d9e6a1b87"
+                    "designerId": "39cfc1c6-c901-4c75-bc6c-b8d079ae1cb5"
                 }
             ]
         }

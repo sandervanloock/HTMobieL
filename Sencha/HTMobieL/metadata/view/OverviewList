@@ -10,6 +10,7 @@
         "designer|userAlias": "overviewlist",
         "designer|displayName": "OverviewList",
         "height": 770,
+        "id": "overviewlist",
         "ui": "round",
         "store": "expensestore",
         "onItemDisclosure": true

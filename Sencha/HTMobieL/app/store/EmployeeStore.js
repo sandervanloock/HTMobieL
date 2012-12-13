@@ -23,6 +23,22 @@ Ext.define('Expense.store.EmployeeStore', {
 
     config: {
         model: 'Expense.model.Employee',
-        storeId: 'employeestore'
+        storeId: 'employeestore',
+        proxy: {
+            type: 'ajax',
+            url: 'http://localhost:8888/resources/userService/getEmployee', //TODO url
+            extraParams:{
+                token: Expense.app.getToken()
+            },
+            actionMethods: {
+                create : 'POST',
+                read   : 'POST',
+                update : 'POST',
+                destroy: 'POST'
+            },
+            reader: {
+                type: 'json'
+            }
+        }
     }
 });

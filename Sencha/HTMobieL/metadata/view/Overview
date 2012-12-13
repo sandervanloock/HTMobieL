@@ -7,7 +7,8 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "Overview",
-        "designer|userAlias": "overview"
+        "designer|userAlias": "overview",
+        "fullscreen": true
     },
     "id": "ExtBox1-ext-gen75235",
     "designerId": "77171558-7e94-4fbe-9311-8d89b0411b93",

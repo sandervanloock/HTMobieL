@@ -14,11 +14,10 @@
  */
 
 Ext.define('Expense.view.AbroadExpense', {
-    extend: 'Ext.Container',
+    extend: 'Ext.form.Panel',
     alias: 'widget.abroadexpense',
 
     config: {
-        scrollable: 'vertical',
         items: [
             {
                 xtype: 'fieldset',
@@ -26,47 +25,65 @@ Ext.define('Expense.view.AbroadExpense', {
                 items: [
                     {
                         xtype: 'datepickerfield',
-                        id: 'date',
                         label: 'Date Of Expense',
                         placeHolder: 'mm/dd/yyyy',
-                        readOnly: true
+                        value: new Date(),
+                        name: 'date'
                     },
                     {
-                        xtype: 'textfield',
-                        id: 'projectcode',
+                        xtype: 'autocompletefield',
                         label: 'Project Code',
-                        readOnly: true
+                        value: '',
+                        name: 'projectCode',
+                        config: {
+                            proxy: {
+                                type: 'ajax',
+                                url: 'http://localhost:8888/resources/expenseService/getProjectCodeSuggestion', //TODO url
+                                reader: {
+                                    type: 'json',
+                                    rootProperty: 'data'
+                                },
+                                actionMethods: {
+                                    create : 'POST',
+                                    read   : 'POST',
+                                    update : 'POST',
+                                    destroy: 'POST'
+                                }
+                            },
+					        resultsHeight: 5,
+							needleKey: 'term',
+							labelKey: 'data'
+                        }
                     },
                     {
                         xtype: 'radiofield',
-                        id: 'hotel',
-                        label: 'Hotel'
+                        label: 'Hotel',
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'radiofield',
-                        id: 'lunch',
-                        label: 'Restaurant (Diner)'
+                        label: 'Restaurant (Diner)',
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'radiofield',
-                        id: 'other',
-                        label: 'Other (please specify)'
+                        label: 'Other (please specify)',
+                        name: 'expenseLocationId'
                     },
                     {
                         xtype: 'textfield',
-                        id: 'amount',
                         label: 'Amount',
-                        readOnly: true
+                        name: 'amount'
                     },
                     {
                         xtype: 'selectfield',
-                        label: 'Currency'
+                        label: 'Currency',
+                        name: 'currency'
                     },
                     {
                         xtype: 'textareafield',
-                        id: 'remarks',
                         label: 'Remarks',
-                        readOnly: true
+                        name: 'remarks'
                     },
                     {
                         xtype: 'button',
@@ -76,7 +93,8 @@ Ext.define('Expense.view.AbroadExpense', {
                         width: 230,
                         iconCls: 'download',
                         iconMask: true,
-                        text: 'Upload Evidence'
+                        text: 'Upload Evidence',
+                        action: 'uploadEvidence'
                     },
                     {
                         xtype: 'button',
@@ -85,7 +103,8 @@ Ext.define('Expense.view.AbroadExpense', {
                         width: 229,
                         iconCls: 'add',
                         iconMask: true,
-                        text: 'Add'
+                        text: 'Add',
+                        action: 'sendAbroadExpense'
                     }
                 ]
             }

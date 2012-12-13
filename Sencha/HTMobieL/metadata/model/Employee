@@ -65,7 +65,7 @@
                 "designer|userClassName": "field9",
                 "name": "employeeNumber",
                 "allowNull": false,
-                "type": "int"
+                "type": "string"
             },
             "designerId": "5c955e93-bd5a-4862-aca8-a5f3e5310bc2"
         },
@@ -78,7 +78,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "field10",
-                "name": "unit",
+                "name": "unitId",
                 "type": "string"
             },
             "designerId": "6548f04b-f286-4a8b-a14c-6e1b0a4c2463"
@@ -124,6 +124,34 @@
                 "field": "unit"
             },
             "designerId": "09efe6fd-7e58-4e48-8d81-1ead822f821f"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field12",
+                "name": "password",
+                "type": "string"
+            },
+            "designerId": "3b857891-edfa-4009-9b0d-af245107e2ff"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field13",
+                "name": "id",
+                "type": "string"
+            },
+            "designerId": "8fcd821a-bcbc-4154-b767-1d797fd15781"
         }
     ]
 }

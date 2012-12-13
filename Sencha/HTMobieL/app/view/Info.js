@@ -21,6 +21,7 @@ Ext.define('Expense.view.Info', {
         items: [
             {
                 xtype: 'fieldset',
+                id: 'infofield',
                 title: '1. Your info',
                 items: [
                     {

@@ -1,0 +1,85 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyInfoController"
+    },
+    "id": "ExtBox1-ext-gen2595",
+    "designerId": "58c81c82-7016-4ba9-b57a-dccc266d97b1",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "myinfo",
+                "ref": "myinfo",
+                "selector": "infopanel"
+            },
+            "designerId": "a130e1d3-007e-433d-875c-1efa3e645925"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onFormpanelInitialize",
+                "fn": "onFormpanelInitialize",
+                "implHandler": [
+                    "",
+                    "var token = '3ddb2161-3bf4-4d90-92ae-9261beaea6dd';",
+                    "",
+                    "var store = Ext.getStore('employeestore');",
+                    "",
+                    "/*Ext.Ajax.request({",
+                    "    url: 'http://localhost:8888/resources/userService/getEmployee',",
+                    "    method: 'POST',",
+                    "",
+                    "    params: {",
+                    "        token: '3ddb2161-3bf4-4d90-92ae-9261beaea6dd'",
+                    "    },",
+                    "    ",
+                    "    callback: function(response) {",
+                    "        console.log(response.responseText);",
+                    "    }",
+                    "});*/",
+                    "",
+                    "var formPanel = this.getMyinfo();",
+                    "",
+                    "formPanel.add({",
+                    "    xtype: 'toolbar',",
+                    "    docked: 'bottom',",
+                    "    layout: { pack: 'center' },",
+                    "    items: [",
+                    "        {",
+                    "            xtype: 'button',",
+                    "            text: 'LOAD',",
+                    "            handler: function() {",
+                    "                console.log(store.getCount());",
+                    "                var employee = store.getAt(0);",
+                    "                formPanel.setRecord(employee);",
+                    "            }",
+                    "        }",
+                    "    ]",
+                    "});",
+                    "",
+                    ""
+                ],
+                "name": "initialize",
+                "designer|targetType": "InfoPanel",
+                "designer|controlQuery": "formpanel"
+            },
+            "designerId": "bddde222-db44-4c6f-ac3b-3ff36ee57ced"
+        }
+    ]
+}

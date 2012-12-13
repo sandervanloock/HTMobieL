@@ -29,15 +29,22 @@ Ext.define('Expense.model.Employee', {
             },
             {
                 name: 'employeeNumber',
-                allowNull: false,
-                type: 'int'
+                type: 'string'
             },
             {
-                name: 'unit',
+                name: 'unitId',
                 type: 'string'
             },
             {
                 name: 'email',
+                type: 'string'
+            },
+            {
+                name: 'password',
+                type: 'string'
+            },
+            {
+                name: 'id',
                 type: 'string'
             }
         ],

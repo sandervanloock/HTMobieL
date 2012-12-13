@@ -8,9 +8,55 @@
     "userConfig": {
         "designer|userClassName": "EmployeeStore",
         "designer|userAlias": "employeestore",
+        "autoLoad": true,
+        "autoSync": true,
         "model": "Employee",
         "storeId": "employeestore"
     },
     "id": "ExtBox1-ext-gen54627",
-    "designerId": "d11db33a-14b6-4109-8717-3cb894f44a0d"
+    "designerId": "d11db33a-14b6-4109-8717-3cb894f44a0d",
+    "cn": [
+        {
+            "type": "ajaxproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyAjaxProxy2",
+                "extraParams": null,
+                "filterParam": null,
+                "url": "http://localhost:8888/resources/userService/getEmployee",
+                "headers": null
+            },
+            "designerId": "c613b50b-ecd1-4395-98ee-f029e6cce1d3",
+            "cn": [
+                {
+                    "type": "jsonwriter",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyJsonWriter"
+                    },
+                    "designerId": "84c259cc-d10e-4323-b240-070989a729ad"
+                },
+                {
+                    "type": "jsonreader",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyJsonReader2"
+                    },
+                    "designerId": "d491fc7a-bab0-47f1-86bb-5580587d3d7c"
+                }
+            ]
+        }
+    ]
 }

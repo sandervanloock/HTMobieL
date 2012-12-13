@@ -31,7 +31,7 @@ Ext.define('Expense.controller.LoginController', {
     onButtonTap: function(button, e, options) {
         var fields= this.getLogin().getValues();  
         Ext.Ajax.request({
-			url : 'http://localhost:8888/resources/userService/login', //TODO url
+			url : 'http:///kulcapexpenseapp.appspot.com/resources/userService/login', //TODO url
 			method : 'POST',
 			useDefaultXhrHeader: false, //http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
 			params: {

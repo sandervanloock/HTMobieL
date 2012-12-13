@@ -35,7 +35,7 @@ Ext.define(
 						console.log('logout');
 						Ext.getStore('employeestore').removeAll();
 						Ext.Ajax.request({
-							url : 'http://localhost:8888/resources/userService/logout', // TODO url
+							url : 'http:///kulcapexpenseapp.appspot.com/resources/userService/logout', // TODO url
 							method : 'POST',
 							useDefaultXhrHeader : false, // http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
 							params : {

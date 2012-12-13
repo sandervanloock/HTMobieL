@@ -38,7 +38,7 @@ Ext.define('Expense.view.AbroadExpense', {
                         config: {
                             proxy: {
                                 type: 'ajax',
-                                url: 'http://localhost:8888/resources/expenseService/getProjectCodeSuggestion', //TODO url
+                                url: 'http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion', //TODO url
                                 reader: {
                                     type: 'json',
                                     rootProperty: 'data'

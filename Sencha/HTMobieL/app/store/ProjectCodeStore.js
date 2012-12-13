@@ -13,7 +13,7 @@ Ext.define('Expense.store.ProjectCodeStore', {
         storeId: 'projectcodestore',
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8888/resources/expenseService/getProjectCodeSuggestion', //TODO url
+            url: 'http:///kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion', //TODO url
             extraParams:{
             	keyword: ''
             },

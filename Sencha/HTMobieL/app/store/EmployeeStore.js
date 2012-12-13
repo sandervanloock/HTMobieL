@@ -26,7 +26,7 @@ Ext.define('Expense.store.EmployeeStore', {
         storeId: 'employeestore',
         proxy: {
             type: 'ajax',
-            url: 'http://localhost:8888/resources/userService/getEmployee', //TODO url
+            url: 'http:///kulcapexpenseapp.appspot.com/resources/userService/getEmployee', //TODO url
             extraParams:{
                 token: Expense.app.getToken()
             },

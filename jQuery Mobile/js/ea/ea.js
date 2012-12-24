@@ -45,14 +45,6 @@ var EA = {
         $("#error-validation-items").html(html);
 
         validator.defaultShowErrors();
-
-        /*var html = "<p>There ";
-        if (invalidElements.length == 1) {
-            html += "is 1 validation error:"
-        } else {
-            html += "are " + invalidElements.length + " validation errors:"
-        }
-        html += "</p>";*/
     }
 
 };

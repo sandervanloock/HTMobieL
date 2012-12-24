@@ -31,14 +31,21 @@ var EA = {
         this.showError("Backend error", message);
     },
 
-    showValidationError:function (count) {
+    showValidationError:function (invalidElements) {
         var html = "<p>There ";
-        if (count == 1) {
-            html += "is 1 validation error."
+        if (invalidElements.length == 1) {
+            html += "is 1 validation error:"
         } else {
-            html += "are " + count + " validation errors."
+            html += "are " + invalidElements.length + " validation errors:"
         }
         html += "</p>";
+
+        invalidElements.each(function (i, element) {
+            html += "<li>";
+            html += element.name + ": ";
+            html += "</li>";
+        });
+
         this.showError("Validation error", html);
     }
 

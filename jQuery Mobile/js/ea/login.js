@@ -85,7 +85,8 @@ $(document).on("pageinit", "#login", function () {
             });
         },
         invalidHandler:function (form, validator) {
-            EA.showValidationError(validator.numberOfInvalids());
+            console.log(validator.invalidElements());
+            EA.showValidationError(validator.invalidElements());
         }
     });
 });

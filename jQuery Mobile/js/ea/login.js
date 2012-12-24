@@ -4,6 +4,12 @@ $(document).on("pageinit", "#login", function () {
         errorPlacement:function (error, element) {
             // no body, because we want no error labels on the form
         },
+        showErrors:function (errorMap, errorList) {
+            EA.prepareValidationError(this, errorMap);
+        },
+        invalidHandler:function (form, validator) {
+            $.mobile.changePage("#error-validation");
+        },
         submitHandler:function (form) {
             $.ajax({
                 type:"POST",
@@ -83,10 +89,6 @@ $(document).on("pageinit", "#login", function () {
                     $.mobile.loading("hide");
                 }
             });
-        },
-        invalidHandler:function (form, validator) {
-            console.log(validator.invalidElements());
-            EA.showValidationError(validator.invalidElements());
         }
     });
 });

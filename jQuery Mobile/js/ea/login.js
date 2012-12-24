@@ -1,15 +1,21 @@
 $(document).on("pageinit", "#login", function () {
     $("#login-form").validate({
+
+        // needed for bug that otherwhise shows keyboard and dialog at the same time
         focusInvalid:false,
+
         errorPlacement:function (error, element) {
             // no body, because we want no error labels on the form
         },
+
         showErrors:function (errorMap, errorList) {
             EA.prepareValidationError(this, errorMap);
         },
+
         invalidHandler:function (form, validator) {
             $.mobile.changePage("#error-validation");
         },
+
         submitHandler:function (form) {
             $.ajax({
                 type:"POST",
@@ -24,7 +30,7 @@ $(document).on("pageinit", "#login", function () {
                 },
                 success:function (data) {
                     if (data == '') {
-                        EA.showError("Login error", "The username and/or password are incorrect.");
+                        EA.showBackendError("The username and/or password are incorrect.");
                     } else {
                         EA.token = data;
                         console.log("User was logged in successfully: " + EA.token);

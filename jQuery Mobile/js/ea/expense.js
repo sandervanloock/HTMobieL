@@ -91,6 +91,7 @@ $(document).on("pageinit", "#expense", function () {
             $.mobile.changePage("#error-validation");
         },
         submitHandler:function (form) {
+            var date = new Date($("#expense-date").val());
             var currency;
             if ($("#expense-currency-div").is(":visible")) {
                 currency = $("#expense-currency").val();
@@ -99,15 +100,21 @@ $(document).on("pageinit", "#expense", function () {
             }
 
             EA.localExpenses.push({
-                "date":$("#expense-date").val(),
+                "date":date.toISOString(),
                 "projectCode":$("#expense-project-code").val(),
                 "currency":currency,
                 "amount":$("#expense-amount").val(),
                 "remarks":$("#expense-remarks").val(),
                 "expenseTypeId":$("input[name=expense-type]:checked").val(),
-                "expenseLocationId":$("input[name=expense-tabbar]:checked").val()
+                "expenseLocationId":$("input[name=expense-tabbar]:checked").val(),
+                // TODO add evidence
+                "evidence":null
             });
+
             $.mobile.changePage("#sign-and-send");
+
+            // clear the form
+            $("#expense-form")[0].reset();
         }
     });
 

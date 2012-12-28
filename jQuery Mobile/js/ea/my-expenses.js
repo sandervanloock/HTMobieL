@@ -51,24 +51,7 @@ $(document).on("pageshow", "#my-expenses", function () {
 
 $(document).on("tap", "[id^=my-expenses-show-pdf]", function () {
     var expenseFormId = $(this).attr("id").replace("my-expenses-show-pdf-", "");
-    $.ajax({
-        type:"POST",
-        url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getExpenseFormPDF",
-        data:{
-            'token':EA.token,
-            'expenseFormId':expenseFormId
-        },
-        beforeSend:function () {
-            $.mobile.loading("show");
-        },
-        success:function (data) {
-            // TODO do something with the data
-        },
-        error:function (xhr, textStatus, errorThrown) {
-            EA.showError("Backend error: " + xhr.status, errorThrown);
-        },
-        complete:function () {
-            $.mobile.loading("hide");
-        }
-    });
+    $("#my-expenses-token").val(EA.token);
+    $("#my-expenses-form-id").val(expenseFormId);
+    $('#my-expenses-form').submit();
 });

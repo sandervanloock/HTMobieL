@@ -34,7 +34,8 @@ $(document).on("pageinit", "#sign-and-send", function () {
                     $.mobile.loading("show");
                 },
                 success:function () {
-                    console.log("Data send");
+                    EA.localExpenses = new Array();
+                    $.mobile.changePage("#home");
                 },
                 error:function (xhr, textStatus, errorThrown) {
                     EA.showError("Backend error: " + xhr.status, errorThrown);

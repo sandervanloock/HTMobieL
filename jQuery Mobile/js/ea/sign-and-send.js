@@ -1,6 +1,10 @@
 $(document).on("pageinit", "#sign-and-send", function () {
+
+    // form validation
     $("#sign-and-send-form").validate({
         submitHandler:function (form) {
+
+
             var notification;
             if ($("#sign-and-send-notification").val() == "on") {
                 notification = true;
@@ -44,6 +48,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                     $.mobile.loading("hide");
                 }
             });
+
         }
     });
 });

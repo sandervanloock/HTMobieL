@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Require a Drawn Signature &middot; Signature Pad</title>
+    <link rel="stylesheet" href="signature/jquery.signaturepad.css">
+    <!--[if lt IE 9]>
+    <script src="signature/flashcanvas.js"></script><![endif]-->
     <script src="js/external/jquery-1.8.2.min.js"></script>
-    <script src="js/external/jquery.signaturepad.min.js"></script>
-    <script src="js/external/json2.min.js"></script>
-    <link rel="stylesheet" href="css/jquery.signaturepad.css">
+    <script src="signature/jquery.signaturepad.min.js"></script>
+    <script src="signature/json2.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('.sigPad').signaturePad({
-                drawOnly:true
+            $('#sign-and-send-form').signaturePad({
+                drawOnly:true,
+                validateFields:false
             });
         });
     </script>
+
 </head>
 <body>
-<form method="post" action="" class="sigPad">
-    <ul class="sigNav">
-        <li class="drawIt"><a href="#draw-it">Signature</a></li>
-        <li class="clearButton"><a href="#clear">Clear</a></li>
-    </ul>
+<form method="post" id="sign-and-send-form">
     <div class="sig sigWrapper">
         <div class="typed"></div>
         <canvas class="pad" width="198" height="55"></canvas>
         <input type="hidden" name="output" class="output">
     </div>
-    <button type="submit">Submit</button>
+    <a href="#clear" class="clearButton">Clear</a>
+    <button type="submit">I accept the terms of this agreement.</button>
 </form>
 </body>

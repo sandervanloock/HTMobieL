@@ -32,9 +32,9 @@ var EA = {
     },
 
     prepareValidationError:function (validator, errorMap) {
-        $("#error-validation-message").text("Your form contains "
+        $("#error-validation-message").text("Please complete the following "
             + validator.numberOfInvalids()
-            + " error(s):");
+            + " field(s):");
 
         var html = "";
         $.each(errorMap, function (index, value) {

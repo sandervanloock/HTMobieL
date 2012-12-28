@@ -79,20 +79,35 @@ $(document).on("pageinit", "#expense", function () {
             }
         },
         focusInvalid:false,
+        errorPlacement:function (error, element) {
+            // no body, because we want no error labels on the form
+        },
+
+        showErrors:function (errorMap, errorList) {
+            EA.prepareValidationError(this, errorMap);
+        },
+
+        invalidHandler:function (form, validator) {
+            $.mobile.changePage("#error-validation");
+        },
         submitHandler:function (form) {
+            var currency;
+            if ($("#expense-currency-div").is(":visible")) {
+                currency = $("#expense-currency").val();
+            } else {
+                currency = "EUR";
+            }
+
             EA.localExpenses.push({
                 "date":$("#expense-date").val(),
                 "projectCode":$("#expense-project-code").val(),
-                "currency":$("#expense-currency").val(),
+                "currency":currency,
                 "amount":$("#expense-amount").val(),
                 "remarks":$("#expense-remarks").val(),
                 "expenseTypeId":$("input[name=expense-type]:checked").val(),
                 "expenseLocationId":$("input[name=expense-tabbar]:checked").val()
             });
             $.mobile.changePage("#sign-and-send");
-        },
-        invalidHandler:function (form, validator) {
-            EA.showError("Validation error", "Some of the fields were not filled in correctly. Please correct the indicated fields.");
         }
     });
 

@@ -59,6 +59,11 @@
         <ul data-role="listview" id="my-expenses-list">
 
         </ul>
+        <form id="my-expenses-form" target="_blank"
+              action="http://kulcapexpenseapp.appspot.com/resources/expenseService/getExpenseFormPDF" method="post">
+            <input type="hidden" name="token" id="my-expenses-token">
+            <input type="hidden" name="expenseFormId" id="my-expenses-form-id">
+        </form>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -285,7 +290,8 @@
         <form id="sign-and-send-form">
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="sign-and-send-signature">Remarks:</label>
-                <textarea name="sign-and-send-signature" id="sign-and-send-signature" placeholder="Signature"></textarea>
+                <textarea name="sign-and-send-signature" id="sign-and-send-signature"
+                          placeholder="Signature"></textarea>
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">

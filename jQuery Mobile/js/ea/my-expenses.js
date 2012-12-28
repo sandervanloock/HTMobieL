@@ -14,6 +14,7 @@ $(document).on("pageshow", "#my-expenses", function () {
             $.mobile.loading("show");
         },
         success:function (xml) {
+            console.log(xml);
             var expenseForms = new Array();
 
             $(xml).find("expenseForm").each(function () {

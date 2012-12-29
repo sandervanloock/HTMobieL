@@ -189,7 +189,7 @@ HTML5 kan ook bekeken worden als de volgende acht technologieklassen \cite{W3C20
 
 \item \textbf{Semantiek}.  Een hele hoop nieuwe tags zorgen voor meer semantiek binnen webpagina's. Waar voorheen de webpagina bestond uit en hoop div's, kan nu veel concreter worden aangegeven wat er precies binnen die tags staat. Dit kan voor search engine optimization (SEO) een grote impact hebben. Daarnaast biedt dit ook mogelijkheden voor schermlezers die nu beter de pagina kunnen analyseren.
 
-\item \textbf{CSS3}.  Hand in hand met HTML5 gaat CCS3 (zie ook infra). Het laat toe om webpagina's op te maken afhankelijk van het formaat van het mobiele apparaat. Ook kunnen webpagina's met effecten worden uitgebreid. 
+\item \textbf{CSS3}.  Hand in hand met HTML5 gaat CCS3 (zie \ref{ref:css3}). Het laat toe om webpagina's op te maken afhankelijk van het formaat van het mobiele apparaat. Ook kunnen webpagina's met effecten worden uitgebreid. 
 
 \item \textbf{3D, grafieken en effecten}.  De nieuwe canvas-tag in samenwerking met enkele lijnen JavaScript zijn enorm krachtig om eenvoudig tekeningen en animaties zelf te programmeren.
 
@@ -219,19 +219,22 @@ Een bedrijf wil enerzijds een stabiele webapplicatie en wil anderzijds ook van d
 \end{figure}
 
 \subsection{CSS3}
-Hand in hand met HTML5 gaat CSS3, dat zorgt voor de presentatie. Het is namelijk het hart van webdesign. CSS3 heeft dezelfde eigenschappen als HTML5 als het aankomt op de ondersteuning bij browsers. Ook hier is er dus een brede waaier aan kenmerken die nog niet overal worden ondersteund. Kenmerken die enkel in een bepaalde browser ondersteund worden, worden voorafgaan door een browserprefix (zoals -webkit- voor WebKit gebaseerde browsers en -o- voor Opera).
+\label{ref:css3}
+Hand in hand met HTML5 gaat CSS3, dat zorgt voor de presentatie. Het is namelijk het hart van webdesign. CSS3 heeft hetzelfde probleem zoals HTML5 als het aankomt op de ondersteuning bij browsers \cite{MacDonald2011}. Ook hier is er dus een brede waaier aan kenmerken die nog niet overal worden ondersteund. Kenmerken die enkel in een bepaalde browser ondersteund worden, worden voorafgaan door een browserprefix (zoals \texttt{-webkit-} voor WebKit gebaseerde browsers en \texttt{-o-} voor Opera).
 
-In deze sectie zullen we kort enkel belangrijke eigenschappen bespreken zoals media queries, effecten en lettertypes.
+In deze sectie zullen we kort belangrijke eigenschappen bespreken zoals media queries, effecten en lettertypes uit \cite{MacDonald2011}.
 
 \subsubsection{Media queries}
-Zoals al aangehaald, hebben we verschillende apparaten met verschillende schermen en resoluties. Een goeie webpagina bestaat erin deze elementen zo goed mogelijk te benutten. Dit kan vanaf nu door gebruik te maken van media queries in CSS3. De website kan zich hiermee aanpassen aan het apparaat waarop het wordt getoond. Dit wordt in het Engels omschreven als responsive design.
+Zoals al aangehaald, hebben we verschillende apparaten met verschillende schermen en resoluties. Een goeie webpagina bestaat erin deze elementen zo goed mogelijk te benutten. Dit kan vanaf nu door gebruik te maken van \emph{media queries} in CSS3. De website kan zich hiermee aanpassen aan het apparaat waarop het wordt getoond. Dit wordt in het Engels omschreven als \emph{responsive design}.
+% TODO nederlands woord voor responsive design
 
 Ook CSS3 volgt het principe van achterwaartse compatibiliteit. Browsers die deze media queries niet ondersteunen, zullen deze negeren en enkel de gewone lay-out toepassen ongeacht het device.
 
 \subsubsection{Effecten}
 Transparantie, afgeronde hoeken, schaduw en kleurenverloop zijn maar enkele van de nieuwe kenmerken in CSS3. Voorheen moest de webdesigner deze dingen vaak met afbeeldingen oplossen, maar nu kan dit allemaal gebeuren met een CSS3 stylesheet. Daarnaast hebben we ook effecten als transformaties en transities. Zo is het mogelijk wanneer men over een afbeelding gaat, deze ingezoomd en geroteerd kan worden. 
 
-Waarom is dit zo vooruitstrevend? Wel enerzijds schrijf men dingen makkelijker in een CSS stylesheet dan met JavaScript code. Anderzijds komt er ook meer en meer ondersteuning vanuit de hardware. Een native applicatie heeft toegang tot de graphics processing unit (GPU) terwijl een webapplicatie in een browser draait. Maar ook hier komt verandering in, 3D transformaties in CSS3 worden ook al versneld doorde hardware en belasten zo minder de central processing unit (CPU).
+% TODO geen vraag stellen aan de lezer
+Waarom is dit zo vooruitstrevend? Enerzijds schrijf men dingen makkelijker in een CSS-stylesheet dan met JavaScript-code. Anderzijds komt er ook meer en meer ondersteuning vanuit de hardware. Zo worden 3D transformaties in CSS3 versneld door de graphics processing unit (GPU) \cite{Hales2012}.
 
 \subsubsection{Lettertypes}
 Een laatste kenmerk in CSS3 is de betere ondersteuning van lettertypes. Waar vroeger enkel gewerkt kon worden met veilige lettertypes voor het web, is het nu mogelijk om eigen lettertypes op te laden en te gebruiken op je website.
@@ -248,9 +251,13 @@ Een oplossing voor de bovenstaande pijnpunten is gebruik maken van een bibliothe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Mobiele frameworks}
+% TODO mobiele webframeworks of 
+% mobiele HTML5 frameworks of
+% mobiele JavaScript-gebaseerde framworks
+% of nog iets anders?
+\section{Mobiele webframeworks}
 \label{sec:mobiele-frameworks}
-In deze sectie gaan we inzoomen op bestaande mobiele frameworks die gebruik maken van de laatste nieuwe technologieën zoals HTML5, CSS3 en JavaScript. Deze frameworks worden gecategoriseerd volgens twee courante aanpakken: mark-up gedreven en JavaScript gedreven. Bij een mark-up gedreven aanpak wordt de webapplicatie voornamelijk in HTML code geschreven. Daarentegen wordt bij een JavaScript gedreven aanpak hoofdzakelijk in JavaScript geprogrammeerd.
+In deze sectie gaan we inzoomen op bestaande mobiele HTML5 frameworks die gebruik maken van de laatste nieuwe technologieën zoals HTML5, CSS3 en JavaScript. Deze frameworks worden gecategoriseerd volgens twee courante aanpakken: mark-up gedreven en JavaScript gedreven. Bij een mark-up gedreven aanpak wordt de webapplicatie voornamelijk in HTML code geschreven. Daarentegen wordt bij een JavaScript gedreven aanpak hoofdzakelijk in JavaScript geprogrammeerd.
 
 \subsection{jQuery Mobile}
 jQuery Mobile is een mobiel HTML5 user interface (UI) framework dat werd aangekondigd in 2010. In november 2011 werd versie 1.0 uitgebracht en op het moment van schrijven zit jQuery Mobile aan versie 1.2.0. Het framework wordt beheerd door het jQuery Project dat onder andere jQuery Core beheert en waar jQuery Mobile afhankelijk van is. jQuery Mobile wordt door onder andere Adobe, BlackBerry en Mozilla gesponsord.

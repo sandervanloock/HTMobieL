@@ -76,6 +76,9 @@ $(document).on("pageinit", "#expense", function () {
                 required:function () {
                     return $("#expense-type-other").is(":checked");
                 }
+            },
+            "expense-evidence":{
+                required:true
             }
         },
         focusInvalid:false,
@@ -98,6 +101,9 @@ $(document).on("pageinit", "#expense", function () {
             } else {
                 currency = "EUR";
             }
+
+            // evidence
+
 
             EA.localExpenses.push({
                 "date":date.toISOString(),

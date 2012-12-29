@@ -63,27 +63,33 @@ $(document).on("pageinit", "#expense", function () {
         // initialize reader
         var reader = new FileReader();
 
-        // if the image was read, load it into the canvas
-        reader.onload = function (e) {
-            var canvas = $('#expense-evidence-canvas')[0];
-            var context = canvas.getContext('2d');
-            var img = new Image();
-            img.onload = function () {
-                // set canvas dimensions to image dimensions
-                canvas.width = this.width;
-                canvas.height = this.height;
-                // draw the image on the canvas
-                context.drawImage(this, 0, 0);
-                // get the base64 string
-                var base64 = canvas.toDataURL("image/png");
-                console.log(base64);
-                $("#expense-evidence-base64").val(base64);
-            }
-            img.src = e.target.result;
-        };
+        if (reader == null) {
+            // FileReaderAPI not supported
+            $("#expense-evidence-base64").val("FileReaderAPI not supported");
+        } else {
+            // if the image was read, load it into the canvas
+            reader.onload = function (e) {
+                var canvas = $('#expense-evidence-canvas')[0];
+                var context = canvas.getContext('2d');
+                var img = new Image();
+                img.onload = function () {
+                    // set canvas dimensions to image dimensions
+                    canvas.width = this.width;
+                    canvas.height = this.height;
+                    // draw the image on the canvas
+                    context.drawImage(this, 0, 0);
+                    // get the base64 string
+                    var base64 = canvas.toDataURL("image/png");
+                    console.log(base64);
+                    $("#expense-evidence-base64").val(base64);
+                }
+                img.src = e.target.result;
+            };
 
-        // read the image
-        reader.readAsDataURL(file);
+            // read the image
+            reader.readAsDataURL(file);
+        }
+
     });
 
     // form validation

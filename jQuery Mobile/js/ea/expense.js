@@ -49,6 +49,7 @@ $(document).on("pageinit", "#expense", function () {
     });
 
     // evidence to base64 via HTML5 canvas
+    var base64file;
     $('#expense-evidence-file').change(function (e) {
         // get the file
         var file = e.target.files[0];
@@ -74,7 +75,9 @@ $(document).on("pageinit", "#expense", function () {
                 // draw the image on the canvas
                 context.drawImage(this, 0, 0);
                 // get the base64 string
-                console.log(canvas.toDataURL("image/png"));
+                var base64 = canvas.toDataURL("image/png");
+                console.log(base64);
+                $("#expense-evidence-base64").val(base64);
             }
             img.src = e.target.result;
         };
@@ -122,15 +125,13 @@ $(document).on("pageinit", "#expense", function () {
         },
         submitHandler:function (form) {
             var date = new Date($("#expense-date").val());
+
             var currency;
             if ($("#expense-currency-div").is(":visible")) {
                 currency = $("#expense-currency").val();
             } else {
                 currency = "EUR";
             }
-
-            // evidence
-
 
             EA.localExpenses.push({
                 "date":date.toISOString(),
@@ -140,8 +141,7 @@ $(document).on("pageinit", "#expense", function () {
                 "remarks":$("#expense-remarks").val(),
                 "expenseTypeId":$("input[name=expense-type]:checked").val(),
                 "expenseLocationId":$("input[name=expense-tabbar]:checked").val(),
-                // TODO add evidence
-                "evidence":null
+                "evidence":$("#expense-evidence-base64").val()
             });
 
             $.mobile.changePage("#sign-and-send");

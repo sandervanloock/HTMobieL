@@ -1,16 +1,12 @@
 $(document).on("pageinit", "#expense", function () {
 
-    /**
-     * Load currencies
-     */
+    // load currencies
     $.each(EA.currencies, function (i, currency) {
         $("#expense-currency").append("<option value=\"" + currency + "\">" + currency + "</option>")
     });
     $("#expense-currency").selectmenu("refresh");
 
-    /**
-     * Tabbar Abroad or Domestic
-     */
+    // Tabbar Abroad or Domestic
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
 
@@ -40,9 +36,7 @@ $(document).on("pageinit", "#expense", function () {
         });
     });
 
-    /**
-     * Autocomplete for project code
-     */
+    // Autocomplete for project code
     $("#expense-project-code").autocomplete({
         target:$("#expense-suggestions"),
         source:EA.projectCodeSuggestions,
@@ -54,9 +48,42 @@ $(document).on("pageinit", "#expense", function () {
         minLength:1
     });
 
-    /**
-     * Form validation
-     */
+    // evidence to base64 via HTML5 canvas
+    $('#expense-evidence-file').change(function (e) {
+        // get the file
+        var file = e.target.files[0];
+
+        // only images as files
+        var imageType = /image.*/;
+        if (!file.type.match(imageType)) {
+            return;
+        }
+
+        // initialize reader
+        var reader = new FileReader();
+
+        // if the image was read, load it into the canvas
+        reader.onload = function (e) {
+            var canvas = $('#expense-evidence-canvas')[0];
+            var context = canvas.getContext('2d');
+            var img = new Image();
+            img.onload = function () {
+                // set canvas dimensions to image dimensions
+                canvas.width = this.width;
+                canvas.height = this.height;
+                // draw the image on the canvas
+                context.drawImage(this, 0, 0);
+                // get the base64 string
+                console.log(canvas.toDataURL("image/png"));
+            }
+            img.src = e.target.result;
+        };
+
+        // read the image
+        reader.readAsDataURL(file);
+    });
+
+    // form validation
     $("#expense-form").validate({
         rules:{
             "expense-date":{
@@ -77,7 +104,7 @@ $(document).on("pageinit", "#expense", function () {
                     return $("#expense-type-other").is(":checked");
                 }
             },
-            "expense-evidence":{
+            "expense-evidence-file":{
                 required:true
             }
         },

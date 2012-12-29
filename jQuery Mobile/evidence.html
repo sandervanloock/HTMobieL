@@ -6,22 +6,36 @@
     <script src="js/external/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
-            /*var $canvas = $('#canvas');
-             var ctx = $canvas[0].getContext('2d');*/
-            var ctx = document.getElementById('canvas').getContext('2d');
-            var reader = new FileReader;
 
-            reader.onload = function (event) {
-                var img = new Image;
+            $('#upload-file').change(function (e) {
+                // http://stackoverflow.com/questions/6775767/how-can-i-draw-an-image-from-the-html5-file-api-on-canvas
 
-                img.onload = function () {
-                    console.log("draw the image");
-                    ctx.drawImage(img, 20, 20);
-                    console.log('the image is drawn');
+                // get the file
+                var file = e.target.files[0];
+
+                // only images as files
+                var imageType = /image.*/;
+                if (!file.type.match(imageType))
+                    return;
+
+                // read the image
+                var reader = new FileReader();
+                // if the image was read, load it into the canvas
+                reader.onload = function (e) {
+                    var canvas = $('#canvas')[0];
+                    var context = canvas.getContext('2d');
+                    var img = new Image();
+                    img.onload = function () {
+                        canvas.width = this.width;
+                        canvas.height = this.height;
+                        context.drawImage(this, 20, 20);
+                        console.log(canvas.toDataURL("image/png"));
+                    }
+                    img.src = e.target.result;
                 };
+                reader.readAsDataURL(file);
 
-                img.src = event.target.result;
-            };
+            });
 
             $("#upload-form").validate({
                 rules:{
@@ -30,8 +44,7 @@
                     }
                 },
                 submitHandler:function (form) {
-                    console.log($("#upload-file").val());
-                    reader.readAsDataURL($("#upload-file").val());
+
                 }
             });
         });
@@ -40,8 +53,8 @@
 <body>
 <form id="upload-form">
     <input type="file" name="upload-file" id="upload-file">
-    <input type="submit">
+    <input type="text" name="upload-text" id="upload-text">
 </form>
-<canvas id="canvas" width="400" height="300"></canvas>
+<canvas id="canvas"></canvas>
 </body>
 </html>

@@ -60,13 +60,9 @@ $(document).on("pageinit", "#expense", function () {
             return;
         }
 
-        // initialize reader
-        var reader = new FileReader();
-
-        if (reader == null) {
-            // FileReaderAPI not supported
-            $("#expense-evidence-base64").val("FileReaderAPI not supported");
-        } else {
+        if (window.FileReader) {
+            // initialize reader
+            var reader = new FileReader();
             // if the image was read, load it into the canvas
             reader.onload = function (e) {
                 var canvas = $('#expense-evidence-canvas')[0];
@@ -88,6 +84,9 @@ $(document).on("pageinit", "#expense", function () {
 
             // read the image
             reader.readAsDataURL(file);
+        } else {
+            // FileReaderAPI not supported
+            $("#expense-evidence-base64").val("FileReaderAPI not supported");
         }
 
     });

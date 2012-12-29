@@ -24,6 +24,7 @@
     <script src="js/ea/overview.js"></script>
     <script src="js/ea/expense.js"></script>
     <script src="js/ea/sign-and-send.js"></script>
+    <script src="js/external/base64.js"></script>
 </head>
 <body>
 
@@ -270,6 +271,11 @@
                 <textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks"></textarea>
             </div>
 
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-evidence">Evidence:</label>
+                <input type="file" name="expense-evidence" id="expense-evidence" placeholder="Evidence">
+            </div>
+
             <input type="submit" data-role="submit" data-theme="f" value="Add">
         </form>
     </div>
@@ -288,12 +294,6 @@
 
     <div data-role="content">
         <form id="sign-and-send-form">
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="sign-and-send-signature">Remarks:</label>
-                <textarea name="sign-and-send-signature" id="sign-and-send-signature"
-                          placeholder="Signature"></textarea>
-            </div>
-
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="sign-and-send-remarks">Remarks:</label>
                 <textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea>

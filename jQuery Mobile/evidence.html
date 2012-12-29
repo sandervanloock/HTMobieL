@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="js/external/jquery-1.8.2.min.js"></script>
+    <script src="js/external/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            /*var $canvas = $('#canvas');
+             var ctx = $canvas[0].getContext('2d');*/
+            var ctx = document.getElementById('canvas').getContext('2d');
+            var reader = new FileReader;
+
+            reader.onload = function (event) {
+                var img = new Image;
+
+                img.onload = function () {
+                    console.log("draw the image");
+                    ctx.drawImage(img, 20, 20);
+                    console.log('the image is drawn');
+                };
+
+                img.src = event.target.result;
+            };
+
+            $("#upload-form").validate({
+                rules:{
+                    "upload-file":{
+                        required:true
+                    }
+                },
+                submitHandler:function (form) {
+                    console.log($("#upload-file").val());
+                    reader.readAsDataURL($("#upload-file").val());
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<form id="upload-form">
+    <input type="file" name="upload-file" id="upload-file">
+    <input type="submit">
+</form>
+<canvas id="canvas" width="400" height="300"></canvas>
+</body>
+</html>

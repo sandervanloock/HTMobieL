@@ -31,6 +31,9 @@
 % Dit mag verwijderd worden voor de af te drukken versie.
 \usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
 
+% zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
+\renewcommand{\url}[1]{\href{http://#1}{#1}}
+
 %%%%%%%
 % Om wat tekst te genereren wordt hier het lipsum pakket gebruikt.
 % Bij een echte masterproef heb je dit natuurlijk nooit nodig!

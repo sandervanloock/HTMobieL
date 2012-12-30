@@ -1,0 +1,24 @@
+Pro Android Web Apps: Develop for Android Using HTML5, CSS3 & JavaScript
+
+The Android OS implements a WebKit-based browser. WebKit (http://webkit.org) is an 
+open source browser engine that has reached a notable level of adoption for desktop 
+and mobile browsers alike. The WebKit engine powers many popular browsers like 
+Chrome and Safari on the desktop, and mobile Safari and the native Android browser in 
+mobile (to name a few). This alone is a great reason to build web applications for mobile 
+rather than native applications. As both Android and the iPhone implement a native 
+WebKit browser (Mobile Safari is WebKit at its core), you can target both devices very 
+simply if you consider WebKit as your common denominator. 
+Why is having WebKit in common so important? Given HTML5 and CSS3 are both still 
+emerging specifications, it will probably be a couple of years before web standards are 
+concrete and mobile browsers all behave in a consistent way. For now, having WebKit 
+as a common element between the two dominant consumer smartphone platforms is a 
+huge advantage. As developers, we can build applications that make use of the 
+components of HTML5 that are starting to stabilize (and are thus being implemented in 
+more progressive browser engines, such as WebKit), and actually have a good chance 
+of making those applications work on both an Android handset and an iPhone. Try doing 
+that with either native Android Java code or iPhone Objective-C code. 
+NOTE: Adoption of WebKit as the “mobile browser of choice” appears to be gaining momentum. 
+Research In Motion (RIM), the company responsible for BlackBerry, has adopted WebKit and 
+HTML5 in its new BlackBerry Torch. This is good news for mobile web application developers, 
+and I believe shows the future is in cross-platform web development rather than the current 
+trend of native development. 

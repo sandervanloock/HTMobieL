@@ -12,7 +12,7 @@ $(document).on("pageinit", "#expense", function () {
 
     // dingen tonen voor abroad
     $("#expense-tabbar-abroad").change(function () {
-        $("#expense-type-train").parent().hide();
+        $("#expense-type-ticket").parent().hide();
         $("#expense-type-restaurant-lunch").parent().hide();
         $("#expense-type-restaurant-diner").parent().hide();
         $("#expense-type-restaurant").parent().show();
@@ -25,7 +25,7 @@ $(document).on("pageinit", "#expense", function () {
 
     // dingen tonen voor domestic
     $("#expense-tabbar-domestic").change(function () {
-        $("#expense-type-train").parent().show();
+        $("#expense-type-ticket").parent().show();
         $("#expense-type-restaurant-lunch").parent().show();
         $("#expense-type-restaurant-diner").parent().show();
         $("#expense-type-restaurant").parent().hide();
@@ -76,7 +76,7 @@ $(document).on("pageinit", "#expense", function () {
                     context.drawImage(this, 0, 0);
                     // get the base64 string
                     var base64 = canvas.toDataURL("image/png");
-                    console.log(base64);
+                    // for developing and testing purposes
                     $("#expense-evidence-base64").val(base64);
                 }
                 img.src = e.target.result;

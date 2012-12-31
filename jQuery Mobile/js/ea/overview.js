@@ -4,10 +4,14 @@ $(document).on("pagebeforeshow", "#overview", function () {
     if (EA.localExpenses.length == 0) {
         $("#overview-list").append("<li>No local expenses submitted.</li>");
     } else {
-        $.each(EA.localExpenses, function (index, expense) {
+        // sort by ascending order
+        var sorted = EA.localExpenses.sort(EA.sortExpensesAscending);
+        // show them
+        $.each(sorted, function (index, expense) {
             var li = "<li><a href=\"#\">";
-            li += "<h1>" + expense.date + " </h1>";
-            li += "<p>" + expense.remarks + " (" + expense.amount + " " + expense.currency + ")</p>"
+            li += "<h1>" + EA.toBelgianDate(new Date(expense.date)) + " </h1>";
+            li += "<p>" + EA.expenseTypeIdToString(expense.expenseTypeId);
+            li += " (" + expense.amount + " " + expense.currency + ")</p>"
             li += "</a></li>"
             $("#overview-list").append(li);
         });

@@ -83,8 +83,26 @@ var EA = {
             return "Ticket";
         } else if (id == 5) {
             return "Restaurant";
-        } else {
+        } else if (id == 6) {
             return "Other";
+        } else {
+            return "ERROR_TYPE";
+        }
+    },
+
+    expenseStatusIdToString:function (id) {
+        if (id == 1) {
+            return "New";
+        } else if (id == 2) {
+            return "Verified";
+        } else if (id == 3) {
+            return "Approved";
+        } else if (id == 4) {
+            return "Paid out";
+        } else if (id == 5) {
+            return "Disapproved";
+        } else {
+            return "ERROR_STATUS";
         }
     }
 

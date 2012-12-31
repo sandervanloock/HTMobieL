@@ -14,7 +14,6 @@ $(document).on("pageshow", "#my-expenses", function () {
             $.mobile.loading("show");
         },
         success:function (xml) {
-            console.log(xml);
             var expenseForms = new Array();
 
             $(xml).find("expenseForm").each(function () {
@@ -26,20 +25,30 @@ $(document).on("pageshow", "#my-expenses", function () {
                 // > finds the direct descendant in tree
                 expenseForm.date = new Date($this.find(">date").text());
                 expenseForm.id = $this.find(">id").text();
+                expenseForm.statusId = $this.find(">statusId").text();
 
                 expenseForms.push(expenseForm);
             });
 
+            // hold list in local variable for performance
+            var $expenseList = $("#my-expenses-list");
+
+            // show expenses
             if (expenseForms.length == 0) {
-                $("#my-expenses-list").append("<li>No expenses submitted.</li>");
+                $expenseList.append("<li>No expenses submitted.</li>");
             } else {
+                var li;
                 $.each(expenseForms, function (i, expense) {
-                    var dateString = expense.date.getDate() + "/" + expense.date.getMonth() + "/" + expense.date.getFullYear();
-                    $("#my-expenses-list").append("<li><a id=\"my-expenses-show-pdf-" + expense.id + "\"><h1>" + dateString + "</h1><p>Status</p></a></li>");
+                    li = "<li><a id=\"my-expenses-show-pdf-" + expense.id + "\">";
+                    li += "<h1>" + EA.toBelgianDate(expense.date) + "</h1>";
+                    li += "<p>" + EA.expenseStatusIdToString(expense.statusId) + "</p>";
+                    li += "</a></li>";
+                    $expenseList.append(li);
                 });
             }
 
-            $("#my-expenses-list").listview("refresh");
+            // refresh the list
+            $expenseList.listview("refresh");
         },
         error:function (xhr, textStatus, errorThrown) {
             EA.showError("Backend error: " + xhr.status, errorThrown);
@@ -51,8 +60,11 @@ $(document).on("pageshow", "#my-expenses", function () {
 });
 
 $(document).on("tap", "[id^=my-expenses-show-pdf]", function () {
+    // get the id that is requested
     var expenseFormId = $(this).attr("id").replace("my-expenses-show-pdf-", "");
+    // copy requested data into hidden form
     $("#my-expenses-token").val(EA.token);
     $("#my-expenses-form-id").val(expenseFormId);
+    // submit that hidden form
     $('#my-expenses-form').submit();
 });

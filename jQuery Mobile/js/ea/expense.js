@@ -76,7 +76,7 @@ $(document).on("pageinit", "#expense", function () {
                     context.drawImage(this, 0, 0);
                     // get the base64 string
                     var base64 = canvas.toDataURL("image/png");
-                    console.log(base64);
+                    // for developing and testing purposes
                     $("#expense-evidence-base64").val(base64);
                 }
                 img.src = e.target.result;

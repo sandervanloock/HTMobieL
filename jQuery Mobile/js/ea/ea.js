@@ -53,6 +53,12 @@ var EA = {
         return (dateA - dateB);
     },
 
+    sortExpensesDescending:function (a, b) {
+        var dateA = new Date(a.date);
+        var dateB = new Date(b.date);
+        return (dateB - dateA);
+    },
+
     toBelgianDate:function (date) {
         // get properties
         var dd = date.getDate();

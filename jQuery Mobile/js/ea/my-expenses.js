@@ -30,6 +30,9 @@ $(document).on("pageshow", "#my-expenses", function () {
                 expenseForms.push(expenseForm);
             });
 
+            // sort the expenses in descending order
+            expenseForms.sort(EA.sortExpensesDescending);
+
             // hold list in local variable for performance
             var $expenseList = $("#my-expenses-list");
 
@@ -51,7 +54,7 @@ $(document).on("pageshow", "#my-expenses", function () {
             $expenseList.listview("refresh");
         },
         error:function (xhr, textStatus, errorThrown) {
-            EA.showError("Backend error: " + xhr.status, errorThrown);
+            EA.showBackendError("Could not fetch expenses from server.");
         },
         complete:function () {
             $.mobile.loading("hide");

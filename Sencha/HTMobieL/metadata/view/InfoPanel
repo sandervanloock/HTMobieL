@@ -1,0 +1,141 @@
+{
+    "type": "formpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "InfoPanel",
+        "designer|userAlias": "infopanel"
+    },
+    "id": "ExtBox1-ext-gen19886",
+    "designerId": "74ca280d-948f-46dc-b448-7e8ead164887",
+    "cn": [
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "InfoField",
+                "designer|userAlias": "infofield",
+                "id": "infofield",
+                "title": "1. Your info"
+            },
+            "designerId": "9fb61a46-963e-4b09-ba58-865b9ecdd224",
+            "cn": [
+                {
+                    "type": "selectfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySelectField2",
+                        "designer|displayName": "month",
+                        "label": "Month",
+                        "name": "month"
+                    },
+                    "designerId": "4120cd29-e5a5-497f-9398-ade734841c0b"
+                },
+                {
+                    "type": "selectfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySelectField3",
+                        "designer|displayName": "year",
+                        "label": "Year",
+                        "name": "year"
+                    },
+                    "designerId": "5f83ac4a-da3c-400c-8c2f-49d1e27d7887"
+                },
+                {
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextField",
+                        "id": "firstName",
+                        "label": "First Name",
+                        "name": "firstName",
+                        "readOnly": true
+                    },
+                    "designerId": "c2c993a6-92a7-41f3-b8d9-03662bec2fe1"
+                },
+                {
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextField1",
+                        "id": "lastName",
+                        "label": "Last Name",
+                        "name": "lastName",
+                        "readOnly": true
+                    },
+                    "designerId": "c326b7e5-630f-4b14-b988-e9134d326a5a"
+                },
+                {
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextField2",
+                        "id": "employeeNumber",
+                        "label": "Employee Number",
+                        "name": "employeeNumber"
+                    },
+                    "designerId": "97188dc0-9941-4faa-a624-b09137a07d65"
+                },
+                {
+                    "type": "selectfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySelectField",
+                        "id": "unit",
+                        "label": "Unit",
+                        "name": "unitId"
+                    },
+                    "designerId": "0f5fef97-33ee-4ce2-9dfc-dd38a7245a51"
+                },
+                {
+                    "type": "emailfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyEmailField",
+                        "id": "email",
+                        "label": "Email",
+                        "name": "email",
+                        "placeHolder": "email@example.com"
+                    },
+                    "designerId": "39cfc1c6-c901-4c75-bc6c-b8d079ae1cb5"
+                }
+            ]
+        }
+    ]
+}

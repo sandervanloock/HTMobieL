@@ -1,0 +1,48 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MenuController"
+    },
+    "id": "ExtBox1-ext-gen53033",
+    "designerId": "fea705dc-f330-4f98-83e5-d90340f5bd87",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onListItemTap",
+                "fn": "onListItemTap",
+                "implHandler": [
+                    "this.getDetail().setActiveItem(index);"
+                ],
+                "name": "itemtap",
+                "designer|targetType": "Ext.dataview.List",
+                "designer|controlQuery": "#menulist"
+            },
+            "designerId": "5e4795f2-a8c4-47e6-8887-551070aa38df"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "detail",
+                "ref": "detail",
+                "selector": "page"
+            },
+            "designerId": "48bc0ed6-17a5-4834-85b7-defb12ebc822"
+        }
+    ]
+}

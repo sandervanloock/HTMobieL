@@ -1,0 +1,66 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginController"
+    },
+    "id": "ExtBox1-ext-gen19404",
+    "designerId": "b034fcc3-e267-43e6-aee9-b35c7091f63e",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "login",
+                "ref": "login",
+                "selector": "loginpanel"
+            },
+            "designerId": "cbeb7acc-e760-4f4a-a063-8b3de3c9539a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onButtonTap",
+                "fn": "onButtonTap",
+                "implHandler": [
+                    "var fields= this.getLogin().getValues();  ",
+                    "console.log();",
+                    "",
+                    "this.getLogin().submit({",
+                    "    options: {",
+                    "        params: {",
+                    "            email: fields.email,",
+                    "            password: fields.password",
+                    "        },",
+                    "        success: function(form, result) {",
+                    "            console.log('Login succeeded!');",
+                    "            console.log(result);",
+                    "        },",
+                    "        failure: function(form, result){",
+                    "           console.log('Login Failed!');",
+                    "        }",
+                    "    }",
+                    " });",
+                    ""
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#login"
+            },
+            "designerId": "2c2bf273-1e86-4395-8335-e66e9149f856"
+        }
+    ]
+}

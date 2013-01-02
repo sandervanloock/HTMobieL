@@ -1,0 +1,228 @@
+{
+    "type": "container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AbroadExpense",
+        "designer|userAlias": "abroadexpense",
+        "scrollable": "vertical"
+    },
+    "id": "ExtBox1-ext-gen40312",
+    "designerId": "f6b822a5-53e9-4788-956f-340cbb3f9b50",
+    "cn": [
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet1",
+                "title": "3. Add Expense"
+            },
+            "designerId": "6fc68864-8f2f-4fae-969e-b4a5a7ce150f",
+            "cn": [
+                {
+                    "type": "datepickerfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyDateField",
+                        "id": "date",
+                        "label": "Date Of Expense",
+                        "placeHolder": "mm/dd/yyyy",
+                        "readOnly": true
+                    },
+                    "designerId": "4f4dd2d2-7ec8-4539-833c-b3407557704a",
+                    "cn": [
+                        {
+                            "type": "datepicker",
+                            "reference": {
+                                "name": "picker",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "MyDatePicker"
+                            },
+                            "designerId": "32165427-4c86-4e29-ba0e-bc19500ec91f",
+                            "cn": [
+                                {
+                                    "type": "button",
+                                    "reference": {
+                                        "name": "doneButton",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "MyButton1",
+                                        "text": "Done"
+                                    },
+                                    "designerId": "3756dfe8-5d1d-4990-9d4d-cf0666b334ce"
+                                },
+                                {
+                                    "type": "button",
+                                    "reference": {
+                                        "name": "cancelButton",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "MyButton2",
+                                        "text": "Cancel"
+                                    },
+                                    "designerId": "d88c446d-e958-4ee3-9e7a-2ce6a41e5af3"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextField3",
+                        "id": "projectcode",
+                        "label": "Project Code",
+                        "readOnly": true
+                    },
+                    "designerId": "0aa0f25e-383a-4f3e-9358-2935aba82713"
+                },
+                {
+                    "type": "radiofield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyRadioButton",
+                        "id": "hotel",
+                        "label": "Hotel"
+                    },
+                    "designerId": "a4c297a1-2929-40a6-8bc1-954fd2a5d6f4"
+                },
+                {
+                    "type": "radiofield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyRadioButton6",
+                        "id": "lunch",
+                        "label": "Restaurant (Diner)"
+                    },
+                    "designerId": "e825c6a3-b58c-496a-bb37-a5e9a532e194"
+                },
+                {
+                    "type": "radiofield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyRadioButton2",
+                        "id": "other",
+                        "label": "Other (please specify)"
+                    },
+                    "designerId": "05e5d0dd-a7f1-418e-9bff-4185c21c37cf"
+                },
+                {
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextField4",
+                        "id": "amount",
+                        "label": "Amount",
+                        "readOnly": true
+                    },
+                    "designerId": "fc129959-9891-417f-98da-7d70a5bb9351"
+                },
+                {
+                    "type": "selectfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySelectField",
+                        "designer|displayName": "currency",
+                        "label": "Currency"
+                    },
+                    "designerId": "e0358d50-ea1c-458b-acb1-c0620c269c8f"
+                },
+                {
+                    "type": "textareafield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextArea",
+                        "id": "remarks",
+                        "label": "Remarks",
+                        "readOnly": true
+                    },
+                    "designerId": "f0c1ff74-99ad-4ce1-a7d3-6bef1513f76a"
+                },
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton3",
+                        "height": 43,
+                        "id": "back",
+                        "ui": "action-round",
+                        "width": 230,
+                        "iconCls": "download",
+                        "iconMask": true,
+                        "text": "Upload Evidence"
+                    },
+                    "designerId": "529ed9a2-4df0-4bba-b107-a1824dc083ef"
+                },
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton9",
+                        "height": 46,
+                        "ui": "confirm",
+                        "width": 229,
+                        "iconCls": "add",
+                        "iconMask": true,
+                        "text": "Add"
+                    },
+                    "designerId": "b4555f8c-21d8-4940-80dd-81cbdbbc3cc1"
+                }
+            ]
+        }
+    ]
+}

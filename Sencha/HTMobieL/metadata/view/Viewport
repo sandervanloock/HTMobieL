@@ -1,0 +1,90 @@
+{
+    "type": "container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|pack": "center",
+        "designer|userClassName": "Viewport",
+        "designer|userAlias": "viewport",
+        "designer|initialView": true,
+        "fullscreen": true,
+        "height": null,
+        "width": null,
+        "layout": "hbox"
+    },
+    "id": "ExtBox1-ext-gen8596",
+    "designerId": "09c49a29-4ac2-4119-9632-1cf64b273a58",
+    "cn": [
+        {
+            "type": "toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToolbar",
+                "docked": "top",
+                "id": "toolbar",
+                "style": null,
+                "ui": "light",
+                "title": "Expense App"
+            },
+            "designerId": "282791c2-c161-4ab0-a95f-5852ef0b93cd",
+            "cn": [
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton",
+                        "docked": "left",
+                        "right": null,
+                        "ui": "confirm-round",
+                        "icon": "",
+                        "iconCls": "action",
+                        "iconMask": true,
+                        "text": "Login"
+                    },
+                    "designerId": "41bd57cd-7514-4869-ba66-9fa0e12afa68"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "left"
+            },
+            "designerId": "5184b00c-c9af-4996-abc0-d865cefeb16e",
+            "masterInstanceId": "ExtBox1-ext-gen24753"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": null,
+                "height": null,
+                "ui": "light",
+                "width": "100%",
+                "scrollable": true
+            },
+            "designerId": "b71517fb-3268-4d26-a0c9-cb52f584f546",
+            "masterInstanceId": "ExtBox1-ext-gen12690"
+        }
+    ]
+}

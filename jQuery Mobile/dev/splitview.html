@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>Expense App</title>
+    <link href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" type="text/css" rel="stylesheet"/>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+    <script src='http://simplesplitview.sourceforge.net/simplesplitview-1.0.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <style type="text/css">
+        .padsidestwenty {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        pre {
+            overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+            white-space: pre-wrap; /* css-3 */
+            white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+        }
+    </style>
+
+    <script type='text/javascript'>
+
+        function showLeft(leftdiv, rightdiv, dontslideright, dontslideleft) {
+            $('#splitviewcontainer').simplesplitview('showLeft', leftdiv, rightdiv, dontslideright, dontslideleft);
+        }
+
+        function showRight(rightdiv, dontslideright) {
+            $('#splitviewcontainer').simplesplitview('showRight', rightdiv, dontslideright);
+        }
+
+        function navHome() {
+            $('#splitviewcontainer').simplesplitview('navHome');
+        }
+
+        function navBack() {
+            $('#splitviewcontainer').simplesplitview('navBack');
+        }
+
+        $('#mainpage').live('pageshow', function (event) {
+            document.getElementById('splitviewcontainer').padding = 44;
+            $('#splitviewcontainer').simplesplitview();
+        });
+
+    </script>
+</head>
+<body>
+
+<div data-role="page" id="mainpage" data-title="Expense App" data-theme="a">
+
+    <div data-role="header" data-position="fixed" data-theme="a">
+        <a onclick="navBack();" data-icon="back" style="display: none;" id="splitviewcontainer_backbutton">Back</a>
+
+        <h1 id='appmaintitle'>Expense App</h1>
+        <a onclick="navHome();" data-icon="home" style="display: none;" id="splitviewcontainer_homebutton">Home</a>
+    </div>
+
+    <div data-role="content" id="splitviewcontainer" class="splitviewcontainer" data-theme="d">
+        <div class='leftside padsidestwenty' id='startpageleft'>
+            <h2>New Expense</h2>
+            <ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="a">
+                <li><a onclick="showRight('your-info');">Your info</a></li>
+                <li><a onclick="showRight('overview');">Overview</a></li>
+                <li><a onclick="showRight('add-expense');">Add Expense</a></li>
+                <li><a onclick="showRight('sign-send');">Sign & Send</a></li>
+            </ul>
+        </div>
+        <div class='rightside padsidestwenty' id='your-info'>
+            <h3>Your info</h3>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate odio non enim laoreet sed
+                molestie diam faucibus. Quisque accumsan arcu dui, ac pellentesque neque. Donec aliquet eleifend dui, eu
+                condimentum metus facilisis ut. Vestibulum elementum hendrerit ligula. Nunc velit enim, porta a
+                convallis non, porta et eros. Phasellus erat metus, fringilla sed facilisis sed, ornare sed eros.
+                Phasellus adipiscing nulla ut lectus suscipit ultricies. Pellentesque egestas, lectus non imperdiet
+                ornare, augue augue aliquam massa, eget placerat neque nisi id quam. Sed gravida egestas eros. In hac
+                habitasse platea dictumst.
+            </p>
+        </div>
+
+    </div>
+    <!-- /content -->
+
+</div>
+<!-- /page -->
+
+</body>
+</html>
+		

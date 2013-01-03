@@ -172,7 +172,7 @@ Ext.application({
     	return this.token;
     },
     
-    baseURL: 'http://kulcapexpenseapp.appspot.com',
+    baseURL: 'http://localhost:8888',
     
     getBaseURL : function(){
     	return this.baseURL;

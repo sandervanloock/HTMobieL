@@ -1,0 +1,17 @@
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+/* Red border for invalid fields */
+.error {
+    border: 2px solid red;
+}
+
+/* Hide canvas needed to convert image to base64 */
+#expense-evidence-canvas {
+    display: none;
+}

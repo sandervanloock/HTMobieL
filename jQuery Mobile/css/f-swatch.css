@@ -1,0 +1,62 @@
+/* F swatch (green button)
+-----------------------------------------------------------------------------------------------------------*/
+
+.ui-btn-up-f {
+    border: 1px solid #009245 /*{f-bup-border}*/;
+    background: #009245 /*{f-bup-background-color}*/;
+    font-weight: bold;
+    color: #ffffff /*{f-bup-color}*/;
+    text-shadow: 0 /*{f-bup-shadow-x}*/ 1px /*{f-bup-shadow-y}*/ 0 /*{f-bup-shadow-radius}*/ #444444 /*{f-bup-shadow-color}*/;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( #00a04b /*{f-bup-background-start}*/), to( #00833e /*{f-bup-background-end}*/)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( #00a04b /*{f-bup-background-start}*/, #00833e /*{f-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient( #00a04b /*{f-bup-background-start}*/, #00833e /*{f-bup-background-end}*/); /* FF3.6 */
+    background-image:     -ms-linear-gradient( #00a04b /*{f-bup-background-start}*/, #00833e /*{f-bup-background-end}*/); /* IE10 */
+    background-image:      -o-linear-gradient( #00a04b /*{f-bup-background-start}*/, #00833e /*{f-bup-background-end}*/); /* Opera 11.10+ */
+    background-image:         linear-gradient( #00a04b /*{f-bup-background-start}*/, #00833e /*{f-bup-background-end}*/);
+}
+.ui-btn-up-f:visited,
+.ui-btn-up-f a.ui-link-inherit {
+    color: #ffffff /*{f-bup-color}*/;
+}
+.ui-btn-hover-f {
+    border: 1px solid #45a74f /*{f-bhover-border}*/;
+    background: #45a74f /*{f-bhover-background-color}*/;
+    font-weight: bold;
+    color: #ffffff /*{f-bhover-color}*/;
+    text-shadow: 0 /*{f-bhover-shadow-x}*/ 1px /*{f-bhover-shadow-y}*/ 0 /*{f-bhover-shadow-radius}*/ #444444 /*{f-bhover-shadow-color}*/;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( #4bb756 /*{f-bhover-background-start}*/), to( #3e9647 /*{f-bhover-background-end}*/)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( #4bb756 /*{f-bhover-background-start}*/, #3e9647 /*{f-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient( #4bb756 /*{f-bhover-background-start}*/, #3e9647 /*{f-bhover-background-end}*/); /* FF3.6 */
+    background-image:     -ms-linear-gradient( #4bb756 /*{f-bhover-background-start}*/, #3e9647 /*{f-bhover-background-end}*/); /* IE10 */
+    background-image:      -o-linear-gradient( #4bb756 /*{f-bhover-background-start}*/, #3e9647 /*{f-bhover-background-end}*/); /* Opera 11.10+ */
+    background-image:         linear-gradient( #4bb756 /*{f-bhover-background-start}*/, #3e9647 /*{f-bhover-background-end}*/);
+}
+.ui-btn-hover-f:visited,
+.ui-btn-hover-f:hover,
+.ui-btn-hover-f a.ui-link-inherit {
+    color: #ffffff /*{f-bhover-color}*/;
+}
+.ui-btn-down-f {
+    border: 1px solid #45a74f /*{f-bdown-border}*/;
+    background: #45a74f /*{f-bdown-background-color}*/;
+    font-weight: bold;
+    color: #ffffff /*{f-bdown-color}*/;
+    text-shadow: 0 /*{f-bdown-shadow-x}*/ 1px /*{f-bdown-shadow-y}*/ 0 /*{f-bdown-shadow-radius}*/ #444444 /*{f-bdown-shadow-color}*/;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( #3e9647 /*{f-bdown-background-start}*/), to( #4bb756 /*{f-bdown-background-end}*/)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( #3e9647 /*{f-bdown-background-start}*/, #4bb756 /*{f-bdown-background-end}*/); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient( #3e9647 /*{f-bdown-background-start}*/, #4bb756 /*{f-bdown-background-end}*/); /* FF3.6 */
+    background-image:     -ms-linear-gradient( #3e9647 /*{f-bdown-background-start}*/, #4bb756 /*{f-bdown-background-end}*/); /* IE10 */
+    background-image:      -o-linear-gradient( #3e9647 /*{f-bdown-background-start}*/, #4bb756 /*{f-bdown-background-end}*/); /* Opera 11.10+ */
+    background-image:         linear-gradient( #3e9647 /*{f-bdown-background-start}*/, #4bb756 /*{f-bdown-background-end}*/);
+}
+.ui-btn-down-f:visited,
+.ui-btn-down-f:hover,
+.ui-btn-down-f a.ui-link-inherit {
+    color: #ffffff /*{f-bdown-color}*/;
+}
+.ui-btn-up-f,
+.ui-btn-hover-f,
+.ui-btn-down-f {
+    font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+    text-decoration: none;
+}

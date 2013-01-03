@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Expense App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Tim Ameye">
+    <meta name="description" content="A proof of concept expense application">
+
+    <link rel="stylesheet" href="css/f-swatch.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
+    <link rel="stylesheet" href="css/ea.css">
+
+    <script src="js/external/jquery-1.8.2.js"></script>
+    <script src="js/external/jquery.validate.js"></script>
+    <script src="js/ea/before.js"></script>
+    <script src="js/external/jquery.mobile-1.2.0.js"></script>
+    <script src="js/external/jqm.autoComplete-1.5.0.js"></script>
+    <script src="js/ea/ea.js"></script>
+    <script src="js/ea/login.js"></script>
+    <script src="js/ea/home.js"></script>
+    <script src="js/ea/my-expenses.js"></script>
+    <script src="js/ea/your-info.js"></script>
+    <script src="js/ea/overview.js"></script>
+    <script src="js/ea/expense.js"></script>
+    <script src="js/ea/sign-and-send.js"></script>
+    <script src="js/external/base64.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="home">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a id="home-logout" class="ui-btn-right" data-theme="b">Log out</a>
+    </div>
+
+    <div data-role="content">
+        <p>Welcome, <span id="home-employee-name"></span>.</p>
+
+        <p>I want to:</p>
+        <a href="#add" data-role="button" data-theme="b">Create New Expense</a>
+        <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="my-expenses">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview" id="my-expenses-list">
+
+        </ul>
+        <form id="my-expenses-form" target="_blank"
+              action="http://kulcapexpenseapp.appspot.com/resources/expenseService/getExpenseFormPDF" method="post">
+            <input type="hidden" name="token" id="my-expenses-token">
+            <input type="hidden" name="expenseFormId" id="my-expenses-form-id">
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="add">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <ol data-role="listview">
+            <li data-role="list-divider">New expense</li>
+            <li><a href="#your-info">Your info</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#expense">Add Expense</a></li>
+            <li><a href="#sign-and-send">Sign and send</a></li>
+        </ol>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="your-info">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="your-info-form">
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <label for="your-info-date-month">Month</label>
+                    <select id="your-info-date-month" name="your-info-date-month" class="required">
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+
+                    <label for="your-info-date-year">Year</label>
+                    <select name="your-info-date-year" id="your-info-date-year" class="required">
+                        <option value="">Year</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                    </select>
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="your-info-firstname">First Name:</label>
+                <input type="text" name="your-info-firstname" id="your-info-firstname" placeholder="First Name"
+                       readonly>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="your-info-lastname">Last Name:</label>
+                <input type="text" name="your-info-lastname" id="your-info-lastname" placeholder="Last Name" readonly>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="your-info-employee-number">Employee Number</label>
+                <input type="number" class="required" name="your-info-employee-number" id="your-info-employee-number"
+                       placeholder="Employee Number">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="your-info-units" class="select">Unit:</label>
+                <select name="your-info-units" id="your-info-units" class="required">
+                    <option value="">Unit</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="your-info-email">Email</label>
+                <input class="required" type="email" name="your-info-email" id="your-info-email" placeholder="Email">
+            </div>
+
+            <input type="submit" data-role="submit" data-theme="f" value="Next">
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="overview">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview" id="overview-list">
+
+        </ul>
+        <p class="align-right">
+            <a href="#expense" data-role="button" data-theme="f" data-inline="true">Add Expense</a>
+            <a href="#sign-and-send" data-role="button" data-theme="f" data-inline="true">Sign & Send</a>
+        </p>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="expense">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="expense-form">
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <fieldset data-role="controlgroup" data-type="horizontal" id="expense-tabbar">
+                    <legend>Type:</legend>
+
+                    <label for="expense-tabbar-abroad">Abroad</label>
+                    <input type="radio" name="expense-tabbar" id="expense-tabbar-abroad" value="2">
+
+                    <label for="expense-tabbar-domestic">Domestic</label>
+                    <input type="radio" name="expense-tabbar" id="expense-tabbar-domestic" value="1" checked>
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-date">Date of Expense:</label>
+                <input type="date" name="expense-date" id="expense-date">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-project-code">Project Code:</label>
+                <input type="text" name="expense-project-code" id="expense-project-code"
+                       placeholder="Project Code">
+                <ul id="expense-suggestions" data-role="listview" data-inset="true"></ul>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <fieldset data-role="controlgroup" id="expense-type">
+                    <legend>Choose the type:</legend>
+
+                    <label for="expense-type-hotel">Hotel</label>
+                    <input type="radio" name="expense-type" id="expense-type-hotel" value="1">
+
+                    <label for="expense-type-ticket">Train/Plane tickets</label>
+                    <input type="radio" name="expense-type" id="expense-type-ticket" value="4">
+
+                    <label for="expense-type-restaurant">Restaurant</label>
+                    <input type="radio" name="expense-type" id="expense-type-restaurant" value="5">
+
+                    <label for="expense-type-restaurant-lunch">Restaurant (Lunch)</label>
+                    <input type="radio" name="expense-type" id="expense-type-restaurant-lunch" value="2">
+
+                    <label for="expense-type-restaurant-diner">Restaurant (Diner)</label>
+                    <input type="radio" name="expense-type" id="expense-type-restaurant-diner" value="3">
+
+                    <label for="expense-type-other">Other (please specify)</label>
+                    <input type="radio" name="expense-type" id="expense-type-other" value="6">
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label" id="expense-currency-div">
+                <label for="expense-currency" class="select">Currency:</label>
+                <select name="expense-currency" id="expense-currency">
+                    <option value="">Currency</option>
+                </select>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-amount">Amount:</label>
+                <input type="number" name="expense-amount" id="expense-amount" placeholder="Amount">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-remarks">Remarks:</label>
+                <textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks"></textarea>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-evidence-file">Evidence:</label>
+                <input type="file" name="expense-evidence-file" id="expense-evidence-file" placeholder="Evidence">
+            </div>
+            <canvas id="expense-evidence-canvas"></canvas>
+            <input type="text" name="expense-evidence-base64" id="expense-evidence-base64">
+
+            <input type="submit" data-role="submit" data-theme="f" value="Add">
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="sign-and-send">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="sign-and-send-form">
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="sign-and-send-remarks">Remarks:</label>
+                <textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea>
+            </div>
+
+            <div data-role="fieldcontain">
+                <label for="sign-and-send-notification">Status notification via Email:</label>
+                <select name="sign-and-send-notification" id="sign-and-send-notification" data-role="slider">
+                    <option value="off">Off</option>
+                    <option value="on" selected>On</option>
+                </select>
+            </div>
+
+            <p class="align-right">
+                <input type="submit" data-role="submit" data-theme="f" data-inline="true" value="Send">
+            </p>
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="login">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="login-form">
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-username">Username:</label>
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username"
+                       value="tim.ameye@student.kuleuven.be">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-password">Password:</label>
+                <input type="password" class="required" name="login-password" id="login-password"
+                       placeholder="Password" value="test123">
+            </div>
+
+            <input type="submit" data-role="submit" data-theme="f" value="Log in">
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="dialog" id="error">
+    <div data-role="header">
+        <h1 id="error-title"></h1>
+    </div>
+    <div data-role="content">
+        <p id="error-message"></p>
+        <ul id="message-box"></ul>
+        <a href="#" data-role="button" data-rel="back" data-theme="b">Ok</a>
+    </div>
+</div>
+
+<div data-role="dialog" id="error-validation">
+    <div data-role="header">
+        <h1>Validation error</h1>
+    </div>
+    <div data-role="content">
+        <p id="error-validation-message"></p>
+        <ul id="error-validation-items"></ul>
+        <a href="#" data-role="button" data-rel="back" data-theme="b">Close</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="js/external/jquery-1.8.2.min.js"></script>
+    <script src="js/external/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#upload-file').change(function (e) {
+                // http://stackoverflow.com/questions/6775767/how-can-i-draw-an-image-from-the-html5-file-api-on-canvas
+
+                // get the file
+                var file = e.target.files[0];
+
+                // only images as files
+                var imageType = /image.*/;
+                if (!file.type.match(imageType))
+                    return;
+
+                // read the image
+                var reader = new FileReader();
+                // if the image was read, load it into the canvas
+                reader.onload = function (e) {
+                    var canvas = $('#canvas')[0];
+                    var context = canvas.getContext('2d');
+                    var img = new Image();
+                    img.onload = function () {
+                        canvas.width = this.width;
+                        canvas.height = this.height;
+                        context.drawImage(this, 20, 20);
+                        console.log(canvas.toDataURL("image/png"));
+                    }
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+
+            });
+
+            $("#upload-form").validate({
+                rules:{
+                    "upload-file":{
+                        required:true
+                    }
+                },
+                submitHandler:function (form) {
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<form id="upload-form">
+    <input type="file" name="upload-file" id="upload-file">
+    <input type="text" name="upload-text" id="upload-text">
+</form>
+<canvas id="canvas"></canvas>
+</body>
+</html>

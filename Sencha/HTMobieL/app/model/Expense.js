@@ -4,12 +4,9 @@ Ext.define('Expense.model.Expense', {
 
 	config : {
 		fields : [ {
-			name : 'id'
-		}, /*{
-			name : 'employee_id2',
-			type : 'string',
-			value:  "4"
-		}	,*/ {
+			name: 'expenseform_id',
+			type: 'int'
+		},{
 			name : 'expenseType',
 			convert : typeId,
 			mapping : 'expenseTypeId',
@@ -36,9 +33,25 @@ Ext.define('Expense.model.Expense', {
 			name : 'remarks',
 			type : 'string'
 		}  ],
-		/*belongsTo : {
-			associatedModel : 'Expense.model.Employee'
-		},*/
+		belongsTo: {
+			associatedModel : 'Expense.model.ExpenseForm',
+			name: 'expenseForm'
+		},  
+		proxy: {
+            type: 'ajax',
+            //url: Expense.app.getBaseURL() + '/resources/expenseService/getExpenseForms',
+            url: 'expenseForm.xml',
+            actionMethods: {
+                create : 'POST',
+                read   : 'POST',
+                update : 'POST',
+                destroy: 'POST'
+            },
+            reader: {
+                type: 'xml',
+                record: 'expense'
+            }
+        },
 		validations : [
 		// TODO if other => remarks
 		{
@@ -46,12 +59,14 @@ Ext.define('Expense.model.Expense', {
 			name : 'projectCode'
 		}, {
 			type : 'presence',
-			name : 'amount'
-		} // TODO amount >0
+			name : 'amount',
+			//TODO matcher: '/([1-9]+)/'
+		}
 		// TODO evidence uploaded
 		]
 	}
 });
+
 
 function currencyConvert(v, currentRecord) {
 	var currencies = Ext.getStore('currencystore').queryBy(

@@ -6,7 +6,7 @@ Ext.define('Expense.view.TotalOverviewList', {
     config: {
         ui: 'round',
         id: 'totaloverviewlist',
-        store: 'expensestore',
+        store: 'expenseformstore',
         onItemDisclosure: true,
         items: [{
             xtype: 'toolbar',
@@ -27,7 +27,7 @@ Ext.define('Expense.view.TotalOverviewList', {
             ]
         }],
         itemTpl: [
-            '<div>{date:date("d/m/Y")} &mdash; <small> {expenseType} : {amount}  EUR</small></div>'
+            '<div>{date:date("d/m/Y")} &mdash; <small> {id} </small></div>'
         ]
     }
 

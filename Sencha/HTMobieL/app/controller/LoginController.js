@@ -29,7 +29,23 @@ Ext.define('Expense.controller.LoginController', {
     },
 
     doLogin: function(button, e, options) {
-        var fields= this.getLogin().getValues();  
+        var fields= this.getLogin().getValues();
+        if(fields.email == '' || fields.password == ''){
+        	var message = '';
+        	if(fields.email == ''){
+				message = message + 'Email must be present'; 
+				Ext.getCmp('email').setStyle('border-color: red; border-style: solid;');
+        	} if(fields.password == ''){
+        		message = message + 'Password must be present'; 
+				Ext.getCmp('password').setStyle('border-color: red; border-style: solid;');
+        	}
+			Ext.Msg.show({
+				   title: 'Error',
+				   message: message,
+				   width: 300,
+				   buttons: Ext.MessageBox.OK
+			});
+        }
         Ext.Ajax.request({
 			url : Expense.app.getBaseURL() + '/resources/userService/login', //TODO url
 			method : 'POST',
@@ -40,11 +56,19 @@ Ext.define('Expense.controller.LoginController', {
                 password: fields.password
             },
 			success : function(response, opts) {
-				if(response.responseText.length <= 0)
+				if(response.responseText.length <= 0){
+					/*Ext.device.Notification.vibrate();
 					Ext.device.Notification.show({
 					    title: 'Login Failed',
 					    message: 'Given email and password not found.'
+					});*/ //TODO nativa app
+					Ext.Msg.show({
+						   title: 'Error',
+						   message: 'Login could not be found!',
+						   width: 300,
+						   buttons: Ext.MessageBox.OK
 					});
+				}
 				else{		
 					Expense.app.setToken(response.responseText);
 					var employeeStore = Ext.getStore('employeestore');

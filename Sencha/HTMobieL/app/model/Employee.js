@@ -25,19 +25,18 @@ Ext.define('Expense.model.Employee', {
 			name : 'password',
 			type : 'string'
 		} ],
-		/*hasMany : {
-			associatedModel : 'Expense.model.Expense',
-			name : 'expenses'
-		},*/
 		validations : [ {
 			type : 'presence',
 			field : 'employeeNumber'
+		}, {
+			type : 'presence',
+			field : 'email'
 		}, {
 			type : 'email',
 			field : 'email'
 		}, {
 			type : 'presence',
-			field : 'unit'
+			field : 'unitId'
 		} ]
 	}
 });

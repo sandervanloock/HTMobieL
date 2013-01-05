@@ -5,12 +5,14 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'Expense',
+        'ExpenseForm',
         'Employee'
     ],
     stores: [
         'MenuStore',
         'ExpenseStore',
         'EmployeeStore',
+        'ExpenseFormStore',
         'ProjectCodeStore',
         'CurrencyStore'
     ],
@@ -31,7 +33,8 @@ Ext.application({
         'SignField',
         'AddExpenseContainer',
         'InfoPanel',
-        'Ext.ux.panel.PDF'
+        'Ext.ux.panel.PDF',
+        'Ext.ux.Fileup'
     ],
     name: 'Expense',
     controllers: [
@@ -172,7 +175,7 @@ Ext.application({
     	return this.token;
     },
     
-    baseURL: 'http://localhost:8888',
+    baseURL: 'http://localhost:8888', //'http://kulcapexpenseapp.appspot.com', //
     
     getBaseURL : function(){
     	return this.baseURL;

@@ -1,17 +1,16 @@
 
-Ext.define('Expense.store.ExpenseStore', {
+Ext.define('Expense.store.ExpenseFormStore', {
     extend: 'Ext.data.Store',
-    alias: 'store.expensestore',
-    id: 'expensestore',
+    alias: 'store.expenseformstore',
 
     requires: [
-        'Expense.model.Expense'
+        'Expense.model.ExpenseForm'
     ],
 
     config: {
     	autoLoad: false,
-        model: 'Expense.model.Expense',
-        storeId: 'expensestore',
+        model: 'Expense.model.ExpenseForm',
+        storeId: 'expenseformstore',
         proxy: {
             type: 'ajax',
             url: Expense.app.getBaseURL() + '/resources/expenseService/getExpenseForms',
@@ -23,7 +22,8 @@ Ext.define('Expense.store.ExpenseStore', {
             },
             reader: {
                 type: 'xml',
-                record: 'expenses'
+                record: 'expenseForm',
+                idProperty: 'id'
             }
         },
         sorters: {

@@ -32,7 +32,7 @@ Ext.define('Expense.store.MenuStore', {
                 item: 'Sign & Send'
             }
         ],
-        storeId: 'MyJsonStore',
+        storeId: 'menustore',
         proxy: {
             type: 'ajax',
             reader: {

@@ -35,16 +35,9 @@ Ext.define('Expense.store.EmployeeStore', {
 			var employee = employeeStore.getAt(0);
 			Expense.app.setEmployee(employee);
 		    
-		    Ext.getCmp('introtext').setHtml('Hello, ' + employee.get('firstName') + '<br> I want to: <br>');
-			
-			var infopanel = Ext.getCmp('infopanel');
-			infopanel.setRecord(employee); 
-			var today = new Date();
-			if(today.getUTCDate() < 14)
-				infopanel.getComponent('infofield').getComponent('month').setValue((today.getUTCMonth()) % 13);
-			else
-				infopanel.getComponent('infofield').getComponent('month').setValue((today.getUTCMonth()+1) % 13);
-			infopanel.getComponent('infofield').getComponent('year').setValue('7'); //TODO welk jaar invullen en waarop gebaseerd?
+		    Ext.getCmp('introtext').setHtml('Welcome, ' + employee.get('firstName') + '<br> I want to: <br>');
+
+			initializeInfoPanel(employee);
 			
 			Ext.Viewport.setActiveItem(Ext.getCmp('home'));
 			
@@ -53,7 +46,39 @@ Ext.define('Expense.store.EmployeeStore', {
 				token: Expense.app.getToken()
 			});
 			expenseStore.load();
+			
+			var expenseStore = Ext.getStore('expenseformstore');
+			expenseStore.getProxy().setExtraParams({
+				token: Expense.app.getToken()
+			});
+			expenseStore.load();
+			
 	 }
    
 });
+
+Number.prototype.mod = function(n) {
+	return ((this%n)+n)%n;
+};
+
+initializeInfoPanel = function(employee){
+	var infopanel = Ext.getCmp('infopanel');
+	infopanel.setRecord(employee); 
+	var today = new Date();
+	infopanel.getComponent('infofield').getComponent('year').setOptions(
+			[{text: today.getFullYear()-1, value: today.getFullYear()-1},
+			 {text: today.getFullYear(), value: today.getFullYear()},
+			 {text: today.getFullYear()+1, value: today.getFullYear()+1}]);
+	if(today.getUTCDate() > 14){
+		infopanel.getComponent('infofield').getComponent('month').setValue(today.getUTCMonth().mod(12)+'');
+		infopanel.getComponent('infofield').getComponent('year').setValue(today.getFullYear());
+	}
+	else{ //zet vorige maand
+		infopanel.getComponent('infofield').getComponent('month').setValue((today.getUTCMonth()-1).mod(12)+'');
+		if(infopanel.getComponent('infofield').getComponent('month').getValue() == '11')
+			infopanel.getComponent('infofield').getComponent('year').setValue(today.getFullYear()-1);
+		else //zet vorig jaar
+			infopanel.getComponent('infofield').getComponent('year').setValue(today.getFullYear());
+	}
+};
 

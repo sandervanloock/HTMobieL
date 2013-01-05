@@ -33,7 +33,7 @@ Ext.define('Expense.view.Menu', {
                     '<div>{item}</div>'
                 ],
                 scrollToTopOnRefresh: false,
-                store: 'MyJsonStore'
+                store: 'menustore'
             }
         ]
     }

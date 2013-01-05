@@ -3,11 +3,16 @@ Ext.define('Expense.view.AbroadExpense', {
     extend: 'Ext.form.Panel',
     alias: 'widget.abroadexpense',
     id: 'abroadexpense',
+    
+    requires: [
+        'Ext.ux.Fileup'
+    ],
 
     config: {
         items: [
             {
                 xtype: 'fieldset',
+                id: 'abroadfield',
                 title: '3. Add Expense',
                 items: [
                     {
@@ -21,7 +26,8 @@ Ext.define('Expense.view.AbroadExpense', {
                         xtype: 'textfield',
                         label: 'Project Code',
                         value: 'G05656', //TODO verwijderen
-                        name: 'projectCode', //TODO
+                        name: 'projectCode',
+                        id: 'projectCode',
                        /* config: {
                             proxy: {
                                 type: 'ajax',
@@ -64,7 +70,8 @@ Ext.define('Expense.view.AbroadExpense', {
                         xtype: 'textfield',
                         label: 'Amount',
                         value: '50', //TODO
-                        name: 'amount'
+                        name: 'amount',
+                        id: 'amount'
                     },
                     {
                         xtype: 'selectfield',
@@ -87,15 +94,17 @@ Ext.define('Expense.view.AbroadExpense', {
                         value: 'Abroad'
                     },
                     {
-                        xtype: 'button',
-                        height: 43,
-                        id: 'back',
-                        ui: 'action-round',
-                        width: 230,
+                        id: 'fileBtn',
+                        width: 229,
+                        height: 46,
+                        xtype: 'fileupload',
                         iconCls: 'download',
                         iconMask: true,
                         text: 'Upload Evidence',
-                        action: 'uploadEvidence'
+                        actionUrl: 'src/getfile.php',
+                        returnBase64Data: true,
+                        returnUrl: true,
+                        autoUpload: true
                     },
                     {
                         xtype: 'button',

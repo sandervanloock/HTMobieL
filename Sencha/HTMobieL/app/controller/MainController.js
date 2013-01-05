@@ -11,9 +11,11 @@ Ext.define(
 
 						refs : {
 							detail : 'page',
+							infoPanel: 'infopanel',
 							abroadExpense: 'abroadexpense',
 							domesticExpense: 'domesticexpense',
-							signfield: 'singfield'	
+							signfield: 'singfield',
+							fileBtn: '#fileBtn',
 						},
 						control : {
 							'button[action=logout]' : {
@@ -36,13 +38,16 @@ Ext.define(
 								tap: 'sendDomesticExpense'
 							}, 'button[action=sendExpenses]' : {
 								tap: 'sendExpenses'
-							}
+							}, fileBtn: {
+				                initialize: 'onFileBtnInit'
+				            }
 						}
 
 					},
 					
 					createNewExpense: function(button, e, options){
 						Ext.Viewport.setActiveItem(Ext.getCmp('viewport'));
+						Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(0),false,false);
 					},
 					
 					showOverviewList: function(button, e, options){
@@ -71,17 +76,40 @@ Ext.define(
 					},
 
 					showExpenseOverview : function(button, e, options) {
-						this.getDetail().setActiveItem(1); //TODO lijstselectie wijzigen
-						// TODO expenses from store
+						var employee = Ext.create(
+								'Expense.model.Employee',
+								this.getInfoPanel().getValues());
+						var errors = employee.validate();
+						if(errors.isValid())
+						{
+							this.getDetail().setActiveItem(1);
+							Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(1),false,false);
+							/*for(var i =0;i<Ext.getCmp('infofield').items.length;i++)
+								Ext.getCmp('infofield').getItems()[i].setCls(Ext.getCmp('infofield').getItems()[i].getBaseCls);*/
+							Ext.getCmp('infofield').reset();
+						} else{
+							var message = '';
+							errors.each(function(item, index, length){
+								console.log(Ext.getCmp('infofield').getComponent(item.getField()));
+								message = message + item.getField() + ' ' + item.getMessage() + '\n\n'; 
+								Ext.getCmp('infofield').getComponent(item.getField()).setStyle('border-color: red; border-style: solid;');
+							});
+							Ext.Msg.show({
+								   title: 'Error',
+								   message: message,
+								   width: 300,
+								   buttons: Ext.MessageBox.OK
+							});
+						}
 					},
 					
 					addExpense : function(button, e, options){
 						this.getDetail().setActiveItem(2);
-						Ext.getCmp('menulist').setActiveItem(2); //TODO lijstselectie wijzigen
+						Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(2),false,false);
 					},
 					
 					signAndSend: function(button, e, options){
-						this.getDetail().setActiveItem(3); //TODO lijstselectie wijzigen
+						this.getDetail().setActiveItem(3);
 					},
 					
 					sendAbroadExpense: function(button, e, options){
@@ -91,12 +119,24 @@ Ext.define(
 						var errors = expense.validate();
 						if(errors.isValid())
 						{
+							console.log(expense);
 							Ext.getStore('expensestore').add(expense);
 							/*Expense.app.getEmployee().expenses().add(expense);*/
-							this.getDetail().setActiveItem(3); //TODO lijstselectie wijzigen
-						} else
-							console.log("expense not valid");
-						
+							this.getDetail().setActiveItem(3);
+							Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
+						} else{
+							var message = '';
+							errors.each(function(item, index, length){
+								message = message + item.getField() + ' ' + item.getMessage() + '\n\n'; 
+								Ext.getCmp('abroadfield').getComponent(item.getField()).setStyle('border-color: red; border-style: solid;');
+							});
+							Ext.Msg.show({
+								   title: 'Error',
+								   message: message,
+								   width: 300,
+								   buttons: Ext.MessageBox.OK
+							});
+						}
 					},
 					
 					sendDomesticExpense: function(button, e, options){
@@ -110,7 +150,8 @@ Ext.define(
 							expenses.add(expense);
 							expenses.sync();*/
 							Ext.getStore('expensestore').add(expense);
-							this.getDetail().setActiveItem(3); //TODO lijstselectie wijzigen
+							this.getDetail().setActiveItem(3);
+							Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
 						} else
 							console.log("expense not valid");
 						
@@ -139,6 +180,16 @@ Ext.define(
 							    }
 							
 						});*/
-						this.getDetail().setActiveItem(0);//TODO
-					}
+						this.getDetail().setActiveItem(0);
+						Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(0),false,false);
+					},
+					
+					onFileBtnInit: function(fileBtn) {
+				        var me = this;				        
+				        fileBtn.setCallbacks({
+				            scope: me,
+				            success: me.onFileUploadSuccess,
+				            failure: me.onFileUploadFailure
+				        });
+				    },
 				});

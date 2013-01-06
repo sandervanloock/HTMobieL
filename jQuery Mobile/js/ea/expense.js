@@ -1,14 +1,39 @@
 $(document).on("pageinit", "#expense", function () {
 
-    // load currencies
+    // hold local reference for performance
+    var $expenseCurrency = $("#expense-currency");
+    var $expenseAmount = $("#expense-amount");
+    var $expenseCurrencyConverted = $("#expense-amount-converted");
+
+    // load currencies into list
     $.each(EA.currencies, function (i, currency) {
-        $("#expense-currency").append("<option value=\"" + currency + "\">" + currency + "</option>")
+        $expenseCurrency.append("<option value=\"" + currency.rate + "\">" + currency.name + "</option>")
     });
-    $("#expense-currency").selectmenu("refresh");
+    $expenseCurrency.selectmenu("refresh");
+
+    // convert amount when amount was typed
+    $expenseAmount.change(showConvertedAmount);
+    // or convert amount when a currency in the list was clicked
+    $expenseCurrency.change(showConvertedAmount);
+
+    function showConvertedAmount() {
+        var amount = parseFloat($expenseAmount.val());
+        var rate = parseFloat($expenseCurrency.val());
+        // check if the converted floats are legal
+        if (!isNaN(amount) && !isNaN(rate)) {
+            var converted = amount / rate;
+            // show euro amount with 2 decimals
+            $expenseCurrencyConverted.val("€ " + converted.toFixed(2));
+        } else {
+            // set the converted value to empty
+            $expenseCurrencyConverted.val("");
+        }
+    }
 
     // Tabbar Abroad or Domestic
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
+    $expenseCurrencyConverted.parent().hide();
 
     // dingen tonen voor abroad
     $("#expense-tabbar-abroad").change(function () {
@@ -17,7 +42,8 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().hide();
         $("#expense-type-restaurant").parent().show();
         $("#expense-currency-div").show();
-        $("#expense-type input:radio").each(function () {
+        $expenseCurrencyConverted.parent().show();
+        $("#expense-type ").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
@@ -30,7 +56,8 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().show();
         $("#expense-type-restaurant").parent().hide();
         $("#expense-currency-div").hide();
-        $("#expense-type input:radio").each(function () {
+        $expenseCurrencyConverted.parent().hide();
+        $("#expense-type").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
@@ -133,7 +160,8 @@ $(document).on("pageinit", "#expense", function () {
 
             var currency;
             if ($("#expense-currency-div").is(":visible")) {
-                currency = $("#expense-currency").val();
+                //noinspection JSValidateTypes
+                currency = $("#expense-currency").children(":selected").text();
             } else {
                 currency = "EUR";
             }

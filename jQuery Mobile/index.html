@@ -267,6 +267,11 @@
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-amount-converted">Converted amount:</label>
+                <input type="text" name="expense-amount-converted" id="expense-amount-converted" placeholder="Converted amount" readonly>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="expense-remarks">Remarks:</label>
                 <textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks"></textarea>
             </div>
@@ -275,8 +280,14 @@
                 <label for="expense-evidence-file">Evidence:</label>
                 <input type="file" name="expense-evidence-file" id="expense-evidence-file" placeholder="Evidence">
             </div>
+
             <canvas id="expense-evidence-canvas"></canvas>
-            <input type="text" name="expense-evidence-base64" id="expense-evidence-base64">
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-evidence-base64">Base64:</label>
+                <input type="text" name="expense-evidence-base64" id="expense-evidence-base64" placeholder="base64"
+                       readonly>
+            </div>
 
             <input type="submit" data-role="submit" data-theme="f" value="Add">
         </form>

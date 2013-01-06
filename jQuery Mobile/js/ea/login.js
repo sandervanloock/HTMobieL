@@ -78,9 +78,10 @@ $(document).on("pageinit", "#login", function () {
                                 // iterate over each entry to get currency and rate
                                 $xml.find("Cube").each(function () {
                                     var $this = $(this);
-                                    var currency = $this.attr("currency");
-                                    var rate = $this.attr("rate");
-                                    EA.currencies.push(currency);
+                                    EA.currencies.push({
+                                        name:$this.attr("currency"),
+                                        rate:parseFloat($this.attr("rate"))
+                                    });
                                 });
                             },
                             error:function (xhr, textStatus, errorThrown) {

@@ -167,7 +167,7 @@ $(document).on("pageinit", "#expense", function () {
                 currency = "EUR";
             }
 
-            EA.localExpenses.push({
+            EA.addLocalExpense({
                 "date":date.toISOString(),
                 "projectCode":$("#expense-project-code").val(),
                 "currency":currency,

@@ -34,7 +34,6 @@ $(document).on("pageinit", "#login", function () {
                     } else {
                         // save the token
                         EA.setToken(token);
-                        console.log("User was logged in successfully: " + token);
 
                         // go to home page
                         $.mobile.changePage("#home");

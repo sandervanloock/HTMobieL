@@ -7,7 +7,7 @@ $(document).on("pagebeforeshow", "#home", function () {
             dataType:"json",
             url:"http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee",
             data:{
-                'token':EA.getToken
+                'token':EA.getToken()
             },
             success:function (data) {
                 $("#home-employee-name").text(data.firstName + " " + data.lastName);

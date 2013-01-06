@@ -2,18 +2,14 @@ var EA = {
 
     token:null,
 
-    projectCodeSuggestions:new Array(),
+    projectCodeSuggestions:[],
 
-    currencies:new Array(),
+    currencies:[],
 
-    localExpenses:new Array(),
+    localExpenses:[],
 
     isLoggedIn:function () {
-        if (this.token == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return this.token != null;
     },
 
     redirectNotLoggedIn:function () {

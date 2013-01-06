@@ -48,7 +48,7 @@ $(document).on("pagebeforecreate", "#your-info", function () {
         dataType:"json",
         url:"http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee",
         data:{
-            'token':EA.token
+            'token':EA.getToken()
         },
         success:function (data) {
             $("#your-info-firstname").val(data.firstName);

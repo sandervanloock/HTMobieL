@@ -76,7 +76,6 @@ $(document).on("pageinit", "#expense", function () {
     });
 
     // evidence to base64 via HTML5 canvas
-    var base64file;
     $('#expense-evidence-file').change(function (e) {
         // get the file
         var file = e.target.files[0];
@@ -84,6 +83,8 @@ $(document).on("pageinit", "#expense", function () {
         // only images as files
         var imageType = /image.*/;
         if (!file.type.match(imageType)) {
+            // TODO mooi oplossen
+            $("#expense-evidence-base64").val("Upload file was not an image");
             return;
         }
 

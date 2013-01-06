@@ -28,12 +28,15 @@ $(document).on("pageinit", "#login", function () {
                 beforeSend:function () {
                     $.mobile.loading("show");
                 },
-                success:function (data) {
-                    if (data == '') {
+                success:function (token) {
+                    if (token == '') {
                         EA.showBackendError("The username and/or password are incorrect.");
                     } else {
-                        EA.token = data;
-                        console.log("User was logged in successfully: " + EA.token);
+                        // save the token
+                        EA.setToken(token);
+                        console.log("User was logged in successfully: " + token);
+
+                        // go to home page
                         $.mobile.changePage("#home");
 
                         // fetch projectcodes asynchronous at logon time

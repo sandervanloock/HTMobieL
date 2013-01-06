@@ -4,7 +4,6 @@ $(document).on("pageinit", "#sign-and-send", function () {
     $("#sign-and-send-form").validate({
         submitHandler:function (form) {
 
-
             var notification;
             if ($("#sign-and-send-notification").val() == "on") {
                 notification = true;
@@ -20,10 +19,10 @@ $(document).on("pageinit", "#sign-and-send", function () {
                 "remarks":$("#sign-and-send-remarks").val(),
                 "notification":notification,
                 "expenses":EA.localExpenses
-            }
+            };
 
-            var expenseRequest = new Object();
-            expenseRequest.token = EA.token;
+            var expenseRequest = {};
+            expenseRequest.token = EA.getToken();
             expenseRequest.expenseForm = expenseForm;
             console.log(JSON.stringify(expenseRequest));
 
@@ -38,7 +37,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                     $.mobile.loading("show");
                 },
                 success:function () {
-                    EA.localExpenses = new Array();
+                    EA.localExpenses = [];
                     $.mobile.changePage("#home");
                 },
                 error:function (xhr, textStatus, errorThrown) {

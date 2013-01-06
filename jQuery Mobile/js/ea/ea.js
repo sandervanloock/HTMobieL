@@ -1,15 +1,31 @@
 var EA = {
 
+    /**
+     * Acces token
+     */
+
     token:null,
 
-    projectCodeSuggestions:[],
+    getToken:function () {
+        if (Modernizr.sessionstorage) {
+            return sessionStorage.token;
+        } else {
+            return this.token;
+        }
+    },
 
-    currencies:[],
-
-    localExpenses:[],
+    setToken:function (token) {
+        if (Modernizr.sessionstorage) {
+            console.log("Using session storage");
+            sessionStorage.token = token;
+        } else {
+            console.log("Not using session storage");
+            this.token = token;
+        }
+    },
 
     isLoggedIn:function () {
-        return this.token != null;
+        return this.getToken() != null;
     },
 
     redirectNotLoggedIn:function () {
@@ -17,31 +33,23 @@ var EA = {
         $.mobile.changePage("#login");
     },
 
-    showError:function (title, html) {
-        $("#error-title").text(title);
-        $("#error-message").html(html);
-        $.mobile.changePage("#error");
-    },
+    /**
+     * Project codes
+     */
 
-    showBackendError:function (message) {
-        this.showError("Backend error", message);
-    },
+    projectCodeSuggestions:[],
 
-    prepareValidationError:function (validator, errorMap) {
-        $("#error-validation-message").text("Please complete the following "
-            + validator.numberOfInvalids()
-            + " field(s):");
+    /**
+     * Currencies
+     */
 
-        var html = "";
-        $.each(errorMap, function (index, value) {
-            html += "<li>";
-            html += index + ": " + value;
-            html += "</li>";
-        });
-        $("#error-validation-items").html(html);
+    currencies:[],
 
-        validator.defaultShowErrors();
-    },
+    /**
+     * Expenses
+     */
+
+    localExpenses:[],
 
     sortExpensesAscending:function (a, b) {
         var dateA = new Date(a.date);
@@ -106,6 +114,36 @@ var EA = {
         } else {
             return "ERROR_STATUS";
         }
+    },
+
+    /**
+     * Message dialogs
+     */
+
+    showError:function (title, html) {
+        $("#error-title").text(title);
+        $("#error-message").html(html);
+        $.mobile.changePage("#error");
+    },
+
+    showBackendError:function (message) {
+        this.showError("Backend error", message);
+    },
+
+    prepareValidationError:function (validator, errorMap) {
+        $("#error-validation-message").text("Please complete the following "
+            + validator.numberOfInvalids()
+            + " field(s):");
+
+        var html = "";
+        $.each(errorMap, function (index, value) {
+            html += "<li>";
+            html += index + ": " + value;
+            html += "</li>";
+        });
+        $("#error-validation-items").html(html);
+
+        validator.defaultShowErrors();
     }
 
 };

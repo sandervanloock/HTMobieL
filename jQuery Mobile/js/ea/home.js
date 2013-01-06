@@ -7,7 +7,7 @@ $(document).on("pagebeforeshow", "#home", function () {
             dataType:"json",
             url:"http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee",
             data:{
-                'token':EA.token
+                'token':EA.getToken
             },
             success:function (data) {
                 $("#home-employee-name").text(data.firstName + " " + data.lastName);
@@ -25,11 +25,12 @@ $(document).on("tap", "#home-logout", function () {
         dataType:"json",
         url:"http://kulcapexpenseapp.appspot.com/resources/userService/logout",
         data:{
-            'token':EA.token
+            'token':EA.getToken()
         },
         success:function () {
-            EA.token = null;
-
+            // empty session
+            EA.setToken(null);
+            // go to login page
             $.mobile.changePage("#login");
         },
         error:function (xhr, textStatus, errorThrown) {

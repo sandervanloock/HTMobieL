@@ -24,6 +24,7 @@
     <script src="js/ea/overview.js"></script>
     <script src="js/ea/expense.js"></script>
     <script src="js/ea/sign-and-send.js"></script>
+    <script src="js/external/modernizr-latest.js"></script>
     <script src="js/external/base64.js"></script>
 </head>
 <body>
@@ -39,7 +40,7 @@
         <p>Welcome, <span id="home-employee-name"></span>.</p>
 
         <p>I want to:</p>
-        <a href="#add" data-role="button" data-theme="b">Create New Expense</a>
+        <a id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a>
         <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
     </div>
 
@@ -267,6 +268,12 @@
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-amount-converted">Converted amount:</label>
+                <input type="text" name="expense-amount-converted" id="expense-amount-converted" placeholder="€"
+                       readonly>
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="expense-remarks">Remarks:</label>
                 <textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks"></textarea>
             </div>
@@ -275,8 +282,14 @@
                 <label for="expense-evidence-file">Evidence:</label>
                 <input type="file" name="expense-evidence-file" id="expense-evidence-file" placeholder="Evidence">
             </div>
+
             <canvas id="expense-evidence-canvas"></canvas>
-            <input type="text" name="expense-evidence-base64" id="expense-evidence-base64">
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="expense-evidence-base64">Base64:</label>
+                <input type="text" name="expense-evidence-base64" id="expense-evidence-base64" placeholder="base64"
+                       readonly>
+            </div>
 
             <input type="submit" data-role="submit" data-theme="f" value="Add">
         </form>
@@ -371,6 +384,20 @@
         <p id="error-validation-message"></p>
         <ul id="error-validation-items"></ul>
         <a href="#" data-role="button" data-rel="back" data-theme="b">Close</a>
+    </div>
+</div>
+
+<div data-role="dialog" id="confirmation">
+    <div data-role="header">
+        <h1 id="confirmation-title">Continue?</h1>
+    </div>
+    <div data-role="content">
+        <p>You already have a form filled in, would you like to continue that form?</p>
+        <p>By clicking no, you will start with a new one.</p>
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a"><a id="confirmation-cancel" data-role="button" data-theme="c">No</a></div>
+            <div class="ui-block-b"><a href="#add" data-role="button" data-theme="b">Yes</a></div>
+        </fieldset>
     </div>
 </div>
 

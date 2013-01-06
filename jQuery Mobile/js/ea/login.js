@@ -28,12 +28,14 @@ $(document).on("pageinit", "#login", function () {
                 beforeSend:function () {
                     $.mobile.loading("show");
                 },
-                success:function (data) {
-                    if (data == '') {
+                success:function (token) {
+                    if (token == '') {
                         EA.showBackendError("The username and/or password are incorrect.");
                     } else {
-                        EA.token = data;
-                        console.log("User was logged in successfully: " + EA.token);
+                        // save the token
+                        EA.setToken(token);
+
+                        // go to home page
                         $.mobile.changePage("#home");
 
                         // fetch projectcodes asynchronous at logon time
@@ -71,12 +73,17 @@ $(document).on("pageinit", "#login", function () {
                                 $.mobile.loading("show");
                             },
                             success:function (xml) {
+                                // gets the cube block
                                 var $xml = $("Cube", xml);
+                                // gets the cube block with time attribute
+                                $xml = $("Cube", $xml);
+                                // iterate over each entry to get currency and rate
                                 $xml.find("Cube").each(function () {
                                     var $this = $(this);
-                                    var currency = $this.attr("currency");
-                                    var rate = $this.attr("rate");
-                                    EA.currencies.push(currency);
+                                    EA.currencies.push({
+                                        name:$this.attr("currency"),
+                                        rate:parseFloat($this.attr("rate"))
+                                    });
                                 });
                             },
                             error:function (xhr, textStatus, errorThrown) {

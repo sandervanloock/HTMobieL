@@ -8,16 +8,16 @@ $(document).on("pageshow", "#my-expenses", function () {
         dataType:"xml",
         url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getExpenseForms",
         data:{
-            'token':EA.token
+            'token':EA.getToken()
         },
         beforeSend:function () {
             $.mobile.loading("show");
         },
         success:function (xml) {
-            var expenseForms = new Array();
+            var expenseForms = [];
 
             $(xml).find("expenseForm").each(function () {
-                var expenseForm = new Object();
+                var expenseForm = {};
 
                 // put $(this) in a variable for performance reasons
                 var $this = $(this);
@@ -65,8 +65,10 @@ $(document).on("pageshow", "#my-expenses", function () {
 $(document).on("tap", "[id^=my-expenses-show-pdf]", function () {
     // get the id that is requested
     var expenseFormId = $(this).attr("id").replace("my-expenses-show-pdf-", "");
-    // copy requested data into hidden form
-    $("#my-expenses-token").val(EA.token);
+    // guideline: AJAX is not for fetching raw data like a PDF
+    // To accomplish this, a hiden form is used and the requested data is
+    // copied into that hidden form
+    $("#my-expenses-token").val(EA.getToken());
     $("#my-expenses-form-id").val(expenseFormId);
     // submit that hidden form
     $('#my-expenses-form').submit();

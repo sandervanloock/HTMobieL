@@ -1,8 +1,8 @@
 var EA = {
 
-        /**
+        /*************************************************
          * Acces token
-         */
+         *************************************************/
 
         token:null,
 
@@ -34,21 +34,21 @@ var EA = {
             $.mobile.changePage("#login");
         },
 
-        /**
+        /*************************************************
          * Project codes
-         */
+         *************************************************/
 
         projectCodeSuggestions:[],
 
-        /**
+        /*************************************************
          * Currencies
-         */
+         *************************************************/
 
         currencies:[],
 
-        /**
+        /*************************************************
          * Expenses
-         */
+         *************************************************/
 
         localExpenses:[],
 
@@ -73,6 +73,18 @@ var EA = {
                 return toReturn;
             } else {
                 return this.localExpenses;
+            }
+        },
+
+        hasLocalExpenses:function () {
+            return this.getLocalExpenses().length > 0;
+        },
+
+        emptyLocalExpenses:function () {
+            if (Modernizr.localstorage) {
+                localStorage.clear();
+            } else {
+                this.localExpenses = {};
             }
         },
 
@@ -141,9 +153,9 @@ var EA = {
             }
         },
 
-        /**
+        /*************************************************
          * Message dialogs
-         */
+         *************************************************/
 
         showError:function (title, html) {
             $("#error-title").text(title);

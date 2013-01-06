@@ -19,6 +19,23 @@ $(document).on("pagebeforeshow", "#home", function () {
     }
 });
 
+$(document).on("tap", "#home-new-expense", function () {
+    if (EA.hasLocalExpenses()) {
+        // inform user with a choice
+        $.mobile.changePage("#confirmation");
+    } else {
+        // go to add page
+        $.mobile.changePage("#add");
+    }
+});
+
+$(document).on("tap", "#confirmation-cancel", function () {
+    // start new form
+    EA.emptyLocalExpenses();
+    // go to add page
+    $.mobile.changePage("#add");
+});
+
 $(document).on("tap", "#home-logout", function () {
     $.ajax({
         type:"POST",

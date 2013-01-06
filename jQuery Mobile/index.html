@@ -40,7 +40,7 @@
         <p>Welcome, <span id="home-employee-name"></span>.</p>
 
         <p>I want to:</p>
-        <a href="#add" data-role="button" data-theme="b">Create New Expense</a>
+        <a id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a>
         <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
     </div>
 
@@ -384,6 +384,20 @@
         <p id="error-validation-message"></p>
         <ul id="error-validation-items"></ul>
         <a href="#" data-role="button" data-rel="back" data-theme="b">Close</a>
+    </div>
+</div>
+
+<div data-role="dialog" id="confirmation">
+    <div data-role="header">
+        <h1 id="confirmation-title">Continue?</h1>
+    </div>
+    <div data-role="content">
+        <p>You already have a form filled in, would you like to continue that form?</p>
+        <p>By clicking no, you will start with a new one.</p>
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a"><a id="confirmation-cancel" data-role="button" data-theme="c">No</a></div>
+            <div class="ui-block-b"><a href="#add" data-role="button" data-theme="b">Yes</a></div>
+        </fieldset>
     </div>
 </div>
 

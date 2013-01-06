@@ -71,7 +71,11 @@ $(document).on("pageinit", "#login", function () {
                                 $.mobile.loading("show");
                             },
                             success:function (xml) {
+                                // gets the cube block
                                 var $xml = $("Cube", xml);
+                                // gets the cube block with time attribute
+                                $xml = $("Cube", $xml);
+                                // iterate over each entry to get currency and rate
                                 $xml.find("Cube").each(function () {
                                     var $this = $(this);
                                     var currency = $this.attr("currency");

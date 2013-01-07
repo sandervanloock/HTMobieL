@@ -1,22 +1,23 @@
 $(document).on("pageinit", "#login", function () {
     $("#login-form").validate({
 
-        // needed for bug that otherwhise shows keyboard and dialog at the same time
+        // needed for bug that otherwhise shows keyboard and dialog
+        // at the same time on a smartphone
         focusInvalid:false,
 
-        errorPlacement:function (error, element) {
+        errorPlacement:function () {
             // no body, because we want no error labels on the form
         },
 
-        showErrors:function (errorMap, errorList) {
+        showErrors:function (errorMap) {
             EA.prepareValidationError(this, errorMap);
         },
 
-        invalidHandler:function (form, validator) {
+        invalidHandler:function () {
             $.mobile.changePage("#error-validation");
         },
 
-        submitHandler:function (form) {
+        submitHandler:function () {
             $.ajax({
                 type:"POST",
                 dataType:"html",
@@ -32,31 +33,52 @@ $(document).on("pageinit", "#login", function () {
                     if (token == '') {
                         EA.showBackendError("The username and/or password are incorrect.");
                     } else {
-                        // save the token
                         EA.setToken(token);
 
-                        // go to home page
-                        $.mobile.changePage("#home");
+                        // don't go to the home page yet, but first fetch user info
+                        $.ajax({
+                            type:"POST",
+                            dataType:"json",
+                            url:"http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee",
+                            data:{
+                                'token':EA.getToken()
+                            },
+                            beforeSend:function () {
+                                $.mobile.loading("show");
+                            },
+                            success:function (data) {
+                                EA.setUser(data);
+                                $.mobile.changePage("#home");
+                            },
+                            error:function () {
+                                EA.showBackendError("Could not fetch user information");
+                            },
+                            complete:function () {
+                                $.mobile.loading("hide");
+                            }
+                        });
 
                         // fetch projectcodes asynchronous at logon time
                         $.ajax({
                             type:"POST",
                             dataType:"json",
+                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
                             data:{
                                 "keyword":""
                             },
-                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
                             beforeSend:function () {
                                 $.mobile.loading("show");
                             },
                             success:function (json) {
                                 if (json != null) {
-                                    EA.projectCodeSuggestions = json.data;
+                                    EA.setProjectCodeSuggestions(json.data);
                                 } else {
+                                    // silent fail
+                                    // it could happen that there are no project codes yet
                                     console.log("No project code suggestions were returned.");
                                 }
                             },
-                            error:function (xhr, textStatus, errorThrown) {
+                            error:function () {
                                 EA.showBackendError("Could not fetch project codes.");
                             },
                             complete:function () {
@@ -86,7 +108,7 @@ $(document).on("pageinit", "#login", function () {
                                     });
                                 });
                             },
-                            error:function (xhr, textStatus, errorThrown) {
+                            error:function () {
                                 EA.showBackendError("Could not fetch currencies.");
                             },
                             complete:function () {
@@ -95,7 +117,7 @@ $(document).on("pageinit", "#login", function () {
                         });
                     }
                 },
-                error:function (xhr, textStatus, errorThrown) {
+                error:function () {
                     EA.showBackendError("Could not log in.");
                 },
                 complete:function () {

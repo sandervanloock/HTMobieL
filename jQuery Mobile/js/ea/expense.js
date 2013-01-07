@@ -66,7 +66,7 @@ $(document).on("pageinit", "#expense", function () {
     // Autocomplete for project code
     $("#expense-project-code").autocomplete({
         target:$("#expense-suggestions"),
-        source:EA.projectCodeSuggestions,
+        source:EA.getProjectCodeSuggestions(),
         callback:function (e) {
             var $a = $(e.currentTarget);
             $('#expense-project-code').val($a.text());
@@ -75,19 +75,12 @@ $(document).on("pageinit", "#expense", function () {
         minLength:1
     });
 
-    // evidence to base64 via HTML5 canvas
+    // evidence to base64 via FileReaderAPI and HTML5 canvas
     $('#expense-evidence-file').change(function (e) {
         // get the file
         var file = e.target.files[0];
 
-        // only images as files
-        var imageType = /image.*/;
-        if (!file.type.match(imageType)) {
-            // TODO mooi oplossen
-            $("#expense-evidence-base64").val("Upload file was not an image");
-            return;
-        }
-
+        // TODO: add support from Modernizr instead of own code
         if (window.FileReader) {
             // initialize reader
             var reader = new FileReader();
@@ -113,7 +106,7 @@ $(document).on("pageinit", "#expense", function () {
             // read the image
             reader.readAsDataURL(file);
         } else {
-            // FileReaderAPI not supported
+            // FileReaderAPI is not supported
             $("#expense-evidence-base64").val("FileReaderAPI not supported");
         }
 
@@ -178,7 +171,7 @@ $(document).on("pageinit", "#expense", function () {
                 "evidence":$("#expense-evidence-base64").val()
             });
 
-            $.mobile.changePage("#sign-and-send");
+            $.mobile.changePage("#overview");
 
             // clear the form
             $("#expense-form")[0].reset();

@@ -15,3 +15,7 @@
 #expense-evidence-canvas {
     display: none;
 }
+
+.subheader h2 {
+    font-size: 14px;
+}

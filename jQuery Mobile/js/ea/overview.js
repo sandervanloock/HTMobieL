@@ -91,6 +91,12 @@ $(document).on("tap", "[id^=expense-show]", function () {
             .attr('disabled', false)
             .checkboxradio("refresh");
 
+        // type of currency
+        var $abroadCurrency = $("#abroad-currency");
+        $abroadCurrency.empty();
+        $abroadCurrency.append("<option disabled=\"disabled\">" + expense.currency + "</option>");
+        $abroadCurrency.selectmenu("refresh");
+
         // go to that page
         $.mobile.changePage("#abroad");
     } else {

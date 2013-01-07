@@ -15,12 +15,9 @@ var EA = {
     },
 
     setToken:function (token) {
-        console.log("User was logged in successfully: " + token);
         if (Modernizr.sessionstorage) {
-            console.log("Using session storage");
             sessionStorage.token = token;
         } else {
-            console.log("Not using session storage");
             this.token = token;
         }
     },
@@ -85,32 +82,58 @@ var EA = {
     currencies:[],
 
     /*************************************************
+     * Expense form
+     *************************************************/
+
+    expenseFormHeader:{},
+
+    getExpenseForm:function () {
+        if (Modernizr.localstorage) {
+            return JSON.parse(localStorage.expenseForm);
+        } else {
+            return this.expenseForm;
+        }
+    },
+
+    setExpenseForm:function (expenseForm) {
+        if (Modernizr.localstorage) {
+            localStorage.expenseForm = JSON.stringify(expenseForm);
+        } else {
+            this.expenseForm = expenseForm;
+        }
+    },
+
+    /*************************************************
      * Expenses
      *************************************************/
 
-    localExpenses:[],
+    expenses:[],
 
     getLocalExpenses:function () {
         if (Modernizr.localstorage) {
             var toReturn = [];
+            // if the key starts with the word expense and
+            // is follow by an integer, we know it is an expense
+            var regExp = /^expense\d+/;
+            // loop through all entries in local storage
             for (var i = 0; i < localStorage.length; i++) {
-                // http://stackoverflow.com/questions/3138564/looping-through-localstorage-in-html5-and-javascript
-                toReturn.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+                var key = localStorage.key(i);
+                if (regExp.test(key)) {
+                    toReturn.push(JSON.parse(localStorage.getItem(key)));
+                }
             }
             return toReturn;
         } else {
-            return this.localExpenses;
+            return this.expenses;
         }
     },
 
     addLocalExpense:function (expense) {
         if (Modernizr.localstorage) {
-            console.log("Using local storage");
-            var lastId = localStorage.length;
-            localStorage['expense' + lastId] = JSON.stringify(expense);
+            var id = this.getLocalExpenses().length;
+            localStorage['expense' + id] = JSON.stringify(expense);
         } else {
-            console.log("Not using local storage");
-            this.localExpenses.push(expense);
+            this.expenses.push(expense);
         }
     },
 
@@ -120,9 +143,21 @@ var EA = {
 
     emptyLocalExpenses:function () {
         if (Modernizr.localstorage) {
-            localStorage.clear();
+            // TODO duplicated code from getLocalExpenses()
+            // if the key starts with the word expense and
+            // is follow by an integer, we know it is an expense
+            var regExp = /^expense\d+/;
+            // loop through all entries in local storage
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                if (regExp.test(key)) {
+                    localStorage.removeItem(key);
+                }
+            }
+            // also clear the expense form information
+            localStorage.removeItem("expenseForm");
         } else {
-            this.localExpenses = {};
+            this.expenses = {};
         }
     },
 
@@ -195,10 +230,14 @@ var EA = {
      * Message dialogs
      *************************************************/
 
+    showDialog:function (title, html) {
+        $("#dialog-title").text(title);
+        $("#dialog-message").html(html);
+        $.mobile.changePage("#dialog");
+    },
+
     showError:function (title, html) {
-        $("#error-title").text(title);
-        $("#error-message").html(html);
-        $.mobile.changePage("#error");
+        this.showDialog(title, html);
     },
 
     showBackendError:function (message) {

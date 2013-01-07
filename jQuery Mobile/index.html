@@ -127,6 +127,7 @@
                     <label for="your-info-date-year">Year</label>
                     <select name="your-info-date-year" id="your-info-date-year" class="required">
                         <option value="">Year</option>
+                        <option value="2013">2013</option>
                         <option value="2012">2012</option>
                         <option value="2011">2011</option>
                     </select>
@@ -365,14 +366,13 @@
 
 </div>
 
-<div data-role="dialog" id="error">
+<div data-role="dialog" id="dialog">
     <div data-role="header">
-        <h1 id="error-title"></h1>
+        <h1 id="dialog-title"></h1>
     </div>
     <div data-role="content">
-        <p id="error-message"></p>
-        <ul id="message-box"></ul>
-        <a href="#" data-role="button" data-rel="back" data-theme="b">Ok</a>
+        <p id="dialog-message"></p>
+        <a href="#" id="dialog-button" data-role="button" data-rel="back" data-theme="b">Ok</a>
     </div>
 </div>
 
@@ -393,6 +393,7 @@
     </div>
     <div data-role="content">
         <p>You already have a form filled in, would you like to continue that form?</p>
+
         <p>By clicking no, you will start with a new one.</p>
         <fieldset class="ui-grid-a">
             <div class="ui-block-a"><a id="confirmation-cancel" data-role="button" data-theme="c">No</a></div>

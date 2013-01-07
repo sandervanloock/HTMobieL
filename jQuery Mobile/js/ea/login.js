@@ -35,10 +35,7 @@ $(document).on("pageinit", "#login", function () {
                         // save the token
                         EA.setToken(token);
 
-                        // go to home page
-                        $.mobile.changePage("#home");
-
-                        // get user info asynchronous at logon time
+                        // don't go to the home page yet, but first fetch user info
                         $.ajax({
                             type:"POST",
                             dataType:"json",
@@ -51,6 +48,8 @@ $(document).on("pageinit", "#login", function () {
                             },
                             success:function (data) {
                                 EA.setUser(data);
+                                // go to home page
+                                $.mobile.changePage("#home");
                             },
                             error:function (xhr, textStatus, errorThrown) {
                                 EA.showBackendError("Could not fetch user information");

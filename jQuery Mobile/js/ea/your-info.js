@@ -23,41 +23,31 @@ $(document).on("pageinit", "#your-info", function () {
 });
 
 $(document).on("pagebeforecreate", "#your-info", function () {
-
     // month and year should be equal to this month if day > 15th
-    var fullDate = new Date();
+    var today = new Date();
+    var year = today.getFullYear();
+    var day = today.getDate();
+    var month = today.getMonth();
 
-    // year
-    var year = fullDate.getFullYear();
-    $("#your-info-date-year option[value='" + year + "']").attr("selected", "selected");
-
-    // month
-    var day = fullDate.getDate();
-    var month = fullDate.getMonth();
     if (day <= 15) {
-        if (month == 1) {
+        // month := previous month
+        // and mind that the month January is 0 in JavaScript
+        if (month == 0) {
+            // previous month is December (now not in JavaScript)
             month = 12;
-        } else {
-            month--;
+            // of previous year
+            year--;
         }
     }
-    $("#your-info-date-month option[value='" + month + "']").attr("selected", "selected");
 
-    $.ajax({
-        type:"POST",
-        dataType:"json",
-        url:"http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee",
-        data:{
-            'token':EA.getToken()
-        },
-        success:function (data) {
-            $("#your-info-firstname").val(data.firstName);
-            $("#your-info-lastname").val(data.lastName);
-            $("#your-info-employee-number").val(data.employeeNumber);
-            $("#your-info-email").val(data.email);
-        },
-        error:function (xhr, textStatus, errorThrown) {
-            EA.showBackendError("Could not get user data");
-        }
-    });
+    // set on screen
+    $("#your-info-date-year").find("option[value='" + year + "']").attr("selected", "selected");
+    $("#your-info-date-month").find("option[value='" + month + "']").attr("selected", "selected");
+
+    // set the user information
+    var user = EA.getUser();
+    $("#your-info-firstname").val(user.firstName);
+    $("#your-info-lastname").val(user.lastName);
+    $("#your-info-employee-number").val(user.employeeNumber);
+    $("#your-info-email").val(user.email);
 });

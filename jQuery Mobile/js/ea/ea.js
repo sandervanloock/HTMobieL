@@ -159,17 +159,19 @@ var EA = {
 
     emptyLocalExpenses:function () {
         if (Modernizr.localstorage) {
-            // TODO duplicated code from getLocalExpenses()
-            // if the key starts with the word expense and
-            // is follow by an integer, we know it is an expense
             var regExp = /^expense\d+/;
+            var keysToDelete = [];
             // loop through all entries in local storage
             for (var i = 0; i < localStorage.length; i++) {
                 var key = localStorage.key(i);
                 if (regExp.test(key)) {
-                    localStorage.removeItem(key);
+                    keysToDelete.push(key);
                 }
             }
+            // now delete the keys
+            $.each(keysToDelete, function(index, value) {
+                localStorage.removeItem(value);
+            });
             // also clear the expense form information
             localStorage.removeItem("expenseForm");
         } else {
@@ -213,17 +215,20 @@ var EA = {
 
     emptyServerExpenses:function () {
         if (Modernizr.localstorage) {
-            // TODO duplicated code from getLocalExpenses()
-            // if the key starts with the word expense and
-            // is follow by an integer, we know it is an expense
+            // TODO duplicated code from emptyLocalExpenses
             var regExp = /^serverExpense\d+/;
+            var keysToDelete = [];
             // loop through all entries in local storage
             for (var i = 0; i < localStorage.length; i++) {
                 var key = localStorage.key(i);
                 if (regExp.test(key)) {
-                    (localStorage.removeItem(key));
+                    keysToDelete.push(key);
                 }
             }
+            // now delete the keys
+            $.each(keysToDelete, function(index, value) {
+                localStorage.removeItem(value);
+            });
         } else {
             this.serverExpenses = [];
         }

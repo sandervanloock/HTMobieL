@@ -24,6 +24,10 @@ $(document).on("tap", "#confirmation-cancel", function () {
     $.mobile.changePage("#add");
 });
 
+$(document).on("tap", "#confirmation-ok", function () {
+    $.mobile.changePage("#overview");
+});
+
 $(document).on("tap", "#home-logout", function () {
     $.ajax({
         type:"POST",

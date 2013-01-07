@@ -178,7 +178,7 @@ $(document).on("pageinit", "#expense", function () {
                 "evidence":$("#expense-evidence-base64").val()
             });
 
-            $.mobile.changePage("#sign-and-send");
+            $.mobile.changePage("#overview");
 
             // clear the form
             $("#expense-form")[0].reset();

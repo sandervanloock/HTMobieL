@@ -27,6 +27,9 @@ $(document).on("pageshow", "#my-expenses", function () {
             $.mobile.loading("show");
         },
         success:function (xml) {
+            // empty local expenses
+            EA.emptyServerExpenses();
+
             // parse the XML
             $(xml).find("expenseForm").each(function () {
                 var expenseForm = {};

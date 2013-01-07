@@ -195,6 +195,24 @@ var EA = {
         }
     },
 
+    emptyServerExpenses:function () {
+        if (Modernizr.localstorage) {
+            // TODO duplicated code from getLocalExpenses()
+            // if the key starts with the word expense and
+            // is follow by an integer, we know it is an expense
+            var regExp = /^serverExpense\d+/;
+            // loop through all entries in local storage
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                if (regExp.test(key)) {
+                    (localStorage.removeItem(key));
+                }
+            }
+        } else {
+            this.serverExpenses = [];
+        }
+    },
+
     /*************************************************
      * Helper functions for expenses
      *************************************************/

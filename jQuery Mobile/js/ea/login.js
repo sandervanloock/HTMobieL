@@ -4,7 +4,7 @@ $(document).on("pageinit", "#login", function () {
         // needed for bug that otherwhise shows keyboard and dialog at the same time
         focusInvalid:false,
 
-        errorPlacement:function (error, element) {
+        errorPlacement:function () {
             // no body, because we want no error labels on the form
         },
 
@@ -38,20 +38,42 @@ $(document).on("pageinit", "#login", function () {
                         // go to home page
                         $.mobile.changePage("#home");
 
+                        // get user info asynchronous at logon time
+                        $.ajax({
+                            type:"POST",
+                            dataType:"json",
+                            url:"http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee",
+                            data:{
+                                'token':EA.getToken()
+                            },
+                            beforeSend:function () {
+                                $.mobile.loading("show");
+                            },
+                            success:function (data) {
+                                EA.setUser(data);
+                            },
+                            error:function (xhr, textStatus, errorThrown) {
+                                EA.showBackendError("Could not fetch user information");
+                            },
+                            complete:function () {
+                                $.mobile.loading("hide");
+                            }
+                        });
+
                         // fetch projectcodes asynchronous at logon time
                         $.ajax({
                             type:"POST",
                             dataType:"json",
+                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
                             data:{
                                 "keyword":""
                             },
-                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
                             beforeSend:function () {
                                 $.mobile.loading("show");
                             },
                             success:function (json) {
                                 if (json != null) {
-                                    EA.projectCodeSuggestions = json.data;
+                                    EA.setProjectCodeSuggestions(json.data);
                                 } else {
                                     console.log("No project code suggestions were returned.");
                                 }

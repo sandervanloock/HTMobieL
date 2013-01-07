@@ -66,7 +66,7 @@ $(document).on("pageinit", "#expense", function () {
     // Autocomplete for project code
     $("#expense-project-code").autocomplete({
         target:$("#expense-suggestions"),
-        source:EA.projectCodeSuggestions,
+        source:EA.getProjectCodeSuggestions(),
         callback:function (e) {
             var $a = $(e.currentTarget);
             $('#expense-project-code').val($a.text());

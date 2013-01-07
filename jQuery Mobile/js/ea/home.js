@@ -2,20 +2,8 @@ $(document).on("pagebeforeshow", "#home", function () {
     if (!EA.isLoggedIn()) {
         EA.redirectNotLoggedIn();
     } else {
-        $.ajax({
-            type:"POST",
-            dataType:"json",
-            url:"http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee",
-            data:{
-                'token':EA.getToken()
-            },
-            success:function (data) {
-                $("#home-employee-name").text(data.firstName + " " + data.lastName);
-            },
-            error:function (xhr, textStatus, errorThrown) {
-                EA.showError("Backend error: " + xhr.status, errorThrown);
-            }
-        });
+        var user = EA.getUser();
+        $("#home-employee-name").text(user.firstName + " " + user.lastName);
     }
 });
 

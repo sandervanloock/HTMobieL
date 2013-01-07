@@ -104,10 +104,10 @@ var EA = {
     },
 
     /*************************************************
-     * Expenses
+     * Localy saved expenses
      *************************************************/
 
-    expenses:[],
+    localExpenses:[],
 
     getLocalExpenses:function () {
         if (Modernizr.localstorage) {
@@ -124,7 +124,7 @@ var EA = {
             }
             return toReturn;
         } else {
-            return this.expenses;
+            return this.localExpenses;
         }
     },
 
@@ -133,7 +133,7 @@ var EA = {
             var id = this.getLocalExpenses().length;
             localStorage['expense' + id] = JSON.stringify(expense);
         } else {
-            this.expenses.push(expense);
+            this.localExpenses.push(expense);
         }
     },
 
@@ -157,9 +157,47 @@ var EA = {
             // also clear the expense form information
             localStorage.removeItem("expenseForm");
         } else {
-            this.expenses = {};
+            this.localExpenses = {};
         }
     },
+
+    /*************************************************
+     * Localy saved expenses
+     *************************************************/
+
+    serverExpenses:[],
+
+    getServerExpenses:function () {
+        if (Modernizr.localstorage) {
+            var toReturn = [];
+            // TODO duplicated code from getLocalExpenses()
+            // if the key starts with the word expense and
+            // is follow by an integer, we know it is an expense
+            var regExp = /^serverExpense\d+/;
+            // loop through all entries in local storage
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                if (regExp.test(key)) {
+                    toReturn.push(JSON.parse(localStorage.getItem(key)));
+                }
+            }
+            return toReturn;
+        } else {
+            return this.serverExpenses;
+        }
+    },
+
+    addServerExpense:function (id, expense) {
+        if (Modernizr.localstorage) {
+            localStorage['serverExpense' + id] = JSON.stringify(expense);
+        } else {
+            this.serverExpenses.push(expense);
+        }
+    },
+
+    /*************************************************
+     * Helper functions for expenses
+     *************************************************/
 
     sortExpensesAscending:function (a, b) {
         var dateA = new Date(a.date);

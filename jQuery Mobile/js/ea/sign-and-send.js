@@ -27,7 +27,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                 if (true) {
                     EA.showDialog("Offline", "You are currently offline. Your expense will be saved, please come back later to resend your expense.");
                 } else {
-                    expenseForm.expenses = expenses;
+                    expenseForm.localExpenses = expenses;
 
                     var expenseRequest = {};
                     expenseRequest.token = EA.getToken();
@@ -45,7 +45,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                             $.mobile.loading("show");
                         },
                         success:function () {
-                            EA.expenses = [];
+                            EA.localExpenses = [];
                             $.mobile.changePage("#home");
                         },
                         error:function (xhr, textStatus, errorThrown) {

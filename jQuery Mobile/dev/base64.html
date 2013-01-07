@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Base64</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../js/external/jquery-1.8.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#expense-evidence-file').change(function (event) {
+                alert("file changed");
+                var file = event.target.files[0];
+                alert(file);
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="file" accept="image/*" name="expense-evidence-file" id="expense-evidence-file">
+</body>
+</html>

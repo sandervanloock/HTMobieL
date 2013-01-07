@@ -128,9 +128,25 @@ var EA = {
         }
     },
 
+    getLocalExpenseById:function (id) {
+        if (Modernizr.localstorage) {
+            return JSON.parse(localStorage.getItem("expense" + id));
+        } else {
+            for (var expense in this.localExpenses) {
+                if (expense.id == id) {
+                    return expense;
+                }
+            }
+            return null;
+        }
+    },
+
     addLocalExpense:function (expense) {
         if (Modernizr.localstorage) {
             var id = this.getLocalExpenses().length;
+            // save the id
+            // it is only necessary for the UI, not for backend
+            expense.id = id;
             localStorage['expense' + id] = JSON.stringify(expense);
         } else {
             this.localExpenses.push(expense);
@@ -296,8 +312,8 @@ var EA = {
         this.showDialog(title, html);
     },
 
-    showBackendError:function (message) {
-        this.showError("Backend error", message);
+    showBackendError:function (html) {
+        this.showError("Backend error", html);
     },
 
     prepareValidationError:function (validator, errorMap) {

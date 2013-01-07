@@ -199,6 +199,156 @@
 
 </div>
 
+<div data-role="page" id="abroad">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <fieldset data-role="controlgroup" data-type="horizontal" id="abroad-tabbar">
+                <legend>Type:</legend>
+
+                <label for="abroad-tabbar-abroad">Abroad</label>
+                <input type="radio" name="abroad-tabbar" id="abroad-tabbar-abroad" value="2" checked>
+
+                <label for="abroad-tabbar-domestic">Domestic</label>
+                <input type="radio" name="abroad-tabbar" id="abroad-tabbar-domestic" value="1" disabled>
+            </fieldset>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="abroad-date">Date of Expense:</label>
+            <input type="text" name="abroad-date" id="abroad-date" placeholder="Date of Expense" readonly>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="abroad-project-code">Project Code:</label>
+            <input type="text" name="abroad-project-code" id="abroad-project-code" placeholder="Project Code" readonly>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <fieldset data-role="controlgroup" id="abroad-type">
+                <legend>Choose the type:</legend>
+
+                <label for="abroad-type-hotel">Hotel</label>
+                <input type="radio" name="abroad-type" id="abroad-type-hotel" value="1">
+
+                <label for="abroad-type-restaurant">Restaurant</label>
+                <input type="radio" name="abroad-type" id="abroad-type-restaurant" value="5">
+
+                <label for="abroad-type-other">Other (please specify)</label>
+                <input type="radio" name="abroad-type" id="abroad-type-other" value="6">
+            </fieldset>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label" id="abroad-currency-div">
+            <label for="abroad-currency" class="select">Currency:</label>
+            <select name="abroad-currency" id="abroad-currency">
+
+            </select>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="abroad-amount">Amount:</label>
+            <input type="number" name="abroad-amount" id="abroad-amount" placeholder="Amount" readonly>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="abroad-amount-converted">Converted amount:</label>
+            <input type="text" name="abroad-amount-converted" id="abroad-amount-converted" placeholder="€"
+                   readonly>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="abroad-remarks">Remarks:</label>
+            <textarea name="abroad-remarks" id="abroad-remarks" placeholder="Remarks" readonly></textarea>
+        </div>
+
+        <p class="align-right">
+            <a href="#overview" data-role="button" data-inline="true" data-theme="f">Back</a>
+        </p>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
+<div data-role="page" id="domestic">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <fieldset data-role="controlgroup" data-type="horizontal" id="domestic-tabbar">
+                <legend>Type:</legend>
+
+                <label for="domestic-tabbar-abroad">Abroad</label>
+                <input type="radio" name="domestic-tabbar" id="domestic-tabbar-abroad" value="2" disabled>
+
+                <label for="domestic-tabbar-domestic">Domestic</label>
+                <input type="radio" name="domestic-tabbar" id="domestic-tabbar-domestic" value="1" checked>
+            </fieldset>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="domestic-date">Date of Expense:</label>
+            <input type="text" name="domestic-date" id="domestic-date" placeholder="Date of Expense" readonly>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="domestic-project-code">Project Code:</label>
+            <input type="text" name="domestic-project-code" id="domestic-project-code" placeholder="Project Code"
+                   readonly>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <fieldset data-role="controlgroup" id="domestic-type">
+                <legend>Choose the type:</legend>
+
+                <label for="domestic-type-hotel">Hotel</label>
+                <input type="radio" name="domestic-type" id="domestic-type-hotel" value="1">
+
+                <label for="domestic-type-ticket">Train/Plane tickets</label>
+                <input type="radio" name="domestic-type" id="domestic-type-ticket" value="4">
+
+                <label for="domestic-type-restaurant-lunch">Restaurant (Lunch)</label>
+                <input type="radio" name="domestic-type" id="domestic-type-restaurant-lunch" value="2">
+
+                <label for="domestic-type-restaurant-diner">Restaurant (Diner)</label>
+                <input type="radio" name="domestic-type" id="domestic-type-restaurant-diner" value="3">
+
+                <label for="domestic-type-other">Other (please specify)</label>
+                <input type="radio" name="domestic-type" id="domestic-type-other" value="6">
+            </fieldset>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="domestic-amount">Amount:</label>
+            <input type="number" name="domestic-amount" id="domestic-amount" placeholder="Amount" readonly>
+        </div>
+
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="domestic-remarks">Remarks:</label>
+            <textarea name="domestic-remarks" id="domestic-remarks" placeholder="Remarks" readonly></textarea>
+        </div>
+
+        <p class="align-right">
+            <a href="#overview" data-role="button" data-inline="true" data-theme="f">Back</a>
+        </p>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h6>KU Leuven & Capgemini</h6>
+    </div>
+
+</div>
+
 <div data-role="page" id="expense">
 
     <div data-role="header">

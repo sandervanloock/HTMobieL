@@ -161,7 +161,6 @@ var EA = {
         } else {
             this.expenseForm = null;
         }
-        this.emptyLocalExpenses();
     },
 
     /*************************************************
@@ -233,6 +232,8 @@ var EA = {
             $.each(keysToDelete, function (index, value) {
                 localStorage.removeItem(value);
             });
+            // also clear the expense form information
+            this.clearExpenseForm();
         } else {
             this.localExpenses = {};
         }

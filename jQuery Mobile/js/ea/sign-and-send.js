@@ -2,14 +2,28 @@ $(document).on("pageshow", "#sign-and-send", function () {
     // hold local reference for performance
     var $signature = $("#sign-and-send-signature");
 
-    // when this line is in pageinit, it cannot know width and heigh
-    // therefore it is placed here, but because this code is executed
-    // everytime the page is viewed, multiple signature fields would
-    // come up, so we just check if the canvas is there or not
-
+    // when this line is in pageinit or pagebeforeshow, it cannot know
+    // width and heigh of the page, therefore it is placed here, but
+    // because this code is executed everytime the page is viewed,
+    // multiple signature fields would come up,
+    // so we just check if the canvas is there or not
     if ($signature.find("canvas").length == 0) {
         // no signature canvas was present, so make one
         $signature.jSignature();
+    }
+    // load local data if available
+    if (EA.hasExpenseForm()) {
+        // load data into form
+        var expenseForm = EA.getExpenseForm();
+        console.log(expenseForm.signature);
+        $("#sign-and-send-signature").jSignature("setData", expenseForm.signature);
+        $("#sign-and-send-remarks").val(expenseForm.remarks);
+
+        if (!expenseForm.notification) {
+            $("#sign-and-send-notification").find("option[value=on]").attr("selected", false);
+            $("#sign-and-send-notification").find("option[value=off]").attr("selected", true);
+            $("#sign-and-send-notification").slider("refresh");
+        }
     }
 
     // TODO delete me (developping purposes)

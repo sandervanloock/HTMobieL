@@ -57,4 +57,12 @@ $(document).on("pagebeforecreate", "#your-info", function () {
     $("#your-info-lastname").val(user.lastName);
     $("#your-info-employee-number").val(user.employeeNumber);
     $("#your-info-email").val(user.email);
+
+    // generate unit options
+    var $units = $("#your-info-units");
+    for (var i = 1; i <= 10; i++) {
+        $units.append('<option value="' + i + '">' + i + '</option>');
+    }
+    // select the unit according to the user
+    $units.find("option[value='" + user.unitId + "']").attr("selected", true);
 });

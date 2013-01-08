@@ -2,20 +2,33 @@ $(document).on("pageshow", "#sign-and-send", function () {
     // hold local reference for performance
     var $signature = $("#sign-and-send-signature");
 
-    // when this line is in pageinit, it gives resizing problems
-    $signature.jSignature();
+    // when this line is in pageinit, it cannot know width and heigh
+    // therefore it is placed here, but because this code is executed
+    // everytime the page is viewed, multiple signature fields would
+    // come up, so we just check if the canvas is there or not
 
-    // developping purposes
+    if ($signature.find("canvas").length == 0) {
+        // no signature canvas was present, so make one
+        $signature.jSignature();
+    }
+
+    // TODO delete me (developping purposes)
     $signature.bind("change", function () {
         $("#sign-and-send-signature-base64").val($signature.jSignature("getData"));
     });
+});
+
+$(document).on("tap", "#sign-and-send-signature-reset", function () {
+    $("#sign-and-send-signature").jSignature("reset");
+
+    // TODO delete me (developping purposes)
+    $("#sign-and-send-signature-base64").val("");
 });
 
 $(document).on("pageinit", "#sign-and-send", function () {
     // form validation
     $("#sign-and-send-form").validate({
         submitHandler:function (form) {
-
             // !EA.hasExpenseForm()
             if (false) {
                 EA.showDialog("Information missing", "<p>You haven't go through step 1. Please do so</p>");
@@ -27,8 +40,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                 var expenseForm = {};
                 expenseForm.date = new Date().toISOString();
                 expenseForm.employeeId = EA.getUser().id;
-                // TODO add signature
-                expenseForm.signature = null;
+                expenseForm.signature = $("#sign-and-send-signature").jSignature("getData");
                 expenseForm.remarks = $("#sign-and-send-remarks").val();
                 expenseForm.notification = notification;
                 EA.setExpenseForm(expenseForm);

@@ -23,12 +23,19 @@ $(document).on("pageinit", "#your-info", function () {
 });
 
 $(document).on("pagebeforecreate", "#your-info", function () {
-    // month and year should be equal to this month if day > 15th
     var today = new Date();
     var year = today.getFullYear();
     var day = today.getDate();
     var month = today.getMonth();
 
+    // generate year options for this, previous and next year
+    var $yearOptions = $("#your-info-date-year");
+    var years = [year + 1, year, year - 1];
+    $(years).each(function (i, year) {
+        $yearOptions.append('<option value="' + year + '">' + year + '</option>');
+    });
+
+    // month and year should be equal to this month if day > 15th
     if (day <= 15) {
         // month := previous month
         // and mind that the month January is 0 in JavaScript
@@ -41,8 +48,8 @@ $(document).on("pagebeforecreate", "#your-info", function () {
     }
 
     // set on screen
-    $("#your-info-date-year").find("option[value='" + year + "']").attr("selected", "selected");
-    $("#your-info-date-month").find("option[value='" + month + "']").attr("selected", "selected");
+    $yearOptions.find("option[value='" + year + "']").attr("selected", true);
+    $("#your-info-date-month").find("option[value='" + month + "']").attr("selected", true);
 
     // set the user information
     var user = EA.getUser();

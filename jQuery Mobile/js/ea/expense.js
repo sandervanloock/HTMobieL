@@ -1,4 +1,14 @@
+$(document).on("pagebeforecreate", "#expense", function () {
+    // datum HTML5 ondersteuning
+    if (!Modernizr.inputtypes.date) {
+        alert("date not supported");
+        $("#expense-date").attr("data-role", "datebox")
+            .attr("data-options", '{"mode": "calbox", "overrideCalStartDay": 1}');
+    }
+});
+
 $(document).on("pageinit", "#expense", function () {
+
 
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");

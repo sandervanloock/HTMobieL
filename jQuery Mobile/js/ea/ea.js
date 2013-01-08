@@ -129,7 +129,7 @@ var EA = {
      * Expense form
      *************************************************/
 
-    expenseFormHeader:{},
+    expenseForm:null,
 
     getExpenseForm:function () {
         if (Modernizr.localstorage) {
@@ -145,6 +145,23 @@ var EA = {
         } else {
             this.expenseForm = expenseForm;
         }
+    },
+
+    hasExpenseForm:function () {
+        if (Modernizr.localstorage) {
+            return localStorage.expenseForm != null;
+        } else {
+            return this.expenseForm != null;
+        }
+    },
+
+    clearExpenseForm:function () {
+        if (Modernizr.localstorage) {
+            localStorage.removeItem("expenseForm");
+        } else {
+            this.expenseForm = null;
+        }
+        this.emptyLocalExpenses();
     },
 
     /*************************************************
@@ -216,8 +233,6 @@ var EA = {
             $.each(keysToDelete, function (index, value) {
                 localStorage.removeItem(value);
             });
-            // also clear the expense form information
-            localStorage.removeItem("expenseForm");
         } else {
             this.localExpenses = {};
         }

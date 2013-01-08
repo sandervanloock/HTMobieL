@@ -8,7 +8,7 @@ $(document).on("pagebeforeshow", "#home", function () {
 });
 
 $(document).on("tap", "#home-new-expense", function () {
-    if (EA.hasLocalExpenses()) {
+    if (EA.hasExpenseForm() || EA.hasLocalExpenses()) {
         // inform user with a choice
         $.mobile.changePage("#confirmation");
     } else {
@@ -19,7 +19,7 @@ $(document).on("tap", "#home-new-expense", function () {
 
 $(document).on("tap", "#confirmation-cancel", function () {
     // start new form
-    EA.emptyLocalExpenses();
+    EA.clearExpenseForm();
     // go to add page
     $.mobile.changePage("#add");
 });

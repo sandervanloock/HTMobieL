@@ -23,3 +23,26 @@
 .signature {
     border: 1px solid #000;
 }
+
+/* Responsive design for splitview */
+@media all and (min-width: 600px) {
+    .nav {
+        width: 30%;
+        float: left;
+
+    }
+    .content {
+        margin-left: 5%;
+        width: 65%;
+        float: left;
+    }
+}
+
+@media all and (max-width: 599px) {
+    .nav {
+        display:none;
+    }
+    .content {
+        width: 100%;
+    }
+}

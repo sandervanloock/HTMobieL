@@ -111,64 +111,77 @@
     </div>
 
     <div data-role="content">
-        <form id="your-info-form">
-            <div data-role="fieldcontain">
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <label for="your-info-date-month">Month</label>
-                    <select id="your-info-date-month" name="your-info-date-month" class="required">
-                        <option value="">Month</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+        <ol class="nav" data-role="listview" data-inset="true">
+            <li data-role="list-divider">New expense</li>
+            <li><a href="#">Your info</a></li>
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">Add Expense</a></li>
+            <li><a href="#">Sign & Send</a></li>
+        </ol>
+
+        <div class="content">
+            <form id="your-info-form">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <label for="your-info-date-month">Month</label>
+                        <select id="your-info-date-month" name="your-info-date-month" class="required">
+                            <option value="">Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+
+                        <label for="your-info-date-year">Year</label>
+                        <select name="your-info-date-year" id="your-info-date-year" class="required">
+                            <option value="">Year</option>
+                        </select>
+                    </fieldset>
+                </div>
+
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="your-info-firstname">First Name:</label>
+                    <input type="text" name="your-info-firstname" id="your-info-firstname" placeholder="First Name"
+                           readonly>
+                </div>
+
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="your-info-lastname">Last Name:</label>
+                    <input type="text" name="your-info-lastname" id="your-info-lastname" placeholder="Last Name"
+                           readonly>
+                </div>
+
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="your-info-employee-number">Employee Number</label>
+                    <input type="number" class="required" name="your-info-employee-number"
+                           id="your-info-employee-number"
+                           placeholder="Employee Number">
+                </div>
+
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="your-info-units" class="select">Unit:</label>
+                    <select name="your-info-units" id="your-info-units" class="required">
+                        <option value="">Unit</option>
                     </select>
+                </div>
 
-                    <label for="your-info-date-year">Year</label>
-                    <select name="your-info-date-year" id="your-info-date-year" class="required">
-                        <option value="">Year</option>
-                    </select>
-                </fieldset>
-            </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="your-info-email">Email</label>
+                    <input class="required" type="email" name="your-info-email" id="your-info-email"
+                           placeholder="Email">
+                </div>
 
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="your-info-firstname">First Name:</label>
-                <input type="text" name="your-info-firstname" id="your-info-firstname" placeholder="First Name"
-                       readonly>
-            </div>
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="your-info-lastname">Last Name:</label>
-                <input type="text" name="your-info-lastname" id="your-info-lastname" placeholder="Last Name" readonly>
-            </div>
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="your-info-employee-number">Employee Number</label>
-                <input type="number" class="required" name="your-info-employee-number" id="your-info-employee-number"
-                       placeholder="Employee Number">
-            </div>
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="your-info-units" class="select">Unit:</label>
-                <select name="your-info-units" id="your-info-units" class="required">
-                    <option value="">Unit</option>
-                </select>
-            </div>
-
-            <div data-role="fieldcontain" class="ui-hide-label">
-                <label for="your-info-email">Email</label>
-                <input class="required" type="email" name="your-info-email" id="your-info-email" placeholder="Email">
-            </div>
-
-            <input type="submit" data-role="submit" data-theme="f" value="Next">
-        </form>
+                <input type="submit" data-role="submit" data-theme="f" value="Next">
+            </form>
+        </div>
     </div>
 
     <div data-role="footer" data-position="fixed">

@@ -97,6 +97,9 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $abroadCurrency.append("<option disabled=\"disabled\">" + expense.currency + "</option>");
         $abroadCurrency.selectmenu("refresh");
 
+        // converted currency
+        $("#abroad-amount-converted").val(EA.formatEuro(EA.convertToEuro(amount, expense.currency)));
+
         // go to that page
         $.mobile.changePage("#abroad");
     } else {

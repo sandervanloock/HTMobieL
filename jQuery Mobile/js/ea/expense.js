@@ -6,7 +6,7 @@ $(document).on("pageinit", "#expense", function () {
     var $expenseCurrencyConverted = $("#expense-amount-converted");
 
     // load currencies into list
-    $.each(EA.currencies, function (i, currency) {
+    $.each(EA.getCurrencies(), function (i, currency) {
         $expenseCurrency.append("<option value=\"" + currency.rate + "\">" + currency.name + "</option>")
     });
     $expenseCurrency.selectmenu("refresh");
@@ -17,16 +17,20 @@ $(document).on("pageinit", "#expense", function () {
     $expenseCurrency.change(showConvertedAmount);
 
     function showConvertedAmount() {
-        var amount = parseFloat($expenseAmount.val());
-        var rate = parseFloat($expenseCurrency.val());
-        // check if the converted floats are legal
-        if (!isNaN(amount) && !isNaN(rate)) {
-            var converted = amount / rate;
-            // show euro amount with 2 decimals
-            $expenseCurrencyConverted.val("€ " + converted.toFixed(2));
+        if (false) {
+            // TODO if offline, can't convert currency
         } else {
-            // set the converted value to empty
-            $expenseCurrencyConverted.val("");
+            var amount = parseFloat($expenseAmount.val());
+            var rate = parseFloat($expenseCurrency.val());
+            // check if the converted floats are legal
+            if (!isNaN(amount) && !isNaN(rate)) {
+                var converted = amount / rate;
+                // show euro amount with 2 decimals
+                $expenseCurrencyConverted.val(EA.formatEuro(converted));
+            } else {
+                // set the converted value to empty
+                $expenseCurrencyConverted.val("");
+            }
         }
     }
 

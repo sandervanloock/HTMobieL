@@ -81,11 +81,55 @@ var EA = {
 
     currencies:[],
 
+    convertToEuro:function (amount, currency) {
+        var rate = this.getRateForCurrency(currency);
+        var converted = amount / rate;
+        return converted.toFixed(2);
+    },
+
+    getRateForCurrency:function (currency) {
+        var currencies = [];
+        if (Modernizr.localstorage) {
+            currencies = JSON.parse(localStorage.currencies);
+        } else {
+            currencies = this.currencies;
+        }
+        // loop over all currency entries
+        var toReturn;
+        $(currencies).each(function (i, cur) {
+            if (cur.name == currency) {
+                toReturn = cur.rate;
+            }
+        });
+        return toReturn;
+    },
+
+    setCurrencies:function (currencies) {
+        if (Modernizr.localstorage) {
+            localStorage.currencies = JSON.stringify(currencies);
+        } else {
+            this.currencies = currencies;
+        }
+    },
+
+    getCurrencies:function () {
+        if (Modernizr.localstorage) {
+            return JSON.parse(localStorage.currencies);
+        } else {
+            return this.currencies;
+        }
+    },
+
+    formatEuro:function (amount) {
+        var converted = Number(amount);
+        return "€ " + converted.toFixed(2);
+    },
+
     /*************************************************
      * Expense form
      *************************************************/
 
-    expenseFormHeader:{},
+    expenseForm:null,
 
     getExpenseForm:function () {
         if (Modernizr.localstorage) {
@@ -101,6 +145,23 @@ var EA = {
         } else {
             this.expenseForm = expenseForm;
         }
+    },
+
+    hasExpenseForm:function () {
+        if (Modernizr.localstorage) {
+            return localStorage.expenseForm != null;
+        } else {
+            return this.expenseForm != null;
+        }
+    },
+
+    clearExpenseForm:function () {
+        if (Modernizr.localstorage) {
+            localStorage.removeItem("expenseForm");
+        } else {
+            this.expenseForm = null;
+        }
+        this.emptyLocalExpenses();
     },
 
     /*************************************************
@@ -169,11 +230,9 @@ var EA = {
                 }
             }
             // now delete the keys
-            $.each(keysToDelete, function(index, value) {
+            $.each(keysToDelete, function (index, value) {
                 localStorage.removeItem(value);
             });
-            // also clear the expense form information
-            localStorage.removeItem("expenseForm");
         } else {
             this.localExpenses = {};
         }
@@ -226,7 +285,7 @@ var EA = {
                 }
             }
             // now delete the keys
-            $.each(keysToDelete, function(index, value) {
+            $.each(keysToDelete, function (index, value) {
                 localStorage.removeItem(value);
             });
         } else {

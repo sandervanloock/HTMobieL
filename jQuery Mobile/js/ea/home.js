@@ -8,7 +8,7 @@ $(document).on("pagebeforeshow", "#home", function () {
 });
 
 $(document).on("tap", "#home-new-expense", function () {
-    if (EA.hasLocalExpenses()) {
+    if (EA.hasExpenseForm() || EA.hasLocalExpenses()) {
         // inform user with a choice
         $.mobile.changePage("#confirmation");
     } else {
@@ -19,7 +19,7 @@ $(document).on("tap", "#home-new-expense", function () {
 
 $(document).on("tap", "#confirmation-cancel", function () {
     // start new form
-    EA.emptyLocalExpenses();
+    EA.clearExpenseForm();
     // go to add page
     $.mobile.changePage("#add");
 });
@@ -35,6 +35,12 @@ $(document).on("tap", "#home-logout", function () {
         url:"http://kulcapexpenseapp.appspot.com/resources/userService/logout",
         data:{
             'token':EA.getToken()
+        },
+        beforeSend:function () {
+            $.mobile.loading("show");
+        },
+        complete:function () {
+            $.mobile.loading("hide");
         },
         success:function () {
             // empty session

@@ -95,18 +95,23 @@ $(document).on("pageinit", "#login", function () {
                                 $.mobile.loading("show");
                             },
                             success:function (xml) {
+                                var currencies = [];
                                 // gets the cube block
                                 var $xml = $("Cube", xml);
                                 // gets the cube block with time attribute
                                 $xml = $("Cube", $xml);
+
+                                // extract time stamp to know if outdated or not
+
                                 // iterate over each entry to get currency and rate
                                 $xml.find("Cube").each(function () {
                                     var $this = $(this);
-                                    EA.currencies.push({
+                                    currencies.push({
                                         name:$this.attr("currency"),
                                         rate:parseFloat($this.attr("rate"))
                                     });
                                 });
+                                EA.setCurrencies(currencies);
                             },
                             error:function () {
                                 EA.showBackendError("Could not fetch currencies.");

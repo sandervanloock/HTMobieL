@@ -42,6 +42,8 @@
 		} else {
 			str = [];
 			if (data) {
+                // limit to 5 suggestions
+                data = data.slice(0,5);
 				$.each(data, function(index, value) {
 					// are we working with objects or strings?
 					if ($.isPlainObject(value)) {

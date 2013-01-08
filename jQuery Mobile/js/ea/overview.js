@@ -17,7 +17,18 @@ $(document).on("pagebeforeshow", "#overview", function () {
             var li = "<li><a id=\"expense-show-" + expense.id + "\">";
             li += "<h1>" + EA.toBelgianDate(new Date(expense.date)) + " </h1>";
             li += "<p>" + EA.expenseTypeIdToString(expense.expenseTypeId);
-            li += " (" + expense.amount + " " + expense.currency + ")</p>";
+
+            var amount, currency;
+            if (expense.currency != "EUR") {
+                // try to convert it
+                amount = EA.convertToEuro(expense.amount, expense.currency);
+                currency = "EUR";
+            } else {
+                amount = expense.amount;
+                currency = "EUR";
+            }
+
+            li += " (" + amount + " " + currency + ")</p>";
             li += "</a></li>";
             // apppend the list item to the list
             $overviewList.append(li);
@@ -53,6 +64,7 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $("#domestic-project-code").val(projectCode);
         $("#domestic-amount").val(amount);
         $("#domestic-remarks").val(remarks);
+        $("#domestic-evidence").attr("src", expense.evidence);
 
         // type of expense
         var $domesticType = $("#domestic-type");
@@ -76,6 +88,7 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $("#abroad-project-code").val(projectCode);
         $("#abroad-amount").val(amount);
         $("#abroad-remarks").val(remarks);
+        $("#abroad-evidence").attr("src", expense.evidence);
 
         // type of expense
         var $abroadType = $("#abroad-type");
@@ -96,6 +109,9 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $abroadCurrency.empty();
         $abroadCurrency.append("<option disabled=\"disabled\">" + expense.currency + "</option>");
         $abroadCurrency.selectmenu("refresh");
+
+        // converted currency
+        $("#abroad-amount-converted").val(EA.formatEuro(EA.convertToEuro(amount, expense.currency)));
 
         // go to that page
         $.mobile.changePage("#abroad");

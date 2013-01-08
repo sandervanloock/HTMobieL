@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Save to server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../js/external/jquery-1.8.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type:"POST",
+                dataType:"html",
+                url:"http://localhost:8888/resources/userService/login",
+                data:{
+                    'email':"tim.ameye@student.kuleuven.be",
+                    'password':"test123"
+                },
+                success:function (data) {
+                    console.log(data);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

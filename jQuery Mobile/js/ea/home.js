@@ -36,6 +36,12 @@ $(document).on("tap", "#home-logout", function () {
         data:{
             'token':EA.getToken()
         },
+        beforeSend:function () {
+            $.mobile.loading("show");
+        },
+        complete:function () {
+            $.mobile.loading("hide");
+        },
         success:function () {
             // empty session
             EA.setToken(null);

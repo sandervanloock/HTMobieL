@@ -15,7 +15,6 @@ $(document).on("pageshow", "#sign-and-send", function () {
     if (EA.hasExpenseForm()) {
         // load data into form
         var expenseForm = EA.getExpenseForm();
-        console.log(expenseForm.signature);
         $("#sign-and-send-signature").jSignature("setData", expenseForm.signature);
         $("#sign-and-send-remarks").val(expenseForm.remarks);
 
@@ -91,7 +90,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                                 $.mobile.loading("show");
                             },
                             success:function () {
-                                EA.localExpenses = [];
+                                EA.clearExpenseForm();
                                 $.mobile.changePage("#home");
                             },
                             error:function (xhr, textStatus, errorThrown) {

@@ -17,7 +17,17 @@ $(document).on("pagebeforeshow", "#overview", function () {
             var li = "<li><a id=\"expense-show-" + expense.id + "\">";
             li += "<h1>" + EA.toBelgianDate(new Date(expense.date)) + " </h1>";
             li += "<p>" + EA.expenseTypeIdToString(expense.expenseTypeId);
-            li += " (" + expense.amount + " " + expense.currency + ")</p>";
+
+            var amount, currency;
+            if (expense.currency != "EUR") {
+                // try to convert it
+                amount = EA.convertToEuro(expense.amount, expense.currency);
+                currency = "EUR";
+            } else {
+                amount = expense.amount;
+            }
+
+            li += " (" + amount + " " + currency + ")</p>";
             li += "</a></li>";
             // apppend the list item to the list
             $overviewList.append(li);

@@ -1,5 +1,17 @@
-$(document).on("pageinit", "#sign-and-send", function () {
+$(document).on("pageshow", "#sign-and-send", function () {
+    // hold local reference for performance
+    var $signature = $("#sign-and-send-signature");
 
+    // when this line is in pageinit, it gives resizing problems
+    $signature.jSignature();
+
+    // developping purposes
+    $signature.bind("change", function () {
+        $("#sign-and-send-signature-base64").val($signature.jSignature("getData"));
+    });
+});
+
+$(document).on("pageinit", "#sign-and-send", function () {
     // form validation
     $("#sign-and-send-form").validate({
         submitHandler:function (form) {

@@ -28,6 +28,7 @@
     <script src="js/external/base64.js"></script>
     <script src="js/external/jqm-datebox-1.1.0.core.js"></script>
     <script src="js/external/jqm-datebox-1.1.0.mode.calbox.js"></script>
+    <script src="js/external/jSignature.js"></script>
 </head>
 <body>
 
@@ -487,6 +488,14 @@
 
     <div data-role="content">
         <form id="sign-and-send-form">
+
+            <div id="sign-and-send-signature" class="signature"></div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="sign-and-send-signature-base64">Signature:</label>
+                <input type="text" id="sign-and-send-signature-base64">
+            </div>
+
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="sign-and-send-remarks">Remarks:</label>
                 <textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea>

@@ -19,3 +19,7 @@
 .subheader h2 {
     font-size: 14px;
 }
+
+.signature {
+    border: 1px solid #000;
+}

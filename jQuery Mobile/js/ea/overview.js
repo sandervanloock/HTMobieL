@@ -25,6 +25,7 @@ $(document).on("pagebeforeshow", "#overview", function () {
                 currency = "EUR";
             } else {
                 amount = expense.amount;
+                currency = "EUR";
             }
 
             li += " (" + amount + " " + currency + ")</p>";
@@ -63,6 +64,7 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $("#domestic-project-code").val(projectCode);
         $("#domestic-amount").val(amount);
         $("#domestic-remarks").val(remarks);
+        $("#domestic-evidence").attr("src", expense.evidence);
 
         // type of expense
         var $domesticType = $("#domestic-type");
@@ -86,6 +88,7 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $("#abroad-project-code").val(projectCode);
         $("#abroad-amount").val(amount);
         $("#abroad-remarks").val(remarks);
+        $("#abroad-evidence").attr("src", expense.evidence);
 
         // type of expense
         var $abroadType = $("#abroad-type");

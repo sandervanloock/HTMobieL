@@ -1,9 +1,62 @@
 $(document).on("pageinit", "#your-info", function () {
 
+    // custom validation rules
+    $.validator.addMethod("isCorrectMonth", function (value, element) {
+        var today = new Date();
+        var day = today.getDate();
+        var month = today.getMonth() + 1; // January is 0
+
+        // month and year should be equal to this month if day > 15th
+        if (day > 15) {
+            return month == value;
+        } else {
+            if (month == 1) {
+                return 12 == value;
+            } else {
+                return month - 1 == value;
+            }
+        }
+    }, "Select the right month according to the Capgemini policy");
+
+    $.validator.addMethod("isCorrectYear", function (value, element) {
+        var today = new Date();
+        var day = today.getDate();
+        var month = today.getMonth();
+        var year = today.getFullYear();
+
+        // month and year should be equal to this month if day > 15th
+        if (day > 15) {
+            return year == value;
+        } else {
+            return year - 1 == value;
+        }
+    }, "Select the right year according to the Capgemini policy");
+
+
     // initialize validation for the form
     $("#your-info-form").validate({
 
-        // needed for bug that show keyboard and dialog at the same time
+        // rules for the form validation
+        rules:{
+            "your-info-date-month":{
+                "required":true,
+                "isCorrectMonth":true
+            },
+            "your-info-date-year":{
+                "required":true,
+                "isCorrectYear":true
+            },
+            "your-info-employee-number":"required",
+            "your-info-units":"required",
+            "your-info-email":{
+                "required":true,
+                // redundant, because of the input type email,
+                // the plugin will already check for a valid email address
+                "email":true
+            }
+        },
+
+        // needed for bug that shows keyboard and dialog at the same time
         focusInvalid:false,
 
         // no real time validation checking needed
@@ -16,25 +69,27 @@ $(document).on("pageinit", "#your-info", function () {
 
         // custom highlight function due to select item
         highlight:function (element, errorClass, validClass) {
-            if (element.tagName === "SELECT") {
+            var $element = $(element);
+            if ($element[0].tagName === "SELECT") {
                 // we have to take special care for the red border around select items
-                $(element).parent().addClass("red-border");
+                $element.parent().addClass("red-border");
             } else {
                 // normal toggle behaviour
-                $(element).removeClass(validClass);
-                $(element).addClass(errorClass);
+                $element.removeClass(validClass);
+                $element.addClass(errorClass);
             }
         },
 
         // custom unhighlight function due to select item
         unhighlight:function (element, errorClass, validClass) {
-            if (element.tagName === "SELECT" ) {
+            var $element = $(element)
+            if ($element[0].tagName === "SELECT") {
                 // we have to take special care for the red border around select items
-                $(element).parent().removeClass("red-border");
+                $element.parent().removeClass("red-border");
             } else {
                 // normal toggle behaviour
-                $(element).removeClass(errorClass);
-                $(element).addClass(validClass);
+                $element.removeClass(errorClass);
+                $element.addClass(validClass);
             }
         },
 

@@ -12,9 +12,10 @@ $(document).on("pagebeforeshow", "#overview", function () {
         // sort list by ascending order
         var sorted = localExpenses.sort(EA.sortExpensesAscending);
         // insert them into the list
+        var li;
         $.each(sorted, function (index, expense) {
             // build the html list item
-            var li = "<li><a id=\"expense-show-" + expense.id + "\">";
+            li = "<li><a id=\"expense-show-" + expense.id + "\">";
             li += "<h1>" + EA.toBelgianDate(new Date(expense.date)) + " </h1>";
             li += "<p>" + EA.expenseTypeIdToString(expense.expenseTypeId);
 
@@ -66,22 +67,23 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $("#domestic-remarks").val(remarks);
         $("#domestic-evidence").attr("src", expense.evidence);
 
-        // type of expense
+        // disable all types of expenses
         var $domesticType = $("#domestic-type");
-        // disabled all type of expense
+        // disabled all types of expense
         $domesticType.find(":radio").each(function () {
             $(this).attr('checked', false)
                 .attr('disabled', true)
                 .checkboxradio("refresh");
         });
-        // check the right type of expense
+        // now check the right type of expense
         $domesticType.find(":radio[value=" + expenseTypeId + "]")
             .attr('checked', true)
             .attr('disabled', false)
             .checkboxradio("refresh");
 
-        // go to that page
+        // go to that detail page
         $.mobile.changePage("#domestic");
+
     } else if (expense.expenseLocationId == 2) {
         // set all the fields for abroad
         $("#abroad-date").val(date);
@@ -90,7 +92,7 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $("#abroad-remarks").val(remarks);
         $("#abroad-evidence").attr("src", expense.evidence);
 
-        // type of expense
+        // disable all types of expenses
         var $abroadType = $("#abroad-type");
         // disabled all type of expense
         $abroadType.find(":radio").each(function () {
@@ -106,16 +108,20 @@ $(document).on("tap", "[id^=expense-show]", function () {
 
         // type of currency
         var $abroadCurrency = $("#abroad-currency");
+        // clear all the currencies
         $abroadCurrency.empty();
+        // add the right curreny
         $abroadCurrency.append("<option disabled=\"disabled\">" + expense.currency + "</option>");
         $abroadCurrency.selectmenu("refresh");
 
         // converted currency
         $("#abroad-amount-converted").val(EA.formatEuro(EA.convertToEuro(amount, expense.currency)));
 
-        // go to that page
+        // go to that detailpage
         $.mobile.changePage("#abroad");
+
     } else {
+        // should not happen, but just to be sure
         EA.showError("Illegal expense location.");
     }
 });

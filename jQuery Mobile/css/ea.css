@@ -37,40 +37,20 @@
 }
 
 /* Responsive design: tablet view */
-/*@media all and (min-width: 600px) {
-    .nav {
-        width: 30%;
-        float: left;
-
-    }
-
-    .content {
-        margin-left: 5%;
-        width: 65%;
-        float: left;
-    }
-
+@media all and (min-width: 600px) {
     .wrapper {
         margin-left: auto;
         width: 400px;
         margin-right: auto;
     }
-}*/
+}
 
 /* Responsive design: smartphone view */
-/*@media all and (max-width: 599px) {
-    .nav {
-        display: none;
-    }
-
-    .content {
-        width: 100%;
-    }
-
+@media all and (max-width: 599px) {
     .wrapper {
         width: 100%;
     }
-}*/
+}
 
 /* The following code was adapted form the jQM docs site */
 .type-interior .content-secondary {

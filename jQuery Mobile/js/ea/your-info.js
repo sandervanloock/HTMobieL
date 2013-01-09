@@ -1,7 +1,7 @@
 $(document).on("pageinit", "#your-info", function () {
 
     // custom validation rules
-    $.validator.addMethod("isCorrectMonth", function (value, element) {
+    $.validator.addMethod("isCorrectMonth", function (value) {
         var today = new Date();
         var day = today.getDate();
         var month = today.getMonth() + 1; // January is 0
@@ -10,6 +10,7 @@ $(document).on("pageinit", "#your-info", function () {
         if (day > 15) {
             return month == value;
         } else {
+            // it must be the previous month
             if (month == 1) {
                 return 12 == value;
             } else {
@@ -18,17 +19,23 @@ $(document).on("pageinit", "#your-info", function () {
         }
     }, "Select the right month according to the Capgemini policy");
 
-    $.validator.addMethod("isCorrectYear", function (value, element) {
+    $.validator.addMethod("isCorrectYear", function (value) {
         var today = new Date();
         var day = today.getDate();
-        var month = today.getMonth();
+        var month = today.getMonth() + 1; // January is 0
         var year = today.getFullYear();
 
         // month and year should be equal to this month if day > 15th
         if (day > 15) {
             return year == value;
         } else {
-            return year - 1 == value;
+            // it must be the previous month, validate the year accordingly
+            if (month == 1) {
+                return year - 1 == value;
+            } else {
+                return year == value;
+            }
+
         }
     }, "Select the right year according to the Capgemini policy");
 
@@ -82,7 +89,7 @@ $(document).on("pageinit", "#your-info", function () {
 
         // custom unhighlight function due to select item
         unhighlight:function (element, errorClass, validClass) {
-            var $element = $(element)
+            var $element = $(element);
             if ($element[0].tagName === "SELECT") {
                 // we have to take special care for the red border around select items
                 $element.parent().removeClass("red-border");

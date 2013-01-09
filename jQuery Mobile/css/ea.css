@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+.center{
+    width: 100%;
+    text-align: center;
+}
+
 /* Red border for invalid fields */
 .error {
     border: 2px solid red;
@@ -24,25 +29,38 @@
     border: 1px solid #000;
 }
 
-/* Responsive design for splitview */
+/* Responsive design: tablet view */
 @media all and (min-width: 600px) {
     .nav {
         width: 30%;
         float: left;
 
     }
+
     .content {
         margin-left: 5%;
         width: 65%;
         float: left;
     }
+
+    .wrapper {
+        margin-left: auto;
+        width: 400px;
+        margin-right: auto;
+    }
 }
 
+/* Responsive design: smartphone view */
 @media all and (max-width: 599px) {
     .nav {
-        display:none;
+        display: none;
     }
+
     .content {
+        width: 100%;
+    }
+
+    .wrapper {
         width: 100%;
     }
 }

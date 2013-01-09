@@ -42,9 +42,11 @@
     <div data-role="content">
         <p>Welcome, <span id="home-employee-name"></span>.</p>
 
-        <p>I want to:</p>
-        <a id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a>
-        <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
+        <div class="wrapper">
+            <p class="align-center">I want to:</p>
+            <a id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a>
+            <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
+        </div>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -602,7 +604,7 @@
     </div>
 
     <div data-role="content">
-        <form id="login-form">
+        <form id="login-form" class="wrapper">
 
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="login-username">Username:</label>

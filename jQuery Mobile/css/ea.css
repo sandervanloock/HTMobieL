@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+.center {
+    width: 100%;
+    text-align: center;
+}
+
 /* Red border for invalid fields */
 .error {
     border: 2px solid red;
@@ -16,10 +21,107 @@
     display: none;
 }
 
+.subheader {
+    text-align: center;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+
+}
+
 .subheader h2 {
     font-size: 14px;
 }
 
+.subheader .ui-li-divider {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 2.5em;
+    text-align: center;
+}
+
 .signature {
     border: 1px solid #000;
+}
+
+/* Responsive design: tablet view */
+@media all and (min-width: 600px) {
+    .wrapper {
+        margin-left: auto;
+        width: 400px;
+        margin-right: auto;
+    }
+}
+
+/* Responsive design: smartphone view */
+@media all and (max-width: 599px) {
+    .wrapper {
+        width: 100%;
+    }
+}
+
+/* The following code was adapted form the jQM docs site */
+.type-interior .content-secondary {
+    display: none;
+}
+
+.content-secondary .ui-listview {
+    margin: 0;
+}
+
+@media all and (min-width: 600px) {
+    .type-interior > .ui-content {
+        padding: 0;
+    }
+
+    .type-interior > .ui-content {
+        overflow: hidden;
+    }
+
+    .content-secondary {
+        text-align: left;
+        float: left;
+        width: 30%;
+    }
+
+    .content-secondary,
+    .type-interior .content-secondary {
+        display: block;
+        position: relative;
+    }
+
+    /* takes care for the middle line */
+    .type-interior .content-secondary::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 1px;
+        width: 1px;
+        margin-bottom: -9999px;
+        padding-bottom: 9999px;
+        background: #bbb;
+    }
+
+    .content-primary {
+        width: 70%;
+        float: left;
+    }
+
+    .type-interior .content-primary-inner {
+        /*top right bottom left*/
+        margin: 0;
+        display: block;
+        width: 100%
+    }
+
+    .type-interior .content-primary-inner .content-primary-content {
+        margin: 15px;
+    }
+
+    .type-interior .content-secondary .ui-li-divider {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
 }

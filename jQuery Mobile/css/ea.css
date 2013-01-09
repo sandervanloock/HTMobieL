@@ -12,7 +12,9 @@
 }
 
 /* Red border for invalid fields */
-input.error, .red-border {
+input.error,
+textarea.error,
+.red-border {
     border: 2px solid red;
 }
 

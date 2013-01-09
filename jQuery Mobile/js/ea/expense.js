@@ -1,8 +1,9 @@
 $(document).on("pagebeforecreate", "#expense", function () {
     // check for HTML5 date input type support
     if (!Modernizr.inputtypes.date) {
-        // add fallback that makes a datepicker for that field
-        $("#expense-date").attr("data-role", "datebox")
+        // add fallback that makes a custom datepicker for that field
+        $("#expense-date")
+            .attr("data-role", "datebox")
             .attr("data-options", '{"mode": "calbox", "overrideCalStartDay": 1}');
     }
 });
@@ -124,8 +125,11 @@ $(document).on("pageinit", "#expense", function () {
 
     });
 
-    // form validation
+    // initialize form validation
     $("#expense-form").validate({
+
+        // the rules are programmed via JS instead of HTML,
+        // because of the dependency for remarks
         rules:{
             "expense-date":{
                 required:true
@@ -140,6 +144,9 @@ $(document).on("pageinit", "#expense", function () {
                 required:true,
                 min:0 // a negative amount is not valid
             },
+            "expense-currency":{
+                required:true
+            },
             "expense-remarks":{
                 required:function () {
                     return $("#expense-type-other").is(":checked");
@@ -149,18 +156,61 @@ $(document).on("pageinit", "#expense", function () {
                 required:true
             }
         },
+
+        // needed for bug that show keyboard and dialog at the same time
         focusInvalid:false,
-        errorPlacement:function (error, element) {
+
+        // no real time validation checking needed
+        onkeyup:false,
+        onfocusout:false,
+
+        errorPlacement:function () {
             // no body, because we want no error labels on the form
         },
 
-        showErrors:function (errorMap, errorList) {
+        // custom highlight function due to select item
+        highlight:function (element, errorClass, validClass) {
+            var $element = $(element);
+            if (element.tagName === "SELECT") {
+                // we have to take special care for the red border around select items
+                $(element).parent().addClass("red-border");
+            } else if ($element.attr("type") === "radio") {
+                // we have to take special care for the red border around radio items
+                $element.parent().parent().addClass("red-border");
+            } else {
+                // normal toggle behaviour
+                $(element).removeClass(validClass);
+                $(element).addClass(errorClass);
+            }
+        },
+
+        // custom unhighlight function due to select item
+        unhighlight:function (element, errorClass, validClass) {
+            var $element = $(element);
+            if (element.tagName === "SELECT") {
+                // we have to take special care for the red border around select items
+                $(element).parent().removeClass("red-border");
+            } else if ($element.attr("type") === "radio") {
+                // we have to take special care for the red border around radio items
+                $element.parent().parent().removeClass("red-border");
+            } else {
+                // normal toggle behaviour
+                $(element).removeClass(errorClass);
+                $(element).addClass(validClass);
+            }
+        },
+
+        // prepare the errors in the dialog box
+        showErrors:function (errorMap) {
             EA.prepareValidationError(this, errorMap);
         },
 
-        invalidHandler:function (form, validator) {
+        // show the dialog box
+        invalidHandler:function () {
             $.mobile.changePage("#error-validation");
         },
+
+        // execute when the form was successfully validated
         submitHandler:function (form) {
             var date = new Date($("#expense-date").val());
 

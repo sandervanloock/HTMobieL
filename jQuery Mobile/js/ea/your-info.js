@@ -28,7 +28,7 @@ $(document).on("pageinit", "#your-info", function () {
 
         // custom unhighlight function due to select item
         unhighlight:function (element, errorClass, validClass) {
-            if (element.tagName === "SELECT") {
+            if (element.tagName === "SELECT" ) {
                 // we have to take special care for the red border around select items
                 $(element).parent().removeClass("red-border");
             } else {
@@ -118,7 +118,7 @@ $(document).on("pagebeforecreate", "#your-info", function () {
         // month := previous month
         // and mind that the month January is 0 in JavaScript
         if (month == 0) {
-            // previous month is December (now not in JavaScript)
+            // previous month is December (not in JavaScript, so January is 1)
             month = 12;
             // of previous year
             year--;

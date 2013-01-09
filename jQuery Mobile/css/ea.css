@@ -12,7 +12,7 @@
 }
 
 /* Red border for invalid fields */
-.error {
+input.error, .red-border {
     border: 2px solid red;
 }
 
@@ -65,8 +65,7 @@
     margin: 15px;
 }
 
-
-.type-interior .ui-content{
+.type-interior .ui-content {
     padding: 0;
 }
 

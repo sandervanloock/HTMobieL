@@ -12,7 +12,9 @@
 }
 
 /* Red border for invalid fields */
-.error {
+input.error,
+textarea.error,
+.red-border {
     border: 2px solid red;
 }
 
@@ -30,13 +32,6 @@
 
 .subheader h2 {
     font-size: 14px;
-}
-
-.subheader .ui-li-divider {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    margin-bottom: 2.5em;
-    text-align: center;
 }
 
 .signature {
@@ -66,6 +61,14 @@
 
 .content-secondary .ui-listview {
     margin: 0;
+}
+
+.type-interior .content-primary-inner .content-primary-content {
+    margin: 15px;
+}
+
+.type-interior .ui-content {
+    padding: 0;
 }
 
 @media all and (min-width: 600px) {
@@ -113,10 +116,6 @@
         margin: 0;
         display: block;
         width: 100%
-    }
-
-    .type-interior .content-primary-inner .content-primary-content {
-        margin: 15px;
     }
 
     .type-interior .content-secondary .ui-li-divider {

@@ -61,7 +61,7 @@
     </div>
 
     <div data-role="content">
-        <ul data-role="listview" id="my-expenses-list">
+        <ul data-role="listview" id="my-expenses-list" data-inset="true">
 
         </ul>
         <form id="my-expenses-form" target="_blank"
@@ -114,9 +114,9 @@
         <ol class="nav" data-role="listview" data-inset="true">
             <li data-role="list-divider">New expense</li>
             <li data-icon="false">Your info</li>
-            <li data-icon="false"><a href="#">Overview</a></li>
-            <li data-icon="false"><a href="#">Add Expense</a></li>
-            <li data-icon="false"><a href="#">Sign & Send</a></li>
+            <li data-icon="false"><a id="your-info-menu-overview">Overview</a></li>
+            <li data-icon="false"><a id="your-info-menu-add-expense">Add Expense</a></li>
+            <li data-icon="false"><a id="your-info-menu-sign-and-send">Sign & Send</a></li>
         </ol>
 
         <div class="content">
@@ -179,6 +179,7 @@
                            placeholder="Email">
                 </div>
 
+                <input type="hidden" name="your-info-next-page" id="your-info-next-page">
                 <input type="submit" data-role="submit" data-theme="f" value="Next">
             </form>
         </div>
@@ -204,13 +205,13 @@
         <ol class="nav" data-role="listview" data-inset="true">
             <li data-role="list-divider">New expense</li>
             <li data-icon="false"><a href="#your-info">Your info</a></li>
-            <li data-icon="false">Overview</a></li>
+            <li data-icon="false">Overview</li>
             <li data-icon="false"><a href="#expense">Add Expense</a></li>
             <li data-icon="false"><a href="#sign-and-send">Sign & Send</a></li>
         </ol>
 
         <div class="content">
-            <ul data-role="listview" id="overview-list">
+            <ul data-role="listview" id="overview-list" data-inset="true">
 
             </ul>
             <p class="align-right">
@@ -426,9 +427,9 @@
     <div data-role="content">
         <ol class="nav" data-role="listview" data-inset="true">
             <li data-role="list-divider">New expense</li>
-            <li data-icon="false"><a href="#">Your info</a></li>
-            <li data-icon="false"><a href="#">Overview</a></li>
-            <li data-icon="false"><a href="#expense">Add Expense</a></li>
+            <li data-icon="false"><a href="#your-info">Your info</a></li>
+            <li data-icon="false"><a href="#overview">Overview</a></li>
+            <li data-icon="false">Add Expense</li>
             <li data-icon="false"><a href="#sign-and-send">Sign & Send</a></li>
         </ol>
 
@@ -519,6 +520,7 @@
                            readonly>
                 </div>
 
+                <input type="hidden" name="expense-next-page" id="expense-next-page">
                 <input type="submit" data-role="submit" data-theme="f" value="Add">
             </form>
         </div>
@@ -543,9 +545,9 @@
     <div data-role="content">
         <ol class="nav" data-role="listview" data-inset="true">
             <li data-role="list-divider">New expense</li>
-            <li data-icon="false"><a href="#">Your info</a></li>
-            <li data-icon="false"><a href="#">Overview</a></li>
-            <li data-icon="false"><a href="#">Add Expense</a></li>
+            <li data-icon="false"><a href="#your-info">Your info</a></li>
+            <li data-icon="false"><a href="#overview">Overview</a></li>
+            <li data-icon="false"><a href="#expense">Add Expense</a></li>
             <li data-icon="false">Sign & Send</li>
         </ol>
 

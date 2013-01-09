@@ -8,8 +8,6 @@ $(document).on("pagebeforecreate", "#expense", function () {
 });
 
 $(document).on("pageinit", "#expense", function () {
-
-
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
     var $expenseAmount = $("#expense-amount");

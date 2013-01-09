@@ -34,9 +34,16 @@ $(document).on("pageinit", "#your-info", function () {
                 });
             }
 
-            $.mobile.changePage("#overview");
+            $.mobile.changePage($("#your-info-next-page").val());
         }
     });
+});
+
+$(document).on("pagebeforeshow", "#your-info", function () {
+    // sets the next page into a hidden field
+    // necessary, because form validation must also occurs when
+    // clicking on menu buttons
+    $("#your-info-next-page").val("#overview");
 });
 
 $(document).on("pagebeforecreate", "#your-info", function () {
@@ -85,4 +92,21 @@ $(document).on("pagebeforecreate", "#your-info", function () {
     // select the unit according to the user
     $units.find("option[value='" + user.unitId + "']").attr("selected", true);
 
+});
+
+// validation must be done when clicking on menu button
+$(document).on("tap", "#your-info-menu-overview", function () {
+    $("#your-info-form").submit();
+});
+
+// validation must be done when clicking on menu button
+$(document).on("tap", "#your-info-menu-add-expense", function () {
+    $("#your-info-next-page").val("#expense");
+    $("#your-info-form").submit();
+});
+
+// validation must be done when clicking on menu button
+$(document).on("tap", "#your-info-menu-sign-and-send", function () {
+    $("#your-info-next-page").val("#sign-and-send");
+    $("#your-info-form").submit();
 });

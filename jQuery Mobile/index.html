@@ -102,27 +102,31 @@
 
 </div>
 
-<div data-role="page" id="your-info">
+<div data-role="page" id="your-info" class="type-interior">
 
     <div data-role="header">
         <h1>Expense App</h1>
         <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
 
-        <div class="ui-bar ui-bar-b subheader">
-            <h2>1. Your info</h2>
-        </div>
+
     </div>
 
     <div data-role="content">
-        <ol class="nav" data-role="listview" data-inset="true">
-            <li data-role="list-divider">New expense</li>
-            <li data-theme="b" data-icon="false">Your info</li>
-            <li data-icon="false"><a id="your-info-menu-overview">Overview</a></li>
-            <li data-icon="false"><a id="your-info-menu-add-expense">Add Expense</a></li>
-            <li data-icon="false"><a id="your-info-menu-sign-and-send">Sign & Send</a></li>
-        </ol>
+        <div class="content-secondary">
+            <ol data-role="listview" data-divider-theme="c">
+                <li data-role="list-divider">New expense</li>
+                <li data-theme="b" data-icon="false"><a>Your info</a></li>
+                <li data-icon="false"><a id="your-info-menu-overview">Overview</a></li>
+                <li data-icon="false"><a id="your-info-menu-add-expense">Add Expense</a></li>
+                <li data-icon="false"><a id="your-info-menu-sign-and-send">Sign & Send</a></li>
+            </ol>
+        </div>
 
-        <div class="content">
+        <div class="content-primary">
+            <ol class="subheader" data-role="listview" data-divider-theme="c">
+                <li data-role="list-divider">1. Your info</li>
+            </ol>
+
             <form id="your-info-form">
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup" data-type="horizontal">

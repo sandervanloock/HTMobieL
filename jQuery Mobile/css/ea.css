@@ -21,6 +21,13 @@
     display: none;
 }
 
+.subheader {
+    text-align: center;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+
+}
+
 .subheader h2 {
     font-size: 14px;
 }
@@ -97,14 +104,19 @@
     }
 
     .content-primary {
-        width: 66%;
-        float: right;
+        width: 70%;
+        float: left;
     }
 
-    .type-interior .content-primary {
+    .type-interior .content-primary-inner {
         /*top right bottom left*/
-        padding: 0.9em 0.9em 0.9em 0;
         margin: 0;
+        display: block;
+        width: 100%
+    }
+
+    .type-interior .content-primary-inner .content-primary-content {
+        margin: 15px;
     }
 
     .type-interior .content-secondary .ui-li-divider {

@@ -17,10 +17,12 @@ $(document).on("pageshow", "#sign-and-send", function () {
         var expenseForm = EA.getExpenseForm();
 
         // check if there already is a signature filled in
-        if (expenseForm.signature != null) {
+        // TODO gives weird problems
+        /*if (expenseForm.signature != null) {
+            $("#sign-and-send-signature").jSignature("reset");
             $("#sign-and-send-signature").jSignature("setData", expenseForm.signature);
             $("#sign-and-send-remarks").val(expenseForm.remarks);
-        }
+        }*/
 
         // check if the status notification via email was already set
         if (expenseForm.notification != null && !expenseForm.notification) {

@@ -25,7 +25,6 @@
     <script src="js/ea/expense.js"></script>
     <script src="js/ea/sign-and-send.js"></script>
     <script src="js/external/modernizr-latest.js"></script>
-    <script src="js/external/base64.js"></script>
     <script src="js/external/jqm-datebox-1.1.0.core.js"></script>
     <script src="js/external/jqm-datebox-1.1.0.mode.calbox.js"></script>
     <script src="js/external/jSignature.js"></script>
@@ -130,7 +129,7 @@
                     <div data-role="fieldcontain">
                         <fieldset data-role="controlgroup" data-type="horizontal">
                             <label for="your-info-date-month">Month</label>
-                            <select id="your-info-date-month" name="your-info-date-month" class="required">
+                            <select id="your-info-date-month" name="your-info-date-month">
                                 <option value="">Month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -147,7 +146,7 @@
                             </select>
 
                             <label for="your-info-date-year">Year</label>
-                            <select name="your-info-date-year" id="your-info-date-year" class="required">
+                            <select name="your-info-date-year" id="your-info-date-year">
                                 <option value="">Year</option>
                             </select>
                         </fieldset>
@@ -167,22 +166,20 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="your-info-employee-number">Employee Number</label>
-                        <input type="number" class="required" name="your-info-employee-number"
-                               id="your-info-employee-number"
+                        <input type="number" name="your-info-employee-number" id="your-info-employee-number"
                                placeholder="Employee Number">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="your-info-units" class="select">Unit:</label>
-                        <select name="your-info-units" id="your-info-units" class="required">
+                        <select name="your-info-units" id="your-info-units">
                             <option value="">Unit</option>
                         </select>
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="your-info-email">Email</label>
-                        <input class="required" type="email" name="your-info-email" id="your-info-email"
-                               placeholder="Email">
+                        <input type="email" name="your-info-email" id="your-info-email" placeholder="Email">
                     </div>
 
                     <input type="hidden" name="your-info-next-page" id="your-info-next-page">

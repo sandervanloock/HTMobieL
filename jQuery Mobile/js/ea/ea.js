@@ -26,11 +26,6 @@ var EA = {
         return this.getToken() != null;
     },
 
-    redirectNotLoggedIn:function () {
-        console.log("User is not logged in. Redirecting to login page.");
-        $.mobile.changePage("#login");
-    },
-
     /*************************************************
      * User
      *************************************************/
@@ -95,7 +90,7 @@ var EA = {
             currencies = this.currencies;
         }
         // loop over all currency entries
-        var toReturn;
+        var toReturn = null;
         $(currencies).each(function (i, cur) {
             if (cur.name == currency) {
                 toReturn = cur.rate;
@@ -247,9 +242,8 @@ var EA = {
     getServerExpenses:function () {
         if (Modernizr.localstorage) {
             var toReturn = [];
-            // TODO duplicated code from getLocalExpenses()
-            // if the key starts with the word expense and
-            // is follow by an integer, we know it is an expense
+            // if the key starts with the word serverExpense and
+            // is follow by an integer, we know it is an expense form
             var regExp = /^serverExpense\d+/;
             // loop through all entries in local storage
             for (var i = 0; i < localStorage.length; i++) {
@@ -274,17 +268,19 @@ var EA = {
 
     emptyServerExpenses:function () {
         if (Modernizr.localstorage) {
-            // TODO duplicated code from emptyLocalExpenses
+            // if the key starts with the word serverExpense and
+            // is follow by an integer, we know it is an expense form
             var regExp = /^serverExpense\d+/;
             var keysToDelete = [];
             // loop through all entries in local storage
+            // and save the keys to be deleted
             for (var i = 0; i < localStorage.length; i++) {
                 var key = localStorage.key(i);
                 if (regExp.test(key)) {
                     keysToDelete.push(key);
                 }
             }
-            // now delete the keys
+            // now delete those keys
             $.each(keysToDelete, function (index, value) {
                 localStorage.removeItem(value);
             });
@@ -368,7 +364,7 @@ var EA = {
 
     showDialog:function (title, html) {
         $("#dialog-title").text(title);
-        $("#dialog-message").html(html);
+        $("#dialog-message").text(html);
         $.mobile.changePage("#dialog");
     },
 

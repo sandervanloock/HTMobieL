@@ -1,4 +1,14 @@
 $(document).on("pagebeforecreate", "#expense", function () {
+    // hold local reference for performance
+    var $expenseCurrency = $("#expense-currency");
+
+    // load currencies into list
+    $.each(EA.getCurrencies(), function (i, currency) {
+        $expenseCurrency.append("<option value=\"" + currency.rate + "\">" + currency.name + "</option>")
+    });
+});
+
+$(document).on("pageinit", "#expense", function () {
     // check for HTML5 date input type support
     if (!Modernizr.inputtypes.date) {
         // add fallback that makes a custom datepicker for that field
@@ -6,19 +16,11 @@ $(document).on("pagebeforecreate", "#expense", function () {
             .attr("data-role", "datebox")
             .attr("data-options", '{"mode": "calbox", "overrideCalStartDay": 1}');
     }
-});
 
-$(document).on("pageinit", "#expense", function () {
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
     var $expenseAmount = $("#expense-amount");
     var $expenseCurrencyConverted = $("#expense-amount-converted");
-
-    // load currencies into list
-    $.each(EA.getCurrencies(), function (i, currency) {
-        $expenseCurrency.append("<option value=\"" + currency.rate + "\">" + currency.name + "</option>")
-    });
-    $expenseCurrency.selectmenu("refresh");
 
     // convert amount when amount was typed
     $expenseAmount.change(showConvertedAmount);
@@ -26,29 +28,26 @@ $(document).on("pageinit", "#expense", function () {
     $expenseCurrency.change(showConvertedAmount);
 
     function showConvertedAmount() {
-        if (false) {
-            // TODO if offline, can't convert currency
+        var amount = parseFloat($expenseAmount.val());
+        var rate = parseFloat($expenseCurrency.val());
+        // check if the converted floats are legal
+        if (!isNaN(amount) && !isNaN(rate)) {
+            var converted = amount / rate;
+            // show euro amount with 2 decimals
+            $expenseCurrencyConverted.val(EA.formatEuro(converted));
         } else {
-            var amount = parseFloat($expenseAmount.val());
-            var rate = parseFloat($expenseCurrency.val());
-            // check if the converted floats are legal
-            if (!isNaN(amount) && !isNaN(rate)) {
-                var converted = amount / rate;
-                // show euro amount with 2 decimals
-                $expenseCurrencyConverted.val(EA.formatEuro(converted));
-            } else {
-                // set the converted value to empty
-                $expenseCurrencyConverted.val("");
-            }
+            // set the converted value to empty
+            $expenseCurrencyConverted.val("");
         }
+
     }
 
-    // Tabbar Abroad or Domestic
+    // tabbar abroad or domestic
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
     $expenseCurrencyConverted.parent().hide();
 
-    // dingen tonen voor abroad
+    // shows form items for abroad
     $("#expense-tabbar-abroad").change(function () {
         $("#expense-type-ticket").parent().hide();
         $("#expense-type-restaurant-lunch").parent().hide();
@@ -62,7 +61,7 @@ $(document).on("pageinit", "#expense", function () {
         });
     });
 
-    // dingen tonen voor domestic
+    // shows form items for domestic
     $("#expense-tabbar-domestic").change(function () {
         $("#expense-type-ticket").parent().show();
         $("#expense-type-restaurant-lunch").parent().show();
@@ -76,7 +75,8 @@ $(document).on("pageinit", "#expense", function () {
         });
     });
 
-    // Autocomplete for project code
+    // autocomplete for project code
+    // limitation to 5 project code was made into jqm.autoComplete-1.5.0.js
     $("#expense-project-code").autocomplete({
         target:$("#expense-suggestions"),
         source:EA.getProjectCodeSuggestions(),
@@ -93,15 +93,17 @@ $(document).on("pageinit", "#expense", function () {
         // get the file
         var file = e.target.files[0];
 
-        // TODO: add support from Modernizr instead of own code
+        // TODO: add check from Modernizr instead of own code
         if (window.FileReader) {
             // initialize reader
             var reader = new FileReader();
             // if the image was read, load it into the canvas
             reader.onload = function (e) {
+                // get the canvas that is hidden on that page
                 var canvas = $('#expense-evidence-canvas')[0];
                 var context = canvas.getContext('2d');
                 var img = new Image();
+                // if the image is in canvas, get base64
                 img.onload = function () {
                     // set canvas dimensions to image dimensions
                     canvas.width = this.width;
@@ -110,7 +112,7 @@ $(document).on("pageinit", "#expense", function () {
                     context.drawImage(this, 0, 0);
                     // get the base64 string
                     var base64 = canvas.toDataURL();
-                    // for developing and testing purposes
+                    // TODO delete me (developping purposes)
                     $("#expense-evidence-base64").val(base64);
                 }
                 img.src = e.target.result;
@@ -120,44 +122,35 @@ $(document).on("pageinit", "#expense", function () {
             reader.readAsDataURL(file);
         } else {
             // FileReaderAPI is not supported
+            // TODO find a solution
+
+            // TODO delete me (developping purposes)
             $("#expense-evidence-base64").val("FileReaderAPI not supported");
         }
-
     });
 
     // initialize form validation
     $("#expense-form").validate({
 
-        // the rules are programmed via JS instead of HTML,
-        // because of the dependency for remarks
         rules:{
-            "expense-date":{
-                required:true
-            },
-            "expense-project-code":{
-                required:true
-            },
-            "expense-type":{
-                required:true
-            },
+            "expense-date":"required",
+            "expense-project-code":"required",
+            "expense-type":"required",
             "expense-amount":{
                 required:true,
                 min:0 // a negative amount is not valid
             },
-            "expense-currency":{
-                required:true
-            },
+            "expense-currency":"required",
             "expense-remarks":{
                 required:function () {
+                    // remarks are required when other is checked
                     return $("#expense-type-other").is(":checked");
                 }
             },
-            "expense-evidence-file":{
-                required:true
-            }
+            "expense-evidence-file":"required"
         },
 
-        // needed for bug that show keyboard and dialog at the same time
+        // needed for bug that shows keyboard and dialog at the same time
         focusInvalid:false,
 
         // no real time validation checking needed
@@ -168,35 +161,35 @@ $(document).on("pageinit", "#expense", function () {
             // no body, because we want no error labels on the form
         },
 
-        // custom highlight function due to select item
+        // custom highlight function due to select item and radio buttons
         highlight:function (element, errorClass, validClass) {
             var $element = $(element);
-            if (element.tagName === "SELECT") {
+            if ($element[0].tagName === "SELECT") {
                 // we have to take special care for the red border around select items
-                $(element).parent().addClass("red-border");
+                $element.parent().addClass("red-border");
             } else if ($element.attr("type") === "radio") {
-                // we have to take special care for the red border around radio items
+                // we have to take special care for the red border around radio buttons
                 $element.parent().parent().addClass("red-border");
             } else {
                 // normal toggle behaviour
-                $(element).removeClass(validClass);
-                $(element).addClass(errorClass);
+                $element.removeClass(validClass);
+                $element.addClass(errorClass);
             }
         },
 
         // custom unhighlight function due to select item
         unhighlight:function (element, errorClass, validClass) {
             var $element = $(element);
-            if (element.tagName === "SELECT") {
+            if ($element[0].tagName === "SELECT") {
                 // we have to take special care for the red border around select items
-                $(element).parent().removeClass("red-border");
+                $element.parent().removeClass("red-border");
             } else if ($element.attr("type") === "radio") {
-                // we have to take special care for the red border around radio items
+                // we have to take special care for the red border around radio buttons
                 $element.parent().parent().removeClass("red-border");
             } else {
                 // normal toggle behaviour
-                $(element).removeClass(errorClass);
-                $(element).addClass(validClass);
+                $element.removeClass(errorClass);
+                $element.addClass(validClass);
             }
         },
 
@@ -213,8 +206,8 @@ $(document).on("pageinit", "#expense", function () {
         // execute when the form was successfully validated
         submitHandler:function (form) {
             var date = new Date($("#expense-date").val());
-
             var currency;
+
             if ($("#expense-currency-div").is(":visible")) {
                 //noinspection JSValidateTypes
                 currency = $("#expense-currency").children(":selected").text();
@@ -222,6 +215,7 @@ $(document).on("pageinit", "#expense", function () {
                 currency = "EUR";
             }
 
+            // save the expense locally
             EA.addLocalExpense({
                 "date":date.toISOString(),
                 "projectCode":$("#expense-project-code").val(),

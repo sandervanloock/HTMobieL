@@ -1,4 +1,4 @@
-$(document).on("pagebeforeshow", "#overview", function () {
+$(document).on("pagebeforecreate", "#overview", function () {
     // hold local references for performance
     var $overviewList = $("#overview-list");
     var localExpenses = EA.getLocalExpenses();
@@ -35,9 +35,6 @@ $(document).on("pagebeforeshow", "#overview", function () {
             $overviewList.append(li);
         });
     }
-
-    // refresh the view
-    $overviewList.listview("refresh");
 });
 
 $(document).on("tap", "[id^=expense-show]", function () {

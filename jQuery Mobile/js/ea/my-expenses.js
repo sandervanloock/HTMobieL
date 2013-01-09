@@ -1,4 +1,4 @@
-$(document).on("pagebeforeshow", "#my-expenses", function () {
+$(document).on("pagebeforecreate", "#my-expenses", function () {
     // load the expense forms that were cached from the server
     var serverExpenses = EA.getServerExpenses();
     var $expenseList = $("#my-expenses-list");
@@ -12,7 +12,6 @@ $(document).on("pagebeforeshow", "#my-expenses", function () {
         li += "</a></li>";
         $expenseList.append(li);
     });
-    $expenseList.listview("refresh");
 });
 
 $(document).on("pageshow", "#my-expenses", function () {

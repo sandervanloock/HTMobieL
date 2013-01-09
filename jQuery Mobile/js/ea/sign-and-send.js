@@ -15,10 +15,15 @@ $(document).on("pageshow", "#sign-and-send", function () {
     if (EA.hasExpenseForm()) {
         // load data into form
         var expenseForm = EA.getExpenseForm();
-        $("#sign-and-send-signature").jSignature("setData", expenseForm.signature);
-        $("#sign-and-send-remarks").val(expenseForm.remarks);
 
-        if (!expenseForm.notification) {
+        // check if there already is a signature filled in
+        if (expenseForm.signature != null) {
+            $("#sign-and-send-signature").jSignature("setData", expenseForm.signature);
+            $("#sign-and-send-remarks").val(expenseForm.remarks);
+        }
+
+        // check if the status notification via email was already set
+        if (expenseForm.notification != null && !expenseForm.notification) {
             $("#sign-and-send-notification").find("option[value=on]").attr("selected", false);
             $("#sign-and-send-notification").find("option[value=off]").attr("selected", true);
             $("#sign-and-send-notification").slider("refresh");

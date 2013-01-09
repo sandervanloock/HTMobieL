@@ -8,27 +8,21 @@ $(document).on("pageshow", "#sign-and-send", function () {
     // multiple signature fields would come up,
     // so we just check if the canvas is there or not
     if ($signature.find("canvas").length == 0) {
-        // no signature canvas was present, so make one
+        // no signature canvas was present, make one
         $signature.jSignature();
     }
+
     // load local data if available
     if (EA.hasExpenseForm()) {
         // load data into form
         var expenseForm = EA.getExpenseForm();
 
-        // check if there already is a signature filled in
-        // TODO gives weird problems
-        /*if (expenseForm.signature != null) {
-            $("#sign-and-send-signature").jSignature("reset");
-            $("#sign-and-send-signature").jSignature("setData", expenseForm.signature);
-            $("#sign-and-send-remarks").val(expenseForm.remarks);
-        }*/
-
         // check if the status notification via email was already set
         if (expenseForm.notification != null && !expenseForm.notification) {
-            $("#sign-and-send-notification").find("option[value=on]").attr("selected", false);
-            $("#sign-and-send-notification").find("option[value=off]").attr("selected", true);
-            $("#sign-and-send-notification").slider("refresh");
+            var $notification = $("#sign-and-send-notification");
+            $notification.find("option[value=on]").attr("selected", false);
+            $notification.find("option[value=off]").attr("selected", true);
+            $notification.slider("refresh");
         }
     }
 
@@ -39,6 +33,7 @@ $(document).on("pageshow", "#sign-and-send", function () {
 });
 
 $(document).on("tap", "#sign-and-send-signature-reset", function () {
+    // clear the signature when user wants to redraw it
     $("#sign-and-send-signature").jSignature("reset");
 
     // TODO delete me (developping purposes)
@@ -46,6 +41,7 @@ $(document).on("tap", "#sign-and-send-signature-reset", function () {
 });
 
 $(document).on("pageinit", "#sign-and-send", function () {
+
     // form validation
     $("#sign-and-send-form").validate({
         submitHandler:function (form) {
@@ -70,7 +66,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
 
                 if (expenses.length == 0) {
                     // there are no expenses attached to this form
-                    EA.showDialog("No expenses", "<p>You haven't attached any expenses to your form. Please do so.</p>");
+                    EA.showDialog("No expenses", "You haven't attached any expenses to your form. Please do so.");
                 } else {
                     // TODO check if online or offline
                     if (true) {
@@ -91,20 +87,27 @@ $(document).on("pageinit", "#sign-and-send", function () {
                             url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/saveExpense",
                             data:JSON.stringify(expenseRequest),
                             dataType:"json",
+                            // The 'contentType' property sets the 'Content-Type' header.
+                            // The JQuery default for this property is
+                            // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
+                            // a preflight. If you set this value to anything other than
+                            // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
+                            // you will trigger a preflight request.
                             contentType:"application/json",
-                            processData:false,
                             beforeSend:function () {
                                 $.mobile.loading("show");
                             },
-                            success:function () {
-                                EA.clearExpenseForm();
-                                $.mobile.changePage("#home");
-                            },
-                            error:function (xhr, textStatus, errorThrown) {
-                                EA.showError("Backend error: " + xhr.status, errorThrown);
-                            },
                             complete:function () {
                                 $.mobile.loading("hide");
+                            },
+                            success:function () {
+                                // clear the local expense form
+                                EA.clearExpenseForm();
+                                // go to the home page
+                                $.mobile.changePage("#home");
+                            },
+                            error:function () {
+                                EA.showBackendError("Could not send expense to server");
                             }
                         });
                     }

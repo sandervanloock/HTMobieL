@@ -1,7 +1,7 @@
 $(document).on("pagebeforecreate", "#expense", function () {
-    // datum HTML5 ondersteuning
+    // check for HTML5 date input type support
     if (!Modernizr.inputtypes.date) {
-        alert("date not supported");
+        // add fallback that makes a datepicker for that field
         $("#expense-date").attr("data-role", "datebox")
             .attr("data-options", '{"mode": "calbox", "overrideCalStartDay": 1}');
     }
@@ -108,7 +108,7 @@ $(document).on("pageinit", "#expense", function () {
                     // draw the image on the canvas
                     context.drawImage(this, 0, 0);
                     // get the base64 string
-                    var base64 = canvas.toDataURL("image/png");
+                    var base64 = canvas.toDataURL();
                     // for developing and testing purposes
                     $("#expense-evidence-base64").val(base64);
                 }

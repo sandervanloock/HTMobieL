@@ -1,7 +1,7 @@
 $(document).on("pagebeforecreate", "#home", function () {
     // check if the user is logged in
     if (!EA.isLoggedIn()) {
-        EA.redirectNotLoggedIn();
+        $.mobile.changePage("#login");
     } else {
         // show user name on screen
         var user = EA.getUser();

@@ -69,8 +69,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                     // there are no expenses attached to this form
                     EA.showDialog("No expenses", "You haven't attached any expenses to your form. Please do so.");
                 } else {
-                    // TODO check if online or offline
-                    if (false) {
+                    if (!navigator.onLine) {
                         EA.showDialog("Offline", "You are currently offline. Your expense will be saved, please come back later to resend your expense.");
                     } else {
                         // attach expenses to the request

@@ -138,30 +138,12 @@ $(document).on("pageinit", "#your-info", function () {
     });
 });
 
-// by default, the user wil go to the overview page
-$(document).on("pagebeforeshow", "#your-info", function () {
-    $("#your-info-next-page").val("#overview");
-});
-
-// validation must be done when clicking on menu button
-$(document).on("tap", "#your-info-menu-overview", function () {
-    $("#your-info-form").submit();
-});
-
-// validation must be done when clicking on menu button
-$(document).on("tap", "#your-info-menu-add-expense", function () {
-    $("#your-info-next-page").val("#expense");
-    $("#your-info-form").submit();
-});
-
-// validation must be done when clicking on menu button
-$(document).on("tap", "#your-info-menu-sign-and-send", function () {
-    $("#your-info-next-page").val("#sign-and-send");
-    $("#your-info-form").submit();
-});
-
 // fill the form accordingly each time this page is visited
-$(document).on("pagebeforecreate", "#your-info", function () {
+$(document).on("pagebeforeshow", "#your-info", function () {
+
+    // by default, the user wil go to the overview page
+    $("#your-info-next-page").val("#overview");
+
     // get the day of today
     var today = new Date();
     var year = today.getFullYear();
@@ -187,9 +169,14 @@ $(document).on("pagebeforecreate", "#your-info", function () {
         }
     }
 
-    // set on screen
+    // select according to rule
     $yearOptions.find("option[value='" + year + "']").attr("selected", true);
-    $("#your-info-date-month").find("option[value='" + month + "']").attr("selected", true);
+    var $monthOptions = $("#your-info-date-month");
+    $monthOptions.find("option[value='" + month + "']").attr("selected", true);
+
+    // set on screen
+    $yearOptions.selectmenu('refresh');
+    $monthOptions.selectmenu('refresh');
 
     // set other user information
     var user = EA.getUser();
@@ -207,5 +194,23 @@ $(document).on("pagebeforecreate", "#your-info", function () {
 
     // select the unit according to the user
     $units.find("option[value='" + user.unitId + "']").attr("selected", true);
+    $units.selectmenu('refresh');
 
+});
+
+// validation must be done when clicking on menu button
+$(document).on("tap", "#your-info-menu-overview", function () {
+    $("#your-info-form").submit();
+});
+
+// validation must be done when clicking on menu button
+$(document).on("tap", "#your-info-menu-add-expense", function () {
+    $("#your-info-next-page").val("#expense");
+    $("#your-info-form").submit();
+});
+
+// validation must be done when clicking on menu button
+$(document).on("tap", "#your-info-menu-sign-and-send", function () {
+    $("#your-info-next-page").val("#sign-and-send");
+    $("#your-info-form").submit();
 });

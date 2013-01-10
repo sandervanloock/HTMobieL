@@ -1,4 +1,4 @@
-$(document).on("pagebeforecreate", "#expense", function () {
+$(document).on("pagebeforeshow", "#expense", function () {
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
 
@@ -6,6 +6,9 @@ $(document).on("pagebeforecreate", "#expense", function () {
     $.each(EA.getCurrencies(), function (i, currency) {
         $expenseCurrency.append("<option value=\"" + currency.rate + "\">" + currency.name + "</option>")
     });
+
+    // show them accordingly
+    $expenseCurrency.selectmenu('refresh');
 });
 
 $(document).on("pageinit", "#expense", function () {
@@ -114,7 +117,7 @@ $(document).on("pageinit", "#expense", function () {
                     var base64 = canvas.toDataURL();
                     // TODO delete me (developping purposes)
                     $("#expense-evidence-base64").val(base64);
-                }
+                };
                 img.src = e.target.result;
             };
 

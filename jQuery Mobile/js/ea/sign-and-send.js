@@ -124,6 +124,6 @@ $(document).on("pageinit", "#sign-and-send", function () {
 function clearAndShowSuccess() {
 // clear the local expense form
     EA.clearExpenseForm();
-    // show
+    // show success dialog
     $.mobile.changePage("#success");
 }

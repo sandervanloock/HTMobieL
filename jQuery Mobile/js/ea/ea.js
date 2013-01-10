@@ -23,7 +23,7 @@ var EA = {
     },
 
     isLoggedIn:function () {
-        return this.getToken() != null;
+        return this.hasUser();
     },
 
     /*************************************************
@@ -45,6 +45,14 @@ var EA = {
             localStorage.user = JSON.stringify(user);
         } else {
             this.user = user;
+        }
+    },
+
+    hasUser:function () {
+        if (Modernizr.localstorage) {
+            return localStorage.user != null;
+        } else {
+            return this.user != null;
         }
     },
 

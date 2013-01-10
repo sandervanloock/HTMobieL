@@ -1,21 +1,28 @@
-$(document).on("pagebeforecreate", "#my-expenses", function () {
-    // load the expense forms that were cached from the server
+$(document).on("pagebeforeshow", "#my-expenses", function () {
+    // always load the expense forms that were cached from the server
     var serverExpenses = EA.getServerExpenses();
     var $expenseList = $("#my-expenses-list");
     var li;
 
     $expenseList.empty();
-    $(serverExpenses).each(function (i, expense) {
-        li = "<li><a id=\"my-expenses-show-pdf-" + expense.id + "\">";
-        li += "<h1>" + EA.toBelgianDate(new Date(expense.date)) + "</h1>";
-        li += "<p>" + EA.expenseStatusIdToString(expense.statusId) + "</p>";
-        li += "</a></li>";
-        $expenseList.append(li);
-    });
+
+    if (serverExpenses.length == 0) {
+        $expenseList.append("<li>No expenses submitted.</li>");
+    } else {
+        $(serverExpenses).each(function (i, expense) {
+            li = "<li><a id=\"my-expenses-show-pdf-" + expense.id + "\">";
+            li += "<h1>" + EA.toBelgianDate(new Date(expense.date)) + "</h1>";
+            li += "<p>" + EA.expenseStatusIdToString(expense.statusId) + "</p>";
+            li += "</a></li>";
+            $expenseList.append(li);
+        });
+    }
+    $expenseList.listview('refresh');
 });
 
 $(document).on("pageshow", "#my-expenses", function () {
     // when the page is shown, check if the server has new expense forms
+    // already shown expense forms will be overriden be the new xml file
     $.ajax({
         type:"POST",
         dataType:"xml",

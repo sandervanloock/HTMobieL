@@ -1,5 +1,8 @@
 $(document).on("pageinit", "#your-info", function () {
 
+    // fill the form accordingly
+    initializeForm();
+
     // custom validation rules
     $.validator.addMethod("isCorrectMonth", function (value) {
         var today = new Date();
@@ -134,12 +137,68 @@ $(document).on("pageinit", "#your-info", function () {
             // save the target of what he has clicked, so that we can go to
             // the next page accordingly
             $.mobile.changePage($("#your-info-next-page").val());
+            // clear the form data
+            initializeForm();
         }
     });
+
+    function initializeForm() {
+        // get the day of today
+        var today = new Date();
+        var year = today.getFullYear();
+        var day = today.getDate();
+        var month = today.getMonth();
+
+        // generate year options for this, previous and next year
+        var $yearOptions = $("#your-info-date-year");
+        var years = [year + 1, year, year - 1];
+        $(years).each(function (i, year) {
+            $yearOptions.append('<option value="' + year + '">' + year + '</option>');
+        });
+
+        // month and year should be equal to this month if day > 15th
+        if (day <= 15) {
+            // month := previous month
+            // and mind that the month January is 0 in JavaScript
+            if (month == 0) {
+                // previous month is December (not in JavaScript, so January is 1)
+                month = 12;
+                // of previous year
+                year--;
+            }
+        }
+
+        // select according to rule
+        $yearOptions.find("option[value='" + year + "']").attr("selected", true);
+        var $monthOptions = $("#your-info-date-month");
+        $monthOptions.find("option[value='" + month + "']").attr("selected", true);
+
+        // set on screen
+        $yearOptions.selectmenu('refresh');
+        $monthOptions.selectmenu('refresh');
+
+        // set other user information
+        var user = EA.getUser();
+        $("#your-info-firstname").val(user.firstName);
+        $("#your-info-lastname").val(user.lastName);
+        $("#your-info-employee-number").val(user.employeeNumber);
+        $("#your-info-email").val(user.email);
+
+        // generate unit options
+        // there are 10 options according to Unit.java on the backend
+        var $units = $("#your-info-units");
+        for (var i = 1; i <= 10; i++) {
+            $units.append('<option value="' + i + '">' + i + '</option>');
+        }
+
+        // select the unit according to the user
+        $units.find("option[value='" + user.unitId + "']").attr("selected", true);
+        $units.selectmenu('refresh');
+    }
 });
 
-// by default, the user wil go to the overview page
 $(document).on("pagebeforeshow", "#your-info", function () {
+    // by default, the user wil go to the overview page
     $("#your-info-next-page").val("#overview");
 });
 
@@ -158,54 +217,4 @@ $(document).on("tap", "#your-info-menu-add-expense", function () {
 $(document).on("tap", "#your-info-menu-sign-and-send", function () {
     $("#your-info-next-page").val("#sign-and-send");
     $("#your-info-form").submit();
-});
-
-// fill the form accordingly each time this page is visited
-$(document).on("pagebeforecreate", "#your-info", function () {
-    // get the day of today
-    var today = new Date();
-    var year = today.getFullYear();
-    var day = today.getDate();
-    var month = today.getMonth();
-
-    // generate year options for this, previous and next year
-    var $yearOptions = $("#your-info-date-year");
-    var years = [year + 1, year, year - 1];
-    $(years).each(function (i, year) {
-        $yearOptions.append('<option value="' + year + '">' + year + '</option>');
-    });
-
-    // month and year should be equal to this month if day > 15th
-    if (day <= 15) {
-        // month := previous month
-        // and mind that the month January is 0 in JavaScript
-        if (month == 0) {
-            // previous month is December (not in JavaScript, so January is 1)
-            month = 12;
-            // of previous year
-            year--;
-        }
-    }
-
-    // set on screen
-    $yearOptions.find("option[value='" + year + "']").attr("selected", true);
-    $("#your-info-date-month").find("option[value='" + month + "']").attr("selected", true);
-
-    // set other user information
-    var user = EA.getUser();
-    $("#your-info-firstname").val(user.firstName);
-    $("#your-info-lastname").val(user.lastName);
-    $("#your-info-employee-number").val(user.employeeNumber);
-    $("#your-info-email").val(user.email);
-
-    // generate unit options
-    // there are 10 options according to Unit.java on the backend
-    var $units = $("#your-info-units");
-    for (var i = 1; i <= 10; i++) {
-        $units.append('<option value="' + i + '">' + i + '</option>');
-    }
-
-    // select the unit according to the user
-    $units.find("option[value='" + user.unitId + "']").attr("selected", true);
-
 });

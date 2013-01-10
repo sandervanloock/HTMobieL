@@ -1,4 +1,4 @@
-$(document).on("pagebeforecreate", "#home", function () {
+$(document).on("pagebeforeshow", "#home", function () {
     // check if the user is logged in
     if (!EA.isLoggedIn()) {
         $.mobile.changePage("#login");

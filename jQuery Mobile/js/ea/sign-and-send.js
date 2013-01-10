@@ -44,6 +44,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
 
     // form validation
     $("#sign-and-send-form").validate({
+        // TODO add rule to check if a signature was made
         submitHandler:function (form) {
             // !EA.hasExpenseForm()
             if (false) {
@@ -68,8 +69,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                     // there are no expenses attached to this form
                     EA.showDialog("No expenses", "You haven't attached any expenses to your form. Please do so.");
                 } else {
-                    // TODO check if online or offline
-                    if (true) {
+                    if (!navigator.onLine) {
                         EA.showDialog("Offline", "You are currently offline. Your expense will be saved, please come back later to resend your expense.");
                     } else {
                         // attach expenses to the request
@@ -82,37 +82,59 @@ $(document).on("pageinit", "#sign-and-send", function () {
                         console.log(JSON.stringify(expenseRequest));
 
                         // send it
-                        $.ajax({
-                            type:"POST",
-                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/saveExpense",
-                            data:JSON.stringify(expenseRequest),
-                            dataType:"json",
-                            // The 'contentType' property sets the 'Content-Type' header.
-                            // The JQuery default for this property is
-                            // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
-                            // a preflight. If you set this value to anything other than
-                            // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
-                            // you will trigger a preflight request.
-                            contentType:"application/json",
-                            beforeSend:function () {
-                                $.mobile.loading("show");
-                            },
-                            complete:function () {
-                                $.mobile.loading("hide");
-                            },
-                            success:function () {
-                                // clear the local expense form
-                                EA.clearExpenseForm();
-                                // go to the home page
-                                $.mobile.changePage("#home");
-                            },
-                            error:function () {
-                                EA.showBackendError("Could not send expense to server");
-                            }
-                        });
+                        // TODO save expense on backend
+                        /*$.ajax({
+                         type:"POST",
+                         url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/saveExpense",
+                         data:JSON.stringify(expenseRequest),
+                         dataType:"json",
+                         // The 'contentType' property sets the 'Content-Type' header.
+                         // The JQuery default for this property is
+                         // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
+                         // a preflight. If you set this value to anything other than
+                         // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
+                         // you will trigger a preflight request.
+                         contentType:"application/json",
+                         beforeSend:function () {
+                         // show spinner while uploading
+                         $.mobile.loading("show");
+                         },
+                         complete:function () {
+                         // hide spinner after uploading
+                         $.mobile.loading("hide");
+                         },
+                         success:function () {
+                         // clear the local expense form
+                         EA.clearExpenseForm();
+                         // show
+                         $.mobile.changePage("#success");
+                         },
+                         error:function () {
+                         EA.showBackendError("Could not send expense to server");
+                         }
+                         });*/
+                        clearAndShowSuccess();
                     }
                 }
             }
         }
     });
 });
+
+function clearAndShowSuccess() {
+    // show success dialog
+    $.mobile.changePage("#success");
+
+    // clear the form
+    $("#sign-and-send-form")[0].reset();
+    $("#sign-and-send-signature").jSignature("reset");
+    var $notification = $("#sign-and-send-notification");
+    $notification.find("option[value=on]").attr("selected", true);
+    $notification.find("option[value=off]").attr("selected", false);
+    $notification.slider("refresh");
+    // TODO delete me (developping purposes)
+    $("#sign-and-send-signature-base64").val("");
+
+    // clear the draft expense form
+    EA.clearExpenseForm();
+}

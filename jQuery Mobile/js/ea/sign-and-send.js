@@ -44,6 +44,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
 
     // form validation
     $("#sign-and-send-form").validate({
+        // TODO add rule to check if a signature was made
         submitHandler:function (form) {
             // !EA.hasExpenseForm()
             if (false) {
@@ -122,8 +123,19 @@ $(document).on("pageinit", "#sign-and-send", function () {
 });
 
 function clearAndShowSuccess() {
-// clear the local expense form
-    EA.clearExpenseForm();
     // show success dialog
     $.mobile.changePage("#success");
+
+    // clear the form
+    $("#sign-and-send-form")[0].reset();
+    $("#sign-and-send-signature").jSignature("reset");
+    var $notification = $("#sign-and-send-notification");
+    $notification.find("option[value=on]").attr("selected", true);
+    $notification.find("option[value=off]").attr("selected", false);
+    $notification.slider("refresh");
+    // TODO delete me (developping purposes)
+    $("#sign-and-send-signature-base64").val("");
+
+    // clear the draft expense form
+    EA.clearExpenseForm();
 }

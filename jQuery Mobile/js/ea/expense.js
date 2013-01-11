@@ -12,13 +12,24 @@ $(document).on("pagebeforeshow", "#expense", function () {
 });
 
 $(document).on("pageinit", "#expense", function () {
-    // check for HTML5 date input type support
-    if (!Modernizr.inputtypes.date) {
-        // add fallback that makes a custom datepicker for that field
-        $("#expense-date")
-            .attr("data-role", "datebox")
-            .attr("data-options", '{"mode": "calbox", "overrideCalStartDay": 1}');
-    }
+    // date picker
+    var today = new Date();
+    var minDate = new Date();
+    $('#expense-date').mobiscroll().date({
+        // theme is jQuery Mobile
+        theme:'jqm',
+        // popup windo
+        display:'modal',
+        mode:'scroller',
+        // format that will be put in the form
+        dateFormat:'dd/mm/yy',
+        // format that will be shown to the user
+        dateOrder:'D d M yy',
+        // this month
+        maxDate:today,
+        // till 2 months earlier
+        minDate:new Date(minDate.setMonth(today.getMonth() - 2))
+    });
 
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
@@ -136,7 +147,10 @@ $(document).on("pageinit", "#expense", function () {
     $("#expense-form").validate({
 
         rules:{
-            "expense-date":"required",
+            "expense-date":{
+                "required":true,
+                "date":true
+            },
             "expense-project-code":"required",
             "expense-type":"required",
             "expense-amount":{

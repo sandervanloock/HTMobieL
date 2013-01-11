@@ -22,7 +22,7 @@ $(document).on("pageinit", "#expense", function () {
         display:'modal',
         mode:'scroller',
         // format that will be put in the form
-        dateFormat:'dd/mm/yy',
+        dateFormat:'yy-mm-dd',
         // format that will be shown to the user
         dateOrder:'D d M yy',
         // this month
@@ -143,24 +143,41 @@ $(document).on("pageinit", "#expense", function () {
         }
     });
 
+    // custom validation rule for data of the expense
+    $.validator.addMethod("isCorrectDate", function (value) {
+        var today = new Date();
+        var minimum = new Date();
+        minimum.setMonth(minimum.getMonth() - 2);
+        var toCheck = new Date(value);
+
+        return (minimum <= toCheck) && (toCheck <= today);
+
+    }, "The date is not in the valid range according to the Capgemini policy");
+
     // initialize form validation
     $("#expense-form").validate({
 
         rules:{
             "expense-date":{
                 "required":true,
-                "date":true
+                // we don't use date as input type,
+                // so we have to check if the text is a valid date
+                "date":true,
+                // check if the date is in the valid range of this month
+                // and 2 months earlier
+                "isCorrectDate":true
             },
             "expense-project-code":"required",
             "expense-type":"required",
             "expense-amount":{
                 required:true,
-                min:0 // a negative amount is not valid
+                // a negative amount is not valid
+                min:0
             },
             "expense-currency":"required",
             "expense-remarks":{
                 required:function () {
-                    // remarks are required when other is checked
+                    // remarks are required when 'other' is checked
                     return $("#expense-type-other").is(":checked");
                 }
             },

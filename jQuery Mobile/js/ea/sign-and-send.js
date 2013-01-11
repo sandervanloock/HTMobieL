@@ -84,35 +84,38 @@ $(document).on("pageinit", "#sign-and-send", function () {
                         // send it
                         // TODO save expense on backend
                         /*$.ajax({
-                         type:"POST",
-                         url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/saveExpense",
-                         data:JSON.stringify(expenseRequest),
-                         dataType:"json",
-                         // The 'contentType' property sets the 'Content-Type' header.
-                         // The JQuery default for this property is
-                         // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
-                         // a preflight. If you set this value to anything other than
-                         // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
-                         // you will trigger a preflight request.
-                         contentType:"application/json",
-                         beforeSend:function () {
-                         // show spinner while uploading
-                         $.mobile.loading("show");
-                         },
-                         complete:function () {
-                         // hide spinner after uploading
-                         $.mobile.loading("hide");
-                         },
-                         success:function () {
-                         // clear the local expense form
-                         EA.clearExpenseForm();
-                         // show
-                         $.mobile.changePage("#success");
-                         },
-                         error:function () {
-                         EA.showBackendError("Could not send expense to server");
-                         }
-                         });*/
+                            type:"POST",
+                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/saveExpense",
+                            data:JSON.stringify(expenseRequest),
+                            dataType:"json",
+                            // The 'contentType' property sets the 'Content-Type' header.
+                            // The JQuery default for this property is
+                            // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
+                            // a preflight. If you set this value to anything other than
+                            // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
+                            // you will trigger a preflight request.
+                            contentType:"application/json",
+                            beforeSend:function () {
+                                // show spinner and text while uploading
+                                $.mobile.loading("show", {
+                                    text:"Saving expense to backend",
+                                    textVisible:true
+                                });
+                            },
+                            complete:function () {
+                                // hide spinner after uploading
+                                $.mobile.loading("hide");
+                            },
+                            success:function () {
+                                // clear the local expense form
+                                EA.clearExpenseForm();
+                                // show
+                                $.mobile.changePage("#success");
+                            },
+                            error:function () {
+                                EA.showBackendError("Could not send expense to server");
+                            }
+                        });*/
                         clearAndShowSuccess();
                     }
                 }

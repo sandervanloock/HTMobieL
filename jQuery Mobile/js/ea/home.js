@@ -41,7 +41,10 @@ $(document).on("tap", "#home-logout", function () {
         },
         beforeSend:function () {
             // show loading indication
-            $.mobile.loading("show");
+            $.mobile.loading("show", {
+                text:"Logging out",
+                textVisible:true
+            });
         },
         complete:function () {
             // remove loading indication after completion

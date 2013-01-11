@@ -98,7 +98,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                             beforeSend:function () {
                                 // show spinner and text while uploading
                                 $.mobile.loading("show", {
-                                    text:"Saving expense to backend",
+                                    text:"Uploading expense form",
                                     textVisible:true
                                 });
                             },

@@ -27,7 +27,10 @@ $(document).on("pageinit", "#login", function () {
                     'password':$("#login-password").val()
                 },
                 beforeSend:function () {
-                    $.mobile.loading("show");
+                    $.mobile.loading("show", {
+                        text:"Logging in",
+                        textVisible:true
+                    });
                 },
                 success:function (token) {
                     if (token == '') {
@@ -44,7 +47,10 @@ $(document).on("pageinit", "#login", function () {
                                 'token':EA.getToken()
                             },
                             beforeSend:function () {
-                                $.mobile.loading("show");
+                                $.mobile.loading("show", {
+                                    text:"Fetching user data",
+                                    textVisible:true
+                                });
                             },
                             success:function (data) {
                                 EA.setUser(data);

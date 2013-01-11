@@ -31,6 +31,8 @@ $(document).on("pageshow", "#my-expenses", function () {
             'token':EA.getToken()
         },
         beforeSend:function () {
+            // no need to block the user,
+            // so we don't show text together with the spinner
             $.mobile.loading("show");
         },
         complete:function () {

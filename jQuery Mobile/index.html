@@ -21,13 +21,13 @@
     <link rel="stylesheet" href="css/g-swatch.css">
     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
     <link rel="stylesheet" href="css/ea.css">
-    <link rel="stylesheet" href="css/jqm-datebox-1.1.0.css">
+    <link rel="stylesheet" href="css/mobiscroll-2.3.1.custom.min.css">
 
     <!-- JavaScripts -->
-    <script src="js/external/jquery-1.8.2.js"></script>
-    <script src="js/external/jquery.validate.js"></script>
-    <script src="js/external/jquery.mobile-1.2.0.js"></script>
-    <script src="js/external/jqm.autoComplete-1.5.0.js"></script>
+    <script src="js/vendor/jquery-1.8.2.js"></script>
+    <script src="js/vendor/jquery.validate.js"></script>
+    <script src="js/vendor/jquery.mobile-1.2.0.js"></script>
+    <script src="js/vendor/jqm.autoComplete-1.5.0.js"></script>
     <script src="js/ea/ea.js"></script>
     <script src="js/ea/login.js"></script>
     <script src="js/ea/home.js"></script>
@@ -37,10 +37,9 @@
     <script src="js/ea/expense.js"></script>
     <script src="js/ea/sign-and-send.js"></script>
     <script src="js/ea/success.js"></script>
-    <script src="js/external/modernizr-latest.js"></script>
-    <script src="js/external/jqm-datebox-1.1.0.core.js"></script>
-    <script src="js/external/jqm-datebox-1.1.0.mode.calbox.js"></script>
-    <script src="js/external/jSignature.js"></script>
+    <script src="js/vendor/modernizr-latest.js"></script>
+    <script src="js/vendor/jSignature.js"></script>
+    <script src="js/vendor/mobiscroll-2.3.1.custom.min.js"></script>
 </head>
 <body>
 
@@ -496,7 +495,7 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="expense-date">Date of Expense:</label>
-                        <input type="date" name="expense-date" id="expense-date">
+                        <input type="text" name="expense-date" id="expense-date" placeholder="Date of Expense">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">

@@ -12,13 +12,24 @@ $(document).on("pagebeforeshow", "#expense", function () {
 });
 
 $(document).on("pageinit", "#expense", function () {
-    // check for HTML5 date input type support
-    if (!Modernizr.inputtypes.date) {
-        // add fallback that makes a custom datepicker for that field
-        $("#expense-date")
-            .attr("data-role", "datebox")
-            .attr("data-options", '{"mode": "calbox", "overrideCalStartDay": 1}');
-    }
+    // date picker
+    var today = new Date();
+    var minDate = new Date();
+    $('#expense-date').mobiscroll().date({
+        // theme is jQuery Mobile
+        theme:'jqm',
+        // popup windo
+        display:'modal',
+        mode:'scroller',
+        // format that will be put in the form
+        dateFormat:'yy-mm-dd',
+        // format that will be shown to the user
+        dateOrder:'D d M yy',
+        // this month
+        maxDate:today,
+        // till 2 months earlier
+        minDate:new Date(minDate.setMonth(today.getMonth() - 2))
+    });
 
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
@@ -132,21 +143,41 @@ $(document).on("pageinit", "#expense", function () {
         }
     });
 
+    // custom validation rule for data of the expense
+    $.validator.addMethod("isCorrectDate", function (value) {
+        var today = new Date();
+        var minimum = new Date();
+        minimum.setMonth(minimum.getMonth() - 2);
+        var toCheck = new Date(value);
+
+        return (minimum <= toCheck) && (toCheck <= today);
+
+    }, "The date is not in the valid range according to the Capgemini policy");
+
     // initialize form validation
     $("#expense-form").validate({
 
         rules:{
-            "expense-date":"required",
+            "expense-date":{
+                "required":true,
+                // we don't use date as input type,
+                // so we have to check if the text is a valid date
+                "date":true,
+                // check if the date is in the valid range of this month
+                // and 2 months earlier
+                "isCorrectDate":true
+            },
             "expense-project-code":"required",
             "expense-type":"required",
             "expense-amount":{
                 required:true,
-                min:0 // a negative amount is not valid
+                // a negative amount is not valid
+                min:0
             },
             "expense-currency":"required",
             "expense-remarks":{
                 required:function () {
-                    // remarks are required when other is checked
+                    // remarks are required when 'other' is checked
                     return $("#expense-type-other").is(":checked");
                 }
             },

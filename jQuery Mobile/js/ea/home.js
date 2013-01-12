@@ -1,7 +1,8 @@
-$(document).on("pagebeforeshow", "#home", function () {
+$(document).on("pagebeforeshow", "#home", function (event) {
     // check if the user is logged in
     if (!EA.isLoggedIn()) {
         $.mobile.changePage("#login");
+        event.preventDefault();
     } else {
         // show user name on screen
         var user = EA.getUser();
@@ -53,6 +54,8 @@ $(document).on("tap", "#home-logout", function () {
         success:function () {
             // empty the session
             EA.setToken(null);
+            // empty user information
+            EA.deleteUser();
             // go to login page
             $.mobile.changePage("#login");
         },

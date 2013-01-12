@@ -56,6 +56,14 @@ var EA = {
         }
     },
 
+    deleteUser:function () {
+        if (Modernizr.localstorage) {
+            localStorage.removeItem("user");
+        } else {
+            this.user = null;
+        }
+    },
+
     /*************************************************
      * Project codes
      *************************************************/

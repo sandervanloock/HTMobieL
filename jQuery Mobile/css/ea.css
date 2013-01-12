@@ -48,10 +48,6 @@ textarea.error,
     padding: 2px;
 }
 
-.padding-currency .ui-block-a {
-    padding-right: 10px;
-}
-
 #expense-amount.ui-input-text {
     width: 85%
 }

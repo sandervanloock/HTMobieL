@@ -143,13 +143,12 @@ $(document).on("pageinit", "#expense", function () {
         }
     });
 
-    // custom validation rule for data of the expense
+    // custom validation rule for date of the expense
     $.validator.addMethod("isCorrectDate", function (value) {
         var today = new Date();
         var minimum = new Date();
         minimum.setMonth(minimum.getMonth() - 2);
         var toCheck = new Date(value);
-
         return (minimum <= toCheck) && (toCheck <= today);
 
     }, "The date is not in the valid range according to the Capgemini policy");

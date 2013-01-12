@@ -38,6 +38,9 @@ $(document).on("pageshow", "#my-expenses", function () {
         complete:function () {
             $.mobile.loading("hide");
         },
+        error:function () {
+            EA.showBackendError("Could not fetch expenses from server.");
+        },
         success:function (xml) {
             // empty cache of server expense forms
             EA.emptyServerExpenses();
@@ -82,9 +85,6 @@ $(document).on("pageshow", "#my-expenses", function () {
 
             // refresh the list so it will be shown with proper jQM layout
             $expenseList.listview("refresh");
-        },
-        error:function () {
-            EA.showBackendError("Could not fetch expenses from server.");
         }
     });
 });

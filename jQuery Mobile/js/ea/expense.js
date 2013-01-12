@@ -37,6 +37,9 @@ $(document).on("pageinit", "#expense", function () {
     // insert converted amount span holder
     $expenseCurrency.parent().parent().append(' <nobr><span class="align-right" id="expense-amount-converted"></span></nobr>');
 
+    // euro sign
+    var $euroSign = $("#expense-euro-sign");
+
     // hold local reference for performance
     var $expenseAmount = $("#expense-amount");
     var $expenseCurrencyConverted = $("#expense-amount-converted");
@@ -65,6 +68,7 @@ $(document).on("pageinit", "#expense", function () {
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
     $expenseCurrencyConverted.hide();
+    $euroSign.show();
 
     // shows form items for abroad
     $("#expense-tabbar-abroad").change(function () {
@@ -78,6 +82,7 @@ $(document).on("pageinit", "#expense", function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
+        $euroSign.hide();
     });
 
     // shows form items for domestic
@@ -92,6 +97,7 @@ $(document).on("pageinit", "#expense", function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
+        $euroSign.show();
     });
 
     // autocomplete for project code

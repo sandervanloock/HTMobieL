@@ -48,8 +48,12 @@ textarea.error,
     padding: 2px;
 }
 
-.padding-currency .ui-block-a{
+.padding-currency .ui-block-a {
     padding-right: 10px;
+}
+
+#expense-amount.ui-input-text {
+    width: 85%
 }
 
 /* Responsive design: tablet view */
@@ -69,6 +73,10 @@ textarea.error,
 
     .ui-footer {
         display: none;
+    }
+
+    #expense-amount {
+        display: inline;
     }
 }
 

@@ -269,6 +269,8 @@ $(document).on("pageinit", "#expense", function () {
 
             // clear the form
             $("#expense-form")[0].reset();
+            // empty converted currency
+            $("#expense-amount-converted").text("");
         }
     });
 

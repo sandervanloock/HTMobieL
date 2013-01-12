@@ -34,8 +34,22 @@ textarea.error,
     font-size: 14px;
 }
 
+.footer {
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
 .signature {
     border: 1px solid #000;
+}
+
+.padding-currency {
+    padding: 2px;
+}
+
+#expense-amount.ui-input-text {
+    width: 85%
 }
 
 /* Responsive design: tablet view */
@@ -51,6 +65,14 @@ textarea.error,
 @media all and (max-width: 599px) {
     .wrapper {
         width: 100%;
+    }
+
+    .ui-footer {
+        display: none;
+    }
+
+    #expense-amount {
+        display: inline;
     }
 }
 

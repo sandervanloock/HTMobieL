@@ -2,7 +2,7 @@ $(document).on("pageshow", "#sign-and-send", function () {
     // hold local reference for performance
     var $signature = $("#sign-and-send-signature");
 
-    // when this line is in pageinit or pagebeforeshow, it cannot know
+    // when this line is in pagebeforeshow, it cannot know
     // width and heigh of the page, therefore it is placed here, but
     // because this code is executed everytime the page is viewed,
     // multiple signature fields would come up,

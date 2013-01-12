@@ -33,6 +33,14 @@ $(document).on("pageinit", "#expense", function () {
 
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
+
+    // insert converted amount span holder
+    $expenseCurrency.parent().parent().append(' <nobr><span class="align-right" id="expense-amount-converted"></span></nobr>');
+
+    // euro sign
+    var $euroSign = $("#expense-euro-sign");
+
+    // hold local reference for performance
     var $expenseAmount = $("#expense-amount");
     var $expenseCurrencyConverted = $("#expense-amount-converted");
 
@@ -48,10 +56,10 @@ $(document).on("pageinit", "#expense", function () {
         if (!isNaN(amount) && !isNaN(rate)) {
             var converted = amount / rate;
             // show euro amount with 2 decimals
-            $expenseCurrencyConverted.val(EA.formatEuro(converted));
+            $expenseCurrencyConverted.text("(" + EA.formatEuro(converted) + ")");
         } else {
             // set the converted value to empty
-            $expenseCurrencyConverted.val("");
+            $expenseCurrencyConverted.text("");
         }
 
     }
@@ -59,7 +67,8 @@ $(document).on("pageinit", "#expense", function () {
     // tabbar abroad or domestic
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
-    $expenseCurrencyConverted.parent().hide();
+    $expenseCurrencyConverted.hide();
+    $euroSign.show();
 
     // shows form items for abroad
     $("#expense-tabbar-abroad").change(function () {
@@ -68,11 +77,12 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().hide();
         $("#expense-type-restaurant").parent().show();
         $("#expense-currency-div").show();
-        $expenseCurrencyConverted.parent().show();
+        $expenseCurrencyConverted.show();
         $("#expense-type ").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
+        $euroSign.hide();
     });
 
     // shows form items for domestic
@@ -82,11 +92,12 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().show();
         $("#expense-type-restaurant").parent().hide();
         $("#expense-currency-div").hide();
-        $expenseCurrencyConverted.parent().hide();
+        $expenseCurrencyConverted.hide();
         $("#expense-type").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
+        $euroSign.show();
     });
 
     // autocomplete for project code
@@ -143,13 +154,12 @@ $(document).on("pageinit", "#expense", function () {
         }
     });
 
-    // custom validation rule for data of the expense
+    // custom validation rule for date of the expense
     $.validator.addMethod("isCorrectDate", function (value) {
         var today = new Date();
         var minimum = new Date();
         minimum.setMonth(minimum.getMonth() - 2);
         var toCheck = new Date(value);
-
         return (minimum <= toCheck) && (toCheck <= today);
 
     }, "The date is not in the valid range according to the Capgemini policy");
@@ -265,6 +275,8 @@ $(document).on("pageinit", "#expense", function () {
 
             // clear the form
             $("#expense-form")[0].reset();
+            // empty converted currency
+            $("#expense-amount-converted").text("");
         }
     });
 

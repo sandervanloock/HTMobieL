@@ -36,7 +36,19 @@ $(document).on("pageinit", "#login", function () {
                         textVisible:true
                     });
                 },
+                error:function () {
+                    // don't write the loading hide in a complete handler,
+                    // because we chain the ajax requests
+                    $.mobile.loading("hide");
+
+                    // show error
+                    EA.showBackendError("Could not log in.");
+                },
                 success:function (token) {
+                    // don't write the loading hide in a complete handler,
+                    // because we chain the ajax requests
+                    $.mobile.loading("hide");
+
                     if (token == '') {
                         EA.showBackendError("The username and/or password are incorrect.");
                     } else {
@@ -56,15 +68,21 @@ $(document).on("pageinit", "#login", function () {
                                     textVisible:true
                                 });
                             },
-                            success:function (data) {
-                                EA.setUser(data);
-                                $.mobile.changePage("#home");
-                            },
                             error:function () {
+                                // don't write the loading hide in a complete handler,
+                                // because we chain the ajax requests
+                                $.mobile.loading("hide");
+
                                 EA.showBackendError("Could not fetch user information");
                             },
-                            complete:function () {
+                            success:function (userData) {
+                                // don't write the loading hide in a complete handler,
+                                // because we chain the ajax requests
                                 $.mobile.loading("hide");
+
+                                // set user data and go to home page
+                                EA.setUser(userData);
+                                $.mobile.changePage("#home");
                             }
                         });
 
@@ -76,8 +94,8 @@ $(document).on("pageinit", "#login", function () {
                             data:{
                                 "keyword":""
                             },
-                            beforeSend:function () {
-                                $.mobile.loading("show");
+                            error:function () {
+                                EA.showBackendError("Could not fetch project codes.");
                             },
                             success:function (json) {
                                 if (json != null) {
@@ -87,12 +105,6 @@ $(document).on("pageinit", "#login", function () {
                                     // it could happen that there are no project codes yet
                                     console.log("No project code suggestions were returned.");
                                 }
-                            },
-                            error:function () {
-                                EA.showBackendError("Could not fetch project codes.");
-                            },
-                            complete:function () {
-                                $.mobile.loading("hide");
                             }
                         });
 
@@ -101,8 +113,8 @@ $(document).on("pageinit", "#login", function () {
                             type:"POST",
                             dataType:"xml",
                             url:"http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies",
-                            beforeSend:function () {
-                                $.mobile.loading("show");
+                            error:function () {
+                                EA.showBackendError("Could not fetch currencies.");
                             },
                             success:function (xml) {
                                 var currencies = [];
@@ -123,21 +135,9 @@ $(document).on("pageinit", "#login", function () {
                                     });
                                 });
                                 EA.setCurrencies(currencies);
-                            },
-                            error:function () {
-                                EA.showBackendError("Could not fetch currencies.");
-                            },
-                            complete:function () {
-                                $.mobile.loading("hide");
                             }
                         });
                     }
-                },
-                error:function () {
-                    EA.showBackendError("Could not log in.");
-                },
-                complete:function () {
-                    $.mobile.loading("hide");
                 }
             });
         }

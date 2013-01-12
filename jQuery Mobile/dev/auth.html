@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.2.0.css">
+    <script src="../js/vendor/jquery-1.8.2.js"></script>
+    <script src="../js/vendor/jquery.mobile-1.2.0.js"></script>
+    <script>
+        // authentication mechanism to insure the user is logged in on each page
+        $(document).bind('pagebeforechange', function (event, data) {
+            console.log("running authentication mechanism");
+            // https://github.com/jquery/jquery-mobile/issues/3347#issuecomment-10684096
+            if ($.type(data.toPage) === "string") {
+                console.log("first time");
+                console.log(data.toPage);
+                if (data.toPage != "#login") {
+                    console.log("not the login page")
+                    if (!EA.isLoggedIn()) {
+                        $.mobile.changePage("#login");
+                        event.preventDefault();
+                    }
+
+
+                }
+            } else {
+                console.log("second time");
+            }
+        });
+    </script>
+</head>
+<body>
+<div data-role="page" id="home">
+    <div data-role="content">
+        <h1>Home</h1>
+
+        <p>Go to <a href="#view">view</a></p>
+    </div>
+</div>
+
+<div data-role="page" id="view">
+    <div data-role="content">
+        <h2>View</h2>
+
+        <p>Go to <a href="#home">home</a></p>
+    </div>
+</div>
+
+<div data-role="page" id="login">
+    <div data-role="content">
+        <h2>Login</h2>
+
+        <p><a href="#login">Log me in</a></p>
+    </div>
+</div>
+</body>
+</html>

@@ -52,7 +52,11 @@ $(document).on("pageinit", "#login", function () {
                     if (token == '') {
                         EA.showBackendError("The username and/or password are incorrect.");
                     } else {
+                        // set the token
                         EA.setToken(token);
+
+                        // empty form
+                        $("#login-form")[0].reset();
 
                         // don't go to the home page yet, but first fetch user info
                         $.ajax({
@@ -79,7 +83,6 @@ $(document).on("pageinit", "#login", function () {
                                 // don't write the loading hide in a complete handler,
                                 // because we chain the ajax requests
                                 $.mobile.loading("hide");
-
                                 // set user data and go to home page
                                 EA.setUser(userData);
                                 $.mobile.changePage("#home");

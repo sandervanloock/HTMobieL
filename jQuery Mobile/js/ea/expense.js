@@ -33,6 +33,11 @@ $(document).on("pageinit", "#expense", function () {
 
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
+
+    // insert converted amount span holder
+    $expenseCurrency.parent().parent().append(' <nobr><span class="align-right" id="expense-amount-converted"></span></nobr>');
+
+    // hold local reference for performance
     var $expenseAmount = $("#expense-amount");
     var $expenseCurrencyConverted = $("#expense-amount-converted");
 
@@ -48,10 +53,10 @@ $(document).on("pageinit", "#expense", function () {
         if (!isNaN(amount) && !isNaN(rate)) {
             var converted = amount / rate;
             // show euro amount with 2 decimals
-            $expenseCurrencyConverted.val(EA.formatEuro(converted));
+            $expenseCurrencyConverted.text("(" + EA.formatEuro(converted) + ")");
         } else {
             // set the converted value to empty
-            $expenseCurrencyConverted.val("");
+            $expenseCurrencyConverted.text("");
         }
 
     }
@@ -59,7 +64,7 @@ $(document).on("pageinit", "#expense", function () {
     // tabbar abroad or domestic
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
-    $expenseCurrencyConverted.parent().hide();
+    $expenseCurrencyConverted.hide();
 
     // shows form items for abroad
     $("#expense-tabbar-abroad").change(function () {
@@ -68,7 +73,7 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().hide();
         $("#expense-type-restaurant").parent().show();
         $("#expense-currency-div").show();
-        $expenseCurrencyConverted.parent().show();
+        $expenseCurrencyConverted.show();
         $("#expense-type ").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
@@ -82,7 +87,7 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().show();
         $("#expense-type-restaurant").parent().hide();
         $("#expense-currency-div").hide();
-        $expenseCurrencyConverted.parent().hide();
+        $expenseCurrencyConverted.hide();
         $("#expense-type").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");

@@ -558,22 +558,19 @@
                         </fieldset>
                     </div>
 
-                    <div data-role="fieldcontain" class="ui-hide-label" id="expense-currency-div">
-                        <label for="expense-currency" class="select">Currency:</label>
-                        <select name="expense-currency" id="expense-currency">
-                            <option value="">Currency</option>
-                        </select>
-                    </div>
-
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="expense-amount">Amount:</label>
-                        <input type="number" name="expense-amount" id="expense-amount" placeholder="Amount">
-                    </div>
-
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="expense-amount-converted">Converted amount:</label>
-                        <input type="text" name="expense-amount-converted" id="expense-amount-converted" placeholder="€"
-                               readonly>
+                    <div data-role="fieldcontain">
+                        <div class="ui-grid-a padding-currency">
+                            <div class="ui-block-a ui-hide-label">
+                                <label for="expense-amount">Amount:</label>
+                                <input type="number" name="expense-amount" id="expense-amount" placeholder="Amount">
+                            </div>
+                            <div class="ui-block-b ui-hide-label" id="expense-currency-div">
+                                <label for="expense-currency">Currency:</label>
+                                <select name="expense-currency" id="expense-currency" data-inline="true">
+                                    <option value="">Currency</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">

@@ -5,6 +5,10 @@ $(document).on("pageinit", "#login", function () {
         // at the same time on a smartphone
         focusInvalid:false,
 
+        // no real time validation checking needed
+        onkeyup:false,
+        onfocusout:false,
+
         errorPlacement:function () {
             // no body, because we want no error labels on the form
         },

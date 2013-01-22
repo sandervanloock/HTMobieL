@@ -171,7 +171,7 @@ $(document).on("pageinit", "#your-info", function () {
         // select according to rule
         $yearOptions.find("option[value='" + year + "']").attr("selected", true);
         var $monthOptions = $("#your-info-date-month");
-        $monthOptions.find("option[value='" + month + "']").attr("selected", true);
+        $monthOptions.find("option[value='" + (month+1) + "']").attr("selected", true);
 
         // set on screen
         $yearOptions.selectmenu('refresh');

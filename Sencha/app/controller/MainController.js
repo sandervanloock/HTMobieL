@@ -1,0 +1,97 @@
+Ext.define(
+				'Expense.controller.MainController',
+				{
+					extend : 'Ext.app.Controller',
+					
+					require: [
+					     'Expense.model.Expense'
+					],
+
+					config : {
+
+						refs : {
+							detail : 'page',
+                            myinfo : 'infopanel'
+						},
+						control : {
+							'button[action=home]' : {
+								tap : 'goHome'
+							},'button[action=newExpenseForm]' : {
+								tap : 'gotoNewExpenseForm'
+							}, 'button[action=newExpense]' : {
+                                tap : 'gotoNewExpense'
+                            },'button[action=showOverviewList]': {
+                                tap: 'showOverviewList'
+                            },'button[action=totaloverviewlist]' : {
+								tap : 'showTotalOverviewList'
+							}, 'button[action=showSingAndSend]' : {
+                                tap : 'showSingAndSend'
+                            }
+						}
+
+					},
+
+					gotoNewExpenseForm: function(button, e, options){
+						Ext.Viewport.setActiveItem(Ext.getCmp('viewport'));
+                        this.getDetail().setActiveItem(0);
+						Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(0),false,false);
+					},
+
+                    gotoNewExpense: function(button, e, options){
+                        this.getDetail().setActiveItem(2);
+                        Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(2),false,false);
+                    },
+
+                    showOverviewList: function(button, e, options){
+                        //Reset red borders
+                        Ext.getCmp('infofield').getItems().each(function(item,index,length){
+                            item.removeCls('x-field-custom-error');
+                        });
+
+                        var employee = Ext.create(
+                            'Expense.model.Employee',
+                            this.getMyinfo().getValues());
+                        var errors = employee.validate();
+                        if(errors.isValid())
+                        {
+
+                            this.getDetail().setActiveItem(1);
+                            Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(1),false,false);
+                            Ext.getStore('expensestore').each(function(item,index,length){
+                                encodeCurrency(item);
+                            });
+                            var myDate=new Date();
+                            myDate.setFullYear(Ext.getCmp('year').getValue(),Ext.getCmp('month').getValue(),1);
+                            console.log(myDate);
+                            Expense.app.getExpenseForm().set('date',myDate);
+                        }
+                        else {
+                            var message = '';
+                            errors.each(function(item, index, length){
+                                console.log(item);
+                                message = message + item.getMessage() + '<br>';
+                                if(item.getField()!='evidence')
+                                    Ext.getCmp('infofield').getComponent(item.getField()).addCls('x-field-custom-error');
+                            });
+                            Ext.Msg.show({
+                                title: 'Error',
+                                message: message,
+                                width: 300,
+                                buttons: Ext.MessageBox.OK
+                            });
+                        }
+                    },
+					
+					showTotalOverviewList: function(button, e, options){
+						Ext.Viewport.setActiveItem(Ext.getCmp('totaloverviewlist'));
+					},
+
+					goHome : function(button, e, options) {
+						Ext.Viewport.setActiveItem(Ext.getCmp('home'));
+					},
+
+                    showSingAndSend : function(button, e, options) {
+                        this.getDetail().setActiveItem(3);
+                        Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
+                    },
+				});

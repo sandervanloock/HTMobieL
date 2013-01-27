@@ -1,0 +1,17 @@
+.x-field-custom-error {
+    border-color: #ff3812;
+    border-style: solid;
+}
+
+.x-custom-title{
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: #002f50;
+    text-justify: auto;
+    font-weight: bold;
+}
+
+.menu-background{
+    background: rgb(233,233,233);
+}

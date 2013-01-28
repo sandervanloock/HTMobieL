@@ -27,6 +27,10 @@
 \headstyles{kulemtman}
 \kulemtmanToC
 
+\usepackage{parskip} %TODO:  werkt niet -> nieuwe paragraaf niet indenteren maar wel lijn tussen laten.
+\newcommand{\term}[1]{\emph{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
 % Tenslotte wordt hyperref gebruikt voor pdf bestanden.
 % Dit mag verwijderd worden voor de af te drukken versie.
 \usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
@@ -62,22 +66,29 @@
 \end{abstract}
 
 % Een lijst van figuren en tabellen is optioneel
-%\listoffigures
-%\listoftables
+\listoffigures
+\listoftables
 % Bij een beperkt aantal figuren en tabellen gebruik je liever het volgende:
 %\listoffiguresandtables
 % De lijst van symbolen is eveneens optioneel.
 % Deze lijst moet wel manueel aangemaakt worden, bv. als volgt:
-%\chapter{Lijst van afkortingen en symbolen}
-%\section*{Afkortingen}
-%\begin{flushleft}
-%  \renewcommand{\arraystretch}{1.1}
-%  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
-%    LoG   & Laplacian-of-Gaussian \\
-%    MSE   & Mean Square error \\
-%    PSNR  & Peak Signal-to-Noise ratio \\
-%  \end{tabularx}
-%\end{flushleft}
+\chapter{Lijst van afkortingen}
+\section*{Afkortingen}
+\begin{flushleft}
+  \renewcommand{\arraystretch}{1.1}
+  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+     AJAX & Asynchronous JavaScript And XML \\
+     API & Application Programming Interface \\
+     CSS & Cascading Style Sheets \\
+     DOM & Document Object Model \\
+     GPU & Graphics Processing Unit \\
+     (G)UI & (Graphical) User Interface \\
+     HTML & HyperText Markup Language \\
+     IDE & Integrated Development Environment \\
+     MVC & Model-View-Controller \\
+     SDK & Software Development Kit
+  \end{tabularx}
+\end{flushleft}
 %\section*{Symbolen}
 %\begin{flushleft}
 %  \renewcommand{\arraystretch}{1.1}

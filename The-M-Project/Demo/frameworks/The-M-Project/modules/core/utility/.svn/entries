@@ -1,0 +1,126 @@
+10
+
+dir
+0
+https://svn.java.net/svn/firstcup~svn/HTMobieL/The-M-Project/Demo/frameworks/The-M-Project/modules/core/utility
+https://svn.java.net/svn/firstcup~svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3a32ba02-7ef8-4aff-b924-f8bcd09d5d4f
+
+cypher.js
+file
+
+
+
+add
+
+cypher_algorithms
+dir
+
+
+
+add
+
+date.js
+file
+
+
+
+add
+
+device_switch.js
+file
+
+
+
+add
+
+environment.js
+file
+
+
+
+add
+
+i18n.js
+file
+
+
+
+add
+
+image_preloader.js
+file
+
+
+
+add
+
+jquery_awesomenzr.js
+file
+
+
+
+add
+
+location.js
+file
+
+
+
+add
+
+location_manager.js
+file
+
+
+
+add
+
+logger.js
+file
+
+
+
+add
+
+math.js
+file
+
+
+
+add
+
+string_builder.js
+file
+
+
+
+add
+
+uuid.js
+file
+
+
+
+add
+

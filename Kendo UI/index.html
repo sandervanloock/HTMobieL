@@ -3,7 +3,7 @@
 <head>
     <title>My App</title>
 
-    <link href="http://cdn.kendostatic.com/2012.1.515/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2012.1.515/styles/kendo.mobile.all.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div data-role="view" data-layout="default">
@@ -18,14 +18,19 @@
     <footer data-role="footer">
         <div data-role="tabstrip">
             <a href="#">Home</a>
+            <a href="about.html">About</a>
         </div>
-        <footer>
+    </footer>
 </section>
 
 <script class="jsbin" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="http://cdn.kendostatic.com/2012.1.515/js/kendo.all.min.js"></script>
 <script>
-    var app = new kendo.mobile.Application();
+    var app = new kendo.mobile.Application(document.body,
+            {
+                transition:'slide',
+                platform:'android'
+            });
 </script>
 </body>
 </html>

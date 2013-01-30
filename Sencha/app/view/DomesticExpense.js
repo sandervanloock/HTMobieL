@@ -44,7 +44,8 @@ Ext.define('Expense.view.DomesticExpense', {
                         xtype: 'radiofield',
                         label: 'Hotel',
                         name: 'expenseType',
-                        value:  'Hotel'
+                        value:  'Hotel',
+                        checked: true
                     },
                     {
                         xtype: 'radiofield',

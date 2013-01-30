@@ -40,9 +40,12 @@ app/view/TotalOverviewList.js
 app/view/Viewport.js
 
 lib/sencha-touch/sencha-touch.js
+lib/sencha-touch/sencha-touch-all-debug.js
 lib/sencha-touch/resources/css/sencha-touch.css
 lib/sencha-touch/resources/css/custom-style.css
 
+lib/pdf.js/pdf.js
+lib/pdf.js/compatibility.js
 lib/base64.js
 ux/panel/PDF.js
 ux/Fileup.js

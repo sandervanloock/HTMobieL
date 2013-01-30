@@ -27,10 +27,11 @@ Als men naast de resolutie ook nog eens gaat rekening houden met de fysieke groo
 
 Een overzicht van vaak voorkomende resoluties voor mobiele apparaten wordt getoond op de figuur \ref{fig:resoluties}.
 
+% TODO afbeelding misschien vectorieel maken
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{figuren/screen-resolutions.png}
-  \caption{Vaak voorkomende resoluties voor mobiele apparaten~\cite{PhilDutson2012}.}
+  \includegraphics[height=0.8\textwidth]{figuren/mobile-devices-resolutions.png}
+  \caption{Resoluties van bekende mobiele apparaten~\cite{Wolfermann2012}.}
   \label{fig:resoluties}
 \end{figure}
 
@@ -198,7 +199,7 @@ In plaats van te onderzoeken wat er mis was met HTML, wat XHTML probeerde te doe
 HTML5 is op dit moment van schrijven nog altijd in ontwerp. Hierdoor kunnen nieuwe kenmerken op ieder momenten worden toegevoegd.  Er is ook nog steeds onduidelijkheid waar HTML5 ons zal brengen.  Het W3C focust op een unieke HTML5 standaard (verwacht rond 2014) terwijl WHATWG de nieuwe markup-taal ziet als levende taal waarbij voortdurend  nieuwe dingen kunnen worden toegevoegd. Een belangrijke opmerking hierbij is dat het laatste woord altijd bij de webbrowserfabrikant ligt, net zoals dat het geval was met de strikte syntax in XHTML. Als een kenmerk niet in de browser wordt ondersteund, heeft het ook geen kans op overleven~\cite{MacDonald2011}.
 
 \subsubsection{Drie basisprincipes}
-Achter HTML5 zit een filosofie die in drie basisprincipes kan worden samengevat~\cite{MacDonald2011}.  De eerste is achterwaartse comptabiliteit. De standaard mag geen veranderingen invoeren die oudere pagina's zou doen breken. Ten tweede moet de standaard geen nieuwe specificaties afdwingen die door de meerderheid op een andere manier worden gedaan. Als laatste moeten de specificaties ook een praktisch nut hebben. Dit betekent dat daar waar veel vraag naar, ook het beste opweegt om in de specificaties op te nemen.
+Achter HTML5 zit een filosofie die in drie basisprincipes kan worden samengevat~\cite{MacDonald2011}.  De eerste is achterwaartse comptabiliteit. De standaard mag geen veranderingen invoeren die oudere pagina's zou doen breken. Ten tweede moet de standaard geen nieuwe specificaties afdwingen die door de meerderheid op een andere manier worden gedaan. Als laatste moeten de specificaties ook een praktisch nut hebben. Dit betekent dat daar waar veel vraag naar is, ook het beste opweegt om in de specificaties op te nemen.
 
 \subsubsection{Acht technologieklassen}
 HTML5 kan ook bekeken worden als de volgende acht technologieklassen~\cite{W3C2012}. Iedere klasse wordt met enkele concrete voorbeelden aangehaald.
@@ -277,12 +278,7 @@ Een oplossing voor de bovenstaande pijnpunten is gebruik maken van een bibliothe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO mobiele webframeworks of 
-% mobiele HTML5 frameworks of
-% mobiele JavaScript-gebaseerde framworks
-% of nog iets anders?
-% daarenboven zijn deze frameworks UI frameworks, dus dat moet ook nog ergens staan
-\section{mobiele HTML5 raamwerken}
+\section{Mobiele HTML5 raamwerken}
 \label{sec:mobiele-html5-raamwerken}
 In deze sectie gaan we inzoomen op bestaande mobiele raamwerken die gebruik maken van de laatste nieuwe technologieën zoals HTML5, CSS3 en JavaScript. Deze raamwerken worden gecategoriseerd volgens twee courante aanpakken~\cite{Oeflman2011}: mark-up gedreven en JavaScript gedreven. Bij een mark-up gedreven aanpak wordt de webapplicatie voornamelijk in HTML code geschreven. Daarentegen wordt bij een JavaScript gedreven aanpak hoofdzakelijk in JavaScript geprogrammeerd.
 
@@ -454,8 +450,6 @@ Sencha thema's bestaan enkel en alleen uit een set van mixins.  Door zelf mixins
 Zoals reeds aangehaald ondersteund Sencha Touch het MVC (Model-View-Controller) patroon.  Dit patroon vermijdt lange JavaScript bestanden door ze logisch op te delen.  Modellen groeperen velden tot een beschrijving van data-objecten,  views definiëren de weergave van componenten en controllers verbinden beide op basis van events.
 
 In theorie zou het verschil tussen mobiele websites en applicaties enkel in de views terug te vinden zijn.  Echter,  dit wordt nog niet volledig ondersteund en raadt men dus aan om hiervoor aparte projecten te voorzien.
-
-%Zoals reeds vermeld genereert het framework alle HTML code ad hoc. Hoewel er debug tools aanwezig zijn, blijft dit toch een probleem.  
 
 \paragraph{Ondersteuning browser}
 Sencha Touch steunt op de WebKit browser engine dus moet de browser deze ondersteunen.  Hoewel dit bij de meeste browsers geen probleem meer vormt vallen toch enkele populaire browsers uit de boot.  Sencha Touch is bijvoorbeeld niet compatibel met FireFox Mobile en Opera Mobile~\cite{JohnEClark2012}.

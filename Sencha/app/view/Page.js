@@ -25,6 +25,7 @@ Ext.define('Expense.view.Page', {
     ],
 
     config: {
+        id: 'page',
         layout: {
             type: 'card'
         },

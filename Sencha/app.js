@@ -103,6 +103,7 @@ Ext.application({
 
         if(Ext.os.is.Phone){
             Ext.getCmp('menupanel').setHidden(true);
+            Ext.getCmp('menuButton').setHidden(false);
         }
     },
     token : '',

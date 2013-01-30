@@ -26,6 +26,8 @@ Ext.define(
 								tap : 'showTotalOverviewList'
 							}, 'button[action=showSingAndSend]' : {
                                 tap : 'showSingAndSend'
+                            }, 'button[action=menu]' : {
+                                tap: 'showMenu'
                             }
 						}
 
@@ -94,4 +96,9 @@ Ext.define(
                         this.getDetail().setActiveItem(3);
                         Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
                     },
+
+                    showMenu: function(button, e, options){
+                        Ext.getCmp('page').setHidden(true);
+                        Ext.getCmp('menupanel').setHidden(false);
+                    }
 				});

@@ -21,7 +21,7 @@ Ext.define('Expense.store.ExpenseFormStore', {
                 destroy: 'POST'
             },
             reader: {
-                type: 'xml',
+                type: 'json',
                 record: 'expenseForm',
                 idProperty: 'id'
             }

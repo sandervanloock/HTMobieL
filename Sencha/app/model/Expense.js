@@ -65,11 +65,11 @@ Ext.define('Expense.model.Expense', {
 			type : 'presence',
 			name : 'amount', //valid amount
             message: 'An amount must be present' //nodig voor custom validations
-		}, {
+		}, /*{ TODO
             type: 'presence',
             name: 'evidence',
             message: 'Evidence must be uploaded'
-        }, {
+        }, */{
             field : 'remarks',
             name :'remarks',
             type : 'custom',

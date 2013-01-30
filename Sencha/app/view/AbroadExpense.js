@@ -53,7 +53,6 @@ Ext.define('Expense.view.AbroadExpense', {
                     {
                         xtype: 'textfield',
                         label: 'Amount',
-                        value: '50', //TODO
                         name: 'amount',
                         id: 'amountAbroad'
                     },

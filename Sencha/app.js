@@ -83,7 +83,7 @@ Ext.application({
         'Ext.ux.panel.PDF',
         'Ext.ux.Fileup',
         'Ext.ux.Signaturefield',
-        'Expense.view.ProjectCodeList'
+        //'Expense.view.ProjectCodeList'
     ],
     name: 'Expense',
     controllers: [

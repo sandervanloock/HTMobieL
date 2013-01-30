@@ -41,11 +41,9 @@ app/view/Viewport.js
 
 lib/sencha-touch/sencha-touch.js
 lib/sencha-touch/resources/css/sencha-touch.css
+lib/sencha-touch/resources/css/custom-style.css
 
-lib/pdf.js/compatibility.js
-lib/pdf.js/pdf.js
 lib/base64.js
-
 ux/panel/PDF.js
 ux/Fileup.js
 ux/Signaturefield.js

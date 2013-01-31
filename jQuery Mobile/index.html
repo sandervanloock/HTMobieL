@@ -562,7 +562,8 @@
                         <div class="ui-grid-a padding-currency">
                             <div class="ui-block-a ui-hide-label">
                                 <label for="expense-amount">Amount:</label>
-                                <span id="expense-euro-sign">€</span> <input type="number" name="expense-amount" id="expense-amount" placeholder="Amount">
+                                <span id="expense-euro-sign">€</span> <input type="number" name="expense-amount"
+                                                                             id="expense-amount" placeholder="Amount">
                             </div>
                             <div class="ui-block-b ui-hide-label" id="expense-currency-div">
                                 <label for="expense-currency">Currency:</label>
@@ -587,9 +588,7 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="expense-evidence-base64">Base64:</label>
-                        <input type="text" name="expense-evidence-base64" id="expense-evidence-base64"
-                               placeholder="base64"
-                               readonly>
+                        <textarea name="expense-evidence-base64" id="expense-evidence-base64" readonly></textarea>
                     </div>
 
                     <input type="hidden" name="expense-next-page" id="expense-next-page">

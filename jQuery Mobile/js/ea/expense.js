@@ -1,5 +1,3 @@
-var evidenceBase64 = null;
-
 $(document).on("pagebeforeshow", "#expense", function () {
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
@@ -141,10 +139,10 @@ $(document).on("pageinit", "#expense", function () {
                     // draw the image on the canvas
                     context.drawImage(this, 0, 0);
                     // get the base64 string
-                    evidenceBase64 = canvas.toDataURL();
+                    var base64 = canvas.toDataURL();
                     // TODO delete me (developping purposes)
-                    console.log(evidenceBase64);
-                    $("#expense-evidence-base64").val(evidenceBase64);
+                    console.log("base64: " + base64 != null);
+                    $("#expense-evidence-base64").val(base64);
                     $.mobile.loading("hide");
                 };
                 console.log("set image src");
@@ -153,7 +151,7 @@ $(document).on("pageinit", "#expense", function () {
 
             // read the image
             $.mobile.loading("show", {
-                text:"Loading evidence",
+                text:"Analyzing evidence",
                 textVisible:true
             });
             reader.readAsDataURL(file);
@@ -280,7 +278,7 @@ $(document).on("pageinit", "#expense", function () {
                 "remarks":$("#expense-remarks").val(),
                 "expenseTypeId":$("input[name=expense-type]:checked").val(),
                 "expenseLocationId":$("input[name=expense-tabbar]:checked").val(),
-                "evidence":evidenceBase64
+                "evidence":$("#expense-evidence-base64").val()
             });
 
             $.mobile.changePage("#overview");

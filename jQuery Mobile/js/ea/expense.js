@@ -1,3 +1,5 @@
+var evidenceBase64 = null;
+
 $(document).on("pagebeforeshow", "#expense", function () {
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
@@ -126,7 +128,6 @@ $(document).on("pageinit", "#expense", function () {
             // if the image was read, load it into the canvas
             reader.onload = function (e) {
                 console.log("image was read");
-                $.mobile.loading("hide");
                 // get the canvas that is hidden on that page
                 var canvas = $('#expense-evidence-canvas')[0];
                 var context = canvas.getContext('2d');
@@ -140,23 +141,19 @@ $(document).on("pageinit", "#expense", function () {
                     // draw the image on the canvas
                     context.drawImage(this, 0, 0);
                     // get the base64 string
-                    var base64 = canvas.toDataURL();
+                    evidenceBase64 = canvas.toDataURL();
                     // TODO delete me (developping purposes)
-                    console.log(base64);
-                    $("#expense-evidence-base64").val(base64);
+                    console.log(evidenceBase64);
+                    $("#expense-evidence-base64").val(evidenceBase64);
                     $.mobile.loading("hide");
                 };
                 console.log("set image src");
-                $.mobile.loading("show", {
-                    text:"Converting evidence",
-                    textVisible:true
-                });
                 img.src = e.target.result;
             };
 
             // read the image
             $.mobile.loading("show", {
-                text:"Reading evidence",
+                text:"Loading evidence",
                 textVisible:true
             });
             reader.readAsDataURL(file);
@@ -283,7 +280,7 @@ $(document).on("pageinit", "#expense", function () {
                 "remarks":$("#expense-remarks").val(),
                 "expenseTypeId":$("input[name=expense-type]:checked").val(),
                 "expenseLocationId":$("input[name=expense-tabbar]:checked").val(),
-                "evidence":$("#expense-evidence-base64").val()
+                "evidence":evidenceBase64
             });
 
             $.mobile.changePage("#overview");

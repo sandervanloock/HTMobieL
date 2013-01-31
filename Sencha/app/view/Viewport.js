@@ -39,6 +39,16 @@ Ext.define('Expense.view.Viewport', {
                 items: [
                     {
                         xtype: 'button',
+                        align: 'left',
+                        id: 'menuButton',
+                        iconCls: 'settings',
+                        iconMask: true,
+                        text: 'Menu',
+                        action: 'menu',
+                        hidden: true
+                    },
+                    {
+                        xtype: 'button',
                         align: 'right',
                         ui: 'action',
                         iconCls: 'home',

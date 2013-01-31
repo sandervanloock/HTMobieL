@@ -35,7 +35,8 @@ Ext.define('Expense.view.AbroadExpense', {
                         xtype: 'radiofield',
                         label: 'Hotel',
                         name: 'expenseType',
-                        value: 'Hotel'
+                        value: 'Hotel',
+                        checked: true
                     },
                     {
                         xtype: 'radiofield',
@@ -47,13 +48,11 @@ Ext.define('Expense.view.AbroadExpense', {
                         xtype: 'radiofield',
                         label: 'Other (please specify)',
                         name: 'expenseType',
-                        value: 'Other',
-                        checked: true
+                        value: 'Other'
                     },
                     {
                         xtype: 'textfield',
                         label: 'Amount',
-                        value: '50', //TODO
                         name: 'amount',
                         id: 'amountAbroad'
                     },

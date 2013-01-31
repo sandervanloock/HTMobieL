@@ -96,7 +96,8 @@ Ext.define('Expense.controller.ExpenseController', {
         var errors = expense.validate();
         if(errors.isValid())
         {
-            expense.set('evidence',Ext.getCmp('loadedImageAbroad').getSrc());
+            if(Ext.getCmp('loadedImageAbroad')!=undefined)
+                expense.set('evidence',Ext.getCmp('loadedImageAbroad').getSrc());
             Ext.getStore('expensestore').add(expense);
             this.getDetail().setActiveItem(3);
             Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
@@ -129,7 +130,8 @@ Ext.define('Expense.controller.ExpenseController', {
         var errors = expense.validate();
         if(errors.isValid())
         {
-            expense.set('evidence',Ext.getCmp('loadedImageDomestic').getSrc());
+            if(Ext.getCmp('loadedImageAbroad')!=undefined)
+                expense.set('evidence',Ext.getCmp('loadedImageDomestic').getSrc());
             Ext.getStore('expensestore').add(expense);
             this.getDetail().setActiveItem(3);
             Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);

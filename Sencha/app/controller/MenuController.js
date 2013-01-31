@@ -72,7 +72,10 @@ Ext.define('Expense.controller.MenuController', {
         }else{
             this.getDetail().setActiveItem(index);
         }
-
+        if(Ext.os.is.Phone){
+            Ext.getCmp('page').setHidden(false);
+            Ext.getCmp('menupanel').setHidden(true);
+        }
 
     }
 

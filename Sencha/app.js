@@ -83,7 +83,7 @@ Ext.application({
         'Ext.ux.panel.PDF',
         'Ext.ux.Fileup',
         'Ext.ux.Signaturefield',
-        'Expense.view.ProjectCodeList'
+        //'Expense.view.ProjectCodeList'
     ],
     name: 'Expense',
     controllers: [
@@ -103,6 +103,7 @@ Ext.application({
 
         if(Ext.os.is.Phone){
             Ext.getCmp('menupanel').setHidden(true);
+            Ext.getCmp('menuButton').setHidden(false);
         }
     },
     token : '',

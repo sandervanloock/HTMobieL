@@ -126,6 +126,7 @@ $(document).on("pageinit", "#expense", function () {
             // if the image was read, load it into the canvas
             reader.onload = function (e) {
                 console.log("image was read");
+                $.mobile.loading("hide");
                 // get the canvas that is hidden on that page
                 var canvas = $('#expense-evidence-canvas')[0];
                 var context = canvas.getContext('2d');
@@ -143,13 +144,21 @@ $(document).on("pageinit", "#expense", function () {
                     // TODO delete me (developping purposes)
                     console.log(base64);
                     $("#expense-evidence-base64").val(base64);
+                    $.mobile.loading("hide");
                 };
                 console.log("set image src");
+                $.mobile.loading("show", {
+                    text:"Converting evidence",
+                    textVisible:true
+                });
                 img.src = e.target.result;
             };
 
             // read the image
-            console.log("read image");
+            $.mobile.loading("show", {
+                text:"Reading evidence",
+                textVisible:true
+            });
             reader.readAsDataURL(file);
         } else {
             // FileReaderAPI is not supported

@@ -2,6 +2,14 @@ Ext.Loader.setConfig({
     enabled: true
 });
 
+
+/*Ext.setup({ //TODO
+    tabletStartupScreen: 'tablet_startup.png',
+    phoneStartupScreen: 'phone_startup.png',
+    icon: 'icon.png',
+    glossOnIcon: false,
+});*/
+
 Ext.define("fix.me.some.radio.buttons", {
     override: "Ext.field.Radio",
     getValue: function() {

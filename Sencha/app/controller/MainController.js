@@ -85,6 +85,11 @@ Ext.define(
                     },
 					
 					showTotalOverviewList: function(button, e, options){
+                        var expenseStore = Ext.getStore('expenseformstore');
+                        expenseStore.getProxy().setExtraParams({
+                            token: Expense.app.getToken()
+                        });
+                        expenseStore.load();
 						Ext.Viewport.setActiveItem(Ext.getCmp('totaloverviewlist'));
 					},
 

@@ -21,32 +21,43 @@ Ext.define('Expense.view.LoginPanel', {
         id: 'loginpanel',
         scrollable: false,
         standardSubmit: true,
+
         url: 'http://localhost:8888/resources/userService/login',
         items: [
             {
-                xtype: 'emailfield',
-                id: 'emailLogin',
-                label: 'Email',
-                name: 'emailLogin',
-                value: 'tim.ameye@student.kuleuven.be',
-                placeHolder: 'email@example.com'
-            },
-            {
-                xtype: 'passwordfield',
-                id: 'password',
-                label: 'Password',
-                name: 'password',
-                value: 'test123'
-            },
-            {
-                xtype: 'button',
-                height: 46,
-                id: 'login',
-                ui: 'action-round',
-                width: 212,
-                iconAlign: 'center',
-                text: 'Login',
-                action: 'login'
+                xtype: 'fieldset',
+                //id: 'abroadfield',
+                title: 'Please, log in:',
+                top:  '30%',
+                width: '100%',
+                padding: '20 20 20 20',
+              items: [
+                {
+                    xtype: 'emailfield',
+                    id: 'emailLogin',
+                    label: 'Email',
+                    name: 'emailLogin',
+                    value: 'tim.ameye@student.kuleuven.be',
+                    placeHolder: 'email@example.com'
+                },
+                {
+                    xtype: 'passwordfield',
+                    id: 'password',
+                    label: 'Password',
+                    name: 'password',
+                    value: 'test123'
+                },
+                {
+                    xtype: 'button',
+                    height: 46,
+                    id: 'login',
+                    ui: 'action-round',
+                    width: 212,
+                    iconAlign: 'center',
+                    text: 'Login',
+                    action: 'login'
+                }
+              ]
             }
         ]
     }

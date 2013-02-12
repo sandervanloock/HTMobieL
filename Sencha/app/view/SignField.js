@@ -27,14 +27,14 @@ Ext.define('Expense.view.SignField', {
                     {
                         xtype: 'signaturefield',
                         id: 'signature',
-                        sigWidth: 350,
-                        sigHeight: 150,
-                        label:'Signature'
+                        sigWidth: 800,
+                        sigHeight: 500,
+                        //label:'Signature'
                     },
                     {
                         xtype: 'textareafield',
                         name: 'remarks',
-                        label: 'Remarks'
+                        placeHolder: 'Remarks'
                     },
                     {
                         xtype: 'togglefield',

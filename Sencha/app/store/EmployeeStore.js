@@ -43,12 +43,6 @@ Ext.define('Expense.store.EmployeeStore', {
 			var expenseStore = Ext.getStore('expensestore');
 			expenseStore.load();
 			
-			var expenseStore = Ext.getStore('expenseformstore');
-			expenseStore.getProxy().setExtraParams({
-				token: Expense.app.getToken()
-			});
-			expenseStore.load();
-			
 	 }
    
 });
@@ -62,6 +56,7 @@ initializeInfoPanel = function(employee){
 	var infopanel = Ext.getCmp('infopanel');
 	infopanel.setRecord(employee); 
 	var today = new Date();
+
 	infopanel.getComponent('infofield').getComponent('year').setOptions(
 			[{text: today.getFullYear()-1, value: today.getFullYear()-1},
 			 {text: today.getFullYear(), value: today.getFullYear()},

@@ -57,6 +57,11 @@ Ext.define('Expense.model.Expense', {
             }
         },
 		validations : [
+        {
+            type: 'presence',
+            name: 'date',
+            message: 'Date of Expense must be present'
+        },
 		{
 			type : 'presence',
 			name : 'projectCode',

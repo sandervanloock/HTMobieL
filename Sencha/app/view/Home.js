@@ -20,8 +20,8 @@ Ext.define('Expense.view.Home', {
 			xtype : 'fieldset',
             layout: {
                 type: 'vbox',
-                align: 'middle'
             },
+            centered: true,
             items : [ {
 				xtype : 'panel',
 				id : 'introtext',
@@ -34,7 +34,7 @@ Ext.define('Expense.view.Home', {
 				iconAlign : 'center',
 				text : 'Create New Expense',
 				action : 'newExpenseForm',
-                style: 'margin: 20px 20px 20px 20px'
+                margin: '20 20 20 20'
 			}, {
 				xtype : 'button',
 				height : 46,
@@ -43,7 +43,7 @@ Ext.define('Expense.view.Home', {
 				iconAlign : 'center',
 				text : 'View My Expenses',
 				action : 'totaloverviewlist',
-                style: 'margin: 0 20px 200px 20px'
+                margin: '0 20 20 20'
 			} ]
 		} ]
 	}

@@ -22,12 +22,14 @@ Ext.define('Expense.view.AbroadExpense', {
                         label: 'Date Of Expense',
                         placeHolder: 'mm/dd/yyyy',
                         value: new Date(),
-                        name: 'date'
+                        name: 'date',
+                        picker:{xtype:'datepicker', slotOrder:["day", "month", "year"]},
+                        minValue: new Date(new Date().setMonth(new Date().getMonth()-2))
                     },
                     {
                         //http://www.mysamplecode.com/2012/11/sencha-touch-2-autocomplete-ajax.html
                         xtype: 'textfield',
-                        label: 'Project Code',
+                        placeHolder: 'Project Code',
                         name: 'projectCode',
                         id: 'projectCodeAbroad'
                     },
@@ -51,14 +53,14 @@ Ext.define('Expense.view.AbroadExpense', {
                         value: 'Other'
                     },
                     {
-                        xtype: 'textfield',
-                        label: 'Amount',
+                        xtype: 'numberfield',
+                        placeHolder: 'Amount',
                         name: 'amount',
                         id: 'amountAbroad'
                     },
                     {
                         xtype: 'selectfield',
-                        label: 'Currency',
+                        placeHolder: 'Currency',
                         name: 'currency',
                         store: 'currencystore',
                         displayField : 'currency',
@@ -66,7 +68,7 @@ Ext.define('Expense.view.AbroadExpense', {
                     },
                     {
                         xtype: 'textareafield',
-                        label: 'Remarks',
+                        placeHolder: 'Remarks',
                         name: 'remarks',
                         id: 'remarksAbroad'
                     },

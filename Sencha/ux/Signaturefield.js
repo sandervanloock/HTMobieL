@@ -9,12 +9,12 @@ Ext.define('Ext.ux.Signaturefield', {
          * @cfg {Number} sigWidth The width of the signature canvas object
          * @accessor
          */
-		sigWidth:350,
+		sigWidth:'100%',
 		/**
          * @cfg {Number} sigHeight The height of the signature canvas object
          * @accessor
          */
-		sigHeight:150,
+		sigHeight:'100%',
 		component: {
             xtype: 'panel'
         }
@@ -24,6 +24,7 @@ Ext.define('Ext.ux.Signaturefield', {
 
 		this.width = this.getSigWidth();
 		this.height = this.getSigHeight();
+        this.placeHolder = 'mkjml'
 		
 		Ext.define('ux.signature.Canvas', {
 			extend: 'Ext.Component',

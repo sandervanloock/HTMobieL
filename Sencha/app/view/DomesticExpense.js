@@ -36,7 +36,7 @@ Ext.define('Expense.view.DomesticExpense', {
                     },
                     {
                         xtype: 'textfield',
-                        label: 'Project Code',
+                        placeHolder: 'Project Code',
                         name: 'projectCode',
                         id: 'projectCodeDomestic'
                     },
@@ -75,12 +75,12 @@ Ext.define('Expense.view.DomesticExpense', {
                     {
                         xtype: 'textfield',
                         name: 'amount',
-                        label: 'Amount (€)',
+                        placeHolder: 'Amount (€)',
                         id: 'amountDomestic'
                     },
                     {
                         xtype: 'textareafield',
-                        label: 'Remarks',
+                        placeHolder: 'Remarks',
                         name: 'remarks',
                         id: 'remarksDomestic'
                     },

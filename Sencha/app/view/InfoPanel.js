@@ -45,25 +45,25 @@ Ext.define('Expense.view.InfoPanel', {
                     },
                     {
                         xtype: 'textfield',
-                        label: 'First Name',
+                        placeHolder: 'First Name',
                         name: 'firstName',
                         readOnly: true
                     },
                     {
                         xtype: 'textfield',
-                        label: 'Last Name',
+                        placeHolder: 'Last Name',
                         name: 'lastName',
                         readOnly: true
                     },
                     {
                         xtype: 'textfield',
-                        label: 'Employee Number',
+                        placeHolder: 'Employee Number',
                         name: 'employeeNumber',
                         id: 'employeeNumber'
                     },
                     {
                         xtype: 'selectfield',
-                        label: 'Unit',
+                        placeHolder: 'Unit',
                         name: 'unitId',
                         id: 'unitId',
                         options:[
@@ -81,10 +81,9 @@ Ext.define('Expense.view.InfoPanel', {
                     },
                     {
                         xtype: 'emailfield',
-                        label: 'Email',
                         name: 'email',
                         id: 'email',
-                        placeHolder: 'email@example.com'
+                        placeHolder: 'Email'
                     },
                 ]
             },

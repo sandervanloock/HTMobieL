@@ -78,6 +78,9 @@ Ext.define('Expense.controller.LoginController', {
             },
             callback : function(options, success,response) {
                 Ext.Viewport.setActiveItem(Ext.getCmp('loginpanel'));
+                Ext.destroy(Ext.getCmp('home'));
+                Ext.destroy(Ext.getCmp('viewport'));
+                Ext.destroy(Ext.getCmp('totaloverviewlist'));
             }
         });
     }
@@ -104,15 +107,19 @@ function login(userEmail, userPassword){
                 });
             }
             else{
+                //all components and( dependencies have to be destoyed when logged out..
+                Ext.create('Expense.view.Home', {fullscreen: true});
                 Expense.app.setToken(response.responseText);
                 var employeeStore = Ext.getStore('employeestore');
                 employeeStore.getProxy().setExtraParams({
                     token: response.responseText
                 });
                 employeeStore.load();
-                //TODO store credentials in local storage
-                //localStorage.setItem('email',userEmail);
-                //localStorage.setItem('password',userPassword);
+                Ext.create('Expense.view.Viewport', {fullscreen: true});
+                Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
+                //store credentials in local storage
+                localStorage.setItem('email',userEmail);
+                localStorage.setItem('password',userPassword);
             }
         },
         failure: function(response, opts) {

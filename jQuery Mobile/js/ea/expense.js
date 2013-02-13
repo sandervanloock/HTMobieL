@@ -140,9 +140,11 @@ $(document).on("pageinit", "#expense", function () {
                     context.drawImage(this, 0, 0);
                     // get the base64 string
                     var base64 = canvas.toDataURL();
+
                     // TODO delete me (developping purposes)
                     console.log("base64: " + base64 != null);
-                    $("#expense-evidence-base64").val(base64);
+
+                    EA.setEvidence(base64);
                     $.mobile.loading("hide");
                 };
                 console.log("set image src");
@@ -160,7 +162,7 @@ $(document).on("pageinit", "#expense", function () {
             // TODO find a solution
 
             // TODO delete me (developping purposes)
-            $("#expense-evidence-base64").val("FileReaderAPI not supported");
+            alert("FileReaderAPI not supported");
         }
     });
 
@@ -278,8 +280,11 @@ $(document).on("pageinit", "#expense", function () {
                 "remarks":$("#expense-remarks").val(),
                 "expenseTypeId":$("input[name=expense-type]:checked").val(),
                 "expenseLocationId":$("input[name=expense-tabbar]:checked").val(),
-                "evidence":$("#expense-evidence-base64").val()
+                "evidence":EA.getEvidence()
             });
+
+            // clear temp evidence upload
+            EA.clearEvidence();
 
             $.mobile.changePage("#overview");
 
@@ -291,3 +296,17 @@ $(document).on("pageinit", "#expense", function () {
     });
 
 });
+
+// navigation for smartphones
+$(document).on("tap", "#expense-subheader", function () {
+    $.mobile.changePage("#add");
+});
+
+$(document).on("tap", "#abroad-subheader", function () {
+    $.mobile.changePage("#add");
+});
+
+$(document).on("tap", "#domestic-subheader", function () {
+    $.mobile.changePage("#add");
+});
+

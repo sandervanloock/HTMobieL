@@ -15,16 +15,16 @@ $(document).on("tap", "#home-new-expense", function () {
         // inform user with a choice, because there is a draft form available
         $.mobile.changePage("#confirmation");
     } else {
-        // no draft form found, go to add page
-        $.mobile.changePage("#add");
+        // no draft form found, go to first page
+        $.mobile.changePage("#your-info");
     }
 });
 
 $(document).on("tap", "#confirmation-cancel", function () {
     // start new form when users cancels
     EA.clearExpenseForm();
-    // go to add page
-    $.mobile.changePage("#add");
+    // go to first page
+    $.mobile.changePage("#your-info");
 });
 
 $(document).on("tap", "#confirmation-ok", function () {

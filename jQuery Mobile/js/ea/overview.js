@@ -123,3 +123,8 @@ $(document).on("tap", "[id^=expense-show]", function () {
         EA.showError("Illegal expense location.");
     }
 });
+
+// navigation for smartphones
+$(document).on("tap", "#overview-subheader", function () {
+    $.mobile.changePage("#add");
+});

@@ -141,3 +141,8 @@ function clearAndShowSuccess() {
     // clear the draft expense form
     EA.clearExpenseForm();
 }
+
+// navigation for smartphones
+$(document).on("tap", "#sign-and-send-subheader", function () {
+    $.mobile.changePage("#add");
+});

@@ -165,6 +165,8 @@ $(document).on("pageinit", "#your-info", function () {
                 month = 12;
                 // of previous year
                 year--;
+            }else{
+                month--;
             }
         }
 
@@ -217,4 +219,9 @@ $(document).on("tap", "#your-info-menu-add-expense", function () {
 $(document).on("tap", "#your-info-menu-sign-and-send", function () {
     $("#your-info-next-page").val("#sign-and-send");
     $("#your-info-form").submit();
+});
+
+// navigation for smartphones
+$(document).on("tap", "#your-info-subheader", function () {
+    $.mobile.changePage("#add");
 });

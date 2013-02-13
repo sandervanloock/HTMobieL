@@ -11,9 +11,9 @@ Ext.define('Expense.store.EmployeeStore', {
         model: 'Expense.model.Employee',
         storeId: 'employeestore',
         listeners: {
-           load: 'initApplication',
-           updaterecord: 'initApplication',
-           addrecords: 'initApplication'
+           load: 'initApplication'
+           //updaterecord: 'initApplication',
+           //addrecords: 'initApplication'
         },
         proxy: {
             type: 'ajax',

@@ -13,11 +13,10 @@ Ext.define('Expense.store.ExpenseStore', {
         model: 'Expense.model.Expense',
         storeId: 'expensestore',
         proxy: {
-            type: 'ajax',
-            url: 'expenses.json',
-            reader: {
+            type: 'localstorage'
+            /*reader: {
                 type: 'json'
-            }
+            }*/
         },
         sorters: {
             property: 'date'

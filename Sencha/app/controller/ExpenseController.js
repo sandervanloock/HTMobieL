@@ -115,6 +115,7 @@ Ext.define('Expense.controller.ExpenseController', {
                  buttons: Ext.MessageBox.OK
              });
         }
+        Ext.getStore('expensestore').sync();  //save in local storage
     },
 
     sendDomesticExpense: function(button, e, options){
@@ -149,7 +150,7 @@ Ext.define('Expense.controller.ExpenseController', {
                 buttons: Ext.MessageBox.OK
             });
         }
-
+        Ext.getStore('expensestore').sync(); //save in local storage
     },
 
 

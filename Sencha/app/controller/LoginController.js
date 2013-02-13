@@ -26,8 +26,17 @@ Ext.define('Expense.controller.LoginController', {
                 tap: 'doLogin'
             }, 'button[action=logout]' : {
                 tap : 'doLogout'
+            }, login: {
+                //initialize: 'checkLocalStorage'
             }
         }
+    },
+
+    checkLocalStorage: function(comp,opts){
+        var email = localStorage.getItem('email');
+        var password = localStorage.getItem('password');
+        if(email != "" && password != "")
+            login(email, password);
     },
 
     doLogin: function(button, e, options) {
@@ -36,7 +45,7 @@ Ext.define('Expense.controller.LoginController', {
         Ext.getCmp('password').removeCls('x-field-custom-error');
 
         var fields= this.getLogin().getValues();
-        if(fields.emailLogin == '' || fields.password == ''){
+        if(fields.emailLogin == '' || fields.password == ''){ //incorrect credentials
         	var message = '';
         	if(fields.emailLogin == ''){
 				message = message + 'Email must be present <br>';
@@ -53,43 +62,10 @@ Ext.define('Expense.controller.LoginController', {
 			});
         }
         else{
-            Ext.Ajax.request({
-                url : Expense.app.getBaseURL() + '/resources/userService/login',
-                method : 'POST',
-                //http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
-                useDefaultXhrHeader: false,
-                params: {
-                    email: fields.emailLogin,
-                    password: fields.password
-                },
-                success : function(response, opts) {
-                    if(response.responseText.length <= 0){
-                        /*Ext.device.Notification.vibrate();
-                        Ext.device.Notification.show({
-                            title: 'Login Failed',
-                            message: 'Given email and password not found.'
-                        });*/ //TODO nativa app
-                        Ext.Msg.show({
-                               title: 'Error',
-                               message: 'Login could not be found!',
-                               width: 300,
-                               buttons: Ext.MessageBox.OK
-                        });
-                    }
-                    else{
-                        Expense.app.setToken(response.responseText);
-                        var employeeStore = Ext.getStore('employeestore');
-                        employeeStore.getProxy().setExtraParams({
-                            token: response.responseText
-                        });
-                        employeeStore.load();
-                    }
-                },
-                failure: function(response, opts) {
-                    console.log('server-side failure with status code ' + response.status);
-                }
-            });
+            login(fields.emailLogin, fields.password);
         }
+
+
     },
 
     doLogout : function(button, e, options) {
@@ -104,6 +80,43 @@ Ext.define('Expense.controller.LoginController', {
                 Ext.Viewport.setActiveItem(Ext.getCmp('loginpanel'));
             }
         });
-    },
+    }
 
 });
+
+function login(userEmail, userPassword){
+    Ext.Ajax.request({
+        url : Expense.app.getBaseURL() + '/resources/userService/login',
+        method : 'POST',
+        //http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
+        useDefaultXhrHeader: false,
+        params: {
+            email: userEmail,
+            password: userPassword
+        },
+        success : function(response, opts) {
+            if(response.responseText.length <= 0){
+                Ext.Msg.show({
+                    title: 'Error',
+                    message: 'Login could not be found!',
+                    width: 300,
+                    buttons: Ext.MessageBox.OK
+                });
+            }
+            else{
+                Expense.app.setToken(response.responseText);
+                var employeeStore = Ext.getStore('employeestore');
+                employeeStore.getProxy().setExtraParams({
+                    token: response.responseText
+                });
+                employeeStore.load();
+                //TODO store credentials in local storage
+                //localStorage.setItem('email',userEmail);
+                //localStorage.setItem('password',userPassword);
+            }
+        },
+        failure: function(response, opts) {
+            console.log('server-side failure with status code ' + response.status);
+        }
+    });
+}

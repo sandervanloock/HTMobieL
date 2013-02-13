@@ -19,7 +19,7 @@ Ext.define('Expense.view.Home', {
 		}, {
 			xtype : 'fieldset',
             layout: {
-                type: 'vbox',
+                type: 'vbox'
             },
             centered: true,
             items : [ {

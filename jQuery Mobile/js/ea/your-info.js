@@ -118,7 +118,7 @@ $(document).on("pageinit", "#your-info", function () {
             // save date for expense form
             var month = $("#your-info-date-month").find("option[selected]").val();
             var year = $("#your-info-date-year").find("option[selected]").val();
-            var date = new Date("01/" + year + "/" + month);
+            var date = new Date(year + "/" + month + "/01");
 
             if (EA.hasExpenseForm()) {
                 // update the date in the expense form

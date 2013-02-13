@@ -2,8 +2,8 @@
 <html>
 <head>
     <title></title>
-    <script src="js/external/jquery-1.8.2.min.js"></script>
-    <script src="js/external/jquery.validate.min.js"></script>
+    <script src="js/vendor/jquery-1.8.2.min.js"></script>
+    <script src="js/vendor/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
 
@@ -29,7 +29,7 @@
                         canvas.width = this.width;
                         canvas.height = this.height;
                         context.drawImage(this, 20, 20);
-                        console.log(canvas.toDataURL("image/png"));
+                        $("#upload-text").val(canvas.toDataURL("image/png"));
                     }
                     img.src = e.target.result;
                 };

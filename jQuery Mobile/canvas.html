@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title>
+    <script src="js/vendor/jquery-1.8.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var canvas = $('#the-canvas')[0];
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0, 0, 150, 75);
+        });
+    </script>
+</head>
+<body>
+<canvas id="the-canvas" width="200" height="100">
+    <p>Your browser doesn't support canvas.</p>
+</canvas>
+</body>
+</html>

@@ -11,7 +11,11 @@
             ctx.fillStyle = "#FF0000";
             ctx.fillRect(0, 0, 150, 75);
 
-            console.log(canvas.toDataURL());
+            window.setTimeout(showBase64, 2000);
+
+            function showBase64() {
+                alert(canvas.toDataURL());
+            }
         });
     </script>
 </head>

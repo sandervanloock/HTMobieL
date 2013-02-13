@@ -118,7 +118,7 @@ $(document).on("pageinit", "#your-info", function () {
             // save date for expense form
             var month = $("#your-info-date-month").find("option[selected]").val();
             var year = $("#your-info-date-year").find("option[selected]").val();
-            var date = new Date(year + "/" + month);
+            var date = new Date("01/" + year + "/" + month);
 
             if (EA.hasExpenseForm()) {
                 // update the date in the expense form
@@ -136,6 +136,7 @@ $(document).on("pageinit", "#your-info", function () {
             // this is because a user can also click on the menu and we have to
             // save the target of what he has clicked, so that we can go to
             // the next page accordingly
+            console.log($("#your-info-next-page").val());
             $.mobile.changePage($("#your-info-next-page").val());
             // clear the form data
             initializeForm();
@@ -165,7 +166,7 @@ $(document).on("pageinit", "#your-info", function () {
                 month = 12;
                 // of previous year
                 year--;
-            }else{
+            } else {
                 month--;
             }
         }
@@ -173,7 +174,7 @@ $(document).on("pageinit", "#your-info", function () {
         // select according to rule
         $yearOptions.find("option[value='" + year + "']").attr("selected", true);
         var $monthOptions = $("#your-info-date-month");
-        $monthOptions.find("option[value='" + (month+1) + "']").attr("selected", true);
+        $monthOptions.find("option[value='" + (month + 1) + "']").attr("selected", true);
 
         // set on screen
         $yearOptions.selectmenu('refresh');

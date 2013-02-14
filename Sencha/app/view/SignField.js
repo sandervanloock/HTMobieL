@@ -27,9 +27,8 @@ Ext.define('Expense.view.SignField', {
                     {
                         xtype: 'signaturefield',
                         id: 'signature',
-                        sigWidth: 800,
-                        sigHeight: 500,
-                        //label:'Signature'
+                        sigWidth: 450,
+                        sigHeight: 300
                     },
                     {
                         xtype: 'textareafield',

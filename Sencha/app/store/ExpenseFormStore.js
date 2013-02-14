@@ -21,6 +21,7 @@ Ext.define('Expense.store.ExpenseFormStore', {
                 destroy: 'POST'
             },
             headers: {
+                //headers zetten zodat xml wordt teruggegeven,  niet JSON
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
             },
             reader: {

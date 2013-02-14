@@ -114,6 +114,10 @@ Ext.application({
             url : Expense.app.getBaseURL() + '/resources/userService/login',
             method : 'POST',
             useDefaultXhrHeader: false,
+            headers: {
+                //headers zetten zodat xml wordt teruggegeven,  niet JSON
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+            },
             params: {
                 email: 'tim.ameye@student.kuleuven.be',
                 password: 'test123'

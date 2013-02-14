@@ -32,10 +32,10 @@ Ext.define('Expense.store.EmployeeStore', {
     
 	 initApplication : function(comp, records, successful, operation, eOpts ){
 			var employee = comp.getAt(0);
-            if(employee.get('firstName')==null){
-                logout();
-                login(localStorage.getItem('email'),localStorage.getItem('password'));
-            } else{
+            //if(employee.get('firstName')==null){
+                //logout();
+                //login(localStorage.getItem('email'),localStorage.getItem('password'));
+            //} else{
                 Expense.app.setEmployee(employee);
 
                 Ext.getCmp('introtext').setHtml('<h2>Welcome, ' + employee.get('firstName') + '<br> I want to: <br></h2>');
@@ -46,7 +46,7 @@ Ext.define('Expense.store.EmployeeStore', {
 
                 var expenseStore = Ext.getStore('expensestore');
                 expenseStore.load();
-            }
+            //}
 	 }
    
 });

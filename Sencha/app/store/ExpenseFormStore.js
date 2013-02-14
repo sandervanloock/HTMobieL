@@ -20,10 +20,12 @@ Ext.define('Expense.store.ExpenseFormStore', {
                 update : 'POST',
                 destroy: 'POST'
             },
+            headers: {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+            },
             reader: {
-                type: 'json',
-                record: 'expenseForm',
-                idProperty: 'id'
+                type: 'xml',
+                record: 'expenseForm'
             }
         },
         sorters: {

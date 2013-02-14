@@ -113,7 +113,7 @@ Ext.application({
         Ext.Ajax.request({
             url : Expense.app.getBaseURL() + '/resources/userService/login',
             method : 'POST',
-            useDefaultXhrHeader: false,
+            //useDefaultXhrHeader: false,
             params: {
                 email: 'tim.ameye@student.kuleuven.be',
                 password: 'test123'
@@ -145,8 +145,8 @@ Ext.application({
                     Ext.create('Expense.view.Viewport', {fullscreen: true});
                     Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
                     //store credentials in local storage
-                    localStorage.setItem('email',userEmail);
-                    localStorage.setItem('password',userPassword);
+                    localStorage.setItem('email','tim.ameye@student.kuleuven.be');
+                    localStorage.setItem('password','test123');
                 }
             },
             failure: function(response, opts) {

@@ -113,7 +113,7 @@ Ext.application({
         Ext.Ajax.request({
             url : Expense.app.getBaseURL() + '/resources/userService/login',
             method : 'POST',
-            //useDefaultXhrHeader: false,
+            useDefaultXhrHeader: false,
             params: {
                 email: 'tim.ameye@student.kuleuven.be',
                 password: 'test123'

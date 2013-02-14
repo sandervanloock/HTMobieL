@@ -118,7 +118,8 @@ $(document).on("pageinit", "#expense", function () {
         // get the file
         var file = e.target.files[0];
 
-        // TODO: add check from Modernizr instead of own code
+        // TODO add check from Modernizr instead of own code
+        // TODO remove console logs
         if (window.FileReader) {
             // initialize reader
             console.log("initialize reader");
@@ -144,7 +145,13 @@ $(document).on("pageinit", "#expense", function () {
                     // TODO delete me (developping purposes)
                     console.log("base64: " + base64 != null);
 
-                    EA.setEvidence(base64);
+                    try {
+                        EA.setEvidence(base64);
+                    } catch (error) {
+                        // TODO solve problem
+                        alert("Session storage exceeds the limit");
+                    }
+
                     $.mobile.loading("hide");
                 };
                 console.log("set image src");
@@ -272,16 +279,21 @@ $(document).on("pageinit", "#expense", function () {
             }
 
             // save the expense locally
-            EA.addLocalExpense({
-                "date":date.toISOString(),
-                "projectCode":$("#expense-project-code").val(),
-                "currency":currency,
-                "amount":$("#expense-amount").val(),
-                "remarks":$("#expense-remarks").val(),
-                "expenseTypeId":$("input[name=expense-type]:checked").val(),
-                "expenseLocationId":$("input[name=expense-tabbar]:checked").val(),
-                "evidence":EA.getEvidence()
-            });
+            try {
+                EA.addLocalExpense({
+                    "date":date.toISOString(),
+                    "projectCode":$("#expense-project-code").val(),
+                    "currency":currency,
+                    "amount":$("#expense-amount").val(),
+                    "remarks":$("#expense-remarks").val(),
+                    "expenseTypeId":$("input[name=expense-type]:checked").val(),
+                    "expenseLocationId":$("input[name=expense-tabbar]:checked").val(),
+                    "evidence":EA.getEvidence()
+                });
+            } catch (error) {
+                // TODO solve problem
+                alert("Local storage exceeds the limit");
+            }
 
             // clear temp evidence upload
             EA.clearEvidence();

@@ -69,23 +69,27 @@ Ext.define('Expense.controller.LoginController', {
     },
 
     doLogout : function(button, e, options) {
-        Ext.Ajax.request({
-            url : Expense.app.getBaseURL() + '/resources/userService/logout',
-            method : 'POST',
-            useDefaultXhrHeader : false, // http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
-            params : {
-                token : Expense.app.token
-            },
-            callback : function(options, success,response) {
-                Ext.Viewport.setActiveItem(Ext.getCmp('loginpanel'));
-                Ext.destroy(Ext.getCmp('home'));
-                Ext.destroy(Ext.getCmp('viewport'));
-                Ext.destroy(Ext.getCmp('totaloverviewlist'));
-            }
-        });
+       logout(); //TODO
     }
 
 });
+
+function logout(){
+    Ext.Ajax.request({
+        url : Expense.app.getBaseURL() + '/resources/userService/logout',
+        method : 'POST',
+        useDefaultXhrHeader : false, // http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
+        params : {
+            token : Expense.app.token
+        },
+        callback : function(options, success,response) {
+            Ext.Viewport.setActiveItem(Ext.getCmp('loginpanel'));
+            Ext.destroy(Ext.getCmp('home'));
+            Ext.destroy(Ext.getCmp('viewport'));
+            Ext.destroy(Ext.getCmp('totaloverviewlist'));
+        }
+    });
+}
 
 function login(userEmail, userPassword){
     Ext.Ajax.request({
@@ -114,7 +118,13 @@ function login(userEmail, userPassword){
                 employeeStore.getProxy().setExtraParams({
                     token: response.responseText
                 });
-                employeeStore.load();
+                employeeStore.load({
+                    callback: function(records, operation, success) {
+                        // the operation object contains all of the details of the load operation
+                        console.log(records);
+                    },
+                    scope: this
+                });
                 Ext.create('Expense.view.Viewport', {fullscreen: true});
                 Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
                 //store credentials in local storage

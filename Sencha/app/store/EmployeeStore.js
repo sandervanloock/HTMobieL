@@ -11,8 +11,8 @@ Ext.define('Expense.store.EmployeeStore', {
         model: 'Expense.model.Employee',
         storeId: 'employeestore',
         listeners: {
-           load: 'initApplication'
-           //updaterecord: 'initApplication',
+           load: 'initApplication',
+           updaterecord: 'initApplication'
            //addrecords: 'initApplication'
         },
         proxy: {
@@ -32,7 +32,8 @@ Ext.define('Expense.store.EmployeeStore', {
     
 	 initApplication : function(comp, records, successful, operation, eOpts ){
 			var employee = comp.getAt(0);
-            if(employee==undefined){
+            if(employee.get('firstName')==null){
+                logout();
                 login(localStorage.getItem('email'),localStorage.getItem('password'));
             } else{
                 Expense.app.setEmployee(employee);

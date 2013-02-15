@@ -104,19 +104,19 @@ Ext.application({
     ],
 
     launch: function() {
-        /*Ext.create('Expense.view.LoginPanel', {fullscreen: true});
+        Ext.create('Expense.view.LoginPanel', {fullscreen: true});
 
         if(Ext.os.is.Phone){
             Ext.getCmp('menupanel').setHidden(true);
             Ext.getCmp('menuButton').setHidden(false);
-        }*/
-        Ext.Ajax.request({
+        }
+        /*Ext.Ajax.request({
             url : Expense.app.getBaseURL() + '/resources/userService/login',
             method : 'POST',
             useDefaultXhrHeader: false,
             headers: {
                 //headers zetten zodat xml wordt teruggegeven,  niet JSON
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,;q=0.8'
             },
             params: {
                 email: 'tim.ameye@student.kuleuven.be',
@@ -156,7 +156,7 @@ Ext.application({
             failure: function(response, opts) {
                 console.log('server-side failure with status code ' + response.status);
             }
-        });
+        });*/
     },
     token : '',
     

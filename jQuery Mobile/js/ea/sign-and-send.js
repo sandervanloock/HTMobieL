@@ -83,7 +83,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
 
                         // send it
                         // TODO save expense on backend
-                        /*$.ajax({
+                        $.ajax({
                             type:"POST",
                             url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/saveExpense",
                             data:JSON.stringify(expenseRequest),
@@ -115,7 +115,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                             error:function () {
                                 EA.showBackendError("Could not send expense to server");
                             }
-                        });*/
+                        });
                         clearAndShowSuccess();
                     }
                 }

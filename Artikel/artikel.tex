@@ -18,6 +18,12 @@
 % the following package is optional:
 %\usepackage{latexsym} 
 
+\newcommand{\term}[1]{\emph{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\usepackage[colorlinks]{hyperref}
+\renewcommand{\url}[1]{\href{http://#1}{#1}}
+
 % Following comment is from ijcai97-submit.tex:
 % The preparation of these files was supported by Schlumberger Palo Alto
 % Research, AT\&T Bell Laboratories, and Morgan Kaufmann Publishers.
@@ -60,6 +66,80 @@
 \subsection{jQuery Mobile} % (1 blz Tim)
 \label{sec:jqm}
 
+jQuery Mobile is een mobiel HTML5 \term{user interface} (UI) raamwerk dat werd aangekondigd in 2010~\cite{Resig2010}. In november 2011 werd versie 1.0 uitgebracht~\cite{Parker2011} en een jaar later werd in oktober versie 1.2 uitgebracht~\cite{Parker2012}. Op het moment van schrijven werkt jQuery Mobile aan versie 1.3~\cite{Parker2012a}. Het raamwerk wordt beheerd door het jQuery Project dat onder andere jQuery Core beheert en waar jQuery Mobile afhankelijk van is~\cite{JQuery2012}. jQuery Mobile wordt door onder andere Adobe, BlackBerry en Mozilla gesponsord~\cite{JQuery2012a}.
+
+\subsubsection{Omkadering}
+\paragraph{Programmeertaal}
+Om met jQuery Mobile aan de slag te kunnen, heb je niets meer nodig dan kennis over HTML, CSS en JavaScript. Alle UI elementen worden geschreven in HTML en aangeduid met \code{data-}* attributen.
+
+\paragraph{Tools}
+Een basis teksteditor voldoet om met jQuery Mobile aan de slag te kunnen. Natuurlijk kan het gemakkelijk zijn om van \term{integrated development environments}~(IDE's) zoals Aptana Studio~\cite{Aptana2012} of WebStorm~\cite{JetBrains2012} gebruik te maken, waardoor je handige kenmerken krijgt zoals \term{code completion}.
+
+Je kan ook gebruiken maken van Codiqua om via \term{drag-and-drop} UI elementen op je scherm te slepen. Codiqua zal automatisch op de achtergrond de HTML code voorzien~\cite{Sperry2012}.
+
+\paragraph{Documentatie}
+Documentatie is te vinden op \url{www.jquerymobile.com/demos/1.2.0}. Hierop is een catalogus te vinden van alle mogelijke elementen waarover jQuery Mobile beschikt. Door de broncode van een voorbeeld te bekijken, kan je zien welke code je moet schrijven om tot dat resultaat te komen.
+
+Naast de UI elementen is er ook documentatie over de API. Deze gaat over initiële configuraties, events en methodes die kunnen worden gebruikt.
+
+\paragraph{Marktadoptatie}
+Als we kijken op de website van jQuery Mobile zien we een reeks applicaties gemaakt met hun raamwerk. Enkele voorbeelden zijn webapplicaties voor Ikea, Disney World, Stanford University en Moulin Rouge~\cite{JQuery2012a}. 
+
+\paragraph{Licenties}
+Vanaf september 2012 is het enkel nog mogelijk om jQuery Mobile onder de Massachusetts Institute of Technology (MIT) licentie te verkrijgen~\cite{Dmethvin2012}. Dit betekent dat de code wordt vrijgegeven als \term{open-source} en dat deze tegelijkertijd kan worden gebruikt in propriëtaire projecten en applicaties~\cite{PhilDutson2012}.
+
+\subsubsection{Code en ontwikkeling}
+Zoals werd aangehaald, schrijft men vooral HTML5 code voorzien van \code{data-}* attributen. Daarna zal het raamwerk door middel van \term{progressive enhancement} allerhande code toevoegen om de beoogde UI elementen correct te tonen in de browser. Dit wordt verder uitgelegd in de sectie browserondersteuning (zie \ref{sec:jqm-browser-support}).
+
+Er zijn drie strategieën om webapplicaties te maken in jQuery Mobile~\cite{Broulik2012}. Een eerste is om de volledige applicatie in één webpagina te schrijven. Met andere woorden,  de vele schermen van de webapplicatie zijn dan allemaal samengebracht op eenzelfde webpagina. Het voordeel bij deze aanpak is dat er initieel minder verzoeken zijn naar de server omdat alles in één bestand wordt opgehaald. Dit geldt ook zo voor de geïmporteerde CSS en JavaScript-bestanden. 
+
+Een tweede strategie is om voor ieder scherm een aparte webpagina aan te maken. Het voordeel hierbij is dat de eerste pagina waar de gebruiker op terecht komt, sneller wordt gedownload. Bij iedere navigatie naar een ander scherm, moet dit scherm via AJAX worden opgehaald, waardoor dit vertragend kan werken. 
+
+Een laatste strategie is om een mix tussen beide te maken. Men kan bijvoorbeeld alle schermen die de gebruiker vaak nodig heeft op één webpagina plaatsen. De schermen die de gebruiker zelden nodig heeft, plaats men dan op aparte webpagina's.  
+
+\subsubsection{Functionele kenmerken}
+jQuery Mobile is een raamwerk dat voornamelijk UI elementen aanbied, met name pagina's en dialoogvensters, werkbalken, knoppen, inhoud vormgeven, elementen voor formulieren en lijsten~\cite{JQuery2012b}.
+
+\paragraph{Pagina's en dialoogvensters}
+De basisstructuur van een pagina bestaat uit een koptekst, inhoud en voettekst. Bij het overgaan naar een andere pagina kan men kiezen uit tien overgangseffecten. Voordat deze overgang gebeurt, zal jQuery Mobile altijd eerst die pagina ophalen via AJAX en inladen in het DOM. Zo kan een soepel overgangseffect worden getoond aan de gebruiker. Daarnaast is het ook mogelijk om gelinkte pagina's op voorhand op te halen. Als laatste biedt jQuery Mobile ook dialoogvensters en pop-ups aan. 
+
+\paragraph{Werkbalken}
+Het is mogelijk om zowel knoppen bij de koptekst als bij de voettekst te plaatsen. Bij deze laatste kunnen typisch meer knoppen geplaatst worden, bij de koptekst slechts twee. Daarnaast is het ook mogelijk om navigatiebalken te maken. Aan zowel de werk- als navigatiebalken kunnen iconen worden toegevoegd.
+
+\paragraph{Knoppen}
+Het is ook mogelijk om knoppen te plaatsen in het inhoud gedeelde. Ook hier is er terug een variëteit aan mogelijkheden: grote of kleine, met iconen of zonder, gegroepeerd of niet. 
+
+\paragraph{Inhoud vormgeven}
+De inhoud van de pagina kan worden vormgegeven door gebruik te maken van een rooster. jQuery Mobile laat roosters tot vijf kolommen toe. Daarnaast zijn er ook nog opklapbare blokken ter beschikking. Als laatste kunnen deze blokken ook samengevoegd worden tot een accordeon. 
+
+\paragraph{Elementen voor formulieren}
+jQuery Mobile biedt alle gangbare elementen voor formulieren aan zoals textinvoer, een selectie uit een lijst, een zoekveld, een \term{slider} en een \term{switch}. Het raamwerk verplicht zelf om de \code{<label>}-tag te gebruiken. Zo wordt de applicatie toegankelijker gemaakt voor bijvoorbeeld mensen met een \term{e-reader}.
+
+\paragraph{Lijsten}
+Een laatste categorie UI elementen die jQuery Mobile aanbiedt, zijn lijsten. Deze gaan van standaard ongeordende lijsten tot lijsten met alle soorten decoraties als iconen, afbeeldingen, telbubbels en verdelers. Ook is het mogelijk om in deze lijsten te zoeken. Hiervoor dient de gebruiker enkel één data attribuut toe te voegen, waarna het raamwerk de implementatie voorziet. 
+
+\subsubsection{Niet-functionele kenmerken}
+\paragraph{Performantie}
+Zoals gezegd schrijft de ontwikkelaar HTML5 code met specifieke data attributen en zal het raamwerk daarna de code verder aanvullen. Dit gebeurt enkel op de pagina die de gebruiker op dat moment bekijkt. Dit gaat dus ook op voor een webapplicatie waarbij alle schermen op één webpagina zijn geschreven. Deze webpagina bevat allemaal \code{<div>}-verpakkingen voor ieder scherm. jQuery Mobile zal enkel die \code{<div>} verder aanvullen die op dat moment getoond wordt aan de gebruiker. 
+
+\paragraph{Aanpasbaarheid}
+Als je jQuery Mobile \term{out-of-the-box} gebruikt, zit alles al goed qua kleur en design. Je hebt de keuze uit vijf kleurenthema's die je kan toepassen op de gehele applicatie of enkel op bepaalde elementen. Om je applicatie echt te laten onderscheiden van de andere, zal je natuurlijk graag je eigen kleurthema willen toepassen. Hier is jQuery Mobile op voorzien door hun \term{stylesheet} op te delen in twee delen: thema's en structuur. Je kan als ontwikkelaar ook enkel de structuur downloaden en zelf de thema CSS schrijven. Daar dit laatste heel wat inspanning vraagt, hebben de ontwikkelaars van jQuery Mobile ook een tool ter beschikking,  namelijk ThemeRoller~\cite{JQuery2012c}. Hier kan je zeer eenvoudig kleuren slepen naar een voorbeeldapplicatie. Eenmaal tevreden kan je de overeenkomstige \term{stylesheet} downloaden en toevoegen aan je project.
+
+\paragraph{Programmeerbaarheid}
+Bij het programmeren in jQuery Mobile wordt geen enkel ontwerppatroon afgedwongen. De code voor de UI elementen wordt tenslotte als HTML5 code geschreven. Voor de echte functionaliteit wordt beroep gedaan op JavaScript en meer bepaald op de jQuery Core bibliotheek. Ook deze dwingt geen ontwerppatroon af.
+
+% TODO deze tekst zal later moeten worden verplaatst
+% Een ander raamwerk, genaamd The-M-Project~\cite{Panacoda2012}, dwingt het Model-View-Controller (MVC) echter wel af. Met dit raamwerk is het mogelijk om webapplicaties te maken die het jQuery Mobile raamwerk gebruiken. In plaats van HTML5-code te schrijven, zoals dat bij jQuery Mobile gebeurt, schrijft je JavaScript-code. The-M-Project zal dan zelf intern deze JavaScript-code omzetten naar de desbetreffende jQuery Mobile HTML5-code.
+
+\paragraph{Browserondersteuning}
+\label{sec:jqm-browser-support}
+jQuery Mobile deelt browsers op in drie verschillende klassen: A, B en C~\cite{JQuery2012d}. Hierbij ondersteunt een klasse A browser alles, terwijl een klasse C browser enkel de basis HTML ondersteunt (en dus bijvoorbeeld geen hippe CCS3 overgangen).
+
+Er dient een onderscheid te worden gemaakt tussen de begrippen \emph{progressive enhancement} en \emph{graceful degradation}~\cite{Hens2012}. Het eerste is wat jQuery Mobile toepast, namelijk starten met de basis HTML. Deze code wordt door iedere browser, dus ook deze uit de C klasse, op een goede manier weergegeven. Daarna zal het iteratief elementen toevoegen tot het op een moment komt dat de betreffende browser een bepaald kenmerk niet meer ondersteund.
+
+De tegenhanger is \emph{graceful degradation}. Hierbij wordt eerst een versie ontwikkeld die enkel in de meest recentste browser kan worden getoond. Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implementeren waardoor minder recente browser de applicatie ook kunnen weergeven.
+%TODO Sander: is het niet nuttiger om progresive enhancement en graceful degration in Kenmerken detecteren en opvullen te bespreken?  jQuery gebruikt enkel progressive enhancement en kan dan verwijzen naar een vorige sectie..
+
 \subsection{Sencha Touch} % (1 blz Sander)
 \label{sec:sencha_touch}
 
@@ -74,6 +154,10 @@
 
 \subsection{Community} % (0,5 blz)
 \label{sec:community}
+
+% \paragraph{Community}
+% Met 7.400 volgers op GitHub~\cite{GitHub2012} en 11.200 volgers op Twitter~\cite{Twitter2012} komt de grote kracht van jQuery Mobile van zijn community . Dit heeft grotendeels te maken met het feit dat jQuery Mobile geniet van het succes van jQuery, dat ook zeer populair is~\cite{Hales2012}.
+%TODO Sander: dit komt in de vergelijkingscriteria
 
 \subsection{Proof of concept} %puntjes logboek + POC uitleggen (1,5 blz)
 \label{sec:poc}

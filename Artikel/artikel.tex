@@ -11,9 +11,20 @@
 \usepackage{ijcai11}
 
 \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
 
 % Use the postscript times font!
 \usepackage{times}
+
+% engelse term die we niet vertalen naar het nederlands
+\newcommand{\term}[1]{\emph{#1}}
+
+% code commande
+\newcommand{\code}[1]{\texttt{#1}}
+
+% zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
+\renewcommand{\url}[1]{\href{http://#1}{#1}}
 
 % the following package is optional:
 %\usepackage{latexsym} 
@@ -62,6 +73,82 @@
 
 \subsection{Sencha Touch} % (1 blz Sander)
 \label{sec:sencha_touch}
+
+Sencha Touch is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  Ext JS is a JavaScript framework for the development of web applications.  jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery.  It depends on the WebKit engine,  just like Sencha Touch.  Finally,  Raphaël, is a JavaScript library for vector drawings.  
+
+Currently,  Sencha Touch is at version 2.1.1~\cite{Inc.}.
+
+% Sencha Touch is een relatief verschillend raamwerk in vergelijking met jQuery Mobile.  Het wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.  Ext JS is een JavaScript raamwerk voor de ontwikkeling van web applicaties. jQuery Touch is een jQuery plugin voor mobiele web ontwikkeling.  Het steunt op WebKit en voegt \term{touch events} toe aan jQuery.  Raphaël,  ten slotte,  is een JavaScript bibliotheek voor vector tekeningen. Op het moment van schrijven is Sencha Touch aan versie 2.1.1~\cite{Inc.}.  
+
+%\subsubsection{Omkadering}
+% \paragraph{Programmeertaal}
+% Sencha Touch is JavaScript gedreven dus all functionaliteiten worden in JavaScript geïmplementeerd. Het aanroepen van het raamwerk gebeurt door het invoeren van de Sencha Touch bibliotheek binnen \code{<script>}-elementen.  Alle HTML code wordt bij het bekijken van de pagina gegenereerd.  
+
+\paragraph{Documentation}
+All documentation for Sencha Touch 2.1.1 can be found at \url{docs.sencha.com/touch/2-0}.  The most important features,  are provided with code examples and the result after rendering.  The most important concepts of Sencha Touch are explained in extensive tutorials:  some written, some videos.  
+
+Another handy tool to discover the Sencha Touch features is the 'Kitchen Sink'~\cite{Inc.2013}.  This is a webapplication,  written in Sencha Touch,  that lines up all possibilities of the framework combined with the corresponding code.
+
+% Alle documentatie voor Sencha Touch 2.1.1 is te vinden op \url{docs.sencha.com/touch/2-0}.  Een zoekfunctie voor objecten,  eigenschappen en methoden is aanwezig om snel zaken op te zoeken.  De meeste functionaliteiten zijn voorzien van codevoorbeelden samen met het resultaat hoe de browser de code rendert.  Verder biedt de Sencha website ook een groot aanbod om Sencha te leren gebruiken \url{www.sencha.com/learn/touch/}.  Hier staan handleidingen,  introductie video etc..
+% 
+% Een ander handig raadslagwerk is de ‘Kitchen Sink'.  Dit is een webapplicatie,  geschreven in Sencha Touch,  die de belangrijkste functionaliteiten bevat samen met de bijhorende code.  
+
+% \paragraph{Marktadoptatie}
+% Volgens de Sencha website is 50\% van de Fortune 100 - een lijst van de grootste Amerikaanse bedrijven gerangschikt op jaaromzet - een Sencha klant~\cite{Inc.}.  Enkele van hun grootste klanten zijn CNN,  Samsung,  Cisco en  Visa.
+
+\paragraph{Licenties}
+Sencha Touch is gratis binnen een commerciële context waarbij het bedrijf in kwestie de broncode niet deelt voor zijn gebruikers.  Wanneer je dit wel wil doen bestaat er ook een gratis \term{open-source} versie van Sencha Touch.  Deze komt met een GNU GPL v3 \term{open-source} licentie wat wil zeggen dat je de vrijheid hebt om aanpassingen aan de broncode te maken en te verspreiden,  zolang je zelf je code maar gratis verspreid voor alle gebruikers.
+  
+% Voor de ontwikkeling van eigen raamwerken of SDKs betaal je een \term{original equipment manufacturer} (OEM) licentie.  Dit wil zeggen dat bedrijven hun producten gaan verkopen onder hun eigen merk en naam, maar gebruik maken van Sencha.  Omdat het gebruik hiervan per gebruiker verschilt,  worden OEM licenties op maat gemaakt~\cite{Inc.}.
+
+\paragraph{Code en ontwikkeling}
+Alle code wordt in JavaScript geschreven en dient één HTML bestand slechts als container om de bestanden in te laden.  Sencha Touch valt dus onder JavaScript gebaseerde raamwerken.  Het steunt op Ext JS,  wat op zich een JavaScript raamwerk is.  
+
+Zoals reeds aangehaald ondersteund Sencha Touch het MVC (Model-View-Controller) patroon.  Dit patroon vermijdt lange JavaScript bestanden door ze logisch op te delen.  Modellen groeperen velden tot een beschrijving van data-objecten,  views definiëren de weergave van componenten en controllers verbinden beide op basis van events.
+ 
+In theorie zou het verschil tussen mobiele websites en applicaties enkel in de views terug te vinden zijn.  Echter,  dit wordt nog niet volledig ondersteund en raadt men dus aan om hiervoor aparte projecten te voorzien.
+
+% Anderzijds zorgt het voor een betere ondersteuning voor toestellen met verschillende resoluties.  Samen met SASS en Compass kan Sencha lay-outs definiëren per device (zie sectie \ref{sec:sencha-aanpasbaarheid}).  De \code{Ext.env.Browser} en \code{Ext.env.OS} eigenschappen en \code{Ext.Viewport.getOrientation} en \code{Ext.feature.has} methoden kunnen de vereisten bepalen en de juiste lay-out kiezen~\cite{JohnEClark2012}.
+
+% Om het de ontwikkelaars makkelijker te maken biedt Sencha ook SDK tools aan.  Momenteel bevinden deze zich nog in bèta.  Concreet zijn deze tools commando's voor de terminal die onder andere nieuwe projecten kunnen aanmaken, JavaScript bestanden kunnen optimaliseren maar vooral de webapplicatie kunnen omzetten naar native applicaties voor iOS en Android.
+
+
+% \paragraph{Debugging}
+% Het debuggen van je code gebeurt voornamelijk in de browser zelf.  Tools als de Safari Web Inspector,  Chrome Developer Tools of Firebug moeten de fouten kunnen opsporen.  De broncode van Sencha Touch kan ook ingeladen worden met \code{sencha-touch-debug.js} als bibliotheek.  Deze versie is niet gecomprimeerd en bevat commentaar en documentatie om makkelijker te zoeken waar in de code de fout zich juist bevond.
+
+%\subsubsection{Functionele kenmerken} %TODO hernoemen..
+Net zoals jQuery Mobile heeft Sencha Touch ook een hele hoop functionaliteiten om eenvoudig UI elementen te genereren.  Sencha Touch bevat alle elementen van de UI als JavaScript objecten.  Net zoals alle objectgerichte programmeertalen maken deze objecten gebruik van een klassesysteem,  iets wat slechts vanaf Sencha Touch 2 werd ingevoerd.  Op die manier kunnen klassen worden gedefinieerd (\code{Ext.define}) en aangemaakt (\code{Ext.create}).  Hierbij is ook overerving mogelijk.  
+% De basisklasse van alle objecten is \code{Ext.Component}.  Componenten kunnen gerenderd worden, zichzelf tonen of verbergen,  centreren op het scherm en zichzelf aan- of uitzetten.   Het aanmaken van componenten kan compacter door het gewenste component als \code{xtype} te definiëren.  
+% 
+% Een andere belangrijke component is \code{Ext.Container}.  Containers kunnen subcomponenten bevatten en een lay-out specifiëren.  Alle componenten krijgen een naam die verwijst naar een namespace.  Dit is handig om conflicten te vermijden tussen je eigen objecten en de standaard objecten van het raamwerk.  
+% 
+% Voor een opsomming van alle raamwerk compontenten verwijzen we naar de documentatie~\cite{Inc.2013a}.
+
+% \paragraph{Model}
+% Data kan intern worden voorgesteld met models.  Dit is iets wat hoort bij het MVC patroon.  Een model specifieert een lijst van velden die bij het model horen waarbij een veld een naam en een type heeft.  Optioneel kunnen validaties bij de velden worden toegevoegd om data consistent te houden.  
+% 
+% \paragraph{Store}
+% \code{Ext.data.Store} is de klasse om instanties van een model op te slaan.  Een \term{store} wordt voorzien van een \term{proxy}.  Deze kan data aan de client of server zijde opslaan.  Een \term{proxy} voor opslag aan client zijde kan zowel in het RAM geheugen als in de \term{local storage} van de browser opslaan.  Een \term{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  Een \term{proxy} kan ook nog voorzien worden van een \term{reader} die aangeeft hoe de ontvangen data gelezen moet worden.
+% 
+% \paragraph{View}
+% Een \term{view} is de benaming voor objecten die aan de gebruiker kunnen getoond worden.  Een voorbeeld hiervan zijn lijsten,  waar vaak de data van een \term{store} wordt in weergegeven.  Zo'n lijst kan makkelijk gefilterd of gesorteerd worden op basis van velden uit het model.  Hiervoor moeten we \term{filters} of \term{sorters} aan de \term{store} toevoegen.  De lay-out van één lijstitem bepalen kan via een \code{XTemplate}.  Het sjabloon bepaalt de HTML structuur van elk item.  Alle gedefinieerde velden van het model kunnen in de template worden opgeroepen of gemanipuleerd.
+
+%TODO controller?
+
+%\subsubsection{Niet-functionele kenmerken}
+% \paragraph{Performantie}
+% In vergelijking met versie 1.1 van Sencha Touch is de performantie gestegen om wille van verschillende factoren.  De introductie van het klasse systeem,  zoals besproken in de vorige sectie,  laat toe objecten dynamisch te laden.  Het grote verschil tussen \code{Ext.define} en \code{Ext.create} is dat objecten enkel in het geheugen worden geladen na creatie.  Het is dus de taak van de programmeur om objecten enkel te construeren wanneer ze nodig zijn.
+% 
+% Verder kwam versie 2.0 met een nieuwe lay-out \term{engine} die vooral het verwisselen van oriëntatie van het toestel versnelde.  Ook een verbetering in performantie op Android toestellen,  voornamelijk bij scrollen en animaties,  werd ingevoerd~\cite{Inc.}.
+% 
+% Een benchmark voor deze verbeteringen zijn de opstarttijden van de Kitchen Sink applicatie.  Het opstarten gebeurde met de verschillende Sencha Touch versies en op verschillende toestellen.  De resultaten zijn terug te vinden op figuur \ref{fig:sencha_performance}.  Op bijna elk toestel blijkt Sencha Touch 2.0 ongeveer één seconde sneller te werken~\cite{SenchaInc.2013}.
+
+\paragraph{Browsersupport}
+Sencha Touch steunt op de WebKit browser \term{engine} dus moet de browser deze bevatten.  Hoewel dit bij de meeste browsers geen probleem meer vormt vallen toch enkele populaire browsers uit de boot.  Sencha Touch is bijvoorbeeld niet compatibel met FireFox Mobile en Opera Mobile~\cite{JohnEClark2012}.
+
+Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen over de context die gehanteerd wordt (browser, OS, toestel, etc.).  Verder kan Sencha Touch ook vragen naar de ondersteuning van specifieke kenmerken (audio,  canvas,  CSS3, …),  analoog als Modernizr.  
+
+Op de Secha website zijn voor sommige browsers en bijhorend besturingssystemen scorecards voorzien om hun compatibiliteit met HTLM5 en Sencha Touch te bespreken~\cite{Inc.}.
 
 \subsection{Table}
 \label{sec:table} 

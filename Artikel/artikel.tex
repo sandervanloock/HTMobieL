@@ -10,14 +10,22 @@
 % The file ijcai11.sty is the style file for IJCAI-11 (same as ijcai07.sty).
 \usepackage{ijcai11}
 
-\usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{hyperref}
-
-
-
 % Use the postscript times font!
 \usepackage{times}
+
+
+% the following package is optional:
+%\usepackage{latexsym} 
+
+%%%%%%%%%%%%%% CUSTOM BEGIN %%%%%%%%%%%%%%
+
+% remove if not a draft
+%\usepackage{draftwatermark}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks]{hyperref}
+\usepackage{parskip}
 
 % engelse term die we niet vertalen naar het nederlands
 \newcommand{\term}[1]{\emph{#1}}
@@ -26,20 +34,6 @@
 \newcommand{\code}[1]{\texttt{#1}}
 
 % zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
-\renewcommand{\url}[1]{\href{http://#1}{#1}}
-
-% the following package is optional:
-%\usepackage{latexsym} 
-
-%%%%%%%%%%%%%% CUSTOM BEGIN %%%%%%%%%%%%%%
-
-% remove if not a draft
-\usepackage{draftwatermark}
-
-\newcommand{\term}[1]{\emph{#1}}
-\newcommand{\code}[1]{\texttt{#1}}
-
-\usepackage[colorlinks]{hyperref}
 \renewcommand{\url}[1]{\href{http://#1}{#1}}
 
 %%%%%%%%%%%%%% CUSTOM END %%%%%%%%%%%%%%
@@ -143,15 +137,18 @@ Bij het programmeren in jQuery Mobile wordt geen enkel ontwerppatroon afgedwonge
 \label{sec:jqm-browser-support}
 jQuery Mobile deelt browsers op in drie verschillende klassen: A, B en C~\cite{JQuery2012d}. Hierbij ondersteunt een klasse A browser alles, terwijl een klasse C browser enkel de basis HTML ondersteunt (en dus bijvoorbeeld geen hippe CCS3 overgangen).
   
-Er dient een onderscheid te worden gemaakt tussen de begrippen \emph{progressive enhancement} en \emph{graceful degradation}~\cite{Hens2012}. Het eerste is wat jQuery Mobile toepast, namelijk starten met de basis HTML. Deze code wordt door iedere browser, dus ook deze uit de C klasse, op een goede manier weergegeven. Daarna zal het iteratief elementen toevoegen tot het op een moment komt dat de betreffende browser een bepaald kenmerk niet meer ondersteund.
+Er dient een onderscheid te worden gemaakt tussen de begrippen \emph{progressive enhancement} en \emph{graceful degradation}~\cite{Hens2012}. Het eerste is wat jQuery Mobile toepast, namelijk starten met de basis HTML. Deze code wordt door iedere browser, dus ook deze uit de C klasse, op een goede manier weergegeven. Daarna zal het iteratief elementen toevoegen tot het op een moment komt dat de betreffende browser een bepaald kenmerk niet meer ondersteund.  
 
 De tegenhanger is \emph{graceful degradation}. Hierbij wordt eerst een versie ontwikkeld die enkel in de meest recentste browser kan worden getoond. Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implementeren waardoor minder recente browser de applicatie ook kunnen weergeven.
-%TODO Sander: is het niet nuttiger om progresive enhancement en graceful degration in Kenmerken detecteren en opvullen te bespreken?  jQuery gebruikt enkel progressive enhancement en kan dan verwijzen naar een vorige sectie..
+%TODO Sander: is het niet nuttiger om progresive enhancement en graceful degration in Kenmerken detecteren en opvullen te bespreken?  jQuery gebruikt 
+%enkel progressive enhancement en kan dan verwijzen naar een vorige sectie..
+
+\clearpage %TODO
 
 \subsection{Sencha Touch} % (1 blz Sander)
 \label{sec:sencha_touch}
 
-Sencha Touch is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  Ext JS is a JavaScript framework for the development of web applications.  jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery.  It depends on the WebKit engine,  just like Sencha Touch.  Finally,  Raphaël, is a JavaScript library for vector drawings.  
+Sencha Touch is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  Ext JS is a JavaScript framework for the development of web applications.  jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery and depends on the WebKit engine.  Finally,  Raphaël, is a JavaScript library for vector drawings.  Pieces of the first two technologies can be found in the implementation of Sencha Touch framework.    
 
 Currently,  Sencha Touch is at version 2.1.1~\cite{Inc.}.
 
@@ -162,7 +159,7 @@ Currently,  Sencha Touch is at version 2.1.1~\cite{Inc.}.
 % Sencha Touch is JavaScript gedreven dus all functionaliteiten worden in JavaScript geïmplementeerd. Het aanroepen van het raamwerk gebeurt door het invoeren van de Sencha Touch bibliotheek binnen \code{<script>}-elementen.  Alle HTML code wordt bij het bekijken van de pagina gegenereerd.  
 
 \paragraph{Documentation}
-All documentation for Sencha Touch 2.1.1 can be found at \url{docs.sencha.com/touch/2-0}.  The most important features,  are provided with code examples and the result after rendering.  The most important concepts of Sencha Touch are explained in extensive tutorials:  some written, some videos.  
+All documentation for Sencha Touch 2.1.1 can be found at \url{docs.sencha.com/touch/2-0}.  The most important features,  are provided with code examples and an example of the code after rendered by the browser.  The key concepts of Sencha Touch are explained in extensive tutorials:  some texts, some videos.  
 
 Another handy tool to discover the Sencha Touch features is the 'Kitchen Sink'~\cite{Inc.2013}.  This is a webapplication,  written in Sencha Touch,  that lines up all possibilities of the framework combined with the corresponding code.
 
@@ -173,19 +170,22 @@ Another handy tool to discover the Sencha Touch features is the 'Kitchen Sink'~\
 % \paragraph{Marktadoptatie}
 % Volgens de Sencha website is 50\% van de Fortune 100 - een lijst van de grootste Amerikaanse bedrijven gerangschikt op jaaromzet - een Sencha klant~\cite{Inc.}.  Enkele van hun grootste klanten zijn CNN,  Samsung,  Cisco en  Visa.
 
-\paragraph{Licenties}
-Sencha Touch is gratis binnen een commerciële context waarbij het bedrijf in kwestie de broncode niet deelt voor zijn gebruikers.  Wanneer je dit wel wil doen bestaat er ook een gratis \term{open-source} versie van Sencha Touch.  Deze komt met een GNU GPL v3 \term{open-source} licentie wat wil zeggen dat je de vrijheid hebt om aanpassingen aan de broncode te maken en te verspreiden,  zolang je zelf je code maar gratis verspreid voor alle gebruikers.
+\paragraph{Licenses}
+Sencha Touch is free within a commercial context in which the developer does not share the code with its users.  There is also the option to use an open source version.  This comes with a GNU GPL v3 license which implies a free code redistribution as most important property.
+More detailed licenses can be found at~\cite{SenchaInc.}.
+% Sencha Touch is gratis binnen een commerciële context waarbij het bedrijf in kwestie de broncode niet deelt voor zijn gebruikers.  Wanneer je dit wel wil doen bestaat er ook een gratis \term{open-source} versie van Sencha Touch.  Deze komt met een GNU GPL v3 \term{open-source} licentie wat wil zeggen dat je de vrijheid hebt om aanpassingen aan de broncode te maken en te verspreiden,  zolang je zelf je code maar gratis verspreid voor alle gebruikers.
   
 % Voor de ontwikkeling van eigen raamwerken of SDKs betaal je een \term{original equipment manufacturer} (OEM) licentie.  Dit wil zeggen dat bedrijven hun producten gaan verkopen onder hun eigen merk en naam, maar gebruik maken van Sencha.  Omdat het gebruik hiervan per gebruiker verschilt,  worden OEM licenties op maat gemaakt~\cite{Inc.}.
 
-\paragraph{Code en ontwikkeling}
-Alle code wordt in JavaScript geschreven en dient één HTML bestand slechts als container om de bestanden in te laden.  Sencha Touch valt dus onder JavaScript gebaseerde raamwerken.  Het steunt op Ext JS,  wat op zich een JavaScript raamwerk is.  
+\paragraph{Code and development}
+Sencha Touch is written on top of Ext JS,  and can also be considered as JavaScript framework.  All code needs to be written in JavaScript and loaded by one HTML container.  An other important aspect of Sencha Touch is that is supports the Model-View-Controller (MVC) pattern.  Models group fields to data-objects,  views define how the content is presented to the user and controllers connect these based on events.
 
-Zoals reeds aangehaald ondersteund Sencha Touch het MVC (Model-View-Controller) patroon.  Dit patroon vermijdt lange JavaScript bestanden door ze logisch op te delen.  Modellen groeperen velden tot een beschrijving van data-objecten,  views definiëren de weergave van componenten en controllers verbinden beide op basis van events.
+
+% Alle code wordt in JavaScript geschreven en dient één HTML bestand slechts als container om de bestanden in te laden.  Sencha Touch valt dus onder JavaScript gebaseerde raamwerken.  Het steunt op Ext JS,  wat op zich een JavaScript raamwerk is.  
+% 
+% Zoals reeds aangehaald ondersteund Sencha Touch het MVC (Model-View-Controller) patroon.  Dit patroon vermijdt lange JavaScript bestanden door ze logisch op te delen.  Modellen groeperen velden tot een beschrijving van data-objecten,  views definiëren de weergave van componenten en controllers verbinden beide op basis van events.
  
-In theorie zou het verschil tussen mobiele websites en applicaties enkel in de views terug te vinden zijn.  Echter,  dit wordt nog niet volledig ondersteund en raadt men dus aan om hiervoor aparte projecten te voorzien.
-
-% Anderzijds zorgt het voor een betere ondersteuning voor toestellen met verschillende resoluties.  Samen met SASS en Compass kan Sencha lay-outs definiëren per device (zie sectie \ref{sec:sencha-aanpasbaarheid}).  De \code{Ext.env.Browser} en \code{Ext.env.OS} eigenschappen en \code{Ext.Viewport.getOrientation} en \code{Ext.feature.has} methoden kunnen de vereisten bepalen en de juiste lay-out kiezen~\cite{JohnEClark2012}.
+% In theorie zou het verschil tussen mobiele websites en applicaties enkel in de views terug te vinden zijn.  Echter,  dit wordt nog niet volledig ondersteund en raadt men dus aan om hiervoor aparte projecten te voorzien.
 
 % Om het de ontwikkelaars makkelijker te maken biedt Sencha ook SDK tools aan.  Momenteel bevinden deze zich nog in bèta.  Concreet zijn deze tools commando's voor de terminal die onder andere nieuwe projecten kunnen aanmaken, JavaScript bestanden kunnen optimaliseren maar vooral de webapplicatie kunnen omzetten naar native applicaties voor iOS en Android.
 
@@ -194,7 +194,11 @@ In theorie zou het verschil tussen mobiele websites en applicaties enkel in de v
 % Het debuggen van je code gebeurt voornamelijk in de browser zelf.  Tools als de Safari Web Inspector,  Chrome Developer Tools of Firebug moeten de fouten kunnen opsporen.  De broncode van Sencha Touch kan ook ingeladen worden met \code{sencha-touch-debug.js} als bibliotheek.  Deze versie is niet gecomprimeerd en bevat commentaar en documentatie om makkelijker te zoeken waar in de code de fout zich juist bevond.
 
 %\subsubsection{Functionele kenmerken} %TODO hernoemen..
-Net zoals jQuery Mobile heeft Sencha Touch ook een hele hoop functionaliteiten om eenvoudig UI elementen te genereren.  Sencha Touch bevat alle elementen van de UI als JavaScript objecten.  Net zoals alle objectgerichte programmeertalen maken deze objecten gebruik van een klassesysteem,  iets wat slechts vanaf Sencha Touch 2 werd ingevoerd.  Op die manier kunnen klassen worden gedefinieerd (\code{Ext.define}) en aangemaakt (\code{Ext.create}).  Hierbij is ook overerving mogelijk.  
+Sencha Touch contains all UI-elements as JavaScript objects.  Just like object-oriented programming,  those objects are part of a class system.  Classes can both be defined (\code{Ext.define}) or created (\code{Ext.create}).  Single-innheritance and overriding is also possible.    
+
+To enhance performance,  it is the programmers task to create components before they are used.  In this manner,  programmers can mimic asynchronic loading of pages by creating them in advance.
+
+
 % De basisklasse van alle objecten is \code{Ext.Component}.  Componenten kunnen gerenderd worden, zichzelf tonen of verbergen,  centreren op het scherm en zichzelf aan- of uitzetten.   Het aanmaken van componenten kan compacter door het gewenste component als \code{xtype} te definiëren.  
 % 
 % Een andere belangrijke component is \code{Ext.Container}.  Containers kunnen subcomponenten bevatten en een lay-out specifiëren.  Alle componenten krijgen een naam die verwijst naar een namespace.  Dit is handig om conflicten te vermijden tussen je eigen objecten en de standaard objecten van het raamwerk.  
@@ -221,11 +225,9 @@ Net zoals jQuery Mobile heeft Sencha Touch ook een hele hoop functionaliteiten o
 % Een benchmark voor deze verbeteringen zijn de opstarttijden van de Kitchen Sink applicatie.  Het opstarten gebeurde met de verschillende Sencha Touch versies en op verschillende toestellen.  De resultaten zijn terug te vinden op figuur \ref{fig:sencha_performance}.  Op bijna elk toestel blijkt Sencha Touch 2.0 ongeveer één seconde sneller te werken~\cite{SenchaInc.2013}.
 
 \paragraph{Browsersupport}
-Sencha Touch steunt op de WebKit browser \term{engine} dus moet de browser deze bevatten.  Hoewel dit bij de meeste browsers geen probleem meer vormt vallen toch enkele populaire browsers uit de boot.  Sencha Touch is bijvoorbeeld niet compatibel met FireFox Mobile en Opera Mobile~\cite{JohnEClark2012}.
+Just like jQuery Touch,  Sencha Touch is based upon the WebKit browser engine.  This forms the major requirement for browser support.  Although most mobile browsers contain this engine,  some like FireFox Mobile and Opera Mobile lack behind~\cite{JohnEClark2012}.  Following~\cite{Wokke2013}, the next release of the Opera browser will contain this engine,  a trend that most browservendors will (have to) follow.
 
-Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen over de context die gehanteerd wordt (browser, OS, toestel, etc.).  Verder kan Sencha Touch ook vragen naar de ondersteuning van specifieke kenmerken (audio,  canvas,  CSS3, …),  analoog als Modernizr.  
-
-Op de Secha website zijn voor sommige browsers en bijhorend besturingssystemen scorecards voorzien om hun compatibiliteit met HTLM5 en Sencha Touch te bespreken~\cite{Inc.}.
+Sencha Touch offers the programmer methods to ask for the current context where the end-user is working in.  Properties like \code{Ext.env.Browser} and \code{Ext.env.OS} or methods like \code{Ext.Viewport.getOrientation} and \code{Ext.feature.has} can determine this context~\cite{JohnEClark2012}.  The latter has functionalities,  just like Modernizer~\cite{Modernizr2012}.  
 
 \subsection{Table}
 \label{sec:table} 

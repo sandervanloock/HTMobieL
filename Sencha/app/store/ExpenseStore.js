@@ -14,9 +14,6 @@ Ext.define('Expense.store.ExpenseStore', {
         storeId: 'expensestore',
         proxy: {
             type: 'localstorage'
-            /*reader: {
-                type: 'json'
-            }*/
         },
         sorters: {
             property: 'date'

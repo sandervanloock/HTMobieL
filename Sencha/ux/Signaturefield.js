@@ -24,7 +24,6 @@ Ext.define('Ext.ux.Signaturefield', {
 
 		this.width = this.getSigWidth();
 		this.height = this.getSigHeight();
-        this.placeHolder = 'mkjml'
 		
 		Ext.define('ux.signature.Canvas', {
 			extend: 'Ext.Component',

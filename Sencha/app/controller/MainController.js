@@ -34,6 +34,21 @@ Ext.define(
 					},
 
 					gotoNewExpenseForm: function(button, e, options){
+                        if(Ext.getStore('expensestore').getCount() > 0 ){
+                            Ext.Msg.show({
+                                title: 'Existing form found',
+                                message: 'Do you want to continue an existing form (not yet send to the server) ?',
+                                width: 300,
+                                buttons: [ Ext.MessageBox.YES, Ext.MessageBox.NO ],
+                                fn: function(){
+                                    if(arguments[0]=='no'){
+                                        var expensestore = Ext.getStore('expensestore');
+                                        expensestore.removeAll();
+                                        expensestore.sync();
+                                    }
+                                }
+                            });
+                        }
 						Ext.Viewport.setActiveItem(Ext.getCmp('viewport'));
                         this.getDetail().setActiveItem(0);
 						Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(0),false,false);

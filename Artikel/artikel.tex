@@ -12,17 +12,26 @@
 
 \usepackage[english]{babel}
 
+
+
 % Use the postscript times font!
 \usepackage{times}
 
 % the following package is optional:
 %\usepackage{latexsym} 
 
+%%%%%%%%%%%%%% CUSTOM BEGIN %%%%%%%%%%%%%%
+
+% remove if not a draft
+\usepackage{draftwatermark}
+
 \newcommand{\term}[1]{\emph{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
 
 \usepackage[colorlinks]{hyperref}
 \renewcommand{\url}[1]{\href{http://#1}{#1}}
+
+%%%%%%%%%%%%%% CUSTOM END %%%%%%%%%%%%%%
 
 % Following comment is from ijcai97-submit.tex:
 % The preparation of these files was supported by Schlumberger Palo Alto
@@ -68,14 +77,15 @@
 
 jQuery Mobile (jQM) is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
 In November 2011 version~1.0 was released~\cite{Parker2011} and one year later in October, version~1.2 was released~\cite{Parker2012}. 
-As at the time of writing, jQM will be releasing version~1.3 very soon~\cite{Parker2012a}.
+As at the time of writing, jQM will be releasing version~1.3 very soon~\cite{Parker2013}.
 The framework is controlled by the jQuery Project that also manages jQuery Core. 
 The latter is a JavaScript library where jQM is dependent on~\cite{JQuery2012}. 
 jQM is among other things sponsored by Adobe, BlackBerry and Mozilla~\cite{JQuery2012a}.
 
 \subsubsection{Omkadering}
 \paragraph{Programmeertaal}
-Om met jQuery Mobile aan de slag te kunnen, heb je niets meer nodig dan kennis over HTML, CSS en JavaScript. Alle UI elementen worden geschreven in HTML en aangeduid met \code{data-}* attributen.
+jQM is markup driven framework
+%Om met jQuery Mobile aan de slag te kunnen, heb je niets meer nodig dan kennis over HTML, CSS en JavaScript. Alle UI elementen worden geschreven in HTML en aangeduid met \code{data-}* attributen.
 
 \paragraph{Tools}
 Een basis teksteditor voldoet om met jQuery Mobile aan de slag te kunnen. Natuurlijk kan het gemakkelijk zijn om van \term{integrated development environments}~(IDE's) zoals Aptana Studio~\cite{Aptana2012} of WebStorm~\cite{JetBrains2012} gebruik te maken, waardoor je handige kenmerken krijgt zoals \term{code completion}.
@@ -103,25 +113,7 @@ Een tweede strategie is om voor ieder scherm een aparte webpagina aan te maken. 
 Een laatste strategie is om een mix tussen beide te maken. Men kan bijvoorbeeld alle schermen die de gebruiker vaak nodig heeft op één webpagina plaatsen. De schermen die de gebruiker zelden nodig heeft, plaats men dan op aparte webpagina's.  
 
 \subsubsection{Functionele kenmerken}
-jQuery Mobile is een raamwerk dat voornamelijk UI elementen aanbied, met name pagina's en dialoogvensters, werkbalken, knoppen, inhoud vormgeven, elementen voor formulieren en lijsten~\cite{JQuery2012b}.
-
-\paragraph{Pagina's en dialoogvensters}
-De basisstructuur van een pagina bestaat uit een koptekst, inhoud en voettekst. Bij het overgaan naar een andere pagina kan men kiezen uit tien overgangseffecten. Voordat deze overgang gebeurt, zal jQuery Mobile altijd eerst die pagina ophalen via AJAX en inladen in het DOM. Zo kan een soepel overgangseffect worden getoond aan de gebruiker. Daarnaast is het ook mogelijk om gelinkte pagina's op voorhand op te halen. Als laatste biedt jQuery Mobile ook dialoogvensters en pop-ups aan. 
-
-\paragraph{Werkbalken}
-Het is mogelijk om zowel knoppen bij de koptekst als bij de voettekst te plaatsen. Bij deze laatste kunnen typisch meer knoppen geplaatst worden, bij de koptekst slechts twee. Daarnaast is het ook mogelijk om navigatiebalken te maken. Aan zowel de werk- als navigatiebalken kunnen iconen worden toegevoegd.
-
-\paragraph{Knoppen}
-Het is ook mogelijk om knoppen te plaatsen in het inhoud gedeelde. Ook hier is er terug een variëteit aan mogelijkheden: grote of kleine, met iconen of zonder, gegroepeerd of niet. 
-
-\paragraph{Inhoud vormgeven}
-De inhoud van de pagina kan worden vormgegeven door gebruik te maken van een rooster. jQuery Mobile laat roosters tot vijf kolommen toe. Daarnaast zijn er ook nog opklapbare blokken ter beschikking. Als laatste kunnen deze blokken ook samengevoegd worden tot een accordeon. 
-
-\paragraph{Elementen voor formulieren}
-jQuery Mobile biedt alle gangbare elementen voor formulieren aan zoals textinvoer, een selectie uit een lijst, een zoekveld, een \term{slider} en een \term{switch}. Het raamwerk verplicht zelf om de \code{<label>}-tag te gebruiken. Zo wordt de applicatie toegankelijker gemaakt voor bijvoorbeeld mensen met een \term{e-reader}.
-
-\paragraph{Lijsten}
-Een laatste categorie UI elementen die jQuery Mobile aanbiedt, zijn lijsten. Deze gaan van standaard ongeordende lijsten tot lijsten met alle soorten decoraties als iconen, afbeeldingen, telbubbels en verdelers. Ook is het mogelijk om in deze lijsten te zoeken. Hiervoor dient de gebruiker enkel één data attribuut toe te voegen, waarna het raamwerk de implementatie voorziet. 
+jQM is a UI framework and thus provides mainly UI components. jQM provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}.
 
 \subsubsection{Niet-functionele kenmerken}
 \paragraph{Performantie}

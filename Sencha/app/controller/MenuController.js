@@ -36,7 +36,7 @@ Ext.define('Expense.controller.MenuController', {
             item.removeCls('x-field-custom-error');
         });
 
-        if(index!=0)
+        if(index!=0) //TODO ipv index te checken event aan InfoPanel hangen dat employee creeert en valideert als view onzichtbaar wordt.  Hier altijd menu volgen
         {
             //Validate employee records
             var employee = Ext.create(
@@ -46,7 +46,7 @@ Ext.define('Expense.controller.MenuController', {
             var errors = employee.validate();
             if(errors.isValid())
             {
-                this.getDetail().setActiveItem(1);
+                this.getDetail().setActiveItem(index);
                 Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(index-1),false,false);
 
                 //set expense form date

@@ -73,7 +73,7 @@ Ext.define('Expense.view.DomesticExpense', {
                         value:  'Diner'
                     },
                     {
-                        xtype: 'textfield',
+                        xtype: 'numberfield',
                         name: 'amount',
                         placeHolder: 'Amount (€)',
                         id: 'amountDomestic'

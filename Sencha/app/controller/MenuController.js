@@ -36,47 +36,57 @@ Ext.define('Expense.controller.MenuController', {
             item.removeCls('x-field-custom-error');
         });
 
-        var myDate=new Date();
-        myDate.setFullYear(Ext.getCmp('year').getValue(),Ext.getCmp('month').getValue(),1);
-        Expense.app.getExpenseForm().set('date',myDate);
-
-        if(index==1){ //Validate employee records
+        if(index!=0)
+        {
+            //Validate employee records
             var employee = Ext.create(
                 'Expense.model.Employee',
                 this.getMyinfo().getValues());
+
             var errors = employee.validate();
             if(errors.isValid())
             {
                 this.getDetail().setActiveItem(1);
-                Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(0),false,false);
-                Ext.getStore('expensestore').each(function(item,index,length){
-                    encodeCurrency(item);
-                });
+                Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(index-1),false,false);
 
+                //set expense form date
+                var myDate=new Date();
+                myDate.setFullYear(Ext.getCmp('year').getValue(),Ext.getCmp('month').getValue(),1);
+                Expense.app.getExpenseForm().set('date',myDate);
+                if(index==1){
+                    //encode currencies at runtime
+                    Ext.getStore('expensestore').each(function(item,index,length){
+                        encodeCurrency(item);
+                    });
+                }
             }
-            else {
+            else
+            {
                 var message = '';
                 errors.each(function(item, index, length){
                     message = message + item.getMessage() + '<br>';
                     if(item.getField()!='evidence')
                         Ext.getCmp('infofield').getComponent(item.getField()).addCls('x-field-custom-error');
                 });
+
                 Ext.Msg.show({
                     title: 'Error',
                     message: message,
                     width: 300,
-                    buttons: Ext.MessageBox.OK
+                    buttons: Ext.MessageBox.OK,
+                    fn: function(){
+                            Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(0),true,true); //do not change menu selection
+                    }
                 });
-                Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(0),false,false); //do not change menu selection
             }
-        }else{
+        }
+        else{
             this.getDetail().setActiveItem(index);
         }
         if(Ext.os.is.Phone){
             Ext.getCmp('page').setHidden(false);
             Ext.getCmp('menupanel').setHidden(true);
         }
-
     }
 
 });

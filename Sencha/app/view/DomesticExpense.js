@@ -25,7 +25,7 @@ Ext.define('Expense.view.DomesticExpense', {
                 xtype: 'fieldset',
                 id: 'domesticfield',
                 title: '3. Add Expense',
-                
+                activeItem: '',
                 items: [
                     {
                     	  xtype: 'datepickerfield',

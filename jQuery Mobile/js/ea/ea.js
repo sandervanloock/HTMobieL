@@ -1,6 +1,7 @@
 var EA = {
 
     baseURL:"http://kulcapexpenseapp.appspot.com/",
+//    baseURL:"http://localhost:8888/",
 
     /*************************************************
      * Acces token

@@ -136,7 +136,6 @@ $(document).on("pageinit", "#your-info", function () {
             // this is because a user can also click on the menu and we have to
             // save the target of what he has clicked, so that we can go to
             // the next page accordingly
-            console.log($("#your-info-next-page").val());
             $.mobile.changePage($("#your-info-next-page").val());
             // clear the form data
             initializeForm();

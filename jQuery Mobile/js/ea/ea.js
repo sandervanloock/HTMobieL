@@ -327,7 +327,7 @@ var EA = {
         }
     },
 
-    clearEvidence:function(){
+    clearEvidence:function () {
         if (Modernizr.sessionstorage) {
             sessionStorage.removeItem("evidence");
         } else {
@@ -428,9 +428,21 @@ var EA = {
             + " field(s):");
 
         var html = "";
+        var $field, name, tag;
         $.each(errorMap, function (index, value) {
+            // show place holder name instead of id
+            $field = $("#" + index);
+            tag = $field.prop("tagName");
+            if (tag == "SELECT") {
+                name = $field.find("option").first().text();
+            } else if (tag == "FIELDSET") {
+                name = $field.find(".ui-controlgroup-label").text();
+            } else {
+                name = $field.attr("placeholder");
+            }
+
             html += "<li>";
-            html += index + ": " + value;
+            html += name + ": " + value;
             html += "</li>";
         });
         $("#error-validation-items").html(html);

@@ -37,6 +37,10 @@
 % zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
 \renewcommand{\url}[1]{\href{http://#1}{#1}}
 
+% paragraphs anders te feel white space
+\usepackage{setspace}
+\renewcommand{\paragraph}[1]{{\bf #1} }
+
 %%%%%%%%%%%%%% CUSTOM END %%%%%%%%%%%%%%
 
 % Following comment is from ijcai97-submit.tex:
@@ -75,10 +79,10 @@
 %mobiele applicatie native/hybrid/mobile
 %browsers
 
-\section{Comparisoncriteria and related work}
+\section{Comparison criteria and related work}
 \label{sec:comparisoncriteria}
 
-Many in-depth comparisons of HTML5 mobile frameworks already exists today.  However, none of them are scientifically published or use a large proof of concept to validate their comparison.  Blog posts like~\cite{Sarrafi2012a,Ayuso2012,Rozynski2011} all have their own criteria and methodology to assess different mobile frameworks.  The overall applications of the criteria changes from use case to use case.  \cite{Rozynski2011} presents the chosen criteria and discusses each for each framework.  \cite{Ayuso2012} presents a whole bunch of criteria but all of them are discusses at once per framework.  Thereafter,  advantages and disadvantages are subtracted and proposed to the reader.  \cite{Sarrafi2012a} finally,  presents their chosen criteria together with a scorecard and explanation of scores per criteria.  Each framework gets evaluated based on the scores for each criteria.
+Many in-depth comparisons of HTML5 mobile frameworks already exists today.  However, none of them are scientifically published or use a large proof of concept (POC) to validate their comparison.  Blog posts like~\cite{Sarrafi2012a,Ayuso2012,Rozynski2011} all have their own criteria and methodology to assess different mobile frameworks.  The overall applications of the criteria changes from use case to use case.  \cite{Rozynski2011} presents the chosen criteria and discusses each for each framework.  \cite{Ayuso2012} presents a whole bunch of criteria but all of them are discusses at once per framework.  Thereafter,  advantages and disadvantages are subtracted and proposed to the reader.  \cite{Sarrafi2012a} finally,  presents their chosen criteria together with a scorecard and explanation of scores per criteria.  Each framework gets evaluated based on the scores for each criteria.
 
 All these blog posts compare more than two frameworks where some of them mobile and some are hybrid (see table~\ref{table:references_frameworks}).  Other websites like~\cite{Bristowe2012,Burris} only focus on 2 mobile HTML5 frameworks while on the other side of the spectrum~\cite{Falk2011} tries to compare as much as frameworks as possible in a large tabular form.
 
@@ -125,6 +129,7 @@ As mentioned earlier,  we will compare 4 HTML5 mobile frameworks based upon a la
 % 
 % Een laatste criterium is de performantie. Dit zal worden uitgedrukt in de tijd nodig om te applicatie te renderen. Hierbij zullen we verschillende testen doen. Ten eerste zullen we gebruik maken van de volledige POC. We zullen kijken naar de rendertijd van de applicatie aan de hand van Google Page Speed. Daarnaast zullen we een geïsoleerde test doen met het verzenden van een AJAX request, omdat sommige raamwerken altijd eerst een OPTION request sturen. Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend. Vervolgens zullen we ook geïsoleerde testen doen met UI-elementen. Hierbij zullen we een pagina voorzien van 1000 buttons en meten hoe lang het duurt tot deze pagina gerendert wordt. Als laatste zullen we een test op de aparte loginschermen uitvoeren. Hier kunnen we dan ook het aantal lijnen code bekijken en de bijhorende performantie. De redenen waarom we ook deze geïsoleerde applicatie gebruiken is omdat we ervan uitgaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. Dit is in tegenstelling tot de geïsoleerde login applicatie, waarbij we exact kunnen vergelijken.
 
+\newpage
 \section{Frameworks} % (1 blz per framework + tabel)
 \label{sec:frameworks}
 
@@ -136,65 +141,36 @@ In November 2011 version~1.0 was released~\cite{Parker2011} and one year later i
 As at the time of writing, jQM will be releasing version~1.3 very soon~\cite{Parker2013}.
 The framework is controlled by the jQuery Project that also manages jQuery Core. 
 The latter is a JavaScript library where jQM is dependent on~\cite{JQuery2012}. 
-jQM is among other things sponsored by Adobe, BlackBerry and Mozilla~\cite{JQuery2012a}.
+jQM is among other things sponsored by Adobe, Nokia, BlackBerry and Mozilla~\cite{JQuery2012a}.
 
-\subsubsection{Omkadering}
-\paragraph{Programmeertaal}
-jQM is markup driven framework
-%Om met jQuery Mobile aan de slag te kunnen, heb je niets meer nodig dan kennis over HTML, CSS en JavaScript. Alle UI elementen worden geschreven in HTML en aangeduid met \code{data-}* attributen.
+\paragraph{Licence}
+As of September 2012 it is only possible to use jQM under the Massachusetts Institute of Technology~(MIT) licence~\cite{Dmethvin2012}. 
+This means that the code is released as open source and can also be used in proprietary projects~\cite{PhilDutson2012}.
 
-\paragraph{Tools}
-Een basis teksteditor voldoet om met jQuery Mobile aan de slag te kunnen. Natuurlijk kan het gemakkelijk zijn om van \term{integrated development environments}~(IDE's) zoals Aptana Studio~\cite{Aptana2012} of WebStorm~\cite{JetBrains2012} gebruik te maken, waardoor je handige kenmerken krijgt zoals \term{code completion}.
+\paragraph{Documentation}
+One can find the documentation of jQM on \url{www.jquerymobile.com/demos/1.2.0}. On the one hand it contains an overview of all possible UI components. 
+By checking the source code, you can find out what code to write to get the same result. 
+On the other hand it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
 
-Je kan ook gebruiken maken van Codiqua om via \term{drag-and-drop} UI elementen op je scherm te slepen. Codiqua zal automatisch op de achtergrond de HTML code voorzien~\cite{Sperry2012}.
+\paragraph{Code and development}
+jQM is a UI framework and thus provides mainly UI components. 
+jQM provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
+One can obtain these components by writing HTML5 with jQM specific \code{data-}* attributes. 
+When running the application, jQM will add the extra necessary code to correctly show these components by doing progressive enhancement.
 
-\paragraph{Documentatie}
-Documentatie is te vinden op \url{www.jquerymobile.com/demos/1.2.0}. Hierop is een catalogus te vinden van alle mogelijke elementen waarover jQuery Mobile beschikt. Door de broncode van een voorbeeld te bekijken, kan je zien welke code je moet schrijven om tot dat resultaat te komen.
+There are three ways of writing a web application in jQM~\cite{Broulik2012}. 
+The first one is to write the full application that is composed of many screens, on one single web page.
+The advantage is that there are initially less requests to the server.
+The second option is to write a web page for each screen. 
+The advantage here is that the first viewed screen is downloaded more quickly. 
+However, with each transition, the next screen has to be fetched which can delay navigation.
+This is done with AJAX by default in jQM.
+Lastly, you can mix the two above to find an optimum by putting the most likely viewed screens on one web page and the less likely viewed on separated pages.  
 
-Naast de UI elementen is er ook documentatie over de API. Deze gaat over initiële configuraties, events en methodes die kunnen worden gebruikt.
-
-\paragraph{Marktadoptatie}
-Als we kijken op de website van jQuery Mobile zien we een reeks applicaties gemaakt met hun raamwerk. Enkele voorbeelden zijn webapplicaties voor Ikea, Disney World, Stanford University en Moulin Rouge~\cite{JQuery2012a}. 
-
-\paragraph{Licenties}
-Vanaf september 2012 is het enkel nog mogelijk om jQuery Mobile onder de Massachusetts Institute of Technology (MIT) licentie te verkrijgen~\cite{Dmethvin2012}. Dit betekent dat de code wordt vrijgegeven als \term{open-source} en dat deze tegelijkertijd kan worden gebruikt in propriëtaire projecten en applicaties~\cite{PhilDutson2012}.
-
-\subsubsection{Code en ontwikkeling}
-Zoals werd aangehaald, schrijft men vooral HTML5 code voorzien van \code{data-}* attributen. Daarna zal het raamwerk door middel van \term{progressive enhancement} allerhande code toevoegen om de beoogde UI elementen correct te tonen in de browser. Dit wordt verder uitgelegd in de sectie browserondersteuning (zie \ref{sec:jqm-browser-support}).
-
-Er zijn drie strategieën om webapplicaties te maken in jQuery Mobile~\cite{Broulik2012}. Een eerste is om de volledige applicatie in één webpagina te schrijven. Met andere woorden,  de vele schermen van de webapplicatie zijn dan allemaal samengebracht op eenzelfde webpagina. Het voordeel bij deze aanpak is dat er initieel minder verzoeken zijn naar de server omdat alles in één bestand wordt opgehaald. Dit geldt ook zo voor de geïmporteerde CSS en JavaScript-bestanden. 
-
-Een tweede strategie is om voor ieder scherm een aparte webpagina aan te maken. Het voordeel hierbij is dat de eerste pagina waar de gebruiker op terecht komt, sneller wordt gedownload. Bij iedere navigatie naar een ander scherm, moet dit scherm via AJAX worden opgehaald, waardoor dit vertragend kan werken. 
-
-Een laatste strategie is om een mix tussen beide te maken. Men kan bijvoorbeeld alle schermen die de gebruiker vaak nodig heeft op één webpagina plaatsen. De schermen die de gebruiker zelden nodig heeft, plaats men dan op aparte webpagina's.  
-
-\subsubsection{Functionele kenmerken}
-jQM is a UI framework and thus provides mainly UI components. jQM provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}.
-
-\subsubsection{Niet-functionele kenmerken}
-\paragraph{Performantie}
-Zoals gezegd schrijft de ontwikkelaar HTML5 code met specifieke data attributen en zal het raamwerk daarna de code verder aanvullen. Dit gebeurt enkel op de pagina die de gebruiker op dat moment bekijkt. Dit gaat dus ook op voor een webapplicatie waarbij alle schermen op één webpagina zijn geschreven. Deze webpagina bevat allemaal \code{<div>}-verpakkingen voor ieder scherm. jQuery Mobile zal enkel die \code{<div>} verder aanvullen die op dat moment getoond wordt aan de gebruiker. 
-
-\paragraph{Aanpasbaarheid}
-Als je jQuery Mobile \term{out-of-the-box} gebruikt, zit alles al goed qua kleur en design. Je hebt de keuze uit vijf kleurenthema's die je kan toepassen op de gehele applicatie of enkel op bepaalde elementen. Om je applicatie echt te laten onderscheiden van de andere, zal je natuurlijk graag je eigen kleurthema willen toepassen. Hier is jQuery Mobile op voorzien door hun \term{stylesheet} op te delen in twee delen: thema's en structuur. Je kan als ontwikkelaar ook enkel de structuur downloaden en zelf de thema CSS schrijven. Daar dit laatste heel wat inspanning vraagt, hebben de ontwikkelaars van jQuery Mobile ook een tool ter beschikking,  namelijk ThemeRoller~\cite{JQuery2012c}. Hier kan je zeer eenvoudig kleuren slepen naar een voorbeeldapplicatie. Eenmaal tevreden kan je de overeenkomstige \term{stylesheet} downloaden en toevoegen aan je project.
-
-\paragraph{Programmeerbaarheid}
-Bij het programmeren in jQuery Mobile wordt geen enkel ontwerppatroon afgedwongen. De code voor de UI elementen wordt tenslotte als HTML5 code geschreven. Voor de echte functionaliteit wordt beroep gedaan op JavaScript en meer bepaald op de jQuery Core bibliotheek. Ook deze dwingt geen ontwerppatroon af.
-
-% TODO deze tekst zal later moeten worden verplaatst
-% Een ander raamwerk, genaamd The-M-Project~\cite{Panacoda2012}, dwingt het Model-View-Controller (MVC) echter wel af. Met dit raamwerk is het mogelijk om webapplicaties te maken die het jQuery Mobile raamwerk gebruiken. In plaats van HTML5-code te schrijven, zoals dat bij jQuery Mobile gebeurt, schrijft je JavaScript-code. The-M-Project zal dan zelf intern deze JavaScript-code omzetten naar de desbetreffende jQuery Mobile HTML5-code.
-
-\paragraph{Browserondersteuning}
+\paragraph{Browser support}
 \label{sec:jqm-browser-support}
-jQuery Mobile deelt browsers op in drie verschillende klassen: A, B en C~\cite{JQuery2012d}. Hierbij ondersteunt een klasse A browser alles, terwijl een klasse C browser enkel de basis HTML ondersteunt (en dus bijvoorbeeld geen hippe CCS3 overgangen).
-  
-Er dient een onderscheid te worden gemaakt tussen de begrippen \emph{progressive enhancement} en \emph{graceful degradation}~\cite{Hens2012}. Het eerste is wat jQuery Mobile toepast, namelijk starten met de basis HTML. Deze code wordt door iedere browser, dus ook deze uit de C klasse, op een goede manier weergegeven. Daarna zal het iteratief elementen toevoegen tot het op een moment komt dat de betreffende browser een bepaald kenmerk niet meer ondersteund.  
-
-De tegenhanger is \emph{graceful degradation}. Hierbij wordt eerst een versie ontwikkeld die enkel in de meest recentste browser kan worden getoond. Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implementeren waardoor minder recente browser de applicatie ook kunnen weergeven.
-%TODO Sander: is het niet nuttiger om progresive enhancement en graceful degration in Kenmerken detecteren en opvullen te bespreken?  jQuery gebruikt 
-%enkel progressive enhancement en kan dan verwijzen naar een vorige sectie..
-
-\clearpage %TODO
+jQM divides browsers into three grades: A, B and C. 
+An A graded browsers supports everything of the jQM framework, where a C graded browsers only provides basic HTML experience (so for example no CSS3 transitions)~\cite{JQuery2012d}.
 
 \subsection{Sencha Touch} % (1 blz Sander)
 \label{sec:sencha_touch}

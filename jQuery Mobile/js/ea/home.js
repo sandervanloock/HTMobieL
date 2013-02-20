@@ -36,7 +36,7 @@ $(document).on("tap", "#home-logout", function () {
     // log the user out via AJAX request
     $.ajax({
         type:"POST",
-        url:"http://kulcapexpenseapp.appspot.com/resources/userService/logout",
+        url:EA.baseURL + "resources/userService/logout",
         data:{
             'token':EA.getToken()
         },

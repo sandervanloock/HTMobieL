@@ -26,7 +26,7 @@ $(document).on("pageshow", "#my-expenses", function () {
     $.ajax({
         type:"POST",
         dataType:"xml",
-        url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getExpenseForms",
+        url:EA.baseURL + "resources/expenseService/getExpenseForms",
         data:{
             'token':EA.getToken()
         },

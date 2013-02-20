@@ -25,7 +25,7 @@ $(document).on("pageinit", "#login", function () {
             $.ajax({
                 type:"POST",
                 dataType:"html",
-                url:"http://kulcapexpenseapp.appspot.com/resources/userService/login",
+                url:EA.baseURL + "resources/userService/login",
                 data:{
                     'email':$("#login-username").val(),
                     'password':$("#login-password").val()
@@ -62,7 +62,7 @@ $(document).on("pageinit", "#login", function () {
                         $.ajax({
                             type:"POST",
                             dataType:"json",
-                            url:"http://kulcapexpenseapp.appspot.com/resources/userService/getEmployee",
+                            url:EA.baseURL + "resources/userService/getEmployee",
                             data:{
                                 'token':EA.getToken()
                             },
@@ -93,7 +93,7 @@ $(document).on("pageinit", "#login", function () {
                         $.ajax({
                             type:"POST",
                             dataType:"json",
-                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
+                            url:EA.baseURL + "resources/expenseService/getProjectCodeSuggestion",
                             data:{
                                 "keyword":""
                             },
@@ -115,7 +115,7 @@ $(document).on("pageinit", "#login", function () {
                         $.ajax({
                             type:"POST",
                             dataType:"xml",
-                            url:"http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies",
+                            url:EA.baseURL + "resources/currencyService/getCurrencies",
                             error:function () {
                                 EA.showBackendError("Could not fetch currencies.");
                             },

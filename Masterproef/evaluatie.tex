@@ -25,9 +25,12 @@ Sommige velden waren verplicht in te vullen, terwijl andere niet. Hiervoor werd 
 \subsubsection{Opladen van bewijs}
 
 \paragraph{jQuery Mobile} 
-Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen om de geïmporteerde afbeelding om te vormen naar base64. Deze aanpak werkt correct op recente mobiele apparaten. De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a}.
+Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen op het canvas om de geïmporteerde afbeelding om te vormen naar base64. Deze aanpak werkt correct op recente mobiele apparaten. De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a}.
 
+\subsubsection{Handtekening}
 
+\paragraph{jQuery Mobile} 
+Er werd gezocht naar een plugin om deze functionaliteit te bekomen, doordat jQuery Mobile dit niet standaard aanbiedt. Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. Door de lange tijd die werd besteed aan het aanpassen van layout, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. De plugin maakt gebruik van het HTML5 canvas element en de \code{.toDataURL()} methode, maar deze wordt niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

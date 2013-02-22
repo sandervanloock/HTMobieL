@@ -58,7 +58,9 @@ Hieronder bespreken we de vereisten met betrekking tot lay-out.
 \subsubsection{Tablet en smartphone}
 
 \paragraph{jQuery Mobile} 
+In jQuery Mobile is er standaard geen splitview aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. Eerst werden hiervoor gezocht naar plugins aan de hand van~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. Deze drie mogelijke kanshebbers hadden elk hun tekorten. Zo was de eerste destructief ten opzichte van het raamwerk. Dit betekent dat de bestanden van jQuery Mobile zelf werden aangepast, wat het moeilijker zou maken als men wil updaten naar een nieuwe versie. De tweede plugin werkte enkel tot versie 1.0.1 van jQuery Mobile. De laatste plugin had moeite met het zich  aanpassen aan veranderde afmetingen van de browser. 
 
+Uiteindelijk werd van een plugin afgestapt door \cite{Hadlock2012} waarbij werd aangetoond hoe men via CSS3 media queries hetzelfde kan bereiken. Daarnaast gebruikt de documentatie van jQuery Mobile~\cite{JQuery2012b} een gelijkaardige layout. De uiteindelijke oplossing voor het probleem kwam uit te combinatie van deze twee voorgaande oplossingen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

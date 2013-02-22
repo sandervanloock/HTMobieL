@@ -2,6 +2,7 @@ $(document).on("pagebeforeshow", "#expense", function () {
     // hold local reference for performance
     var $expenseCurrency = $("#expense-currency");
 
+    $expenseCurrency.empty();
     // load currencies into list
     $.each(EA.getCurrencies(), function (i, currency) {
         $expenseCurrency.append("<option value=\"" + currency.rate + "\">" + currency.name + "</option>")

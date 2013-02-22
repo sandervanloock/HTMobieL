@@ -10,9 +10,10 @@ Anderzijds vergelijken we in \ref{sec:evaluatie-criteria} de raamwerken op basis
 \section{POC}
 \label{sec:evaluatie-poc}
 In deze sectie bekijken we de problemen die we hebben tegengekomen bij het implementeren van de POC in de verschillende raamwerken.
-Er wordt een onderscheid gemaakt tussen enerzijds de functionele vereisten als anderzijds vereisten met betrekking tot layout.
+Er wordt een onderscheid gemaakt tussen enerzijds de functionele vereisten als anderzijds vereisten met betrekking tot lay-out.
 
 \subsection{Functionele vereisten}
+Hieronder bespreken we de functionele vereisten van de POC.
 
 \subsubsection{Formulieren}
 
@@ -31,6 +32,33 @@ Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het
 
 \paragraph{jQuery Mobile} 
 Er werd gezocht naar een plugin om deze functionaliteit te bekomen, doordat jQuery Mobile dit niet standaard aanbiedt. Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. Door de lange tijd die werd besteed aan het aanpassen van layout, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. De plugin maakt gebruik van het HTML5 canvas element en de \code{.toDataURL()} methode, maar deze wordt niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013}.
+
+\subsubsection{AJAX}
+
+\paragraph{jQuery Mobile} 
+Het maken van oproepen via AJAX gebeurt via de jQuery bibliotheek waar jQuery Mobile op steunt. Dit gebeurt met de functie \code{\$.ajax}. 
+
+\subsubsection{XML}
+
+\subsubsection{JSON}
+
+\subsubsection{PDF tonen}
+
+\paragraph{jQuery Mobile} 
+Het is niet aangeraden om ruwe data op te halen via AJAX. Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters. Bij het klikken op lijstitem, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft.
+
+\subsubsection{Automatische aanvulling}
+
+\paragraph{jQuery Mobile} 
+Doordat jQuery Mobile standaard geen automatische aanvulling ter beschikking heeft, werd de plugin van Andy Matthews gebruikt~\cite{Matthews2013}. Dit is een zeer gemakkelijk te integreren plugin die zowel met lokale data als data op afstand kan werken. Daarnaast dienden enkel vijf suggesties getoond te worden. Deze functionaliteit zat niet in de plugin, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
+
+\subsection{Lay-out}
+Hieronder bespreken we de vereisten met betrekking tot lay-out.
+
+\subsubsection{Tablet en smartphone}
+
+\paragraph{jQuery Mobile} 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

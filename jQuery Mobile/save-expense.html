@@ -9,7 +9,7 @@
             $.ajax({
                 type:"POST",
                 dataType:"html",
-                url:"http://kulcapexpenseapp.appspot.com/resources/userService/login",
+                url:"http://localhost:8888/resources/userService/login",
                 data:{
                     'email':"tim.ameye@student.kuleuven.be",
                     'password':"test123"
@@ -25,7 +25,7 @@
                     // save the expense to the backend
                     $.ajax({
                         type:"POST",
-                        url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/saveExpense",
+                        url:"http://localhost:8888/resources/expenseService/saveExpense",
                         data:JSON.stringify(expenseRequest),
                         dataType:"json",
                         // The 'contentType' property sets the 'Content-Type' header.

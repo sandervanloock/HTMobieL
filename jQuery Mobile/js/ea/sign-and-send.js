@@ -85,7 +85,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                         // TODO save expense on backend
                         $.ajax({
                             type:"POST",
-                            url:"http://kulcapexpenseapp.appspot.com/resources/expenseService/saveExpense",
+                            url:EA.baseURL + "resources/expenseService/saveExpense",
                             data:JSON.stringify(expenseRequest),
                             dataType:"json",
                             // The 'contentType' property sets the 'Content-Type' header.

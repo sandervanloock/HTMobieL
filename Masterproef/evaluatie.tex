@@ -22,6 +22,10 @@ Voor het toevoegen van placeholders in de formuliervelden kon beroep worden geda
 Sommige velden waren verplicht in te vullen, terwijl andere niet. Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. Daarnaast was het ook nodig om de velden te valideren op hun waarde. Validatie is echter niet standaard aanwezig in jQuery Mobile. Als oplossing werd de plugin van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. Deze plugin loste ook het probleem met de verplichte velden op. Deze plugin kan op twee manieren gebruikt worden: enerzijds schrijven van CSS klassen in de HTML-code ofwel anderzijds door programmatie in de JavaScript-code. Beide aanpakken werden getest doorheen de POC. 
 % TODO verder uitleggen hoe slim de plugin is
 
+\subsubsection{Opladen van bewijs}
+
+\paragraph{jQuery Mobile} 
+Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen om de geïmporteerde afbeelding om te vormen naar base64. Deze aanpak werkt correct op recente mobiele apparaten. De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a}.
 
 
 

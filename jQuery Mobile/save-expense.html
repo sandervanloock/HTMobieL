@@ -3,13 +3,15 @@
 <head>
     <script src="js/vendor/jquery-1.8.2.min.js"></script>
     <script>
+        var baseURL = "http://localhost:8888/";
+        //var baseURL = "http://kulcapexpenseapp.appspot.com/";
         $(document).ready(function () {
             console.log("logging in");
             // log in first to get the token
             $.ajax({
                 type:"POST",
                 dataType:"html",
-                url:"http://localhost:8888/resources/userService/login",
+                url:baseURL + "resources/userService/login",
                 data:{
                     'email':"tim.ameye@student.kuleuven.be",
                     'password':"test123"
@@ -25,7 +27,7 @@
                     // save the expense to the backend
                     $.ajax({
                         type:"POST",
-                        url:"http://localhost:8888/resources/expenseService/saveExpense",
+                        url:baseURL + "resources/expenseService/saveExpense",
                         data:JSON.stringify(expenseRequest),
                         dataType:"json",
                         // The 'contentType' property sets the 'Content-Type' header.

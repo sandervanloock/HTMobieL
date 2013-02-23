@@ -36,16 +36,24 @@ Er werd gezocht naar een plugin om deze functionaliteit te bekomen, doordat jQue
 \subsubsection{AJAX}
 
 \paragraph{jQuery Mobile} 
-Het maken van oproepen via AJAX gebeurt via de jQuery bibliotheek waar jQuery Mobile op steunt. Dit gebeurt met de functie \code{\$.ajax}. 
-
-\subsubsection{XML}
+Het maken van oproepen via AJAX gebeurt via de jQuery bibliotheek waar jQuery Mobile op steunt. Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, HTML, JSON of XML). Bij het succesvol uitvoeren van de oproep wordt de \code{succes} functie opgeroepen, bij faling de \code{error} functie.
 
 \subsubsection{JSON}
 
-\subsubsection{PDF tonen}
+\paragraph{jQuery Mobile} 
+In jQuery is er de functie \code{parseJSON} aanwezig, maar aangezien we in de AJAX oproep instellen dat we JSON verwachten, parst jQuery al automatisch het antwoord. Hierdoor hebben we \code{parseJSON} niet nodig en kunnen we direct omgaan met het antwoord.
+
+Het is ook nodig om JSON te versturen als oproep. Dit wordt gedaan vanuit JavaScript zonder een bibliotheek nodig te hebben. Eerst wordt een object aangemaakt met inhoud, waarop daarna de functie \code{JSON.stringify} oproepen wordt. Deze is daarna klaar om verstuurd te worden als data via AJAX.
+
+\subsubsection{XML}
 
 \paragraph{jQuery Mobile} 
-Het is niet aangeraden om ruwe data op te halen via AJAX. Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters. Bij het klikken op lijstitem, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft.
+Net zoals bij JSON het geval was, was het ook niet nodig om expliciet de \code{parseXML} functie te gebruiken. Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt wat meer werk. Waar je bij JSON direct aan de data kon, moet je bij XML de data ophalen net zoals je dat zou doen uit een HTML-pagina. Dit betekent dus met selectoren aan de hand van de jQuery bibliotheek.
+
+\subsubsection{PDF}
+
+\paragraph{jQuery Mobile} 
+Het is niet aangeraden om ruwe data, zoals een PDF, op te halen via AJAX. Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft in de browser. Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
 \subsubsection{Automatische aanvulling}
 

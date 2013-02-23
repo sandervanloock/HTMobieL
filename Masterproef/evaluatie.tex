@@ -26,7 +26,7 @@ Sommige velden waren verplicht in te vullen, terwijl andere niet. Hiervoor werd 
 \subsubsection{Opladen van bewijs}
 
 \paragraph{jQuery Mobile} 
-Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen op het canvas om de geïmporteerde afbeelding om te vormen naar base64. Deze aanpak werkt correct op recente mobiele apparaten. De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a}.
+Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. In versie 1.2 wordt dit veld nog niet opgemaakt, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen op het canvas om de geïmporteerde afbeelding om te vormen naar base64. Deze aanpak werkt correct op recente mobiele apparaten. De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a}.
 
 \subsubsection{Handtekening}
 
@@ -50,7 +50,7 @@ Het is niet aangeraden om ruwe data op te halen via AJAX. Hierdoor werd gebruik 
 \subsubsection{Automatische aanvulling}
 
 \paragraph{jQuery Mobile} 
-Doordat jQuery Mobile standaard geen automatische aanvulling ter beschikking heeft, werd de plugin van Andy Matthews gebruikt~\cite{Matthews2013}. Dit is een zeer gemakkelijk te integreren plugin die zowel met lokale data als data op afstand kan werken. Daarnaast dienden enkel vijf suggesties getoond te worden. Deze functionaliteit zat niet in de plugin, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
+Hoewel versie 1.3 automatische aanvulling ter beschikking heeft~\cite{JQuery2013c}, werd tijdens de implementatie gebruik gemaakt van versie 1.2 die dit niet had. Daarom werd de plugin van Andy Matthews gebruikt~\cite{Matthews2013}. Dit is een zeer gemakkelijk te integreren plugin die zowel met lokale data als data op afstand kan werken. Daarnaast dienden enkel vijf suggesties te worden getoond. Deze functionaliteit zat niet in de plugin, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
 
 \subsection{Lay-out}
 Hieronder bespreken we de vereisten met betrekking tot lay-out.
@@ -58,13 +58,23 @@ Hieronder bespreken we de vereisten met betrekking tot lay-out.
 \subsubsection{Tablet en smartphone}
 
 \paragraph{jQuery Mobile} 
-In jQuery Mobile is er standaard geen splitview aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. Eerst werd hiervoor gezocht naar plugins aan de hand van~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. Deze drie mogelijke kanshebbers hadden elk hun tekorten. Zo was de eerste destructief ten opzichte van het raamwerk. Dit betekent dat de bestanden van jQuery Mobile zelf werden aangepast, wat het moeilijker zou maken als men wil updaten naar een nieuwe versie. De tweede plugin werkte enkel tot versie 1.0.1 van jQuery Mobile. De laatste plugin had moeite met het zich  aanpassen aan veranderde afmetingen van de browser. 
+In jQuery Mobile is er standaard geen splitview aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. Eerst werd hiervoor gezocht naar plugins aan de hand van~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. Deze drie mogelijke kanshebbers hadden elk hun tekorten. Zo was de eerste destructief ten opzichte van het raamwerk. Dit betekent dat de bestanden van jQuery Mobile zelf werden aangepast, wat het moeilijker zou maken als men wil updaten naar een nieuwe versie. De tweede plugin werkte enkel tot versie 1.0.1 van jQuery Mobile. De laatste plugin had moeite met het zich  aanpassen aan veranderende afmetingen van de browser. 
 
 Uiteindelijk werd van een plugin afgestapt door \cite{Hadlock2012} waarbij werd aangetoond hoe men via CSS3 media queries hetzelfde kan bereiken. Daarnaast gebruikt de documentatie van jQuery Mobile~\cite{JQuery2012b} een gelijkaardige layout. De uiteindelijke oplossing voor het probleem kwam uit te combinatie van deze twee voorgaande oplossingen.
 
+\subsubsection{Koptekst en voettekst}
+
+\paragraph{jQuery Mobile}
+Het toevoegen van een koptekst en voettekst ging zonder enig probleem door gebruik te maken van \code{data-role="header"} en \code{data-role="footer"}. Wel moest dezelfde code op ieder scherm worden herhaald. Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die jQuery Mobile aanbiedt. Deze voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
+
+Bij het toevoegen van een uitgave dient er een extra titel onder de koptekst te komen. Eerst werd geprobeerd om bovenaan een lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. De uiteindelijke oplossing kwam vanuit de documentatie \cite{JQuery2013b} om dit met behulp van de \code{ui-bar} CSS klasse te implementeren. Deze extra titel wordt ook gebruikt om op de smartphone naar de speciale smartphone navigatie te gaan.
+
 \subsubsection{Knoppen}
 
-\paragraph{jQuery Mobile} De kleur van de knoppen aanpassen kan op twee manieren. Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. Deze laatste manier werd gebruikt om de knoppen groen te maken. Men sleept dan eenvoudigweg de groene kleur op de buttons en daarna kan de bijhorende CSS-code worden gedownload. Door daarna de knop te annoteren met het \code{data-theme} attribuut activeert men het betreffende thema.
+\paragraph{jQuery Mobile} 
+De kleur van de knoppen aanpassen kan op twee manieren. Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. Deze laatste manier werd gebruikt om de knoppen groen te maken. Men sleept dan eenvoudigweg de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. Door daarna de knop te annoteren met het \code{data-theme} attribuut activeert men het betreffende thema. Om de knop blauw te maken was er geen nood aan customizatie, doordat blauw al één van de standaard thema's was.
+
+Knoppen toevoegen aan de koptekst gaat ook op een zeer eenvoudige manier.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

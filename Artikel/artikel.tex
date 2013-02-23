@@ -135,7 +135,8 @@ TODO
 \paragraph{Performance}% Performantie
 
 TODO
-% Een laatste criterium is de performantie. Dit zal worden uitgedrukt in de tijd nodig om te applicatie te renderen. Hierbij zullen we verschillende testen doen. Ten eerste zullen we gebruik maken van de volledige POC. We zullen kijken naar de rendertijd van de applicatie aan de hand van Google Page Speed. Daarnaast zullen we een geïsoleerde test doen met het verzenden van een AJAX request, omdat sommige raamwerken altijd eerst een OPTION request sturen. Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend. Vervolgens zullen we ook geïsoleerde testen doen met UI-elementen. Hierbij zullen we een pagina voorzien van 1000 buttons en meten hoe lang het duurt tot deze pagina gerendert wordt. Als laatste zullen we een test op de aparte loginschermen uitvoeren. Hier kunnen we dan ook het aantal lijnen code bekijken en de bijhorende performantie. De redenen waarom we ook deze geïsoleerde applicatie gebruiken is omdat we ervan uitgaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. Dit is in tegenstelling tot de geïsoleerde login applicatie, waarbij we exact kunnen vergelijken.
+% Een laatste criterium is de performantie. Dit zal worden uitgedrukt in de tijd nodig om te applicatie te renderen. Hierbij zullen we verschillende testen doen. Ten eerste zullen we gebruik maken van de volledige POC. We zullen kijken naar de rendertijd van de applicatie aan de hand van Google Page Speed. Daarnaast zullen we een geïsoleerde test doen met het verzenden van een AJAX request, omdat sommige raamwerken altijd eerst een OPTION request sturen. Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend. Vervolgens zullen we ook geïsoleerde testen doen met UI-elementen. Hierbij zullen we een pagina voorzien van 1000 buttons en meten hoe lang het duurt tot deze pagina gerendert wordt. Als laatste zullen we een test op de aparte loginschermen uitvoeren. Hier kunnen we dan ook het aantal lijnen code bekijken en de bijhorende performantie. De redenen waarom we ook deze geïsoleerde applicatie gebruiken is omdat we ervan 
+uitgaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. Dit is in tegenstelling tot de geïsoleerde login applicatie, waarbij we exact kunnen vergelijken.
 
 \newpage
 \section{Frameworks} % (1 blz per framework + tabel)
@@ -262,6 +263,7 @@ Sencha Touch offers the programmer methods to ask for the current context where 
 
 \subsubsection{Sencha Touch} %TODO best veranderen om niet dezelfde titels te laten terugkomen
 %TODO forms
+Basic form elements can be created easily.  
 
 %TODO offline storage
 
@@ -272,8 +274,10 @@ Drawing a signature with a pen or a finger is handled by a plugin\footnote{\url{
 %TODO upload evidence plugin & autocompletion plugin
 
 %TODO ajax, xml and json
+Ajax request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores.  Stores really show the power of the framework by doing as much work as possible under the hood.  They can be configured with a model to define the structure of the recorded objects.  A proxy configures readers and writers that define where the data can be read or written.  This can be locally at the client side or via a remote server.  Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
 
 %TODO splitscreen
+The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} layout splits the viewport with a vertical axis.  The \code{flex} property defines the ratio of the sizes of both resulting components.  The right component is the page that changes by clicking the menu items in the left component.  This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout
 
 
 \section{Future work} %(0,5 blz)

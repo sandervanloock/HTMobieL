@@ -18,7 +18,7 @@ Hieronder bespreken we de functionele vereisten van de POC.
 \subsubsection{Formulieren}
 
 \paragraph{jQuery Mobile} 
-Voor het toevoegen van placeholders in de formuliervelden kon beroep worden gedaan op het \code{placeholder} attribuut in HTML5. Er dienden geen labels te worden gezet bij de velden. Deze labels zijn echter wel verplicht in jQuery Mobile, maar kunnen onzichtbaar worden gemaakt met de \code{ui-hide-label} CSS klasse~\cite{JQuery2013}.
+Voor het toevoegen van placeholders in de formuliervelden kon beroep worden gedaan op het \code{placeholder} attribuut in HTML5. Er dienden geen labels te worden gezet voor de velden. Deze labels zijn echter wel verplicht in jQuery Mobile, maar kunnen onzichtbaar worden gemaakt met de \code{ui-hide-label} CSS klasse~\cite{JQuery2013}. Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. Dit kan met behulp van JavaScript via de \code{reset()}-functie op het formulier.
 
 Sommige velden waren verplicht in te vullen, terwijl andere niet. Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. Daarnaast was het ook nodig om de velden te valideren op hun waarde. Validatie is echter niet standaard aanwezig in jQuery Mobile. Als oplossing werd de plugin van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. Deze plugin loste ook het probleem met de verplichte velden op. Deze plugin kan op twee manieren gebruikt worden: enerzijds schrijven van CSS klassen in de HTML-code ofwel anderzijds door programmatie in de JavaScript-code. Beide aanpakken werden getest doorheen de POC. 
 % TODO verder uitleggen hoe slim de plugin is
@@ -61,6 +61,10 @@ Hieronder bespreken we de vereisten met betrekking tot lay-out.
 In jQuery Mobile is er standaard geen splitview aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. Eerst werd hiervoor gezocht naar plugins aan de hand van~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. Deze drie mogelijke kanshebbers hadden elk hun tekorten. Zo was de eerste destructief ten opzichte van het raamwerk. Dit betekent dat de bestanden van jQuery Mobile zelf werden aangepast, wat het moeilijker zou maken als men wil updaten naar een nieuwe versie. De tweede plugin werkte enkel tot versie 1.0.1 van jQuery Mobile. De laatste plugin had moeite met het zich  aanpassen aan veranderde afmetingen van de browser. 
 
 Uiteindelijk werd van een plugin afgestapt door \cite{Hadlock2012} waarbij werd aangetoond hoe men via CSS3 media queries hetzelfde kan bereiken. Daarnaast gebruikt de documentatie van jQuery Mobile~\cite{JQuery2012b} een gelijkaardige layout. De uiteindelijke oplossing voor het probleem kwam uit te combinatie van deze twee voorgaande oplossingen.
+
+\subsubsection{Knoppen}
+
+\paragraph{jQuery Mobile} De kleur van de knoppen aanpassen kan op twee manieren. Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. Deze laatste manier werd gebruikt om de knoppen groen te maken. Men sleept dan eenvoudigweg de groene kleur op de buttons en daarna kan de bijhorende CSS-code worden gedownload. Door daarna de knop te annoteren met het \code{data-theme} attribuut activeert men het betreffende thema.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

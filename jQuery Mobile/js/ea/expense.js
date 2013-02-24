@@ -123,29 +123,24 @@ $(document).on("pageinit", "#expense", function () {
         // TODO remove console logs
         if (window.FileReader) {
             // initialize reader
-            console.log("initialize reader");
             var reader = new FileReader();
             // if the image was read, load it into the canvas
             reader.onload = function (e) {
-                console.log("image was read");
                 // get the canvas that is hidden on that page
                 var canvas = $('#expense-evidence-canvas')[0];
                 var context = canvas.getContext('2d');
                 var img = new Image();
                 // if the image is in canvas, get base64
                 img.onload = function () {
-                    console.log("image was loaded");
                     // set canvas dimensions to image dimensions
                     canvas.width = this.width;
                     canvas.height = this.height;
                     // draw the image on the canvas
                     context.drawImage(this, 0, 0);
                     // get the base64 string
-                    var base64 = canvas.toDataURL();
+                    var base64 = EA.base64Substring(canvas.toDataURL());
 
-                    // TODO delete me (developping purposes)
-                    console.log("base64: " + base64 != null);
-
+                    // this can fail due to limitations of browser storage
                     try {
                         EA.setEvidence(base64);
                     } catch (error) {
@@ -155,7 +150,6 @@ $(document).on("pageinit", "#expense", function () {
 
                     $.mobile.loading("hide");
                 };
-                console.log("set image src");
                 img.src = e.target.result;
             };
 

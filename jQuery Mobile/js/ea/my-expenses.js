@@ -1,6 +1,7 @@
 $(document).on("pagebeforeshow", "#my-expenses", function () {
     // always load the expense forms that were cached from the server
     var serverExpenses = EA.getServerExpenses();
+    serverExpenses = serverExpenses.sort(EA.sortExpensesDescending);
     var $expenseList = $("#my-expenses-list");
     var li;
 

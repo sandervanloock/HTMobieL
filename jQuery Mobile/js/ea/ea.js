@@ -342,6 +342,11 @@ var EA = {
      * Helper functions for expenses
      *************************************************/
 
+    base64Substring:function (string) {
+        var base64Prefix = 'data:image/png;base64,';
+        return string.substring(base64Prefix.length);
+    },
+
     sortExpensesAscending:function (a, b) {
         var dateA = new Date(a.date);
         var dateB = new Date(b.date);

@@ -262,21 +262,23 @@ Sencha Touch offers the programmer methods to ask for the current context where 
 \label{sec:poc}
 
 \subsubsection{Sencha Touch} %TODO best veranderen om niet dezelfde titels te laten terugkomen
-%TODO forms
-Basic form elements can be created easily.  
+%forms
+Most required form elements are provided by the framework and can be easily created.  However,  two problems became apparent.  Fist,  creating custom datepickers as needed in the POC is not supported.  It is impossible to ignore the days field and only years can be delimited.  Secondly,  programmatically setting the value of a radiobutton is not obvious.  A new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.
 
 %TODO offline storage
 
-%TODO overview expenses en expenseforms met detailexpense
 
-%TODO signature & pdf
+%signature & pdf
 Drawing a signature with a pen or a finger is handled by a plugin\footnote{\url{https://github.com/SimFla/SimFla-signaturePad}}.  Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  In most cases,  these plugins are written by commited Sencha Touch users and hosted publicly on GitHub. Also,  a plugin for a PDF-viewer can be found\footnote{\url{https://github.com/SunboX/st2_pdf_panel}}.  Many of these plugins can not be used as-is.  I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  
 %TODO upload evidence plugin & autocompletion plugin
 
-%TODO ajax, xml and json
+%ajax, xml and json
 Ajax request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores.  Stores really show the power of the framework by doing as much work as possible under the hood.  They can be configured with a model to define the structure of the recorded objects.  A proxy configures readers and writers that define where the data can be read or written.  This can be locally at the client side or via a remote server.  Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
 
-%TODO splitscreen
+%overview expenses en expenseforms met detailexpense
+To show the list of clickable expenses,  Sencha Touch provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  A back button is automatically created to return to the overview list.  
+
+%splitscreen
 The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} layout splits the viewport with a vertical axis.  The \code{flex} property defines the ratio of the sizes of both resulting components.  The right component is the page that changes by clicking the menu items in the left component.  This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout
 
 

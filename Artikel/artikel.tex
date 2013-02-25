@@ -41,7 +41,7 @@
 % paragraphs anders te feel white space
 \usepackage{setspace}
 \renewcommand{\paragraph}[1]{{\bf #1} }
-\newcommand{\framework}[2]{#1 #2} %enkel in usage stukje om framework in te leiden
+\newcommand{\framework}[2]{\raggedright \emph{\MakeUppercase{#1} \hfill (\textbf{#2}): }} %enkel in usage stukje om framework in te leiden
 
 %%%%%%%%%%%%%% CUSTOM END %%%%%%%%%%%%%%
 
@@ -114,34 +114,33 @@ As mentioned earlier,  we will compare four HTML5 mobile frameworks based upon a
 
 \paragraph{Community}% Gemeenschap
 
-TODO 
+%TODO 
 % De gemeenschap en populariteit van een raamwerk is makkelijk in cijfers uit te drukken. We voorzien een tabel waar we per raamwerk het aantal volgers op Twitter, watchers/forkers van GitHub en aantal likes van Facebook zullen onderbrengen. Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal voor elk raamwerk na deze tabel worden toegevoegd.
 % De som van volgers, watchers en likes vormt de score voor het gemeenschapscriteria.
 
 \paragraph{Productivity}% Productiviteit
 
-TODO
+%TODO
 % De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwerk vertrouwd te raken. Hiervoor gaan we het feit uitbuiten dat we deze thesis met twee maken. Elk zullen we de proof-of-concept (POC) in twee verschillende raamwerken maken wat het totaal op 4 raamwerken brengt. De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. Ook zal elk van ons een loginscherm maken in de andere twee raamwerken. Als Tim de POC implementeert in raamwerken A en B en Sander in raamwerken C en D, zal dus Tim ook een loginscherm maken in raamwerken C en D en vice versa.  Dit scherm bevat UI-elementen, validaties en backend integratie. We kunnen dit dus als voldoende steekproef beschouwen om ervaring met een raamwerk te testen. De tijd die ieder nodig heeft om dit scherm te bouwen, geeft ook een indicatie van de nodige leertijd.
 % De som van de uren voor het implementeren van de POC en het loginscherm vormt de score voor de productiviteit.
 
 \paragraph{Usage}% Gebruik
 
-TODO
+%TODO
 % Om het verschil in gebruik van de raamwerken te onderzoeken, zullen we steunen op de logboeken die we hebben bijgehouden tijdens het implementeren van de POC. We gaan er vanuit dat de POC relevante kenmerken bevat om de raamwerken zoveel mogelijk uit te buiten. We zullen bij het vergelijken de moeilijkheden groeperen zodat het snel duidelijk wordt welke functionaliteit in een bepaald raamwerk moeilijker/makkelijker te implementeren is. Een hogere score wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. Een lagere score betekent dat een plugin werd gezocht. Wanneer een hack noodzakelijk was om de functionaliteit te beogen, zal de laagste score worden toegekend.
 
 \paragraph{Support}% Ondersteuning
 
-TODO
+%TODO
 % We zullen een scenario uitwerken waarbij we het gebruik van de POC doorlopen. Dit scenario zullen we op een reeks van verschillende mobiele apparaten herhalen. Bij het mislukken van een stap in het scenario, zal een punt worden afgetrokken. Hierdoor kunnen we een score bekomen hoe goed de applicatie, geïmplementeerd in een bepaald raamwerk, scoort op een bepaald apparaat. De gebruikte apparaten en versies van besturingssystemen en browsers zullen worden bepaald aan de hand van de marktaandeel en de beschikbaarheid van deze apparaten aan het departement HCI.
 % Een kanttekening hierbij is of het raamwerk ondersteunt de webapplicatie om te vormen tot een native applicatie. Ook bekijken we of de native look-and-feel per besturingssysteem door het raamwerk kan worden benaderd.
 
 \paragraph{Performance}% Performantie
 
-TODO
-% Een laatste criterium is de performantie. Dit zal worden uitgedrukt in de tijd nodig om te applicatie te renderen. Hierbij zullen we verschillende testen doen. Ten eerste zullen we gebruik maken van de volledige POC. We zullen kijken naar de rendertijd van de applicatie aan de hand van Google Page Speed. Daarnaast zullen we een geïsoleerde test doen met het verzenden van een AJAX request, omdat sommige raamwerken altijd eerst een OPTION request sturen. Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend. Vervolgens zullen we ook geïsoleerde testen doen met UI-elementen. Hierbij zullen we een pagina voorzien van 1000 buttons en meten hoe lang het duurt tot deze pagina gerendert wordt. Als laatste zullen we een test op de aparte loginschermen uitvoeren. Hier kunnen we dan ook het aantal lijnen code bekijken en de bijhorende performantie. De redenen waarom we ook deze geïsoleerde applicatie gebruiken is omdat we ervan 
-uitgaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. Dit is in tegenstelling tot de geïsoleerde login applicatie, waarbij we exact kunnen vergelijken.
+%TODO
+% Een laatste criterium is de performantie. Dit zal worden uitgedrukt in de tijd nodig om te applicatie te renderen. Hierbij zullen we verschillende testen doen. Ten eerste zullen we gebruik maken van de volledige POC. We zullen kijken naar de rendertijd van de applicatie aan de hand van Google Page Speed. Daarnaast zullen we een geïsoleerde test doen met het verzenden van een AJAX request, omdat sommige raamwerken altijd eerst een OPTION request sturen. Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend. Vervolgens zullen we ook geïsoleerde testen doen met UI-elementen. Hierbij zullen we een pagina voorzien van 1000 buttons en meten hoe lang het duurt tot deze pagina gerendert wordt. Als laatste zullen we een test op de aparte loginschermen uitvoeren. Hier kunnen we dan ook het aantal lijnen code bekijken en de bijhorende performantie. De redenen waarom we ook deze geïsoleerde applicatie gebruiken is omdat we ervan uitgaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. Dit is in tegenstelling tot de geïsoleerde login applicatie, waarbij we exact kunnen vergelijken.
 
-\newpage
+
 \section{Frameworks} % (1 blz per framework + tabel)
 \label{sec:frameworks}
 
@@ -264,34 +263,74 @@ Sencha Touch offers the programmer methods to ask for the current context where 
 \subsection{Usage} %puntjes logboek + POC uitleggen (1,5 blz)
 \label{sec:poc}
 
-%\subsubsection{Sencha Touch} %TODO best veranderen om niet dezelfde titels te laten terugkomen
-%forms
+\subsubsection{Forms}
+\framework{jQM}{X}
+%TODO
 
+\framework{ST}{X}
 Most required form elements are provided by the framework and can be easily created.  However,  two problems became apparent.  Fist,  creating custom datepickers as needed in the POC is not supported.  It is impossible to ignore the days field and only years can be delimited.  Secondly,  programmatically setting the value of a radiobutton is not obvious.  A new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.
 
-%validaties
+\subsubsection{Filling forms} %automatisch invullen van formulieren:  overview expenses en expenseforms met detailexpense
+\framework{jQM}{X}
+%TODO
 
+\framework{ST}{X}
+To show the list of clickable expenses,  Sencha Touch provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  A back button is automatically created to return to the overview list.
 
-%automatisch invullen van formulieren:  overview expenses en expenseforms met detailexpense
-To show the list of clickable expenses,  Sencha Touch provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  A back button is automatically created to return to the overview list.  
+\subsubsection{Validations} %validaties
+\framework{jQM}{X}
+%TODO
 
-%TODO offline storage
+\framework{ST}{X}
+%TODO
 
-%signature 
+\subsubsection{Signature}%signature 
+\framework{jQM}{X}
+%TODO
+
+\framework{ST}{X}
 Drawing a signature with a pen or a finger is handled by a plugin\footnote{\url{https://github.com/SimFla/SimFla-signaturePad}}.  Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  In most cases,  these plugins are written by commited Sencha Touch users and hosted publicly on GitHub. 
 
-%PDF
+\subsubsection{PDF viewer}%PDF
+\framework{jQM}{X}
+%TODO
+
+\framework{ST}{X}
 Also,  a plugin for a PDF-viewer can be found\footnote{\url{https://github.com/SunboX/st2\_pdf\_panel}}.  Many of these plugins can not be used as-is.  I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  
 
-%TODO upload evidence plugin 
+\subsubsection{Evidence upload}
+\framework{jQM}{X}
+%TODO
 
-%TODO autocompletion plugin
+\framework{ST}{X}
 
-%ajax, xml and json
+\subsubsection{Autocompletion}
+\framework{jQM}{X}
+%TODO
+
+\framework{ST}{X}
+%TODO
+
+\subsubsection{Ajax, XML \& JSON}%ajax, xml and json
+\framework{jQM}{X}
+%TODO
+
+\framework{ST}{X}
 Ajax request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores.  Stores really show the power of the framework by doing as much work as possible under the hood.  They can be configured with a model to define the structure of the recorded objects.  A proxy configures readers and writers that define where the data can be read or written.  This can be locally at the client side or via a remote server.  Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
 
-%splitscreen en aanpassen naar device
+\subsubsection{Splitscreen \& device-specific lay-out}%splitscreen en aanpassen naar device
+\framework{jQM}{X}
+%TODO
+
+\framework{ST}{X}
 The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} layout splits the viewport with a vertical axis.  The \code{flex} property defines the ratio of the sizes of both resulting components.  The right component is the page that changes by clicking the menu items in the left component.  This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout
+
+\subsubsection{Offline storage}
+\framework{jQM}{X}
+%TODO
+
+\framework{ST}{X}
+%TODO
 
 \section{Future work} %(0,5 blz)
 \label{sec:future_work}

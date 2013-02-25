@@ -18,14 +18,31 @@ Hieronder bespreken we de functionele vereisten van de POC.
 \subsubsection{Formulieren}
 
 \paragraph{jQuery Mobile} 
-Voor het toevoegen van placeholders in de formuliervelden kon beroep worden gedaan op het \code{placeholder} attribuut in HTML5. Er dienden geen labels te worden gezet voor de velden. Deze labels zijn echter wel verplicht in jQuery Mobile, maar kunnen onzichtbaar worden gemaakt met de \code{ui-hide-label} CSS klasse~\cite{JQuery2013}. Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. Dit kan met behulp van JavaScript via de \code{reset()}-functie op het formulier.
+Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder} attribuut in HTML5. Er dienden geen labels te worden gezet voor de velden. Deze labels zijn echter wel verplicht in jQuery Mobile, maar kunnen onzichtbaar worden gemaakt met de \code{ui-hide-label} CSS klasse~\cite{JQuery2013}. Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. Dit kan met behulp van JavaScript via de \code{reset()}-functie op het formulier.
 
-Sommige velden waren verplicht in te vullen, terwijl andere niet. Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. Daarnaast was het ook nodig om de velden te valideren op hun waarde. Validatie is echter niet standaard aanwezig in jQuery Mobile. Als oplossing werd de plugin van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. Deze plugin loste ook het probleem met de verplichte velden op. Deze plugin kan op twee manieren gebruikt worden: enerzijds schrijven van CSS klassen in de HTML-code ofwel anderzijds door programmatie in de JavaScript-code. Beide aanpakken werden getest doorheen de POC. 
-% TODO verder uitleggen hoe slim de plugin is
-
-Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. Deze zorgen ervoor dat op de mobiele apparaten aangepaste toetsenborden te voorschijn komen. Het \code{date} type werd echter niet gebruikt. Enerzijds was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013b}. Dit betekende onder andere dat Android 2.3 dit niet ondersteunde. Een ander probleem was het ontbreken van een placeholder in het veld op iOS 6 en Android 4.2. Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. Daarnaast is een placeholder instellen onmogelijk voor een \code{date} type. Anderzijds moest het ook mogelijk zijn om de gebruiker maar een bepaald bereik van data op te leggen, wat met het \code{date} type onmogelijk is. Hierdoor werd gebruik gemaakt van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die aangepaste lay-out heeft voor jQuery Mobile.
+Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. Deze zorgen ervoor dat op de mobiele apparaten aangepaste toetsenborden te voorschijn komen. Het \code{date} type werd echter niet gebruikt. Enerzijds was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013b}. Dit betekende onder andere dat Android 2.3 dit niet ondersteunde. Een ander probleem was het ontbreken van een placeholder in het veld op iOS 6 en Android 4.2. Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. Daarnaast is een \code{placeholder} instellen onmogelijk voor een \code{date} type. Anderzijds moest het ook mogelijk zijn om de gebruiker maar een bepaald bereik van data op te leggen, wat met het \code{date} type onmogelijk is. Hierdoor werd gebruik gemaakt van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die aangepaste lay-out heeft voor jQuery Mobile.
 
 Het was ook nodig om enkel de maand en jaar op te vragen. Ook hier kon niet het \code{date} type gebruikt worden, omdat hier ook een dag nodig is om op te geven. Daardoor werd dit handmatig geprogrammeerd als vaste lijstitems, maar dit had ook met de Mobiscroll plugin verwezenlijkt kunnen worden.
+
+\subsubsection{Validatie}
+
+\paragraph{jQuery Mobile} 
+Sommige formuliervelden waren verplicht in te vullen, terwijl andere niet. Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. Daarnaast was het ook nodig om de velden te valideren op hun waarde. Validatie is echter niet standaard aanwezig in jQuery Mobile. Als oplossing werd de plugin van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. Deze plugin loste ook het probleem met de verplichte velden op. Deze plugin kan op twee manieren gebruikt worden: enerzijds schrijven van CSS klassen in de HTML-code ofwel anderzijds door programmatie in de JavaScript-code. Beide aanpakken werden getest doorheen de POC. 
+% TODO verder uitleggen hoe slim de plugin is
+
+Bij fouten tegen validatie moest een dialoogvenster worden weergegeven met daarin een beschrijving van alle foute velden.
+Aangezien de plugin standaard onder het foute formulierveld een foutboodschap toont, diende de plugin  te worden aangepast.
+Door de uitgebreide API van de plugin die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
+
+Een specifiek mobiel probleem was bij het tonen van het dialoogvenster, waarbij de plugin op de achtergrond de cursor op het eerste veld zette. 
+Hierdoor verscheen het toetsenbord op het scherm wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
+Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plugin.
+
+Bij het sluiten van het dialoogvenster dienden de foute velden met een rode rand te worden gemarkeerd.
+Aangezien de validatie plugin de foute velden annoteert met de \code{error} CSS klasse, kon de rode rand in CSS worden geprogrammeerd. 
+Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
+Door de extra code die jQuery Mobile genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
+Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plugin.
 
 \subsubsection{Opladen van bewijs}
 
@@ -47,7 +64,7 @@ Het maken van oproepen via AJAX gebeurt via de jQuery bibliotheek waar jQuery Mo
 \paragraph{jQuery Mobile} 
 In jQuery is er de functie \code{parseJSON} aanwezig, maar aangezien we in de AJAX oproep instellen dat we JSON verwachten, parst jQuery al automatisch het antwoord. Hierdoor hebben we \code{parseJSON} niet nodig en kunnen we direct omgaan met het antwoord.
 
-Het is ook nodig om JSON te versturen als oproep. Dit wordt gedaan vanuit JavaScript zonder een bibliotheek nodig te hebben. Eerst wordt een object aangemaakt met inhoud, waarop daarna de functie \code{JSON.stringify} oproepen wordt. Deze is daarna klaar om verstuurd te worden als data via AJAX.
+Het is ook nodig om JSON te versturen als oproep. Dit wordt gedaan vanuit JavaScript zonder een bibliotheek nodig te hebben. Eerst wordt een object aangemaakt met inhoud, waarop daarna de functie \code{JSON.stringify} opgeroepen wordt. Deze is daarna klaar om te worden verstuurd als data via AJAX.
 
 \subsubsection{XML}
 

@@ -28,7 +28,9 @@ Het was ook nodig om enkel de maand en jaar op te vragen. Ook hier kon niet het 
 
 \paragraph{jQuery Mobile} 
 Sommige formuliervelden waren verplicht in te vullen, terwijl andere niet. Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. Daarnaast was het ook nodig om de velden te valideren op hun waarde. Validatie is echter niet standaard aanwezig in jQuery Mobile. Als oplossing werd de plugin van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. Deze plugin loste ook het probleem met de verplichte velden op. Deze plugin kan op twee manieren gebruikt worden: enerzijds schrijven van CSS klassen in de HTML-code ofwel anderzijds door programmatie in de JavaScript-code. Beide aanpakken werden getest doorheen de POC. 
-% TODO verder uitleggen hoe slim de plugin is
+
+De plugin bevatte de volgende ingebakken validatieregels nodig in de POC: \code{required}, \code{number}, \code{email} en \code{date}.
+Daarnaast was het nodig dat een veld verplicht was enkel indien een optie aangevinkt was, ook dit was standaard aanwezig in de plugin.
 
 Bij fouten tegen validatie moest een dialoogvenster worden weergegeven met daarin een beschrijving van alle foute velden.
 Aangezien de plugin standaard onder het foute formulierveld een foutboodschap toont, diende de plugin  te worden aangepast.
@@ -80,6 +82,14 @@ Het is niet aangeraden om ruwe data, zoals een PDF, op te halen via AJAX. Hierdo
 
 \paragraph{jQuery Mobile} 
 Hoewel versie 1.3 automatische aanvulling ter beschikking heeft~\cite{JQuery2013c}, werd tijdens de implementatie gebruik gemaakt van versie 1.2 die dit niet had. Daarom werd de plugin van Andy Matthews gebruikt~\cite{Matthews2013}. Dit is een zeer gemakkelijk te integreren plugin die zowel met lokale data als data op afstand kan werken. Daarnaast dienden enkel vijf suggesties te worden getoond. Deze functionaliteit zat niet in de plugin, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
+
+\subsubsection{Detail van toegevoegde uitgave}
+
+\paragraph{jQuery Mobile} 
+Na het toevoegen van een uitgave, is het mogelijk om deze opnieuw te bekijken (maar niet aan te passen).
+Hiervoor wordt hetzelfde formulier (dat om een uitgave toe te voegen wordt gebruikt) gekopieerd, waarna alle elementen op enkel lezen worden gezet.
+Daarna worden de velden gevuld met de gegevens door de \code{id}'s van die velden op te vragen en hun waarde in te stellen volgens de JSON voorstelling van die uitgave. 
+Er is met andere woorden geen automatische mapping van de JSON data naar de formuliervelden. 
 
 \subsection{Lay-out}
 Hieronder bespreken we de vereisten met betrekking tot lay-out.

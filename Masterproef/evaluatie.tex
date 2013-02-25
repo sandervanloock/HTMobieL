@@ -83,13 +83,42 @@ Het is niet aangeraden om ruwe data, zoals een PDF, op te halen via AJAX. Hierdo
 \paragraph{jQuery Mobile} 
 Hoewel versie 1.3 automatische aanvulling ter beschikking heeft~\cite{JQuery2013c}, werd tijdens de implementatie gebruik gemaakt van versie 1.2 die dit niet had. Daarom werd de plugin van Andy Matthews gebruikt~\cite{Matthews2013}. Dit is een zeer gemakkelijk te integreren plugin die zowel met lokale data als data op afstand kan werken. Daarnaast dienden enkel vijf suggesties te worden getoond. Deze functionaliteit zat niet in de plugin, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
 
+\subsubsection{Tabbalk}
+
+\paragraph{jQuery Mobile} 
+Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
+Daarom werd gekozen voor \code{fieldset} met twee opties.
+
+\subsubsection{Inlogscherm indien niet aangemeld}
+
+\paragraph{jQuery Mobile} 
+Indien men een applicatie maakt met meerdere schermen op eenzelfde pagina, laadt jQuery Mobile altijd het eerste scherm in de code.
+Het startscherm werd als eerste scherm gekozen.
+Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
+
 \subsubsection{Detail van toegevoegde uitgave}
 
 \paragraph{jQuery Mobile} 
 Na het toevoegen van een uitgave, is het mogelijk om deze opnieuw te bekijken (maar niet aan te passen).
 Hiervoor wordt hetzelfde formulier (dat om een uitgave toe te voegen wordt gebruikt) gekopieerd, waarna alle elementen op enkel lezen worden gezet.
-Daarna worden de velden gevuld met de gegevens door de \code{id}'s van die velden op te vragen en hun waarde in te stellen volgens de JSON voorstelling van die uitgave. 
+Dit was geen probleem voor velden van het type \code{input} en \code{textarea}. 
+Dit kon echter niet  bij \code{fieldset}. 
+Daar moesten via \code{disabled} de andere opties onmogelijk worden gemaakt.
+Het invullen van het formulier zelf werd bekomen door de \code{id}'s van de velden op te vragen en hun waarde in te stellen volgens de JSON voorstelling van die uitgave. 
 Er is met andere woorden geen automatische mapping van de JSON data naar de formuliervelden. 
+
+\subsubsection{Laadscherm}
+
+\paragraph{jQuery Mobile} 
+Het standaard laadscherm is enkel een \term{spinner} die niet sterk aanwezig is en ook zonder tekst ronddraait.
+Door enkele parameters aan te passen, komt de \term{spinner} duidelijk naar voor en staat er ook een tekst onder.
+
+\subsubsection{Dialoogvenster}
+
+\paragraph{jQuery Mobile} 
+Eerst werd gebruik gemaakt van DateBox \cite{Sage2013} als plugin om op een gemakkelijke manier dialoogvenster te tonen.
+Uiteindelijk bleek de plugin niet zo gemakkelijk aanpasbaar en daarenboven zitten dialoogvensters standaard in jQuery Mobile aanwezig.
+Dit laatste verwijderde ook het het probleem van de slechte aanpasbaarheid bij de plugin.
 
 \subsection{Lay-out}
 Hieronder bespreken we de vereisten met betrekking tot lay-out.

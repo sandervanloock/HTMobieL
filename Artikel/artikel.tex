@@ -26,6 +26,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[colorlinks]{hyperref}
 \usepackage{multirow}
+\usepackage{pgfplotstable} %nodig voor CSV to Latex
+\usepackage{booktabs} % voor layout comparisontable
 
 % engelse term die we niet vertalen naar het nederlands
 \newcommand{\term}[1]{\emph{#1}}
@@ -39,6 +41,7 @@
 % paragraphs anders te feel white space
 \usepackage{setspace}
 \renewcommand{\paragraph}[1]{{\bf #1} }
+\newcommand{\framework}[2]{#1 #2} %enkel in usage stukje om framework in te leiden
 
 %%%%%%%%%%%%%% CUSTOM END %%%%%%%%%%%%%%
 
@@ -258,29 +261,37 @@ Sencha Touch offers the programmer methods to ask for the current context where 
 % Met 7.400 volgers op GitHub~\cite{GitHub2012} en 11.200 volgers op Twitter~\cite{Twitter2012} komt de grote kracht van jQuery Mobile van zijn community . Dit heeft grotendeels te maken met het feit dat jQuery Mobile geniet van het succes van jQuery, dat ook zeer populair is~\cite{Hales2012}.
 %TODO Sander: dit komt in de vergelijkingscriteria
 
-\subsection{Proof of concept} %puntjes logboek + POC uitleggen (1,5 blz)
+\subsection{Usage} %puntjes logboek + POC uitleggen (1,5 blz)
 \label{sec:poc}
 
-\subsubsection{Sencha Touch} %TODO best veranderen om niet dezelfde titels te laten terugkomen
+%\subsubsection{Sencha Touch} %TODO best veranderen om niet dezelfde titels te laten terugkomen
 %forms
+
 Most required form elements are provided by the framework and can be easily created.  However,  two problems became apparent.  Fist,  creating custom datepickers as needed in the POC is not supported.  It is impossible to ignore the days field and only years can be delimited.  Secondly,  programmatically setting the value of a radiobutton is not obvious.  A new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.
+
+%validaties
+
+
+%automatisch invullen van formulieren:  overview expenses en expenseforms met detailexpense
+To show the list of clickable expenses,  Sencha Touch provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  A back button is automatically created to return to the overview list.  
 
 %TODO offline storage
 
+%signature 
+Drawing a signature with a pen or a finger is handled by a plugin\footnote{\url{https://github.com/SimFla/SimFla-signaturePad}}.  Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  In most cases,  these plugins are written by commited Sencha Touch users and hosted publicly on GitHub. 
 
-%signature & pdf
-Drawing a signature with a pen or a finger is handled by a plugin\footnote{\url{https://github.com/SimFla/SimFla-signaturePad}}.  Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  In most cases,  these plugins are written by commited Sencha Touch users and hosted publicly on GitHub. Also,  a plugin for a PDF-viewer can be found\footnote{\url{https://github.com/SunboX/st2_pdf_panel}}.  Many of these plugins can not be used as-is.  I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  
-%TODO upload evidence plugin & autocompletion plugin
+%PDF
+Also,  a plugin for a PDF-viewer can be found\footnote{\url{https://github.com/SunboX/st2\_pdf\_panel}}.  Many of these plugins can not be used as-is.  I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  
+
+%TODO upload evidence plugin 
+
+%TODO autocompletion plugin
 
 %ajax, xml and json
 Ajax request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores.  Stores really show the power of the framework by doing as much work as possible under the hood.  They can be configured with a model to define the structure of the recorded objects.  A proxy configures readers and writers that define where the data can be read or written.  This can be locally at the client side or via a remote server.  Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
 
-%overview expenses en expenseforms met detailexpense
-To show the list of clickable expenses,  Sencha Touch provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  A back button is automatically created to return to the overview list.  
-
-%splitscreen
+%splitscreen en aanpassen naar device
 The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} layout splits the viewport with a vertical axis.  The \code{flex} property defines the ratio of the sizes of both resulting components.  The right component is the page that changes by clicking the menu items in the left component.  This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout
-
 
 \section{Future work} %(0,5 blz)
 \label{sec:future_work}
@@ -292,5 +303,30 @@ The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} l
 \bibliographystyle{named}
 \bibliography{literatuurstudie,vergelijking}
 
+\appendix
+\section{Comparison table}
+\label{app:comparison_table}
+%CSV to latex tutorial in blogpost: http://texblog.org/2012/05/30/generate-latex-tables-from-csv-files-excel/
+%Manual: http://pgfplots.sourceforge.net/pgfplotstable.pdf
+
+\begin{center}
+
+\pgfplotstabletypeset[
+  col sep=semicolon,
+  %header=true,    
+  string type,
+  %columns={criteria,jquerymobile,senchatouch},      % display specified columns
+  columns/criteria/.style={column name=Criteria, column type={|l}},
+  columns/jquerymobile/.style={column name=jQM, column type={|c|}},
+  columns/senchatouch/.style={column name=ST, column type={|c|}},
+  % requires booktabs to place horiz rules
+  every head row/.style={
+    before row=\hline,after row=\hline},
+  every last row/.style={
+    after row=\hline}
+]{comparisontable.csv}
+
+
+\end{center}
 \end{document}
 

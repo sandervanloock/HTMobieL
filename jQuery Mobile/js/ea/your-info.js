@@ -56,7 +56,12 @@ $(document).on("pageinit", "#your-info", function () {
                 "required":true,
                 "isCorrectYear":true
             },
-            "your-info-employee-number":"required",
+            "your-info-employee-number":{
+                "required":true,
+                // redundant, because of the input type number,
+                // the plugin will already check for a valid number
+                "number":true
+            },
             "your-info-units":"required",
             "your-info-email":{
                 "required":true,

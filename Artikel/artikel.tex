@@ -38,10 +38,10 @@
 % zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
 \renewcommand{\url}[1]{\href{http://#1}{#1}}
 
-% paragraphs anders te feel white space
+% paragraphs anders te veel white space
 \usepackage{setspace}
 \renewcommand{\paragraph}[1]{{\bf #1} }
-\newcommand{\framework}[2]{\raggedright \emph{\MakeUppercase{#1} \hfill (\textbf{#2}): }} %enkel in usage stukje om framework in te leiden
+\newcommand{\framework}[2]{\noindent \emph{#1 (\textbf{#2}): }} %enkel in usage stukje om framework in te leiden
 
 %%%%%%%%%%%%%% CUSTOM END %%%%%%%%%%%%%%
 
@@ -170,13 +170,13 @@ As of September 2012 it is only possible to use jQM under the Massachusetts Inst
 This means that the code is released as open source and can also be used in proprietary projects~\cite{PhilDutson2012}.
 
 \paragraph{Documentation}
-One can find the documentation of jQM on \url{www.jquerymobile.com/demos/1.2.0}. On the one hand it contains an overview of all possible UI components. 
+One can find the documentation of jQM~1.2 on \url{www.jquerymobile.com/demos/1.2.0}. On the one hand it contains an overview of all possible UI components. 
 By checking the source code, you can find out what code to write to get the same result. 
 On the other hand it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
 
 \paragraph{Code and development}
 jQM is a UI framework and thus provides mainly UI components. 
-jQM provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
+jQM provides six categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
 One can obtain these components by writing HTML5 with jQM specific \code{data-}* attributes. 
 When running the application, jQM will add the extra necessary code to correctly show these components by doing progressive enhancement.
 
@@ -199,7 +199,7 @@ An A graded browsers supports everything of the jQM framework, where a C graded 
 
 Sencha Touch (ST) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  Ext JS is a JavaScript framework for the development of web applications.  jQuery Touch is a jQuery plug in for mobile development that adds touch events to jQuery and depends on the WebKit engine.  Finally,  Raphaël, is a JavaScript library for vector drawings.  Pieces of the first two technologies can be found in the implementation of ST framework.    
 
-Currently,  ST is at version 2.1.1~\cite{Inc.}.
+As at the time of writing,  ST is at version 2.1.1~\cite{Inc.}.
 
 \paragraph{Documentation}
 All documentation for ST 2.1.1 can be found at \url{docs.sencha.com/touch/2-0}.  The most important features,  are provided with code examples and an example of the code after rendered by the browser.  The key concepts of ST are explained in extensive tutorials:  some texts, some videos.  
@@ -235,31 +235,48 @@ ST offers the programmer methods to ask for the current context where the end-us
 % Met 7.400 volgers op GitHub~\cite{GitHub2012} en 11.200 volgers op Twitter~\cite{Twitter2012} komt de grote kracht van jQuery Mobile van zijn community . Dit heeft grotendeels te maken met het feit dat jQuery Mobile geniet van het succes van jQuery, dat ook zeer populair is~\cite{Hales2012}.
 %TODO Sander: dit komt in de vergelijkingscriteria
 
-\subsection{Usage} %puntjes logboek + POC uitleggen (1,5 blz)
+\subsection{Usage}
 \label{sec:poc}
 
 \subsubsection{Forms}
 \framework{jQM}{X}
-%TODO
+Only placeholders were needed in the form elements, but no labels.
+The former can be achieved with the HTML5 \code{placeholder} attribute.
+The latter is mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
+The types of form elements used were \code{text}, \code{number} and \code{email}.
+The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
+Not only the lack of support, but also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
+The need for a custom date picker with only a month and year needed to be hard coded.
 
 \framework{ST}{X}
-Most required form elements are provided by the framework and can be easily created.  However,  two problems became apparent.  Fist,  creating custom datepickers as needed in the POC is not supported.  It is impossible to ignore the days field and only years can be delimited.  Secondly,  programmatically setting the value of a radiobutton is not obvious.  A new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.
+Most required form elements are provided by the framework and can be easily created.  
+However,  two problems became apparent.  
+First,  creating custom datepickers as needed in the POC is not supported.  
+It is impossible to ignore the days field and only years can be delimited.  
+Secondly,  programmatically setting the value of a radiobutton is not obvious.  
+A new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.
 
-\subsubsection{Filling forms} %automatisch invullen van formulieren:  overview expenses en expenseforms met detailexpense
+\subsubsection{Filling forms} 
+%automatisch invullen van formulieren:  overview expenses en expenseforms met detailexpense
 \framework{jQM}{X}
-%TODO
+Loading data into the form for viewing purposes needed to be programmed manually because there is no automatic mapping between the data and the form.
+All the form elements on this form had to be set as read-only.
+This can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
+With \code{fieldset}, the \code{disabled} attribute was the solution.
+Lastly with \code{select}, the other options were deleted from the list.
 
 \framework{ST}{X}
 To show the list of clickable expenses,  ST provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  A back button is automatically created to return to the overview list.
 
-\subsubsection{Validations} %validaties
+\subsubsection{Validation}
 \framework{jQM}{X}
-%TODO
+Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used.
+This plugin also provides built in validation methods that were needed: \code{required}, \code{number}, \code{email} and \code{date}.
 
 \framework{ST}{X}
 %TODO
 
-\subsubsection{Signature}%signature 
+\subsubsection{Signature}
 \framework{jQM}{X}
 %TODO
 
@@ -279,14 +296,14 @@ Also,  a plugin for a PDF-viewer can be found~\cite{Fiedler2012}.  Many of these
 
 \framework{ST}{X}
 
-\subsubsection{Autocompletion}
+\subsubsection{Autocomplete}
 \framework{jQM}{X}
 %TODO
 
 \framework{ST}{X}
 %TODO
 
-\subsubsection{Ajax, XML \& JSON}%ajax, xml and json
+\subsubsection{AJAX, XML \& JSON}%ajax, xml and json
 \framework{jQM}{X}
 %TODO
 
@@ -300,7 +317,7 @@ Ajax request can be done either explicitly via a direct \code{Ext.Ajax.request}-
 \framework{ST}{X}
 The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} layout splits the viewport with a vertical axis.  The \code{flex} property defines the ratio of the sizes of both resulting components.  The right component is the page that changes by clicking the menu items in the left component.  This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout
 
-\subsubsection{Offline storage}
+\subsubsection{Offline}
 \framework{jQM}{X}
 %TODO
 

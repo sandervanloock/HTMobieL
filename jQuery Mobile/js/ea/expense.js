@@ -305,15 +305,15 @@ $(document).on("pageinit", "#expense", function () {
 });
 
 // navigation for smartphones
-$(document).on("tap", "#expense-subheader", function () {
+$(document).on("click", "#expense-subheader", function () {
     $.mobile.changePage("#add");
 });
 
-$(document).on("tap", "#abroad-subheader", function () {
+$(document).on("click", "#abroad-subheader", function () {
     $.mobile.changePage("#add");
 });
 
-$(document).on("tap", "#domestic-subheader", function () {
+$(document).on("click", "#domestic-subheader", function () {
     $.mobile.changePage("#add");
 });
 

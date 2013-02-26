@@ -90,8 +90,8 @@ $(document).on("pageshow", "#my-expenses", function () {
     });
 });
 
-// when the users taps on an expense form, download it in PDF-format
-$(document).on("tap", "[id^=my-expenses-show-pdf]", function () {
+// when the users clicks on an expense form, download it in PDF-format
+$(document).on("click", "[id^=my-expenses-show-pdf]", function () {
     // get the id of the form that is requested
     var expenseFormId = $(this).attr("id").replace("my-expenses-show-pdf-", "");
     // guideline: AJAX is not for fetching raw data like a PDF.

@@ -38,7 +38,7 @@ $(document).on("pagebeforeshow", "#overview", function () {
     $overviewList.listview('refresh');
 });
 
-$(document).on("tap", "[id^=expense-show]", function () {
+$(document).on("click", "[id^=expense-show]", function () {
     // get the id of the local expense that is requested
     var id = $(this).attr("id").replace("expense-show-", "");
     // get the associated expense
@@ -125,6 +125,6 @@ $(document).on("tap", "[id^=expense-show]", function () {
 });
 
 // navigation for smartphones
-$(document).on("tap", "#overview-subheader", function () {
+$(document).on("click", "#overview-subheader", function () {
     $.mobile.changePage("#add");
 });

@@ -155,24 +155,24 @@ $(document).on("pagebeforeshow", "#your-info", function () {
 });
 
 // validation must be done when clicking on menu button
-$(document).on("tap", "#your-info-menu-overview", function () {
+$(document).on("click", "#your-info-menu-overview", function () {
     $("#your-info-form").submit();
 });
 
 // validation must be done when clicking on menu button
-$(document).on("tap", "#your-info-menu-add-expense", function () {
+$(document).on("click", "#your-info-menu-add-expense", function () {
     $("#your-info-next-page").val("#expense");
     $("#your-info-form").submit();
 });
 
 // validation must be done when clicking on menu button
-$(document).on("tap", "#your-info-menu-sign-and-send", function () {
+$(document).on("click", "#your-info-menu-sign-and-send", function () {
     $("#your-info-next-page").val("#sign-and-send");
     $("#your-info-form").submit();
 });
 
 // navigation for smartphones
-$(document).on("tap", "#your-info-subheader", function () {
+$(document).on("click", "#your-info-subheader", function () {
     $.mobile.changePage("#add");
 });
 

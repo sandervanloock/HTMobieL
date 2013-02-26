@@ -32,7 +32,7 @@ $(document).on("pageshow", "#sign-and-send", function () {
     });
 });
 
-$(document).on("tap", "#sign-and-send-signature-reset", function () {
+$(document).on("click", "#sign-and-send-signature-reset", function () {
     // clear the signature when user wants to redraw it
     $("#sign-and-send-signature").jSignature("reset");
 
@@ -142,10 +142,10 @@ function clearAndShowSuccess() {
 }
 
 // navigation for smartphones
-$(document).on("tap", "#sign-and-send-subheader", function () {
+$(document).on("click", "#sign-and-send-subheader", function () {
     $.mobile.changePage("#add");
 });
 
-$(document).on("tap", "#success-button", function () {
+$(document).on("click", "#success-button", function () {
     $.mobile.changePage("#home");
 });

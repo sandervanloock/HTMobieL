@@ -10,7 +10,7 @@ $(document).on("pagebeforeshow", "#home", function (event) {
     }
 });
 
-$(document).on("tap", "#home-new-expense", function () {
+$(document).on("click", "#home-new-expense", function () {
     if (EA.hasExpenseForm() || EA.hasLocalExpenses()) {
         // inform user with a choice, because there is a draft form available
         $.mobile.changePage("#confirmation");
@@ -20,19 +20,19 @@ $(document).on("tap", "#home-new-expense", function () {
     }
 });
 
-$(document).on("tap", "#confirmation-cancel", function () {
+$(document).on("click", "#confirmation-cancel", function () {
     // start new form when users cancels
     EA.clearExpenseForm();
     // go to first page
     $.mobile.changePage("#your-info");
 });
 
-$(document).on("tap", "#confirmation-ok", function () {
+$(document).on("click", "#confirmation-ok", function () {
     // user continues draft form
     $.mobile.changePage("#overview");
 });
 
-$(document).on("tap", "#home-logout", function () {
+$(document).on("click", "#home-logout", function () {
     // log the user out via AJAX request
     $.ajax({
         type:"POST",

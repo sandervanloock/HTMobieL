@@ -299,6 +299,18 @@ A proxy configures readers and writers that define where the data can be read or
 This can be locally at the client side or via a remote server.  
 Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
 
+\subsubsection{Attaching evidence}
+\framework{jQM}{X}
+A form element of type \code{file} is used to let the user attach the evidence.
+Depending on the mobile device, the options are to attach a local file or to take one with the camera.
+After selecting the correct evidence, it must be converted to base64 which is done by using the FileReaderAPI and a canvas.
+The evidence is read by the FileReaderAPI, converted to an image and imported on the canvas.
+The base64 encoding can be retrieved by calling the \code{.toDataURL()} on the latter and is stored in session storage.
+However the FileReaderAPI is not supported on Android~2.3 and lower or iOS less than 6.0~\cite{Deveria2013a}.
+Another limitation is the file size that can be imported on a canvas on iOS devices which is depend on the RAM size~\cite{Apple2012}.
+The final limitation is the size of the encoded evidence in base64, which can exceeded the limit for session storage, that is depend on the mobile browser~\cite{Gonzalez2012}.
+ 
+\framework{ST}{X}
 
 \subsubsection{Signature}
 \framework{jQM}{X}
@@ -306,7 +318,7 @@ No functionality is given from jQM to draw a signature, so a plugin was searched
 At first, Signature Pad~\cite{Bradley2013} was used.
 Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
 An advantage over the former was the automatic scaling to 100\% width and the layout without the bells and whistles.
-However, the plugin does not work on Android~2.3 and below~\cite{Systems2013}.   
+However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.   
 
 \framework{ST}{X}
 Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla2011}.  
@@ -323,12 +335,6 @@ The mobile device opens the corresponding native PDF viewer to show the PDF.
 Also,  a plugin for a PDF-viewer can be found~\cite{Fiedler2012}. 
 Many of these plugins can not be used as-is.  
 I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  
-
-\subsubsection{Attaching evidence}
-\framework{jQM}{X}
-
-
-\framework{ST}{X}
 
 \subsubsection{Autocomplete}
 \framework{jQM}{X}

@@ -246,7 +246,7 @@ The latter is mandatory in jQM for assistive technologies, but can be hidden via
 The types of form elements used were \code{text}, \code{number} and \code{email}.
 The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
 Not only the lack of support, but also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
-The need for a custom date picker with only a month and year needed to be hard coded.
+The need for a custom date picker with only a month and year needed to be hardcoded.
 
 \framework{ST}{X}
 Most required form elements are provided by the framework and can be easily created.  
@@ -266,12 +266,20 @@ With \code{fieldset}, the \code{disabled} attribute was the solution.
 Lastly with \code{select}, the other options were deleted from the list.
 
 \framework{ST}{X}
-To show the list of clickable expenses,  ST provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  A back button is automatically created to return to the overview list.
+To show the list of clickable expenses,  ST provides a navigation view.  
+This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
+The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  
+A back button is automatically created to return to the overview list.
 
 \subsubsection{Validation}
 \framework{jQM}{X}
-Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used.
-This plugin also provides built in validation methods that were needed: \code{required}, \code{number}, \code{email} and \code{date}.
+Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
+This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date}.
+The dependency expression that was needed is also available in the plugin.
+When fields were not validated, a dialog is needed to show the errors.
+Normally the plugin shows these errors below the corresponding field, so customisation of the plugin was needed.
+To give the invalid fields a red border, CSS was used directly for \code{input} and \code{textarea}.
+Because of the progressive enhancement for \code{select} and \code{fieldset}, a bit of DOM traversal was needed.
 
 \framework{ST}{X}
 %TODO

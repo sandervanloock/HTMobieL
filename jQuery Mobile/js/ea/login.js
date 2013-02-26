@@ -24,7 +24,7 @@ $(document).on("pageinit", "#login", function () {
         submitHandler:function () {
             $.ajax({
                 type:"POST",
-                dataType:"html",
+                dataType:"text",
                 url:EA.baseURL + "resources/userService/login",
                 data:{
                     'email':$("#login-username").val(),

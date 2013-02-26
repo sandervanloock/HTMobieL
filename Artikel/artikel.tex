@@ -340,14 +340,20 @@ I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from t
 \framework{jQM}{X}
 As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
 Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
-To show only five suggestion, a little customisation with the \code{slice} function was needed because the plugin did not provided this.
+To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provided this.
  
 \framework{ST}{X}
 %TODO
 
-\subsubsection{Splitscreen \& device-specific lay-out}%splitscreen en aanpassen naar device
+\subsubsection{Splitscreen \& device-specific lay-out}
 \framework{jQM}{X}
-%TODO
+No functionality is provided by the framework, so a search for plugins was started with~\cite{Deering2012} which led to: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} and Multiview~\cite{Franck2012}. 
+All these had shortcomings. The first changed the jQM library code, the second uses jQM~1.0.1 and the last had problems with adapting to different browser sizes.
+\cite{Hadlock2012} showed the use of CSS3 media queries to accomplish the split screen without a plugin.
+The documentation of jQM~1.2 also used a similar approach~~\cite{JQuery2012b}.
+This approach is also encouraged in the documentation of jQM~1.3~\cite{JQuery2013e}.
+The smartphone menu can be accessed on both tablet and smartphone devices when clicking on the sub header.
+
 
 \framework{ST}{X}
 The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} layout splits the viewport with a vertical axis.  The \code{flex} property defines the ratio of the sizes of both resulting components.  The right component is the page that changes by clicking the menu items in the left component.  This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout

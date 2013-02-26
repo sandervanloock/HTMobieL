@@ -306,21 +306,27 @@ No functionality is given from jQM to draw a signature, so a plugin was searched
 At first, Signature Pad~\cite{Bradley2013} was used.
 Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
 An advantage over the former was the automatic scaling to 100\% width and the layout without the bells and whistles.
-The plugin does not work on Android version 2.3 and below~\cite{Systems2013}.   
+However, the plugin does not work on Android~2.3 and below~\cite{Systems2013}.   
 
 \framework{ST}{X}
-Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla2011}.  Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  In most cases,  these plugins are written by commited ST users and hosted publicly on GitHub. 
+Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla2011}.  
+Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
+In most cases,  these plugins are written by commited ST users and hosted publicly on GitHub. 
 
 \subsubsection{Opening a PDF}
 \framework{jQM}{X}
-
+The download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
+When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
+The mobile device opens the corresponding native PDF viewer to show the PDF.
 
 \framework{ST}{X}
-Also,  a plugin for a PDF-viewer can be found~\cite{Fiedler2012}.  Many of these plugins can not be used as-is.  I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  
+Also,  a plugin for a PDF-viewer can be found~\cite{Fiedler2012}. 
+Many of these plugins can not be used as-is.  
+I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  
 
 \subsubsection{Attaching evidence}
 \framework{jQM}{X}
-%TODO
+
 
 \framework{ST}{X}
 

@@ -138,7 +138,7 @@ $(document).on("pageinit", "#expense", function () {
                     // draw the image on the canvas
                     context.drawImage(this, 0, 0);
                     // get the base64 string
-                    var base64 = EA.base64Substring(canvas.toDataURL());
+                    var base64 = EA.base64WithoutPrefix(canvas.toDataURL());
 
                     // this can fail due to limitations of browser storage
                     try {

@@ -57,7 +57,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
                 var expenseForm = {};
                 expenseForm.date = new Date().toISOString();
                 expenseForm.employeeId = EA.getUser().id;
-                expenseForm.signature = EA.base64Substring($("#sign-and-send-signature").jSignature("getData"));
+                expenseForm.signature = EA.base64WithoutPrefix($("#sign-and-send-signature").jSignature("getData"));
                 expenseForm.remarks = $("#sign-and-send-remarks").val();
                 expenseForm.notification = notification;
                 EA.setExpenseForm(expenseForm);

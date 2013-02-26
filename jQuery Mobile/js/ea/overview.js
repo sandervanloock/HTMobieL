@@ -63,7 +63,7 @@ $(document).on("tap", "[id^=expense-show]", function () {
         $("#domestic-project-code").val(projectCode);
         $("#domestic-amount").val(amount);
         $("#domestic-remarks").val(remarks);
-        $("#domestic-evidence").attr("src", expense.evidence);
+        $("#domestic-evidence").attr("src", EA.base64WithPrefix(expense.evidence));
 
         // disable all types of expenses
         var $domesticType = $("#domestic-type");

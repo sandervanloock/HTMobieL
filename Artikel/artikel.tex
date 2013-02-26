@@ -256,7 +256,7 @@ It is impossible to ignore the days field and only years can be delimited.
 Secondly,  programmatically setting the value of a radiobutton is not obvious.  
 A new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.
 
-\subsubsection{Filling forms} 
+\subsubsection{Form filling} 
 %automatisch invullen van formulieren:  overview expenses en expenseforms met detailexpense
 \framework{jQM}{X}
 Loading data into the form for viewing purposes needed to be programmed manually because there is no automatic mapping between the data and the form.
@@ -271,7 +271,7 @@ This mechanism allows to create the list of expenses together with a handler tha
 The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  
 A back button is automatically created to return to the overview list.
 
-\subsubsection{Validation}
+\subsubsection{Form validation}
 \framework{jQM}{X}
 Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
 This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date}.
@@ -284,9 +284,12 @@ Because of the progressive enhancement for \code{select} and \code{fieldset}, a 
 \framework{ST}{X}
 %TODO
 
-\subsubsection{AJAX, XML \& JSON}%ajax, xml and json
+\subsubsection{AJAX, JSON \& XML}
 \framework{jQM}{X}
-%TODO
+AJAX requests are made via the jQuery library where jQM is dependent on.
+Handling plain data and JSON as response is straightforward and the data can be used directly.
+When using XML, the data has to be traversed like with HTML, this means by using selectors.
+Sending JSON can be achieved by converting the instance into a string object using the vanilla JavaScript function \code{JSON.stringify} and add it as data to the jQuery AJAX request.
 
 \framework{ST}{X}
 AJAX request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores. 
@@ -308,9 +311,9 @@ The plugin does not work on Android version 2.3 and below~\cite{Systems2013}.
 \framework{ST}{X}
 Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla2011}.  Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  In most cases,  these plugins are written by commited ST users and hosted publicly on GitHub. 
 
-\subsubsection{PDF viewer}%PDF
+\subsubsection{Opening a PDF}
 \framework{jQM}{X}
-%TODO
+
 
 \framework{ST}{X}
 Also,  a plugin for a PDF-viewer can be found~\cite{Fiedler2012}.  Many of these plugins can not be used as-is.  I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  

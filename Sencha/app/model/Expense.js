@@ -10,12 +10,12 @@ Ext.define('Expense.model.Expense', {
         {
 			name : 'expenseType',
 			convert : typeId,
-			mapping : 'expenseTypeId',
+			//mapping : 'expenseTypeId',
 			type : 'string'
 		}, {
 			name : 'expenseLocation',
 			convert : locationId,
-			mapping : 'expenseLocationId',
+			//mapping : 'expenseLocationId',
 			type : 'string'
 		}, {
 			name : 'date',

@@ -158,6 +158,7 @@ Ext.define('Expense.controller.ExpenseController', {
         var field = this.getSignfield().getValues();
         var expenseForm = Expense.app.getExpenseForm();
         if(!Ext.isEmpty(Ext.getCmp('signature').getValue())){
+            expenseForm.set('date',new Date()); //TODO volgens POC
             expenseForm.set('employeeId',Expense.app.getEmployee().get('id'));
             expenseForm.set('signature' ,Ext.getCmp('signature').getValue());
             expenseForm.set('remarks',field['remarks']);
@@ -172,14 +173,13 @@ Ext.define('Expense.controller.ExpenseController', {
                 //decode string representations to their id
                 newExpense.expenseTypeId = typeId2(newExpense);
                 delete newExpense.expenseType;
-                newExpense.expenseLocationId = typeId2(newExpense);
+                newExpense.expenseLocationId = locationId2(newExpense);
                 delete newExpense.expenseLocation;
                 expenses.push(newExpense);
             });
             expenseForm.set('expenses',expenses);
             var sendObject = { "token": Expense.app.getToken(), "expenseForm": expenseForm.getData()};
             var result = Ext.encode(sendObject);
-            console.log(result);
              Ext.Ajax.request({
                  url : Expense.app.getBaseURL() + '/resources/expenseService/saveExpense',
                  method : 'POST',
@@ -190,11 +190,16 @@ Ext.define('Expense.controller.ExpenseController', {
                  },
                  success: function() {
                      Ext.Msg.show({
-                     title: 'Form submitted Succesfully',
-                     message: message,
-                     width: 300,
-                     buttons: Ext.MessageBox.OK
-                 });
+                         title: 'Save Expense',
+                         message: 'Form submitted Succesfully',
+                         width: 300,
+                         buttons: Ext.MessageBox.OK
+                     });
+                     //clear expenses and expenseform
+                     var expensestore = Ext.getStore('expensestore');
+                     expensestore.removeAll();
+                     expensestore.sync();
+                     Ext.getStore('expenseformstore').removeAll();
                  },
                  failure: function(response, opts) {
                     console.log('server-side failure with status code ' + response.status);

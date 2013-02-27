@@ -27,10 +27,7 @@ Ext.define('Expense.view.TotalOverviewList', {
                 }
             ]
         }],
-        itemTpl: [
-            '<div>{date:date("d/m/Y")} &mdash; <small> Status {statusId} </small></div>'
-        ]
+        itemTpl: '<div>{date:date("d/m/Y")} &mdash; <small> Status {[getStringStatusId(values.statusId)]}</small></div>'
     }
 
 });
-

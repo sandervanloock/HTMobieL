@@ -85,6 +85,7 @@ Ext.define('Expense.view.AbroadExpense', {
                         iconMask: true,
                         ui: 'confirm',
                         text: 'Upload Evidence',
+                        autoUpload: true,
                         width: 229,
                         height: 46,
                         actionUrl: 'getfile.php',

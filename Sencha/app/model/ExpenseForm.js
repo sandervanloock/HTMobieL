@@ -12,8 +12,7 @@ Ext.define('Expense.model.ExpenseForm', {
             type: 'date'
         },{
             name: 'statusId',
-            convert: statusIdString,
-            type: 'string'
+            type: 'int'
         }, {
             name : 'employeeId',
             type: 'int'
@@ -40,19 +39,17 @@ Ext.define('Expense.model.ExpenseForm', {
 });
 
 //NEW(1), VERIFIED(2), APPROVED(3), PAIDOUT(4), DISAPPROVED(5);
-function statusIdString(v, record){
-    if (typeof (v) == 'string' && v.length>1)
-        return v;
-    switch (v) {
-        case '1'    :
+function getStringStatusId(id){
+    switch (id) {
+        case 1    :
             return 'New';
-        case '2':
+        case 2:
             return 'Verified';
-        case '3':
+        case 3:
             return 'Approved';
-        case '4':
+        case 4:
             return 'Paidout';
-        case '5':
+        case 5:
             return 'Disapproved';
         default:
             return 'Unknown status';

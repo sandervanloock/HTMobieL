@@ -144,43 +144,62 @@ It is now also possible to install the mobile version of the Chrome desktop brow
 
 %TODO POC inleiden.
 
-Many in-depth comparisons of HTML5 mobile frameworks already exists today.  However, none of them are scientifically published or use a large proof of concept (POC) to validate their comparison.  Blog posts like~\cite{Sarrafi2012a,Ayuso2012,Rozynski2011} all have their own criteria and methodology to assess different mobile frameworks.  The overall applications of the criteria changes from use case to use case.  \cite{Rozynski2011} presents the chosen criteria and discusses each for each framework.  \cite{Ayuso2012} presents a whole bunch of criteria but all of them are discusses at once per framework.  Thereafter,  advantages and disadvantages are subtracted and proposed to the reader.  \cite{Sarrafi2012a} finally,  presents their chosen criteria together with a scorecard and explanation of scores per criteria.  Each framework gets evaluated based on the scores for each criteria.
+Many in-depth comparisons of HTML5 mobile frameworks already exists today.  
+However, none of them are scientifically published or use a large proof of concept (POC) to validate their comparison.  
+The idea of using a small-scale POC is not new.  
+\cite{Oeflman2011} and~\cite{Kosmaczewski2012},  for example,  uses a small geosocial game and todo list application respectivly to compare mobile HTML5 frameworks.
+Blog posts like~\cite{Sarrafi2012a,Ayuso2012,Rozynski2011} all have their own criteria and methodology to assess different mobile frameworks.  
+The overall applications of the criteria changes from use case to use case.  
+\cite{Rozynski2011} presents the chosen criteria and discusses each for each framework.  
+\cite{Ayuso2012} presents a whole bunch of criteria but all of them are discusses at once per framework.  
+Thereafter,  advantages and disadvantages are subtracted and proposed to the reader.  
+\cite{Sarrafi2012a} finally,  presents their chosen criteria together with a scorecard and explanation of scores per criteria.  
+Each framework gets evaluated based on the scores for each criteria.
 
-All these blog posts compare more than two frameworks where some of them mobile and some are hybrid (see table~\ref{table:references_frameworks}).  Other websites like~\cite{Bristowe2012,Burris} only focus on two mobile HTML5 frameworks while on the other side of the spectrum~\cite{Falk2011} tries to compare as much as frameworks as possible in a large tabular form.
+All these blog posts compare more than two frameworks where some of them are mobile and some are hybrid.  
+Other websites like~\cite{Bristowe2012,Burris} only focus on two mobile HTML5 frameworks while on the other side of the spectrum~\cite{Falk2011} tries to compare as much as frameworks as possible in a large tabular form.
 
+% \begin{table}[h!]
+% \centering
+% \begin{tabular}{lcc}
+%   & \textbf{Hybrid} & \textbf{Mobile}\\
+%   \hline \hline
+% \cite{Sarrafi2012a} & 0 & 4\\
+% \cite{Rozynski2011} & 2 & 3\\
+% \cite{Ayuso2012}* & 1** & 6\\
+% \hline
+% \multicolumn{3}{l}{*is still under development} \\
+% \multicolumn{3}{l}{**a combination of Bootstrap of jQuery and Angular JS} \\
+% \end{tabular}
+% \caption{How many frameworks of which type are compared}
+% \label{table:references_frameworks}
+% \end{table}
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{lcc}
-  & \textbf{Hybrid} & \textbf{Mobile}\\
-  \hline \hline
-\cite{Sarrafi2012a} & 0 & 4\\
-\cite{Rozynski2011} & 2 & 3\\
-\cite{Ayuso2012}* & 1** & 6\\
-\hline
-\multicolumn{3}{l}{*is still under development} \\
-\multicolumn{3}{l}{**a combination of Bootstrap of jQuery and Angular JS} \\
-\end{tabular}
-\caption{How many frameworks of which type are compared}
-\label{table:references_frameworks}
-\end{table}
+As mentioned earlier,  we will compare four HTML5 mobile frameworks based upon a large-scale POC.  
+Our strategy tries to combine some elements that can be found in the literature.  
+We derived five important criteria:  community,  productivity,  usage,  support and performance.  
+A methodology to measure these criteria will be described below.  
+A score will be assigned to each criteria and will be plotted in a spider graph~\cite{Few2005}.   
+The POC will drive the methodologies to test the criteria if possible.  
+To be complete,  a full detailed table will be provided where the significant difference of the frameworks will be presented. 	
 
-As mentioned earlier,  we will compare four HTML5 mobile frameworks based upon a large-scale POC.  Our strategy tries to combine some elements that can be found in the literature.  We derived five important criteria:  community,  productivity,  usage,  support and performance.  A methodology to measure these criteria will be described below.  A score will be assigned to each criteria and will be plotted in a spider graph~\cite{Few2005}.   The POC will drive the methodologies to test the criteria if possible.  To be complete,  a full detailed table will be provided where the significant difference of the frameworks will be presented. 	
+\paragraph{Community}
+Social networks provide a good indication to determine the community that goes with the framework.  
+\cite{Sarrafi2012a,Ayuso2012} use Twitter followers,  Stack Overflow questions,  GitHub stars and GitHub forkers as community indication.  
+We would include Facebook likes also.  The summation of these five numbers give the score for the framework community.  
 
-
-\paragraph{Community}% Gemeenschap
-Social networks provide a good indication to determine the community that goes with the framework.  \cite{Sarrafi2012a,Ayuso2012} use Twitter followers,  GitHub watchers and GitHub forkers as community indication.  We would include Facebook likes also.  The summation of these four numbers give the score for the framework community.  
-
-%TODO ook stackoverflow?  Iets uileggen over
-
-\paragraph{Productivity}% Productiviteit
-%We carefully record the time to implement the POC in each frawework.  
-We both implement the full POC in two different frameworks and carefully record the time to implement it.  As we both start similar background,  time differences can explain different learning curves.  To double check this criteria,  we also partially implement the POC in the other two frameworks.  Just like \cite{Burris},  the partially implementation can be the POCs login screen.  
-% TODO verder uitleggen login screen
+\paragraph{Productivity}
+We both implement the full POC in two different frameworks and carefully record the time to implement it.  
+As we both start similar background,  time differences can explain different learning curves.  
+To double check this criteria,  we also partially implement the POC in the other two frameworks.  
+Just like~\cite{Burris},  the partially implementation can be the POCs login screen.  
 The summation times to implement the POC and login screen give the score for the frameworks productivity.  
 
-\paragraph{Usage}% Gebruik
-The POC will be subdivided in a number of implementation challenges.  To score of this criteria will depend on the completion of the challenges by the framework.  The assessment of the challenges can be found in table~\ref{table:challenges-scores}.  The summation of all challenges score give the score for the frameworks usage.
+\paragraph{Usage}
+The POC will be subdivided in a number of implementation challenges.  
+To score of this criteria will depend on the completion of the challenges by the framework.  
+The assessment of the challenges can be found in table~\ref{table:challenges-scores}.  
+The summation of all challenges score give the score for the frameworks usage.
 
 \begin{table}[h]
 \centering
@@ -195,16 +214,17 @@ The POC will be subdivided in a number of implementation challenges.  To score o
 \label{table:challenges-scores}
 \end{table}
 
-\paragraph{Support}% Ondersteuning
-This criteria indicates the correct functionality of the POC implementation on different devices and browsers,  similar as the cross platform capabilities of~\cite{Sarrafi2012a}.  In each context,  we will walk trough the scenario and rate the execution.  If some parts of the scenario are infeasable,  points will be subtracted.  The summation of scores for every iteration of the scenario in each context will give the score for the frameworks support.
+\paragraph{Support}
+This criteria indicates the correct functionality of the POC implementation on different devices and browsers,  similar as the cross platform capabilities of~\cite{Sarrafi2012a}.  
+In each context,  we will walk trough the scenario and rate the execution.  
+If some parts of the scenario are infeasable,  points will be subtracted.  
+The summation of scores for every iteration of the scenario in each context will give the score for the frameworks support.
 
-\paragraph{Performance}% Performantie
-Different aspect of the framework influence the performance.  We will test the time to load and render the full POCs and isolated screens with Goolge Page Speed~\cite{Google2012},  as suggested by~\cite{Morgan2011}.   Also,  isolated tests will record the loading time of dummy pages with 1000 buttons.  The summation of render times will give the score for the frameworks performance.
-
-%TODO
-% Een laatste criterium is de performantie. Dit zal worden uitgedrukt in de tijd nodig om te applicatie te renderen. Hierbij zullen we verschillende testen doen. Ten eerste zullen we gebruik maken van de volledige POC. We zullen kijken naar de rendertijd van de applicatie aan de hand van Google Page Speed. Daarnaast zullen we een geïsoleerde test doen met het verzenden van een AJAX request, omdat sommige raamwerken altijd eerst een OPTION request sturen. Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend. Vervolgens zullen we ook geïsoleerde testen doen met UI-elementen. Hierbij zullen we een pagina voorzien van 1000 buttons en meten hoe lang het duurt tot deze pagina gerendert wordt. Als laatste zullen we een test op de aparte loginschermen uitvoeren. Hier kunnen we dan ook het aantal lijnen code bekijken en de bijhorende performantie. De redenen waarom we ook deze geïsoleerde applicatie gebruiken is omdat we ervan 
-% uitgaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. Dit is in tegenstelling tot de geïsoleerde login applicatie, waarbij we exact kunnen vergelijken.
-
+\paragraph{Performance}
+Different aspect of the framework influence the performance.  
+We will test the time to load and render the full POCs and isolated screens with Goolge Page Speed~\cite{Google2012},  as suggested by~\cite{Morgan2011}.   
+Also,  isolated tests will record the loading time of dummy pages with 1000 buttons.  
+The summation of render times will give the score for the frameworks performance.
 
 \section{Frameworks} % (1 blz per framework + tabel)
 \label{sec:frameworks}

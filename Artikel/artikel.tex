@@ -291,25 +291,27 @@ ST offers the programmer methods to ask for the current context where the end-us
 % \paragraph{Community}
 % We kunnen vaststellen dat Sencha over een grote community beschikt.  Met meer dan 2 miljoen ontwikkelaars wereldwijd is Sencha de grootste provider van een open-source web applicatie~\cite{Inc.}.  
 
-\subsection{Usage} %puntjes logboek + POC uitleggen (1,5 blz)
+\subsection{Usage}
 \label{sec:poc}
-First we state the challenges.
+In this section we evaluate the usage by stating challenges.
+Each challenge consists of subchallenges that are explained first.
+Afterwards the framework is graded on each of these challenges and commented why that score was given.
 
 \challenge{Forms (C1,C2,C3,C4,C5)}
 Create forms with placeholders, but without labels (C1).
 Use the text, number and email as form types (C2).
 Custom date picker with data range (C3).
 Custom date picker only with month and year (C4).
-Clearing form (C5).
+Clearing the form (C5).
 
-\framework{jQM}{X}
-Only placeholders were needed in the form elements, but no labels.
-The former can be achieved with the HTML5 \code{placeholder} attribute.
-The latter is mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
+\framework{jQM}{2,2,1,1,0}
+Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
+Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
 The types of form elements used were \code{text}, \code{number} and \code{email}.
 The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
 Not only the lack of support, but also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
 The need for a custom date picker with only a month and year needed to be hardcoded.
+Clearing the form after it was send, has to be programmed manually.
 
 \framework{ST}{1,3,2}
 Labels,  placeholders,  email fields, number fields, text fields and read-only fields are supported by the framework and can be easily created.  However, creating custom datepickers as needed in the POC is not supported.  It is impossible to ignore the days field and only years can be delimited.  
@@ -319,12 +321,12 @@ Filling in the form elements with data (C1).
 Make the form elements read-only (C2).
 Back button to go back to the list (C3).
 
-\framework{jQM}{X}
-Loading data into the form for viewing purposes needed to be programmed manually because there is no automatic mapping between the data and the form.
-All the form elements on this form had to be set as read-only.
-This can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
+\framework{jQM}{0,0,2}
+There is no automatic mapping between the data and the form.
+Setting the form elements read-only can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
 With \code{fieldset}, the \code{disabled} attribute was the solution.
 Lastly with \code{select}, the other options were deleted from the list.
+Adding a back button was no problem.
 
 \framework{ST}{X}
 To show the list of clickable expenses,  ST provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.  A back button is automatically created to return to the overview list.
@@ -335,12 +337,10 @@ Validation depends on custom conditions (C2).
 Error dialog with invalid fields and explanation (C3).
 Red borders around invalid fields (C4).
 
-\framework{jQM}{X}
+\framework{jQM}{1,1,0,0}
 Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
-This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date}.
-The dependency expression that was needed is also available in the plugin.
-When fields were not validated, a dialog is needed to show the errors.
-Normally the plugin shows these errors below the corresponding field, so customisation of the plugin was needed.
+This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date} and custom validation conditions.
+The plugin shows errors below the corresponding field, so customisation of the plugin was needed to show them in a dialog.
 To give the invalid fields a red border, CSS was used directly for \code{input} and \code{textarea}.
 Because of the progressive enhancement for \code{select} and \code{fieldset}, a bit of DOM traversal was needed.
 
@@ -350,9 +350,8 @@ Required fields and email validation can be assigned to a model.  To add custom 
 \challenge{Signature (C1)}
 Draw a signature with finger or pen (C1).
 
-\framework{jQM}{X}
-No functionality is given from jQM to draw a signature, so a plugin was searched.
-At first, Signature Pad~\cite{Bradley2013} was used.
+\framework{jQM}{1}
+At first, Signature Pad~\cite{Bradley2013} was used as plugin.
 Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
 An advantage over the former was the automatic scaling to 100\% width and the layout without the bells and whistles.
 However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.
@@ -364,7 +363,7 @@ Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla20
 Requesting a PDF with POST parameters (C1).
 Show the PDF (C2).
 
-\framework{jQM}{X}
+\framework{jQM}{0,0}
 The download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
 When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
 The mobile device opens the corresponding native PDF viewer to show the PDF.
@@ -377,11 +376,10 @@ Choose image (C1).
 Convert image to base64 (C2).
 Preview image (C3).
 
-\framework{jQM}{X}
-A form element of type \code{file} is used to let the user attach the evidence.
-Depending on the mobile device, the options are to attach a local file or to take one with the camera.
-After selecting the correct evidence, it must be converted to base64 which is done by using the FileReaderAPI and a canvas.
-The evidence is read by the FileReaderAPI, converted to an image and imported on the canvas.
+\framework{jQM}{0,0,0}
+A form element of type \code{file} is used to let the user attach an image.
+Depending on the mobile device, the options are to attach a local image or to take one with the camera.
+The attached image is read by the FileReaderAPI, converted to an image and imported on the canvas.
 The base64 encoding can be retrieved by calling the \code{.toDataURL()} on the latter and is stored in session storage.
 However the FileReaderAPI is not supported on Android~2.3 and lower or iOS less than 6.0~\cite{Deveria2013a}.
 Another limitation is the file size that can be imported on a canvas on iOS devices which is depend on the RAM size~\cite{Apple2012}.
@@ -394,7 +392,7 @@ The final limitation is the size of the encoded evidence in base64, which can ex
 Fetch suggestions based on input (C1).
 Show suggestions in clickable drop down (C2).
 
-\framework{jQM}{X}
+\framework{jQM}{1,1}
 As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
 Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
 To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provided this.
@@ -409,7 +407,7 @@ Fetch and parse JSON (C2).
 Send JSON payload (C3).
 Fetch and parse XML (C4).
 
-\framework{jQM}{X}
+\framework{jQM}{2,2,2,2}
 AJAX requests are made via the jQuery library where jQM is dependent on.
 Handling plain data and JSON as response is straightforward and the data can be used directly.
 When using XML, the data has to be traversed like with HTML, this means by using selectors.
@@ -423,7 +421,7 @@ Recognising smartphone or tablet (C1).
 Show left sided menu on tablet (C2).
 Enabling smartphone menu (C3).
 
-\framework{jQM}{X}
+\framework{jQM}{0,0,0}
 No functionality is provided by the framework, so a search for plugins was started with~\cite{Deering2012} which led to: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} and Multiview~\cite{Franck2012}. 
 All these had shortcomings. The first changed the jQM library code, the second uses jQM~1.0.1 and the last had problems with adapting to different browser sizes.
 \cite{Hadlock2012} showed the use of CSS3 media queries to accomplish the split screen without a plugin.

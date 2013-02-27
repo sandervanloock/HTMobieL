@@ -351,3 +351,407 @@ In smartphone mode,  the left screen is made invisible and an extra menubutton i
 \end{center}
 \end{document}
 
+=======
+%%%% ijcai11.tex
+
+\typeout{IJCAI-11 Instructions for Authors}
+
+% These are the instructions for authors for IJCAI-11.
+% They are the same as the ones for IJCAI-07 with superficical wording
+%   changes only.
+
+\documentclass[a4paper]{artikel3}
+% The file ijcai11.sty is the style file for IJCAI-11 (same as ijcai07.sty).
+\usepackage{ijcai11}
+
+% Use the postscript times font!
+\usepackage{times}
+
+
+% the following package is optional:
+%\usepackage{latexsym} 
+
+%%%%%%%%%%%%%% CUSTOM BEGIN %%%%%%%%%%%%%%
+
+% remove if not a draft
+%\usepackage{draftwatermark}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks]{hyperref}
+\usepackage{multirow}
+\usepackage{pgfplotstable} %nodig voor CSV to Latex
+\usepackage{booktabs} % voor layout comparisontable
+
+% engelse term die we niet vertalen naar het nederlands
+\newcommand{\term}[1]{\emph{#1}}
+
+% code commande
+\newcommand{\code}[1]{\texttt{#1}}
+
+% zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
+\renewcommand{\url}[1]{\href{http://#1}{#1}}
+
+% paragraphs anders te veel white space
+\usepackage{setspace}
+\renewcommand{\paragraph}[1]{{\bf #1} }
+\newcommand{\framework}[2]{\noindent \emph{#1 (\textbf{#2}): }} %enkel in usage stukje om framework in te leiden
+
+%%%%%%%%%%%%%% CUSTOM END %%%%%%%%%%%%%%
+
+% Following comment is from ijcai97-submit.tex:
+% The preparation of these files was supported by Schlumberger Palo Alto
+% Research, AT\&T Bell Laboratories, and Morgan Kaufmann Publishers.
+% Shirley Jowell, of Morgan Kaufmann Publishers, and Peter F.
+% Patel-Schneider, of AT\&T Bell Laboratories collaborated on their
+% preparation.
+
+% These instructions can be modified and used in other conferences as long
+% as credit to the authors and supporting agencies is retained, this notice
+% is not changed, and further modification or reuse is not restricted.
+% Neither Shirley Jowell nor Peter F. Patel-Schneider can be listed as
+% contacts for providing assistance without their prior permission.
+
+% To use for other conferences, change references to files and the
+% conference appropriate and use other authors, contacts, publishers, and
+% organizations.
+% Also change the deadline and address for returning papers and the length and
+% page charge instructions.
+% Put where the files are available in the appropriate places.
+
+\title{Comparative study of frameworks for \\ the development of mobile HTML5 applications}
+\author{Tim Ameye \\ tim.ameye@student.kuleuven.be \And Sander Van Loock \\ sander.vanloock1@student.kuleuven.be}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Introduction} % (1 blz)
+\label{sec:introduction}
+%iOS en Android + afbeeldingen van martkaandeel
+%mobiele applicatie native/hybrid/mobile
+%browsers
+
+\section{Comparison criteria and related work}
+\label{sec:comparisoncriteria}
+
+%TODO POC inleiden.
+
+Many in-depth comparisons of HTML5 mobile frameworks already exists today.  However, none of them are scientifically published or use a large proof of concept (POC) to validate their comparison.  Blog posts like~\cite{Sarrafi2012a,Ayuso2012,Rozynski2011} all have their own criteria and methodology to assess different mobile frameworks.  The overall applications of the criteria changes from use case to use case.  \cite{Rozynski2011} presents the chosen criteria and discusses each for each framework.  \cite{Ayuso2012} presents a whole bunch of criteria but all of them are discusses at once per framework.  Thereafter,  advantages and disadvantages are subtracted and proposed to the reader.  \cite{Sarrafi2012a} finally,  presents their chosen criteria together with a scorecard and explanation of scores per criteria.  Each framework gets evaluated based on the scores for each criteria.
+
+All these blog posts compare more than two frameworks where some of them mobile and some are hybrid (see table~\ref{table:references_frameworks}).  Other websites like~\cite{Bristowe2012,Burris} only focus on two mobile HTML5 frameworks while on the other side of the spectrum~\cite{Falk2011} tries to compare as much as frameworks as possible in a large tabular form.
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}
+  & \textbf{Hybrid} & \textbf{Mobile}\\
+  \hline \hline
+\cite{Sarrafi2012a} & 0 & 4\\
+\cite{Rozynski2011} & 2 & 3\\
+\cite{Ayuso2012}* & 1** & 6\\
+\hline
+\multicolumn{3}{l}{*is still under development} \\
+\multicolumn{3}{l}{**a combination of Bootstrap of jQuery and Angular JS} \\
+\end{tabular}
+\caption{How many frameworks of which type are compared}
+\label{table:references_frameworks}
+\end{table}
+
+As mentioned earlier,  we will compare four HTML5 mobile frameworks based upon a large-scale POC.  Our strategy tries to combine some elements that can be found in the literature.  We derived five important criteria:  community,  productivity,  usage,  support and performance.  A methodology to measure these criteria will be described below.  A score will be assigned to each criteria and will be plotted in a spider graph~\cite{Few2005}.   The POC will drive the methodologies to test the criteria if possible.  To be complete,  a full detailed table will be provided where the significant difference of the frameworks will be presented. 	
+
+
+\paragraph{Community}% Gemeenschap
+
+Social networks provide a good indication to determine the community that goes with the framework.  \cite{Sarrafi2012a,Ayuso2012} use Twitter followers,  GitHub watchers and GitHub forkers as community indication.  We would include Facebook likes also.  The summation of these four numbers give the score for the framework community.  
+
+%TODO ook stackoverflow?  Iets uileggen over
+
+\paragraph{Productivity}% Productiviteit
+
+%We carefully record the time to implement the POC in each frawework.  
+We both implement the full POC in two different frameworks and carefully record the time to implement it.  As we both start similar background,  time differences can explain different learning curves.  To double check this criteria,  we also partially implement the POC in the other two frameworks.  Just like \cite{Burris},  the partially implementation can be the POCs login screen.  The summation times to implement the POC and login screen give the score for the frameworks productivity.  
+
+\paragraph{Usage}% Gebruik
+
+The POC will be subdivided in a number of implementation challenges.  To score of this criteria will depend on the completion of the challenges by the framework.  The assessment of the challenges can be found in table~\ref{table:challenges-scores}.  The summation of all challenges score give the score for the frameworks usage.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|l}
+\textbf{Score} & \textbf{Assessment criteria}\\
+  \hline \hline
+3 & Supported by the framework\\
+2 & A plug in is needed\\
+1 & Custom implementation\\
+0 & Hack or not possible\\
+\end{tabular}
+\caption{Assessment criteria for implementation challenges}
+\label{table:challenges-scores}
+\end{table}
+
+\paragraph{Support}% Ondersteuning
+
+This criteria indicates the correct functionality of the POC implementation on different devices and browsers,  similar as the cross platform capabilities of~\cite{Sarrafi2012a}.  In each context,  we will walk trough the scenario and rate the execution.  If some parts of the scenario are infeasable,  points will be subtracted.  The summation of scores for every iteration of the scenario in each context will give the score for the frameworks support.
+
+\paragraph{Performance}% Performantie
+
+Different aspect of the framework influence the performance.  We will test the time to load and render the full POCs and isolated screens with Goolge Page Speed~\cite{Google2012},  as suggested by~\cite{Morgan2011}.   Also,  isolated tests will record the loading time of dummy pages with 1000 buttons.  The summation of render times will give the score for the frameworks performance.
+
+%TODO
+% Een laatste criterium is de performantie. Dit zal worden uitgedrukt in de tijd nodig om te applicatie te renderen. Hierbij zullen we verschillende testen doen. Ten eerste zullen we gebruik maken van de volledige POC. We zullen kijken naar de rendertijd van de applicatie aan de hand van Google Page Speed. Daarnaast zullen we een geïsoleerde test doen met het verzenden van een AJAX request, omdat sommige raamwerken altijd eerst een OPTION request sturen. Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend. Vervolgens zullen we ook geïsoleerde testen doen met UI-elementen. Hierbij zullen we een pagina voorzien van 1000 buttons en meten hoe lang het duurt tot deze pagina gerendert wordt. Als laatste zullen we een test op de aparte loginschermen uitvoeren. Hier kunnen we dan ook het aantal lijnen code bekijken en de bijhorende performantie. De redenen waarom we ook deze geïsoleerde applicatie gebruiken is omdat we ervan 
+% uitgaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. Dit is in tegenstelling tot de geïsoleerde login applicatie, waarbij we exact kunnen vergelijken.
+
+
+\section{Frameworks} % (1 blz per framework + tabel)
+\label{sec:frameworks}
+
+\subsection{jQuery Mobile} % (1 blz Tim)
+\label{sec:jqm}
+
+jQuery Mobile (jQM) is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
+In November 2011 version~1.0 was released~\cite{Parker2011} and one year later in October, version~1.2 was released~\cite{Parker2012}. 
+As at the time of writing, jQM released version~1.3 \cite{Parker2013a}.
+The framework is controlled by the jQuery Project that also manages jQuery Core. 
+The latter is a JavaScript library where jQM is dependent on~\cite{JQuery2012}. 
+jQM is among other things sponsored by Adobe, Nokia, BlackBerry and Mozilla~\cite{JQuery2012a}.
+
+\paragraph{Licence}
+As of September 2012 it is only possible to use jQM under the Massachusetts Institute of Technology~(MIT) licence~\cite{Dmethvin2012}. 
+This means that the code is released as open source and can also be used in proprietary projects~\cite{PhilDutson2012}.
+
+\paragraph{Documentation}
+One can find the documentation of jQM~1.2 on \url{www.jquerymobile.com/demos/1.2.0}. On the one hand it contains an overview of all possible UI components. 
+By checking the source code, you can find out what code to write to get the same result. 
+On the other hand it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
+
+\paragraph{Code and development}
+jQM is a UI framework and thus provides mainly UI components. 
+jQM provides six categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
+One can obtain these components by writing HTML5 with jQM specific \code{data-}* attributes. 
+When running the application, jQM will add the extra necessary code to correctly show these components by doing progressive enhancement.
+
+There are three ways of writing a web application in jQM~\cite{Broulik2012}. 
+The first one is to write the full application that is composed of many screens, on one single web page.
+The advantage is that there are initially less requests to the server.
+The second option is to write a web page for each screen. 
+The advantage here is that the first viewed screen is downloaded more quickly. 
+However, with each transition, the next screen has to be fetched which can delay navigation.
+This is done with AJAX by default in jQM.
+Lastly, you can mix the two above to find an optimum by putting the most likely viewed screens on one web page and the less likely viewed on separated pages.  
+
+\paragraph{Browser support}
+\label{sec:jqm-browser-support}
+jQM divides browsers into three grades: A, B and C. 
+An A graded browsers supports everything of the jQM framework, where a C graded browsers only provides basic HTML experience (so for example no CSS3 transitions)~\cite{JQuery2012d}.
+
+\subsection{Sencha Touch} % (1 blz Sander)
+\label{sec:sencha_touch}
+
+Sencha Touch (ST) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  Ext JS is a JavaScript framework for the development of web applications.  jQuery Touch is a jQuery plug in for mobile development that adds touch events to jQuery and depends on the WebKit engine.  Finally,  Raphaël, is a JavaScript library for vector drawings.  Pieces of the first two technologies can be found in the implementation of ST framework.    
+
+As at the time of writing,  ST is at version 2.1.1~\cite{Inc.}.
+
+\paragraph{Documentation}
+All documentation for ST 2.1.1 can be found at \url{docs.sencha.com/touch/2-0}.  The most important features,  are provided with code examples and an example of the code after rendered by the browser.  The key concepts of ST are explained in extensive tutorials:  some texts, some videos.  
+
+Another handy tool to discover the ST features is the 'Kitchen Sink'~\cite{Inc.2013}.  This is a web application,  written in ST,  that lines up all possibilities of the framework combined with the corresponding code.
+
+\paragraph{Licenses}
+ST is free within a commercial context in which the developer does not share the code with its users.  There is also the option to use an open source version.  This comes with a GNU GPL v3 license which implies a free code redistribution as most important property.
+More detailed licenses can be found at~\cite{SenchaInc.}.
+  
+\paragraph{Code and development}
+ST is written on top of Ext JS,  and can also be considered as JavaScript framework.  All code needs to be written in JavaScript and loaded by one HTML container.  An other important aspect of ST is that is supports the Model-View-Controller (MVC) pattern.  Models group fields to data-objects,  views define how the content is presented to the user and controllers connect these based on events.
+
+ST contains all UI-elements as JavaScript objects.  Just like object-oriented programming,  those objects are part of a class system.  Classes can both be defined (\code{Ext.define}) or created (\code{Ext.create}).  Single-inheritance and overriding is also possible.    
+
+To enhance performance,  it is the programmers task to create components before they are used.  In this manner,  programmers can mimic asynchronous loading of pages by creating them in advance.
+
+
+
+\paragraph{Browser support}
+Just like jQuery Touch,  ST is based upon the WebKit browser engine.  This forms the major requirement for browser support.  Although most mobile browsers contain this engine,  some like FireFox Mobile and Opera Mobile lack behind~\cite{JohnEClark2012}.  Following~\cite{Wokke2013}, the next release of the Opera browser will contain this engine,  a trend that most browser vendors will (have to) follow.
+
+ST offers the programmer methods to ask for the current context where the end-user is working in.  Properties like \code{Ext.env.Browser} and \code{Ext.env.OS} or methods like \code{Ext.Viewport.getOrientation} and \code{Ext.feature.has} can determine this context~\cite{JohnEClark2012}.  The latter has functionalities,  just like Modernizer~\cite{Modernizr2012}.  
+
+% TODO: table with differences of the frameworks
+
+\section{Evaluation}
+
+\subsection{Community} % (0,5 blz)
+\label{sec:community}
+
+% \paragraph{Community}
+% Met 7.400 volgers op GitHub~\cite{GitHub2012} en 11.200 volgers op Twitter~\cite{Twitter2012} komt de grote kracht van jQuery Mobile van zijn community . Dit heeft grotendeels te maken met het feit dat jQuery Mobile geniet van het succes van jQuery, dat ook zeer populair is~\cite{Hales2012}.
+%TODO Sander: dit komt in de vergelijkingscriteria
+
+\subsection{Usage}
+\label{sec:poc}
+
+\subsubsection{Forms}
+\framework{jQM}{X}
+Only placeholders were needed in the form elements, but no labels.
+The former can be achieved with the HTML5 \code{placeholder} attribute.
+The latter is mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
+The types of form elements used were \code{text}, \code{number} and \code{email}.
+The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
+Not only the lack of support, but also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
+The need for a custom date picker with only a month and year needed to be hardcoded.
+
+\framework{ST}{X}
+Most required form elements are provided by the framework and can be easily created.  
+However,  two problems became apparent.  
+First,  creating custom datepickers as needed in the POC is not supported.  
+It is impossible to ignore the days field and only years can be delimited.  
+Secondly,  programmatically setting the value of a radiobutton is not obvious.  
+A new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.
+
+\subsubsection{Form filling} 
+%automatisch invullen van formulieren:  overview expenses en expenseforms met detailexpense
+\framework{jQM}{X}
+Loading data into the form for viewing purposes needed to be programmed manually because there is no automatic mapping between the data and the form.
+All the form elements on this form had to be set as read-only.
+This can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
+With \code{fieldset}, the \code{disabled} attribute was the solution.
+Lastly with \code{select}, the other options were deleted from the list.
+
+\framework{ST}{X}
+To show the list of clickable expenses,  ST provides a navigation view.  
+This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
+The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  
+A back button is automatically created to return to the overview list.
+
+\subsubsection{Form validation}
+\framework{jQM}{X}
+Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
+This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date}.
+The dependency expression that was needed is also available in the plugin.
+When fields were not validated, a dialog is needed to show the errors.
+Normally the plugin shows these errors below the corresponding field, so customisation of the plugin was needed.
+To give the invalid fields a red border, CSS was used directly for \code{input} and \code{textarea}.
+Because of the progressive enhancement for \code{select} and \code{fieldset}, a bit of DOM traversal was needed.
+
+\framework{ST}{X}
+%TODO
+
+\subsubsection{AJAX, JSON \& XML}
+\framework{jQM}{X}
+AJAX requests are made via the jQuery library where jQM is dependent on.
+Handling plain data and JSON as response is straightforward and the data can be used directly.
+When using XML, the data has to be traversed like with HTML, this means by using selectors.
+Sending JSON can be achieved by converting the instance into a string object using the vanilla JavaScript function \code{JSON.stringify} and add it as data to the jQuery AJAX request.
+
+\framework{ST}{X}
+AJAX request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores. 
+Stores really show the power of the framework by doing as much work as possible under the hood.  
+They can be configured with a model to define the structure of the recorded objects.  
+A proxy configures readers and writers that define where the data can be read or written.  
+This can be locally at the client side or via a remote server.  
+Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
+
+\subsubsection{Attaching evidence}
+\framework{jQM}{X}
+A form element of type \code{file} is used to let the user attach the evidence.
+Depending on the mobile device, the options are to attach a local file or to take one with the camera.
+After selecting the correct evidence, it must be converted to base64 which is done by using the FileReaderAPI and a canvas.
+The evidence is read by the FileReaderAPI, converted to an image and imported on the canvas.
+The base64 encoding can be retrieved by calling the \code{.toDataURL()} on the latter and is stored in session storage.
+However the FileReaderAPI is not supported on Android~2.3 and lower or iOS less than 6.0~\cite{Deveria2013a}.
+Another limitation is the file size that can be imported on a canvas on iOS devices which is depend on the RAM size~\cite{Apple2012}.
+The final limitation is the size of the encoded evidence in base64, which can exceeded the limit for session storage, that is depend on the mobile browser~\cite{Gonzalez2012}.
+ 
+\framework{ST}{X}
+
+\subsubsection{Signature}
+\framework{jQM}{X}
+No functionality is given from jQM to draw a signature, so a plugin was searched.
+At first, Signature Pad~\cite{Bradley2013} was used.
+Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
+An advantage over the former was the automatic scaling to 100\% width and the layout without the bells and whistles.
+However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.   
+
+\framework{ST}{X}
+Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla2011}.  
+Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
+In most cases,  these plugins are written by commited ST users and hosted publicly on GitHub. 
+
+\subsubsection{Opening a PDF}
+\framework{jQM}{X}
+The download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
+When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
+The mobile device opens the corresponding native PDF viewer to show the PDF.
+
+\framework{ST}{X}
+Also,  a plugin for a PDF-viewer can be found~\cite{Fiedler2012}. 
+Many of these plugins can not be used as-is.  
+I needed to adapt the PDF-viewer,  for example,  so I could fetch the PDF from the backend with a parameterized POST request.  
+
+\subsubsection{Autocomplete}
+\framework{jQM}{X}
+As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
+Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
+To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provided this.
+ 
+\framework{ST}{X}
+%TODO
+
+\subsubsection{Splitscreen \& device-specific lay-out}
+\framework{jQM}{X}
+No functionality is provided by the framework, so a search for plugins was started with~\cite{Deering2012} which led to: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} and Multiview~\cite{Franck2012}. 
+All these had shortcomings. The first changed the jQM library code, the second uses jQM~1.0.1 and the last had problems with adapting to different browser sizes.
+\cite{Hadlock2012} showed the use of CSS3 media queries to accomplish the split screen without a plugin.
+The documentation of jQM~1.2 also used a similar approach~~\cite{JQuery2012b}.
+This approach is also encouraged in the documentation of jQM~1.3~\cite{JQuery2013e}.
+The smartphone menu can be accessed on both tablet and smartphone devices when clicking on the sub header.
+
+
+\framework{ST}{X}
+The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} layout splits the viewport with a vertical axis.  The \code{flex} property defines the ratio of the sizes of both resulting components.  The right component is the page that changes by clicking the menu items in the left component.  This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout
+
+\subsubsection{Offline}
+\framework{jQM}{X}
+%TODO
+
+\framework{ST}{X}
+%TODO
+
+\section{Future work} %(0,5 blz)
+\label{sec:future_work}
+
+\section{Conclusion} %(0,5 blz)
+\label{sec:conclusion}
+
+%% The file named.bst is a bibliography style file for BibTeX 0.99c
+\bibliographystyle{named}
+\bibliography{literatuurstudie,vergelijking,evaluatie}
+
+\appendix
+\section{Comparison table}
+\label{app:comparison_table}
+%CSV to latex tutorial in blogpost: http://texblog.org/2012/05/30/generate-latex-tables-from-csv-files-excel/
+%Manual: http://pgfplots.sourceforge.net/pgfplotstable.pdf
+
+\begin{center}
+
+\pgfplotstabletypeset[
+  col sep=semicolon,
+  %header=true,    
+  string type,
+  %columns={criteria,jquerymobile,senchatouch},      % display specified columns
+  columns/criteria/.style={column name=Criteria, column type={|l}},
+  columns/jquerymobile/.style={column name=jQM, column type={|c|}},
+  columns/senchatouch/.style={column name=ST, column type={|c|}},
+  % requires booktabs to place horiz rules
+  every head row/.style={
+    before row=\hline,after row=\hline},
+  every last row/.style={
+    after row=\hline}
+]{comparisontable.csv}
+
+
+\end{center}
+\end{document}

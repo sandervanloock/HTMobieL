@@ -271,45 +271,70 @@ An A graded browsers supports everything of the jQM framework, where a C graded 
 \subsection{Sencha Touch} % (1 blz Sander)
 \label{sec:sencha_touch}
 
-Sencha Touch	 (ST) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  Ext JS is a JavaScript framework for the development of web applications.  jQuery Touch is a jQuery plug in for mobile development that adds touch events to jQuery and depends on the WebKit engine.  Finally,  Raphaël, is a JavaScript library for vector drawings.  Pieces of the first two technologies can be found in the implementation of ST framework.    
+Sencha Touch (ST) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
+Ext JS is a JavaScript framework for the development of web applications.  
+jQuery Touch is a jQuery plug in for mobile development that adds touch events to jQuery and depends on the WebKit engine.  
+Finally,  Raphaël, is a JavaScript library for vector drawings.  
+Pieces of the first two technologies can be found in the implementation of ST framework.    
 
-Currently,  ST is at version 2.1.1~\cite{Inc.}.
+As at the time of writing,  ST is at version 2.1.1~\cite{Inc.}.
 
 \paragraph{Documentation}
-All documentation for ST 2.1.1 can be found at \url{docs.sencha.com/touch/2-0}.  The most important features,  are provided with code examples and an example of the code after rendered by the browser.  The key concepts of ST are explained in extensive tutorials:  some texts, some videos.  
+All documentation for ST 2.1.1 can be found at \url{docs.sencha.com/touch/2-0}.  
+The most important features,  are provided with code examples and an example of the code after rendered by the browser.  
+The key concepts of ST are explained in extensive tutorials:  some texts, some videos.  
 
-Another handy tool to discover the ST features is the 'Kitchen Sink'~\cite{Inc.2013}.  This is a web application,  written in ST,  that lines up all possibilities of the framework combined with the corresponding code.
+Another handy tool to discover the ST features is the 'Kitchen Sink'~\cite{Inc.2013}.  
+This is a web application,  written in ST,  that lines up all possibilities of the framework combined with the corresponding code.
 
 \paragraph{Licenses}
-ST is free within a commercial context in which the developer does not share the code with its users.  There is also the option to use an open source version.  This comes with a GNU GPL v3 license which implies a free code redistribution as most important property.
+ST is free within a commercial context in which the developer does not share the code with its users.  
+There is also the option to use an open source version.  
+This comes with a GNU GPL v3 license which implies a free code redistribution as most important property.
 More detailed licenses can be found at~\cite{SenchaInc.}.
   
 \paragraph{Code and development}
-ST is written on top of Ext JS,  and can also be considered as JavaScript framework.  All code needs to be written in JavaScript and loaded by one HTML container.  An other important aspect of ST is that is supports the Model-View-Controller (MVC) pattern.  Models group fields to data-objects,  views define how the content is presented to the user and controllers connect these based on events.
+ST is written on top of Ext JS,  and can also be considered as JavaScript framework.  
+All code needs to be written in JavaScript and loaded by one HTML container.  
+An other important aspect of ST is that is supports the Model-View-Controller (MVC) pattern.  
+Models group fields to data-objects,  views define how the content is presented to the user and controllers connect these based on events.
 
-ST contains all UI-elements as JavaScript objects.  Just like object-oriented programming,  those objects are part of a class system.  Classes can both be defined (\code{Ext.define}) or created (\code{Ext.create}).  Single-inheritance and overriding is also possible.    
+ST contains all UI elements as JavaScript objects.  
+Just like object-oriented programming,  those objects are part of a class system.  
+Classes can both be defined (\code{Ext.define}) or created (\code{Ext.create}).  
+Single-inheritance and overriding is also possible.    
 
-To enhance performance,  it is the programmers task to create components before they are used.  In this manner,  programmers can mimic asynchronous loading of pages by creating them in advance.
-
-
+To enhance performance,  it is the programmers task to create components before they are used.  
+In this way,  the programmers partially determines the performance of the applications.
 
 \paragraph{Browser support}
-Just like jQuery Touch,  ST is based upon the WebKit browser engine.  This forms the major requirement for browser support.  Although most mobile browsers contain this engine,  some like FireFox Mobile and Opera Mobile lack behind~\cite{JohnEClark2012}.  Following~\cite{Wokke2013}, the next release of the Opera browser will contain this engine,  a trend that most browser vendors will (have to) follow.
+Just like jQuery Touch,  ST is based upon the WebKit browser engine.  
+This forms the major requirement for browser support.  
+Although most mobile browsers contain this engine,  some like FireFox Mobile and Opera Mobile lack behind~\cite{JohnEClark2012}.  
+Following~\cite{Wokke2013}, the next release of the Opera browser will contain this engine,  a trend that most browser vendors will (have to) follow.
 
-ST offers the programmer methods to ask for the current context where the end-user is working in.  Properties like \code{Ext.env.Browser} and \code{Ext.env.OS} or methods like \code{Ext.Viewport.getOrientation} and \code{Ext.feature.has} can determine this context~\cite{JohnEClark2012}.  The latter has functionalities,  just like Modernizer~\cite{Modernizr2012}.  
-
-% TODO: table with differences of the frameworks
+The framework offers the programmer methods to ask for the current context where the end-user is working in. 
+Properties like \code{Ext.env.Browser} and \code{Ext.env.OS} or methods like \code{Ext.Viewport.getOrientation} and \code{Ext.feature.has} can determine this context~\cite{JohnEClark2012}.  
+The latter has functionalities,  just like Modernizer~\cite{Modernizr2012}.  
 
 \section{Evaluation}
 
 \subsection{Community} % (0,5 blz)
 \label{sec:community}
 
+The activity around frameworks in social media has to be considered with a lot of care.  
+If,  for example,  a framework has a lot of questions on Stack Overflow,  one could conclude the framework has a lot ambiguities.  
+Someone else could say,  the framework has a large active internetcommunity build around it.  
+Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
 
-% \paragraph{Community}
-% Met 7.400 volgers op GitHub~\cite{GitHub2012} en 11.200 volgers op Twitter~\cite{Twitter2012} komt de grote kracht van jQuery Mobile van zijn community . Dit heeft grotendeels te maken met het feit dat jQuery Mobile geniet van het succes van jQuery, dat ook zeer populair is~\cite{Hales2012}.
-% \paragraph{Community}
-% We kunnen vaststellen dat Sencha over een grote community beschikt.  Met meer dan 2 miljoen ontwikkelaars wereldwijd is Sencha de grootste provider van een open-source web applicatie~\cite{Inc.}.  
+As depicted in table \ref{table:...},  jQM has a much larger social community.  
+An explanation could be explained by the large success of jQuery,  a popular JavaScript framework itself~\cite{Hales2012}.
+
+The fact that ST had the first stable 1.0 release in mobile UI frameworks~\cite{Oeflman2011},  is not reflected in the community numbers.  
+Alse,  ~\cite{Inc.} states that Sencha is the largest provider of open-source web application frameworks with more than two million developers.  
+ST itself embraces about one quarter of this number.  Only a tiny fraction of the developers 
+
+ST is not available on GitHub,  that is why no data is given.
 
 \subsection{Usage}
 \label{sec:poc}
@@ -327,29 +352,39 @@ Clearing the form (C5).
 \framework{jQM}{2,2,1,1,0}
 Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
 Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
-The types of form elements used were \code{text}, \code{number} and \code{email}.
+The types of form elements used were \code{text}, \code{number} and \code{email}. %TODO redundant?
 The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
 Not only the lack of support, but also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
 The need for a custom date picker with only a month and year needed to be hardcoded.
 Clearing the form after it was send, has to be programmed manually.
 
-\framework{ST}{1,3,2}
-Labels,  placeholders,  email fields, number fields, text fields and read-only fields are supported by the framework and can be easily created.  However, creating custom datepickers as needed in the POC is not supported.  It is impossible to ignore the days field and only years can be delimited.  
+\framework{ST}{2,2,0,0,0}
+Placeholders,  text fiels, email fields, number field are supported by the framework and can be easily created.  
+Labels can be avoided by not defining them.  
+Creating custom datepickers as needed in the POC is not supported.  
+It is impossible to ignore the days field and only years can be delimited.  
+Clearing the form after it was send, has to be programmed manually.
 
 \challenge{Form filling (C1,C2,C3)}
 Filling in the form elements with data (C1).
 Make the form elements read-only (C2).
-Back button to go back to the list (C3).
+%Back button to go back to the list (C3). %TODO niet van toepassing
 
-\framework{jQM}{0,0,2}
+\framework{jQM}{0,0}
 There is no automatic mapping between the data and the form.
 Setting the form elements read-only can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
 With \code{fieldset}, the \code{disabled} attribute was the solution.
 Lastly with \code{select}, the other options were deleted from the list.
-Adding a back button was no problem.
+%Adding a back button was no problem.
 
-\framework{ST}{X}
-To show the list of clickable expenses,  ST provides a navigation view.  This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  The handler fills an empty form with the expense record belonging to the list item and makes this the visible view.  Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.  A back button is automatically created to return to the overview list.
+\framework{ST}{2,2}
+%To show the list of clickable expenses,  ST provides a navigation view.  
+%This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
+The controller can fill an empty form with a model instance.
+Field names that correspond to the objects properties are linked and filled in.
+Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.  
+Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
+%A back button is automatically created to return to the overview list.
 
 \challenge{Form validation (C1,C2,C3,C4)}
 Validation rules for a required, number and email field (C1).
@@ -364,8 +399,12 @@ The plugin shows errors below the corresponding field, so customisation of the p
 To give the invalid fields a red border, CSS was used directly for \code{input} and \code{textarea}.
 Because of the progressive enhancement for \code{select} and \code{fieldset}, a bit of DOM traversal was needed.
 
-\framework{ST}{X}
-Required fields and email validation can be assigned to a model.  To add custom validation rules or messages,  the \code{validate}-methode of \code{Ext.data.Model} needs to be overriden.  This method accepts a model instance and returns the possible validation errors.  The errors must be iterated to concatenate the validation messages and color the red borders.  The borders are added by adding a custom CSS class to the form element.
+\framework{ST}{2,1,2,0}
+Required fields and email validation can be assigned to a model.  
+To add custom validation rules or messages,  the \code{validate}-methode of \code{Ext.data.Model} needs to be overriden.  
+This method accepts a model instance and returns the possible validation errors.  
+The errors must be iterated to concatenate the validation messages and color the red borders.
+The borders are added by adding a custom CSS class to the form element.
 
 \challenge{Signature (C1)}
 Draw a signature with finger or pen (C1).
@@ -376,8 +415,10 @@ Because of the time spend on changing the default layout, jSignature~\cite{Syste
 An advantage over the former was the automatic scaling to 100\% width and the layout without the bells and whistles.
 However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.
 
-\framework{ST}{X}
-Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla2011}.  Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  In most cases,  these plugins are written by committed ST users and hosted publicly on GitHub. Many of these plugins can not be used as-is and must be customised.
+\framework{ST}{1}
+Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla2011}.  
+Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
+This plugins could be used as-is by using the newly \code{signaturefield}.  
 
 \challenge{Show PDF (C1,C2)}
 Requesting a PDF with POST parameters (C1).
@@ -388,8 +429,11 @@ The download the PDF, a hidden form is used because AJAX is not the preferred wa
 When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
 The mobile device opens the corresponding native PDF viewer to show the PDF.
 
-\framework{ST}{X}
-A plugin for a PDF-viewer can be found~\cite{Fiedler2012}.  Some modifications were necessary to made it compliant with the POC.  The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
+\framework{ST}{1,1}
+A plugin for a PDF-viewer can be found at~\cite{Fiedler2012}.  
+Some modifications were necessary to made it compliant with the POC.  
+The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
+The plugin automatically creats views for every PDF page.  
 
 \challenge{Attach image (C1,C2,C3)}
 Choose image (C1).
@@ -405,8 +449,12 @@ However the FileReaderAPI is not supported on Android~2.3 and lower or iOS less 
 Another limitation is the file size that can be imported on a canvas on iOS devices which is depend on the RAM size~\cite{Apple2012}.
 The final limitation is the size of the encoded evidence in base64, which can exceeded the limit for session storage, that is depend on the mobile browser~\cite{Gonzalez2012}.
 
-\framework{ST}{X}
-%TODO
+\framework{ST}{1,1,1}
+A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} xtype.  
+This button enables users to select an image and passes it to a PHP file.  
+This file uploads the image and converts it to base64.
+A requirement is that your server is able to run that PHP file.    
+A ST image can be created based on this base64 string.
 
 \challenge{Autocomplete (C1,C2)}
 Fetch suggestions based on input (C1).
@@ -417,8 +465,13 @@ As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
 Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
 To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provided this.
 
-\framework{ST}{X}
-A plugin can be found at~\cite{Mysamplecode2012} to create an autoplugin field.  A request to the backend returns a JSON array named \code{data} for each keyword.  ST can parse this array is two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  Both strategies can not be used to parse the array and create seperate model instances for each array item.  Thereby,  the autocompletion functionality could not be implemented.
+\framework{ST}{1,0}
+A plugin can be found at~\cite{Mysamplecode2012} to create an autoplugin field.  
+A request to the backend returns a JSON array named \code{data} for each keyword.  
+ST can parse this array is two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  
+The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  
+Both strategies can not be used to parse the array and create seperate model instances for each array item.  
+This implies that no clickable drop down could be implemented.
 
 
 \challenge{AJAX: text, JSON \& XML}
@@ -433,8 +486,15 @@ Handling plain data and JSON as response is straightforward and the data can be 
 When using XML, the data has to be traversed like with HTML, this means by using selectors.
 Sending JSON can be achieved by converting the instance into a string object using the vanilla JavaScript function \code{JSON.stringify} and add it as data to the jQuery AJAX request.
 
-\framework{ST}{X}
-Ajax request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores.  Stores show the power of the framework by doing as much work as possible under the hood.  They can be configured with a model to define the structure of the recorded objects.  A proxy configures readers and writers that define where the data can be read or written.  This can be locally at the client side or via a remote server.  Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
+\framework{ST}{2,2,2,2}
+Ajax request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores.  
+The plain text of the AJAX response can be used in the callback.  
+Stores abstract AJAX calls.  
+They can be configured with a model to define the structure of the recorded objects.  
+A proxy configures readers and writers that define where the data can be read or written.  
+This can be locally at the client side or via a remote server.  
+Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
+Sending JSON payload must be done via an AJAX request where the \code{jsonData} is encoded via \code{Ext.encode}.
 
 \challenge{Device-specific layout (C1,C2,C3)}
 Recognising smartphone or tablet (C1).
@@ -449,9 +509,17 @@ The documentation of jQM~1.2 also used a similar approach~~\cite{JQuery2012b}.
 This approach is also encouraged in the documentation of jQM~1.3~\cite{JQuery2013e}.
 The smartphone menu can be accessed on both tablet and smartphone devices when clicking on the sub header.
 
-\framework{ST}{X}
-The main screen of the POC requires a splitview in tablet mode.  A \code{vbox} layout splits the viewport with a vertical axis.  The \code{flex} property defines the ratio of the sizes of both resulting components.  The right component is the page that changes by clicking the menu items in the left component.  This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout.
-In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  Detection of a smartphone context is done via the \code{Ext.os.is.Phone}-method.    
+\framework{ST}{2,2,0}
+Detection of a smartphone context is done via the \code{Ext.os.is.Phone}-method.  
+If this method returns false,  we assume to be in tablet mode.    
+The main screen of the POC requires a splitted view in tablet mode.  
+A \code{vbox} layout splits the viewport with a vertical axis.  
+The \code{flex} property defines the ratio of the sizes of both resulting components.  
+%TODO niet meer relevant The right component is the page that changes by clicking the menu items in the left component.  
+%This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout.
+In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
+Making the sub header clickable is not possible  
+
 
 \section{Future work} %(0,5 blz)
 \label{sec:future_work}

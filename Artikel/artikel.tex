@@ -327,7 +327,7 @@ If,  for example,  a framework has a lot of questions on Stack Overflow,  one co
 Someone else could say,  the framework has a large active internetcommunity build around it.  
 Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
 
-As depicted in table \ref{table:...},  jQM has a much larger social community.  
+As depicted in the comparison table in appendix \ref{app:comparison_table},  jQM has a much larger social community.  
 An explanation could be explained by the large success of jQuery,  a popular JavaScript framework itself~\cite{Hales2012}.
 
 The fact that ST had the first stable 1.0 release in mobile UI frameworks~\cite{Oeflman2011},  is not reflected in the community numbers.  
@@ -566,19 +566,26 @@ Sorting data (C3).
 
 \begin{center}
 
+\pgfplotstableset{
+  begin table/.add={}{[t]
+  %\label{table:comparisioncriteria}
+  %\caption{The caption}%
+  },
+}
+
 \pgfplotstabletypeset[
   col sep=semicolon,
-  %header=true,    
   string type,
-  %columns={criteria,jquerymobile,senchatouch},      % display specified columns
-  columns/criteria/.style={column name=Criteria, column type={l}},
-  columns/jquerymobile/.style={column name=jQM, column type={|c|}},
-  columns/senchatouch/.style={column name=ST, column type={|c|}},
-  % requires booktabs to place horiz rules
+  header=true,
+  columns={Criteria,jQuery Mobile,Sencha Touch},
+  columns/Criteria/.style={column name=Criteria, column type={l}},
+  columns/jQuery Mobile/.style={column name=jQuery Mobile, column type={c}},
+  columns/Sencha Touch/.style={column name=Sencha Touch, column type={c}},
   every head row/.style={
-    before row=\hline,after row=\hline},
+    before row=\toprule,
+    after row=\hline\hline},
   every last row/.style={
-    after row=\hline}
+    after row=\bottomrule}
 ]{comparisontable.csv}
 
 

@@ -38,9 +38,11 @@
 % zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
 \renewcommand{\url}[1]{\href{http://#1}{#1}}
 
+\newcommand{\setspace}[0]{\vspace{2mm}}
+
 % paragraphs anders te feel white space
 \usepackage{setspace}
-\renewcommand{\paragraph}[1]{\vspace{2mm} \noindent {\bf #1}  }
+\renewcommand{\paragraph}[1]{\setspace \noindent {\bf #1}  }
 \newcommand{\framework}[2]{ \emph{#1 (\textbf{#2}): }} %enkel in usage stukje om framework in te leiden
 
 \newcommand{\challenge}[1]{\paragraph{#1}}
@@ -79,10 +81,10 @@
 
 \section{Introduction} % (1 blz)
 \label{sec:introduction}
-The mobile landscape is very heterogeneous.
-We start by exploring the variety of mobile devices.
+The mobile landscape is very heterogeneous and making mobile applications can therefore be a challenging task.
+To illustrate this, we start by exploring the variety of mobile devices.
 Under the hood of these devices, we briefly look at the mobile operating systems that run on them. 
-Next, we explore the ways to make mobile applications.
+We next explore the ways to make mobile applications.
 Because of the emphasis on mobile HTML5 applications, we finally look at the mobile web browsers and the three building blocks of such applications: HTML5, CSS3 and JavaScript.
 
 \subsection{Mobile devices}
@@ -93,22 +95,24 @@ Not only smartphones, but also tablets conquer market share as mobile devices.
 \cite{Gillett2012} states that 760 million tablets will be in use globally by 2016.
 Not only Apple is producing mobile devices.
 Other companies like Google and Microsoft are on the track too.
-It may not come as a shock that all those mobile devices come in different shapes and sizes.
 
+All those mobile devices come in different shapes and sizes.
+They also include different features like GPS, camera and connectivity like Bluetooth, Wifi and 3G.
 
 \subsection{Mobile operating systems}
 In this section two mobile operating systems (OS) with the greatest market share are discussed: iOS and Android~\cite{David2011, Hales2012}.
-It is also important to look at the market share of the versions in use of both mobile OSs.
-This is because not every user has (updated to) the latest version on his mobile device.
 
-\paragraph{iOS}
-This mobile OS from Apple first appeared in 2007.
-Since then, a new version was released every year with the most recent version being iOS~6 which was released in September~2012~\cite{Deitel2012, PhilDutson2012}.
- 
-\paragraph{Android}
-In 2005, Google bought Android Inc. and released its first stable mobile OS in 2008~\cite{Satyesh2012}.
+The mobile OS from Apple, called iOS, first appeared in 2007.
+Since then, a new version was released every year with the most recent version being iOS~6.1 which was released in January~2013~\cite{Deitel2012, PhilDutson2012, Apple2013}.
+
+In 2005, Google bought Android Inc. and released its first stable mobile OS, called Android, in 2008~\cite{Satyesh2012}.
 Like with iOS, new versions were released on a yearly basis.
 Android~4.2 is the latest version and was released in October 2012~\cite{Sawers2012}.
+
+It is important to look at the market share of the versions in use, which is shown in table~\ref{table:mos-versions}.
+This is because not every user has (updated to) the latest version on his mobile device.
+The table shows that more than three-quarter of iOS users has already version iOS~6.x.
+In contrast, half of Android users is still using Android~2.x while the latest version is Android~4.x. 
 
 \begin{table}[h!]
 \centering
@@ -141,7 +145,7 @@ Android	& \multicolumn{2}{c}{Share (\%)} \\
 \bottomrule
 \end{tabular}
 \caption{Market share of iOS versions on February 14, 2013 and Android versions on February 4, 2013 \protect\cite{Sylvain2013,Android2013}}
-\label{table:ios-versions}
+\label{table:mos-versions}
 \end{table}
 
 \subsection{Mobile applications}

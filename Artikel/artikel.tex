@@ -44,10 +44,10 @@
 \newcommand{\exturl}[1]{\href{http://#1}{#1}}
 \renewcommand{\url}[1]{\exturl{#1}}
 
-\newcommand{\setspace}[0]{\vspace{2mm}}
 
 % paragraphs anders te feel white space
 \usepackage{setspace}
+\newcommand{\setspace}[0]{\vspace{2mm}}
 \renewcommand{\paragraph}[1]{\setspace \noindent {\bf #1}  }
 \newcommand{\framework}[2]{ \emph{#1 (\textbf{#2}): }} %enkel in usage stukje om framework in te leiden
 
@@ -485,7 +485,7 @@ Lastly with a select menu, the other options were deleted from the menu.
 %This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
 The controller can fill an empty form with a model instance.
 Field names that correspond to the object's properties are linked and filled in.
-Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.  
+Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.  
 Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
 %A back button is automatically created to return to the overview list.
 
@@ -504,7 +504,7 @@ Because of the progressive enhancement for \code{select} and \code{fieldset}, a 
 
 \framework{ST}{2,1,2,0}
 Required fields and email validation can be assigned to a model.  
-To add custom validation rules or messages,  the \code{validate}-methode of \code{Ext.data.Model} needs to be overriden.  
+To add custom validation rules or messages,  the \code{validate} method of \code{Ext.data.Model} needs to be overridden.  
 This method accepts a model instance and returns the possible validation errors.  
 The errors must be iterated to concatenate the validation messages.
 The red borders are created by adding a custom CSS class to the form element.
@@ -536,7 +536,7 @@ The mobile device opens the corresponding native PDF viewer to show the PDF.
 A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
 Some modifications were necessary to made it compliant with the POC.  
 The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
-The plugin automatically creats views for every PDF page.  
+The plugin automatically creates views for every PDF page.  
 
 \challenge{Attach image (C1,C2,C3)}
 Choose image (C1).
@@ -566,15 +566,15 @@ Show suggestions in clickable drop down (C2).
 \framework{jQM}{1,1}
 As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
 Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
-To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provided this.
+To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provid this.
 
 \framework{ST}{1,0}
-A plugin can be found at~\cite{Mysamplecode2012} to create an autoplugin field.  
-A request to the backend returns a JSON array named \code{data} for each keyword.  
-ST can parse this array is two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  
+A plugin can be found at~\cite{Mysamplecode2012} to create an autocomplete field.  
+A request to the backend with a keyword returns a JSON array named \code{data}.  
+ST can parse this array in two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  
 The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  
-Both strategies can not be used to parse the array and create seperate model instances for each array item.  
-This implies that no clickable drop down could be implemented.
+Both strategies cannot be used to parse the array and create separate model instances for each array item.  
+This implies that no clickable drop-down could be implemented.
 
 
 \challenge{AJAX: text, JSON \& XML}
@@ -590,10 +590,9 @@ When using XML, the data has to be traversed like with HTML, this means by using
 Sending JSON can be achieved by converting the instance into a string object using the vanilla JavaScript function \code{JSON.stringify} and add it as data to the jQuery AJAX request.
 
 \framework{ST}{2,2,2,2}
-Ajax request can be done either explicitly via a direct \code{Ext.Ajax.request}-call or implicitly via stores.  
-The plain text of the AJAX response can be used in the callback.  
-Stores abstract AJAX calls.  
-They can be configured with a model to define the structure of the recorded objects.  
+AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
+The plain text of the AJAX response can be used in the callback.   
+Stores can be configured with a model to define the structure of the recorded objects.  
 A proxy configures readers and writers that define where the data can be read or written.  
 This can be locally at the client side or via a remote server.  
 Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
@@ -604,16 +603,17 @@ Recognising smartphone or tablet (C1).
 Show left sided menu on tablet (C2).
 Enabling smartphone menu (C3).
 
-\framework{jQM}{0,0,0}
+\framework{jQM}{0,1,1}
 No functionality is provided by the framework, so a search for plugins was started with~\cite{Deering2012} which led to: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} and Multiview~\cite{Franck2012}. 
-All these had shortcomings. The first changed the jQM library code, the second uses jQM~1.0.1 and the last had problems with adapting to different browser sizes.
+All these had shortcomings. 
+The first changed the jQM library code, the second used jQM~1.0.1 and the last had problems with adapting to different browser sizes.
 \cite{Hadlock2012} showed the use of CSS3 media queries to accomplish the split screen without a plugin.
 The documentation of jQM~1.2 also used a similar approach~~\cite{JQuery2012b}.
 This approach is also encouraged in the documentation of jQM~1.3~\cite{JQuery2013e}.
 The smartphone menu can be accessed on both tablet and smartphone devices when clicking on the sub header.
 
 \framework{ST}{2,2,0}
-Detection of a smartphone context is done via the \code{Ext.os.is.Phone}-method.  
+Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
 If this method returns false,  we assume to be in tablet mode.    
 The main screen of the POC requires a splitted view in tablet mode.  
 A \code{vbox} layout splits the viewport with a vertical axis.  
@@ -626,9 +626,9 @@ Making the sub header clickable is not possible
 
 \section{Future work} %(0,5 blz)
 \label{sec:future_work}
-
-We left out three other criteria (productivity, support and performance) that we did not yet evaluated.
-Also we left out the following challenges in the evaluation of the usage:
+We have to choose the next two mobile HTML5 frameworks, implement the POC and evaluate the framework.
+We also have to evaluate the following three criteria: productivity, support and performance. 
+Finally, we want to expand the usage criterion with the following challenges:
 
 \challenge{Offline (C1,C2,C3)}
 Saving credentials (C1).
@@ -652,10 +652,13 @@ Sorting data (C3).
  Show header, footer and sub header with titles and buttons (C1).
  Tabbar (C2).
  Button color customisation (C3).
+\setspace{}
 
-\section{Conclusion} %(0,5 blz)
-\label{sec:conclusion}
+%\section{Conclusion} %(0,5 blz)
+%\label{sec:conclusion}
 
+
+\newpage
 %% The file named.bst is a bibliography style file for BibTeX 0.99c
 %\bibliographystyle{named}
 
@@ -671,6 +674,7 @@ Sorting data (C3).
 \bibliographystyle{abbrv}
 \bibliography{../Referenties/literatuurstudie-tex,../Referenties/vergelijking-tex,../Referenties/evaluatie-tex}
 
+\newpage
 \appendix
 \section{Comparison table}
 \label{app:comparison_table}

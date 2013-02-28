@@ -20,7 +20,8 @@
 %%%%%%%%%%%%%% CUSTOM BEGIN %%%%%%%%%%%%%%
 
 % remove if not a draft
-%\usepackage{draftwatermark}
+\usepackage{draftwatermark}
+\SetWatermarkColor[rgb]{0.9,0.9,0.9}
 
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
@@ -36,6 +37,8 @@
 \usepackage{pgfplotstable} %nodig voor CSV to Latex
 \usepackage{booktabs} % voor layout comparisontable
 
+%\usepackage[hyphens]{url}
+
 
 % captions
 \usepackage{caption} 
@@ -49,7 +52,7 @@
 
 % zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
 \newcommand{\exturl}[1]{\href{http://#1}{#1}}
-\renewcommand{\url}[1]{\exturl{#1}}
+\renewcommand{\url}[1]{\href{#1}{#1}}
 
 
 % paragraphs anders te feel white space
@@ -684,9 +687,9 @@ Sorting data (C3).
   string type,
   header=true,
   columns={Criteria,jQM,ST},
-  columns/Criteria/.style={column name=Criteria, column type={l}},
-  columns/jQuery Mobile/.style={column name=jQuery Mobile, column type={c}},
-  columns/Sencha Touch/.style={column name=Sencha Touch, column type={c}},
+  columns/Criteria/.style={column name=\textbf{Criteria}, column type={l}},
+  columns/jQM/.style={column name=\textbf{jQM}, column type={c}},
+  columns/ST/.style={column name=\textbf{ST}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},

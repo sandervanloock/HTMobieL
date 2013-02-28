@@ -657,24 +657,6 @@ Sorting data (C3).
 %\section{Conclusion} %(0,5 blz)
 %\label{sec:conclusion}
 
-
-\newpage
-%% The file named.bst is a bibliography style file for BibTeX 0.99c
-%\bibliographystyle{named}
-
-
-% Define a new 'leo' style for the package that will use a smaller font.
-\makeatletter
-\def\url@leostyle{%
-  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
-\makeatother
-%% Now actually use the newly defined style.
-\urlstyle{leo}
-
-\bibliographystyle{abbrv}
-\bibliography{../Referenties/literatuurstudie-tex,../Referenties/vergelijking-tex,../Referenties/evaluatie-tex}
-
-\newpage
 \appendix
 \section{Comparison table}
 \label{app:comparison_table}
@@ -694,16 +676,33 @@ Sorting data (C3).
   col sep=semicolon,
   string type,
   header=true,
-  columns={Criteria,jQuery Mobile,Sencha Touch},
+  columns={Criteria,jQM,ST},
   columns/Criteria/.style={column name=Criteria, column type={l}},
   columns/jQuery Mobile/.style={column name=jQuery Mobile, column type={c}},
   columns/Sencha Touch/.style={column name=Sencha Touch, column type={c}},
   every head row/.style={
     before row=\toprule,
-    after row=\hline\hline},
+    after row=\midrule},
   every last row/.style={
     after row=\bottomrule}
 ]{comparisontable.csv}
+
+%% The file named.bst is a bibliography style file for BibTeX 0.99c
+%\bibliographystyle{named}
+
+
+% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+
+\bibliographystyle{abbrv}
+\bibliography{../Referenties/literatuurstudie-tex,../Referenties/vergelijking-tex,../Referenties/evaluatie-tex}
+
+
 
 
 \end{center}

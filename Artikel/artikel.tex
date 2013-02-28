@@ -315,10 +315,10 @@ The total of all challenges give the score for the framework's usage.
 
 
 \paragraph{Support}
-This criterion indicates the correct functionality of the POC implementation on different devices and browsers,  similar as the cross platform capabilities of~\cite{Sarrafi2012a}.  
-In each context,  we will walk trough the scenario and rate the execution.  
-If some parts of the scenario are infeasable,  points will be subtracted.  
-The summation of scores for every iteration of the scenario in each context will give the score for the frameworks support.
+This criterion indicates the correct functionality of the POC implementation on different devices and browsers,  similar as the cross-platform capabilities of~\cite{Sarrafi2012a}.  
+In each context,  we will walk through a scenario and rate the execution.  
+If some parts of the scenario are infeasible,  points will be subtracted.  
+The summation of scores for every iteration of the scenario in each context will give the score for the framework's support.
 
 \paragraph{Performance}
 Different aspect of the framework influence the performance.  
@@ -328,11 +328,12 @@ The summation of render times will give the score for the frameworks performance
 
 \section{Frameworks} % (1 blz per framework + tabel)
 \label{sec:frameworks}
+This section introduces the explored mobile HTML5 frameworks: jQuery Mobile (jQM) and Sencha Touch (ST).
 
 \subsection{jQuery Mobile} % (1 blz Tim)
 \label{sec:jqm}
 
-jQuery Mobile (jQM) is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
+jQM is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
 In November 2011 version~1.0 was released~\cite{Parker2011} and one year later in October, version~1.2 was released~\cite{Parker2012}. 
 As at the time of writing, jQM released version~1.3 \cite{Parker2013a}.
 The framework is controlled by the jQuery Project that also manages jQuery Core. 
@@ -349,13 +350,13 @@ By checking the source code, you can find out what code to write to get the same
 On the other hand it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
 
 \paragraph{Code and development}
-jQM is a UI framework and thus provides mainly UI components. 
+jQM is a mark-up driven UI framework and thus provides mainly UI components. 
 jQM provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
 One can obtain these components by writing HTML5 with jQM specific \code{data-}* attributes. 
 When running the application, jQM will add the extra necessary code to correctly show these components by doing progressive enhancement.
 
 There are three ways of writing a HTML5 application in jQM~\cite{Broulik2012}. 
-The first one is to write the full application that is composed of many screens, on one single web page.
+The first one is to write the full application on one single web page.
 The advantage is that there are initially less requests to the server.
 The second option is to write a web page for each screen. 
 The advantage here is that the first viewed screen is downloaded more quickly. 
@@ -371,68 +372,69 @@ An A graded browsers supports everything of the jQM framework, where a C graded 
 \subsection{Sencha Touch} % (1 blz Sander)
 \label{sec:sencha_touch}
 
-Sencha Touch (ST) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
+ST is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
 Ext JS is a JavaScript framework for the development of HTML5 applications.  
-jQuery Touch is a jQuery plug in for mobile development that adds touch events to jQuery and depends on the WebKit engine.  
+jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery and depends on the WebKit engine.  
 Finally,  Raphaël, is a JavaScript library for vector drawings.  
-Pieces of the first two technologies can be found in the implementation of ST framework.    
+Parts of the first two technologies can be found in the implementation of the ST framework.    
 
 As at the time of writing,  ST is at version 2.1.1~\cite{Inc.}.
 
 \paragraph{Documentation}
 All documentation for ST 2.1.1 can be found at \exturl{docs.sencha.com/touch/2-0}.  
-The most important features,  are provided with code examples and an example of the code after rendered by the browser.  
-The key concepts of ST are explained in extensive tutorials:  some texts, some videos.  
+The most important features are provided with code examples and live previews.
+The key concepts of ST are explained in extensive tutorials:  some are texts, some are videos.  
 
-Another handy tool to discover the ST features is the 'Kitchen Sink'~\cite{Inc.2013}.  
-This is a HTML5 application,  written in ST,  that lines up all possibilities of the framework combined with the corresponding code.
+Another handy tool to discover the ST features is the Kitchen Sink~\cite{Inc.2013}.  
+This is a HTML5 application that lines up all possibilities of the framework combined with the corresponding code.
 
 \paragraph{Licenses}
 ST is free within a commercial context in which the developer does not share the code with its users.  
 There is also the option to use an open source version.  
 This comes with a GNU GPL v3 license which implies a free code redistribution as most important property.
-More detailed licenses can be found at~\cite{SenchaInc.}.
+Other licenses can be found at~\cite{SenchaInc.}.
   
 \paragraph{Code and development}
-ST is written on top of Ext JS,  and can also be considered as JavaScript framework.  
+ST is written on top of Ext JS,  and can also be considered as a JavaScript framework.  
 All code needs to be written in JavaScript and loaded by one HTML container.  
-An other important aspect of ST is that is supports the Model-View-Controller (MVC) pattern.  
-Models group fields to data-objects,  views define how the content is presented to the user and controllers connect these based on events.
+Another important aspect of ST is that it supports the Model-View-Controller (MVC) pattern.  
+Models group fields to data objects,  views define how the content is presented to the user and controllers connect these based on events.
 
 ST contains all UI elements as JavaScript objects.  
 Just like object-oriented programming,  those objects are part of a class system.  
 Classes can both be defined (\code{Ext.define}) or created (\code{Ext.create}).  
-Single-inheritance and overriding is also possible.    
+Single inheritance and overriding is also possible.    
 
-To enhance performance,  it is the programmers task to create components before they are used.  
-In this way,  the programmers partially determines the performance of the applications.
+To enhance performance,  it is the programmer's task to create components before they are used.  
+In this way,  the programmer partially determines the performance of the application.
 
 \paragraph{Browser support}
 Just like jQuery Touch,  ST is based upon the WebKit browser engine.  
 This forms the major requirement for browser support.  
 Although most mobile browsers contain this engine,  some like FireFox Mobile and Opera Mobile lack behind~\cite{JohnEClark2012}.  
-Following~\cite{Wokke2013}, the next release of the Opera browser will contain this engine,  a trend that most browser vendors will (have to) follow.
+Following~\cite{Wokke2013}, the next release of the Opera browser will contain the WebKit engine,  a trend that most browser vendors will (have to) follow.
 
 The framework offers the programmer methods to ask for the current context where the end-user is working in. 
 Properties like \code{Ext.env.Browser} and \code{Ext.env.OS} or methods like \code{Ext.Viewport.getOrientation} and \code{Ext.feature.has} can determine this context~\cite{JohnEClark2012}.  
-The latter has functionalities,  just like Modernizer~\cite{Modernizr2012}.  
+The latter has the same functionality as Modernizer~\cite{Modernizr2012}.  
 
 \section{Evaluation}
+This section evaluates the mobile HTML5 frameworks by two criteria: community and usage.
 
 \subsection{Community} % (0,5 blz)
 \label{sec:community}
 
 The activity around frameworks in social media has to be considered with a lot of care.  
-If,  for example,  a framework has a lot of questions on Stack Overflow,  one could conclude the framework has a lot ambiguities.  
-Someone else could say,  the framework has a large active internetcommunity build around it.  
+If,  for example,  a framework has a lot of questions on Stack Overflow,  one could conclude the framework has a lot of ambiguity.  
+Someone else could argue  the framework has a large active Internet community build around it.  
 Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
 
 As depicted in the comparison table in appendix \ref{app:comparison_table},  jQM has a much larger social community.  
-An explanation could be explained by the large success of jQuery,  a popular JavaScript framework itself~\cite{Hales2012}.
+An explanation could be explained by the large success of jQuery,  a popular JavaScript library~\cite{Hales2012}.
 
 The fact that ST had the first stable 1.0 release in mobile UI frameworks~\cite{Oeflman2011},  is not reflected in the community numbers.  
-Alse,  ~\cite{Inc.} states that Sencha is the largest provider of open-source HTML5 application frameworks with more than two million developers.  
-ST itself embraces about one quarter of this number.  Only a tiny fraction of the developers 
+\cite{Inc.} states that Sencha is the largest provider of open source HTML5 application frameworks with more than two million developers.  
+ST itself embraces about one quarter of this number.
 
 ST is not available on GitHub,  that is why no data is given.
 
@@ -441,31 +443,32 @@ ST is not available on GitHub,  that is why no data is given.
 In this section we evaluate the usage by stating challenges.
 Each challenge consists of subchallenges that are explained first.
 Afterwards the framework is graded on each of these challenges and commented why that score was given.
+The total score per challenge can be found in appendix \ref{app:comparison_table}.
 
 \challenge{Forms (C1,C2,C3,C4,C5)}
 Create forms with placeholders, but without labels (C1).
 Use the text, number and email as form types (C2).
-Custom date picker with data range (C3).
-Custom date picker only with month and year (C4).
+Custom datepicker with data range (C3).
+Custom datepicker only with month and year (C4).
 Clearing the form (C5).
 
 \framework{jQM}{2,2,1,1,0}
 Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
 Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
-The types of form elements used were \code{text}, \code{number} and \code{email}. %TODO redundant?
+The types of form elements used were text, number and email.
 The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
 Not only the lack of support, but also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
-The need for a custom date picker with only a month and year needed to be hardcoded.
+The need for a custom datepicker with only a month and year needed to be hardcoded.
 Clearing the form after it was send, has to be programmed manually.
 
 \framework{ST}{2,2,0,0,0}
-Placeholders,  text fiels, email fields, number field are supported by the framework and can be easily created.  
+Placeholders, text, email and number fields are supported by the framework and can be easily created.  
 Labels can be avoided by not defining them.  
-Creating custom datepickers as needed in the POC is not supported.  
+Creating custom datepickers is not supported.  
 It is impossible to ignore the days field and only years can be delimited.  
 Clearing the form after it was send, has to be programmed manually.
 
-\challenge{Form filling (C1,C2,C3)}
+\challenge{Form filling (C1,C2)}
 Filling in the form elements with data (C1).
 Make the form elements read-only (C2).
 %Back button to go back to the list (C3). %TODO niet van toepassing
@@ -473,15 +476,15 @@ Make the form elements read-only (C2).
 \framework{jQM}{0,0}
 There is no automatic mapping between the data and the form.
 Setting the form elements read-only can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
-With \code{fieldset}, the \code{disabled} attribute was the solution.
-Lastly with \code{select}, the other options were deleted from the list.
+With a fieldset, the \code{disabled} attribute made is read-only.
+Lastly with a select menu, the other options were deleted from the menu.
 %Adding a back button was no problem.
 
 \framework{ST}{2,2}
 %To show the list of clickable expenses,  ST provides a navigation view.  
 %This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
 The controller can fill an empty form with a model instance.
-Field names that correspond to the objects properties are linked and filled in.
+Field names that correspond to the object's properties are linked and filled in.
 Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue}-method needs to be applied.  
 Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
 %A back button is automatically created to return to the overview list.
@@ -503,8 +506,8 @@ Because of the progressive enhancement for \code{select} and \code{fieldset}, a 
 Required fields and email validation can be assigned to a model.  
 To add custom validation rules or messages,  the \code{validate}-methode of \code{Ext.data.Model} needs to be overriden.  
 This method accepts a model instance and returns the possible validation errors.  
-The errors must be iterated to concatenate the validation messages and color the red borders.
-The borders are added by adding a custom CSS class to the form element.
+The errors must be iterated to concatenate the validation messages.
+The red borders are created by adding a custom CSS class to the form element.
 
 \challenge{Signature (C1)}
 Draw a signature with finger or pen (C1).
@@ -512,25 +515,25 @@ Draw a signature with finger or pen (C1).
 \framework{jQM}{1}
 At first, Signature Pad~\cite{Bradley2013} was used as plugin.
 Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
-An advantage over the former was the automatic scaling to 100\% width and the layout without the bells and whistles.
+Two advantage over the former were the automatic scaling to 100\% width and the basic layout.
 However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.
 
 \framework{ST}{1}
-Drawing a signature with a pen or a finger is handled by a plugin~\cite{SimFla2011}.  
+Drawing a signature is handled by a plugin~\cite{SimFla2011}.  
 Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
-This plugins could be used as-is by using the newly \code{signaturefield}.  
+This plugin could be used as-is by using the newly \code{signaturefield} component.  
 
 \challenge{Show PDF (C1,C2)}
 Requesting a PDF with POST parameters (C1).
 Show the PDF (C2).
 
-\framework{jQM}{0,0}
+\framework{jQM}{1,1}
 To download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
 When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
 The mobile device opens the corresponding native PDF viewer to show the PDF.
 
 \framework{ST}{1,1}
-A plugin for a PDF-viewer can be found at~\cite{Fiedler2012}.  
+A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
 Some modifications were necessary to made it compliant with the POC.  
 The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
 The plugin automatically creats views for every PDF page.  
@@ -540,7 +543,7 @@ Choose image (C1).
 Convert image to base64 (C2).
 Preview image (C3).
 
-\framework{jQM}{0,0,0}
+\framework{jQM}{2,0,0}
 A form element of type \code{file} is used to let the user attach an image.
 Depending on the mobile device, the options are to attach a local image or to take one with the camera.
 The attached image is read by the FileReaderAPI, converted to an image and imported on the canvas.
@@ -550,7 +553,7 @@ Another limitation is the file size that can be imported on a canvas on iOS devi
 The final limitation is the size of the encoded evidence in base64, which can exceeded the limit for session storage, that is depend on the mobile browser~\cite{Gonzalez2012}.
 
 \framework{ST}{1,1,1}
-A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} xtype.  
+A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
 This button enables users to select an image and passes it to a PHP file.  
 This file uploads the image and converts it to base64.
 A requirement is that your server is able to run that PHP file.    

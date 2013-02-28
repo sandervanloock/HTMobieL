@@ -28,7 +28,8 @@ Ext.define('Expense.view.AbroadExpenseDetail', {
                         xtype: 'fieldset',
                         defaults: {
                             xtype: 'radiofield',
-                            name : 'expenseType'
+                            name : 'expenseType',
+                            disabled:true
                         },
                         padding: '0 0 0 0', //TODO
                         items : [

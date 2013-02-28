@@ -26,7 +26,8 @@ Ext.define('Expense.view.DomesticExpenseDetail', {
                         xtype: 'fieldset',
                         defaults: {
                             xtype: 'radiofield',
-                            name : 'expenseType'
+                            name : 'expenseType',
+                            disabled: true
                         },
                         items : [
                             {

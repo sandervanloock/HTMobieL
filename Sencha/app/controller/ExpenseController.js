@@ -101,6 +101,7 @@ Ext.define('Expense.controller.ExpenseController', {
             Ext.getStore('expensestore').add(expense);
             this.getDetail().setActiveItem(3);
             Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
+            this.getAbroadExpense().reset(); //force reset of the form
         } else{
              var message = '';
              errors.each(function(item, index, length){
@@ -136,6 +137,7 @@ Ext.define('Expense.controller.ExpenseController', {
             Ext.getStore('expensestore').add(expense);
             this.getDetail().setActiveItem(3);
             Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
+            this.getDomesticExpense().reset(); //force reset of the form
         } else{
             var message = '';
             errors.each(function(item, index, length){
@@ -207,6 +209,7 @@ Ext.define('Expense.controller.ExpenseController', {
              });
             Ext.getCmp('signature').removeCls('x-field-custom-error');
             Ext.Viewport.setActiveItem(Ext.getCmp('home'));
+            expenseForm.reset(); //force reset of the form
         } else { //validation error
             //can't use build in validation because of singfield plugin can't have a name!
             message = 'A signature must be present';

@@ -390,6 +390,12 @@ Ext.define('Ext.ux.Fileup', {
             
             // Get server response from iframe
             var response = iframe.dom.contentDocument.body.textContent;
+            /*Ext.Ajax.request({
+                url: config.actionUrl,
+                callback: function(){
+                    console.log('mlk');
+                }
+            });*/
             
             // Failure flag
             var fail = false;

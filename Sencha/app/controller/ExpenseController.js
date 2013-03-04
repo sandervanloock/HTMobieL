@@ -245,7 +245,7 @@ Ext.define('Expense.controller.ExpenseController', {
             loaded.destroy();
         }
 
-        addImage(response.base64, Ext.getCmp('abroadexpense'),'loadedImageAbroad');
+        addImage(response.base64.substring(0,), Ext.getCmp('abroadexpense'),'loadedImageAbroad');
 
     },
 

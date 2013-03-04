@@ -88,7 +88,7 @@ Ext.define('Expense.view.AbroadExpense', {
                         autoUpload: true,
                         width: 229,
                         height: 46,
-                        actionUrl: 'getfile.php',
+                        actionUrl: 'http://www.chiroelzestraat.be/chirojongens/uploads/Sencha/getfile.php',
                         returnBase64Data: true
                     },
                     {

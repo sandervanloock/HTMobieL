@@ -244,8 +244,8 @@ Ext.define('Expense.controller.ExpenseController', {
         if (loaded) {
             loaded.destroy();
         }
-
-        addImage(response.base64.substring(0,), Ext.getCmp('abroadexpense'),'loadedImageAbroad');
+        //remove base64 prefix
+        addImage(response.base64.substr(response.base64.indexOf(",")+1,str.length-response.base64.indexOf(",")), Ext.getCmp('abroadexpense'),'loadedImageAbroad');
 
     },
 
@@ -255,7 +255,8 @@ Ext.define('Expense.controller.ExpenseController', {
         if (loaded) {
             loaded.destroy();
         }
-        addImage(response.base64, Ext.getCmp('domesticexpense'),'loadedImageDomestic');
+        //remove base64 prefix
+        addImage(response.base64.substr(response.base64.indexOf(",")+1,str.length-response.base64.indexOf(",")), Ext.getCmp('domesticexpense'),'loadedImageDomestic');
 
     },
 

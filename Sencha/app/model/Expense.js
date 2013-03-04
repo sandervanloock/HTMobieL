@@ -70,7 +70,12 @@ Ext.define('Expense.model.Expense', {
 			type : 'presence',
 			name : 'amount', //valid amount
             message: 'An amount must be present' //nodig voor custom validations
-		}, /*{ TODO
+		}, {
+            type: 'format',
+            field: 'amount',
+            matcher: /^[+]?\d+([.]\d+)?$/,
+            message: 'Amount must be a valid number'
+        },/*{ TODO
             type: 'presence',
             name: 'evidence',
             message: 'Evidence must be uploaded'
@@ -80,7 +85,6 @@ Ext.define('Expense.model.Expense', {
             type : 'custom',
             message : 'Remarks must be present if \'other\' is picked as expense type',
             validator : function(config, value, model) {
-                console.log(value);
                 if (model.get('expenseType')=="Other" && (Ext.isEmpty(value) || value == "")) {
                     return false;
                 } else{

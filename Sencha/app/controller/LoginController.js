@@ -19,8 +19,13 @@ Ext.define('Expense.controller.LoginController', {
 
     checkLocalStorage: function(comp,opts){
         var token = localStorage.getItem('token')
-        if(token != null)
+        if(token != null){
+            Ext.Viewport.setMasked({
+                xtype: 'loadmask',
+                message: 'Loading...'
+            });
             login(token);
+        }
     },
 
     doLogin: function(button, e, options) {
@@ -46,6 +51,10 @@ Ext.define('Expense.controller.LoginController', {
 			});
         }
         else{
+            Ext.Viewport.setMasked({
+                xtype: 'loadmask',
+                message: 'Loading...'
+            });
             Ext.Ajax.request({
                 url : Expense.app.getBaseURL() + '/resources/userService/login',
                 method : 'POST',
@@ -83,12 +92,16 @@ Ext.define('Expense.controller.LoginController', {
     },
 
     doLogout : function(button, e, options) {
-       logout(); //TODO
+       logout();
     }
 
 });
 
 function logout(){
+    Ext.Viewport.setMasked({
+        xtype: 'loadmask',
+        message: 'Loading...'
+    });
     Ext.Ajax.request({
         url : Expense.app.getBaseURL() + '/resources/userService/logout',
         method : 'POST',
@@ -97,6 +110,7 @@ function logout(){
             token : Expense.app.token
         },
         callback : function(options, success,response) {
+            Ext.Viewport.setMasked(false);
             Ext.Viewport.setActiveItem(Ext.getCmp('loginpanel'));
             Ext.destroy(Ext.getCmp('home'));
             Ext.destroy(Ext.getCmp('viewport'));
@@ -125,4 +139,5 @@ function login(token){
     });
     Ext.create('Expense.view.Viewport', {fullscreen: true});
     Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
+    Ext.Viewport.setMasked(false);
 }

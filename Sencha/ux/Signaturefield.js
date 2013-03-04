@@ -170,7 +170,7 @@ Ext.define('Ext.ux.Signaturefield', {
 		this.fieldValue = value;
 	},
 	getValue: function() {
-		return this.fieldValue.substr(this.fieldValue.indexOf(",")+1,str.length-this.fieldValue.indexOf(","));
+		return this.fieldValue.substr(this.fieldValue.indexOf(",")+1,this.fieldValue.length-this.fieldValue.indexOf(","));
 	},
 	resetCanvas: function() {
 		canvas=this.actionOverlayCanvas.element.dom.firstChild;

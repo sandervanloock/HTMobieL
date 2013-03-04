@@ -245,7 +245,7 @@ Ext.define('Expense.controller.ExpenseController', {
             loaded.destroy();
         }
         //remove base64 prefix
-        addImage(response.base64.substr(response.base64.indexOf(",")+1,str.length-response.base64.indexOf(",")), Ext.getCmp('abroadexpense'),'loadedImageAbroad');
+        addImage(response.base64.substr(response.base64.indexOf(",")+1,response.base64.length-response.base64.indexOf(",")), Ext.getCmp('abroadexpense'),'loadedImageAbroad');
 
     },
 
@@ -256,7 +256,7 @@ Ext.define('Expense.controller.ExpenseController', {
             loaded.destroy();
         }
         //remove base64 prefix
-        addImage(response.base64.substr(response.base64.indexOf(",")+1,str.length-response.base64.indexOf(",")), Ext.getCmp('domesticexpense'),'loadedImageDomestic');
+        addImage(response.base64.substr(response.base64.indexOf(",")+1,response.base64.length-response.base64.indexOf(",")), Ext.getCmp('domesticexpense'),'loadedImageDomestic');
 
     },
 

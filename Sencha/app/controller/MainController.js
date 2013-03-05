@@ -73,18 +73,16 @@ Ext.define(
                         if(errors.isValid())
                         {
                             this.getDetail().setActiveItem(1);
-                            Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(index-1),false,false);
+                            Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(1),false,false);
 
                             //set expense form date
                             var myDate=new Date();
                             myDate.setFullYear(Ext.getCmp('year').getValue(),Ext.getCmp('month').getValue(),1);
                             Expense.app.getExpenseForm().set('date',myDate);
-                            if(index==1){
-                                //encode currencies at runtime
-                                Ext.getStore('expensestore').each(function(item,index,length){
-                                    encodeCurrency(item);
-                                });
-                            }
+                            //encode currencies at runtime
+                            Ext.getStore('expensestore').each(function(item,index,length){
+                                encodeCurrency(item);
+                            });
                         }
                         else {
                             var message = '';

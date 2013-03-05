@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lungo</title>
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="../components/lungo/lungo.css">
+    <link rel="stylesheet" href="../components/lungo/lungo.icon.css">
+    <link rel="stylesheet" href="../components/lungo/lungo.icon.brand.css">
+    <link rel="stylesheet" href="../components/lungo/lungo.css">
+    <link rel="stylesheet" href="../components/lungo/theme.lungo.css">
+</head>
+
+<body class="app">
+
+<section id="main" data-transition="">
+    <header data-title="Main">
+        <nav>
+            <a href="#features" data-router="aside" data-icon="menu"></a>
+        </nav>
+    </header>
+
+    <article id="main-article" class="active">
+        <p> Dit is een tekst</p>
+    </article>
+
+    <footer>
+        <nav>
+            <a href="#" data-icon="menu" class="active"></a>
+            <a href="#" data-icon="share"></a>
+            <a href="#" data-icon="user"></a>
+            <a href="#" data-icon="users"></a>
+        </nav>
+    </footer>
+</section>
+
+<aside id="features">
+    <header data-title="Options"></header>
+    <article class="active">
+        Hier nog wat extra informatie
+    </article>
+</aside>
+
+<!-- Lungo - Dependencies -->
+<script src="../components/quojs/quo.js"></script>
+<script src="../components/lungo/lungo.js"></script>
+
+<!-- Lungo - Sandbox App -->
+<script>
+    Lungo.init({
+        name:'example'
+    });
+</script>
+
+</body>
+</html>

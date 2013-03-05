@@ -157,6 +157,10 @@ Ext.define('Expense.controller.ExpenseController', {
 
 
     sendExpenses : function(button, e, options){
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Loading...'
+        });
         var field = this.getSignfield().getValues();
         var expenseForm = Expense.app.getExpenseForm();
         if(!Ext.isEmpty(Ext.getCmp('signature').getValue())){
@@ -191,6 +195,7 @@ Ext.define('Expense.controller.ExpenseController', {
                     "Content-Type": "application/json"
                  },
                  success: function() {
+                     Ext.Viewport.setMasked(false);
                      Ext.Msg.show({
                          title: 'Save Expense',
                          message: 'Form submitted Succesfully',
@@ -199,17 +204,23 @@ Ext.define('Expense.controller.ExpenseController', {
                      });
                      //clear expenses and expenseform
                      var expensestore = Ext.getStore('expensestore');
-                     expensestore.removeAll();
+                     expensestore.getProxy().clear(); //BUG indicated @ http://docs.sencha.com/touch/2-1/#!/api/Ext.data.Store-method-removeAll
                      expensestore.sync();
                      Ext.getStore('expenseformstore').removeAll();
                  },
                  failure: function(response, opts) {
-                    console.log('server-side failure with status code ' + response.status);
+                     Ext.Msg.show({
+                         title: 'Save Expense',
+                         message: 'You are currently offline,  your expense will be saved,  please come back later to resend your expense',
+                         width: 300,
+                         buttons: Ext.MessageBox.OK
+                     });
                  }
              });
             Ext.getCmp('signature').removeCls('x-field-custom-error');
             Ext.Viewport.setActiveItem(Ext.getCmp('home'));
             expenseForm.reset(); //force reset of the form
+            Ext.getCmp('signature').reset();
         } else { //validation error
             //can't use build in validation because of singfield plugin can't have a name!
             message = 'A signature must be present';

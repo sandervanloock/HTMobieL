@@ -18,14 +18,16 @@ Ext.define('Expense.controller.LoginController', {
     },
 
     checkLocalStorage: function(comp,opts){
-        var token = localStorage.getItem('token')
-        if(token != null){
-            Ext.Viewport.setMasked({
-                xtype: 'loadmask',
-                message: 'Loading...'
-            });
-            login(token);
-        }
+        var employeeStore = Ext.getStore('employeestore');
+        var localemployeestore = Ext.getStore('localemployeestore');
+        localemployeestore.load({
+            callback : function(options, success,response) {
+                if(localemployeestore.getCount() != 0){
+                    Ext.getCmp('loginpanel').setZIndex(-99);
+                }
+            }
+        });
+
     },
 
     doLogin: function(button, e, options) {
@@ -74,10 +76,6 @@ Ext.define('Expense.controller.LoginController', {
                         });
                     }
                     else{
-                        //store credentials in local storage
-                        localStorage.setItem('email',fields.emailLogin);
-                        localStorage.setItem('password',fields.password);
-                        localStorage.setItem('token',response.responseText);
                         login(response.responseText);
                     }
                 },
@@ -112,14 +110,13 @@ function logout(){
         callback : function(options, success,response) {
             Ext.Viewport.setMasked(false);
             Ext.Viewport.setActiveItem(Ext.getCmp('loginpanel'));
+            Ext.getCmp('loginpanel').setZIndex(99);
             Ext.destroy(Ext.getCmp('home'));
             Ext.destroy(Ext.getCmp('viewport'));
             Ext.destroy(Ext.getCmp('totaloverviewlist'));
         }
     });
-    localStorage.removeItem('email');
-    localStorage.removeItem('password');
-    localStorage.removeItem('token');
+    localStorage.clear();
 }
 
 function login(token){
@@ -130,13 +127,7 @@ function login(token){
     employeeStore.getProxy().setExtraParams({
         token: token
     });
-    employeeStore.load({
-        callback: function(records, operation, success) {
-            // the operation object contains all of the details of the load operation
-            console.log(records);
-        },
-        scope: this
-    });
+    employeeStore.load();
     Ext.create('Expense.view.Viewport', {fullscreen: true});
     Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
     Ext.Viewport.setMasked(false);

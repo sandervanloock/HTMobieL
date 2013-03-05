@@ -41,21 +41,6 @@ Ext.define('Expense.model.Expense', {
             value: false,
             persist: false
         }],
-		proxy: {
-            type: 'ajax',
-            //url: Expense.app.getBaseURL() + '/resources/expenseService/getExpenseForms',
-            url: 'expenseForm.xml',
-            actionMethods: {
-                create : 'POST',
-                read   : 'POST',
-                update : 'POST',
-                destroy: 'POST'
-            },
-            reader: {
-                type: 'xml',
-                record: 'expense'
-            }
-        },
 		validations : [
         {
             type: 'presence',

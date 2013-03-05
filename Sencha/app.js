@@ -68,6 +68,7 @@ Ext.application({
         'MenuStore',
         'ExpenseStore',
         'EmployeeStore',
+        'LocalEmployeeStore',
         'ExpenseFormStore',
         'ProjectCodeStore',
         'CurrencyStore'

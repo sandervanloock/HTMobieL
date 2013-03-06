@@ -25,19 +25,11 @@ $(document).on("pageshow", "#sign-and-send", function () {
             $notification.slider("refresh");
         }
     }
-
-    // TODO delete me (developping purposes)
-    $signature.bind("change", function () {
-        $("#sign-and-send-signature-base64").val($signature.jSignature("getData"));
-    });
 });
 
 $(document).on("click", "#sign-and-send-signature-reset", function () {
     // clear the signature when user wants to redraw it
     $("#sign-and-send-signature").jSignature("reset");
-
-    // TODO delete me (developping purposes)
-    $("#sign-and-send-signature-base64").val("");
 });
 
 $(document).on("pageinit", "#sign-and-send", function () {
@@ -134,8 +126,6 @@ function clearAndShowSuccess() {
     $notification.find("option[value=on]").attr("selected", true);
     $notification.find("option[value=off]").attr("selected", false);
     $notification.slider("refresh");
-    // TODO delete me (developping purposes)
-    $("#sign-and-send-signature-base64").val("");
 
     // clear the draft expense form
     EA.clearExpenseForm();

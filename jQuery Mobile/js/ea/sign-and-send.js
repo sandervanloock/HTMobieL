@@ -11,6 +11,7 @@ $(document).on("pageshow", "#sign-and-send", function () {
         // no signature canvas was present, make one
         $signature.jSignature();
     }
+    //$signature.jSignature("reset");
 
     // load local data if available
     if (EA.hasExpenseForm()) {
@@ -24,6 +25,11 @@ $(document).on("pageshow", "#sign-and-send", function () {
             $notification.find("option[value=off]").attr("selected", true);
             $notification.slider("refresh");
         }
+
+        // load signature if already saved
+        /*if (expenseForm.signature != null) {
+            $signature.jSignature("setData", EA.base64WithPrefix(expenseForm.signature));
+        }*/
     }
 });
 

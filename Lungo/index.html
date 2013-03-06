@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Expense App</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="components/lungo/lungo.css">
+    <link rel="stylesheet" href="components/lungo/lungo.icon.css">
+    <link rel="stylesheet" href="components/lungo/lungo.icon.brand.css">
+    <link rel="stylesheet" href="components/lungo/lungo.css">
+    <link rel="stylesheet" href="components/lungo/theme.lungo.css">
+    <link rel="stylesheet" href="css/ea.css">
+</head>
+<body class="app">
+<section id="login">
+    <header data-title="Expense App"></header>
+
+    <article id="login-screen" class="active">
+        <div class="wrapper">
+            <div class="form">
+                <fieldset>
+                    <label for="login-screen-username">Username</label>
+                    <input type="text" id="login-screen-username">
+                </fieldset>
+                <fieldset>
+                    <label for="login-screen-password">Password</label>
+                    <input type="password" id="login-screen-password">
+                </fieldset>
+                <a href="#home" data-router="section" class="button right" data-label="Log in"></a>
+            </div>
+        </div>
+    </article>
+</section>
+
+<!-- Lungo - Dependencies -->
+<script src="components/quojs/quo.js"></script>
+<script src="components/lungo/lungo.js"></script>
+<!-- Lungo - Sandbox App -->
+<script>
+    Lungo.init({
+        name:'ExpenseApp'
+    });
+</script>
+</body>
+</html>

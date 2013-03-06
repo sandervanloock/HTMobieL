@@ -1,0 +1,11 @@
+.center{
+    text-align: center;
+}
+
+@media all and (min-width: 600px) {
+    .wrapper {
+        margin-left: auto;
+        width: 400px;
+        margin-right: auto;
+    }
+}

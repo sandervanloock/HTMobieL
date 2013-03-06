@@ -1,3 +1,5 @@
+var signature = false;
+
 $(document).on("pageshow", "#sign-and-send", function () {
     // hold local reference for performance
     var $signature = $("#sign-and-send-signature");
@@ -28,8 +30,8 @@ $(document).on("pageshow", "#sign-and-send", function () {
 
         // load signature if already saved
         /*if (expenseForm.signature != null) {
-            $signature.jSignature("setData", EA.base64WithPrefix(expenseForm.signature));
-        }*/
+         $signature.jSignature("setData", EA.base64WithPrefix(expenseForm.signature));
+         }*/
     }
 });
 
@@ -38,11 +40,15 @@ $(document).on("click", "#sign-and-send-signature-reset", function () {
     $("#sign-and-send-signature").jSignature("reset");
 });
 
+$(document).on("change", "#sign-and-send-signature", function (e) {
+    // https://github.com/brinley/jSignature/issues/19#issuecomment-7012991
+    signature = $(e.target).jSignature('getData', 'native').length;
+});
+
 $(document).on("pageinit", "#sign-and-send", function () {
 
     // form validation
     $("#sign-and-send-form").validate({
-        // TODO add rule to check if a signature was made
         submitHandler:function (form) {
             var notification = $("#sign-and-send-notification").val() == "on";
 
@@ -61,6 +67,8 @@ $(document).on("pageinit", "#sign-and-send", function () {
             if (expenses.length == 0) {
                 // there are no expenses attached to this form
                 EA.showDialog("No expenses", "You haven't attached any expenses to your form. Please do so.");
+            } else if (!signature) {
+                EA.showDialog("No signature", "You haven't filled in a signature. Please do so.");
             } else {
                 if (!navigator.onLine) {
                     EA.showDialog("Offline", "You are currently offline. Your expense will be saved, please come back later to resend your expense.");

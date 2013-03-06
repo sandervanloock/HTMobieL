@@ -18,6 +18,7 @@ Ext.define('Expense.store.MenuStore', {
     alias: 'store.menustore',
 
     config: {
+        autoLoad: true,
         data: [
             {
                 item: 'Your Info'
@@ -33,12 +34,6 @@ Ext.define('Expense.store.MenuStore', {
             }
         ],
         storeId: 'menustore',
-        proxy: {
-            type: 'ajax',
-            reader: {
-                type: 'json'
-            }
-        },
         fields: [
             {
                 name: 'item'

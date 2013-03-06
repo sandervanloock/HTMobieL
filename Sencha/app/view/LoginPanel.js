@@ -35,15 +35,14 @@ Ext.define('Expense.view.LoginPanel', {
                 {
                     xtype: 'emailfield',
                     id: 'emailLogin',
-                    label: 'Email',
+                    placeHolder: 'Email',
                     name: 'emailLogin',
-                    value: 'tim.ameye@student.kuleuven.be',
-                    placeHolder: 'email@example.com'
+                    value: 'tim.ameye@student.kuleuven.be'
                 },
                 {
                     xtype: 'passwordfield',
                     id: 'password',
-                    label: 'Password',
+                    placeHolder: 'Password',
                     name: 'password',
                     value: 'test123'
                 },

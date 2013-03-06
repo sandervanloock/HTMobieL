@@ -3,6 +3,10 @@ Ext.define('Expense.controller.ExpenseController', {
     extend: 'Ext.app.Controller',
     alias: 'controller.expensecontroller',
 
+    requires: [
+        'Ext.Img'
+    ],
+
     config: {
         refs: {
             nav: 'overview',
@@ -13,6 +17,8 @@ Ext.define('Expense.controller.ExpenseController', {
             fileBtnAbroad: '#fileBtnAbroad',
             fileBtnDomestic: '#fileBtnDomestic',
             signfield: 'singfield',
+            fileLoadBtn: 'abroadexpense #fileLoadBtn',
+            loadedImageAbroad: '#loadedImageAbroad'
         },
 
         control: {
@@ -30,7 +36,8 @@ Ext.define('Expense.controller.ExpenseController', {
             },'button[action=sendExpenses]' : {
                 tap: 'sendExpenses'
             }, '#fileBtnAbroad': {
-                initialize: 'onFileBtnAbroadInit'
+                loadsuccess: 'onFileLoadSuccess',
+                loadfailure: 'onFileUploadFailure'
             }, '#fileBtnDomestic': {
                 initialize: 'onFileBtnDomesticInit'
             }, 'abroadexpense textfield[itemId=projectCodeAbroad]' : {
@@ -46,6 +53,9 @@ Ext.define('Expense.controller.ExpenseController', {
             },'projectcodelist': {
                 //select the country
                 itemtap: 'onSelectRow'
+            },fileLoadBtn: {
+                loadsuccess: 'onFileLoadSuccess',
+                loadfailure: 'onFileUploadFailure'
             }
         }
     },
@@ -234,33 +244,41 @@ Ext.define('Expense.controller.ExpenseController', {
         }
     },
 
-    onFileBtnAbroadInit: function(fileBtnAbroad) {
-        var me = this;
-        fileBtnAbroad.setCallbacks({
-            scope: me,
-            success: me.onFileUploadAbroadSuccess,
-            failure: me.onFileUploadFailure
-        });
-    },
 
     onFileBtnDomesticInit: function(fileBtnDomestic) {
         var me = this;
-        fileBtnDomestic.setCallbacks({
-            scope: me,
-            success: me.onFileUploadDomesticSuccess,
-            failure: me.onFileUploadFailure
+        fileBtnDomestic.on({
+            success: 'onFileUploadDomesticSuccess',
+            failure: 'onFileUploadFailure'
         });
     },
 
+    onFileLoadSuccess: function(dataurl, e) {
+        console.log('File loaded');
+
+        var me = this;
+        var image = me.getLoadedImageAbroad();
+        image.setSrc(dataurl);
+    },
+
+    onFileLoadFailure: function(message) {
+        console.log('Failure');
+        Ext.Msg.alert('File upload', 'Failure!');
+    },
+
     onFileUploadAbroadSuccess: function(response) {
-        var loaded = Ext.getCmp('loadedImage');
+        console.log('File loaded');
+        var me = this;
+        var image = me.getLoadedImage();
+        image.setSrc(dataurl);
+        /*var loaded = Ext.getCmp('loadedImage');
 
         if (loaded) {
             loaded.destroy();
-        }
+        }*/
         //remove base64 prefix
-        addImage(response.base64.substr(response.base64.indexOf(",")+1,response.base64.length-response.base64.indexOf(",")), Ext.getCmp('abroadexpense'),'loadedImageAbroad');
-
+        //addImage(response.base64.substr(response.base64.indexOf(",")+1,response.base64.length-response.base64.indexOf(",")), Ext.getCmp('abroadexpense'),'loadedImageAbroad');
+        //addImage(response.base64,'loadedImageAbroad');
     },
 
     onFileUploadDomesticSuccess: function(response) {

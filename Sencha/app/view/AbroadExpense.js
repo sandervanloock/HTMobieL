@@ -79,27 +79,48 @@ Ext.define('Expense.view.AbroadExpense', {
                         value: 'Abroad'
                     },
                     {
-                        id: 'fileBtnAbroad',
-                        xtype: 'fileupload',
-                        iconCls: 'download',
-                        iconMask: true,
-                        ui: 'confirm',
-                        text: 'Upload Evidence',
-                        autoUpload: true,
-                        width: 229,
-                        height: 46,
-                        actionUrl: 'http://www.chiroelzestraat.be/chirojongens/uploads/Sencha/getfile.php',
-                        returnBase64Data: true
-                    },
-                    {
-                        xtype: 'button',
-                        height: 46,
-                        ui: 'confirm',
-                        width: 229,
-                        iconCls: 'add',
-                        iconMask: true,
-                        text: 'Add',
-                        action: 'sendAbroadExpense'
+                        xtype: 'container',
+                        layout: 'hbox',
+                        height: '100%',
+                        items: [
+                            {
+                                itemId: 'loadedImageAbroad',
+                                xtype: 'img',
+                                maxWidth: '100px',
+                                maxHeight: '100px'
+                            },
+                            {
+                                itemId: 'fileLoadBtn',
+                                xtype: 'fileupload',
+                                autoUpload: true,
+                                loadAsDataUrl: true,
+                                iconCls: 'download',
+                                iconMask: true,
+                                maxHeight:50,
+                                states: {
+                                    browse: {
+                                        text: 'Upload Evidence',
+                                        ui: 'confirm'
+                                    },
+                                    ready: {
+                                        text: 'Load'
+                                    },
+                                    uploading: {
+                                        text: 'Loading',
+                                        loading: true
+                                    }
+                                }
+                            },
+                            {
+                                xtype: 'button',
+                                ui: 'confirm',
+                                iconCls: 'add',
+                                iconMask: true,
+                                text: 'Add',
+                                action: 'sendAbroadExpense',
+                                maxHeight:50
+                            }
+                        ]
                     }
                 ]
             }

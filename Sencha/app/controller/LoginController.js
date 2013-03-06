@@ -85,8 +85,6 @@ Ext.define('Expense.controller.LoginController', {
             });
 
         }
-
-
     },
 
     doLogout : function(button, e, options) {

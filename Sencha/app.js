@@ -65,7 +65,6 @@ Ext.application({
         'Employee'
     ],
     stores: [
-        'MenuStore',
         'ExpenseStore',
         'EmployeeStore',
         'LocalEmployeeStore',
@@ -91,7 +90,7 @@ Ext.application({
         'InfoPanel',
         'Ext.ux.panel.PDF',
         'Ext.ux.Fileup',
-        'Ext.ux.Signaturefield',
+        'Ext.ux.Signaturefield'
         //'Expense.view.ProjectCodeList'
     ],
     name: 'Expense',
@@ -111,53 +110,6 @@ Ext.application({
             Ext.getCmp('menupanel').setHidden(true);
             Ext.getCmp('menuButton').setHidden(false);
         }
-        /*Ext.Ajax.request({
-            url : Expense.app.getBaseURL() + '/resources/userService/login',
-            method : 'POST',
-            useDefaultXhrHeader: false,
-            headers: {
-                //headers zetten zodat xml wordt teruggegeven,  niet JSON
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,;q=0.8'
-            },
-            params: {
-                email: 'tim.ameye@student.kuleuven.be',
-                password: 'test123'
-            },
-            success : function(response, opts) {
-                if(response.responseText.length <= 0){
-                    Ext.Msg.show({
-                        title: 'Error',
-                        message: 'Login could not be found!',
-                        width: 300,
-                        buttons: Ext.MessageBox.OK
-                    });
-                }
-                else{
-                    //all components and( dependencies have to be destoyed when logged out..
-                    Ext.create('Expense.view.Home', {fullscreen: true});
-                    Expense.app.setToken(response.responseText);
-                    var employeeStore = Ext.getStore('employeestore');
-                    employeeStore.getProxy().setExtraParams({
-                        token: response.responseText
-                    });
-                    employeeStore.load({
-                        callback: function(records, operation, success) {
-                            // the operation object contains all of the details of the load operation
-                            console.log(records);
-                        },
-                        scope: this
-                    });
-                    Ext.create('Expense.view.Viewport', {fullscreen: true});
-                    Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
-                    //store credentials in local storage
-                    localStorage.setItem('email','tim.ameye@student.kuleuven.be');
-                    localStorage.setItem('password','test123');
-                }
-            },
-            failure: function(response, opts) {
-                console.log('server-side failure with status code ' + response.status);
-            }
-        });*/
     },
     token : '',
     

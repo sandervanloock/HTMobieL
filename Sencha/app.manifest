@@ -18,7 +18,6 @@ app/store/CurrencyStore.js
 app/store/EmployeeStore.js
 app/store/ExpenseFormStore.js
 app/store/ExpenseStore.js
-app/store/MenuStore.js
 app/store/ProjectCodeStore.js
 
 app/view/AbroadExpense.js

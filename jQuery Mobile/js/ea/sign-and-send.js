@@ -41,7 +41,6 @@ $(document).on("pageinit", "#sign-and-send", function () {
             var notification = $("#sign-and-send-notification").val() == "on";
 
             // save data to expense form
-            // var expenseForm = EA.getExpenseForm();
             var expenseForm = {};
             expenseForm.date = new Date().toISOString();
             expenseForm.employeeId = EA.getUser().id;
@@ -74,12 +73,6 @@ $(document).on("pageinit", "#sign-and-send", function () {
                         url:EA.baseURL + "resources/expenseService/saveExpense",
                         data:JSON.stringify(expenseRequest),
                         dataType:"json",
-                        // The 'contentType' property sets the 'Content-Type' header.
-                        // The JQuery default for this property is
-                        // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
-                        // a preflight. If you set this value to anything other than
-                        // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
-                        // you will trigger a preflight request.
                         contentType:"application/json",
                         beforeSend:function () {
                             // show spinner and text while uploading
@@ -88,21 +81,15 @@ $(document).on("pageinit", "#sign-and-send", function () {
                                 textVisible:true
                             });
                         },
-                        complete:function () {
-                            // hide spinner after uploading
-                            $.mobile.loading("hide");
-                        },
                         success:function () {
-                            // clear the local expense form
-                            EA.clearExpenseForm();
-                            // show
-                            $.mobile.changePage("#success");
+                            $.mobile.loading("hide");
+                            clearAndShowSuccess();
                         },
                         error:function () {
+                            $.mobile.loading("hide");
                             EA.showBackendError("Could not send expense to server");
                         }
                     });
-                    clearAndShowSuccess();
                 }
             }
         }

@@ -50,7 +50,7 @@ Ext.define('Expense.view.DomesticExpense', {
                         xtype: 'radiofield',
                         label: 'Restaurant',
                         name: 'expenseType',
-                        value:  'Lunch',
+                        value:  'Lunch'
                     },
                     {
                         xtype: 'radiofield',

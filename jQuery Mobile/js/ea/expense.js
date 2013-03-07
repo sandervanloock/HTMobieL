@@ -12,6 +12,32 @@ $(document).on("pagebeforeshow", "#expense", function () {
     $expenseCurrency.selectmenu('refresh');
 });
 
+// http://view.jquerymobile.com/1.3.0/docs/widgets/autocomplete/autocomplete-remote.php#&ui-state=dialog
+$(document).on("pageinit", "#expense", function () {
+    $("#expense-project-code").on("listviewbeforefilter", function (e, data) {
+        var $ul = $(this),
+            $input = $(data.input),
+            value = $input.val();
+        $ul.empty();
+        if (value) {
+            $.each(EA.getProjectCodeSuggestions(), function (i, code) {
+                $ul.append('<li><a id="project-code-suggestion-' + code + '">' + code + '</a></li>');
+                $ul.listview("refresh");
+                $ul.trigger("updatelayout");
+            });
+        }
+    });
+});
+
+$(document).on("click", "[id^=project-code-suggestion]", function () {
+    var projectCode = $(this).attr("id").replace("project-code-suggestion-", "");
+    var $autoComplete = $("#expense-project-code");
+    $autoComplete.parent().find("input").val(projectCode);
+    $autoComplete.listview("refresh");
+    $autoComplete.empty();
+    $autoComplete.trigger("updatelayout");
+});
+
 $(document).on("pageinit", "#expense", function () {
     // date picker
     var today = new Date();
@@ -101,19 +127,6 @@ $(document).on("pageinit", "#expense", function () {
         $euroSign.show();
     });
 
-    // autocomplete for project code
-    // limitation to 5 project code was made into jqm.autoComplete-1.5.0.js
-    $("#expense-project-code").autocomplete({
-        target:$("#expense-suggestions"),
-        source:EA.getProjectCodeSuggestions(),
-        callback:function (e) {
-            var $a = $(e.currentTarget);
-            $('#expense-project-code').val($a.text());
-            $("#expense-project-code").autocomplete('clear');
-        },
-        minLength:1
-    });
-
     // evidence to base64 via FileReaderAPI and HTML5 canvas
     $('#expense-evidence-file').change(function (e) {
         // get the file
@@ -187,7 +200,7 @@ $(document).on("pageinit", "#expense", function () {
                 // and 2 months earlier
                 "isCorrectDate":true
             },
-            "expense-project-code":"required",
+            //"expense-project-code":"required",
             "expense-type":"required",
             "expense-amount":{
                 required:true,

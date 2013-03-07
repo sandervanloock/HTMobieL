@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="ea.appcache">
 <head>
     <meta charset="utf-8">
     <title>Expense App</title>
@@ -29,6 +29,7 @@
     <script src="js/ea/custom.js"></script>
     <script src="js/vendor/jquery.mobile-1.2.0.js"></script>
     <script src="js/vendor/jqm.autoComplete-1.5.0.js"></script>
+    <script src="js/ea/update.js"></script>
     <script src="js/ea/ea.js"></script>
     <script src="js/ea/login.js"></script>
     <script src="js/ea/home.js"></script>
@@ -577,7 +578,8 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="expense-evidence-file">Evidence</label>
-                        <input type="file" accept="image/*" name="expense-evidence-file" id="expense-evidence-file" placeholder="Evidence">
+                        <input type="file" accept="image/*" name="expense-evidence-file" id="expense-evidence-file"
+                               placeholder="Evidence">
                     </div>
 
                     <canvas id="expense-evidence-canvas"></canvas>
@@ -629,11 +631,6 @@
                     <div id="sign-and-send-signature" class="signature"></div>
                     <a href="#" id="sign-and-send-signature-reset" data-role="button">Redraw signature</a>
                     <input type="hidden" id="sign-and-send-signature-empty">
-
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="sign-and-send-signature-base64">Base64</label>
-                        <input type="text" id="sign-and-send-signature-base64" placeholder="Base64" readonly>
-                    </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="sign-and-send-remarks">Remarks</label>

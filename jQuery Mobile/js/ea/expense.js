@@ -120,7 +120,6 @@ $(document).on("pageinit", "#expense", function () {
         var file = e.target.files[0];
 
         // TODO add check from Modernizr instead of own code
-        // TODO remove console logs
         if (window.FileReader) {
             // initialize reader
             var reader = new FileReader();
@@ -160,10 +159,7 @@ $(document).on("pageinit", "#expense", function () {
             });
             reader.readAsDataURL(file);
         } else {
-            // FileReaderAPI is not supported
             // TODO find a solution
-
-            // TODO delete me (developping purposes)
             alert("FileReaderAPI not supported");
         }
     });

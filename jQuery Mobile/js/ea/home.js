@@ -34,33 +34,35 @@ $(document).on("click", "#confirmation-ok", function () {
 
 $(document).on("click", "#home-logout", function () {
     // log the user out via AJAX request
-    $.ajax({
-        type:"POST",
-        url:EA.baseURL + "resources/userService/logout",
-        data:{
-            'token':EA.getToken()
-        },
-        beforeSend:function () {
-            // show loading indication
-            $.mobile.loading("show", {
-                text:"Logging out",
-                textVisible:true
-            });
-        },
-        complete:function () {
-            // remove loading indication after completion
-            $.mobile.loading("hide");
-        },
-        success:function () {
-            // empty the session
-            EA.setToken(null);
-            // empty user information
-            EA.deleteUser();
-            // go to login page
-            $.mobile.changePage("#login");
-        },
-        error:function () {
-            EA.showBackendError("Could not log out");
-        }
-    });
+    if (navigator.onLine) {
+        $.ajax({
+            type:"POST",
+            url:EA.baseURL + "resources/userService/logout",
+            data:{
+                'token':EA.getToken()
+            },
+            beforeSend:function () {
+                // show loading indication
+                $.mobile.loading("show", {
+                    text:"Logging out",
+                    textVisible:true
+                });
+            },
+            complete:function () {
+                // remove loading indication after completion
+                $.mobile.loading("hide");
+            },
+            success:function () {
+                // empty the session
+                EA.setToken(null);
+                // empty user information
+                EA.deleteUser();
+                // go to login page
+                $.mobile.changePage("#login");
+            },
+            error:function () {
+                EA.showBackendError("Could not log out");
+            }
+        });
+    }
 });

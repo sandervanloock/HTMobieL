@@ -126,9 +126,6 @@ $(document).on("pageinit", "#login", function () {
                                 // gets the cube block with time attribute
                                 $xml = $("Cube", $xml);
 
-                                // extract time stamp to know if outdated or not
-                                // TODO working offline with currency rates
-
                                 // iterate over each entry to get currency and rate
                                 $xml.find("Cube").each(function () {
                                     var $this = $(this);

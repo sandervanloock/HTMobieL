@@ -1,3 +1,5 @@
+var signature = false;
+
 $(document).on("pageshow", "#sign-and-send", function () {
     // hold local reference for performance
     var $signature = $("#sign-and-send-signature");
@@ -11,6 +13,7 @@ $(document).on("pageshow", "#sign-and-send", function () {
         // no signature canvas was present, make one
         $signature.jSignature();
     }
+    //$signature.jSignature("reset");
 
     // load local data if available
     if (EA.hasExpenseForm()) {
@@ -24,99 +27,83 @@ $(document).on("pageshow", "#sign-and-send", function () {
             $notification.find("option[value=off]").attr("selected", true);
             $notification.slider("refresh");
         }
-    }
 
-    // TODO delete me (developping purposes)
-    $signature.bind("change", function () {
-        $("#sign-and-send-signature-base64").val($signature.jSignature("getData"));
-    });
+        // load signature if already saved
+        /*if (expenseForm.signature != null) {
+         $signature.jSignature("setData", EA.base64WithPrefix(expenseForm.signature));
+         }*/
+    }
 });
 
 $(document).on("click", "#sign-and-send-signature-reset", function () {
     // clear the signature when user wants to redraw it
     $("#sign-and-send-signature").jSignature("reset");
+});
 
-    // TODO delete me (developping purposes)
-    $("#sign-and-send-signature-base64").val("");
+$(document).on("change", "#sign-and-send-signature", function (e) {
+    // https://github.com/brinley/jSignature/issues/19#issuecomment-7012991
+    signature = $(e.target).jSignature('getData', 'native').length;
 });
 
 $(document).on("pageinit", "#sign-and-send", function () {
 
     // form validation
     $("#sign-and-send-form").validate({
-        // TODO add rule to check if a signature was made
         submitHandler:function (form) {
-            // !EA.hasExpenseForm()
-            if (false) {
-                EA.showDialog("Information missing", "<p>You haven't go through step 1. Please do so</p>");
+            var notification = $("#sign-and-send-notification").val() == "on";
+
+            // save data to expense form
+            var expenseForm = {};
+            expenseForm.date = new Date().toISOString();
+            expenseForm.employeeId = EA.getUser().id;
+            expenseForm.signature = EA.base64WithoutPrefix($("#sign-and-send-signature").jSignature("getData"));
+            expenseForm.remarks = $("#sign-and-send-remarks").val();
+            expenseForm.notification = notification;
+            EA.setExpenseForm(expenseForm);
+
+            // check the expenses
+            var expenses = EA.getLocalExpenses();
+
+            if (expenses.length == 0) {
+                // there are no expenses attached to this form
+                EA.showDialog("No expenses", "You haven't attached any expenses to your form. Please do so.");
+            } else if (!signature) {
+                EA.showDialog("No signature", "You haven't filled in a signature. Please do so.");
             } else {
-                var notification = $("#sign-and-send-notification").val() == "on";
-
-                // save data to expense form
-                // var expenseForm = EA.getExpenseForm();
-                var expenseForm = {};
-                expenseForm.date = new Date().toISOString();
-                expenseForm.employeeId = EA.getUser().id;
-                expenseForm.signature = EA.base64WithoutPrefix($("#sign-and-send-signature").jSignature("getData"));
-                expenseForm.remarks = $("#sign-and-send-remarks").val();
-                expenseForm.notification = notification;
-                EA.setExpenseForm(expenseForm);
-
-                // check the expenses
-                var expenses = EA.getLocalExpenses();
-
-                if (expenses.length == 0) {
-                    // there are no expenses attached to this form
-                    EA.showDialog("No expenses", "You haven't attached any expenses to your form. Please do so.");
+                if (!navigator.onLine) {
+                    EA.showDialog("Offline", "You are currently offline. Your expense will be saved, please come back later to resend your expense.");
                 } else {
-                    if (!navigator.onLine) {
-                        EA.showDialog("Offline", "You are currently offline. Your expense will be saved, please come back later to resend your expense.");
-                    } else {
-                        // attach expenses to the request
-                        expenseForm.expenses = expenses;
+                    // attach expenses to the request
+                    expenseForm.expenses = expenses;
 
-                        // prepare the request
-                        var expenseRequest = {};
-                        expenseRequest.token = EA.getToken();
-                        expenseRequest.expenseForm = expenseForm;
+                    // prepare the request
+                    var expenseRequest = {};
+                    expenseRequest.token = EA.getToken();
+                    expenseRequest.expenseForm = expenseForm;
 
-                        // send it
-                        // TODO save expense on backend
-                        $.ajax({
-                            type:"POST",
-                            url:EA.baseURL + "resources/expenseService/saveExpense",
-                            data:JSON.stringify(expenseRequest),
-                            dataType:"json",
-                            // The 'contentType' property sets the 'Content-Type' header.
-                            // The JQuery default for this property is
-                            // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
-                            // a preflight. If you set this value to anything other than
-                            // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
-                            // you will trigger a preflight request.
-                            contentType:"application/json",
-                            beforeSend:function () {
-                                // show spinner and text while uploading
-                                $.mobile.loading("show", {
-                                    text:"Uploading expense form",
-                                    textVisible:true
-                                });
-                            },
-                            complete:function () {
-                                // hide spinner after uploading
-                                $.mobile.loading("hide");
-                            },
-                            success:function () {
-                                // clear the local expense form
-                                EA.clearExpenseForm();
-                                // show
-                                $.mobile.changePage("#success");
-                            },
-                            error:function () {
-                                EA.showBackendError("Could not send expense to server");
-                            }
-                        });
-                        clearAndShowSuccess();
-                    }
+                    // send it
+                    $.ajax({
+                        type:"POST",
+                        url:EA.baseURL + "resources/expenseService/saveExpense",
+                        data:JSON.stringify(expenseRequest),
+                        dataType:"json",
+                        contentType:"application/json",
+                        beforeSend:function () {
+                            // show spinner and text while uploading
+                            $.mobile.loading("show", {
+                                text:"Uploading expense form",
+                                textVisible:true
+                            });
+                        },
+                        success:function () {
+                            $.mobile.loading("hide");
+                            clearAndShowSuccess();
+                        },
+                        error:function () {
+                            $.mobile.loading("hide");
+                            EA.showBackendError("Could not send expense to server");
+                        }
+                    });
                 }
             }
         }
@@ -134,8 +121,6 @@ function clearAndShowSuccess() {
     $notification.find("option[value=on]").attr("selected", true);
     $notification.find("option[value=off]").attr("selected", false);
     $notification.slider("refresh");
-    // TODO delete me (developping purposes)
-    $("#sign-and-send-signature-base64").val("");
 
     // clear the draft expense form
     EA.clearExpenseForm();

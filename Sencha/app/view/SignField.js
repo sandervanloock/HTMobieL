@@ -15,7 +15,7 @@
 
 Ext.define('Expense.view.SignField', {
     extend: 'Ext.form.Panel',
-    alias: 'widget.singfield',
+    alias: 'widget.signfield',
 
     config: {
         title: '4. Sign & Send',

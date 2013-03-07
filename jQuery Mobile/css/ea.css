@@ -47,9 +47,9 @@ textarea.error,
     padding: 2px;
 }
 
-#expense-amount.ui-input-text {
+/*#expense-amount.ui-input-text {
     width: 85%
-}
+}*/
 
 /* Responsive design: tablet view */
 @media all and (min-width: 600px) {

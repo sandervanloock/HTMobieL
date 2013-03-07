@@ -76,10 +76,9 @@ $(document).on("pageinit", "#expense", function () {
     var $expenseCurrency = $("#expense-currency");
 
     // insert converted amount span holder
-    $expenseCurrency.parent().parent().append(' <nobr><span class="align-right" id="expense-amount-converted"></span></nobr>');
-
+    // $expenseCurrency.parent().parent().append(' <nobr><span class="align-right" id="expense-amount-converted"></span></nobr>');
     // euro sign
-    var $euroSign = $("#expense-euro-sign");
+    //var $euroSign = $("#expense-euro-sign");
 
     // hold local reference for performance
     var $expenseAmount = $("#expense-amount");
@@ -97,10 +96,10 @@ $(document).on("pageinit", "#expense", function () {
         if (!isNaN(amount) && !isNaN(rate)) {
             var converted = amount / rate;
             // show euro amount with 2 decimals
-            $expenseCurrencyConverted.text("(" + EA.formatEuro(converted) + ")");
+            $expenseCurrencyConverted.val(EA.formatEuro(converted));
         } else {
             // set the converted value to empty
-            $expenseCurrencyConverted.text("");
+            $expenseCurrencyConverted.val("");
         }
 
     }
@@ -108,8 +107,8 @@ $(document).on("pageinit", "#expense", function () {
     // tabbar abroad or domestic
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
-    $expenseCurrencyConverted.hide();
-    $euroSign.show();
+    $expenseCurrencyConverted.parent().hide();
+    //$euroSign.show();
 
     // shows form items for abroad
     $("#expense-tabbar-abroad").change(function () {
@@ -118,12 +117,12 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().hide();
         $("#expense-type-restaurant").parent().show();
         $("#expense-currency-div").show();
-        $expenseCurrencyConverted.show();
+        $expenseCurrencyConverted.parent().show();
         $("#expense-type ").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
-        $euroSign.hide();
+        //$euroSign.hide();
     });
 
     // shows form items for domestic
@@ -133,12 +132,12 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().show();
         $("#expense-type-restaurant").parent().hide();
         $("#expense-currency-div").hide();
-        $expenseCurrencyConverted.hide();
+        $expenseCurrencyConverted.parent().hide();
         $("#expense-type").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
-        $euroSign.show();
+        //$euroSign.show();
     });
 
     // evidence to base64 via FileReaderAPI and HTML5 canvas

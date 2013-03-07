@@ -14,12 +14,13 @@ $(document).on("pagebeforeshow", "#expense", function () {
 
 // http://view.jquerymobile.com/1.3.0/docs/widgets/autocomplete/autocomplete-remote.php#&ui-state=dialog
 $(document).on("pageinit", "#expense", function () {
-    var $projectCode = $("#expense-project-code");
-    $projectCode.on("listviewbeforefilter", function (e, data) {
+    var $autocomplete = $("#expense-project-code-autocomplete");
+    $autocomplete.on("listviewbeforefilter", function (e, data) {
         var $ul = $(this),
             $input = $(data.input),
             value = $input.val();
         $ul.empty();
+        $("#expense-project-code").val(value);
         if (value) {
             $.each(EA.getProjectCodeSuggestions(), function (i, code) {
                 $ul.append('<li><a id="project-code-suggestion-' + code + '">' + code + '</a></li>');
@@ -31,16 +32,24 @@ $(document).on("pageinit", "#expense", function () {
 
     // hack to not have 2 forms for the validation, because that does not work
     // change the inner form to a div instead
-    $projectCode.parent().find("form").contents().unwrap().wrap('<div/>');
+    $autocomplete.parent().find("form").contents().unwrap().wrap('<div/>');
 });
 
 $(document).on("click", "[id^=project-code-suggestion]", function () {
     var projectCode = $(this).attr("id").replace("project-code-suggestion-", "");
-    var $autoComplete = $("#expense-project-code");
+    var $autoComplete = $("#expense-project-code-autocomplete");
     $autoComplete.parent().find("input").val(projectCode);
     $autoComplete.listview("refresh");
     $autoComplete.empty();
     $autoComplete.trigger("updatelayout");
+
+    // keep value in hidden field for validator
+    $("#expense-project-code").val(projectCode);
+});
+
+$(document).on('click', '.ui-input-clear', function () {
+    // when clicking on clear search input, empty the hidden field
+    $("#expense-project-code").val("");
 });
 
 $(document).on("pageinit", "#expense", function () {
@@ -194,7 +203,7 @@ $(document).on("pageinit", "#expense", function () {
 
     // initialize form validation
     $("#expense-form").validate({
-
+        ignore:[],
         rules:{
             "expense-date":{
                 "required":true,
@@ -205,7 +214,10 @@ $(document).on("pageinit", "#expense", function () {
                 // and 2 months earlier
                 "isCorrectDate":true
             },
-            //"expense-project-code":"required",
+
+            // expense-project-code is required via the required class
+            // http://stackoverflow.com/questions/7429807/jquery-validate-valid-if-hidden-field-has-a-value
+
             "expense-type":"required",
             "expense-amount":{
                 required:true,

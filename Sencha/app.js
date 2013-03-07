@@ -65,6 +65,7 @@ Ext.application({
         'Employee'
     ],
     stores: [
+        'MenuStore',
         'ExpenseStore',
         'EmployeeStore',
         'LocalEmployeeStore',

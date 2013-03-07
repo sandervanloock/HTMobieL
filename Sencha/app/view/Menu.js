@@ -13,20 +13,7 @@ Ext.define('Expense.view.Menu', {
                 html: '<h1 class=\'x-custom-title\'>New Expense</h1>',
                 ui: 'round',
                 scrollable: false,
-                data: [
-                    {
-                        item: 'Your Info'
-                    },
-                    {
-                        item: 'Overview'
-                    },
-                    {
-                        item: 'Add Expense'
-                    },
-                    {
-                        item: 'Sign & Send'
-                    }
-                ],
+                store: 'menustore',
                 itemTpl: [
                     '{item}'
                 ]

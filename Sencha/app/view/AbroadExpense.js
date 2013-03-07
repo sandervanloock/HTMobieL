@@ -19,8 +19,7 @@ Ext.define('Expense.view.AbroadExpense', {
                 items: [
                     {
                         xtype: 'datepickerfield',
-                        label: 'Date Of Expense',
-                        placeHolder: 'mm/dd/yyyy',
+                        placeHolder: 'Date Of Expense',
                         value: new Date(),
                         name: 'date',
                         picker:{xtype:'datepicker', slotOrder:["day", "month", "year"]},

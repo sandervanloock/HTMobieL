@@ -51,6 +51,10 @@ Number.prototype.mod = function(n) {
 };
 
 initializeInfoPanel = function(employee){
+    if(Ext.os.is.Phone){
+        Ext.getCmp('menupanel').setHidden(true);
+        Ext.getCmp('menuButton').setHidden(false);
+    }
     Expense.app.setExpenseForm(Ext.create('Expense.model.ExpenseForm'));
 	var infopanel = Ext.getCmp('infopanel');
 	infopanel.setRecord(employee); 

@@ -14,9 +14,7 @@ Ext.define('Expense.view.Menu', {
                 ui: 'round',
                 scrollable: false,
                 store: 'menustore',
-                itemTpl: [
-                    '{item}'
-                ]
+                itemTpl: '{item}'
             }
         ]
     }

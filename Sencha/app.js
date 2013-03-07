@@ -106,12 +106,15 @@ Ext.application({
 
     launch: function() {
         Ext.create('Expense.view.LoginPanel', {fullscreen: true});
-
-        if(Ext.os.is.Phone){
-            Ext.getCmp('menupanel').setHidden(true);
-            Ext.getCmp('menuButton').setHidden(false);
-        }
+        var employeeStore = Ext.getStore('employeestore');
+        var localemployeestore = Ext.getStore('localemployeestore');
+        localemployeestore.load({
+            callback : function(options, success,response) {
+                console.log('local storage loaded');
+            }
+        });
     },
+
     token : '',
     
     setToken : function(args){

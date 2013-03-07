@@ -29,8 +29,7 @@ Ext.define('Expense.view.DomesticExpense', {
                 items: [
                     {
                     	  xtype: 'datepickerfield',
-                          label: 'Date Of Expense',
-                          placeHolder: 'mm/dd/yyyy',
+                          placeHolder: 'Date Of Expense'
                           value: new Date(),
                           name: 'date'
                     },

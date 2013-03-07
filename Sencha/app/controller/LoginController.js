@@ -2,6 +2,7 @@ Ext.define('Expense.controller.LoginController', {
     extend: 'Ext.app.Controller',
 
     config: {
+
         refs: {
             login: 'loginpanel'
         },
@@ -11,24 +12,10 @@ Ext.define('Expense.controller.LoginController', {
                 tap: 'doLogin'
             }, 'button[action=logout]' : {
                 tap : 'doLogout'
-            }, 'loginpanel': {
-                activate: 'checkLocalStorage'
             }
         }
     },
 
-    checkLocalStorage: function(comp,opts){
-        var employeeStore = Ext.getStore('employeestore');
-        var localemployeestore = Ext.getStore('localemployeestore');
-        localemployeestore.load({
-            callback : function(options, success,response) {
-                if(localemployeestore.getCount() != 0){
-                    Ext.getCmp('loginpanel').setZIndex(-99);
-                }
-            }
-        });
-
-    },
 
     doLogin: function(button, e, options) {
         //Reset red borders
@@ -108,7 +95,6 @@ function logout(){
         callback : function(options, success,response) {
             Ext.Viewport.setMasked(false);
             Ext.Viewport.setActiveItem(Ext.getCmp('loginpanel'));
-            Ext.getCmp('loginpanel').setZIndex(99);
             Ext.destroy(Ext.getCmp('home'));
             Ext.destroy(Ext.getCmp('viewport'));
             Ext.destroy(Ext.getCmp('totaloverviewlist'));

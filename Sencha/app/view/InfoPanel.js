@@ -19,7 +19,7 @@ Ext.define('Expense.view.InfoPanel', {
                 items: [
                     {
                         xtype: 'selectfield',
-                        label: 'Month',
+                        placeHolder: 'Month',
                         id: 'month',
                         name: 'month',
                         options: [
@@ -39,7 +39,7 @@ Ext.define('Expense.view.InfoPanel', {
                     },
                     {
                         xtype: 'selectfield',
-                        label: 'Year',
+                        placeHolder: 'Year',
                         id: 'year',
                         name: 'year'
                     },

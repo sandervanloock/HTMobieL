@@ -16,6 +16,7 @@ Ext.define('Expense.view.AbroadExpense', {
                 id: 'abroadfield',
                 title: '3. Add Expense',
                 activeItem: '',
+                styleHtmlContent: true,
                 items: [
                     {
                         xtype: 'datepickerfield',
@@ -80,22 +81,14 @@ Ext.define('Expense.view.AbroadExpense', {
                     {
                         xtype: 'container',
                         layout: 'hbox',
-                        height: '100%',
                         items: [
                             {
-                                itemId: 'loadedImageAbroad',
-                                xtype: 'img',
-                                maxWidth: '100px',
-                                maxHeight: '100px'
-                            },
-                            {
-                                itemId: 'fileLoadBtn',
+                                id: 'fileLoadAbroad',
                                 xtype: 'fileupload',
                                 autoUpload: true,
                                 loadAsDataUrl: true,
                                 iconCls: 'download',
                                 iconMask: true,
-                                maxHeight:50,
                                 states: {
                                     browse: {
                                         text: 'Upload Evidence',
@@ -116,12 +109,19 @@ Ext.define('Expense.view.AbroadExpense', {
                                 iconCls: 'add',
                                 iconMask: true,
                                 text: 'Add',
-                                action: 'sendAbroadExpense',
-                                maxHeight:50
+                                action: 'sendAbroadExpense'
                             }
                         ]
-                    }
+                    },
+
                 ]
+            },
+            {
+                itemId: 'loadedImageAbroad',
+                xtype: 'img',
+                width: '80%',
+                height: '200px',
+                style: 'margin-top:15px;'
             }
         ]
 

@@ -14,11 +14,11 @@ Ext.define('Expense.controller.ExpenseController', {
             abroadExpense: 'abroadexpense',
             domesticExpense: 'domesticexpense',
             detail : 'page',
-            fileBtnAbroad: '#fileBtnAbroad',
-            fileBtnDomestic: '#fileBtnDomestic',
-            signfield: 'singfield',
-            fileLoadBtn: 'abroadexpense #fileLoadBtn',
-            loadedImageAbroad: '#loadedImageAbroad'
+            signfield: 'signfield',
+            fileLoadAbroad: '#fileLoadAbroad',
+            fileLoadDomestic: '#fileLoadDomestic',
+            loadedImageAbroad: '#loadedImageAbroad',
+            loadedImageDomestic: '#loadedImageDomestic'
         },
 
         control: {
@@ -35,11 +35,6 @@ Ext.define('Expense.controller.ExpenseController', {
                 tap: 'sendDomesticExpense'
             },'button[action=sendExpenses]' : {
                 tap: 'sendExpenses'
-            }, '#fileBtnAbroad': {
-                loadsuccess: 'onFileLoadSuccess',
-                loadfailure: 'onFileUploadFailure'
-            }, '#fileBtnDomestic': {
-                initialize: 'onFileBtnDomesticInit'
             }, 'abroadexpense textfield[itemId=projectCodeAbroad]' : {
                 //clear the input text box
                 clearicontap : 'onClearSearch',
@@ -51,10 +46,12 @@ Ext.define('Expense.controller.ExpenseController', {
                 //on every key stroke
                 keyup: 'onSearchKeyUp'
             },'projectcodelist': {
-                //select the country
                 itemtap: 'onSelectRow'
-            },fileLoadBtn: {
-                loadsuccess: 'onFileLoadSuccess',
+            },fileLoadAbroad: {
+                loadsuccess: 'onFileUploadAbroadSuccess',
+                loadfailure: 'onFileUploadFailure'
+            },fileLoadDomestic: {
+                loadsuccess: 'onFileUploadDomesticSuccess',
                 loadfailure: 'onFileUploadFailure'
             }
         }
@@ -106,8 +103,9 @@ Ext.define('Expense.controller.ExpenseController', {
         var errors = expense.validate();
         if(errors.isValid())
         {
-            if(Ext.getCmp('loadedImageAbroad')!=undefined)
-                expense.set('evidence',Ext.getCmp('loadedImageAbroad').getSrc());
+            var image = Ext.getCmp('abroadexpense').getComponent('loadedImageAbroad');
+            if(image!=undefined)
+                expense.set('evidence',image.getSrc());
             Ext.getStore('expensestore').add(expense);
             this.getDetail().setActiveItem(3);
             Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
@@ -142,8 +140,9 @@ Ext.define('Expense.controller.ExpenseController', {
         var errors = expense.validate();
         if(errors.isValid())
         {
-            if(Ext.getCmp('loadedImageAbroad')!=undefined)
-                expense.set('evidence',Ext.getCmp('loadedImageDomestic').getSrc());
+            var image = Ext.getCmp('domesticexpense').getComponent('loadedImageDomestic');
+            if(image!=undefined)
+                expense.set('evidence',image.getSrc());
             Ext.getStore('expensestore').add(expense);
             this.getDetail().setActiveItem(3);
             Ext.getCmp('menulist').select(Ext.getStore('menustore').getAt(3),false,false);
@@ -191,6 +190,7 @@ Ext.define('Expense.controller.ExpenseController', {
                 delete newExpense.expenseType;
                 newExpense.expenseLocationId = locationId2(newExpense);
                 delete newExpense.expenseLocation;
+                newExpense.evidence = removeBase64prefix(expense.get('evidence'));
                 expenses.push(newExpense);
             });
             expenseForm.set('expenses',expenses);
@@ -244,52 +244,20 @@ Ext.define('Expense.controller.ExpenseController', {
         }
     },
 
-
-    onFileBtnDomesticInit: function(fileBtnDomestic) {
-        var me = this;
-        fileBtnDomestic.on({
-            success: 'onFileUploadDomesticSuccess',
-            failure: 'onFileUploadFailure'
-        });
-    },
-
-    onFileLoadSuccess: function(dataurl, e) {
-        console.log('File loaded');
+    onFileUploadAbroadSuccess: function(dataurl, e) {
+        console.log('Abroad file loaded');
 
         var me = this;
         var image = me.getLoadedImageAbroad();
         image.setSrc(dataurl);
     },
 
-    onFileLoadFailure: function(message) {
-        console.log('Failure');
-        Ext.Msg.alert('File upload', 'Failure!');
-    },
+    onFileUploadDomesticSuccess: function(dataurl, e) {
+        console.log('Domestic file loaded');
 
-    onFileUploadAbroadSuccess: function(response) {
-        console.log('File loaded');
         var me = this;
-        var image = me.getLoadedImage();
+        var image = me.getLoadedImageDomestic();
         image.setSrc(dataurl);
-        /*var loaded = Ext.getCmp('loadedImage');
-
-        if (loaded) {
-            loaded.destroy();
-        }*/
-        //remove base64 prefix
-        //addImage(response.base64.substr(response.base64.indexOf(",")+1,response.base64.length-response.base64.indexOf(",")), Ext.getCmp('abroadexpense'),'loadedImageAbroad');
-        //addImage(response.base64,'loadedImageAbroad');
-    },
-
-    onFileUploadDomesticSuccess: function(response) {
-        var loaded = Ext.getCmp('loadedImage');
-
-        if (loaded) {
-            loaded.destroy();
-        }
-        //remove base64 prefix
-        addImage(response.base64.substr(response.base64.indexOf(",")+1,response.base64.length-response.base64.indexOf(",")), Ext.getCmp('domesticexpense'),'loadedImageDomestic');
-
     },
 
     onFileUploadFailure: function() {
@@ -344,7 +312,7 @@ Ext.define('Expense.controller.ExpenseController', {
         Ext.getCmp('projectCodeAbroad').setValue(record.get('data'));
         //clear the drop down list
         this.onClearSearch();
-    },
+    }
 
 });
 
@@ -354,8 +322,12 @@ function addImage(source, destinationCmp, newId){
         src: source,
         style: 'background-size: contain; margin-top: 20px; border-radius: 15px;',
         width: 250,
-        height: 200,
+        height: 200
     });
     destinationCmp.add(image);
     image.show();
+};
+
+function removeBase64prefix(image){
+    return image.substr(image.indexOf(",")+1,image.length-image.indexOf(","));
 };

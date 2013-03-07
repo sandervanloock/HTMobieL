@@ -14,7 +14,8 @@ $(document).on("pagebeforeshow", "#expense", function () {
 
 // http://view.jquerymobile.com/1.3.0/docs/widgets/autocomplete/autocomplete-remote.php#&ui-state=dialog
 $(document).on("pageinit", "#expense", function () {
-    $("#expense-project-code").on("listviewbeforefilter", function (e, data) {
+    var $projectCode = $("#expense-project-code");
+    $projectCode.on("listviewbeforefilter", function (e, data) {
         var $ul = $(this),
             $input = $(data.input),
             value = $input.val();
@@ -27,6 +28,10 @@ $(document).on("pageinit", "#expense", function () {
             });
         }
     });
+
+    // hack to not have 2 forms for the validation, because that does not work
+    // change the inner form to a div instead
+    $projectCode.parent().find("form").contents().unwrap().wrap('<div/>');
 });
 
 $(document).on("click", "[id^=project-code-suggestion]", function () {

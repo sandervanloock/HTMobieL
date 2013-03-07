@@ -215,15 +215,18 @@ $(document).on("pageinit", "#expense", function () {
             // no body, because we want no error labels on the form
         },
 
-        // custom highlight function due to select item and radio buttons
+        // custom highlight function
         highlight:function (element, errorClass, validClass) {
             var $element = $(element);
-            if ($element[0].tagName === "SELECT") {
-                // we have to take special care for the red border around select items
-                $element.parent().addClass("red-border");
-            } else if ($element.attr("type") === "radio") {
-                // we have to take special care for the red border around radio buttons
+
+            if ($element.attr("id") === "expense-type-hotel") {
+                // as of jQM 1.3, this has changed for fieldsets
+                // hack to handle this by checking the returned id
                 $element.parent().parent().addClass("red-border");
+            } else if ($element[0].tagName === "SELECT" || $element[0].tagName === "INPUT") {
+                // we have to take special care for the red border around select items
+                // but also, as of jQM 1.3, around input fields
+                $element.parent().addClass("red-border");
             } else {
                 // normal toggle behaviour
                 $element.removeClass(validClass);
@@ -231,15 +234,17 @@ $(document).on("pageinit", "#expense", function () {
             }
         },
 
-        // custom unhighlight function due to select item
+        // custom unhighlight function
         unhighlight:function (element, errorClass, validClass) {
             var $element = $(element);
-            if ($element[0].tagName === "SELECT") {
-                // we have to take special care for the red border around select items
-                $element.parent().removeClass("red-border");
-            } else if ($element.attr("type") === "radio") {
-                // we have to take special care for the red border around radio buttons
+            if ($element.attr("id") === "expense-type-hotel") {
+                // as of jQM 1.3, this has changed for fieldsets
+                // hack to handle this by checking the returned id
                 $element.parent().parent().removeClass("red-border");
+            } else if ($element[0].tagName === "SELECT" || $element[0].tagName === "INPUT") {
+                // we have to take special care for the red border around select items
+                // but also, as of jQM 1.3, around input fields
+                $element.parent().removeClass("red-border");
             } else {
                 // normal toggle behaviour
                 $element.removeClass(errorClass);

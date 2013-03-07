@@ -9,6 +9,18 @@ $(document).on("pageinit", "#login", function () {
         onkeyup:false,
         onfocusout:false,
 
+        // custom highlight function
+        highlight:function (element, errorClass, validClass) {
+            var $element = $(element);
+            $element.parent().addClass("red-border");
+        },
+
+        // custom unhighlight function
+        unhighlight:function (element, errorClass, validClass) {
+            var $element = $(element);
+            $element.parent().removeClass("red-border");
+        },
+
         errorPlacement:function () {
             // no body, because we want no error labels on the form
         },

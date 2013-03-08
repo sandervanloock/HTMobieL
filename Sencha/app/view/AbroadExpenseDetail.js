@@ -9,18 +9,18 @@ Ext.define('Expense.view.AbroadExpenseDetail', {
                 xtype: 'fieldset',
                 title: '2. Overview',
                 record: 'Expense.model.Expense',
+                styleHtmlContent: true,
                 items: [
                     {
                         xtype: 'datepickerfield',
-                        label: 'Date Of Expense',
-                        placeHolder: 'mm/dd/yyyy',
+                        placeHolder: 'Date Of Expense',
                         value: new Date(),
                         name: 'date',
                         readOnly: true
                     },
                     {
                         xtype: 'textfield',
-                        label: 'Project Code',
+                        placeHolder: 'Project Code',
                         name: 'projectCode',
                         readOnly: true
                     },
@@ -49,13 +49,13 @@ Ext.define('Expense.view.AbroadExpenseDetail', {
                     },
                     {
                         xtype: 'textfield',
-                        label: 'Amount',
+                        placeHolder: 'Amount',
                         name: 'amount',
                         readOnly: true
                     },
                     {
                         xtype: 'selectfield',
-                        label: 'Currency',
+                        placeHolder: 'Currency',
                         name: 'currency',
                         store: 'currencystore',
                         displayField : 'currency',
@@ -64,7 +64,7 @@ Ext.define('Expense.view.AbroadExpenseDetail', {
                     },
                     {
                         xtype: 'textareafield',
-                        label: 'Remarks',
+                        placeHolder: 'Remarks',
                         name: 'remarks',
                         readOnly: true
                     }

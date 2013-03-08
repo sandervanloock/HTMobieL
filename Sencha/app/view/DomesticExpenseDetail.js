@@ -8,17 +8,17 @@ Ext.define('Expense.view.DomesticExpenseDetail', {
             {
                 xtype: 'fieldset',
                 title: '2. Overview',
+                styleHtmlContent: true,
                 items: [
                     {
                     	  xtype: 'datepickerfield',
-                          label: 'Date Of Expense',
-                          placeHolder: 'mm/dd/yyyy',
+                          placeHolder: 'Date Of Expense',
                           name: 'date',
                           readOnly: true
                     },
                     {
                         xtype: 'textfield',
-                        label: 'Project Code',
+                        placeHolder: 'Project Code',
                         name: 'projectCode',
                         readOnly: true
                     },
@@ -55,12 +55,12 @@ Ext.define('Expense.view.DomesticExpenseDetail', {
                     {
                         xtype: 'textfield',
                         name: 'amount',
-                        label: 'Amount (€)',
+                        placeHolder: 'Amount (€)',
                         readOnly: true
                     },
                     {
                         xtype: 'textareafield',
-                        label: 'Remarks',
+                        placeHolder: 'Remarks',
                         name: 'remarks',
                         readOnly: true
                     },{

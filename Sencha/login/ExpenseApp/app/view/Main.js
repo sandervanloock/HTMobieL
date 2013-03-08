@@ -1,6 +1,12 @@
 Ext.define('ExpenseApp.view.Main', {
     extend:'Ext.Panel',
 
+    requires:[
+        'Ext.TitleBar',
+        'Ext.form.FieldSet',
+        'Ext.field.Password'
+    ],
+
     config:{
         fullscreen:true,
 

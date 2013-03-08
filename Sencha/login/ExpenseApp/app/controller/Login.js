@@ -26,7 +26,11 @@ Ext.define("ExpenseApp.controller.Login", {
         if (errors.isValid()) {
             console.log("form is valid");
         } else {
-            console.log("form is not valid");
+            var data = "";
+            errors.each(function (item, index, length) {
+                data += item.getField() + ' ' + item.getMessage() + "</br>";
+            });
+            Ext.Msg.alert("Validation Failed", data);
         }
     }
 

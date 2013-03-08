@@ -12,6 +12,46 @@ $(document).on("pagebeforeshow", "#expense", function () {
     $expenseCurrency.selectmenu('refresh');
 });
 
+// http://view.jquerymobile.com/1.3.0/docs/widgets/autocomplete/autocomplete-remote.php#&ui-state=dialog
+$(document).on("pageinit", "#expense", function () {
+    var $autocomplete = $("#expense-project-code-autocomplete");
+    $autocomplete.on("listviewbeforefilter", function (e, data) {
+        var $ul = $(this),
+            $input = $(data.input),
+            value = $input.val();
+        $ul.empty();
+        $("#expense-project-code").val(value);
+        if (value) {
+            $.each(EA.getProjectCodeSuggestions(), function (i, code) {
+                $ul.append('<li><a id="project-code-suggestion-' + code + '">' + code + '</a></li>');
+                $ul.listview("refresh");
+                $ul.trigger("updatelayout");
+            });
+        }
+    });
+
+    // hack to not have 2 forms for the validation, because that does not work
+    // change the inner form to a div instead
+    $autocomplete.parent().find("form").contents().unwrap().wrap('<div/>');
+});
+
+$(document).on("click", "[id^=project-code-suggestion]", function () {
+    var projectCode = $(this).attr("id").replace("project-code-suggestion-", "");
+    var $autoComplete = $("#expense-project-code-autocomplete");
+    $autoComplete.parent().find("input").val(projectCode);
+    $autoComplete.listview("refresh");
+    $autoComplete.empty();
+    $autoComplete.trigger("updatelayout");
+
+    // keep value in hidden field for validator
+    $("#expense-project-code").val(projectCode);
+});
+
+$(document).on('click', '.ui-input-clear', function () {
+    // when clicking on clear search input, empty the hidden field
+    $("#expense-project-code").val("");
+});
+
 $(document).on("pageinit", "#expense", function () {
     // date picker
     var today = new Date();
@@ -36,10 +76,9 @@ $(document).on("pageinit", "#expense", function () {
     var $expenseCurrency = $("#expense-currency");
 
     // insert converted amount span holder
-    $expenseCurrency.parent().parent().append(' <nobr><span class="align-right" id="expense-amount-converted"></span></nobr>');
-
+    // $expenseCurrency.parent().parent().append(' <nobr><span class="align-right" id="expense-amount-converted"></span></nobr>');
     // euro sign
-    var $euroSign = $("#expense-euro-sign");
+    //var $euroSign = $("#expense-euro-sign");
 
     // hold local reference for performance
     var $expenseAmount = $("#expense-amount");
@@ -57,10 +96,10 @@ $(document).on("pageinit", "#expense", function () {
         if (!isNaN(amount) && !isNaN(rate)) {
             var converted = amount / rate;
             // show euro amount with 2 decimals
-            $expenseCurrencyConverted.text("(" + EA.formatEuro(converted) + ")");
+            $expenseCurrencyConverted.val(EA.formatEuro(converted));
         } else {
             // set the converted value to empty
-            $expenseCurrencyConverted.text("");
+            $expenseCurrencyConverted.val("");
         }
 
     }
@@ -68,8 +107,8 @@ $(document).on("pageinit", "#expense", function () {
     // tabbar abroad or domestic
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
-    $expenseCurrencyConverted.hide();
-    $euroSign.show();
+    $expenseCurrencyConverted.parent().hide();
+    //$euroSign.show();
 
     // shows form items for abroad
     $("#expense-tabbar-abroad").change(function () {
@@ -78,12 +117,12 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().hide();
         $("#expense-type-restaurant").parent().show();
         $("#expense-currency-div").show();
-        $expenseCurrencyConverted.show();
+        $expenseCurrencyConverted.parent().show();
         $("#expense-type ").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
-        $euroSign.hide();
+        //$euroSign.hide();
     });
 
     // shows form items for domestic
@@ -93,25 +132,12 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().show();
         $("#expense-type-restaurant").parent().hide();
         $("#expense-currency-div").hide();
-        $expenseCurrencyConverted.hide();
+        $expenseCurrencyConverted.parent().hide();
         $("#expense-type").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
         });
-        $euroSign.show();
-    });
-
-    // autocomplete for project code
-    // limitation to 5 project code was made into jqm.autoComplete-1.5.0.js
-    $("#expense-project-code").autocomplete({
-        target:$("#expense-suggestions"),
-        source:EA.getProjectCodeSuggestions(),
-        callback:function (e) {
-            var $a = $(e.currentTarget);
-            $('#expense-project-code').val($a.text());
-            $("#expense-project-code").autocomplete('clear');
-        },
-        minLength:1
+        //$euroSign.show();
     });
 
     // evidence to base64 via FileReaderAPI and HTML5 canvas
@@ -176,7 +202,7 @@ $(document).on("pageinit", "#expense", function () {
 
     // initialize form validation
     $("#expense-form").validate({
-
+        ignore:[],
         rules:{
             "expense-date":{
                 "required":true,
@@ -187,7 +213,10 @@ $(document).on("pageinit", "#expense", function () {
                 // and 2 months earlier
                 "isCorrectDate":true
             },
-            "expense-project-code":"required",
+
+            // expense-project-code is required via the required class
+            // http://stackoverflow.com/questions/7429807/jquery-validate-valid-if-hidden-field-has-a-value
+
             "expense-type":"required",
             "expense-amount":{
                 required:true,
@@ -215,15 +244,18 @@ $(document).on("pageinit", "#expense", function () {
             // no body, because we want no error labels on the form
         },
 
-        // custom highlight function due to select item and radio buttons
+        // custom highlight function
         highlight:function (element, errorClass, validClass) {
             var $element = $(element);
-            if ($element[0].tagName === "SELECT") {
-                // we have to take special care for the red border around select items
-                $element.parent().addClass("red-border");
-            } else if ($element.attr("type") === "radio") {
-                // we have to take special care for the red border around radio buttons
+
+            if ($element.attr("id") === "expense-type-hotel") {
+                // as of jQM 1.3, this has changed for fieldsets
+                // hack to handle this by checking the returned id
                 $element.parent().parent().addClass("red-border");
+            } else if ($element[0].tagName === "SELECT" || $element[0].tagName === "INPUT") {
+                // we have to take special care for the red border around select items
+                // but also, as of jQM 1.3, around input fields
+                $element.parent().addClass("red-border");
             } else {
                 // normal toggle behaviour
                 $element.removeClass(validClass);
@@ -231,15 +263,17 @@ $(document).on("pageinit", "#expense", function () {
             }
         },
 
-        // custom unhighlight function due to select item
+        // custom unhighlight function
         unhighlight:function (element, errorClass, validClass) {
             var $element = $(element);
-            if ($element[0].tagName === "SELECT") {
-                // we have to take special care for the red border around select items
-                $element.parent().removeClass("red-border");
-            } else if ($element.attr("type") === "radio") {
-                // we have to take special care for the red border around radio buttons
+            if ($element.attr("id") === "expense-type-hotel") {
+                // as of jQM 1.3, this has changed for fieldsets
+                // hack to handle this by checking the returned id
                 $element.parent().parent().removeClass("red-border");
+            } else if ($element[0].tagName === "SELECT" || $element[0].tagName === "INPUT") {
+                // we have to take special care for the red border around select items
+                // but also, as of jQM 1.3, around input fields
+                $element.parent().removeClass("red-border");
             } else {
                 // normal toggle behaviour
                 $element.removeClass(errorClass);

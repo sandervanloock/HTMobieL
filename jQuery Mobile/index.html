@@ -19,16 +19,15 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/f-swatch.css">
     <link rel="stylesheet" href="css/g-swatch.css">
-    <link rel="stylesheet" href="css/jquery.mobile-1.2.0.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.0.css">
     <link rel="stylesheet" href="css/ea.css">
     <link rel="stylesheet" href="css/mobiscroll-2.3.1.custom.min.css">
 
     <!-- JavaScripts -->
-    <script src="js/vendor/jquery-1.8.3.js"></script>
+    <script src="js/vendor/jquery-1.9.1.js"></script>
     <script src="js/vendor/jquery.validate.js"></script>
     <script src="js/ea/custom.js"></script>
-    <script src="js/vendor/jquery.mobile-1.2.0.js"></script>
-    <script src="js/vendor/jqm.autoComplete-1.5.0.js"></script>
+    <script src="js/vendor/jquery.mobile-1.3.0.js"></script>
     <script src="js/ea/update.js"></script>
     <script src="js/ea/ea.js"></script>
     <script src="js/ea/login.js"></script>
@@ -332,16 +331,16 @@
                         </fieldset>
                     </div>
 
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="abroad-amount">Amount</label>
+                        <input type="number" name="abroad-amount" id="abroad-amount" placeholder="Amount" readonly>
+                    </div>
+
                     <div data-role="fieldcontain" class="ui-hide-label" id="abroad-currency-div">
                         <label for="abroad-currency" class="select">Currency</label>
                         <select name="abroad-currency" id="abroad-currency">
 
                         </select>
-                    </div>
-
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="abroad-amount">Amount</label>
-                        <input type="number" name="abroad-amount" id="abroad-amount" placeholder="Amount" readonly>
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
@@ -525,10 +524,12 @@
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="expense-project-code">Project Code</label>
-                        <input type="text" name="expense-project-code" id="expense-project-code"
-                               placeholder="Project Code">
-                        <ul id="expense-suggestions" data-role="listview" data-inset="true"></ul>
+                        <ul id="expense-project-code-autocomplete" data-role="listview" data-inset="true"
+                            data-filter="true"
+                            data-filter-placeholder="Project code" data-filter-theme="d">
+                        </ul>
+                        <input type="hidden" class="required" name="expense-project-code" id="expense-project-code"
+                               placeholder="Project code">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
@@ -555,20 +556,22 @@
                         </fieldset>
                     </div>
 
-                    <div data-role="fieldcontain">
-                        <div class="ui-grid-a padding-currency">
-                            <div class="ui-block-a ui-hide-label">
-                                <label for="expense-amount">Amount</label>
-                                <span id="expense-euro-sign">€</span> <input type="number" name="expense-amount"
-                                                                             id="expense-amount" placeholder="Amount">
-                            </div>
-                            <div class="ui-block-b ui-hide-label" id="expense-currency-div">
-                                <label for="expense-currency">Currency</label>
-                                <select name="expense-currency" id="expense-currency" data-inline="true">
-                                    <option value="">Currency</option>
-                                </select>
-                            </div>
-                        </div>
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="expense-amount">Amount</label>
+                        <input type="number" name="expense-amount" id="expense-amount" placeholder="Amount">
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label" id="expense-currency-div">
+                        <label for="expense-currency" class="select">Currency</label>
+                        <select name="expense-currency" id="expense-currency">
+                            <option value="">Currency</option>
+                        </select>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="expense-amount-converted">Converted amount</label>
+                        <input type="text" name="expense-amount-converted" id="expense-amount-converted" placeholder="€"
+                               readonly>
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">

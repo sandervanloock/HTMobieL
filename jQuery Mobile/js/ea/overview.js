@@ -88,7 +88,7 @@ $(document).on("click", "[id^=expense-show]", function () {
         $("#abroad-project-code").val(projectCode);
         $("#abroad-amount").val(amount);
         $("#abroad-remarks").val(remarks);
-        $("#abroad-evidence").attr("src", expense.evidence);
+        $("#abroad-evidence").attr("src", EA.base64WithPrefix(expense.evidence));
 
         // disable all types of expenses
         var $abroadType = $("#abroad-type");

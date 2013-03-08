@@ -82,11 +82,12 @@ $(document).on("pageinit", "#your-info", function () {
             // no body, because we want no error labels on the form
         },
 
-        // custom highlight function due to select item
+        // custom highlight function
         highlight:function (element, errorClass, validClass) {
             var $element = $(element);
-            if ($element[0].tagName === "SELECT") {
+            if ($element[0].tagName === "SELECT" || $element[0].tagName === "INPUT") {
                 // we have to take special care for the red border around select items
+                // but also, as of jQM 1.3, around input fields
                 $element.parent().addClass("red-border");
             } else {
                 // normal toggle behaviour
@@ -95,11 +96,12 @@ $(document).on("pageinit", "#your-info", function () {
             }
         },
 
-        // custom unhighlight function due to select item
+        // custom unhighlight function
         unhighlight:function (element, errorClass, validClass) {
             var $element = $(element);
-            if ($element[0].tagName === "SELECT") {
+            if ($element[0].tagName === "SELECT" || $element[0].tagName === "INPUT") {
                 // we have to take special care for the red border around select items
+                // but also, as of jQM 1.3, around input fields
                 $element.parent().removeClass("red-border");
             } else {
                 // normal toggle behaviour

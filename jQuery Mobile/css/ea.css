@@ -12,7 +12,6 @@
 }
 
 /* Red border for invalid fields */
-input.error,
 textarea.error,
 .red-border {
     border: 2px solid red;
@@ -48,9 +47,9 @@ textarea.error,
     padding: 2px;
 }
 
-#expense-amount.ui-input-text {
+/*#expense-amount.ui-input-text {
     width: 85%
-}
+}*/
 
 /* Responsive design: tablet view */
 @media all and (min-width: 600px) {

@@ -30,7 +30,8 @@ Ext.define('Expense.store.ExpenseFormStore', {
             }
         },
         sorters: {
-            property: 'date'
+            property: 'date',
+            direction: 'DESC'
         }
     }
 });

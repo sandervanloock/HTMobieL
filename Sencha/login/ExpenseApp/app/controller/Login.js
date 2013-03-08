@@ -19,7 +19,15 @@ Ext.define("ExpenseApp.controller.Login", {
     },
 
     login:function () {
-        var user = Ext.create('ExpenseApp.model.User', this.getForm().getValues());
+        // validate the form
+        var model = Ext.ModelManager.create(this.getForm().getValues(), "ExpenseApp.model.User");
+        var errors = model.validate();
+
+        if (errors.isValid()) {
+            console.log("form is valid");
+        } else {
+            console.log("form is not valid");
+        }
     }
 
 });

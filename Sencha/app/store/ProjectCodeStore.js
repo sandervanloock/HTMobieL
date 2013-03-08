@@ -1,10 +1,5 @@
 Ext.define('Expense.store.ProjectCodeStore', {
     extend: 'Ext.data.Store',
-    alias: 'store.projectcodestore',
-
-    requires: [
-        
-    ],
 
     config: {
         fields: [

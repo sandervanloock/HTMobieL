@@ -40,7 +40,7 @@ Ext.define('Expense.view.Page', {
                 xtype: 'addexpensecontainer'
             },
             {
-                xtype: 'singfield'
+                xtype: 'signfield'
             }
         ]
     }

@@ -1,45 +1,56 @@
 Ext.define('ExpenseApp.view.Login', {
-    extend:'Ext.form.Panel',
-
-    id:'loginForm',
+    extend:'Ext.Panel',
 
     requires:[
         'Ext.TitleBar',
         'Ext.form.FieldSet',
-        'Ext.field.Password'
+        'Ext.field.Password',
+        'Ext.form.Panel'
     ],
 
     config:{
         fullscreen:true,
 
+        layout:{
+            type:'hbox'
+        },
+
         items:[
             {
                 xtype:'titlebar',
-                title:'Expense App'
+                title:'Expense App',
+                docked:'top'
             },
             {
-                xtype:'fieldset',
-
+                xtype:'formpanel',
+                id:'loginForm',
+                // TODO this is probably a hack
+                flex:1,
                 items:[
                     {
-                        xtype:'textfield',
-                        name:'username',
-                        placeHolder:'Username'
+                        xtype:'fieldset',
+                        items:[
+                            {
+                                xtype:'textfield',
+                                name:'username',
+                                placeHolder:'Username'
+                            },
+                            {
+                                xtype:'passwordfield',
+                                name:'password',
+                                placeHolder:'Password'
+                            }
+                        ]
                     },
                     {
-                        xtype:'passwordfield',
-                        name:'password',
-                        placeHolder:'Password'
+                        xtype:'button',
+                        text:'Log in',
+                        // makes it a green button
+                        ui:'confirm',
+                        // submitting the form
+                        id:'loginButton'
                     }
                 ]
-            },
-            {
-                xtype:'button',
-                text:'Log in',
-                // makes it a green button
-                ui:'confirm',
-                // submitting the form
-                id:'loginButton'
             }
         ]
     }

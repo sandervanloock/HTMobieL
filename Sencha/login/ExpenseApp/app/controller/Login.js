@@ -19,12 +19,26 @@ Ext.define("ExpenseApp.controller.Login", {
     },
 
     login:function () {
-        // validate the form
-        var model = Ext.ModelManager.create(this.getForm().getValues(), "ExpenseApp.model.User");
-        var errors = model.validate();
+        var user = Ext.create("ExpenseApp.model.User", this.getForm().getValues());
+        var errors = user.validate();
 
         if (errors.isValid()) {
-            console.log("form is valid");
+            Ext.Ajax.request({
+                url:'http://kulcapexpenseapp.appspot.com/resources/userService/login',
+                method:"POST",
+                params:{
+                    email:user.get("username"),
+                    password:user.get("password")
+                },
+                success:function (response) {
+                    var token = response.responseText;
+                    if (token == "") {
+                        Ext.Msg.alert("Authentication Failed", "Wrong username and/or password.");
+                    } else {
+                        Ext.Msg.alert("Token", token);
+                    }
+                }
+            });
         } else {
             var data = "";
             errors.each(function (item, index, length) {

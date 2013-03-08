@@ -4,7 +4,7 @@ Ext.define('ExpenseApp.model.User', {
     config:{
         fields:[
             {
-                name:'name'
+                name:'username'
             },
             {
                 name:'password'
@@ -13,7 +13,7 @@ Ext.define('ExpenseApp.model.User', {
 
         validations:[
             {
-                field:'name',
+                field:'username',
                 type:'presence'
             },
             {

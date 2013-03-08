@@ -21,12 +21,12 @@ Ext.define('ExpenseApp.view.Main', {
                     {
                         xtype:'textfield',
                         name:'username',
-                        label:'Username'
+                        placeHolder : 'Username'
                     },
                     {
                         xtype:'passwordfield',
                         name:'password',
-                        label:'Password'
+                        placeHolder:'Password'
                     },
                     {
                         xtype:'button',

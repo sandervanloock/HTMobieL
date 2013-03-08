@@ -106,6 +106,9 @@ Ext.application({
 
     launch: function() {
         Ext.create('Expense.view.LoginPanel', {fullscreen: true});
+        Ext.create('Expense.view.Home', {fullscreen: true});
+        Ext.create('Expense.view.Viewport', {fullscreen: true});
+        Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
         var employeeStore = Ext.getStore('employeestore');
         var localemployeestore = Ext.getStore('localemployeestore');
         localemployeestore.load({

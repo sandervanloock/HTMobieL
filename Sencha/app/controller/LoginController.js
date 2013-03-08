@@ -95,24 +95,17 @@ function logout(){
         callback : function(options, success,response) {
             Ext.Viewport.setMasked(false);
             Ext.Viewport.setActiveItem(Ext.getCmp('loginpanel'));
-            Ext.destroy(Ext.getCmp('home'));
-            Ext.destroy(Ext.getCmp('viewport'));
-            Ext.destroy(Ext.getCmp('totaloverviewlist'));
         }
     });
     localStorage.clear();
 }
 
 function login(token){
-    //all components and( dependencies have to be destoyed when logged out..
-    Ext.create('Expense.view.Home', {fullscreen: true});
     Expense.app.setToken(token);
     var employeeStore = Ext.getStore('employeestore');
     employeeStore.getProxy().setExtraParams({
         token: token
     });
     employeeStore.load();
-    Ext.create('Expense.view.Viewport', {fullscreen: true});
-    Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
     Ext.Viewport.setMasked(false);
 }

@@ -23,10 +23,6 @@ Ext.define('Expense.store.LocalEmployeeStore', {
         var employee = comp.getAt(0);
         if(employee != undefined){
             Expense.app.setEmployee(employee);
-            Ext.create('Expense.view.Home', {fullscreen: true});
-            Ext.create('Expense.view.Viewport', {fullscreen: true});
-            Ext.create('Expense.view.TotalOverviewList',{fullscreen: true});
-
             Ext.getCmp('introtext').setHtml('<h2>Welcome, ' + employee.get('firstName') + '<br> I want to: <br></h2>');
             initializeInfoPanel(employee);
             Ext.Viewport.setActiveItem(Ext.getCmp('home'));

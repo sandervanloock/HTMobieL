@@ -1,3 +1,7 @@
+# ignore sencha sdk
+Sencha/login/touch-2.1.1/
+
+
 # configuratiefiles van mijn editor #
 ##########################################################
 .idea/

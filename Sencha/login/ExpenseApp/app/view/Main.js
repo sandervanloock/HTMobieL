@@ -27,6 +27,12 @@ Ext.define('ExpenseApp.view.Main', {
                         xtype:'passwordfield',
                         name:'password',
                         label:'Password'
+                    },
+                    {
+                        xtype:'button',
+                        text:'Log in',
+                        // makes it a green button
+                        ui:'confirm'
                     }
                 ]
             }

@@ -91,9 +91,7 @@ Ext.define('Expense.view.InfoPanel', {
                 xtype: 'button',
                 text: 'Next',
                 ui: 'action',
-                action: 'showOverviewList',
-                width: '200px',
-                right: '0px'
+                action: 'showOverviewList'
             }
         ]
     }

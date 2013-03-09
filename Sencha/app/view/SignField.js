@@ -31,8 +31,6 @@ Ext.define('Expense.view.SignField', {
                 xtype: 'button',
                 text: 'Send',
                 ui: 'action',
-                width: '200px',
-                right: '0px',
                 action: 'sendExpenses'
             }
         ]

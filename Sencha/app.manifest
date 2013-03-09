@@ -1,7 +1,10 @@
 CACHE MANIFEST
+#Version 1.9
 
-app.html
+CACHE:
+index.html
 app.js
+app.json
 
 app/controller/CurrencyController.js
 app/controller/ExpenseController.js
@@ -16,9 +19,11 @@ app/model/ExpenseForm.js
 
 app/store/CurrencyStore.js
 app/store/EmployeeStore.js
+app/store/LocalEmployeeStore.js
 app/store/ExpenseFormStore.js
 app/store/ExpenseStore.js
 app/store/ProjectCodeStore.js
+app/store/MenuStore.js
 
 app/view/AbroadExpense.js
 app/view/AbroadExpenseDetail.js
@@ -33,19 +38,19 @@ app/view/Overview.js
 app/view/OverviewList.js
 app/view/Page.js
 app/view/ProjectCodeList.js
-app/view/Sign.js
 app/view/SignField.js
 app/view/TotalOverviewList.js
 app/view/Viewport.js
 
-lib/sencha-touch/sencha-touch.js
-lib/sencha-touch/sencha-touch-all-debug.js
-lib/sencha-touch/resources/css/sencha-touch.css
-lib/sencha-touch/resources/css/custom-style.css
+touch/sencha-touch.js
+touch/sencha-touch-all-debug.js
+touch/microloader/development.js
+resources/css/app.css
+resources/css/custom-style.css
 
-lib/pdf.js/pdf.js
-lib/pdf.js/compatibility.js
-lib/base64.js
-ux/panel/PDF.js
-ux/Fileup.js
-ux/Signaturefield.js
+resources/js/pdf.js
+resources/js/compatibility.js
+resources/js/base64.js
+touch/src/ux/PDF.js
+touch/src/ux/Fileup.js
+touch/src/ux/Signaturefield.js

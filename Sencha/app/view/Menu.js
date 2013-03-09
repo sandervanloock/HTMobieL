@@ -3,18 +3,33 @@ Ext.define('Expense.view.Menu', {
     alias: 'widget.menuPanel',
 
     config: {
-        cls: 'menu-background',
         id: 'menupanel',
         items: [
+            {
+                html: '<h1 class=\'x-custom-title\'>New Expense</h1>'
+            },
             {
                 xtype: 'list',
                 id: 'menulist',
                 itemId: 'menulist',
-                html: '<h1 class=\'x-custom-title\'>New Expense</h1>',
                 ui: 'round',
-                scrollable: false,
+                height: '100%',
                 store: 'menustore',
                 itemTpl: '{item}'
+                /*data: [
+                    {
+                        item: 'Your Info'
+                    },
+                    {
+                        item: 'Overview'
+                    },
+                    {
+                        item: 'Add Expense'
+                    },
+                    {
+                        item: 'Sign & Send'
+                    }
+                ]*/
             }
         ]
     }

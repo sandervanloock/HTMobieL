@@ -82,7 +82,7 @@ Ext.define('Expense.controller.ExpenseController', {
     },
     
     showExpensePDF: function(list, record, target, index, e, options) {
-		 Ext.Viewport.setActiveItem(Ext.create('Ext.ux.panel.PDF',{
+		 Ext.Viewport.setActiveItem(Ext.create('Ext.ux.PDF',{
 	            fullscreen: true,
 	            layout    : 'fit',
 	            src       : Expense.app.getBaseURL() + '/resources/expenseService/getExpenseFormPDF', // URL to the PDF - Same Domain or Server with CORS Support

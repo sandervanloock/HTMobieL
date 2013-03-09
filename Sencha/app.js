@@ -2,14 +2,6 @@ Ext.Loader.setConfig({
     enabled: true
 });
 
-
-/*Ext.setup({ //TODO
-    tabletStartupScreen: 'tablet_startup.png',
-    phoneStartupScreen: 'phone_startup.png',
-    icon: 'icon.png',
-    glossOnIcon: false,
-});*/
-
 Ext.define("fix.me.some.radio.buttons", {
     override: "Ext.field.Radio",
     getValue: function() {
@@ -24,11 +16,6 @@ Ext.apply(Ext.data.validations , {
 });
 
 Ext.override(Ext.data.Model, {
-    /**
-     * Validates the current data against all of its configured {@link #validations} and returns an
-     * {@link Ext.data.Errors Errors} object
-     * @return {Ext.data.Errors} The errors object
-     */
     validate: function() {
         var errors      = new Ext.data.Errors(),
             validations = this.validations,
@@ -89,7 +76,7 @@ Ext.application({
         'SignField',
         'AddExpenseContainer',
         'InfoPanel',
-        'Ext.ux.panel.PDF',
+        'Ext.ux.PDF',
         'Ext.ux.Fileup',
         'Ext.ux.Signaturefield'
         //'Expense.view.ProjectCodeList'

@@ -1,8 +1,0 @@
-http://tutorialzine.com/2012/04/timeline-portfolio/
---> jquery timeline
-
-http://galleria.io/
---> create albums
-
-http://phpsense.com/2006/php-login-script/
---> php authentication

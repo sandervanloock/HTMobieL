@@ -19,7 +19,8 @@ Ext.define("ExpenseApp.controller.Login", {
     },
 
     login:function () {
-        var user = Ext.create("ExpenseApp.model.User", this.getForm().getValues());
+        var form = this.getForm();
+        var user = Ext.create("ExpenseApp.model.User", form.getValues());
         var errors = user.validate();
 
         if (errors.isValid()) {
@@ -42,6 +43,7 @@ Ext.define("ExpenseApp.controller.Login", {
         } else {
             var data = "";
             errors.each(function (item, index, length) {
+                console.log(item);
                 data += item.getField() + ' ' + item.getMessage() + "</br>";
             });
             Ext.Msg.alert("Validation Failed", data);

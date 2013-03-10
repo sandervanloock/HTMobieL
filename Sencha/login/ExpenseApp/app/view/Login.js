@@ -24,7 +24,7 @@ Ext.define('ExpenseApp.view.Login', {
             {
                 xtype:'formpanel',
                 id:'loginForm',
-                // TODO this is probably a hack
+                // TODO this is probably a hack by misusing the hbox
                 flex:1,
                 items:[
                     {
@@ -42,11 +42,14 @@ Ext.define('ExpenseApp.view.Login', {
                             }
                         ]
                     },
+                    {xtype: 'spacer'},
                     {
                         xtype:'button',
                         text:'Log in',
                         // makes it a green button
                         ui:'confirm',
+                        width: "30%",
+                        align:"right",
                         // submitting the form
                         id:'loginButton'
                     }

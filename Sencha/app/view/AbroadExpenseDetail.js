@@ -31,7 +31,6 @@ Ext.define('Expense.view.AbroadExpenseDetail', {
                             name : 'expenseType',
                             disabled:true
                         },
-                        padding: '0 0 0 0', //TODO
                         items : [
                             {
                                 label: 'Hotel',

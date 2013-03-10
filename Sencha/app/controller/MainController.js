@@ -102,11 +102,19 @@ Ext.define(
                     },
 					
 					showTotalOverviewList: function(button, e, options){
+                        Ext.Viewport.setMasked({
+                            xtype: 'loadmask',
+                            message: 'Loading...'
+                        });
                         var expenseStore = Ext.getStore('expenseformstore');
                         expenseStore.getProxy().setExtraParams({
                             token:  getToken()
                         });
-                        expenseStore.load();
+                        expenseStore.load({
+                            callback: function(){
+                                Ext.Viewport.setMasked(false);
+                            }
+                        });
 						Ext.Viewport.setActiveItem(Ext.getCmp('totaloverviewlist'));
 					},
 

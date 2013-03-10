@@ -265,9 +265,9 @@ Ext.define('Expense.controller.ExpenseController', {
         Ext.Msg.alert('File upload', 'Failure!');
     },
 
-    onSearchKeyUp: function(searchField) {
+    /*onSearchKeyUp: function(searchField) {
         queryString = searchField.getValue();
-        //console.log(this,'Please search by: ' + queryString);
+        console.log(this,'Please search by: ' + queryString);
 
         //create and display the floating list
         var myList = Ext.Viewport.down('projectcodelist');
@@ -291,12 +291,10 @@ Ext.define('Expense.controller.ExpenseController', {
                 keyword: keywordParam
             }
         });
-
-
     },
 
     onClearSearch: function() {
-        //console.log('Clear icon is tapped');
+        console.log('Clear icon is tapped');
 
         //remove all data from the store
         var store = Ext.getStore('projectcodestore');
@@ -312,7 +310,7 @@ Ext.define('Expense.controller.ExpenseController', {
         Ext.getCmp('projectCodeAbroad').setValue(record.get('data'));
         //clear the drop down list
         this.onClearSearch();
-    }
+    }*/
 
 });
 

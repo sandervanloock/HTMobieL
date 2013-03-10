@@ -25,7 +25,7 @@ Ext.define('Expense.view.Home', {
             items : [ {
 				xtype : 'panel',
 				id : 'introtext',
-                style: 'margin: 20px 20px 20px 20px'
+                style: 'margin: 10px 20px 20px 20px'
 			}, {
 				xtype : 'button',
 				height : 46,

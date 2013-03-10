@@ -103,42 +103,38 @@ Ext.application({
                 console.log('local storage loaded');
             }
         });
-    },
-
-    token : '',
-    
-    setToken : function(args){
-    	this.token = args;
-    },
-    
-    getToken: function(){
-    	return this.token;
-    },
-    
-    //baseURL: 'http://localhost:8888',
-    baseURL: 'http://kulcapexpenseapp.appspot.com',
-    
-    getBaseURL : function(){
-    	return this.baseURL;
-    },
-
-    employee: null,
-
-    setEmployee: function(args){
-        this.employee = args;
-    },
-
-    getEmployee: function(){
-        return this.employee;
-    },
-    
-    expenseForm: null,
-    
-    setExpenseForm: function(args){
-    	this.expenseForm = args;
-    },
-    
-    getExpenseForm: function(){
-    	return this.expenseForm;
     }
 });
+
+var baseURL = 'http://kulcapexpenseapp.appspot.com';
+var employee = null;
+var expenseForm = null;
+var token = "";
+
+function getToken(){
+    return token;
+}
+
+function setToken(args){
+    token = args;
+}
+
+function getBaseURL(){
+    return 'http://kulcapexpenseapp.appspot.com';
+};
+
+function setEmployee(args){
+    this.employee = args;
+};
+
+function getEmployee(){
+    return this.employee;
+};
+
+function setExpenseForm(args){
+    this.expenseForm = args;
+};
+
+function getExpenseForm(){
+    return this.expenseForm;
+};

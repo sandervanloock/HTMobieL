@@ -22,7 +22,7 @@ Ext.define('Expense.store.LocalEmployeeStore', {
     initApplication : function(comp, records, successful, operation, eOpts ){
         var employee = comp.getAt(0);
         if(employee != undefined){
-            Expense.app.setEmployee(employee);
+            setEmployee(employee);
             Ext.getCmp('introtext').setHtml('<h2>Welcome, ' + employee.get('firstName') + '<br> I want to: <br></h2>');
             initializeInfoPanel(employee);
             Ext.Viewport.setActiveItem(Ext.getCmp('home'));

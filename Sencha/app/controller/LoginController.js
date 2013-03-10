@@ -45,7 +45,7 @@ Ext.define('Expense.controller.LoginController', {
                 message: 'Loading...'
             });
             Ext.Ajax.request({
-                url : Expense.app.getBaseURL() + '/resources/userService/login',
+                url : getBaseURL() + '/resources/userService/login',
                 method : 'POST',
                 //http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
                 useDefaultXhrHeader: false,
@@ -86,11 +86,11 @@ function logout(){
         message: 'Loading...'
     });
     Ext.Ajax.request({
-        url : Expense.app.getBaseURL() + '/resources/userService/logout',
+        url : getBaseURL() + '/resources/userService/logout',
         method : 'POST',
         useDefaultXhrHeader : false, // http://stackoverflow.com/questions/10830334/ext-ajax-request-sending-options-request-cross-domain-when-jquery-ajax-sends-get
         params : {
-            token : Expense.app.token
+            token : token
         },
         callback : function(options, success,response) {
             Ext.Viewport.setMasked(false);
@@ -101,7 +101,7 @@ function logout(){
 }
 
 function login(token){
-    Expense.app.setToken(token);
+    setToken(token);
     var employeeStore = Ext.getStore('employeestore');
     employeeStore.getProxy().setExtraParams({
         token: token

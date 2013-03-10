@@ -16,7 +16,7 @@
      * This value is needed when build to resolve your application's dependencies if it requires server-side resources
      * that are not accessible via file system protocol.
      */
-    "url": null,
+    "url": "http://localhost/Sencha/index.html",
 
     /**
      * List of all JavaScript assets in the right execution order.
@@ -93,7 +93,11 @@
          * List of items in the CACHE MANIFEST section
          */
         "cache": [
-            "index.html"
+            "index.html",
+            "app.js",
+            "resources/js/base64.js",
+            "resources/js/compatibility.js",
+            "resources/js/pdf.js"
         ],
         /**
          * List of items in the NETWORK section

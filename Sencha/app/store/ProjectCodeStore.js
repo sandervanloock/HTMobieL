@@ -29,7 +29,7 @@ Ext.define('Expense.store.ProjectCodeStore', {
         storeId: 'projectcodestore',
         proxy: {
             type: 'ajax',
-            url: Expense.app.getBaseURL() + '/resources/expenseService/getProjectCodeSuggestion',
+            url: getBaseURL() + '/resources/expenseService/getProjectCodeSuggestion',
             actionMethods: {
                 create : 'POST',
                 read   : 'POST',

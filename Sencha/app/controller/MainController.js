@@ -78,7 +78,7 @@ Ext.define(
                             //set expense form date
                             var myDate=new Date();
                             myDate.setFullYear(Ext.getCmp('year').getValue(),Ext.getCmp('month').getValue(),1);
-                            Expense.app.getExpenseForm().set('date',myDate);
+                             getExpenseForm().set('date',myDate);
                             //encode currencies at runtime
                             Ext.getStore('expensestore').each(function(item,index,length){
                                 encodeCurrency(item);
@@ -104,7 +104,7 @@ Ext.define(
 					showTotalOverviewList: function(button, e, options){
                         var expenseStore = Ext.getStore('expenseformstore');
                         expenseStore.getProxy().setExtraParams({
-                            token: Expense.app.getToken()
+                            token:  getToken()
                         });
                         expenseStore.load();
 						Ext.Viewport.setActiveItem(Ext.getCmp('totaloverviewlist'));

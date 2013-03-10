@@ -15,7 +15,7 @@ Ext.define('Expense.store.EmployeeStore', {
         },
         proxy: {
             type: 'ajax',
-            url: Expense.app.getBaseURL() + '/resources/userService/getEmployee',
+            url: getBaseURL() + '/resources/userService/getEmployee',
             actionMethods: {
                 create : 'POST',
                 read   : 'POST',
@@ -30,7 +30,7 @@ Ext.define('Expense.store.EmployeeStore', {
     
 	 initApplication : function(comp, records, successful, operation, eOpts ){
 			var employee = comp.getAt(0);
-            Expense.app.setEmployee(employee);
+            setEmployee(employee);
             Ext.getCmp('introtext').setHtml('<h2>Welcome, ' + employee.get('firstName') + '<br> I want to: <br></h2>');
             initializeInfoPanel(employee);
             Ext.Viewport.setActiveItem(Ext.getCmp('home'));
@@ -55,7 +55,7 @@ initializeInfoPanel = function(employee){
         Ext.getCmp('menupanel').setHidden(true);
         Ext.getCmp('menuButton').setHidden(false);
     }
-    Expense.app.setExpenseForm(Ext.create('Expense.model.ExpenseForm'));
+    setExpenseForm(Ext.create('Expense.model.ExpenseForm'));
 	var infopanel = Ext.getCmp('infopanel');
 	infopanel.setRecord(employee); 
 	var today = new Date();

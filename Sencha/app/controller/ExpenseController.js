@@ -85,8 +85,8 @@ Ext.define('Expense.controller.ExpenseController', {
 		 Ext.Viewport.setActiveItem(Ext.create('Ext.ux.PDF',{
 	            fullscreen: true,
 	            layout    : 'fit',
-	            src       : Expense.app.getBaseURL() + '/resources/expenseService/getExpenseFormPDF', // URL to the PDF - Same Domain or Server with CORS Support
-	            extraParams: 'token='+Expense.app.getToken()+'&expenseFormId='+record.get('id') //TODO expenseFormId
+	            src       : getBaseURL() + '/resources/expenseService/getExpenseFormPDF', // URL to the PDF - Same Domain or Server with CORS Support
+	            extraParams: 'token='+ getToken()+'&expenseFormId='+record.get('id') //TODO expenseFormId
 	        }));
     },
 
@@ -171,10 +171,10 @@ Ext.define('Expense.controller.ExpenseController', {
             message: 'Loading...'
         });
         var field = this.getSignfield().getValues();
-        var expenseForm = Expense.app.getExpenseForm();
+        var expenseForm =  getExpenseForm();
         if(!Ext.isEmpty(Ext.getCmp('signature').getValue())){
             expenseForm.set('date',new Date()); //TODO volgens POC
-            expenseForm.set('employeeId',Expense.app.getEmployee().get('id'));
+            expenseForm.set('employeeId', getEmployee().get('id'));
             expenseForm.set('signature' ,Ext.getCmp('signature').getValue());
             expenseForm.set('remarks',field['remarks']);
             expenseForm.set('notification',field['notification']);
@@ -194,10 +194,10 @@ Ext.define('Expense.controller.ExpenseController', {
                 expenses.push(newExpense);
             });
             expenseForm.set('expenses',expenses);
-            var sendObject = { "token": Expense.app.getToken(), "expenseForm": expenseForm.getData()};
+            var sendObject = { "token":  getToken(), "expenseForm": expenseForm.getData()};
             var result = Ext.encode(sendObject);
              Ext.Ajax.request({
-                 url : Expense.app.getBaseURL() + '/resources/expenseService/saveExpense',
+                 url : getBaseURL() + '/resources/expenseService/saveExpense',
                  method : 'POST',
                  useDefaultXhrHeader: false,
                  jsonData: result,

@@ -13,7 +13,7 @@ Ext.define('Expense.store.ExpenseFormStore', {
         storeId: 'expenseformstore',
         proxy: {
             type: 'ajax',
-            url: Expense.app.getBaseURL() + '/resources/expenseService/getExpenseForms',
+            url: getBaseURL() + '/resources/expenseService/getExpenseForms',
             actionMethods: {
                 create : 'POST',
                 read   : 'POST',

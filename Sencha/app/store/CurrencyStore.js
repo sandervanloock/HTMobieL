@@ -20,7 +20,7 @@ Ext.define('Expense.store.CurrencyStore', {
         ],
         proxy: {
             type: 'ajax',
-            url: Expense.app.getBaseURL() + '/resources/currencyService/getCurrencies', //TODO url
+            url: 'http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies',
             actionMethods: {
                 create : 'POST',
                 read   : 'POST',

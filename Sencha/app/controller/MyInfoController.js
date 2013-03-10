@@ -1,4 +1,3 @@
-
 Ext.define('Expense.controller.MyInfoController',{
 	extend : 'Ext.app.Controller',
 	
@@ -9,7 +8,7 @@ Ext.define('Expense.controller.MyInfoController',{
 		},
 		control : {
 			"formpanel" : {
-				painted : 'onFormpanelShow',
+				painted : 'onFormpanelShow'
 			}
 		}
 	},

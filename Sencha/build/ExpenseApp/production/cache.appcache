@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# 0e2aeb92c2d96690171e99727b95152655d6a441
+index.html
+# 3b2d5e011ea6338b171d1e63dbfecb5c34697f6b
+app.js
+# 733570a7e5d6fd1552b0cfc150dd9626e24dcb8b
+resources/js/base64.js
+# ed823281941ba75eafe9ca9c702b723e340cdc6b
+resources/js/compatibility.js
+# aa64f35761e2a633097b2deaa550ea6ff564e14d
+resources/js/pdf.js
+
+
+FALLBACK:
+
+
+NETWORK:
+*

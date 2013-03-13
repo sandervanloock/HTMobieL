@@ -11,20 +11,18 @@
 </head>
 <body>
 <div data-role="view" id="login" data-layout="default">
-
-    <ul data-role="listview" data-style="inset">
-        <li><label for="username">Username:</label> <input type="text" id="login-username" value="tim.ameye@student.kuleuven.be"/></li>
-        <li><label for="password">Password:</label> <input type="password" id="login-password" value="test123" /></li>
-    </ul>
-    <a data-click="login" id="modalview-login-button" type="button" data-role="button">Login</a>
-
+    <form>
+        <ul data-role="listview" data-style="inset">
+            <li><input type="text" id="login-username" placeholder="Username" value="tim.ameye@student.kuleuven.be"/></li>
+            <li><input type="password" id="login-password" placeholder="Password" value="test123"/></li>
+        </ul>
+        <a data-click="login" id="modalview-login-button" type="button" data-role="button">Login</a>
+    </form>
 </div>
-
-
 
 <section data-role="layout" data-id="default">
     <header data-role="header">
-        <div data-role="navbar">My App</div>
+        <div data-role="navbar">Expense App</div>
     </header>
     <footer data-role="footer">
         <div class="footer">
@@ -34,6 +32,10 @@
         </div>
     </footer>
 </section>
+
+<script>
+    var app = new kendo.mobile.Application(document.body,{transition:'slide'});
+</script>
 
 <script src="app.js"></script>
 <script src="js/ea/ea.js"></script>

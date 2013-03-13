@@ -1,10 +1,4 @@
-var app = new kendo.mobile.Application(document.body,
-    {
-        transition:'slide'
-    });
-var router = new kendo.Router();
-router.start();
-router.navigate("home.html");
+
 
 function login() {
     $.ajax({
@@ -55,6 +49,7 @@ function login() {
                         // because we chain the ajax requests
                         // set user data and go to home page
                         EA.setUser(userData);
+                        app.navigate("home.html")
                     }
                 });
 

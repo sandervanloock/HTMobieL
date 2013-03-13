@@ -5,14 +5,6 @@
     font-size: 1.2em;
 }
 
-.footer {
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-right: 5px;
-}
-
-.wrapper {
-    margin-left: auto;
-    width: 400px;
-    margin-right: auto;
+form li {
+    min-height: 40px;
 }

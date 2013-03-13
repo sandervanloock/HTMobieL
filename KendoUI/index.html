@@ -6,7 +6,7 @@
     <link href="app.css" rel="stylesheet" />
 
     <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/kendo.all.min.js"></script>
+    <script src="js/vendor/kendo.mobile.min.js"></script>
     <script src="js/vendor/modernizr-latest.js"></script>
 </head>
 <body>
@@ -26,9 +26,15 @@
 
     <div class="wrapper align-center">
         <h3>I want to:</h3>
-        <a href="#" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a><br/>
-        <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
+        <a href="" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a><br/>
+        <a href="#expenseFormOverview" data-role="button" data-theme="b">View My Expenses</a>
     </div>
+
+</div>
+
+<div data-role="view" id="expenseFormOverview" data-init="mobileListViewPullWithEndless" data-layout="default">
+
+    <ul id="pull-with-endless"></ul>
 
 </div>
 
@@ -58,9 +64,29 @@
     </footer>
 </section>
 
+<section data-role="layout" data-id="default">
+    <header data-role="header">
+        <div data-role="navbar">Expense App
+            <a data-role="button" data-align="right" data-click="goHome">Home</a>
+        </div>
+    </header>
+    <footer data-role="footer">
+        <div class="footer">
+            <div style="float: left"><img src="img/kuleuven.png"></div>
+            <div style="float: right"><img src="img/cap.jpg"></div>
+        </div>
+    </footer>
+</section>
 
-<script>
-    var app = new kendo.mobile.Application(document.body,{transition:'slide'});
+<script id="pull-with-endless-template" type="text/x-kendo-template">
+    <div class="tweet">
+        <img class="pullImage" src="#= profile_image_url #" alt="#= from_user #" />#= text #
+        <div class="metadata">
+            <a class="sublink" target="_blank" href="http://twitter.com/\\#!/#= from_user #/status/#= id_str #" rel="nofollow">#= kendo.toString(new Date(Date.parse(created_at)), "dd MMM HH:mm") #</a>
+            |
+            <a class="sublink" href="http://twitter.com/#= from_user #" rel="nofollow">#= from_user #</a>
+        </div>
+    </div>
 </script>
 
 <script src="app.js"></script>
@@ -69,5 +95,9 @@
 <script src="js/ea/employee.js"></script>
 <script src="js/ea/expense.js"></script>
 <script src="js/ea/expenseForm.js"></script>
+
+<script>
+    var app = new kendo.mobile.Application(document.body,{transition:'slide'});
+</script>
 </body>
 </html>

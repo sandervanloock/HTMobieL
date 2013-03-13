@@ -37,3 +37,23 @@ form li {
 .align-center {
     text-align: center;
 }
+
+.tweet {
+    font-size: .8em;
+    line-height: 1.4em;
+}
+.pullImage {
+    width: 64px;
+    height: 64px;
+    border-radius: 3px;
+    float: left;
+    margin-right: 10px;
+}
+.sublink {
+    font-size: .9em;
+    font-weight: normal;
+    display: inline-block;
+    padding: 3px 3px 0 0;
+    text-decoration: none;
+    opacity: .8;
+}

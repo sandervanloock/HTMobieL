@@ -1,5 +1,3 @@
-
-
 function login() {
     $.ajax({
         type:"POST",
@@ -128,3 +126,56 @@ function logout(){
         });
     }
 }
+
+function goHome(){
+    app.navigate("#home");
+}
+
+function mobileListViewPullWithEndless() {
+    var dataSource = new kendo.data.DataSource({
+        serverPaging: true,
+        pageSize: 10,
+        transport: {
+            read: {
+                url: "http://search.twitter.com/search.json", // the remove service url
+                dataType: "jsonp" // JSONP (JSON with padding) is required for cross-domain AJAX
+            },
+            parameterMap: function(options) {
+                return {
+                    q: "#thesis12",
+                    page: options.page,
+                    rpp: options.pageSize,
+                    since_id: options.since_id, //additional parameters sent to the remote service
+                    max_id: options.max_id //additional parameters sent to the remove service
+                };
+            }
+        },
+        schema: { // describe the result format
+            data: "results" // the data which the data source will be bound to is in the "results" field
+        }
+    });
+
+    $("#pull-with-endless").kendoMobileListView({
+        dataSource: dataSource,
+        template: $("#pull-with-endless-template").text(),
+        appendOnRefresh: true,
+        pullToRefresh: true,
+        //addition parameters which will be passed to the DataSource's read method
+        pullParameters: function(item) { //pass first data item of the ListView
+            return {
+                since_id: item.id_str,
+                page: 1
+            };
+        },
+        endlessScroll: true,
+        //addition parameters which will be passed to the DataSource's next method
+        endlessScrollParameters: function(firstOrigin) {
+            if (firstOrigin) {
+                return {
+                    max_id: firstOrigin.id_str
+                };
+            }
+        }
+    });
+}
+

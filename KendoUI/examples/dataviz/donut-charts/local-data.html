@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binding to local data</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+    <link href="../../content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="../../../styles/kendo.dataviz.min.css" rel="stylesheet">
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/kendo.dataviz.min.js"></script>
+    <script src="../../content/shared/js/console.js"></script>
+</head>
+<body>
+    <a class="offline-button" href="../index.html">Back</a>
+    
+        <div id="example" class="k-content">
+            <div class="chart-wrapper">
+                <div id="chart"></div>
+            </div>
+            <script>
+                var data = [{
+                        "source": "Hydro",
+                        "percentage": 22,
+                        "explode": true
+                    }, {
+                        "source": "Solar",
+                        "percentage": 2
+                    }, {
+                        "source": "Nuclear",
+                        "percentage": 49
+                    }, {
+                        "source": "Wind",
+                        "percentage": 27
+                }];
+
+                function createChart() {
+                    $("#chart").kendoChart({
+                        theme: $(document).data("kendoSkin") || "default",
+                        title: {
+                            text: "Break-up of Spain Electricity Production for 2008"
+                        },
+                        legend: {
+                            position: "bottom"
+                        },
+                        dataSource: {
+                            data: data
+                        },
+                        series: [{
+                            type: "donut",
+                            field: "percentage",
+                            categoryField: "source",
+                            explodeField: "explode"
+                        }],
+                        seriesColors: ["#42a7ff", "#666666", "#999999", "#cccccc"],
+                        tooltip: {
+                            visible: true,
+                            template: "${ category } - ${ value }%"
+                        }
+                    });
+                }
+
+                $(document).ready(function() {
+                    setTimeout(function() {
+                        // Initialize the chart with a delay to make sure
+                        // the initial animation is visible
+                        createChart();
+
+                        $("#example").bind("kendo:skinChange", function(e) {
+                            createChart();
+                        });
+                    }, 400);
+                });
+            </script>
+        </div>
+
+</body>
+</html>

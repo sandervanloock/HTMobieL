@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic usage</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+    <link href="../../content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="../../../styles/kendo.dataviz.min.css" rel="stylesheet">
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/kendo.dataviz.min.js"></script>
+    <script src="../../content/shared/js/console.js"></script>
+</head>
+<body>
+    <a class="offline-button" href="../index.html">Back</a>
+            <div id="example" class="k-content">
+            <div id="gauge-container">
+                <div id="gauge"></div>
+            </div>
+
+            <script>
+                function createGauges() {
+                    var theme = $(document).data("kendoSkin") || "default",
+                        value = $("#gauge-value").val();
+
+                    $("#gauge").kendoLinearGauge({
+                        theme: theme,
+
+                        pointer: {
+                            value: 28
+                        },
+
+                        scale: {
+                            majorUnit: 20,
+                            minorUnit: 2,
+                            min: -40,
+                            max: 60,
+                            vertical: true,
+                            ranges: [
+                                {
+                                    from: -40,
+                                    to: -20,
+                                    color: "#2798df"
+                                }, {
+                                    from: 30,
+                                    to: 45,
+                                    color: "#ffc700"
+                                }, {
+                                    from: 45,
+                                    to: 60,
+                                    color: "#c20000"
+                                }
+                            ]
+                        }
+                    });
+                }
+
+                $(document).ready(function() {
+                    createGauges();
+
+                    $(document).bind("kendo:skinChange", function(e) {
+                        createGauges();
+                    });
+                });
+            </script>
+
+            <style scoped>
+                #gauge-container {
+                    text-align: center;
+                    margin: 0 auto;
+                    background: transparent url("../../content/dataviz/gauge/linear-gauge-container.png") no-repeat 50% 50%;
+                    padding: 18px;
+                    width: 300px;
+                    height: 300px;
+                }
+
+                #gauge {
+                    height: 300px;
+                    display: inline-block;
+                    *display: inline;
+                    zoom: 1;
+                }
+            </style>
+        </div>
+
+</body>
+</html>

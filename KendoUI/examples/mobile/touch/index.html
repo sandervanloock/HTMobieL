@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Touch Events</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/kendo.mobile.min.js"></script>
+    <script src="../../content/shared/js/console.js"></script>
+    <link href="../../../styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../../styles/kendo.mobile.all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <a href="../index.html">Back</a>
+    <div data-role="view" data-title="Touch Events">
+
+    <div
+        id="touchSurface"
+        data-role="touch"
+        data-enable-swipe="1"
+        data-touchstart="myTouch.touchstart"
+        data-swipe="myTouch.swipe"
+        data-tap="myTouch.tap"
+        data-doubletap="myTouch.doubletap"
+        data-hold="myTouch.hold"
+        >
+    Touch, swipe, double-tap, tap, and hold me
+</div>
+<div class="console"></div>
+
+<script>
+    window.myTouch = {
+        touchstart: function(e) { kendoConsole.log("touch start"); },
+        swipe: function(e) { kendoConsole.log("swipe " + e.direction); },
+        tap: function(e) { kendoConsole.log("tap"); },
+        doubletap: function(e) { kendoConsole.log("double tap"); },
+        hold: function(e) { kendoConsole.log("hold"); }
+    }
+</script>
+
+<style scoped>
+    #touchSurface {
+        background: black;
+        color: white;
+        padding: 20px;
+        line-height: 20em;
+        text-align: center;
+        font-style: italic;
+    }
+</style>
+
+
+    <script>
+        window.kendoMobileApplication = new kendo.mobile.Application(document.body);
+    </script>
+</body>
+</html>

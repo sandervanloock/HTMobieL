@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Changelog for Kendo UI v2012.3.1315</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: .75em/1.5 Tahoma, sans-serif;
+        }
+
+        h2 {
+            margin: 1em 0 .3em;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: .2em;
+        }
+
+        #page {
+            width: 50em;
+            margin: 0 auto 2em;
+            border-radius: 0 0 1em 1em;
+            box-shadow: 0 0 10px #ccc;
+            padding: 1em 2em 2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <h1>Release notes for Kendo UI v2012.3.1315</h1>
+        <h2>Framework</h2>
+
+        <h4>What's new</h4><ul><li>Forced platform overrides appMode.</li><li>Zoom animation is broken with jQuery 1.7</li></ul>
+        
+
+        <h3>DataSource</h3>
+
+        <h4>What's new</h4><ul><li>Add ability to check if DataSource has changes</li><li>Add support for canceling the requestStart event</li><li>Support for defining model fields as array</li></ul>
+        <h4>What's fixed</h4><ul><li>Can't specify custom parse, data and total when binding to xml</li><li>Fix Filtering on field which contains carriage return symbols</li><li>Sorting on negative numbers and zeros does not work as expected</li></ul>
+
+        <h3>Draggable</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>kendo.drag does not have destroy method</li></ul>
+
+        <h3>Globalization</h3>
+
+        <h4>What's new</h4><ul><li>Add support for escaped currency symbol in custom numeric format</li></ul>
+        <h4>What's fixed</h4><ul><li>kendo.parseFloat using Globalize.js throws exception when value is undefined</li><li>kendo.parseDate returns null if entered day is not valid</li></ul>
+
+        <h3>HierarchicalDataSource</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Reading from a child datasource does not update the children field of the parent</li></ul>
+
+        <h3>Validator</h3>
+
+        <h4>What's new</h4><ul><li>Validate checkboxes on click</li></ul>
+        
+
+        <h2>Web</h2>
+
+        
+        
+
+        <h3>Application</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Click Events and Forms behave erratically on touch devices (iPad, Android)</li></ul>
+
+        <h3>AutoComplete</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Setting the autocomplete value to null displays the string "null" in IE9.</li></ul>
+
+        <h3>Calendar</h3>
+
+        <h4>What's new</h4><ul><li>Expose _view and _current properties of the Calendar</li></ul>
+        <h4>What's fixed</h4><ul><li>Widget renders two views between vertical and horizontal navigation</li><li>Calendar shows blank view when animates months in IE7/8</li><li>Widget does not enable prev/next arrow when change its min/max value</li><li>Calendar focuses table when API is used</li><li>Calendar does not persist the time portion of the current value when new date is selected</li><li>Clicking and holding (with touch device) on an item in the calendar does not prevent the default click action.</li></ul>
+
+        <h3>ComboBox</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Combobox falls into infinite loop if DataSource returns an empty result</li></ul>
+
+        <h3>DataSource</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Virtual scrolling does not work as expected after data is assign via DataSource data method</li></ul>
+
+        <h3>DatePicker</h3>
+
+        <h4>What's new</h4><ul><li>Value method should not display a text of an invalid value</li></ul>
+        <h4>What's fixed</h4><ul><li>Widget does not delete shared calendar if it has never been opened</li><li>Calendar does not persist the time portion of the current value when new date is selected</li><li>The k-input class is copied to the wrapper</li></ul>
+
+        <h3>DateTimePicker</h3>
+
+        <h4>What's new</h4><ul><li>Adjust width of the TimeView on open</li><li>Value method should not display a text of an invalid value</li></ul>
+        <h4>What's fixed</h4><ul><li>Widget does not delete shared calendar if it has never been opened</li><li>Calendar does not persist the time portion of the current value when new date is selected</li><li>The k-input class is copied to the wrapper</li></ul>
+
+        <h3>Draggable</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>DropTargetArea.destroy() throws a javascript error.</li></ul>
+
+        <h3>DropDownList</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Widget does not fetch data if value is empty string</li></ul>
+
+        <h3>Editor</h3>
+
+        <h4>What's new</h4><ul><li>Link dialog now supports localization</li></ul>
+        <h4>What's fixed</h4><ul><li>Copy/paste on iOS devices breaks typing</li><li>Image dialog does not encode spaces in URLs</li><li>Changing font family prior to focus does not persist the value in the UI</li><li>Changing the font family before the editing area has gained focus causes JS error</li><li>Editor Outdent tool tooltip cannot be customized declaratively</li><li>Editor has zero width when initialized while hidden. The widget should assume the textarea dimensions only when they are set explicitly and inline.</li><li>Applying pending format to erroneous start of line throws JS error in IE</li><li>Converting paragraph to list replaces outer div with list</li></ul>
+
+        <h3>Grid</h3>
+
+        <h4>What's new</h4><ul><li>Show the foreign key value of the column when grouped</li><li>There is no way to filter by time.</li></ul>
+        <h4>What's fixed</h4><ul><li>Built-in update/cancel command text cannot be overridden if other command column is placed after it and popup editing is used</li><li>FIx Grid footer table width is not persisted when hiding columns</li><li>Columns from nested grid can be dragged to group/reorder in master</li><li>Hidden column title is not shown when grouped via the API</li><li>The title of the popup editor is not localized</li><li>Window does not appear centered when using Kendo Grid for MVC with server editing</li><li>Fix Grid editing on iPad</li><li>Virtual scrolling does not work as expected after data is assign via DataSource data method</li><li>Column Sortable are not destroyed after DataSource is reassigned </li><li>Error is thrown under IE when deleting the last record on the page and keyboard navigation is enabled</li><li>The result of the function set as toolbar template is then wrapped in kendo template and executed once again</li><li>Sorting does not work if kendo.ns is set</li><li>Setting initial filter operator via the filtering menu does not work as expected</li><li>DetePicker in reorderable grid is draggable</li><li>Click Events and Forms behave erratically on touch devices (iPad, Android)</li><li>Pager DropDownList does not show value set via the DataSource API</li><li>Grouping and reordering does not work with auto columns</li></ul>
+
+        <h3>ListView</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>ListView does not render altTemplate when save/cancel edited item</li><li>Widget does not preserve the ID of the LI element</li></ul>
+
+        <h3>MVVM</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>ObservableObject listens more than once for changes of nested ObservableObjects instances.</li></ul>
+
+        <h3>Menu</h3>
+
+        <h4>What's new</h4><ul><li>CSS class cannot be specified during dynamic widget init.</li><li>Widget's setOptions method doesn't re-init animation and the dataSource object</li></ul>
+        <h4>What's fixed</h4><ul><li>Adding items through JSON doesn't render content elements after the root level.</li><li>Element with k-icon class gets removed if inside an item.</li><li>Links do not navigate in Windows 8 with touch-enabled Chrome</li><li>Append item in initialized group causes append in sub item.</li><li>Destroy method of the widget does not unbind document click event</li><li>Menu text blends with background when hovering an item with the Metro theme</li><li>Menu doesn't add submenu arrows on append.</li><li>Menu doesn't close on mouse out in IE10</li></ul>
+
+        <h3>NumericTextBox</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Widget does not remove selected text on key press</li><li>Cannot enter minus sign in NumericTextBox using FireFox 15+</li><li>NumericTextBox copies k-input class to the wrapper element</li></ul>
+
+        <h3>PanelBar</h3>
+
+        <h4>What's new</h4><ul><li>CSS class cannot be specified during dynamic widget init.</li><li>Widget's setOptions method doesn't re-init animation and the dataSource object</li></ul>
+        <h4>What's fixed</h4><ul><li>Adding items through JSON doesn't render content elements after the root level.</li><li>PanelBar navigates on double-click, instead of loading a partial view</li><li>Links in Panelbar/TabStrip do not work on iPad</li><li>PanelBar root items missing focused state during keyboard navigation</li><li>Widget does not preserve the ID of the LI element</li></ul>
+
+        <h3>Popup</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Popup element cannot get correct z-index if sibling container has z-index "auto"</li></ul>
+
+        <h3>Scroller</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Click Events and Forms behave erratically on touch devices (iPad, Android)</li></ul>
+
+        <h3>Slider</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Slider triggers window resize event in IE7-8 when using 100% high Splitter</li><li>Data attribute value doesn't change slider's value. Data attributes selectionStart/End doesn't change rangeSlider's selectionStart/End.</li><li>Slider loses drag events in IE8.</li></ul>
+
+        <h3>Splitter</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Splitter does not honour min/max pane sizes set in percent</li><li>Splitter does not function properly in IE10 (Pointer events)</li></ul>
+
+        <h3>TabStrip</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Links in Panelbar/TabStrip do not work on iPad</li><li>Last tab is rendered with higher z-index</li><li>Widget does not preserve the ID of the LI element</li></ul>
+
+        <h3>TimePicker</h3>
+
+        <h4>What's new</h4><ul><li>Adjust width of the TimeView on open</li><li>Value method should not display a text of an invalid value</li></ul>
+        <h4>What's fixed</h4><ul><li>The k-input class is copied to the wrapper</li></ul>
+
+        <h3>TreeView</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Programatically collapsing invisible nodes leaves node groups expanded</li><li>Expand/collapse icons are flushed on a new line when treeview element is small (IE)</li><li>Input element in widget's template loses focus on mouseup</li><li>Drag hint does not honor the item.encoded field</li><li>Checking a node through the API will not update its parent nodes' checked state</li><li>Layout is broken after hovering in IE7</li><li>Dragging items to an empty treeview throws JS error</li><li>checkChildren: true checks checkboxes outside of the widget when it is nested in a .k-item container</li><li>parent() may return items that do not belong to the treeview</li><li>Focused state is shown on touch devices</li><li>Indeterminate state is not propagated from only child to parent</li><li>Adding subnodes to checked node when checkChildren=true does not render them as checked</li><li>Widget does not preserve the ID of the LI element</li></ul>
+
+        <h3>Upload</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>An "access denied" error can occur if the upload is placed in a modal window (IE)</li></ul>
+
+        <h3>Window</h3>
+
+        <h4>What's new</h4><ul><li>Add support for multiple simultaneously closing modal Windows</li></ul>
+        <h4>What's fixed</h4><ul><li>NumericTextBox must be clicked twice when inside a Window in order to be focused in IE</li><li>Visible option cannot be set initially through MVVM</li><li>Window does not appear centered when using Kendo Grid for MVC with server editing</li><li>Window modal overlay leaves two Windows over it, instead of one</li><li>Window content cannot be focused when destroying another one which is currently on top</li><li>Keyboard navigation does not fire resize event of the widget</li><li>Window pops on page top when page scroll position is zero in IE7</li><li>Window titlebar buttons cannot be clicked when Window overflows the browser</li><li>Window moving and resizing works via keyboard when maximized</li><li>MetroBlack skin creates rendering artifacts when dragging in Chrome 23</li><li>Select elements in Window cannot be opened</li><li>Clicking in an input within the window does not always trigger its focus handler in IE</li><li>Nested scripts are executed twice when window is moved in the DOM</li><li>Window modal overlay remains visible when closing multiple Windows very quickly</li><li>Escape key closes windows without close button</li></ul>
+
+        <h2>DataViz</h2>
+
+        
+        
+
+        <h3>Chart</h3>
+
+        <h4>What's new</h4><ul><li>Add select, selectStart and selectEnd events</li><li>Add series highlight configuration options</li></ul>
+        <h4>What's fixed</h4><ul><li>Chart tooltip is not displayed on tap</li><li>Series click and hover don't work.</li><li>Categories are not cleaned up after redraw/rebind</li><li>Drag event axis range is incorrect for a vertical/reversed value axis</li><li>value/x/y/Axis range can be incorrect when the default axis has a name</li><li>Stock chart can hang while zooming (w/mousewheel or touchpad) on OSX</li><li>Line/scatter series can't be clicked or hovered in IE 8</li><li>The chart prevents touch scrolling even when no drag events are attached</li><li>Pie chart with a segment without gradient doesn't show anything in IE 8.</li><li>Add missing category axis options - Justified, BaseUnitStep, AutoBaseUnitSteps, MaxGroups, RoundToBaseUnit, BaseUnit: Fit</li></ul>
+
+        <h3>Linear Gauge</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Add data attributes for the radial and linear gauge.</li></ul>
+
+        <h3>Radial Gauge</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Add data attributes for the radial and linear gauge.</li></ul>
+
+        <h3>StockChart</h3>
+
+        <h4>What's new</h4><ul><li>Add navigator dataSource, dateField and autoBind options</li><li>Add navigator visible and hint configuration settings</li><li>Add select, selectStart and selectEnd events</li></ul>
+        <h4>What's fixed</h4><ul><li>Stock chart can hang while zooming (w/mousewheel or touchpad) on OSX</li><li>Line/scatter series can't be clicked or hovered in IE 8</li><li>The chart prevents touch scrolling even when no drag events are attached</li></ul>
+
+        <h2>Mobile</h2>
+
+        
+        <h4>What's fixed</h4><ul><li>DOM click events do not work on touch devices</li></ul>
+
+        <h3>ActionSheet</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>TabStrip button does not open ActionSheet</li></ul>
+
+        <h3>Application</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Input type=file is not styled properly in a listview form</li><li>Input type file does not work when put in listview</li><li>Address bar not initially hidden in iOS</li><li>Direct link to Views with Parameters does not function correctly</li><li>Click Events and Forms behave erratically on touch devices (iPad, Android)</li><li>Checkboxes are not responding (or double check) on a mobile device</li></ul>
+
+        <h3>Draggable</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>kendo.touch gesturechange does not expose distance and center properties</li></ul>
+
+        <h3>Grid</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Click Events and Forms behave erratically on touch devices (iPad, Android)</li></ul>
+
+        <h3>ListView</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Press to Load More button doesn't trigger load in mobile device</li><li>ListView does not initialize newly added items</li><li>Input type file does not work when put in listview</li><li>Labels do not focus inputs on touch devices in a mobile listview</li><li>Text and the items of select element are not properly aligned in iOS</li></ul>
+
+        <h3>ModalView</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Switch does not render correctly when put in a modal view</li><li>Mobile ModalView hides when input inside is focused </li></ul>
+
+        <h3>PopOver</h3>
+
+        <h4>What's new</h4><ul><li> popover open event handler provides target (DOM element which opened it)</li></ul>
+        <h4>What's fixed</h4><ul><li>Popover does not work when put in a layout header</li></ul>
+
+        <h3>Scroller</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Click Events and Forms behave erratically on touch devices (iPad, Android)</li></ul>
+
+        <h3>Switch</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Switch does not render correctly when put in a modal view</li></ul>
+
+        <h3>TabStrip</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Dragging on TabStrip item breaks further execution</li></ul>
+
+        <h3>View</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>multiple parameters URLs to local views are treated as a remote URL</li></ul>
+
+        <h2>ASP.NET MVC Wrappers</h2>
+
+        <h4>What's new</h4><ul><li>Add support for rendering the widget initialization script outside of the widget wrapper</li></ul>
+        <h4>What's fixed</h4><ul><li>Security trimming uses the incorrect authorization attributes if controllers are named in the same way</li></ul>
+
+        <h3>Chart</h3>
+
+        <h4>What's new</h4><ul><li>Add series highlight configuration options</li><li>Add multiple category axis support.</li></ul>
+        <h4>What's fixed</h4><ul><li>Serialization of the radial gauge labels doesn't work.</li></ul>
+
+        <h3>DataSource</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Setting PrefixUrlParameters to false does not work properly</li></ul>
+
+        <h3>DropDownList</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>Widget allows to set index -1</li></ul>
+
+        <h3>Grid</h3>
+
+        <h4>What's new</h4><ul><li>Add configuration builder for setting column filter options</li><li>There is no way to filter by time.</li><li>Support for setting aggregate member name as a string</li></ul>
+        <h4>What's fixed</h4><ul><li>The title of the popup editor is not localized</li><li>Window does not appear centered when using Kendo Grid for MVC with server editing</li><li>Error is thrown when sorted  via server binding to DataTable and aggregates are set</li><li>Custom query string parameters are lost during server binding when PrefixUrlParameters is set to false</li><li>No records text is not displayed when server binding is used</li><li>Pager DropDownList does not show value set via the DataSource API</li></ul>
+
+        <h3>Menu</h3>
+
+        <h4>What's new</h4><ul><li>Hide parent item which does not have authorized children</li></ul>
+        <h4>What's fixed</h4><ul><li>Fix "The method or operation is not implemented" when SignalR is used along with ASP.NET MVC</li><li>Content method always generates an anchor and menu navigates</li></ul>
+
+        <h3>PanelBar</h3>
+
+        
+        <h4>What's fixed</h4><ul><li>MVC PanelBar renders hrefs for Ajax loaded items which causes navigation on second click</li></ul>
+
+        <h3>TreeView</h3>
+
+        <h4>What's new</h4><ul><li>TreeViewItemModel allows setting of checked field</li></ul>
+        
+
+        <h3>Window</h3>
+
+        <h4>What's new</h4><ul><li>Allow title to be disabled with Title(false)</li></ul>
+        <h4>What's fixed</h4><ul><li>Window does not appear centered when using Kendo Grid for MVC with server editing</li></ul>
+
+    </div>
+</body>
+</html>

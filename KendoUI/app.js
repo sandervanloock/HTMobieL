@@ -6,13 +6,11 @@ var router = new kendo.Router();
 router.start();
 router.navigate("home.html");
 
-var baseURL = "http://kulcapexpenseapp.appspot.com/";
-
 function login() {
     $.ajax({
         type:"POST",
         dataType:"text",
-        url:baseURL + "resources/userService/login",
+        url:EA.baseURL + "resources/userService/login",
         data:{
             'email':$("#login-username").val(),
             'password':$("#login-password").val()

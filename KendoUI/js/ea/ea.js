@@ -45,6 +45,15 @@ var EA = {
     },
 
     setUser:function (user) {
+        var employee = new Employee({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            employeeNumber: user.employeeNumber,
+            unitId: user.unitId,
+            email: user.email,
+            password: user.password
+        });
+        kendo.bind($("#welcome-name"), employee);
         if (Modernizr.localstorage) {
             localStorage.user = JSON.stringify(user);
         } else {

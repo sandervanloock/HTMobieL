@@ -10,7 +10,7 @@
     <script src="js/vendor/modernizr-latest.js"></script>
 </head>
 <body>
-<div data-role="view" id="login" data-layout="default">
+<div data-role="view" id="login" data-layout="login">
     <form>
         <ul data-role="listview" data-style="inset">
             <li><input type="text" id="login-username" placeholder="Username" value="tim.ameye@student.kuleuven.be"/></li>
@@ -20,9 +20,35 @@
     </form>
 </div>
 
-<section data-role="layout" data-id="default">
+<div data-role="view" id="home" data-layout="home">
+
+    <p>Welcome, <span id="welcome-name" data-bind="text: firstName"></span></p>
+
+    <div class="wrapper">
+        <p class="align-center">I want to:</p>
+        <a href="#" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a>
+        <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
+    </div>
+
+</div>
+
+<section data-role="layout" data-id="login">
     <header data-role="header">
         <div data-role="navbar">Expense App</div>
+    </header>
+    <footer data-role="footer">
+        <div class="footer">
+            <div ><img src="img/kuleuven.png"></div>
+            <div ></div>
+            <div ><img src="img/cap.jpg"></div>
+        </div>
+    </footer>
+</section>
+
+<section data-role="layout" data-id="home">
+    <header data-role="header">
+        <div data-role="navbar">Expense App</div>
+        <a data-role="button" data-align="right" data-click="logout">Log Out</a>
     </header>
     <footer data-role="footer">
         <div class="footer">

@@ -49,7 +49,7 @@ function login() {
                         // because we chain the ajax requests
                         // set user data and go to home page
                         EA.setUser(userData);
-                        app.navigate("home.html")
+                        app.navigate("#home")
                     }
                 });
 
@@ -106,3 +106,25 @@ function login() {
     });
 }
 
+function logout(){
+    if (navigator.onLine) {
+        $.ajax({
+            type:"POST",
+            url:EA.baseURL + "resources/userService/logout",
+            data:{
+                'token':EA.getToken()
+            },
+            success:function () {
+                // empty the session
+                EA.setToken(null);
+                // empty user information
+                EA.deleteUser();
+                // go to login page
+                app.navigate("#login")
+            },
+            error:function () {
+                EA.showBackendError("Could not log out");
+            }
+        });
+    }
+}

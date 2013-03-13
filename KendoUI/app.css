@@ -8,3 +8,32 @@
 form li {
     min-height: 40px;
 }
+
+.wrapper a {
+    width: 200px;
+    height: 20px;
+}
+
+.footer {
+    min-height: 30px;
+}
+
+/* Responsive design: tablet view
+@media all and (min-width: 600px) {
+    .wrapper {
+        margin-left: auto;
+        width: 400px;
+        margin-right: auto;
+    }
+}
+
+/* Responsive design: smartphone view/
+@media all and (max-width: 599px) {
+    .wrapper {
+        width: 100%;
+    }
+}*/
+
+.align-center {
+    text-align: center;
+}

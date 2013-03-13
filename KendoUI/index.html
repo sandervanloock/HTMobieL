@@ -22,11 +22,11 @@
 
 <div data-role="view" id="home" data-layout="home">
 
-    <p>Welcome, <span id="welcome-name" data-bind="text: firstName"></span></p>
+    <h1>Welcome, <span id="welcome-name" data-bind="text: firstName"></span></h1>
 
-    <div class="wrapper">
-        <p class="align-center">I want to:</p>
-        <a href="#" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a>
+    <div class="wrapper align-center">
+        <h3>I want to:</h3>
+        <a href="#" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a><br/>
         <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
     </div>
 
@@ -38,26 +38,26 @@
     </header>
     <footer data-role="footer">
         <div class="footer">
-            <div ><img src="img/kuleuven.png"></div>
-            <div ></div>
-            <div ><img src="img/cap.jpg"></div>
+            <div style="float: left"><img src="img/kuleuven.png"></div>
+            <div style="float: right"><img src="img/cap.jpg"></div>
         </div>
     </footer>
 </section>
 
 <section data-role="layout" data-id="home">
     <header data-role="header">
-        <div data-role="navbar">Expense App</div>
-        <a data-role="button" data-align="right" data-click="logout">Log Out</a>
+        <div data-role="navbar">Expense App
+            <a data-role="button" data-align="right" data-click="logout">Log Out</a>
+        </div>
     </header>
     <footer data-role="footer">
         <div class="footer">
-            <div ><img src="img/kuleuven.png"></div>
-            <div ></div>
-            <div ><img src="img/cap.jpg"></div>
+            <div style="float: left"><img src="img/kuleuven.png"></div>
+            <div style="float: right"><img src="img/cap.jpg"></div>
         </div>
     </footer>
 </section>
+
 
 <script>
     var app = new kendo.mobile.Application(document.body,{transition:'slide'});

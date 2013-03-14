@@ -5,13 +5,28 @@
     font-size: 1.2em;
 }
 
+/*Laat de inputvelden zonder placeholder links uitlijnen*/
+#login input,
+#yourInfo input,
+#yourInfo select{
+    position: static;
+    width: 100%;
+}
+
+/*Make input values without labels larger*/
 form li {
     min-height: 40px;
 }
 
+/*Central wrapper for homescreen*/
 .wrapper a {
     width: 200px;
     height: 20px;
+}
+
+/*align homescreen in center*/
+.align-center {
+    text-align: center;
 }
 
 .footer {
@@ -34,26 +49,3 @@ form li {
     }
 }*/
 
-.align-center {
-    text-align: center;
-}
-
-.tweet {
-    font-size: .8em;
-    line-height: 1.4em;
-}
-.pullImage {
-    width: 64px;
-    height: 64px;
-    border-radius: 3px;
-    float: left;
-    margin-right: 10px;
-}
-.sublink {
-    font-size: .9em;
-    font-weight: normal;
-    display: inline-block;
-    padding: 3px 3px 0 0;
-    text-decoration: none;
-    opacity: .8;
-}

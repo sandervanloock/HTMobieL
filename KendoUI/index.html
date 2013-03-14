@@ -26,17 +26,126 @@
 
     <div class="wrapper align-center">
         <h3>I want to:</h3>
-        <a href="" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a><br/>
-        <a href="#expenseFormOverview" data-role="button" data-theme="b">View My Expenses</a>
+        <a href="#newExpense" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a><br/>
+        <a href="#expenseFormOverview" data-role="button" data-theme="b" data-click="initExpenseFormList">View My Expenses</a>
     </div>
 
 </div>
 
-<div data-role="view" id="expenseFormOverview" data-init="mobileListViewPullWithEndless" data-layout="default">
+<div data-role="view" id="expenseFormOverview" data-layout="default">
 
-    <ul id="pull-with-endless"></ul>
+    <ul id="expenseFormList"></ul>
 
 </div>
+
+
+<div data-role="splitview" id="newExpense">
+
+        <div data-role="pane" data-transition="slide" data-layout="default-left">
+
+            <div data-role="view" data-title="New Expense" id="side-root">
+
+                <ul data-role="listview" data-style="inset">
+                    <li><a href="#yourInfo" data-target="main-pane">Your Info</a></li>
+                    <li><a href="#overview" data-target="main-pane">Overview</a></li>
+                    <li><a href="#addExpense" data-target="main-pane">Add Expense</a></li>
+                    <li><a href="#signAndSend" data-target="main-pane">Sign & Send</a></li>
+                </ul>
+
+            </div>
+
+            <section data-role="layout" data-id="default-left">
+                <header data-role="header">
+                    <div data-role="navbar">
+                        <span data-role="view-title"></span>
+                    </div>
+                </header>
+                <footer data-role="footer">
+                    <div class="footer">
+                        <div style="float: left"><img src="img/kuleuven.png"></div>
+                    </div>
+                </footer>
+            </section>
+
+        </div>
+
+        <div data-role="pane" id="main-pane" data-layout="default-right">
+
+            <div data-role="view" data-title="Your Info" id="yourInfo">
+
+                <form id="your-info-form">
+                    <ul data-role="listview" data-style="inset">
+                        <li><select id="your-info-date-month" name="your-info-date-month">
+                            <option value="">Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select></li>
+
+                        <li><select name="your-info-date-year" id="your-info-date-year">
+                            <option value="">Year</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                        </select></li>
+                        <li><input type="text" id="your-info-firstname" placeholder="First Name"/></li>
+                        <li><input type="text" id="your-info-lastname" placeholder="Last Name"/></li>
+                        <li><input type="number" name="your-info-employee-number" id="your-info-employee-number" placeholder="Employee Number"></li>
+                        <li><select name="your-info-units" id="your-info-units">
+                            <option value="">Unit</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select></li>
+                        <li><input type="email" name="your-info-email" id="your-info-email" placeholder="Email"></li>
+                        <li><input type="submit" data-role="submit" data-theme="f" value="Next"></li>
+                    </ul>
+
+                </form>
+
+            </div>
+
+            <div data-role="view" data-title="Overview" id="overview">
+                OVERVIEWS
+            </div>
+
+            <div data-role="view" data-title="Overview" id="addExpense">
+                ADD EXPENSE
+            </div>
+
+            <div data-role="view" data-title="Overview" id="signAndSend">
+                SIGN AND SEND
+            </div>
+
+            <section data-role="layout" data-id="default-right">
+                <header data-role="header">
+                    <div data-role="navbar">Expense App
+                        <a data-role="button" data-align="right" data-click="goHome">Home</a>
+                    </div>
+                </header>
+                <footer data-role="footer">
+                    <div class="footer">
+                        <div style="float: right"><img src="img/cap.jpg"></div>
+                    </div>
+                </footer>
+            </section>
+
+        </div>
+
+    </div>
 
 <section data-role="layout" data-id="login">
     <header data-role="header">
@@ -77,17 +186,6 @@
         </div>
     </footer>
 </section>
-
-<script id="pull-with-endless-template" type="text/x-kendo-template">
-    <div class="tweet">
-        <img class="pullImage" src="#= profile_image_url #" alt="#= from_user #" />#= text #
-        <div class="metadata">
-            <a class="sublink" target="_blank" href="http://twitter.com/\\#!/#= from_user #/status/#= id_str #" rel="nofollow">#= kendo.toString(new Date(Date.parse(created_at)), "dd MMM HH:mm") #</a>
-            |
-            <a class="sublink" href="http://twitter.com/#= from_user #" rel="nofollow">#= from_user #</a>
-        </div>
-    </div>
-</script>
 
 <script src="app.js"></script>
 <script src="js/ea/ea.js"></script>

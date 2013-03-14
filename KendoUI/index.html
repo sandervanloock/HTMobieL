@@ -154,6 +154,12 @@
 
             <div data-role="view" data-title="Overview" id="signAndSend">
                 <h1>4. Sign & Send</h1>
+                <ul data-role="listview" data-style="inset">
+                    <li><label>Signature<textarea name="sign-and-send-signature" id="sign-and-send-signature" placeholder="Signature"></textarea></label></li>
+                    <li><label>Remarks<textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea></label></li>
+                    <li>Status notifications via Email:<input data-role="switch" id="sign-and-send-notification" checked="checked" /></li>
+                    <li><a href="#home" data-role="button" data-theme="b" data-target="_top">Send</a></li>
+                </ul>
             </div>
 
             <section data-role="layout" data-id="default-right">

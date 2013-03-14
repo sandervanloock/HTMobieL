@@ -29,6 +29,10 @@ form li {
     text-align: center;
 }
 
+#newExpense h1{
+    text-align: center;
+}
+
 .footer {
     min-height: 30px;
 }

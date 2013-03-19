@@ -3,10 +3,14 @@
 <head>
     <title>Expense App</title>
     <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <!--CSS used for calendars-->
+    <link href="styles/kendo.default.min.css" rel="stylesheet">
+    <link href="styles/kendo.common.min.css" rel="stylesheet">
+
     <link href="app.css" rel="stylesheet" />
 
     <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/kendo.mobile.min.js"></script>
+    <script src="js/vendor/kendo.all.min.js"></script>
     <script src="js/vendor/modernizr-latest.js"></script>
 </head>
 <body>
@@ -152,7 +156,7 @@
                     <li>Domestic</li>
                 </ul>
                 <ul data-role="listview" id="new-abroad-expense">
-                    <li><label>Date of Expense<input type="date" name="expense-date" id="expense-date" placeholder="Date of Expense"></label></li>
+                    <li><label>Date of Expense<input id="datepicker" style="float: right"/></label></li>
                     <li><label>Project Code<input type="number"  name="expense-project-code" id="expense-project-code" placeholder="Project code"></label></li>
                     <li><label><input type="radio" name="expense-type" checked="checked" id="expense-type-hotel" value="1"/>Hotel</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-ticket" value="4"/>Train/Plane tickets</label></li>
@@ -247,12 +251,23 @@
 <script src="js/ea/expenseForm.js"></script>
 
 <script>
-    //global variables (app & main-pane)
     var app = new kendo.mobile.Application(document.body);
 
-    function addExpenseViewInit() {
-        var listviews = this.element.find("ul.km-listview");
+    $(document).ready(function(){
+        //Date picker from now till two months earlier
+        var startDate = new Date();
+        startDate.setDate(startDate.getDate()-60);
+        $("#datepicker").kendoDatePicker({
+            value: new Date(),
+            min: startDate,
+            max: new Date()
+        });
+    });
 
+    function addExpenseViewInit() {
+
+        //Necessary for the Abroad / Domestic switch (found in examples)
+        var listviews = this.element.find("ul.km-listview");
         $("#expense-location-button").kendoMobileButtonGroup({
             select: function() {
                 listviews.hide()
@@ -261,6 +276,8 @@
             },
             index: 0
         });
+
+
     }
 </script>
 </body>

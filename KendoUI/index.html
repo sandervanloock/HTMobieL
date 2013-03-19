@@ -74,32 +74,11 @@
 
         <div data-role="pane" id="main-pane" data-layout="default-right">
 
-            <div data-role="view" data-title="Your Info" id="yourInfo">
+            <div data-role="view" data-title="Your Info" id="yourInfo" data-show="YourInfoViewInit">
                 <h1>1. Your Info</h1>
                 <form id="your-info-form">
                     <ul data-role="listview" data-style="inset">
-                        <li><select id="your-info-date-month" name="your-info-date-month">
-                            <option value="">Month</option>
-                            <option value="1">January</option>
-                            <option value="2">February</option>
-                            <option value="3">March</option>
-                            <option value="4">April</option>
-                            <option value="5">May</option>
-                            <option value="6">June</option>
-                            <option value="7">July</option>
-                            <option value="8">August</option>
-                            <option value="9">September</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
-                        </select></li>
-
-                        <li><select name="your-info-date-year" id="your-info-date-year">
-                            <option value="">Year</option>
-                            <option value="2012">2012</option>
-                            <option value="2013">2013</option>
-                            <option value="2014">2014</option>
-                        </select></li>
+                        <li><input id="your-info-date" style="width:150px" /></li>
                         <li><input type="text" id="your-info-firstname" placeholder="First Name" data-bind="value: firstName" readonly/></li>
                         <li><input type="text" id="your-info-lastname" placeholder="Last Name" data-bind="value: lastName" readonly/></li>
                         <li><input type="number" name="your-info-employee-number" id="your-info-employee-number" placeholder="Employee Number" data-bind="value: employeeNumber" required validationMessage="An employee number must be present"></li>
@@ -156,7 +135,7 @@
                     <li>Domestic</li>
                 </ul>
                 <ul data-role="listview" id="new-abroad-expense">
-                    <li><label>Date of Expense<input id="datepicker" style="float: right"/></label></li>
+                    <li><label>Date of Expense<input id="expense-date" style="float: right"/></label></li>
                     <li><label>Project Code<input type="number"  name="expense-project-code" id="expense-project-code" placeholder="Project code"></label></li>
                     <li><label><input type="radio" name="expense-type" checked="checked" id="expense-type-hotel" value="1"/>Hotel</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-ticket" value="4"/>Train/Plane tickets</label></li>
@@ -253,17 +232,6 @@
 <script>
     var app = new kendo.mobile.Application(document.body);
 
-    $(document).ready(function(){
-        //Date picker from now till two months earlier
-        var startDate = new Date();
-        startDate.setDate(startDate.getDate()-60);
-        $("#datepicker").kendoDatePicker({
-            value: new Date(),
-            min: startDate,
-            max: new Date()
-        });
-    });
-
     function addExpenseViewInit() {
 
         //Necessary for the Abroad / Domestic switch (found in examples)
@@ -276,8 +244,30 @@
             },
             index: 0
         });
+        //Date picker from now till two months earlier
+        var startDate = new Date();
+        startDate.setDate(startDate.getDate()-60);
+        $("#expense-date").kendoDatePicker({
+            value: new Date(),
+            min: startDate,
+            max: new Date(),
+            format: "dd/MM/yyyy"
+        });
+    }
 
-
+    function YourInfoViewInit(){
+        var currDate = new Date(new Date().getFullYear(),new Date().getMonth(),1);
+        if(new Date().getUTCDate()<15)
+            currDate.setDate(currDate.getDate()-30);
+        $("#your-info-date").kendoDatePicker({
+            // defines the start view
+            start: "year",
+            // defines when the calendar should return date
+            depth: "year",
+            value: currDate,
+            // display month and year in the input
+            format: "MMMM yyyy"
+        });
     }
 </script>
 </body>

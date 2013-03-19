@@ -10,7 +10,22 @@
     <link href="app.css" rel="stylesheet" />
 
     <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/kendo.all.min.js"></script>
+
+    <script src="js/vendor/kendo.mobile.min.js"></script>
+    <!--
+     DatePicker Dependencies http://docs.kendoui.com/getting-started/javascript-dependencies
+        jquery-1.9.1.js
+        kendo.core.js
+        kendo.fx.js (optional for animation)
+        kendo.popup.js
+        kendo.calendar.js
+        kendo.datepicker.js
+    <script src="js/vendor/kendo.core.min.js"></script>-->
+    <script src="js/vendor/kendo.fx.min.js"></script>
+    <script src="js/vendor/kendo.popup.min.js"></script>
+    <script src="js/vendor/kendo.calendar.min.js"></script>
+    <script src="js/vendor/kendo.datepicker.min.js"></script>
+
     <script src="js/vendor/modernizr-latest.js"></script>
 </head>
 <body>
@@ -74,11 +89,11 @@
 
         <div data-role="pane" id="main-pane" data-layout="default-right">
 
-            <div data-role="view" data-title="Your Info" id="yourInfo" data-show="YourInfoViewInit">
+            <div data-role="view" data-title="Your Info" id="yourInfo" data-show="yourInfoViewInit">
                 <h1>1. Your Info</h1>
                 <form id="your-info-form">
                     <ul data-role="listview" data-style="inset">
-                        <li><input id="your-info-date" style="width:150px" /></li>
+                        <li><input type="date" id="your-info-date" /></li>
                         <li><input type="text" id="your-info-firstname" placeholder="First Name" data-bind="value: firstName" readonly/></li>
                         <li><input type="text" id="your-info-lastname" placeholder="Last Name" data-bind="value: lastName" readonly/></li>
                         <li><input type="number" name="your-info-employee-number" id="your-info-employee-number" placeholder="Employee Number" data-bind="value: employeeNumber" required validationMessage="An employee number must be present"></li>
@@ -117,7 +132,6 @@
 
                 <!--button moet buiten formulier staan-->
                 <a data-role="button" data-theme="b" data-click="gotoOverview">Next</a>
-
             </div>
 
             <div data-role="view" data-title="Overview" id="overview">
@@ -255,7 +269,7 @@
         });
     }
 
-    function YourInfoViewInit(){
+    function yourInfoViewInit(){
         var currDate = new Date(new Date().getFullYear(),new Date().getMonth(),1);
         if(new Date().getUTCDate()<15)
             currDate.setDate(currDate.getDate()-30);

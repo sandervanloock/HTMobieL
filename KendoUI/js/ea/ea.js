@@ -53,13 +53,15 @@ var EA = {
             email: user.email,
             password: user.password
         });
+        console.log(employee);
         kendo.bind($("#welcome-name"), employee);
         kendo.bind($("#yourInfo"), employee);
-        if (Modernizr.localstorage) {
+
+        /*if (Modernizr.localstorage) {
             localStorage.user = JSON.stringify(user);
         } else {
             this.user = user;
-        }
+        }*/
     },
 
     hasUser:function () {

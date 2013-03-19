@@ -54,6 +54,7 @@ var EA = {
             password: user.password
         });
         kendo.bind($("#welcome-name"), employee);
+        kendo.bind($("#yourInfo"), employee);
         if (Modernizr.localstorage) {
             localStorage.user = JSON.stringify(user);
         } else {

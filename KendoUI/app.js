@@ -129,7 +129,7 @@ function logout(){
 
 function goHome(){
     app.navigate("#home");
-}
+};
 
 function initExpenseFormList() {
     var dataSource = new kendo.data.DataSource({
@@ -152,7 +152,7 @@ function initExpenseFormList() {
 
     $("#expenseFormList").kendoMobileListView({
         dataSource: dataSource,
-        template: $("#pull-with-endless-template").text(),
+        template: $("#pull-with-endless-template").text()
         //template:
         //appendOnRefresh: true,
         //pullToRefresh: true,
@@ -173,5 +173,27 @@ function initExpenseFormList() {
             }
         }*/
     });
-}
+};
 
+function gotoOverview(){
+    $("#your-info-form").kendoValidator({
+        messages: {
+            // overrides the built-in message for the required rule
+            required: "My custom required message"
+        }
+    });
+    var validator = $("#your-info-form").kendoValidator().data("kendoValidator");
+
+    if (validator.validate()){
+        app.navigate("#overview");
+    }
+    else{
+        var errors = validator.errors();
+        var message = "";
+        $(errors).each(function() {
+            //$("#foo").after(this);
+            message += this + "\n";
+        });
+        alert(message);
+    }
+}

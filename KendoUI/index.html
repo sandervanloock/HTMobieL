@@ -97,10 +97,10 @@
                             <option value="2013">2013</option>
                             <option value="2014">2014</option>
                         </select></li>
-                        <li><input type="text" id="your-info-firstname" placeholder="First Name"/></li>
-                        <li><input type="text" id="your-info-lastname" placeholder="Last Name"/></li>
-                        <li><input type="number" name="your-info-employee-number" id="your-info-employee-number" placeholder="Employee Number"></li>
-                        <li><select name="your-info-units" id="your-info-units">
+                        <li><input type="text" id="your-info-firstname" placeholder="First Name" data-bind="value: firstName" readonly/></li>
+                        <li><input type="text" id="your-info-lastname" placeholder="Last Name" data-bind="value: lastName" readonly/></li>
+                        <li><input type="number" name="your-info-employee-number" id="your-info-employee-number" placeholder="Employee Number" data-bind="value: employeeNumber" required validationMessage="An employee number must be present"></li>
+                        <li><select name="your-info-units" id="your-info-units" data-bind="value: unitId" required validationMessage="A Unit ID must be present">
                             <option value="">Unit</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -109,12 +109,23 @@
                             <option value="5">5</option>
                             <option value="6">6</option>
                             <option value="7">7</option>
+                            <option value="7">8</option>
+                            <option value="7">9</option>
+                            <option value="7">10</option>
                         </select></li>
-                        <li><input type="email" name="your-info-email" id="your-info-email" placeholder="Email"></li>
-                        <li><a href="#overview" data-role="button" data-theme="b">Next</a></li>
+                        <li><input type="email" name="your-info-email" id="your-info-email" placeholder="Email" data-bind="value: email" required validationMessage="An email adres must be present"></li>
+
                     </ul>
 
                 </form>
+                <!--view moet voor next button staan-->
+                <div id="foo" data-role="popover">
+                    <div data-role="view">
+                        Hello world!
+                    </div>
+                </div>
+                <!--button moet buiten formulier staan-->
+                <a data-role="button" data-theme="b" data-click="gotoOverview">Next</a>
 
             </div>
 
@@ -162,6 +173,8 @@
                 </ul>
             </div>
 
+
+
             <section data-role="layout" data-id="default-right">
                 <header data-role="header">
                     <div data-role="navbar">Expense App
@@ -178,6 +191,8 @@
         </div>
 
     </div>
+
+
 
 <section data-role="layout" data-id="login">
     <header data-role="header">

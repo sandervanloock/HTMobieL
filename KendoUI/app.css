@@ -37,6 +37,10 @@ form li {
     min-height: 30px;
 }
 
+.red-border {
+    border: 2px solid red;
+}
+
 /* Responsive design: tablet view
 @media all and (min-width: 600px) {
     .wrapper {

@@ -195,5 +195,10 @@ function gotoOverview(){
             message += this + "\n";
         });
         alert(message);
+        highlightBorders(validator);
     }
+}
+
+function highlightBorder(validator, formId){
+    //TODO
 }

@@ -38,7 +38,6 @@
 
 </div>
 
-
 <div data-role="splitview" id="newExpense">
 
         <div data-role="pane" data-transition="slide" data-layout="default-left">
@@ -119,11 +118,20 @@
 
                 </form>
                 <!--view moet voor next button staan-->
-                <div id="foo" data-role="popover">
-                    <div data-role="view">
-                        Hello world!
+                <div data-role="modalview" id="error-view" style="width: 95%; height: 18em;">
+                    <div data-role="header">
+                        <div data-role="navbar">
+                            <span>Please correct the following validation errors</span>
+                        </div>
+                    </div>
+                    <div data-role="view" id="error-messages"></div>
+                    <div data-role="footer">
+                        <div data-role="navbar">
+                            <a data-align="center" data-click="closeModalView" data-role="button">Close</a>
+                        </div>
                     </div>
                 </div>
+
                 <!--button moet buiten formulier staan-->
                 <a data-role="button" data-theme="b" data-click="gotoOverview">Next</a>
 
@@ -173,8 +181,6 @@
                 </ul>
             </div>
 
-
-
             <section data-role="layout" data-id="default-right">
                 <header data-role="header">
                     <div data-role="navbar">Expense App
@@ -191,7 +197,6 @@
         </div>
 
     </div>
-
 
 
 <section data-role="layout" data-id="login">
@@ -242,7 +247,9 @@
 <script src="js/ea/expenseForm.js"></script>
 
 <script>
-    var app = new kendo.mobile.Application(document.body,{transition:'slide'});
+    //global variables (app & main-pane)
+    var app = new kendo.mobile.Application(document.body);
+
     function addExpenseViewInit() {
         var listviews = this.element.find("ul.km-listview");
 

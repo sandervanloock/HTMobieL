@@ -176,29 +176,32 @@ function initExpenseFormList() {
 };
 
 function gotoOverview(){
-    $("#your-info-form").kendoValidator({
-        messages: {
-            // overrides the built-in message for the required rule
-            required: "My custom required message"
-        }
-    });
     var validator = $("#your-info-form").kendoValidator().data("kendoValidator");
 
     if (validator.validate()){
-        app.navigate("#overview");
+        //A valid employee is filled in
+        $("#main-pane").data("kendoMobilePane").navigate("#overview");
     }
     else{
         var errors = validator.errors();
-        var message = "";
+        var message = "<h2>";
         $(errors).each(function() {
-            //$("#foo").after(this);
-            message += this + "\n";
+            message += this + "<br/>";
         });
-        alert(message);
-        highlightBorders(validator);
+        message +="</h2>";
+        $("#error-messages").html(message);
+        var modalView = $("#error-view").data("kendoMobileModalView");
+        modalView.open();
+        highlightBorders(validator,$("#your-info-form"));
     }
 }
 
-function highlightBorder(validator, formId){
-    //TODO
+function highlightBorder(validator, form){
+    //TODO (draw red borders round error fields with addClass(red-border))
+}
+
+function closeModalView(e) {
+    // find the closest modal view, relative to the button element.
+    var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
+    modalView.close();
 }

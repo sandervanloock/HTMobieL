@@ -53,7 +53,6 @@ var EA = {
             email: user.email,
             password: user.password
         });
-        console.log(employee);
         kendo.bind($("#welcome-name"), employee);
         kendo.bind($("#yourInfo"), employee);
 

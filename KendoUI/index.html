@@ -51,7 +51,7 @@
 
 </div>
 
-<div data-role="view" id="expenseFormOverview" data-layout="default">
+<div data-role="view" id="expenseFormOverview" data-layout="default" data-style="inset">
 
     <ul id="expenseFormList"></ul>
 
@@ -236,12 +236,22 @@
     </footer>
 </section>
 
+<!--
+Switch tussen tablet en smartphone
+http://jsfiddle.net/toddanglin/YGUeJ/5/embedded/
+http://docs.kendoui.com/api/framework/kendo#properties
+-->
 <script src="app.js"></script>
 <script src="js/ea/ea.js"></script>
 <script src="js/ea/login.js"></script>
 <script src="js/ea/employee.js"></script>
 <script src="js/ea/expense.js"></script>
 <script src="js/ea/expenseForm.js"></script>
+
+<script id="expenseForm-template" type="text/x-kendo-template">
+        <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
+        <div class="expenseForm-status">#= statusId #</div>
+</script>
 
 <script>
     var app = new kendo.mobile.Application(document.body);

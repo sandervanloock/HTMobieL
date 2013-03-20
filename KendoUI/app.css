@@ -41,6 +41,14 @@ form li {
     border: 2px solid red;
 }
 
+.expenseForm-date {
+    float: left;
+}
+
+.expenseForm-status{
+    margin-left: 100px;
+}
+
 /* Responsive design: tablet view
 @media all and (min-width: 600px) {
     .wrapper {

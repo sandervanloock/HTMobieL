@@ -146,16 +146,28 @@ function initExpenseFormList() {
             }
         },
         schema: { // describe the result format
-            data: "expenseForms" // the data which the data source will be bound to is in the "results" field
+            type: "xml",
+            data: "/expenseForms/expenseForm", // the data which the data source will be bound to is in the "results" field
+            model: {
+                // configure the fields of the object
+                fields: {
+                    // the "title" field is mapped to the text of the "title" XML element
+                    id: "id/text()",
+                    // the "author" field is mapped to the text of the "author" XML element
+                    date: "date/text()",
+                    // the "url" field is mapped to the text of the "url" XML element
+                    statusId: "statusId/text()"
+                }
+            }
         }
     });
 
     $("#expenseFormList").kendoMobileListView({
         dataSource: dataSource,
-        template: $("#pull-with-endless-template").text()
-        //template:
+        template: $("#expenseForm-template").text(),
         //appendOnRefresh: true,
         //pullToRefresh: true,
+        //endlessScroll: true
         //addition parameters which will be passed to the DataSource's read method
         /*pullParameters: function(item) { //pass first data item of the ListView
             return {
@@ -163,7 +175,7 @@ function initExpenseFormList() {
                 page: 1
             };
         },
-        endlessScroll: true,
+
         //addition parameters which will be passed to the DataSource's next method
         endlessScrollParameters: function(firstOrigin) {
             if (firstOrigin) {

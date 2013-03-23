@@ -256,9 +256,15 @@
     </footer>
 </section>
 
+<!--TEMPLATES -->
+<script id="expenseForm-template" type="text/x-kendo-template">
+    <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
+    <div class="expenseForm-status">#= statusId #</div>
+</script>
+
 <script id="overview-template" type="text/x-kendo-template">
     <li>
-        Date: <span data-bind="text: date"></span>
+        Date: <span data-bind="text: date" style="margin-right: 60px"></span>
         Amount: <span data-bind="text: amount"></span>
     </li>
 </script>
@@ -275,10 +281,7 @@ http://docs.kendoui.com/api/framework/kendo#properties
 <script src="js/ea/expense.js"></script>
 <script src="js/ea/expenseForm.js"></script>
 
-<script id="expenseForm-template" type="text/x-kendo-template">
-        <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
-        <div class="expenseForm-status">#= statusId #</div>
-</script>
+
 
 <script>
     var app = new kendo.mobile.Application(document.body);
@@ -297,6 +300,7 @@ http://docs.kendoui.com/api/framework/kendo#properties
             },
             index: 0
         });
+
         //Date picker from now till two months earlier
         var startDate = new Date();
         startDate.setDate(startDate.getDate()-60);

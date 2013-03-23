@@ -159,7 +159,7 @@
 
             <div data-role="view" data-title="Overview" id="overview">
                 <h1>2. Overview</h1>
-                <ul data-role="listview" data-template="overview-template" data-bind="source: expenses" id="overview-list"></ul>
+                <ul data-role="listview" data-style="inset" data-template="overview-template" data-bind="source: expenses" id="overview-list"></ul>
             </div>
 
             <div data-role="view" data-title="Overview" id="addExpense" data-show="addExpenseViewInit">
@@ -258,8 +258,8 @@
 
 <script id="overview-template" type="text/x-kendo-template">
     <li>
-        code: <span data-bind="text: Merchant"></span>
-        amount: <span data-bind="text: Amount"></span>
+        Date: <span data-bind="text: date"></span>
+        Amount: <span data-bind="text: amount"></span>
     </li>
 </script>
 

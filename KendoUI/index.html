@@ -20,28 +20,35 @@
         kendo.popup.js
         kendo.calendar.js
         kendo.datepicker.js
-    <script src="js/vendor/kendo.core.min.js"></script>
-    DropDownList Dependencies:
+    <script src="js/vendor/kendo.core.min.js"></script>-->
+    <script src="js/vendor/kendo.fx.min.js"></script>
+    <script src="js/vendor/kendo.popup.min.js"></script>
+    <script src="js/vendor/kendo.calendar.min.js"></script>
+    <script src="js/vendor/kendo.datepicker.min.js"></script>
+    <!-- DropDownList Dependencies:
     jquery-1.9.1.js
     kendo.core.js
     kendo.data.odata.js (if binding to OData)
-    kendo.model.js (if binding to XML)
-    kendo.data.xml.js (if binding to XML)
+    kendo.model.js (if binding to XML) => he content of kendo.model.js file has been consolidated with the kendo.data.js content.
+    Gevonden op http://docs.kendoui.com/getting-started/changes-and-backward-compatibility
+    kendo.data.xml.js (if binding to XML) => gewijzigd naar kendo.data.xml.min.js
     kendo.data.js
     kendo.fx.js (optional for animation)
     kendo.popup.js
     kendo.list.js
     kendo.dropdownlist.js-->
-    <script src="js/vendor/kendo.fx.min.js"></script>
-    <script src="js/vendor/kendo.popup.min.js"></script>
-    <script src="js/vendor/kendo.calendar.min.js"></script>
-    <script src="js/vendor/kendo.datepicker.min.js"></script>
     <script src="js/vendor/kendo.data.min.js"></script>
     <script src="js/vendor/kendo.data.xml.min.js"></script>
     <script src="js/vendor/kendo.popup.min.js"></script>
     <script src="js/vendor/kendo.list.min.js"></script>
     <script src="js/vendor/kendo.dropdownlist.min.js"></script>
-
+    <!--Upload Dependencies:
+    jquery-1.9.1.js
+    kendo.core.js
+    kendo.upload.js
+    -->
+    <script src="js/vendor/kendo.upload.min.js"></script>
+    <!--Modernizr-->
     <script src="js/vendor/modernizr-latest.js"></script>
 </head>
 <body>
@@ -176,7 +183,7 @@
                     <li><label>Amount<input type="number" name="expense-amount" id="expense-amount" placeholder="Amount"></label></li>
                     <li><label>Currency<input id="expense-currency"></label></li>
                     <li><label>Remarks<textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks"></textarea></label></li>
-                    <li><a href="" data-role="button" data-theme="b">Upload Evidence</a></li>
+                    <li><label>Upload Evidence</label><input name="expense-evidence" id="expense-evidence" type="file" /></label></li>
                     <li><a href="#overview" data-role="button" data-theme="b">Add</a></li>
                 </ul>
                 <ul data-role="listview" id="new-domestic-expense" style="display:none">
@@ -272,7 +279,8 @@ http://docs.kendoui.com/api/framework/kendo#properties
 <script>
     var app = new kendo.mobile.Application(document.body);
 
-    function addExpenseViewInit() {
+    function addExpenseViewInit(e) {
+        e.view.useNativeScrolling = true; //TODO TESTEN
 
         //Necessary for the Abroad / Domestic switch (found in examples)
         var listviews = this.element.find("ul.km-listview");
@@ -323,15 +331,8 @@ http://docs.kendoui.com/api/framework/kendo#properties
             dataSource: currencySource,
             dataTextField: "currency",
             dataValueField: "rate"
-            /*animation: {
-                close: {
-                    effects: "fadeOut",
-                    duration: 300,
-                    hide: true,
-                    show: false
-                }
-            }*/
         });
+        $("#expense-evidence").kendoUpload();
     }
 
     function yourInfoViewInit(){

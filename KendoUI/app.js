@@ -162,26 +162,7 @@ function initExpenseFormList() {
 
     $("#expenseFormList").kendoMobileListView({
         dataSource: dataSource,
-        template: $("#expenseForm-template").text(),
-        //appendOnRefresh: true,
-        //pullToRefresh: true,
-        //endlessScroll: true
-        //addition parameters which will be passed to the DataSource's read method
-        /*pullParameters: function(item) { //pass first data item of the ListView
-            return {
-                since_id: item.id_str,
-                page: 1
-            };
-        },
-
-        //addition parameters which will be passed to the DataSource's next method
-        endlessScrollParameters: function(firstOrigin) {
-            if (firstOrigin) {
-                return {
-                    max_id: firstOrigin.id_str
-                };
-            }
-        }*/
+        template: $("#expenseForm-template").text()
     });
 };
 
@@ -214,4 +195,36 @@ function closeModalView(e) {
     // find the closest modal view, relative to the button element.
     var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
     modalView.close();
+}
+
+/*
+
+ "expenseTypeId":{
+ type : 'number'
+ },
+ "expenseLocationId": {
+ type : 'number'
+ },
+ "date" :{
+ type : 'date'
+ },
+ "projectCode": {
+ type : 'string'
+ },
+ "currency": {
+ type : 'string'
+ },
+ "amount": {
+ type : 'number'
+ },
+ "remarks": {
+ type : 'string'
+ },
+ "evidence" : {
+ type: 'string'
+ }
+ */
+function submitExpense(){
+    //TODO validate
+    console.log(expense);
 }

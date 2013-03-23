@@ -20,11 +20,27 @@
         kendo.popup.js
         kendo.calendar.js
         kendo.datepicker.js
-    <script src="js/vendor/kendo.core.min.js"></script>-->
+    <script src="js/vendor/kendo.core.min.js"></script>
+    DropDownList Dependencies:
+    jquery-1.9.1.js
+    kendo.core.js
+    kendo.data.odata.js (if binding to OData)
+    kendo.model.js (if binding to XML)
+    kendo.data.xml.js (if binding to XML)
+    kendo.data.js
+    kendo.fx.js (optional for animation)
+    kendo.popup.js
+    kendo.list.js
+    kendo.dropdownlist.js-->
     <script src="js/vendor/kendo.fx.min.js"></script>
     <script src="js/vendor/kendo.popup.min.js"></script>
     <script src="js/vendor/kendo.calendar.min.js"></script>
     <script src="js/vendor/kendo.datepicker.min.js"></script>
+    <script src="js/vendor/kendo.data.min.js"></script>
+    <script src="js/vendor/kendo.data.xml.min.js"></script>
+    <script src="js/vendor/kendo.popup.min.js"></script>
+    <script src="js/vendor/kendo.list.min.js"></script>
+    <script src="js/vendor/kendo.dropdownlist.min.js"></script>
 
     <script src="js/vendor/modernizr-latest.js"></script>
 </head>
@@ -158,7 +174,7 @@
                     <li><label><input type="radio" name="expense-type" id="expense-type-restaurant-diner" value="3"/>Restaurant (Diner)</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-other" value="6"/>Other (please specify)</label></li>
                     <li><label>Amount<input type="number" name="expense-amount" id="expense-amount" placeholder="Amount"></label></li>
-                    <li><label>Currency<select name="expense-currency" id="expense-currency"><option value="">Currency</option></select></label></li>
+                    <li><label>Currency<input id="expense-currency"></label></li>
                     <li><label>Remarks<textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks"></textarea></label></li>
                     <li><a href="" data-role="button" data-theme="b">Upload Evidence</a></li>
                     <li><a href="#overview" data-role="button" data-theme="b">Add</a></li>
@@ -276,6 +292,45 @@ http://docs.kendoui.com/api/framework/kendo#properties
             min: startDate,
             max: new Date(),
             format: "dd/MM/yyyy"
+        });
+
+        var currencySource = new kendo.data.DataSource({
+            type: "odata",
+            transport: {
+                read: {
+                    url: "http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies",
+                    dataType: "xml",
+                    type:"POST"
+                },
+                success: function(result) {
+                    // notify the DataSource that the operation is complete
+                    alert(result);
+                }
+            },
+            schema: { // describe the result format
+                type: "xml",
+                data: "/gesmes:Envelope/Cube/Cube/Cube", // the data which the data source will be bound to is in the "results" field
+                model: {
+                    // configure the fields of the object
+                    fields: {
+                        currency: "@currency",
+                        rate: "@rate"
+                    }
+                }
+            }
+        });
+        $("#expense-currency").kendoDropDownList({
+            dataSource: currencySource,
+            dataTextField: "currency",
+            dataValueField: "rate"
+            /*animation: {
+                close: {
+                    effects: "fadeOut",
+                    duration: 300,
+                    hide: true,
+                    show: false
+                }
+            }*/
         });
     }
 

@@ -150,12 +150,10 @@ function initExpenseFormList() {
             data: "/expenseForms/expenseForm", // the data which the data source will be bound to is in the "results" field
             model: {
                 // configure the fields of the object
+                //Information found at http://demos.kendoui.com/web/datasource/xml-data.html
                 fields: {
-                    // the "title" field is mapped to the text of the "title" XML element
                     id: "id/text()",
-                    // the "author" field is mapped to the text of the "author" XML element
                     date: "date/text()",
-                    // the "url" field is mapped to the text of the "url" XML element
                     statusId: "statusId/text()"
                 }
             }

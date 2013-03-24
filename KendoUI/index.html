@@ -48,6 +48,19 @@
     kendo.upload.js
     -->
     <script src="js/vendor/kendo.upload.min.js"></script>
+    <!-- AutoComplete Dependencies:
+    jquery-1.9.1.js
+    kendo.core.js
+    kendo.data.odata.js (if binding to OData)
+    kendo.model.js (if binding to XML)
+    kendo.data.xml.js (if binding to XML)
+    kendo.data.js
+    kendo.fx.js (optional for animation)
+    kendo.popup.js
+    kendo.list.js
+    kendo.autocomplete.js
+    -->
+    <script src="js/vendor/kendo.autocomplete.min.js"></script>
     <!--Modernizr-->
     <script src="js/vendor/modernizr-latest.js"></script>
 </head>
@@ -170,7 +183,7 @@
                 </ul>
                 <ul data-role="listview" id="new-abroad-expense">
                     <li><label>Date of Expense<input id="expense-date" style="float: right" data-bind="value: date"/></label></li>
-                    <li><label>Project Code<input type="number"  name="expense-project-code" id="expense-project-code" placeholder="Project code" data-bind="value: projectCode"></label></li>
+                    <li><label>Project Code<input id="expense-project-code" style="float:right"></label></li>
                     <li><label><input type="radio" name="expense-type" checked="checked" id="expense-type-hotel" value="1" data-bind="checked: expenseTypeId"/>Hotel</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-ticket" value="4" data-bind="checked: expenseTypeId"/>Train/Plane tickets</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-restaurant" value="5" data-bind="checked: expenseTypeId"/>Restaurant</label></li>
@@ -192,6 +205,7 @@
                 <h1>4. Sign & Send</h1>
                 <ul data-role="listview" data-style="inset">
                     <li><label>Signature<textarea name="sign-and-send-signature" id="sign-and-send-signature" placeholder="Signature"></textarea></label></li>
+                    <!--http://willowsystems.github.com/jSignature/#/about/-->
                     <li><label>Remarks<textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea></label></li>
                     <li>Status notifications via Email:<input data-role="switch" id="sign-and-send-notification" checked="checked" /></li>
                     <li><a href="#home" data-role="button" data-theme="b" data-target="_top">Send</a></li>
@@ -335,6 +349,28 @@ http://docs.kendoui.com/api/framework/kendo#properties
                     }
                 }
             }
+        });
+
+        $("#expense-project-code").kendoAutoComplete({
+            placeholder: 'Project Code',
+            dataSource: new kendo.data.DataSource({
+                type: "json", // specifies data protocol
+                transport: {
+                    read: {
+                        url: "http://kulcapexpenseapp.appspot.com/resources/expenseService/getProjectCodeSuggestion",
+                        type: "POST"
+                    },
+                    parameterMap: function(options) {
+                        return {
+                            keyword: $("#expense-project-code").val()
+                        };
+                    }
+                },
+                schema: { // describe the result format
+                    type: "json",
+                    data: "data"
+                }
+            })
         });
         $("#expense-currency").kendoDropDownList({
             dataSource: currencySource,

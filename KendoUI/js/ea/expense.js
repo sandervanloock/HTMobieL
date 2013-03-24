@@ -6,11 +6,11 @@ var viewModel = kendo.observable({
 
     // the values are bound to the merchant and amount fields
     date: new Date(),
-    //projectCode: null,
+    projectCode: null,
     expenseTypeId: null,
     amount: null,
     //currency: null,
-    remarks: null,
+    remarks: "",
     expenseLocationId: 1,
 
     // event execute on click of add button
@@ -19,7 +19,7 @@ var viewModel = kendo.observable({
         // add the items to the array of expenses
         this.get("expenses").push({
             date: kendo.toString(this.get("date"),"dd/MM/yyyy"),
-            //projectCode: this.get("projectCode"),
+            projectCode: this.get("projectCode"),
             expenseTypeId: this.get("expenseTypeId"),
             amount: this.get("amount"),
             //currency: this.get("currency"),

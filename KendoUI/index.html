@@ -174,7 +174,7 @@
 
             <div data-role="view" data-title="Overview" id="overview">
                 <h1>2. Overview</h1>
-                <ul data-role="listview" data-style="inset" data-template="overview-template" data-bind="source: expenses" id="overview-list"></ul>
+                <ul data-role="listview" data-style="inset" data-template="overview-template" data-bind="source: expenses"  data-value-field="uid"></ul>
             </div>
 
             <div data-role="view" data-title="Overview" id="addExpense" data-show="addExpenseViewInit">
@@ -184,8 +184,8 @@
                     <li>Domestic</li>
                 </ul>
                 <ul data-role="listview" id="new-abroad-expense">
-                    <li><label>Date of Expense<input id="expense-date" style="float: right" data-bind="value: date"/></label></li>
-                    <li><label>Project Code<input id="expense-project-code" style="float:right"></label></li>
+                    <li><label>Date of Expense<input id="expense-date" data-bind="value: date"/></label></li>
+                    <li><label>Project Code<input id="expense-project-code" style="float:right" data-bind="value: projectCode"></label></li>
                     <li><label><input type="radio" name="expense-type" checked="checked" id="expense-type-hotel" value="1" data-bind="checked: expenseTypeId"/>Hotel</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-ticket" value="4" data-bind="checked: expenseTypeId"/>Train/Plane tickets</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-restaurant" value="5" data-bind="checked: expenseTypeId"/>Restaurant</label></li>
@@ -207,7 +207,7 @@
                 <h1>4. Sign & Send</h1>
                 <ul data-role="listview" data-style="inset">
                     <li><div id="sign-and-send-signature">Signature</div></li>
-                    <!--http://willowsystems.github.com/jSignature/#/about/-->
+                    <!--http://willowsystems.github.com/jSignature/-->
                     <li><label>Remarks<textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea></label></li>
                     <li>Status notifications via Email:<input data-role="switch" id="sign-and-send-notification" checked="checked" /></li>
                     <li><a href="#home" data-role="button" data-theme="b" data-target="_top">Send</a></li>

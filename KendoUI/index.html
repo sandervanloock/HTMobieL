@@ -63,6 +63,8 @@
     <script src="js/vendor/kendo.autocomplete.min.js"></script>
     <!--Modernizr-->
     <script src="js/vendor/modernizr-latest.js"></script>
+    <!--jSignature-->
+    <script src="js/vendor/jSignature.min.js"></script>
 </head>
 <body>
 <div data-role="view" id="login" data-layout="login">
@@ -201,10 +203,10 @@
                 </ul>
             </div>
 
-            <div data-role="view" data-title="Overview" id="signAndSend">
+            <div data-role="view" data-title="Overview" id="signAndSend" data-show="signAndSendViewInit">
                 <h1>4. Sign & Send</h1>
                 <ul data-role="listview" data-style="inset">
-                    <li><label>Signature<textarea name="sign-and-send-signature" id="sign-and-send-signature" placeholder="Signature"></textarea></label></li>
+                    <li><div id="sign-and-send-signature">Signature</div></li>
                     <!--http://willowsystems.github.com/jSignature/#/about/-->
                     <li><label>Remarks<textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea></label></li>
                     <li>Status notifications via Email:<input data-role="switch" id="sign-and-send-notification" checked="checked" /></li>
@@ -393,6 +395,17 @@ http://docs.kendoui.com/api/framework/kendo#properties
             // display month and year in the input
             format: "MMMM yyyy"
         });
+    }
+
+    function signAndSendViewInit(){
+        // when this line is in pagebeforeshow, it cannot know
+        // width and heigh of the page, therefore it is placed here, but
+        // because this code is executed everytime the page is viewed,
+        // multiple signature fields would come up,
+        // so we just check if the canvas is there or not
+        if (  $("#sign-and-send-signature").find("canvas").length == 0) {
+            $("#sign-and-send-signature").jSignature();
+        }
     }
 </script>
 </body>

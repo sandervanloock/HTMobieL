@@ -1,16 +1,1 @@
-.x-field-custom-error {
-    border-color: #ff3812;
-    border-style: solid;
-}
-
-.x-custom-title{
-    font-size: 20px;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-shadow: #002f50;
-    text-justify: auto;
-    font-weight: bold;
-}
-
-.x-title .x-innerhtml { text-overflow: initial; } <!-- no ellipses after titles -->
+/*520e24f04b4f172a9b1addbdd0278a2a4a11a1b9*/.x-field-custom-error{border-color:#ff3812;border-style:solid}.x-custom-title{font-size:20px;text-align:center;padding-top:10px;padding-bottom:10px;text-shadow:#002f50;text-justify:auto;font-weight:bold}.x-title .x-innerhtml{text-overflow:initial}<!-- no ellipses after titles -->

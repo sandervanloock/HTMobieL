@@ -16,7 +16,6 @@ Ext.define('Expense.view.AbroadExpense', {
                 id: 'abroadfield',
                 title: '3. Add Expense',
                 activeItem: '',
-                styleHtmlContent: true,
                 items: [
                     {
                         xtype: 'datepickerfield',

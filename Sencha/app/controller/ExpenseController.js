@@ -58,15 +58,15 @@ Ext.define('Expense.controller.ExpenseController', {
     },
 
     decodeCurrencies: function(comp, e){
-        Ext.getStore('expensestore').each(function(item,index,length){
+        /*Ext.getStore('expensestore').each(function(item,index,length){
             encodeCurrency(item);
-        });
+        });*/
     },
 
 
     showDetailExpense: function(list, record, target, index, e, options) {
     	if(record.getData()['expenseLocation'] == 'Abroad'){
-            decodeCurrency(record);
+            //decodeCurrency(record);
 	        var comp = this.getNav().push({
 	            xtype: 'abroadexpensedetail',
 	            record: record
@@ -263,55 +263,7 @@ Ext.define('Expense.controller.ExpenseController', {
     onFileUploadFailure: function() {
         console.log('Failure');
         Ext.Msg.alert('File upload', 'Failure!');
-    },
-
-    /*onSearchKeyUp: function(searchField) {
-        queryString = searchField.getValue();
-        console.log(this,'Please search by: ' + queryString);
-
-        //create and display the floating list
-        var myList = Ext.Viewport.down('projectcodelist');
-        if(!myList){
-            myList = Ext.widget('projectcodelist');
-            myList.showBy(searchField, "tr-br?");
-        }
-        //just display it
-        else {
-            myList.setHidden(false);
-        }
-
-        //load data into the list store based on the query
-        var store = Ext.getStore('projectcodestore');
-        var keywordParam = Ext.getCmp('projectCodeAbroad').getValue();
-        if(keywordParam==undefined || keywordParam=='')
-            keywordParam = Ext.getCmp('projectCodeDomestic').getValue();
-        console.log(keywordParam);
-        store.load({
-            params: {
-                keyword: keywordParam
-            }
-        });
-    },
-
-    onClearSearch: function() {
-        console.log('Clear icon is tapped');
-
-        //remove all data from the store
-        var store = Ext.getStore('projectcodestore');
-        store.removeAll();
-
-        //hide out floating list
-        var myList = Ext.Viewport.down('projectcodelist');
-        myList.setHidden(true);
-
-    },
-
-    onSelectRow: function(view, index, target, record, event) {
-        Ext.getCmp('projectCodeAbroad').setValue(record.get('data'));
-        //clear the drop down list
-        this.onClearSearch();
-    }*/
-
+    }
 });
 
 function addImage(source, destinationCmp, newId){

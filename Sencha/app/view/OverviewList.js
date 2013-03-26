@@ -9,7 +9,7 @@ Ext.define('Expense.view.OverviewList', {
         store: 'expensestore',
         onItemDisclosure: true,
         itemTpl: [
-            '<div>{date:date("d/m/Y")} &mdash; <small> {expenseType} : {amount}  EUR</small></div>'
+            '<div>{date:date("d/m/Y")} &mdash; <small> {expenseType} : {[convertCurrencyToEuro(values.currency,values.amount)]}  EUR</small></div>'
         ]
     }
 

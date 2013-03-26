@@ -38,9 +38,9 @@ Ext.define('Expense.controller.MenuController', {
             getExpenseForm().set('date',myDate);
             if(index==1){
                 //encode currencies at runtime
-                Ext.getStore('expensestore').each(function(item,index,length){
+                /*Ext.getStore('expensestore').each(function(item,index,length){
                     encodeCurrency(item);
-                });
+                });*/
             }
         }
         else

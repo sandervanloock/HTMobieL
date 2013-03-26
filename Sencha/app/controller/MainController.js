@@ -80,9 +80,9 @@ Ext.define(
                             myDate.setFullYear(Ext.getCmp('year').getValue(),Ext.getCmp('month').getValue(),1);
                              getExpenseForm().set('date',myDate);
                             //encode currencies at runtime
-                            Ext.getStore('expensestore').each(function(item,index,length){
+                            /*Ext.getStore('expensestore').each(function(item,index,length){
                                 encodeCurrency(item);
-                            });
+                            });*/
                         }
                         else {
                             var message = '';

@@ -112,11 +112,19 @@ var expenseForm = null;
 var token = "";
 
 function getToken(){
-    return token;
+    if (Modernizr.sessionstorage) {
+        return sessionStorage.token;
+    } else {
+        return this.token;
+    }
 }
 
 function setToken(args){
-    token = args;
+    if (Modernizr.sessionstorage) {
+        sessionStorage.token = args;
+    } else {
+        this.token = args;
+    }
 }
 
 function getBaseURL(){

@@ -22,11 +22,11 @@
             <div class="form">
                 <fieldset>
                     <label for="login-screen-username">Username</label>
-                    <input type="text" id="login-screen-username">
+                    <input type="text" id="login-screen-username" value="tim.ameye@student.kuleuven.be">
                 </fieldset>
                 <fieldset>
                     <label for="login-screen-password">Password</label>
-                    <input type="password" id="login-screen-password">
+                    <input type="password" id="login-screen-password" value="test123">
                 </fieldset>
                 <a href="#home" data-router="section" class="button right" data-label="Log in"></a>
             </div>
@@ -35,16 +35,22 @@
 </section>
 
 <section id="home">
-    <header data-title="Expense App"></header>
+    <header data-title="Expense App">
+        <nav>
+            <a href="#login" data-router="section" class="right button">Log out</a>
+        </nav>
+    </header>
 
     <article id="home-screen" class="active">
         <div class="wrapper">
             <p>Welcome, Tim Ameye</p>
+            <br>
 
             <div class="center">
                 <p>I want to:</p>
 
                 <p><a href="#create" data-router="section" class="button" data-label="Create New Expense"></a></p>
+                <br>
 
                 <p><a href="#view" data-router="section" class="button" data-label="View My Expenses"></a></p>
             </div>
@@ -78,10 +84,88 @@
 </section>
 
 <section id="create">
-    <header data-title="Expense App"></header>
+    <header data-title="Expense App">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
 
     <article id="create-info" class="active">
+        <div class="form">
+            <fieldset>
+                <label for="create-info-first-name">First Name</label>
+                <input type="text" id="create-info-first-name" value="Tim" readonly>
+            </fieldset>
+            <fieldset>
+                <label for="create-info-last-name">Last Name</label>
+                <input type="text" id="create-info-last-name" value="Ameye" readonly>
+            </fieldset>
+            <fieldset>
+                <label for="create-info-employee-number">Employee Number</label>
+                <input type="number" id="create-info-employee-number" value="4206">
+            </fieldset>
+            <fieldset>
+                <label class="select">
+                    <select class="custom">
+                        <option value="">Unit</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="create-info-email">Email</label>
+                <input type="email" id="create-info-email" value="tim.ameye@student.kuleuven.be">
+            </fieldset>
+            <a href="#create-overview" data-router="article" class="button right" data-label="Next"></a>
+        </div>
+    </article>
 
+    <article id="create-overview" class="list indented">
+        <ul>
+            <li class="arrow">
+                <strong>DD/MM/YYYY</strong>
+                <small>Description (amount)</small>
+            </li>
+            <li class="arrow">
+                <strong>DD/MM/YYYY</strong>
+                <small>Description (amount)</small>
+            </li>
+            <li class="arrow">
+                <strong>DD/MM/YYYY</strong>
+                <small>Description (amount)</small>
+            </li>
+        </ul>
+        <a href="#create-sign" data-router="article" class="button right" data-label="Sign & Send"></a>
+        <a href="#create-add" data-router="article" class="button right" data-label="Add Expense"></a>
+    </article>
+
+    <article id="create-add">
+        <div class="form">
+            <fieldset>
+                <label for="create-add-project-code">Project Code</label>
+                <input type="text" id="create-add-project-code">
+            </fieldset>
+            <a href="#create-overview" data-router="article" class="button right" data-label="Add"></a>
+        </div>
+    </article>
+
+    <article id="create-sign">
+        <div class="form">
+            <fieldset>
+                <label for="create-sign-signature-code">Signature</label>
+                <input type="text" id="create-sign-signature-code">
+            </fieldset>
+            <a href="#home" data-router="section" class="button right" data-label="Send"></a>
+        </div>
     </article>
 </section>
 
@@ -91,7 +175,7 @@
 <!-- Lungo - Sandbox App -->
 <script>
     Lungo.init({
-        name:'ExpenseApp'
+        name: 'ExpenseApp'
     });
 </script>
 </body>

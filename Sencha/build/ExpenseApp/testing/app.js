@@ -72992,9 +72992,9 @@ Ext.define(
                             myDate.setFullYear(Ext.getCmp('year').getValue(),Ext.getCmp('month').getValue(),1);
                              getExpenseForm().set('date',myDate);
                             //encode currencies at runtime
-                            Ext.getStore('expensestore').each(function(item,index,length){
+                            /*Ext.getStore('expensestore').each(function(item,index,length){
                                 encodeCurrency(item);
-                            });
+                            });*/
                         }
                         else {
                             var message = '';
@@ -73014,11 +73014,19 @@ Ext.define(
                     },
 					
 					showTotalOverviewList: function(button, e, options){
+                        Ext.Viewport.setMasked({
+                            xtype: 'loadmask',
+                            message: 'Loading...'
+                        });
                         var expenseStore = Ext.getStore('expenseformstore');
                         expenseStore.getProxy().setExtraParams({
                             token:  getToken()
                         });
-                        expenseStore.load();
+                        expenseStore.load({
+                            callback: function(){
+                                Ext.Viewport.setMasked(false);
+                            }
+                        });
 						Ext.Viewport.setActiveItem(Ext.getCmp('totaloverviewlist'));
 					},
 
@@ -73077,9 +73085,9 @@ Ext.define('Expense.controller.MenuController', {
             getExpenseForm().set('date',myDate);
             if(index==1){
                 //encode currencies at runtime
-                Ext.getStore('expensestore').each(function(item,index,length){
+                /*Ext.getStore('expensestore').each(function(item,index,length){
                     encodeCurrency(item);
-                });
+                });*/
             }
         }
         else
@@ -73170,15 +73178,15 @@ Ext.define('Expense.controller.ExpenseController', {
     },
 
     decodeCurrencies: function(comp, e){
-        Ext.getStore('expensestore').each(function(item,index,length){
+        /*Ext.getStore('expensestore').each(function(item,index,length){
             encodeCurrency(item);
-        });
+        });*/
     },
 
 
     showDetailExpense: function(list, record, target, index, e, options) {
     	if(record.getData()['expenseLocation'] == 'Abroad'){
-            decodeCurrency(record);
+            //decodeCurrency(record);
 	        var comp = this.getNav().push({
 	            xtype: 'abroadexpensedetail',
 	            record: record
@@ -73375,57 +73383,7 @@ Ext.define('Expense.controller.ExpenseController', {
     onFileUploadFailure: function() {
         console.log('Failure');
         Ext.Msg.alert('File upload', 'Failure!');
-    },
-
-    onSearchKeyUp: function(searchField) {
-        queryString = searchField.getValue();
-        //console.log(this,'Please search by: ' + queryString);
-
-        //create and display the floating list
-        var myList = Ext.Viewport.down('projectcodelist');
-        if(!myList){
-            myList = Ext.widget('projectcodelist');
-            myList.showBy(searchField, "tr-br?");
-        }
-        //just display it
-        else {
-            myList.setHidden(false);
-        }
-
-        //load data into the list store based on the query
-        var store = Ext.getStore('projectcodestore');
-        var keywordParam = Ext.getCmp('projectCodeAbroad').getValue();
-        if(keywordParam==undefined || keywordParam=='')
-            keywordParam = Ext.getCmp('projectCodeDomestic').getValue();
-        console.log(keywordParam);
-        store.load({
-            params: {
-                keyword: keywordParam
-            }
-        });
-
-
-    },
-
-    onClearSearch: function() {
-        //console.log('Clear icon is tapped');
-
-        //remove all data from the store
-        var store = Ext.getStore('projectcodestore');
-        store.removeAll();
-
-        //hide out floating list
-        var myList = Ext.Viewport.down('projectcodelist');
-        myList.setHidden(true);
-
-    },
-
-    onSelectRow: function(view, index, target, record, event) {
-        Ext.getCmp('projectCodeAbroad').setValue(record.get('data'));
-        //clear the drop down list
-        this.onClearSearch();
     }
-
 });
 
 function addImage(source, destinationCmp, newId){
@@ -73681,8 +73639,22 @@ Ext.define('Expense.model.Expense', {
 	}
 });
 
+function convertCurrencyToEuro(curr,value){
+    if(curr=="EUR")
+        return value;
+    else{
+        var currencies = Ext.getStore('currencystore').queryBy(
+            function(testRecord, id) {
+                return testRecord.get('currency') == curr;
+            }).first();
+        var newAmount = value / currencies.get('rate');
+        newAmount = Math.round(newAmount*100)/100;
+        return newAmount;
+    }
 
-function encodeCurrency(record) {
+}
+
+/*function encodeCurrency(record) {
     if(record.get('encoded')!= true){
         var currencies = Ext.getStore('currencystore').queryBy(
                 function(testRecord, id) {
@@ -73710,7 +73682,7 @@ function decodeCurrency(record) {
         record.set('amount', newAmount);
         record.set('encoded', false);
     }
-};
+};*/
 
 // HOTEL(1), LUNCH(2), DINER(3), TICKET(4), RESTAURANT(5), OTHER(6);
 function typeId(v, record) {
@@ -74157,7 +74129,7 @@ Ext.define('Expense.store.CurrencyStore', {
         ],
         proxy: {
             type: 'ajax',
-            url: 'http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies', //TODO url
+            url: 'http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies',
             actionMethods: {
                 create : 'POST',
                 read   : 'POST',
@@ -74321,7 +74293,7 @@ Ext.define('Expense.view.OverviewList', {
         store: 'expensestore',
         onItemDisclosure: true,
         itemTpl: [
-            '<div>{date:date("d/m/Y")} &mdash; <small> {expenseType} : {amount}  EUR</small></div>'
+            '<div>{date:date("d/m/Y")} &mdash; <small> {expenseType} : {[convertCurrencyToEuro(values.currency,values.amount)]}  EUR</small></div>'
         ]
     }
 
@@ -74389,7 +74361,6 @@ Ext.define('Expense.view.AbroadExpense', {
                 id: 'abroadfield',
                 title: '3. Add Expense',
                 activeItem: '',
-                styleHtmlContent: true,
                 items: [
                     {
                         xtype: 'datepickerfield',
@@ -74515,7 +74486,6 @@ Ext.define('Expense.view.DomesticExpense', {
                 id: 'domesticfield',
                 title: '3. Add Expense',
                 activeItem: '',
-                styleHtmlContent: true,
                 items: [
                     {
                     	  xtype: 'datepickerfield',
@@ -74684,8 +74654,8 @@ Ext.define('Expense.view.SignField', {
                     {
                         xtype: 'signaturefield',
                         id: 'signature',
-                        sigWidth: 450,
-                        sigHeight: 300
+                        sigWidth: 200,
+                        sigHeight: 100
                     },
                     {
                         xtype: 'textareafield',
@@ -74829,7 +74799,7 @@ Ext.define('Expense.view.Home', {
             items : [ {
 				xtype : 'panel',
 				id : 'introtext',
-                style: 'margin: 20px 20px 20px 20px'
+                style: 'margin: 10px 20px 20px 20px'
 			}, {
 				xtype : 'button',
 				height : 46,
@@ -74963,7 +74933,6 @@ Ext.define('Expense.view.AbroadExpenseDetail', {
                             name : 'expenseType',
                             disabled:true
                         },
-                        padding: '0 0 0 0', //TODO
                         items : [
                             {
                                 label: 'Hotel',
@@ -75198,43 +75167,6 @@ Ext.application({
             }
         });
     }
-
-    /*token : '',
-    
-    setToken : function(args){
-    	this.token = args;
-    },
-    
-    getToken: function(){
-    	return this.token;
-    }
-    
-    //baseURL: 'http://localhost:8888',
-    //baseURL: 'http://kulcapexpenseapp.appspot.com',
-    
-    /*getBaseURL : function(){
-    	return this.baseURL;
-    },
-
-    employee: null,
-
-    setEmployee: function(args){
-        this.employee = args;
-    },
-
-    getEmployee: function(){
-        return this.employee;
-    },
-    
-    expenseForm: null,
-    
-    setExpenseForm: function(args){
-    	this.expenseForm = args;
-    },
-    
-    getExpenseForm: function(){
-    	return this.expenseForm;
-    }*/
 });
 
 var baseURL = 'http://kulcapexpenseapp.appspot.com';
@@ -75243,11 +75175,19 @@ var expenseForm = null;
 var token = "";
 
 function getToken(){
-    return token;
+    if (Modernizr.sessionstorage) {
+        return sessionStorage.token;
+    } else {
+        return this.token;
+    }
 }
 
 function setToken(args){
-    token = args;
+    if (Modernizr.sessionstorage) {
+        sessionStorage.token = args;
+    } else {
+        this.token = args;
+    }
 }
 
 function getBaseURL(){
@@ -75269,21 +75209,4 @@ function setExpenseForm(args){
 function getExpenseForm(){
     return this.expenseForm;
 };
-
-Ext.define('Expense.view.ProjectCodeList', {
-    extend: 'Ext.dataview.List',
-    alias : 'widget.projectcodelist',
-
-    config: {
-        store : 'projectcodestore',
-        //left: 0,
-        top: 0,
-        //hideOnMaskTap: true,
-        width: 300,
-        height: "50%",
-        itemTpl:  '<tpl for="data"><p>{name}</p></tpl>',
-        emptyText: 'No Matching Project Codes'
-
-    }
-});
 

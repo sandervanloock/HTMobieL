@@ -125,11 +125,19 @@
                 <label for="create-info-email">Email</label>
                 <input type="email" id="create-info-email" value="tim.ameye@student.kuleuven.be">
             </fieldset>
-            <a href="#create-overview" data-router="article" class="button right" data-label="Next"></a>
+            <a href="#create2" data-router="section" class="button right" data-label="Next"></a>
         </div>
     </article>
 
-    <article id="create-overview" class="list indented">
+</section>
+<section id="create2">
+    <header data-title="Expense App">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <article id="create-overview" class="active list indented">
         <ul>
             <li class="arrow">
                 <strong>DD/MM/YYYY</strong>
@@ -144,25 +152,82 @@
                 <small>Description (amount)</small>
             </li>
         </ul>
-        <a href="#create-sign" data-router="article" class="button right" data-label="Sign & Send"></a>
-        <a href="#create-add" data-router="article" class="button right" data-label="Add Expense"></a>
+        <a href="#create4" data-router="section" class="button right" data-label="Sign & Send"></a>
+        <a href="#create3" data-router="section" class="button right" data-label="Add Expense"></a>
     </article>
+</section>
+<section id="create3">
+    <header data-title="Expense App" class="extended">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
 
-    <article id="create-add">
+    <nav class="groupbar">
+        <a href="#article_1" data-router="article" class="active">Abroad</a>
+        <a href="#article_2" data-router="article">Domestic</a>
+    </nav>
+
+    <article id="create-add" class="active">
         <div class="form">
+            <fieldset>
+                <label for="create-add-date">Date Of Expense</label>
+                <input type="text" id="create-add-date">
+            </fieldset>
             <fieldset>
                 <label for="create-add-project-code">Project Code</label>
                 <input type="text" id="create-add-project-code">
             </fieldset>
-            <a href="#create-overview" data-router="article" class="button right" data-label="Add"></a>
+            <fieldset>
+                <label>Type</label>
+                <label class="select">
+                    <select class="custom">
+                        <option value="1">Hotel</option>
+                        <option value="2">Train/Plane tickets</option>
+                        <option value="3">Restaurant (Lunch)</option>
+                        <option value="4">Restaurant (Dinner)</option>
+                        <option value="5">Other (please specify)</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="create-add-amount">Amount</label>
+                <input type="text" id="create-add-amount">
+            </fieldset>
+            <fieldset>
+                <label for="create-add-remarks">Remarks</label>
+                <textarea id="create-add-remarks"></textarea>
+            </fieldset>
+            <fieldset>
+                <label for="create-add-evidence">Evidence</label>
+                <input type="file" id="create-add-evidence">
+            </fieldset>
+            <a href="#create2" data-router="section" class="button right" data-label="Add"></a>
         </div>
     </article>
+</section>
 
-    <article id="create-sign">
+<section id="create4">
+    <header data-title="Expense App">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <article id="create-sign" class="active">
         <div class="form">
             <fieldset>
                 <label for="create-sign-signature-code">Signature</label>
                 <input type="text" id="create-sign-signature-code">
+            </fieldset>
+            <fieldset>
+                <label for="create-sign-remarks">Remarks</label>
+                <textarea id="create-sign-remarks"></textarea>
+            </fieldset>
+            <fieldset>
+                <label for="create-sign-notification">Notification</label>
+                <br/>
+                <input id="create-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
             </fieldset>
             <a href="#home" data-router="section" class="button right" data-label="Send"></a>
         </div>

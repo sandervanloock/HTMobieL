@@ -132,12 +132,16 @@ function goHome(){
 };
 
 function initExpenseFormList() {
+    app.showLoading();
     var dataSource = new kendo.data.DataSource({
         transport: {
             read: {
                 url: EA.baseURL + "resources/expenseService/getExpenseForms", // the remove service url
                 dataType: "xml",
-                type:"POST"
+                type:"POST",
+                callback: function(){
+                    app.hideLoading()
+                }
             },
             parameterMap: function(options) {
                 return {
@@ -162,7 +166,26 @@ function initExpenseFormList() {
 
     $("#expenseFormList").kendoMobileListView({
         dataSource: dataSource,
-        template: $("#expenseForm-template").text()
+        template: $("#expenseForm-template").text(),
+        pullToRefresh: true,
+        appendOnRefresh: true,
+        /*pullParameters: function(item) {
+            //item is the first data item in the ListView
+            return {
+                since_id: item.id_str, //id of the first item in the ListView
+                page: 1
+            };
+        },*/
+        endlessScroll: true
+        /*endlessScrollParameters: function(firstItem, lastItem) {
+            // firstItem - first data item shown in the ListView on initial load
+            // lastItem - last data item shown in the ListView on initial load
+            if (firstItem) {
+                return {
+                    max_id: firstItem.id_str
+                };
+            }
+        }*/
     });
 };
 

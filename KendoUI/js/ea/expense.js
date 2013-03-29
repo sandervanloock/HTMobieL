@@ -16,6 +16,7 @@ var expenseForm = kendo.observable({
     expenseTypeId: null,
     amount: null,
     currency: null,
+    rate: null,
     remarks: null,
     expenseLocationId: 1,
 
@@ -27,6 +28,7 @@ var expenseForm = kendo.observable({
             expenseTypeId: this.get("expenseTypeId"),
             amount: this.get("amount"),
             currency: this.get("currency").get("currency"),
+            rate: this.get("currency").get("rate"),
             remarks: this.get("remarks"),
             expenseLocationId: this.get("expenseLocationId")
         });
@@ -37,3 +39,13 @@ var expenseForm = kendo.observable({
 });
 
 kendo.bind($('#newExpense'), expenseForm);
+
+function convertCurrencyToEuro(curr,value,rate){
+    if(curr=="EUR")
+        return value;
+    else{
+        var newAmount = value / rate;
+        newAmount = Math.round(newAmount*100)/100;
+        return newAmount;
+    }
+}

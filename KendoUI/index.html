@@ -117,9 +117,9 @@
 
 </div>
 
-<div data-role="view" id="expenseFormOverview" data-layout="default" data-style="inset">
+<div data-role="view" id="expenseFormOverview" data-layout="default" >
 
-    <ul id="expenseFormList"></ul>
+    <ul id="expenseFormList" data-view="listview" data-style="inset"></ul>
 
 </div>
 
@@ -303,14 +303,16 @@
 
 <!--TEMPLATES -->
 <script id="expenseForm-template" type="text/x-kendo-template">
-    <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
-    <div class="expenseForm-status">#= statusId #</div>
+    <li>
+        <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
+        <div class="expenseForm-status">#= statusId #</div>
+    </li>
 </script>
 
 <script id="overview-template" type="text/x-kendo-template">
     <li>
         Date: <span data-bind="text: date" style="margin-right: 60px"></span>
-        Amount: <span data-bind="text: amount" style="margin-right: 5px"></span> <span data-bind="text:currency" ></span>
+        Amount: #= convertCurrencyToEuro(currency,amount,rate) # EURO
     </li>
 </script>
 

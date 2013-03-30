@@ -206,6 +206,24 @@
                 <ul id="overview-list" data-role="listview" data-style="inset" data-template="overview-template" data-bind="source: expenses"></ul>
             </div>
 
+            <div data-role="view" data-tile="Overview" id="detail-expense" data-show="showExpenseDetail">
+                <a data-role="backbutton">Back</a>
+                <ul data-role="listview" id="detail-expense-form">
+                    <li><label>Date of Expense<input id="detail-date" data-bind="value: date" readonly/></label></li>
+                    <li><label>Project Code<input id="detail-project-code"  data-bind="value: projectCode" readonly></label></li>
+                    <li><label><input type="radio" name="expense-type" id="detail-type-hotel" value="1" data-bind="checked: expenseTypeId" disabled/>Hotel</label></li>
+                    <li><label><input type="radio" name="expense-type" id="detail-type-ticket" value="4" data-bind="checked: expenseTypeId" disabled/>Train/Plane tickets</label></li>
+                    <li><label><input type="radio" name="expense-type" id="detail-type-restaurant" value="5" data-bind="checked: expenseTypeId" disabled/>Restaurant</label></li>
+                    <li><label><input type="radio" name="expense-type" id="detail-type-restaurant-lunch" value="2" data-bind="checked: expenseTypeId" disabled/>Restaurant (Lunch)</label></li>
+                    <li><label><input type="radio" name="expense-type" id="detail-type-restaurant-diner" value="3" data-bind="checked: expenseTypeId" disabled/>Restaurant (Diner)</label></li>
+                    <li><label><input type="radio" name="expense-type" id="detail-type-other" value="6" data-bind="checked: expenseTypeId" disabled/>Other (please specify)</label></li>
+                    <li><label>Amount<input type="number"  name="expense-amount" id="detail-amount" data-bind="value: amount" readonly></label></li>
+                    <li><label>Currency<input id="detail-currency" data-bind="value: currency" readonly></label></li>
+                    <li><label>Remarks<textarea name="expense-remarks" id="detail-remarks" data-bind="value: remarks" readonly></textarea></label></li>
+                    <li><label>Evidence</label></label></li>
+                </ul>
+            </div>
+
             <div data-role="view" data-title="Overview" id="addExpense" data-before-show="addExpenseViewInit">
                 <h1>3. Add Expense</h1>
                 <ul id="expense-location-button" data-index="0">
@@ -311,8 +329,10 @@
 
 <script id="overview-template" type="text/x-kendo-template">
     <li>
-        Date: <span data-bind="text: date" style="margin-right: 60px"></span>
-        Amount: #= convertCurrencyToEuro(currency,amount,rate) # EURO
+        <a data-role="listview-link" href= #= "\"" + "\#detail-expense?expenseId="+expenseId+"\"" # >
+            Date: <span data-bind="text: date" style="margin-right: 60px"></span>
+            Amount: #= convertCurrencyToEuro(currency,amount,rate) # EURO
+        </a>
     </li>
 </script>
 
@@ -332,9 +352,7 @@ http://docs.kendoui.com/api/framework/kendo#properties
 
 <script>
     var app = new kendo.mobile.Application(document.body);
-
     function addExpenseViewInit(e) {
-        console.log("expense view init");
         e.view.useNativeScrolling = true; //TODO TESTEN
 
         //Necessary for the Abroad / Domestic switch (found in examples)

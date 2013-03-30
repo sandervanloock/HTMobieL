@@ -2,7 +2,19 @@
 var expenseForm = kendo.observable({
 
     // expenses array will hold the grid values
-    expenses: [],
+    expenses:
+    [
+        {
+            date: kendo.toString(new Date(),"dd/MM/yyyy"),
+            amount: 50,
+            currency: "USD",
+            rate: 1,
+            expenseId: 0,
+            remarks: "test",
+            expenseTypeId: 5,
+            projectCode: "GZ0565"
+        }
+    ],
 
     // type array populates the drop down
     //type: [{ name: "Food", value: "food"}, { name: "Clothing", value: "clothing"}, { name: "Bills", value: "bills" }],
@@ -30,7 +42,8 @@ var expenseForm = kendo.observable({
             currency: this.get("currency").get("currency"),
             rate: this.get("currency").get("rate"),
             remarks: this.get("remarks"),
-            expenseLocationId: this.get("expenseLocationId")
+            expenseLocationId: this.get("expenseLocationId"),
+            expenseId: this.get("expenses").length
         });
         //TODO reset the form
         kendo.bind($("#overview-list"),expenseForm);
@@ -48,4 +61,18 @@ function convertCurrencyToEuro(curr,value,rate){
         newAmount = Math.round(newAmount*100)/100;
         return newAmount;
     }
+}
+
+function showExpenseDetail(e) {
+    var expense = expenseForm.expenses[e.view.params.expenseId];
+    var expense = kendo.observable({
+        date: expense.date,
+        projectCode: expense.projectCode,
+        expenseTypeId: expense.expenseTypeId,
+        amount:expense.amount,
+        currency: expense.currency,
+        remarks: expense.remarks
+    })
+    kendo.bind($("#detail-expense-form"),expense);
+
 }

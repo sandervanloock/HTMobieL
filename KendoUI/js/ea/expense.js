@@ -34,7 +34,7 @@ var expenseForm = kendo.observable({
 
     // event execute on click of add button
     create: function(e) {
-        console.log($("#expense-evidence").data("kendoUpload"));
+        //console.log($("#expense-evidence").data("kendoUpload"));
         this.get("expenses").push({
             date: kendo.toString(this.get("date"),"dd/MM/yyyy"),
             projectCode: this.get("projectCode"),

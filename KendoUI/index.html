@@ -202,8 +202,9 @@
 
             <div data-role="view" data-title="Overview" id="overview" data-init="initListView">
                 <h1>2. Overview</h1>
-                <!--<ul id="overview-list"  data-style="inset" data-template="overview-template" data-bind="source: expenses"  data-value-field="uid"></ul>-->
                 <ul id="overview-list" data-role="listview" data-style="inset" data-template="overview-template" data-bind="source: expenses"></ul>
+                <a data-role="button" href="#addExpense">Add Expense</a>
+                <a data-role="button" href="#signAndSend">Sign & Send</a>
             </div>
 
             <div data-role="view" data-tile="Overview" id="detail-expense" data-show="showExpenseDetail">
@@ -233,7 +234,7 @@
                 <ul data-role="listview" id="new-abroad-expense">
                     <li><label>Date of Expense<input id="expense-date" style='float:right; width: 100%' data-bind="value: date"/></label></li>
                     <li><label>Project Code<input id="expense-project-code" style='float:right; width: 100%' data-bind="value: projectCode"></label></li>
-                    <li><label><input type="radio" name="expense-type" checked="checked" id="expense-type-hotel" value="1" data-bind="checked: expenseTypeId"/>Hotel</label></li>
+                    <li><label><input type="radio" name="expense-type" id="expense-type-hotel" value="1" data-bind="checked: expenseTypeId"/>Hotel</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-ticket" value="4" data-bind="checked: expenseTypeId"/>Train/Plane tickets</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-restaurant" value="5" data-bind="checked: expenseTypeId"/>Restaurant</label></li>
                     <li><label><input type="radio" name="expense-type" id="expense-type-restaurant-lunch" value="2" data-bind="checked: expenseTypeId"/>Restaurant (Lunch)</label></li>
@@ -243,11 +244,12 @@
                     <li><label>Currency<input id="expense-currency" data-bind="value: currency" data-text-field="currency" data-value-field="rate"></label></li>
                     <li><label>Remarks<textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks" data-bind="value: remarks"></textarea></label></li>
                     <li><label>Upload Evidence</label><input name="expense-evidence" id="expense-evidence" type="file"/></label></li>
-                    <li><button id="create" data-bind="click: create" class="k-button">Add</button></li>
+                    <li></li>
                 </ul>
                 <ul data-role="listview" id="new-domestic-expense" style="display:none">
                     <li>Domestic</li>
                 </ul>
+                <a data-role="button" id="create" data-bind="click: create" href="#overview">Add</button>
             </div>
 
             <div data-role="view" data-title="Overview" id="signAndSend" data-show="signAndSendViewInit">
@@ -353,12 +355,12 @@ http://docs.kendoui.com/api/framework/kendo#properties
 
 <script>
     //Must be mobile and tablet
-    var isTablet = kendo.support.mobileOS && kendo.support.mobileOS.tablet;
+    var isPhone = kendo.support.mobileOS && !kendo.support.mobileOS.tablet;
 
-    console.log("mobileOS Info", kendo.support.mobileOS, isTablet);
+    console.log("mobileOS Info", kendo.support.mobileOS, isPhone);
 
     <!--Change layout based on device-->
-    if(!isTablet) {
+    if(isPhone) {
         $("#side-root li").children().removeAttr("data-target");
         $('#main-pane h1').each(function(){
             $(this).html('<a href="#side-root" data-role="button">'+$(this).html()+'</a>');
@@ -368,6 +370,27 @@ http://docs.kendoui.com/api/framework/kendo#properties
     }
 
     var app = new kendo.mobile.Application(document.body);
+
+    var currencySource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies",
+                dataType: "xml",
+                type:"POST"
+            }
+        },
+        schema: { // describe the result format
+            type: "xml",
+            data: "/gesmes:Envelope/Cube/Cube/Cube", // the data which the data source will be bound to is in the "results" field
+            model: {
+                // configure the fields of the object
+                fields: {
+                    currency: "@currency",
+                    rate: "@rate"
+                }
+            }
+        }
+    });
 
     function addExpenseViewInit(e) {
         e.view.useNativeScrolling = true; //TODO TESTEN
@@ -415,37 +438,17 @@ http://docs.kendoui.com/api/framework/kendo#properties
             })
         });
 
-        var currencySource = new kendo.data.DataSource({
-            type: "odata",
-            transport: {
-                read: {
-                    url: "http://kulcapexpenseapp.appspot.com/resources/currencyService/getCurrencies",
-                    dataType: "xml",
-                    type:"POST"
-                },
-                success: function(result) {
-                    // notify the DataSource that the operation is complete
-                    alert(result);
-                }
-            },
-            schema: { // describe the result format
-                type: "xml",
-                data: "/gesmes:Envelope/Cube/Cube/Cube", // the data which the data source will be bound to is in the "results" field
-                model: {
-                    // configure the fields of the object
-                    fields: {
-                        currency: "@currency",
-                        rate: "@rate"
-                    }
-                }
-            }
-        });
-
         $("#expense-currency").kendoDropDownList({
+            index: 0,
             dataSource: currencySource,
             dataTextField: "currency",
-            dataValueField: "rate"
+            dataValueField: "rate",
+            optionLabel: "Currency"
         });
+
+        var dropdownlist = $("#expense-currency").data("kendoDropDownList");
+        //dropdownlist.value("1.2828");
+        console.log(dropdownlist.value());
 
         $("#expense-evidence").kendoUpload({
             multiple: false

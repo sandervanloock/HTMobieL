@@ -226,8 +226,8 @@ function submitExpense(){
 }
 
 function gotoNewExpenseForm(){
-    if(isTablet)
-        app.navigate("#newExpense");
-    else
+    if(isPhone)
         app.navigate("#side-root");
+    else
+        app.navigate("#newExpense");
 }

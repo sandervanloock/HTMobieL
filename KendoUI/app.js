@@ -131,62 +131,15 @@ function goHome(){
     app.navigate("#home");
 };
 
-function initExpenseFormList() {
-    app.showLoading();
-    var dataSource = new kendo.data.DataSource({
-        transport: {
-            read: {
-                url: EA.baseURL + "resources/expenseService/getExpenseForms", // the remove service url
-                dataType: "xml",
-                type:"POST",
-                callback: function(){
-                    app.hideLoading()
-                }
-            },
-            parameterMap: function(options) {
-                return {
-                    token: EA.getToken()
-                };
-            }
-        },
-        schema: { // describe the result format
-            type: "xml",
-            data: "/expenseForms/expenseForm", // the data which the data source will be bound to is in the "results" field
-            model: {
-                // configure the fields of the object
-                //Information found at http://demos.kendoui.com/web/datasource/xml-data.html
-                fields: {
-                    id: "id/text()",
-                    date: "date/text()",
-                    statusId: "statusId/text()"
-                }
-            }
-        }
+
+
+function initExpenseFormOverview() {
+    $("#expenseFormList").kendoMobileListView({
+        dataSource: expenseFormDataSource,
+        pullToRefresh: true,
+        template: $("#expenseForm-template").text()
     });
 
-    $("#expenseFormList").kendoMobileListView({
-        dataSource: dataSource,
-        template: $("#expenseForm-template").text(),
-        pullToRefresh: true,
-        appendOnRefresh: true,
-        /*pullParameters: function(item) {
-            //item is the first data item in the ListView
-            return {
-                since_id: item.id_str, //id of the first item in the ListView
-                page: 1
-            };
-        },*/
-        endlessScroll: true
-        /*endlessScrollParameters: function(firstItem, lastItem) {
-            // firstItem - first data item shown in the ListView on initial load
-            // lastItem - last data item shown in the ListView on initial load
-            if (firstItem) {
-                return {
-                    max_id: firstItem.id_str
-                };
-            }
-        }*/
-    });
 };
 
 function gotoOverview(){

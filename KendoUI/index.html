@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Expense App</title>
     <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
@@ -20,11 +20,11 @@
         kendo.popup.js
         kendo.calendar.js
         kendo.datepicker.js
-    <script src="js/vendor/kendo.core.min.js"></script>-->
+    <script src="js/vendor/kendo.core.min.js"></script>
     <script src="js/vendor/kendo.fx.min.js"></script>
     <script src="js/vendor/kendo.popup.min.js"></script>
     <script src="js/vendor/kendo.calendar.min.js"></script>
-    <script src="js/vendor/kendo.datepicker.min.js"></script>
+    <script src="js/vendor/kendo.datepicker.min.js"></script>-->
     <!-- DropDownList Dependencies:
     jquery-1.9.1.js
     kendo.core.js
@@ -36,18 +36,18 @@
     kendo.fx.js (optional for animation)
     kendo.popup.js
     kendo.list.js
-    kendo.dropdownlist.js-->
+    kendo.dropdownlist.js
     <script src="js/vendor/kendo.data.min.js"></script>
     <script src="js/vendor/kendo.data.xml.min.js"></script>
     <script src="js/vendor/kendo.popup.min.js"></script>
     <script src="js/vendor/kendo.list.min.js"></script>
-    <script src="js/vendor/kendo.dropdownlist.min.js"></script>
+    <script src="js/vendor/kendo.dropdownlist.min.js"></script>-->
     <!--Upload Dependencies:
     jquery-1.9.1.js
     kendo.core.js
     kendo.upload.js
-    -->
-    <script src="js/vendor/kendo.upload.min.js"></script>
+
+    <script src="js/vendor/kendo.upload.min.js"></script>-->
     <!-- AutoComplete Dependencies:
     jquery-1.9.1.js
     kendo.core.js
@@ -59,8 +59,8 @@
     kendo.popup.js
     kendo.list.js
     kendo.autocomplete.js
-    -->
-    <script src="js/vendor/kendo.autocomplete.min.js"></script>
+
+    <script src="js/vendor/kendo.autocomplete.min.js"></script>-->
     <!-- Grid Dependencies:
     jquery-1.9.1.js
     kendo.core.js
@@ -112,14 +112,14 @@
     <div class="wrapper align-center">
         <h3>I want to:</h3>
         <a id="home-new-expense" data-role="button" data-theme="b" data-click="gotoNewExpenseForm">Create New Expense</a><br/>
-        <a href="#expenseFormOverview" data-role="button" data-theme="b" data-click="initExpenseFormList">View My Expenses</a>
+        <a href="#expenseFormOverview" data-role="button" data-theme="b">View My Expenses</a>
     </div>
 
 </div>
 
-<div data-role="view" id="expenseFormOverview" data-layout="default" >
+<div data-role="view" id="expenseFormOverview" data-layout="default" data-init="initExpenseFormOverview">
 
-    <ul id="expenseFormList" data-view="listview" data-style="inset"></ul>
+    <ul id="expenseFormList"></ul>
 
 </div>
 
@@ -322,13 +322,6 @@
 </section>
 
 <!--TEMPLATES -->
-<script id="expenseForm-template" type="text/x-kendo-template">
-    <li>
-        <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
-        <div class="expenseForm-status">#= statusId #</div>
-    </li>
-</script>
-
 <script id="overview-template" type="text/x-kendo-template">
     <li>
         <a data-role="listview-link" href= #= "\"" + "\#detail-expense?expenseId="+expenseId+"\"" # >
@@ -337,6 +330,14 @@
         </a>
     </li>
 </script>
+
+<script id="expenseForm-template" type="text/x-kendo-template">
+    <a data-role="listview-link" href="">
+        <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
+        <div class="expenseForm-status">#= statusId #</div>
+    </a>
+</script>
+
 
 <!--
 Switch tussen tablet en smartphone
@@ -370,6 +371,35 @@ http://docs.kendoui.com/api/framework/kendo#properties
     }
 
     var app = new kendo.mobile.Application(document.body);
+
+    var expenseFormDataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: EA.baseURL + "resources/expenseService/getExpenseForms",
+                dataType: "xml",
+                type: "POST",
+                complete: function(jqXHR, textStatus){
+                    //app.hideLoading()
+                }
+            },
+            parameterMap: function(options) {
+                return {
+                    token: EA.getToken()
+                };
+            }
+        },
+        schema: {
+            type: "xml",
+            data: "expenseForms/expenseForm", // the data which the data source will be bound to is in the "results" field
+            model: {
+                fields: {
+                    id: "id/text()",
+                    date: "date/text()",
+                    statusId: "statusId/text()"
+                }
+            }
+        }
+    });
 
     var currencySource = new kendo.data.DataSource({
         transport: {

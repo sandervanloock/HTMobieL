@@ -220,34 +220,14 @@ function closeModalView(e) {
     modalView.close();
 }
 
-/*
-
- "expenseTypeId":{
- type : 'number'
- },
- "expenseLocationId": {
- type : 'number'
- },
- "date" :{
- type : 'date'
- },
- "projectCode": {
- type : 'string'
- },
- "currency": {
- type : 'string'
- },
- "amount": {
- type : 'number'
- },
- "remarks": {
- type : 'string'
- },
- "evidence" : {
- type: 'string'
- }
- */
 function submitExpense(){
     //TODO validate
     console.log(expense);
+}
+
+function gotoNewExpenseForm(){
+    if(isTablet)
+        app.navigate("#newExpense");
+    else
+        app.navigate("#side-root");
 }

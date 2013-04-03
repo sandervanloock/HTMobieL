@@ -111,7 +111,7 @@
 
     <div class="wrapper align-center">
         <h3>I want to:</h3>
-        <a href="#newExpense" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a><br/>
+        <a id="home-new-expense" data-role="button" data-theme="b" data-click="gotoNewExpenseForm">Create New Expense</a><br/>
         <a href="#expenseFormOverview" data-role="button" data-theme="b" data-click="initExpenseFormList">View My Expenses</a>
     </div>
 
@@ -125,7 +125,7 @@
 
 <div data-role="splitview" id="newExpense">
 
-        <div data-role="pane" data-transition="slide" data-layout="default-left">
+        <div data-role="pane" id="menu" data-layout="default-left">
 
             <div data-role="view" data-title="New Expense" id="side-root">
 
@@ -276,7 +276,7 @@
 
         </div>
 
-    </div>
+</div>
 
 
 <section data-role="layout" data-id="login">
@@ -338,6 +338,7 @@
 
 <!--
 Switch tussen tablet en smartphone
+http://www.kendoui.com/forums/mobile/split-view/phone-vs-tablet.aspx
 http://jsfiddle.net/toddanglin/YGUeJ/5/embedded/
 http://docs.kendoui.com/api/framework/kendo#properties
 -->
@@ -351,7 +352,23 @@ http://docs.kendoui.com/api/framework/kendo#properties
 
 
 <script>
+    //Must be mobile and tablet
+    var isTablet = kendo.support.mobileOS && kendo.support.mobileOS.tablet;
+
+    console.log("mobileOS Info", kendo.support.mobileOS, isTablet);
+
+    <!--Change layout based on device-->
+    if(!isTablet) {
+        $("#side-root li").children().removeAttr("data-target");
+        $('#main-pane h1').each(function(){
+            $(this).html('<a href="#side-root" data-role="button">'+$(this).html()+'</a>');
+        });
+        $("body").append($("#menu").html()+$("#main-pane").html());
+        $("#newExpense").remove();
+    }
+
     var app = new kendo.mobile.Application(document.body);
+
     function addExpenseViewInit(e) {
         e.view.useNativeScrolling = true; //TODO TESTEN
 
@@ -430,7 +447,9 @@ http://docs.kendoui.com/api/framework/kendo#properties
             dataValueField: "rate"
         });
 
-        $("#expense-evidence").kendoUpload();
+        $("#expense-evidence").kendoUpload({
+            multiple: false
+        });
     }
 
     function yourInfoViewInit(){

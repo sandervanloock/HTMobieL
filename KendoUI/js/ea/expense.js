@@ -98,3 +98,19 @@ $(document).on("click", "[id^=my-expenses-show-pdf]", function () {
         $hiddenForm.submit();
     }
 });
+
+function expenseStatusIdToString(id) {
+    if (id == 1) {
+        return "New";
+    } else if (id == 2) {
+        return "Verified";
+    } else if (id == 3) {
+        return "Approved";
+    } else if (id == 4) {
+        return "Paid out";
+    } else if (id == 5) {
+        return "Disapproved";
+    } else {
+        return "ERROR_STATUS";
+    }
+}

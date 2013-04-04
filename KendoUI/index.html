@@ -326,7 +326,7 @@
 <script id="expenseForm-template" type="text/x-kendo-template">
     <a data-role="listview-link" id=#="\"my-expenses-show-pdf-" + id+ "\""#>
         <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
-        <div class="expenseForm-status">#= statusId #</div>
+        <div class="expenseForm-status">Status: #= expenseStatusIdToString(statusId) #</div>
     </a>
 </script>
 

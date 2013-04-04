@@ -77,3 +77,24 @@ function showExpenseDetail(e) {
     kendo.bind($("#detail-expense-form"),expense);
 
 }
+
+// when the users clicks on an expense form, download it in PDF-format
+$(document).on("click", "[id^=my-expenses-show-pdf]", function () {
+    if (navigator.onLine) {
+        var $hiddenForm = $('#my-expenses-form');
+
+        var url = EA.baseURL + "resources/expenseService/getExpenseFormPDF";
+        $hiddenForm[0].setAttribute('action', url);
+
+        // get the id of the form that is requested
+        var expenseFormId = $(this).attr("id").replace("my-expenses-show-pdf-", "");
+        // guideline: AJAX is not for fetching raw data like a PDF.
+        // to accomplish this, a hidden form is used and the requested data is
+        // copied into that hidden form
+        $("#my-expenses-token").val(EA.getToken());
+        $("#my-expenses-form-id").val(expenseFormId);
+
+        // submit that hidden form so the PDF will be downloaded
+        $hiddenForm.submit();
+    }
+});

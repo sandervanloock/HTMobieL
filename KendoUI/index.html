@@ -3,7 +3,7 @@
 <head>
     <title>Expense App</title>
     <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
-    <!--CSS used for calendars-->
+    <!--CSS used for Widgets-->
     <link href="styles/kendo.default.min.css" rel="stylesheet">
     <link href="styles/kendo.common.min.css" rel="stylesheet">
 
@@ -20,16 +20,16 @@
         kendo.popup.js
         kendo.calendar.js
         kendo.datepicker.js
-    <script src="js/vendor/kendo.core.min.js"></script>
+    <script src="js/vendor/kendo.core.min.js"></script>-->
     <script src="js/vendor/kendo.fx.min.js"></script>
     <script src="js/vendor/kendo.popup.min.js"></script>
     <script src="js/vendor/kendo.calendar.min.js"></script>
-    <script src="js/vendor/kendo.datepicker.min.js"></script>-->
+    <script src="js/vendor/kendo.datepicker.min.js"></script>
     <!-- DropDownList Dependencies:
     jquery-1.9.1.js
     kendo.core.js
     kendo.data.odata.js (if binding to OData)
-    kendo.model.js (if binding to XML) => he content of kendo.model.js file has been consolidated with the kendo.data.js content.
+    kendo.model.js (if binding to XML) => the content of kendo.model.js file has been consolidated with the kendo.data.js content.
     Gevonden op http://docs.kendoui.com/getting-started/changes-and-backward-compatibility
     kendo.data.xml.js (if binding to XML) => gewijzigd naar kendo.data.xml.min.js
     kendo.data.js
@@ -38,16 +38,15 @@
     kendo.list.js
     kendo.dropdownlist.js
     <script src="js/vendor/kendo.data.min.js"></script>
-    <script src="js/vendor/kendo.data.xml.min.js"></script>
+    <script src="js/vendor/kendo.data.xml.min.js"></script>-->
     <script src="js/vendor/kendo.popup.min.js"></script>
     <script src="js/vendor/kendo.list.min.js"></script>
-    <script src="js/vendor/kendo.dropdownlist.min.js"></script>-->
+    <script src="js/vendor/kendo.dropdownlist.min.js"></script>
     <!--Upload Dependencies:
     jquery-1.9.1.js
     kendo.core.js
-    kendo.upload.js
-
-    <script src="js/vendor/kendo.upload.min.js"></script>-->
+    kendo.upload.js-->
+    <script src="js/vendor/kendo.upload.min.js"></script>
     <!-- AutoComplete Dependencies:
     jquery-1.9.1.js
     kendo.core.js
@@ -58,37 +57,27 @@
     kendo.fx.js (optional for animation)
     kendo.popup.js
     kendo.list.js
-    kendo.autocomplete.js
-
-    <script src="js/vendor/kendo.autocomplete.min.js"></script>-->
-    <!-- Grid Dependencies:
+    kendo.autocomplete.js-->
+    <script src="js/vendor/kendo.autocomplete.min.js"></script>
+    <!-- Listview Dependencies:
     jquery-1.9.1.js
     kendo.core.js
-    kendo.data.odata.js (if binding to OData)
-    kendo.data.xml.js (if binding to XML)
     kendo.data.js
-    kendo.fx.js (optional for animation)
-    kendo.popup.js (if editing or filtering is enabled)
-    kendo.list.js (if editing or filtering is enabled)
-    kendo.calendar.js (if editing or filtering is enabled)
-    kendo.datepicker.js (if editing or filtering is enabled)
-    kendo.numerictextbox.js (if editing or filtering is enabled)
-    kendo.validator.js (if editing is enabled)
-    kendo.binder.js (if editing is enabled)
-    kendo.dropdownlist.js (if filtering is enabled)
-    kendo.filtermenu.js (if filtering is enabled)
-    kendo.pager.js (if paging is enabled)
-    kendo.sortable.js (if sorting is enabled)
-    kendo.userevents.js (if grouping, resizing or reordering is enabled)
-    kendo.draganddrop.js (if grouping, resizing or reordering is enabled)
-    kendo.groupable.js (if grouping is enabled)
-    kendo.editable.js (if editing is enabled)
-    kendo.selectable.js (if selection is enabled)
-    kendo.resizable.js (if resizing is enabled)
-    kendo.reorderable.js (if reordering is enabled)
-    kendo.grid.js
-    -->
-    <script src="js/vendor/kendo.grid.min.js"></script>
+    kendo.data.odata.js
+    kendo.data.xml.js
+    kendo.model.js
+    kendo.history.js
+    kendo.fx.js
+    kendo.draganddrop.js
+    kendo.mobile.scroller.js
+    kendo.mobile.view.js
+    kendo.mobile.pane.js
+    kendo.mobile.application.js
+    kendo.mobile.listview.js
+-->
+    <script src="js/vendor/kendo.data.odata.min.js"></script>
+    <script src="js/vendor/kendo.draganddrop.min.js"></script>
+    <script src="js/vendor/kendo.history.min.js"></script>
     <!--Modernizr-->
     <script src="js/vendor/modernizr-latest.js"></script>
     <!--jSignature-->
@@ -120,7 +109,10 @@
 <div data-role="view" id="expenseFormOverview" data-layout="default" data-init="initExpenseFormOverview">
 
     <ul id="expenseFormList"></ul>
-
+    <form id="my-expenses-form" target="_blank" method="post">
+        <input type="hidden" name="token" id="my-expenses-token">
+        <input type="hidden" name="expenseFormId" id="my-expenses-form-id">
+    </form>
 </div>
 
 <div data-role="splitview" id="newExpense">
@@ -249,7 +241,7 @@
                 <ul data-role="listview" id="new-domestic-expense" style="display:none">
                     <li>Domestic</li>
                 </ul>
-                <a data-role="button" id="create" data-bind="click: create" href="#overview">Add</button>
+                <a data-role="button" id="create" data-bind="click: create" href="#overview">Add</a>
             </div>
 
             <div data-role="view" data-title="Overview" id="signAndSend" data-show="signAndSendViewInit">
@@ -324,7 +316,7 @@
 <!--TEMPLATES -->
 <script id="overview-template" type="text/x-kendo-template">
     <li>
-        <a data-role="listview-link" href= #= "\"" + "\#detail-expense?expenseId="+expenseId+"\"" # >
+        <a data-role="listview-link" href= #="\"" + "\#detail-expense?expenseId="+expenseId+"\"" # >
             Date: <span data-bind="text: date" style="margin-right: 60px"></span>
             Amount: #= convertCurrencyToEuro(currency,amount,rate) # EURO
         </a>
@@ -332,7 +324,7 @@
 </script>
 
 <script id="expenseForm-template" type="text/x-kendo-template">
-    <a data-role="listview-link" href="">
+    <a data-role="listview-link" id=#="\"my-expenses-show-pdf-" + id+ "\""#>
         <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
         <div class="expenseForm-status">#= statusId #</div>
     </a>

@@ -113,21 +113,35 @@
             </div>
 
             <div data-role="view" data-tile="Overview" id="detail-expense" data-show="showExpenseDetail">
-                <a data-role="backbutton">Back</a>
-                <ul data-role="listview" id="detail-expense-form">
-                    <li><label>Date of Expense<input id="detail-date" data-bind="value: date" readonly/></label></li>
-                    <li><label>Project Code<input id="detail-project-code"  data-bind="value: projectCode" readonly></label></li>
-                    <li><label><input type="radio" name="expense-type" id="detail-type-hotel" value="1" data-bind="checked: expenseTypeId" disabled/>Hotel</label></li>
-                    <li><label><input type="radio" name="expense-type" id="detail-type-ticket" value="4" data-bind="checked: expenseTypeId" disabled/>Train/Plane tickets</label></li>
-                    <li><label><input type="radio" name="expense-type" id="detail-type-restaurant" value="5" data-bind="checked: expenseTypeId" disabled/>Restaurant</label></li>
-                    <li><label><input type="radio" name="expense-type" id="detail-type-restaurant-lunch" value="2" data-bind="checked: expenseTypeId" disabled/>Restaurant (Lunch)</label></li>
-                    <li><label><input type="radio" name="expense-type" id="detail-type-restaurant-diner" value="3" data-bind="checked: expenseTypeId" disabled/>Restaurant (Diner)</label></li>
-                    <li><label><input type="radio" name="expense-type" id="detail-type-other" value="6" data-bind="checked: expenseTypeId" disabled/>Other (please specify)</label></li>
-                    <li><label>Amount<input type="number"  name="expense-amount" id="detail-amount" data-bind="value: amount" readonly></label></li>
-                    <li><label>Currency<input id="detail-currency" data-bind="value: currency" readonly></label></li>
-                    <li><label>Remarks<textarea name="expense-remarks" id="detail-remarks" data-bind="value: remarks" readonly></textarea></label></li>
-                    <li><label>Evidence</label></label></li>
+
+                <h1>2. Overview</h1>
+                <ul id="overview-location-button" data-index="0">
+                    <li>Abroad</li>
+                    <li>Domestic</li>
                 </ul>
+                <ul data-role="listview">
+                    <li><label>Date of Expense<input id="abroad-detail-date" data-bind="value: date" readonly/></label></li>
+                    <li><label>Project Code<input id="abroad-detail-project-code" data-bind="value: projectCode" readonly></label></li>
+                    <li><label><input type="radio" name="abroad-expense-type" value="1" data-bind="checked: expenseTypeId" disabled/>Hotel</label></li>
+                    <li><label><input type="radio" name="abroad-expense-type" value="5" data-bind="checked: expenseTypeId" disabled/>Restaurant</label></li>
+                    <li><label><input type="radio" name="abroad-expense-type" value="6" data-bind="checked: expenseTypeId" disabled/>Other (please specify)</label></li>
+                    <li><label>Amount<input type="number"  name="expense-amount" placeholder="Amount" data-bind="value: amount" readonly></label></li>
+                    <li><label>Currency<input id="abroad-detail-currency" data-bind="value: currency" data-text-field="currency" data-value-field="rate" readonly></label></li>
+                    <li><label>Remarks<textarea name="expense-remarks" id="abroad-detail-remarks" placeholder="Remarks" data-bind="value: remarks" readonly></textarea></label></li>
+                    <li></li>
+                </ul>
+                <ul data-role="listview" style="display:none">
+                    <li><label>Date of Expense<input id="domestic-detail-date" data-bind="value: date" readonly/></label></li>
+                    <li><label>Project Code<input id="domestic-detail-project-code" data-bind="value: projectCode" readonly></label></li>
+                    <li><label><input type="radio" name="domestic-expense-type" value="1" data-bind="checked: expenseTypeId" disabled/>Hotel</label></li>
+                    <li><label><input type="radio" name="domestic-expense-type" value="4" data-bind="checked: expenseTypeId" disabled/>Train/Plane tickets</label></li>
+                    <li><label><input type="radio" name="domestic-expense-type" value="2" data-bind="checked: expenseTypeId" disabled/>Restaurant (Lunch)</label></li>
+                    <li><label><input type="radio" name="domestic-expense-type" value="3" data-bind="checked: expenseTypeId" disabled/>Restaurant (Diner)</label></li>
+                    <li><label><input type="radio" name="domestic-expense-type" value="6" data-bind="checked: expenseTypeId" disabled/>Other (please specify)</label></li>
+                    <li><label>Amount (EURO)<input type="number"  name="expense-amount" placeholder="Amount" data-bind="value: amount" readonly></label></li>
+                    <li><label>Remarks<textarea name="expense-remarks" id="domestic-detail-remarks" placeholder="Remarks" data-bind="value: remarks" readonly></textarea></label></li>
+                </ul>
+                <a data-role="backbutton">Back</a>
             </div>
 
             <div data-role="view" data-title="Overview" id="addExpense" data-before-show="addExpenseViewInit">
@@ -142,7 +156,7 @@
                     <li><label><input type="radio" name="abroad-expense-type" value="1" data-bind="checked: expenseTypeId"/>Hotel</label></li>
                     <li><label><input type="radio" name="abroad-expense-type" value="5" data-bind="checked: expenseTypeId"/>Restaurant</label></li>
                     <li><label><input type="radio" name="abroad-expense-type" value="6" data-bind="checked: expenseTypeId"/>Other (please specify)</label></li>
-                    <li><label>Amount<input type="number"  name="expense-amount" id="expense-amount" placeholder="Amount" data-bind="value: amount"></label></li>
+                    <li><label>Amount<input type="number"  name="expense-amount" placeholder="Amount" data-bind="value: amount"></label></li>
                     <li><label>Currency<input id="abroad-expense-currency" data-bind="value: currency" data-text-field="currency" data-value-field="rate"></label></li>
                     <li><label>Remarks<textarea name="expense-remarks" id="abroad-expense-remarks" placeholder="Remarks" data-bind="value: remarks"></textarea></label></li>
                     <li><label>Upload Evidence</label><input name="expense-evidence" id="abroad-expense-evidence" type="file"/></label></li>

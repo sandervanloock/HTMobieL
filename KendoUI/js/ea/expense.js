@@ -12,7 +12,8 @@ var expenseForm = kendo.observable({
             expenseId: 0,
             remarks: "test",
             expenseTypeId: 5,
-            projectCode: "GZ0565"
+            projectCode: "GZ0565",
+            expenseLocationId: 1
         }
     ],
 
@@ -75,7 +76,16 @@ function convertCurrencyToEuro(curr,value,rate){
 }
 
 function showExpenseDetail(e) {
+
+    var listviews = this.element.find("ul.km-listview");
+    $("#overview-location-button").kendoMobileButtonGroup({
+        select: function(e) {
+            listviews.hide().eq(this.selectedIndex).show();
+        }
+    });
+
     var expense = expenseForm.expenses[e.view.params.expenseId];
+    $("#overview-location-button").data("kendoMobileButtonGroup").select(expense.expenseLocationId-1);
     var expense = kendo.observable({
         date: expense.date,
         projectCode: expense.projectCode,
@@ -84,7 +94,7 @@ function showExpenseDetail(e) {
         currency: expense.currency,
         remarks: expense.remarks
     })
-    kendo.bind($("#detail-expense-form"),expense);
+    kendo.bind($("#detail-expense"),expense);
 
 }
 

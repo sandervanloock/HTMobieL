@@ -94,7 +94,6 @@ function addExpenseViewInit(e) {
             listviews.hide().eq(this.selectedIndex).show();
         }
     });
-    //$("#expense-location-button").data("kendoMobileButtonGroup").select(0);
 
     //Date picker from now till two months earlier
     var startDate = new Date();

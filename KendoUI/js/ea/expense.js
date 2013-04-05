@@ -16,12 +16,6 @@ var expenseForm = kendo.observable({
         }
     ],
 
-    // type array populates the drop down
-    //type: [{ name: "Food", value: "food"}, { name: "Clothing", value: "clothing"}, { name: "Bills", value: "bills" }],
-
-    // expenseType holds the currently selected value of the dropdown list
-    //expenseType: "food",
-
     // the values are bound to the merchant and amount fields
     date: new Date(),
     projectCode: null,
@@ -35,6 +29,13 @@ var expenseForm = kendo.observable({
     // event execute on click of add button
     create: function(e) {
         //console.log($("#expense-evidence").data("kendoUpload"));
+        if(this.get("currency")==null){
+            this.set("currency",{
+                currency: "EUR",
+                rate: 1
+            });
+            this.set("expenseLocationId",2); //If EURO is used as currency,  we have a domestic expense
+        }
         this.get("expenses").push({
             date: kendo.toString(this.get("date"),"dd/MM/yyyy"),
             projectCode: this.get("projectCode"),
@@ -44,15 +45,24 @@ var expenseForm = kendo.observable({
             rate: this.get("currency").get("rate"),
             remarks: this.get("remarks"),
             expenseLocationId: this.get("expenseLocationId"),
-            expenseId: this.get("expenses").length
+            expenseId: this.get("expenses").length //Id voor ophalen van expense bij overview
         });
-        //TODO reset the form
+        //reset the form
+        this.set("date",new Date());
+        this.set("projectCode",null);
+        this.set("expenseTypeId",null);
+        this.set("amount",null);
+        this.set("currency",null);
+        this.set("rate",null);
+        this.set("remarks",null);
+        this.set("expenseLocationId",1);
         kendo.bind($("#overview-list"),expenseForm);
     }
 
 });
 
 kendo.bind($('#newExpense'), expenseForm);
+
 
 function convertCurrencyToEuro(curr,value,rate){
     if(curr=="EUR")

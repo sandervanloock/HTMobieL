@@ -56,11 +56,11 @@ var EA = {
         kendo.bind($("#welcome-name"), employee);
         kendo.bind($("#yourInfo"), employee);
 
-        /*if (Modernizr.localstorage) {
+        if (Modernizr.localstorage) {
             localStorage.user = JSON.stringify(user);
         } else {
             this.user = user;
-        }*/
+        }
     },
 
     hasUser:function () {
@@ -432,47 +432,28 @@ var EA = {
     /*************************************************
      * Message dialogs
      *************************************************/
-
-    showDialog:function (title, html) {
-        $("#dialog-title").text(title);
-        $("#dialog-message").text(html);
-        $.mobile.changePage("#dialog");
+    showError:function (validator) {
+        var errors = validator.errors();
+        var message = "<li>";
+        $(errors).each(function() {
+            message += this + "<br/>";
+        });
+        message +="</li>";
+        this.showDialog(message);
+        this.highlightBorder(validator,$("#your-info-form"));
     },
 
-    showError:function (title, html) {
-        this.showDialog(title, html);
+    showDialog:function (message) {
+        $("#error-messages").html(message);
+        var modalView = $("#error-view").data("kendoMobileModalView");
+        modalView.open();
+    },
+
+    highlightBorder: function(validator, form){
+        //TODO (draw red borders round error fields with addClass(red-border))
     },
 
     showBackendError:function (html) {
-        this.showError("Backend error", html);
-    },
-
-    prepareValidationError:function (validator, errorMap) {
-        $("#error-validation-message").text("Please complete the following "
-            + validator.numberOfInvalids()
-            + " field(s):");
-
-        var html = "";
-        var $field, name, tag;
-        $.each(errorMap, function (index, value) {
-            // show place holder name instead of id
-            $field = $("#" + index);
-            tag = $field.prop("tagName");
-            if (tag == "SELECT") {
-                name = $field.find("option").first().text();
-            } else if (tag == "FIELDSET") {
-                name = $field.find(".ui-controlgroup-label").text();
-            } else {
-                name = $field.attr("placeholder");
-            }
-
-            html += "<li>";
-            html += name + ": " + value;
-            html += "</li>";
-        });
-        $("#error-validation-items").html(html);
-
-        validator.defaultShowErrors();
+        this.showDialog("Backend error");
     }
-
 };

@@ -1,4 +1,4 @@
-#modalview-login-button {
+#login-button {
     display: block;
     text-align: center;
     margin: .6em .8em 0;
@@ -6,7 +6,7 @@
 }
 
 /*Laat de inputvelden zonder placeholder links uitlijnen*/
-#login input,
+#login-view input,
 #yourInfo input,
 #yourInfo select{
     position: static;
@@ -48,20 +48,3 @@ form li {
 .expenseForm-status{
     margin-left: 100px;
 }
-
-/* Responsive design: tablet view
-@media all and (min-width: 600px) {
-    .wrapper {
-        margin-left: auto;
-        width: 400px;
-        margin-right: auto;
-    }
-}
-
-/* Responsive design: smartphone view/
-@media all and (max-width: 599px) {
-    .wrapper {
-        width: 100%;
-    }
-}*/
-

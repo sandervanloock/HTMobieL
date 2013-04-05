@@ -1,138 +1,3 @@
-function login() {
-    $.ajax({
-        type:"POST",
-        dataType:"text",
-        url:EA.baseURL + "resources/userService/login",
-        data:{
-            'email':$("#login-username").val(),
-            'password':$("#login-password").val()
-        },
-
-        error:function () {
-            // don't write the loading hide in a complete handler,
-            // because we chain the ajax requests
-
-            // show error
-            alert("Could not log in.");
-        },
-        success:function (token) {
-            // don't write the loading hide in a complete handler,
-            // because we chain the ajax requests
-
-            if (token == '') {
-                EA.showBackendError("The username and/or password are incorrect.");
-            } else {
-                // set the token
-                EA.setToken(token);
-
-                // empty form
-                //$("#login-form")[0].reset();
-
-                // don't go to the home page yet, but first fetch user info
-                $.ajax({
-                    type:"POST",
-                    dataType:"json",
-                    url:EA.baseURL + "resources/userService/getEmployee",
-                    data:{
-                        'token':EA.getToken()
-                    },
-                    error:function () {
-                        // don't write the loading hide in a complete handler,
-                        // because we chain the ajax requests
-
-                        EA.showBackendError("Could not fetch user information");
-                    },
-                    success:function (userData) {
-                        // don't write the loading hide in a complete handler,
-                        // because we chain the ajax requests
-                        // set user data and go to home page
-                        EA.setUser(userData);
-                        app.navigate("#home")
-                    }
-                });
-
-                // fetch projectcodes asynchronous at logon time
-                $.ajax({
-                    type:"POST",
-                    dataType:"json",
-                    url:EA.baseURL + "resources/expenseService/getProjectCodeSuggestion",
-                    data:{
-                        "keyword":""
-                    },
-                    error:function () {
-                        EA.showBackendError("Could not fetch project codes.");
-                    },
-                    success:function (json) {
-                        if (json != null) {
-                            EA.setProjectCodeSuggestions(json.data);
-                        } else {
-                            // silent fail
-                            // it could happen that there are no project codes yet
-                            console.log("No project code suggestions were returned.");
-                        }
-                    }
-                });
-
-                // fetch currencies asynchronous at logon time
-                $.ajax({
-                    type:"POST",
-                    dataType:"xml",
-                    url:EA.baseURL + "resources/currencyService/getCurrencies",
-                    error:function () {
-                        EA.showBackendError("Could not fetch currencies.");
-                    },
-                    success:function (xml) {
-                        var currencies = [];
-                        // gets the cube block
-                        var $xml = $("Cube", xml);
-                        // gets the cube block with time attribute
-                        $xml = $("Cube", $xml);
-
-                        // iterate over each entry to get currency and rate
-                        $xml.find("Cube").each(function () {
-                            var $this = $(this);
-                            currencies.push({
-                                name:$this.attr("currency"),
-                                rate:parseFloat($this.attr("rate"))
-                            });
-                        });
-                        EA.setCurrencies(currencies);
-                    }
-                });
-            }
-        }
-    });
-}
-
-function logout(){
-    if (navigator.onLine) {
-        $.ajax({
-            type:"POST",
-            url:EA.baseURL + "resources/userService/logout",
-            data:{
-                'token':EA.getToken()
-            },
-            success:function () {
-                // empty the session
-                EA.setToken(null);
-                // empty user information
-                EA.deleteUser();
-                // go to login page
-                app.navigate("#login")
-            },
-            error:function () {
-                EA.showBackendError("Could not log out");
-            }
-        });
-    }
-}
-
-function goHome(){
-    app.navigate("#home");
-};
-
-
-
 function initExpenseFormOverview() {
     $("#expenseFormList").kendoMobileListView({
         dataSource: expenseFormDataSource,
@@ -144,27 +9,10 @@ function initExpenseFormOverview() {
 
 function gotoOverview(){
     var validator = $("#your-info-form").kendoValidator().data("kendoValidator");
-
-    if (validator.validate()){
-        //A valid employee is filled in
+    if (validator.validate()) //A valid employee is filled in
         $("#main-pane").data("kendoMobilePane").navigate("#overview");
-    }
-    else{
-        var errors = validator.errors();
-        var message = "<h2>";
-        $(errors).each(function() {
-            message += this + "<br/>";
-        });
-        message +="</h2>";
-        $("#error-messages").html(message);
-        var modalView = $("#error-view").data("kendoMobileModalView");
-        modalView.open();
-        highlightBorders(validator,$("#your-info-form"));
-    }
-}
-
-function highlightBorder(validator, form){
-    //TODO (draw red borders round error fields with addClass(red-border))
+    else
+        EA.showError(validator);
 }
 
 function closeModalView(e) {
@@ -183,4 +31,178 @@ function gotoNewExpenseForm(){
         app.navigate("#side-root");
     else
         app.navigate("#newExpense");
+}
+
+var expenseFormDataSource = new kendo.data.DataSource({
+    transport: {
+        read: {
+            url: EA.baseURL + "resources/expenseService/getExpenseForms",
+            dataType: "xml",
+            type: "POST",
+            complete: function(jqXHR, textStatus){
+                //app.hideLoading()
+            }
+        },
+        parameterMap: function(options) {
+            return {
+                token: EA.getToken()
+            };
+        }
+    },
+    schema: {
+        type: "xml",
+        data: "expenseForms/expenseForm", // the data which the data source will be bound to is in the "results" field
+        model: {
+            fields: {
+                id: "id/text()",
+                date: "date/text()",
+                statusId: "statusId/text()"
+            }
+        }
+    }
+});
+
+var currencySource = new kendo.data.DataSource({
+    transport: {
+        read: {
+            url:  EA.baseURL + "resources/currencyService/getCurrencies",
+            dataType: "xml",
+            type:"POST"
+        }
+    },
+    schema: { // describe the result format
+        type: "xml",
+        data: "/gesmes:Envelope/Cube/Cube/Cube", // the data which the data source will be bound to is in the "results" field
+        model: {
+            // configure the fields of the object
+            fields: {
+                currency: "@currency",
+                rate: "@rate"
+            }
+        }
+    }
+});
+
+function addExpenseViewInit(e) {
+    e.view.useNativeScrolling = true; //TODO TESTEN scrolling
+
+    //Necessary for the Abroad / Domestic switch (found in examples)
+    var listviews = this.element.find("ul.km-listview");
+    $("#expense-location-button").kendoMobileButtonGroup({
+        select: function(e) {
+            console.log(e);
+            listviews.hide().eq(this.selectedIndex).show();
+        }
+    });
+    //$("#expense-location-button").data("kendoMobileButtonGroup").select(0);
+
+    //Date picker from now till two months earlier
+    var startDate = new Date();
+    startDate.setDate(startDate.getDate()-60);
+    $("#abroad-expense-date").kendoDatePicker({
+        value: new Date(),
+        min: startDate,
+        max: new Date(),
+        format: "dd/MM/yyyy"
+    });
+    $("#domestic-expense-date").kendoDatePicker({
+        value: new Date(),
+        min: startDate,
+        max: new Date(),
+        format: "dd/MM/yyyy"
+    });
+
+    $("#abroad-expense-project-code").kendoAutoComplete({
+        placeholder: 'Project Code',
+        dataSource: new kendo.data.DataSource({
+            type: "json", // specifies data protocol
+            transport: {
+                read: {
+                    url:  EA.baseURL + "/resources/expenseService/getProjectCodeSuggestion",
+                    type: "POST"
+                },
+                parameterMap: function(options) {
+                    return {
+                        keyword: $("#abroad-expense-project-code").val()
+                    };
+                }
+            },
+            schema: { // describe the result format
+                type: "json",
+                data: "data"
+            }
+        })
+    });
+
+    $("#domestic-expense-project-code").kendoAutoComplete({
+        placeholder: 'Project Code',
+        dataSource: new kendo.data.DataSource({
+            type: "json", // specifies data protocol
+            transport: {
+                read: {
+                    url:  EA.baseURL + "/resources/expenseService/getProjectCodeSuggestion",
+                    type: "POST"
+                },
+                parameterMap: function(options) {
+                    return {
+                        keyword: $("#domestic-expense-project-code").val()
+                    };
+                }
+            },
+            schema: { // describe the result format
+                type: "json",
+                data: "data"
+            }
+        })
+    });
+
+    $("#abroad-expense-currency").kendoDropDownList({
+        index: 0,
+        dataSource: currencySource,
+        dataTextField: "currency",
+        dataValueField: "rate",
+        optionLabel: "Currency"
+    });
+
+    $("#domestic-expense-currency").kendoDropDownList({
+        index: 0,
+        dataSource: currencySource,
+        dataTextField: "currency",
+        dataValueField: "rate",
+        optionLabel: "Currency"
+    });
+
+    $("#abroad-expense-evidence").kendoUpload({
+        multiple: false
+    });
+
+    $("#domestic-expense-evidence").kendoUpload({
+        multiple: false
+    });
+}
+
+function yourInfoViewInit(){
+    var currDate = new Date(new Date().getFullYear(),new Date().getMonth(),1);
+    if(new Date().getUTCDate()<15)
+        currDate.setDate(currDate.getDate()-30);
+    $("#your-info-date").kendoDatePicker({
+        // defines the start view
+        start: "year",
+        // defines when the calendar should return date
+        depth: "year",
+        value: currDate,
+        // display month and year in the input
+        format: "MMMM yyyy"
+    });
+}
+
+function signAndSendViewInit(){
+    // when this line is in pagebeforeshow, it cannot know
+    // width and heigh of the page, therefore it is placed here, but
+    // because this code is executed everytime the page is viewed,
+    // multiple signature fields would come up,
+    // so we just check if the canvas is there or not
+    if (  $("#sign-and-send-signature").find("canvas").length == 0) {
+        $("#sign-and-send-signature").jSignature();
+    }
 }

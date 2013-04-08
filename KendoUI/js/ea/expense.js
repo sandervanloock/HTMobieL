@@ -7,13 +7,24 @@ var expenseForm = kendo.observable({
         {
             date: kendo.toString(new Date(),"dd/MM/yyyy"),
             amount: 50,
-            currency: "USD",
+            currency: "EUR",
             rate: 1,
             expenseId: 0,
             remarks: "test",
             expenseTypeId: 5,
             projectCode: "GZ0565",
             expenseLocationId: 1
+        },
+        {
+            date: kendo.toString(new Date(),"dd/MM/yyyy"),
+            amount: 100,
+            currency: "USD",
+            rate: 1.5,
+            expenseId: 1,
+            remarks: "test",
+            expenseTypeId: 1,
+            projectCode: "GZ0565",
+            expenseLocationId: 2
         }
     ],
 
@@ -76,17 +87,22 @@ function convertCurrencyToEuro(curr,value,rate){
 }
 
 function showExpenseDetail(e) {
-
+    var expense = expenseForm.expenses[e.view.params.expenseId];
     var listviews = this.element.find("ul.km-listview");
     $("#overview-location-button").kendoMobileButtonGroup({
         select: function(e) {
-            listviews.hide().eq(this.selectedIndex).show();
-        }
+            //TODO button group klikken wijzigt geselecteerde knop niet!
+        },
+        index: expense.expenseLocationId-1 //1 = DOMESTIC, 2 = ABROAD
     });
-
-    var expense = expenseForm.expenses[e.view.params.expenseId];
-    $("#overview-location-button").data("kendoMobileButtonGroup").select(expense.expenseLocationId-1);
-    var expense = kendo.observable({
+    /*
+        De content van de tab die hoort bij de geselecteerde index ophalen door de index
+        te zetten of $("#overview-location-button").data("kendoMobileButtonGroup").select(...)
+        op te roepen werkt niet.
+        via jQuery code expliciet zeggen welke view toonbaar moet zijn!
+    */
+    listviews.hide().eq(expense.expenseLocationId-1).show();
+    var expenseMV = kendo.observable({
         date: expense.date,
         projectCode: expense.projectCode,
         expenseTypeId: expense.expenseTypeId,
@@ -94,7 +110,7 @@ function showExpenseDetail(e) {
         currency: expense.currency,
         remarks: expense.remarks
     })
-    kendo.bind($("#detail-expense"),expense);
+    kendo.bind($("#detail-expense"),expenseMV);
 
 }
 

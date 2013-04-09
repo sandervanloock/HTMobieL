@@ -18,7 +18,7 @@ function initOverview(){
 };
 
 function gotoOverview(){
-    var validator = $("#your-info-form").kendoValidator().data("kendoValidator");
+    var validator = $("#yourInfo").kendoValidator().data("kendoValidator");
     if (validator.validate()) //A valid employee is filled in
         $("#main-pane").data("kendoMobilePane").navigate("#overview");
     else
@@ -40,7 +40,7 @@ function gotoNewExpenseForm(){
     if(isPhone)
         app.navigate("#side-root");
     else
-        app.navigate("splitview.html");
+        app.navigate("#newExpense");
 }
 
 var expenseFormDataSource = new kendo.data.DataSource({

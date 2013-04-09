@@ -1,8 +1,6 @@
 var EA = {
 
     baseURL:"http://kulcapexpenseapp.appspot.com/",
-//    baseURL:"http://localhost:8888/",
-//    baseURL:"http://192.168.1.11:8888/",
 
     /*************************************************
      * Acces token
@@ -45,16 +43,13 @@ var EA = {
     },
 
     setUser:function (user) {
-        var employee = new Employee({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            employeeNumber: user.employeeNumber,
-            unitId: user.unitId,
-            email: user.email,
-            password: user.password
-        });
+        employee.set("firstName",user.firstName);
+        employee.set("lastName",user.lastName);
+        employee.set("employeeNumber",user.employeeNumber);
+        employee.set("unitId",user.unitId);
+        employee.set("email",user.email);
+        employee.set("password",user.password);
         kendo.bind($("#welcome-name"), employee);
-        kendo.bind($("#yourInfo"), employee);
 
         if (Modernizr.localstorage) {
             localStorage.user = JSON.stringify(user);

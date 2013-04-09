@@ -2,12 +2,10 @@ var Employee = kendo.data.Model.define( {
     id: "employeeId", // the identifier of the model
     fields: {
         "firstName": {
-            type: "string",
-            editable: false
+            type: "string"
         },
         "lastName": {
-            type: "string",
-            editable: false
+            type: "string"
         },
         "employeeNumber": {
             type: "number",
@@ -32,3 +30,5 @@ var Employee = kendo.data.Model.define( {
         }
     }
 });
+
+var employee = new Employee();

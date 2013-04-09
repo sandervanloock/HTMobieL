@@ -8,9 +8,7 @@ function initExpenseFormOverview() {
 };
 
 function initOverview(){
-    console.log("INIT overview");
-    var expenseDataSource = new kendo.data.DataSource.create({ data: expenseForm.get("expenses") });
-    console.log(expenseDataSource);
+    var expenseDataSource = new kendo.data.DataSource.create({data: expenseForm.get("expenses")});
     $("#overview-list").kendoMobileListView({
         dataSource: expenseDataSource,
         template: $("#overview-template").text()
@@ -101,7 +99,10 @@ function addExpenseViewInit(e) {
     $("#expense-location-button").kendoMobileButtonGroup({
         select: function(e) {
             listviews.hide().eq(this.selectedIndex).show();
-        }
+            //var newlocation = expenseForm.get("expenseLocationId") == this.selectedIndex;
+            expenseForm.set("expenseLocationId",this.selectedIndex+1);
+        },
+        index: expenseForm.get("expenseLocationId")-1
     });
 
     //Date picker from now till two months earlier

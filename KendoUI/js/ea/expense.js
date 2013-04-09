@@ -30,7 +30,7 @@ var expenseForm = kendo.observable({
     // the values are bound to the merchant and amount fields
     date: new Date(),
     projectCode: null,
-    expenseTypeId: null,
+    expenseTypeId: 1, //Hotel is initially checked
     amount: null,
     currency: null,
     rate: null,
@@ -40,34 +40,61 @@ var expenseForm = kendo.observable({
     // event execute on click of add button
     create: function(e) {
         //console.log($("#expense-evidence").data("kendoUpload"));
-        if(this.get("currency")==null){
+        var validator = $("#new-abroad-expense").kendoValidator().data("kendoValidator");
+        //Validator voor 'other' validatie wordt enkel op radiobuttons met value 6 gecontroleerd die binnen addExpense staan
+        var otherValidator = $("#addExpense [type='radio'][value='6']").kendoValidator({
+            rules: {
+                other: function (e) {
+                    if(e.is(':checked')){
+                        var remarks = expenseForm.get("expenseLocationId") == 1 ? $("#abroad-expense-remarks").val() : $("#domestic-expense-remarks").val();
+                        return  remarks != "";
+                    }
+                    return true;
+                }
+            },
+            messages: {
+                other: "Remarks must be filled in"
+            }
+        }).data("kendoValidator");
+        if(this.get("expenseLocationId")==2){
+            /*If expenseLocationId is 2,  we have a domestic expense
+            * Set the currency to EUR en rate to 1 and
+            * change the validator to the domestic expense form
+            * */
             this.set("currency",{
                 currency: "EUR",
                 rate: 1
             });
-            this.set("expenseLocationId",2); //If EURO is used as currency,  we have a domestic expense
+            validator = $("#new-domestic-expense").kendoValidator().data("kendoValidator");
         }
-        this.get("expenses").push({
-            date: kendo.toString(this.get("date"),"dd/MM/yyyy"),
-            projectCode: this.get("projectCode"),
-            expenseTypeId: this.get("expenseTypeId"),
-            amount: this.get("amount"),
-            currency: this.get("currency").get("currency"),
-            rate: this.get("currency").get("rate"),
-            remarks: this.get("remarks"),
-            expenseLocationId: this.get("expenseLocationId"),
-            expenseId: this.get("expenses").length //Id voor ophalen van expense bij overview
-        });
-        //reset the form
-        this.set("date",new Date());
-        this.set("projectCode",null);
-        this.set("expenseTypeId",null);
-        this.set("amount",null);
-        this.set("currency",null);
-        this.set("rate",null);
-        this.set("remarks",null);
-        this.set("expenseLocationId",1);
-        //kendo.bind($("#overview-list"),expenseForm);
+        /*
+        * Validaties moeten appart uitgevoerd worden owv lazy evaluation.
+        * Beide methodeoproepen in IF-statements zetten roept tweede niet op als eerste FALSE teruggeeft
+        * */
+        var v1 = validator.validate();
+        var v2 = otherValidator.validate();
+        if (v1 && v2){
+            this.get("expenses").push({
+                date: kendo.toString(this.get("date"),"dd/MM/yyyy"),
+                projectCode: this.get("projectCode"),
+                expenseTypeId: this.get("expenseTypeId"),
+                amount: this.get("amount"),
+                currency: this.get("currency").get("currency"),
+                rate: this.get("currency").get("rate"),
+                remarks: this.get("remarks"),
+                expenseLocationId: this.get("expenseLocationId"),
+                expenseId: this.get("expenses").length //Id voor ophalen van expense bij overview
+            });
+            //reset the form
+            this.set("date",new Date());
+            this.set("projectCode",null);
+            this.set("expenseTypeId",1);
+            this.set("amount",null);
+            this.set("currency",null);
+            this.set("rate",null);
+            this.set("remarks",null);
+        } else
+            EA.showError(validator);
     }
 
 });

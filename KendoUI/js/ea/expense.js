@@ -1,6 +1,5 @@
 //example at http://www.kendoui.com/blogs/teamblog/posts/12-03-09/bind_this_a_look_at_kendo_ui_mvvm.aspx
 var expenseForm = kendo.observable({
-
     // expenses array will hold the grid values
     expenses:
     [
@@ -68,13 +67,10 @@ var expenseForm = kendo.observable({
         this.set("rate",null);
         this.set("remarks",null);
         this.set("expenseLocationId",1);
-        kendo.bind($("#overview-list"),expenseForm);
+        //kendo.bind($("#overview-list"),expenseForm);
     }
 
 });
-
-kendo.bind($('#newExpense'), expenseForm);
-
 
 function convertCurrencyToEuro(curr,value,rate){
     if(curr=="EUR")
@@ -85,6 +81,8 @@ function convertCurrencyToEuro(curr,value,rate){
         return newAmount;
     }
 }
+
+var expenseMV = kendo.observable();
 
 function showExpenseDetail(e) {
     var expense = expenseForm.expenses[e.view.params.expenseId];
@@ -102,16 +100,12 @@ function showExpenseDetail(e) {
         via jQuery code expliciet zeggen welke view toonbaar moet zijn!
     */
     listviews.hide().eq(expense.expenseLocationId-1).show();
-    var expenseMV = kendo.observable({
-        date: expense.date,
-        projectCode: expense.projectCode,
-        expenseTypeId: expense.expenseTypeId,
-        amount:expense.amount,
-        currency: expense.currency,
-        remarks: expense.remarks
-    })
-    kendo.bind($("#detail-expense"),expenseMV);
-
+    expenseMV.set("date",expense.date);
+    expenseMV.set("projectCode", expense.projectCode);
+    expenseMV.set("expenseTypeId", expense.expenseTypeId);
+    expenseMV.set("amount",expense.amount);
+    expenseMV.set("currency", expense.currency);
+    expenseMV.set("remarks", expense.remarks);
 }
 
 // when the users clicks on an expense form, download it in PDF-format

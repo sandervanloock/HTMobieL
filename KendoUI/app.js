@@ -7,6 +7,16 @@ function initExpenseFormOverview() {
 
 };
 
+function initOverview(){
+    console.log("INIT overview");
+    var expenseDataSource = new kendo.data.DataSource.create({ data: expenseForm.get("expenses") });
+    console.log(expenseDataSource);
+    $("#overview-list").kendoMobileListView({
+        dataSource: expenseDataSource,
+        template: $("#overview-template").text()
+    });
+};
+
 function gotoOverview(){
     var validator = $("#your-info-form").kendoValidator().data("kendoValidator");
     if (validator.validate()) //A valid employee is filled in
@@ -30,7 +40,7 @@ function gotoNewExpenseForm(){
     if(isPhone)
         app.navigate("#side-root");
     else
-        app.navigate("#newExpense");
+        app.navigate("splitview.html");
 }
 
 var expenseFormDataSource = new kendo.data.DataSource({
@@ -90,7 +100,6 @@ function addExpenseViewInit(e) {
     var listviews = this.element.find("ul.km-listview");
     $("#expense-location-button").kendoMobileButtonGroup({
         select: function(e) {
-            console.log(e);
             listviews.hide().eq(this.selectedIndex).show();
         }
     });

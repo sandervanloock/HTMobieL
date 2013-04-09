@@ -1,0 +1,224 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Expense App</title>
+    <link href="styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <!--CSS used for Widgets-->
+    <link href="styles/kendo.default.min.css" rel="stylesheet">
+    <link href="styles/kendo.common.min.css" rel="stylesheet">
+    <!--Custom Stylesheet -->
+    <link href="app.css" rel="stylesheet" />
+</head>
+<body>
+<div data-role="splitview" data-init="initSplitView" id="newExpense">
+
+    <div data-role="pane" id="menu" data-layout="default-left">
+
+        <div data-role="view" data-title="New Expense" id="side-root">
+
+            <ol data-role="listview" data-style="inset">
+                <li><a href="#yourInfo" data-target="main-pane">1. Your Info</a></li>
+                <li><a href="#overview" data-target="main-pane">2. Overview</a></li>
+                <li><a href="#addExpense" data-target="main-pane">3. Add Expense</a></li>
+                <li><a href="#signAndSend" data-target="main-pane">4. Sign & Send</a></li>
+            </ol>
+
+        </div>
+
+        <section data-role="layout" data-id="default-left">
+            <header data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </header>
+            <footer data-role="footer">
+                <div class="footer">
+                    <div style="float: left"><img src="img/kuleuven.png"></div>
+                </div>
+            </footer>
+        </section>
+
+    </div>
+
+    <div data-role="pane" id="main-pane" data-layout="default-right">
+
+        <div data-role="view" data-title="Your Info" id="yourInfo" data-show="yourInfoViewInit">
+            <h1>1. Your Info</h1>
+            <ul data-role="listview" data-style="inset">
+                <li><input type="date" id="your-info-date" /></li>
+                <li><input type="text" id="your-info-firstname" placeholder="First Name" data-bind="value: firstName" readonly/></li>
+                <li><input type="text" id="your-info-lastname" placeholder="Last Name" data-bind="value: lastName" readonly/></li>
+                <li><input type="number" name="your-info-employee-number" id="your-info-employee-number" placeholder="Employee Number" data-bind="value: employeeNumber" required validationMessage="An employee number must be present"></li>
+                <li><select name="your-info-units" id="your-info-units" data-bind="value: unitId" required validationMessage="A Unit ID must be present">
+                    <option value="">Unit</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="7">8</option>
+                    <option value="7">9</option>
+                    <option value="7">10</option>
+                </select></li>
+                <li><input type="email" name="your-info-email" id="your-info-email" placeholder="Email" data-bind="value: email" required validationMessage="An email adres must be present"></li>
+            </ul>
+            <!--button moet buiten formulier staan-->
+            <a data-role="button" data-theme="b" data-click="gotoOverview">Next</a>
+        </div>
+
+        <div data-role="view" data-title="Overview" id="overview" data-show="initOverview">
+            <h1>2. Overview</h1>
+            <ul id="overview-list"></ul>
+
+            <a data-role="button" href="#addExpense">Add Expense</a>
+            <a data-role="button" href="#signAndSend">Sign & Send</a>
+        </div>
+
+        <div data-role="view" data-tile="Overview" id="detail-expense" data-model="expenseMV" data-show="showExpenseDetail">
+
+            <h1>2. Overview</h1>
+            <ul id="overview-location-button" data-index="0">
+                <li>Abroad</li>
+                <li>Domestic</li>
+            </ul>
+            <ul data-role="listview">
+                <li><label>Date of Expense<input id="abroad-detail-date" data-bind="value: date" readonly/></label></li>
+                <li><label>Project Code<input id="abroad-detail-project-code" data-bind="value: projectCode" readonly></label></li>
+                <li><label><input type="radio" name="abroad-expense-type" value="1" data-bind="checked: expenseTypeId" disabled/>Hotel</label></li>
+                <li><label><input type="radio" name="abroad-expense-type" value="5" data-bind="checked: expenseTypeId" disabled/>Restaurant</label></li>
+                <li><label><input type="radio" name="abroad-expense-type" value="6" data-bind="checked: expenseTypeId" disabled/>Other (please specify)</label></li>
+                <li><label>Amount<input type="number"  name="expense-amount" placeholder="Amount" data-bind="value: amount" readonly></label></li>
+                <li><label>Currency<input id="abroad-detail-currency" data-bind="value: currency" data-text-field="currency" data-value-field="rate" readonly></label></li>
+                <li><label>Remarks<textarea name="expense-remarks" id="abroad-detail-remarks" placeholder="Remarks" data-bind="value: remarks" readonly></textarea></label></li>
+                <li></li>
+            </ul>
+            <ul data-role="listview" style="display:none">
+                <li><label>Date of Expense<input id="domestic-detail-date" data-bind="value: date" readonly/></label></li>
+                <li><label>Project Code<input id="domestic-detail-project-code" data-bind="value: projectCode" readonly></label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="1" data-bind="checked: expenseTypeId" disabled/>Hotel</label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="4" data-bind="checked: expenseTypeId" disabled/>Train/Plane tickets</label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="2" data-bind="checked: expenseTypeId" disabled/>Restaurant (Lunch)</label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="3" data-bind="checked: expenseTypeId" disabled/>Restaurant (Diner)</label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="6" data-bind="checked: expenseTypeId" disabled/>Other (please specify)</label></li>
+                <li><label>Amount (EURO)<input type="number"  name="expense-amount" placeholder="Amount" data-bind="value: amount" readonly></label></li>
+                <li><label>Remarks<textarea name="expense-remarks" id="domestic-detail-remarks" placeholder="Remarks" data-bind="value: remarks" readonly></textarea></label></li>
+            </ul>
+            <a data-role="backbutton">Back</a>
+        </div>
+
+        <div data-role="view" data-title="Add Expense" id="addExpense" data-model="expenseForm" data-before-show="addExpenseViewInit">
+            <h1>3. Add Expense</h1>
+            <ul id="expense-location-button" data-index="0">
+                <li>Abroad</li>
+                <li>Domestic</li>
+            </ul>
+            <ul data-role="listview" id="new-abroad-expense">
+                <li><label>Date of Expense<input id="abroad-expense-date" style='float:right; width: 100%' data-bind="value: date"/></label></li>
+                <li><label>Project Code<input id="abroad-expense-project-code" style='float:right; width: 100%' data-bind="value: projectCode"></label></li>
+                <li><label><input type="radio" name="abroad-expense-type" value="1" data-bind="checked: expenseTypeId"/>Hotel</label></li>
+                <li><label><input type="radio" name="abroad-expense-type" value="5" data-bind="checked: expenseTypeId"/>Restaurant</label></li>
+                <li><label><input type="radio" name="abroad-expense-type" value="6" data-bind="checked: expenseTypeId"/>Other (please specify)</label></li>
+                <li><label>Amount<input type="number"  name="expense-amount" placeholder="Amount" data-bind="value: amount"></label></li>
+                <li><label>Currency<input id="abroad-expense-currency" data-bind="value: currency" data-text-field="currency" data-value-field="rate"></label></li>
+                <li><label>Remarks<textarea name="expense-remarks" id="abroad-expense-remarks" placeholder="Remarks" data-bind="value: remarks"></textarea></label></li>
+                <li><label>Upload Evidence</label><input name="expense-evidence" id="abroad-expense-evidence" type="file"/></label></li>
+                <li></li>
+            </ul>
+            <ul data-role="listview" id="new-domestic-expense" style="display:none">
+                <li><label>Date of Expense<input id="domestic-expense-date" style='float:right; width: 100%' data-bind="value: date"/></label></li>
+                <li><label>Project Code<input id="domestic-expense-project-code" style='float:right; width: 100%' data-bind="value: projectCode"></label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="1" data-bind="checked: expenseTypeId"/>Hotel</label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="4" data-bind="checked: expenseTypeId"/>Train/Plane tickets</label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="2" data-bind="checked: expenseTypeId"/>Restaurant (Lunch)</label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="3" data-bind="checked: expenseTypeId"/>Restaurant (Diner)</label></li>
+                <li><label><input type="radio" name="domestic-expense-type" value="6" data-bind="checked: expenseTypeId"/>Other (please specify)</label></li>
+                <li><label>Amount (EURO)<input type="number"  name="expense-amount" placeholder="Amount" data-bind="value: amount"></label></li>
+                <li><label>Remarks<textarea name="expense-remarks" id="domestic-expense-remarks" placeholder="Remarks" data-bind="value: remarks"></textarea></label></li>
+                <li><label>Upload Evidence</label><input name="expense-evidence" id="domestic-expense-evidence" type="file"/></label></li>
+            </ul>
+            <a data-role="button" id="create" data-bind="click: create" href="#overview">Add</a>
+        </div>
+
+        <div data-role="view" data-title="Overview" id="signAndSend" data-show="signAndSendViewInit">
+            <h1>4. Sign & Send</h1>
+            <ul data-role="listview" data-style="inset">
+                <li><div id="sign-and-send-signature">Signature</div></li>
+                <!--http://willowsystems.github.com/jSignature/-->
+                <li><label>Remarks<textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea></label></li>
+                <li>Status notifications via Email:<input data-role="switch" id="sign-and-send-notification" checked="checked" /></li>
+                <li><a href="#home" data-role="button" data-theme="b" data-target="_top">Send</a></li>
+            </ul>
+        </div>
+
+        <section data-role="layout" data-id="default-right">
+            <header data-role="header">
+                <div data-role="navbar">Expense App
+                    <a data-role="button" data-align="right" data-target="_top" href="#home">Home</a>
+                </div>
+            </header>
+            <footer data-role="footer">
+                <div class="footer">
+                    <div style="float: right"><img src="img/cap.jpg"></div>
+                </div>
+            </footer>
+        </section>
+
+    </div>
+</div>
+<script id="overview-template" type="text/x-kendo-template">
+    <a data-role="listview-link" href= #="\"" + "\#detail-expense?expenseId="+expenseId+"\"" # >
+        Date: <span data-bind="text: date" style="margin-right: 60px">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</span>
+        Amount: #= convertCurrencyToEuro(currency,amount,rate) # EURO
+    </a>
+</script>
+
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/kendo.all.min.js"></script>
+<!--Modernizr-->
+<script src="js/vendor/modernizr-latest.js"></script>
+<!--jSignature-->
+<script src="js/vendor/jSignature.min.js"></script>
+<script src="js/ea/ea.js"></script>
+<!--<script src="js/ea/login.js"></script>
+<script src="js/ea/employee.js"></script>-->
+<script src="js/ea/expense.js"></script>
+<script src="app.js"></script>
+<script>
+    /*
+     Switch tussen tablet en smartphone
+     http://www.kendoui.com/forums/mobile/split-view/phone-vs-tablet.aspx
+     http://jsfiddle.net/toddanglin/YGUeJ/5/embedded/
+     http://docs.kendoui.com/api/framework/kendo#properties
+     */
+    var app, isPhone;
+    (function ($) {
+        //Must be mobile and no tablet
+        isPhone = kendo.support.mobileOS && !kendo.support.mobileOS.tablet;
+
+        console.log("mobileOS Info", kendo.support.mobileOS, isPhone);
+
+        <!--Change layout based on device-->
+        if(isPhone) {
+            $("#side-root li").children().removeAttr("data-target");
+            $('#main-pane h1').each(function(){
+                $(this).html('<a href="#side-root" data-role="button">'+$(this).html()+'</a>');
+            });
+            $("body").append($("#menu").html()+$("#main-pane").html());
+            $("#newExpense").remove();
+        }
+        app = new kendo.mobile.Application(document.body);
+
+    }(jQuery));
+
+    function initSplitView() {
+        console.log("init splitview");
+        //kendo.bind($('#newExpense'), expenseForm);
+    }
+
+</script>
+
+
+</body>
+</html>

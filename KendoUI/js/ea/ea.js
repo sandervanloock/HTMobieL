@@ -427,15 +427,13 @@ var EA = {
     /*************************************************
      * Message dialogs
      *************************************************/
-    showError:function (validator) {
-        var errors = validator.errors();
+    showError:function (errors) {
         var message = "<li>";
         $(errors).each(function() {
             message += this + "<br/>";
         });
         message +="</li>";
         this.showDialog(message);
-        this.highlightBorder(validator,$("#your-info-form"));
     },
 
     showDialog:function (message) {

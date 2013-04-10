@@ -20,7 +20,7 @@ function gotoOverview(){
     if (validator.validate()) //A valid employee is filled in
         $("#main-pane").data("kendoMobilePane").navigate("#overview");
     else
-        EA.showError(validator);
+        EA.showError(validator.errors());
 }
 
 function closeModalView(e) {

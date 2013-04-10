@@ -40,9 +40,12 @@ var expenseForm = kendo.observable({
     // event execute on click of add button
     create: function(e) {
         //console.log($("#expense-evidence").data("kendoUpload"));
-        var validator = $("#new-abroad-expense").kendoValidator().data("kendoValidator");
-        //Validator voor 'other' validatie wordt enkel op radiobuttons met value 6 gecontroleerd die binnen addExpense staan
-        var otherValidator = $("#addExpense [type='radio'][value='6']").kendoValidator({
+        var validator = $("#addExpense").kendoValidator().data("kendoValidator");
+        //Validator voor 'other' validatie wordt enkel op radiobuttons met value 6 gecontroleerd
+        //Omdat de errormessage enkel aan het eerste veld wordt toegekend moeten de radios van beide
+        //types appart worden gechecked
+        var otherSelector =  expenseForm.get("expenseLocationId") == 1 ? $("#new-abroad-expense [type='radio'][value='6']") : $("#new-domestic-expense [type='radio'][value='6']");
+        var otherValidator = otherSelector.kendoValidator({
             rules: {
                 other: function (e) {
                     if(e.is(':checked')){
@@ -94,7 +97,7 @@ var expenseForm = kendo.observable({
             this.set("rate",null);
             this.set("remarks",null);
         } else
-            EA.showError(validator);
+            EA.showError(validator.errors().concat(otherValidator.errors()));
     }
 
 });

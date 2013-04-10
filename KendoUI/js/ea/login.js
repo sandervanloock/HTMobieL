@@ -43,7 +43,7 @@ function login() {
         });
     }
     else{
-        EA.showError(validator);
+        EA.showError(validator.errors());
     }
 }
 

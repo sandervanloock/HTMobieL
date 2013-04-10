@@ -31,4 +31,19 @@ var Employee = kendo.data.Model.define( {
     }
 });
 
+
 var employee = new Employee();
+
+var employeeLocalStorage = new kendo.data.DataSource({
+    transport: {
+        read: function() {
+            if(EA.hasUser())
+                employee = EA.getUser();
+            else
+                employee = new Employee();
+        }
+    },
+    schema: {
+        model: Employee
+    }
+});

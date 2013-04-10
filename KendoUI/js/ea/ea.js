@@ -32,8 +32,6 @@ var EA = {
      * User
      *************************************************/
 
-    user:{},
-
     getUser:function () {
         if (Modernizr.localstorage) {
             return JSON.parse(localStorage.user);
@@ -49,7 +47,6 @@ var EA = {
         employee.set("unitId",user.unitId);
         employee.set("email",user.email);
         employee.set("password",user.password);
-        kendo.bind($("#welcome-name"), employee);
 
         if (Modernizr.localstorage) {
             localStorage.user = JSON.stringify(user);

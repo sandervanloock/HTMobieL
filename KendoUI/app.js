@@ -1,20 +1,3 @@
-function initExpenseFormOverview() {
-    $("#expenseFormList").kendoMobileListView({
-        dataSource: expenseFormDataSource,
-        pullToRefresh: true,
-        template: $("#expenseForm-template").text()
-    });
-
-};
-
-function initOverview(){
-    var expenseDataSource = new kendo.data.DataSource.create({data: expenseForm.get("expenses")});
-    $("#overview-list").kendoMobileListView({
-        dataSource: expenseDataSource,
-        template: $("#overview-template").text()
-    });
-};
-
 function gotoOverview(){
     var validator = $("#yourInfo").kendoValidator().data("kendoValidator");
     if (validator.validate()) //A valid employee is filled in
@@ -23,15 +6,13 @@ function gotoOverview(){
         EA.showError(validator.errors());
 }
 
+/*
+* Sluit de popup
+* */
 function closeModalView(e) {
     // find the closest modal view, relative to the button element.
     var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
     modalView.close();
-}
-
-function submitExpense(){
-    //TODO validate
-    console.log(expense);
 }
 
 function gotoNewExpenseForm(){
@@ -40,6 +21,10 @@ function gotoNewExpenseForm(){
     else
         app.navigate("#newExpense");
 }
+
+/*
+* Datasources
+*/
 
 var expenseFormDataSource = new kendo.data.DataSource({
     transport: {
@@ -90,6 +75,34 @@ var currencySource = new kendo.data.DataSource({
         }
     }
 });
+
+/*
+* Initialization methods
+*/
+
+function yourInfoViewInit(){
+    var currDate = new Date(new Date().getFullYear(),new Date().getMonth(),1);
+    if(new Date().getUTCDate()<15)
+        currDate.setDate(currDate.getDate()-30);
+    $("#your-info-date").kendoDatePicker({
+        // defines the start view
+        start: "year",
+        // defines when the calendar should return date
+        depth: "year",
+        value: currDate,
+        // display month and year in the input
+        format: "MMMM yyyy"
+    });
+}
+
+
+function overviewInit(){
+    var expenseDataSource = new kendo.data.DataSource.create({data: expenseForm.get("expenses")});
+    $("#overview-list").kendoMobileListView({
+        dataSource: expenseDataSource,
+        template: $("#overview-template").text()
+    });
+};
 
 function addExpenseViewInit(e) {
     e.view.useNativeScrolling = true; //TODO TESTEN scrolling
@@ -190,21 +203,6 @@ function addExpenseViewInit(e) {
     });
 }
 
-function yourInfoViewInit(){
-    var currDate = new Date(new Date().getFullYear(),new Date().getMonth(),1);
-    if(new Date().getUTCDate()<15)
-        currDate.setDate(currDate.getDate()-30);
-    $("#your-info-date").kendoDatePicker({
-        // defines the start view
-        start: "year",
-        // defines when the calendar should return date
-        depth: "year",
-        value: currDate,
-        // display month and year in the input
-        format: "MMMM yyyy"
-    });
-}
-
 function signAndSendViewInit(){
     // when this line is in pagebeforeshow, it cannot know
     // width and heigh of the page, therefore it is placed here, but
@@ -215,3 +213,12 @@ function signAndSendViewInit(){
         $("#sign-and-send-signature").jSignature();
     }
 }
+
+function initExpenseFormOverview() {
+    $("#expenseFormList").kendoMobileListView({
+        dataSource: expenseFormDataSource,
+        pullToRefresh: true,
+        template: $("#expenseForm-template").text()
+    });
+
+};

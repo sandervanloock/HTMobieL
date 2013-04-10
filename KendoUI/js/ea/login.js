@@ -1,6 +1,6 @@
 function login() {
     var validator = $("#login-view").kendoValidator().data("kendoValidator");
-
+    //validate login screen
     if (validator.validate()){
         $.ajax({
             type:"POST",
@@ -28,9 +28,6 @@ function login() {
                             'token':EA.getToken()
                         },
                         error:function () {
-                            // don't write the loading hide in a complete handler,
-                            // because we chain the ajax requests
-
                             EA.showDialog("Could not fetch user information");
                         },
                         success:function (userData) {

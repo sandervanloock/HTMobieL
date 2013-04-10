@@ -102,6 +102,11 @@ var expenseForm = kendo.observable({
 
 });
 
+function submitExpense(){
+    //TODO validate
+    console.log(expense);
+}
+
 function convertCurrencyToEuro(curr,value,rate){
     if(curr=="EUR")
         return value;
@@ -138,7 +143,6 @@ function showExpenseDetail(e) {
     expenseMV.set("remarks", expense.remarks);
 }
 
-// when the users clicks on an expense form, download it in PDF-format
 $(document).on("click", "[id^=my-expenses-show-pdf]", function () {
     if (navigator.onLine) {
         var $hiddenForm = $('#my-expenses-form');

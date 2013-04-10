@@ -15,14 +15,14 @@
 <div data-role="view" id="login-view" data-layout="login">
     <form>
         <ul data-role="listview" data-style="inset">
-            <li><input type="text" id="login-username" placeholder="Username" value="tim.ameye@student.kuleuven.be" required validationMessage="A username must be present"/></li>
+            <li><input type="text" id="login-username" placeholder="Username" value="sander.vanloock1@student.kuleuven.be" required validationMessage="A username must be present"/></li>
             <li><input type="password" id="login-password" placeholder="Password" value="test123" required validationMessage="A password must be present"/></li>
         </ul>
         <a data-click="login" id="login-button" data-role="button">Login</a>
     </form>
 </div>
 
-<div data-role="view" id="home" data-layout="home">
+<div data-role="view" id="home" data-layout="home" data-model="employee">
 
     <h1>Welcome, <span id="welcome-name" data-bind="text: firstName"></span></h1>
 
@@ -101,7 +101,7 @@
             <a data-role="button" data-theme="b" data-click="gotoOverview">Next</a>
         </div>
 
-        <div data-role="view" data-title="Overview" id="overview" data-show="initOverview">
+        <div data-role="view" data-title="Overview" id="overview" data-show="overviewInit">
             <h1>2. Overview</h1>
             <ul id="overview-list"></ul>
 
@@ -181,8 +181,8 @@
                 <!--http://willowsystems.github.com/jSignature/-->
                 <li><label>Remarks<textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea></label></li>
                 <li>Status notifications via Email:<input data-role="switch" id="sign-and-send-notification" checked="checked" /></li>
-                <li><a href="#home" data-role="button" data-theme="b" data-target="_top">Send</a></li>
             </ul>
+            <a href="#home" data-role="button" data-theme="b" data-target="_top">Send</a>
         </div>
 
         <section data-role="layout" data-id="default-right">
@@ -308,7 +308,7 @@
             $("#newExpense").remove();
         }
         app = new kendo.mobile.Application(document.body);
-
+        employeeLocalStorage.read();
     }(jQuery));
 
 </script>

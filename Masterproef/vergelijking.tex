@@ -19,12 +19,22 @@ In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die
 Elementen van deze technieken zullen terugkomen in onze methode om de raamwerken te evalueren.
 
 Vijf grote criteria zullen gebruikt worden:  omkadering(\ref{sec:vergelijking-gemeenschap}), productiviteit(\ref{sec:vergelijking-gemeenschap}), gebruik(\ref{sec:vergelijking-gemeenschap}), ondersteuning(\ref{sec:vergelijking-gemeenschap}) en performantie(\ref{sec:vergelijking-gemeenschap}). Elk raamwerk krijgt voor elk criterum een score. 
-Als besluit zullen we een \term{spiderweb} van de criteria creëren waar de scores van de raamwerken opstaan. 
+Deze scores zullen in een \term{spiderweb} worden ondergebracht.  
+Dit is een grafiek met vijf dimensies,  de criteria,     waar elke score in de overeenkomstige as met relatieve schaal wordt geplot.
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
 De implementatie van deze POC zal het productiviteit-, gebruik- en ondersteuningcriterium drijven.  
-De performantie zal deels bepaald worden door de laadtijden van de POC.
+De score van performantie zal deels bepaald worden door de laadtijden van de POC.
 
-%TODO spiderweb
+%Niet bekeken criteria:
+% Het bedrijf dat het raamwerk aanbiedt
+% De marktadoptatie van het raamwerk (belangrijkste klanten)
+% De licenties en kosten die samen gaan bij het gebruik van het raamwerk
+% Betalende probleemoplossingen (professionele ondersteuning)
+% De laatste nieuwe versie van het raamwerk
+% De documentatie, handleidingen en voorbeelden die voorhanden zijn
+% Bibliotheken waar het raamwerk op steunt
+% De tools die de programmeur kan gebruiken om sneller te ontwikkelen
+
 
 \subsection{Gemeenschap}
 \label{sec:vergelijking-gemeenschap}
@@ -33,72 +43,103 @@ We voorzien een tabel waar we per raamwerk het aantal volgers op Twitter, watche
 Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal voor elk raamwerk na deze tabel worden toegevoegd.
 %TODO zoals bij onze presentatie gezegd:  ook cijfers per tijd bekijken?
 \paragraph{}
-De som van Twitter volgers($T_i$), GitHub watchers($G_i$) en Facebook likes($F_i$) vormt de score voor het gemeenschapscriteria:
+De som van Twitter volgers($T_f$), GitHub watchers($G_f$) en Facebook likes($F_f$) vormt de score voor het gemeenschapscriteria:
 \begin{equation}
   G_f={T_f+G_f+F_f}
   \label{eq:gemeenschap}
-\end{equation}.
+\end{equation}
+met $f$ de verschillende raamwerken.
 
 \subsection{Productiviteit}
-\label{sec:vergelijking-gemeenschap}
+\label{sec:vergelijking-productiviteit}
 De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwerk vertrouwd te raken. 
-Hiervoor gaan we het feit uitbuiten dat we deze thesis met twee maken. 
-Elk zullen we de POC in twee verschillende raamwerken maken wat het totaal op 4 raamwerken brengt. 
+%TODO assumptie:  beide gemeensch achtergrond
+Twee personen met een gemeenschappelijke achtergrond zullen het raamwerk testen met een implementatie.
+Elk zullen ze de POC en een extra loginscherm maken in vier verschillende raamwerken maken.
+Persoon $1$ maakt de POC in raamwerk $A$ en $B$ en het loginscherm in $C$ en $D$.
+Persoon $2$ zal den de POC in raamwerk $C$ en $D$ maken en de loginschermen in $A$ en $B$.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
-Ook zal elk van ons een loginscherm maken in de andere twee raamwerken~\cite{Burris}. 
-Als Tim de POC implementeert in raamwerken A en B en Sander in raamwerken C en D, zal dus Tim ook een loginscherm maken in raamwerken C en D en vice versa.  
-Dit scherm bevat UI-elementen, validaties en backend integratie. 
-We kunnen dit dus als voldoende steekproef beschouwen om ervaring met een raamwerk te testen. 
+De implementatie van het loginscherm is een extra test.
+Dit scherm bevat UI-elementen, validaties en \term{backend} integratie en kan dit dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
+Het zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raamwerk,  één specifiek scherm kan opgeleverd worden.
+%Ook zullen beide een loginscherm maken in de andere twee raamwerken~\cite{Burris}. 
+%We  
 De tijd die ieder nodig heeft om dit scherm te bouwen, geeft ook een indicatie van de nodige leertijd.
 \paragraph{}
-De som van de uren voor het implementeren van de POC($t_{POC}$) en het loginscherm($t_{login}$) vormt de score voor de productiviteit:
+De som van de uren voor het implementeren van de POC ($t_{f,POC}$) en het loginscherm ($t_{f,login}$) vormt de score voor de productiviteit:
 \begin{equation}
-  Pr_f = {t_{POC} + t_{login}}
+  Pr_f = {t_{f,POC} + t_{f,login}}
   \label{eq:productiviteit}
-\end{equation}.
+\end{equation}
+waar $f$ de verschillende raamwerken voorstellen.
 
 \subsection{Gebruik}
-\label{sec:vergelijking-gemeenschap}
-Om het verschil in gebruik van de raamwerken te onderzoeken, zullen we steunen op de logboeken die we hebben bijgehouden tijdens het implementeren van de POC. 
-We gaan er vanuit dat de POC relevante kenmerken bevat om de raamwerken zoveel mogelijk uit te buiten. 
-We zullen bij het vergelijken de moeilijkheden groeperen zodat het snel duidelijk wordt welke functionaliteit in een bepaald raamwerk moeilijker/makkelijker te implementeren is. 
-\paragraph{}
+\label{sec:vergelijking-gebruik}
+% Om het verschil in gebruik van de raamwerken te onderzoeken, zullen we steunen op de logboeken die we hebben bijgehouden tijdens het implementeren van de POC. 
+Men kan ervan uitgaat dat de POC alle relevante kenmerken bevat om de raamwerken zoveel mogelijk uit te buiten. 
+Deze POC kan onderverdeeld worden in verschillende deelproblemen.
+Deze deelproblemen worden als uitdaging aan het raamwerk voorgelegd.
+De wijze waarop het raamwerk de uitdaging aangaat zal tot een score voor de uitdaging leiden.
+In totaal onderscheiden we drie gevallen.
 Een hogere score wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. 
 Een lagere score betekent dat een plugin werd gezocht. 
 Wanneer een hack noodzakelijk was om de functionaliteit te beogen, zal de laagste score worden toegekend.
+Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $S_{f,i}$ van raamwerk $f$ en voor uitdaging $i$.
 \begin{table}[h]	
   \centering
   \begin{tabular}{ll}
     \toprule
     \textbf{Score} & \textbf{Assessment criteria}\\
     \midrule
-    2 & Ondersteund door het raamwerkk\\
-    1 & Een plugin is nodig\\
-    0 & Eigen implementatie of hack\\
+    $S_{f,i} = 2$ & Ondersteund door het raamwerkk\\
+    $S_{f,i} = 1$ & Een plugin is nodig\\
+    $S_{f,i} = 0$ & Eigen implementatie of hack\\
     \bottomrule
   \end{tabular}
   \caption{Beoordeling uitdagingen gebruikcriterium}
   \label{tabel:scores-uitdagingen}
 \end{table}
 \begin{equation}
-  G_f = \sum_{i=1}^{13}{\left(S_j\right)}
+  G_f = \sum_{i=1}^{13}{\left(S_{f,i}\right)}
   \label{eq:gebruik}
 \end{equation}
-waar $i$ het aantal uitdagingen voorstelt.
+met $f$ de verschillende raamwerken en $i$ het aantal uitdagingen.
+
+%TODO tabel met alle uitdagingen?
 
 \subsection{Ondersteuning}
-\label{sec:vergelijking-gemeenschap}
-We zullen een scenario uitwerken waarbij we het gebruik van de POC doorlopen. 
-Dit scenario zullen we op een reeks van verschillende mobiele apparaten herhalen~\cite{Sarrafi2012a}. 
-Bij het mislukken van een stap in het scenario, zal een punt worden afgetrokken. 
-Hierdoor kunnen we een score bekomen hoe goed de applicatie, geïmplementeerd in een bepaald raamwerk, scoort op een bepaald apparaat. 
-De gebruikte apparaten en versies van besturingssystemen zullen worden bepaald aan de hand van de marktaandeel en de beschikbaarheid van deze apparaten aan het departement HCI.
+\label{sec:vergelijking-ondersteuning}
+Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen met hun verschillende besturingssystemen ondersteund.
+Enkel de standaard browser van het BS (Android browser/Chrome en Safari) zullen beschouwd worden.
+We spreken van een \term{context} als we één bepaalde configuratie van toestel, BS en browser bedoelen.
+Alle uitdagingen die gebruikt zijn om het gebruikcriterium te testen komen ook hier van pas.
+In elke context zullen de $13$ uitdagingen testen die we in vorige sectie hebben opgesteld.
+De correcte weergave en uitvoering van elke uitdaging binnen een context bepalen de score voor die context.
+Deze score kan enkel $0$ of $1$ zijn respectievelijk een probleem of correcte uitvoering.
+Per context brengen we ook de marktwaarde van het toestel in rekening om de meest gebruikte toestellen te bevoordelen.
+In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
+
+De gewogen som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
+\paragraph{}
+\begin{equation}
+  O_f = \sum_{d=1}^{8}{\left(\sum_{i=1}^{13}S_{f,i}*W_d\right)}
+  \label{eq:ondersteuning}
+\end{equation}
+met $f$ de verschillende raamwerken,  $d$ de verschillende toestellen en $i$ de uitdagingen. 
+\paragraph{}
+% We zullen een scenario uitwerken waarbij we het gebruik van de POC doorlopen. 
+% Dit scenario zullen we op een reeks van verschillende mobiele apparaten herhalen~\cite{Sarrafi2012a}. 
+% Bij het mislukken van een stap in het scenario, zal een punt worden afgetrokken. 
+% Hierdoor kunnen we een score bekomen hoe goed de applicatie, geïmplementeerd in een bepaald raamwerk, scoort op een bepaald apparaat. 
+%De gebruikte apparaten araten aan het departement HCI.
+Een kanttekening bij dit criterium is of het raamwerk ondersteunt de webapplicatie om te vormen tot een \term{native} applicatie. 
+Ook bekijken we of de \term{native look-and-feel} per besturingssysteem door het raamwerk kan worden benaderd.
 
 \begin{table}[h]
   \centering
   \begin{tabular}{llll}
     \toprule
-    \textbf{Toestel} & \textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Gewicht}\\
+    \textbf{Toestel} & \textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Marktwaarde}\\
     \midrule
     HTCDesireZ & Android 2.3.3 &  & \\
     GalaxyTab & Android 2.3.6 &  & \\
@@ -114,32 +155,28 @@ De gebruikte apparaten en versies van besturingssystemen zullen worden bepaald a
   \label{tabel:toestellen-hci}
 \end{table}
 
-\paragraph{}
-\begin{equation}
-  O_f = \sum_{d=1}^{N}{\left(\sum_{i=1}^{13}S_j*W_d\right)}
-  \label{eq:ondersteuning}
-\end{equation}
-waar $d$ het aantal toestellen voorstelt en $i$ het aatal uitdagingen. 
-\paragraph{}
-Een kanttekening hierbij is of het raamwerk ondersteunt de webapplicatie om te vormen tot een native applicatie. 
-Ook bekijken we of de \term{native look-and-feel} per besturingssysteem door het raamwerk kan worden benaderd.
-
 \subsection{Performantie}
-\label{sec:vergelijking-gemeenschap}
-Een laatste criterium is de performantie. 
-Dit zal worden uitgedrukt in de tijd nodig om te applicatie te renderen. 
-Hierbij zullen we verschillende testen doen. 
-Ten eerste zullen we gebruik maken van de volledige POC($t_{POC}$). 
-We zullen kijken naar de rendertijd van de applicatie aan de hand van Google Page Speed~\cite{Morgan2011}. 
-Daarnaast zullen we een geïsoleerde test doen met het verzenden van een AJAX request, omdat sommige raamwerken altijd eerst een OPTION request sturen($t_{AJAX}$). Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend. Vervolgens zullen we ook geïsoleerde testen doen met UI-elementen. 
-Hierbij zullen we een pagina voorzien van 1000 buttons en meten hoe lang het duurt tot deze pagina gerendert wordt. 
-Als laatste zullen we een test op de aparte loginschermen uitvoeren($t_{login}$). 
-Hier kunnen we dan ook het aantal lijnen code bekijken en de bijhorende performantie. 
-De redenen waarom we ook deze geïsoleerde applicatie gebruiken is omdat we ervan uitgaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
-Dit is in tegenstelling tot de geïsoleerde login applicatie, waarbij we exact kunnen vergelijken.
-De formule voor het performantiecriterium is 
+\label{sec:vergelijking-performantie}
+Dit criterium zal de laattijden van het raamwerk in rekening brengen.
+De tijd die nodig is om één of meerder pagina's te laden zal bepaald worden met Google Page Speed~\cite{Morgan2011}. 
+Hiervoor zullen verschillende testen worden uitgevoerd. 
+Ten eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($r_{f,POC}$). 
+Daarnaast zullen geïsoleerde testen met het verzenden van een AJAX request uitgevoerd worden ($r_{f,AJAX}$).
+Daar wordt het effect van het versturen van een OPTION \term{request} bekeken wanneer een verzoek naar een ander domeinen wordt gestuurd.
+%TODO exacte info tests + extra info CORS zoeken
+
+%Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend.
+Verder zijn er ook geïsoleerde testen met UI-elementen. 
+Hier zal een \term{dummy} pagina voorzien worden 1000 knoppen van het raamwerk en bepaalt Google Page Speed de laadtijd ($r_{f,UI}$). 
+%TODO exacte UI tests hier uitleggen
+Als laatste zullen de loginschermen die in sectie \ref{sec:vergelijking-productiviteit} werden geïntroduceerd, worden gebruikt ($t_{r,login}$). 
+De redenen waarom deze geïsoleerde applicatie wordt gebruiken is omdat men ervan uit kan gaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
+Dit is in tegenstelling tot dit scherm, waarbij we exact het aantal lijnen cod een bijhorende performantie kunnen vergelijken.
+
+De formule voor het performantiecriterium wordt dan: 
 \paragraph{}
 \begin{equation}
-  Pe_f=t_{POC}+t_{AJAX}+t_{login} 
+  Pe_f=r_{f,POC}+r_{f,AJAX}+r_{f,UI}+r_{f,login} 
   \label{eq:performantie}
-\end{equation}.
+\end{equation}
+met $f$ de verschillende raamwerken.

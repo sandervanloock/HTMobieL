@@ -93,7 +93,7 @@ var expenseDataSource = new kendo.data.DataSource({
             expenseLocationId: 1
         },
         {
-            date: kendo.toString(new Date(),"dd/MM/yyyy"),
+            date: kendo.toString(new Date(2010,5,5),"dd/MM/yyyy"),
             amount: 100,
             currency: "USD",
             rate: 1.5,
@@ -102,7 +102,8 @@ var expenseDataSource = new kendo.data.DataSource({
             expenseTypeId: 1,
             projectCode: "GZ0565",
             expenseLocationId: 2
-        }]
+        }],
+    sort: { field: "date", dir: "asc" }
 });
 
 function submitExpense(){

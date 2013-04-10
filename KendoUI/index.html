@@ -12,7 +12,7 @@
 <body>
 
 
-<div data-role="view" id="login-view" data-layout="login">
+<div data-role="view" id="login-view" data-layout="login" data-show="loginInit" data-init="loginInit">
     <form>
         <ul data-role="listview" data-style="inset">
             <li><input type="text" id="login-username" placeholder="Username" value="sander.vanloock1@student.kuleuven.be" required validationMessage="A username must be present"/></li>
@@ -22,7 +22,7 @@
     </form>
 </div>
 
-<div data-role="view" id="home" data-layout="home" data-model="employee">
+<div data-role="view" id="home" data-layout="home" data-init="homeInit">
 
     <h1>Welcome, <span id="welcome-name" data-bind="text: firstName"></span></h1>
 
@@ -34,7 +34,7 @@
 
 </div>
 
-<div data-role="view" id="expenseFormOverview" data-layout="default" data-init="initExpenseFormOverview">
+<div data-role="view" id="expenseFormOverview" data-layout="default" data-before-show="initExpenseFormOverview">
 
     <ul id="expenseFormList"></ul>
     <form id="my-expenses-form" target="_blank" method="post">
@@ -307,8 +307,7 @@
             $("body").append($("#menu").html()+$("#main-pane").html());
             $("#newExpense").remove();
         }
-        app = new kendo.mobile.Application(document.body);
-        employeeLocalStorage.read();
+        app = new kendo.mobile.Application();
     }(jQuery));
 
 </script>

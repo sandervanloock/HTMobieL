@@ -41,18 +41,14 @@ var EA = {
     },
 
     setUser:function (user) {
+        console.log(user);
         employee.set("firstName",user.firstName);
         employee.set("lastName",user.lastName);
         employee.set("employeeNumber",user.employeeNumber);
         employee.set("unitId",user.unitId);
         employee.set("email",user.email);
         employee.set("password",user.password);
-
-        if (Modernizr.localstorage) {
-            localStorage.user = JSON.stringify(user);
-        } else {
-            this.user = user;
-        }
+        kendo.bind($("#welcome-name"),employee,kendo.mobile.ui);
     },
 
     hasUser:function () {

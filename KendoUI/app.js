@@ -28,18 +28,31 @@ function gotoNewExpenseForm(){
 
 var expenseFormDataSource = new kendo.data.DataSource({
     transport: {
-        read: {
-            url: EA.baseURL + "resources/expenseService/getExpenseForms",
-            dataType: "xml",
-            type: "POST",
-            complete: function(jqXHR, textStatus){
-                //app.hideLoading()
-            }
-        },
-        parameterMap: function(options) {
-            return {
-                token: EA.getToken()
-            };
+        read: function(options){
+            app.showLoading();
+            $.ajax({
+                url: EA.baseURL + "resources/expenseService/getExpenseForms",
+                dataType: "xml",
+                type: "POST",
+                data: {
+                    token: EA.getToken()
+                },
+                success: function(result,textstatus,jqXHR) {
+                    // notify the data source that the request succeeded
+                    if(jqXHR.status==204)
+                        $("#expenseFormList").html("<h2>No expenses submitted</h2>");
+                    else
+                        options.success(result);
+                },
+                error: function(result) {
+                    // notify the data source that the request failed
+                    options.error(result);
+                },
+                complete: function(jqXHR, textStatus){
+                    app.hideLoading();
+
+                }
+            })
         }
     },
     schema: {
@@ -52,7 +65,8 @@ var expenseFormDataSource = new kendo.data.DataSource({
                 statusId: "statusId/text()"
             }
         }
-    }
+    },
+    sort: {field: "date", dir: "desc"}
 });
 
 var currencySource = new kendo.data.DataSource({
@@ -80,6 +94,15 @@ var currencySource = new kendo.data.DataSource({
 * Initialization methods
 */
 
+function loginInit(){
+    console.log("login show");
+    employeeLocalStorage.read();
+}
+
+function homeInit(){
+    kendo.bind($("#welcome-name"),employee,kendo.mobile.ui);
+}
+
 function yourInfoViewInit(){
     var currDate = new Date(new Date().getFullYear(),new Date().getMonth(),1);
     if(new Date().getUTCDate()<15)
@@ -97,7 +120,6 @@ function yourInfoViewInit(){
 
 
 function overviewInit(){
-    //var expenseDataSource = new kendo.data.DataSource.create({data: expenseForm.get("expenses")});
     $("#overview-list").kendoMobileListView({
         dataSource: expenseDataSource,
         template: $("#overview-template").text()
@@ -215,10 +237,12 @@ function signAndSendViewInit(){
 }
 
 function initExpenseFormOverview() {
+    console.log("init");
+    expenseFormDataSource.read();
     $("#expenseFormList").kendoMobileListView({
         dataSource: expenseFormDataSource,
         pullToRefresh: true,
-        template: $("#expenseForm-template").text()
+        template: $("#expenseForm-template").text(),
+        style: "inset"
     });
-
 };

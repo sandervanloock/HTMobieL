@@ -80,7 +80,7 @@ var expenseForm = kendo.observable({
 });
 
 var expenseDataSource = new kendo.data.DataSource({
-    data: [
+    /*data: [
         {
             date: kendo.toString(new Date(),"dd/MM/yyyy"),
             amount: 50,
@@ -102,8 +102,22 @@ var expenseDataSource = new kendo.data.DataSource({
             expenseTypeId: 1,
             projectCode: "GZ0565",
             expenseLocationId: 2
-        }],
-    sort: { field: "date", dir: "asc" }
+        }],*/
+    sort: { field: "date", dir: "asc" },
+    transport: {
+        read: function(options){
+            if (Modernizr.localstorage) {
+                return JSON.parse(localStorage.expenses);
+            } else {
+                return [];
+            }
+        },
+        create: function(options){
+            if (Modernizr.localstorage) {
+                localStorage.expenses = JSON.stringify(this.data);
+            }
+        }
+    }
 });
 
 function submitExpense(){

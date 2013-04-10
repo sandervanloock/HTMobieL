@@ -32,6 +32,8 @@ function login() {
                         },
                         success:function (userData) {
                             EA.setUser(userData);
+                            if (Modernizr.localstorage)
+                                localStorage.user = JSON.stringify(employee.toJSON());
                             app.navigate("#home")
                         }
                     });

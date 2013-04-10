@@ -3,28 +3,7 @@ var expenseForm = kendo.observable({
     // expenses array will hold the grid values
     expenses:
     [
-        {
-            date: kendo.toString(new Date(),"dd/MM/yyyy"),
-            amount: 50,
-            currency: "EUR",
-            rate: 1,
-            expenseId: 0,
-            remarks: "test",
-            expenseTypeId: 5,
-            projectCode: "GZ0565",
-            expenseLocationId: 1
-        },
-        {
-            date: kendo.toString(new Date(),"dd/MM/yyyy"),
-            amount: 100,
-            currency: "USD",
-            rate: 1.5,
-            expenseId: 1,
-            remarks: "test",
-            expenseTypeId: 1,
-            projectCode: "GZ0565",
-            expenseLocationId: 2
-        }
+
     ],
 
     // the values are bound to the merchant and amount fields
@@ -37,7 +16,6 @@ var expenseForm = kendo.observable({
     remarks: null,
     expenseLocationId: 1,
 
-    // event execute on click of add button
     create: function(e) {
         //console.log($("#expense-evidence").data("kendoUpload"));
         var validator = $("#addExpense").kendoValidator().data("kendoValidator");
@@ -77,7 +55,7 @@ var expenseForm = kendo.observable({
         var v1 = validator.validate();
         var v2 = otherValidator.validate();
         if (v1 && v2){
-            this.get("expenses").push({
+            expenseDataSource.add({
                 date: kendo.toString(this.get("date"),"dd/MM/yyyy"),
                 projectCode: this.get("projectCode"),
                 expenseTypeId: this.get("expenseTypeId"),
@@ -85,8 +63,7 @@ var expenseForm = kendo.observable({
                 currency: this.get("currency").get("currency"),
                 rate: this.get("currency").get("rate"),
                 remarks: this.get("remarks"),
-                expenseLocationId: this.get("expenseLocationId"),
-                expenseId: this.get("expenses").length //Id voor ophalen van expense bij overview
+                expenseLocationId: this.get("expenseLocationId")
             });
             //reset the form
             this.set("date",new Date());
@@ -100,6 +77,32 @@ var expenseForm = kendo.observable({
             EA.showError(validator.errors().concat(otherValidator.errors()));
     }
 
+});
+
+var expenseDataSource = new kendo.data.DataSource({
+    data: [
+        {
+            date: kendo.toString(new Date(),"dd/MM/yyyy"),
+            amount: 50,
+            currency: "EUR",
+            rate: 1,
+            expenseId: 0,
+            remarks: "test",
+            expenseTypeId: 5,
+            projectCode: "GZ0565",
+            expenseLocationId: 1
+        },
+        {
+            date: kendo.toString(new Date(),"dd/MM/yyyy"),
+            amount: 100,
+            currency: "USD",
+            rate: 1.5,
+            expenseId: 1,
+            remarks: "test",
+            expenseTypeId: 1,
+            projectCode: "GZ0565",
+            expenseLocationId: 2
+        }]
 });
 
 function submitExpense(){
@@ -117,10 +120,13 @@ function convertCurrencyToEuro(curr,value,rate){
     }
 }
 
+/*
+* The expense viewed as detail expense in overview
+*/
 var expenseMV = kendo.observable();
 
 function showExpenseDetail(e) {
-    var expense = expenseForm.expenses[e.view.params.expenseId];
+    var expense = expenseDataSource.getByUid(e.view.params.expenseId);
     var listviews = this.element.find("ul.km-listview");
     $("#overview-location-button").kendoMobileButtonGroup({
         select: function(e) {

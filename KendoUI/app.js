@@ -97,7 +97,7 @@ function yourInfoViewInit(){
 
 
 function overviewInit(){
-    var expenseDataSource = new kendo.data.DataSource.create({data: expenseForm.get("expenses")});
+    //var expenseDataSource = new kendo.data.DataSource.create({data: expenseForm.get("expenses")});
     $("#overview-list").kendoMobileListView({
         dataSource: expenseDataSource,
         template: $("#overview-template").text()

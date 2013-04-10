@@ -258,7 +258,7 @@
 
 <!--TEMPLATES -->
 <script id="overview-template" type="text/x-kendo-template">
-    <a data-role="listview-link" href= #="\"" + "\#detail-expense?expenseId="+expenseId+"\"" # >
+    <a data-role="listview-link" href= #="\"" + "\#detail-expense?expenseId="+uid+"\"" # >
     Date: <span data-bind="text: date" style="margin-right: 60px">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</span>
     Amount: #= convertCurrencyToEuro(currency,amount,rate) # EURO
     </a>

@@ -94,37 +94,7 @@ function convertCurrencyToEuro(curr,value){
         return newAmount;
     }
 
-}
-
-/*function encodeCurrency(record) {
-    if(record.get('encoded')!= true){
-        var currencies = Ext.getStore('currencystore').queryBy(
-                function(testRecord, id) {
-                    return testRecord.get('currency') == record.get('currency');
-                }).first();
-        if (currencies == undefined)
-            return record.get('amount');
-        var newAmount = record.get('amount') / currencies.get('rate');
-        newAmount = Math.round(newAmount*100)/100;
-        record.set('amount', newAmount);
-        record.set('encoded', true);
-    }
 };
-
-function decodeCurrency(record) {
-    if(record.get('encoded')==true){
-        var currencies = Ext.getStore('currencystore').queryBy(
-            function(testRecord, id) {
-                return testRecord.get('currency') == record.get('currency');
-            }).first();
-        if (currencies == undefined)
-            return record.get('amount');
-        var newAmount = record.get('amount') * currencies.get('rate');
-        newAmount = Math.round(newAmount*100)/100;
-        record.set('amount', newAmount);
-        record.set('encoded', false);
-    }
-};*/
 
 // HOTEL(1), LUNCH(2), DINER(3), TICKET(4), RESTAURANT(5), OTHER(6);
 function typeId(v, record) {

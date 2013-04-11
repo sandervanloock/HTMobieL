@@ -173,6 +173,7 @@ Ext.define('Expense.controller.ExpenseController', {
         var field = this.getSignfield().getValues();
         var expenseForm =  getExpenseForm();
         if(!Ext.isEmpty(Ext.getCmp('signature').getValue())){
+            expenseForm.set('id',Math.floor(Math.random()*1000));
             expenseForm.set('date',new Date()); //TODO volgens POC
             expenseForm.set('employeeId', getEmployee().get('id'));
             expenseForm.set('signature' ,Ext.getCmp('signature').getValue());
@@ -214,11 +215,15 @@ Ext.define('Expense.controller.ExpenseController', {
                      });
                      //clear expenses and expenseform
                      var expensestore = Ext.getStore('expensestore');
+                     expensestore.removeAll();
                      expensestore.getProxy().clear(); //BUG indicated @ http://docs.sencha.com/touch/2-1/#!/api/Ext.data.Store-method-removeAll
                      expensestore.sync();
+                     expenseForm.reset(); //force reset of the form
+                     //doesn't work Ext.getCmp('signature').reset();
                      Ext.getStore('expenseformstore').removeAll();
                  },
                  failure: function(response, opts) {
+                     Ext.Viewport.setMasked(false);
                      Ext.Msg.show({
                          title: 'Save Expense',
                          message: 'You are currently offline,  your expense will be saved,  please come back later to resend your expense',
@@ -229,8 +234,7 @@ Ext.define('Expense.controller.ExpenseController', {
              });
             Ext.getCmp('signature').removeCls('x-field-custom-error');
             Ext.Viewport.setActiveItem(Ext.getCmp('home'));
-            expenseForm.reset(); //force reset of the form
-            Ext.getCmp('signature').reset();
+            Ext.getStore('expenseformstore').removeAll();
         } else { //validation error
             //can't use build in validation because of singfield plugin can't have a name!
             message = 'A signature must be present';
@@ -243,21 +247,38 @@ Ext.define('Expense.controller.ExpenseController', {
             });
         }
     },
-
     onFileUploadAbroadSuccess: function(dataurl, e) {
         console.log('Abroad file loaded');
-
+        Ext.getCmp('abroadexpense').getComponent('loadedImageAbroad').show();
         var me = this;
         var image = me.getLoadedImageAbroad();
         image.setSrc(dataurl);
+        if(image.getSrc().length > 722328){
+            Ext.Msg.show({
+                title: 'Error',
+                message: "The selected image is above the preferred limit (2 MP) <br> Please select another one!",
+                width: 300,
+                buttons: Ext.MessageBox.OK
+            });
+            Ext.getCmp('abroadexpense').getComponent('loadedImageAbroad').hide();
+        }
     },
 
     onFileUploadDomesticSuccess: function(dataurl, e) {
         console.log('Domestic file loaded');
-
+        Ext.getCmp('domesticexpense').getComponent('loadedImageDomestic').show();
         var me = this;
         var image = me.getLoadedImageDomestic();
         image.setSrc(dataurl);
+        if(image.getSrc().length > 722328){
+            Ext.Msg.show({
+                title: 'Error',
+                message: "The selected image is above the preferred limit (2 MP) <br> Please select another one!",
+                width: 300,
+                buttons: Ext.MessageBox.OK
+            });
+            Ext.getCmp('domesticexpense').getComponent('loadedImageDomestic').hide();
+        }
     },
 
     onFileUploadFailure: function() {
@@ -279,5 +300,8 @@ function addImage(source, destinationCmp, newId){
 };
 
 function removeBase64prefix(image){
-    return image.substr(image.indexOf(",")+1,image.length-image.indexOf(","));
+    if(image!=null)
+        return image.substr(image.indexOf(",")+1,image.length-image.indexOf(","));
+    else
+        return "";
 };

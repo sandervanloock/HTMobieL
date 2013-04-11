@@ -54,6 +54,7 @@ Ext.define('Expense.controller.LoginController', {
                     password: fields.password
                 },
                 success : function(response, opts) {
+                    Ext.Viewport.setMasked(false);
                     if(response.responseText.length <= 0){
                         Ext.Msg.show({
                             title: 'Error',
@@ -68,6 +69,7 @@ Ext.define('Expense.controller.LoginController', {
                 },
                 failure: function(response, opts) {
                     console.log('server-side failure with status code ' + response.status);
+                    Ext.Viewport.setMasked(false);
                 }
             });
 

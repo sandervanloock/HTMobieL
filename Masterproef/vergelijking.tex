@@ -40,12 +40,13 @@ De score van performantie zal deels bepaald worden door de laadtijden van de POC
 \label{sec:vergelijking-gemeenschap}
 De gemeenschap en populariteit van een raamwerk is makkelijk in cijfers uit te drukken. 
 We voorzien een tabel waar we per raamwerk het aantal volgers op Twitter, watchers/forkers van GitHub en aantal likes van Facebook zullen onderbrengen~\cite{Sarrafi2012a,Ayuso2012}. 
+%github nul geven als het niet beschikbaar is => verantwoorden dat het open source is
 Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal voor elk raamwerk na deze tabel worden toegevoegd.
-%TODO zoals bij onze presentatie gezegd:  ook cijfers per tijd bekijken?
+%TODO zoals bij onze presentatie gezegd:  ook cijfers per tijd bekijken OK
 \paragraph{}
-De som van Twitter volgers($T_f$), GitHub watchers($G_f$) en Facebook likes($F_f$) vormt de score voor het gemeenschapscriteria:
-\begin{equation}
-  G_f={T_f+G_f+F_f}
+De som van Twitter volgers($T_f$), GitHub sterren($G_s$), GitHub forkers ($G_f$), Stackoverflow vragen ($G_{so}$) en Facebook likes($F_f$) vormt de score voor het gemeenschapscriteria:
+\begin{equation} %TODO aanpassen
+  G_f={T_f+G_s+G_f+G_{so}+F_f}
   \label{eq:gemeenschap}
 \end{equation}
 met $f$ de verschillende raamwerken.
@@ -137,18 +138,18 @@ Ook bekijken we of de \term{native look-and-feel} per besturingssysteem door het
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{llll}
+  \begin{tabular}{lllll}
     \toprule
-    \textbf{Toestel} & \textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Marktwaarde}\\
+    \textbf{Toestel} & \textbf{Soort} &\textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Marktwaarde}\\
     \midrule
-    HTCDesireZ & Android 2.3.3 &  & \\
-    GalaxyTab & Android 2.3.6 &  & \\
-    Galaxy Gio & Android 2.3.6 &  & \\
-    Galaxy Ace 2 & Android 2.3.6 &  & \\
-    GalaxySII & Android 4.1.2 &  & \\
-    Nexus 7 & Android 4.2.1  &  & \\
-    iPad3 4GWiFi & iOS 6.0.1 &  & \\
-    iPhone 3GS & iOS 6.0.1 &  & \\
+    HTCDesireZ & & Android 2.3.3 &  & \\
+    GalaxyTab & & Android 2.3.6 &  & \\
+    Galaxy Gio & & Android 2.3.6 &  & \\
+    Galaxy Ace 2 & & Android 2.3.6 &  & \\
+    GalaxySII & & Android 4.1.2 &  & \\
+    Nexus 7 & &Android 4.2.1  &  & \\
+    iPad3 4GWiFi & & iOS 6.0.1 &  & \\
+    iPhone 3GS & & iOS 6.0.1 &  & \\
     \bottomrule
   \end{tabular}
   \caption{Beschikbare toestellen met hun besturingssysteem, browser en gewicht}

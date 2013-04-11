@@ -1,15 +1,73 @@
 \chapter{Vergelijking}
 \label{chap:vergelijking}
 
-In dit hoofdstuk bekijken we hoe we de mobiele HTML5 raamwerken vergelijken.
-Hoofdzakelijk zullen we dit doen aan de hand van een \term{proof of concept} (POC).
+Dit hoofdstuk bekijkt hoe de mobiele HTML5 raamwerken zullen worden vergeleken.
+Hoofdzakelijk zal dit gebeuren aan de hand van een \term{proof of concept} (POC).
 Deze wordt geïntroduceerd in sectie \ref{sec:vergelijking-poc} en zal hoofdzakelijk de gekozen vergelijkingscriteria in sectie \ref{sec:vergelijking-criteria} drijven.
 
 
 \section{POC} % TIM (iets van 2 bladzijden)
 \label{sec:vergelijking-poc}
-In samenspraak met Capgemini werd gekozen voor een applicatie die het mogelijk maakt voor werknemers om hun onkosten via hun mobiel apparaat door te sturen.
-Een werknemer kan een foto nemen met de camera 
+In sectie \ref{sec:vergelijking-poc-idee} wordt het idee van de gekozen POC besproken, waarna in sectie \ref{sec:vergelijking-poc-detail} dieper wordt ingegaan op de aspecten van de gekozen POC.
+
+\subsection{Idee}
+\label{sec:vergelijking-poc-idee}
+
+In samenspraak met Capgemini werd gekozen om een POC op te stellen.
+Dit is een idee waarbij de uitvoerbaarheid in de verschillende raamwerken kan worden nagegaan.
+Verschillende vergaderingen werden georganiseerd om tot een idee te komen dat vooral in de bedrijfswereld van toepassing is.
+Het uiteindelijke idee is een applicatie die het mogelijk maakt voor werknemers om hun onkosten via hun mobiel apparaat door te sturen.
+
+Het idee werd uitgewerkt door Capgemini en geleverd aan de auteurs als \term{mockup}.
+Dit is een voorstelling van de applicatie als een reeks schermen zoals deze er zouden uitzien op een apparaat. 
+Een voorbeeld van zo een scherm is te vinden op figuur~\ref{fig:poc}. 
+De bedoeling is dat deze POC wordt uitgewerkt zowel voor smartphone als tablet, zowel voor Android als iOS, zowel voor staande als liggende apparaten en zowel voor online als offline gebruik.
+
+\begin{figure}
+  \centering
+  \includegraphics[trim=0cm 4cm 0cm 1.25cm,clip=true,height=7.5cm]{figuren/poc.pdf}
+  \caption{POC bij het toevoegen van een nieuwe onkost met aan de linkerkant de weergave op een tablet en aan de rechterkant deze op een smartphone.}
+  \label{fig:poc}
+\end{figure}
+
+\subsection{Aspecten}
+\label{sec:vergelijking-poc-detail}
+
+Een werknemer meldt zich eerst aan op de applicatie en kan daarna ofwel een nieuw onkostenformulier aanmaken of zijn doorgestuurde onkostenformulieren bekijken.
+De term onkostenformulier is een groepering van meerdere onkosten met bijhorende bewijsstukken en de handtekening van de werknemer. 
+Het aanmaken van een nieuw onkostenformulier verloopt in vier stappen.
+Indien de werknemer al eerder begonnen was met het aanmaken van een formulier, zal hij worden gevraagd of hij verder wil gaan met dat formulier of met een nieuw formulier wil starten.
+
+\begin{enumerate}
+\item De eerste stap is het bekijken en/of aanpassen van zijn persoonlijke informatie.
+Bij het aanpassen van deze gegevens, zullen deze worden gevalideerd.
+Indien deze validatie faalt, krijg de werknemer een dialoogvenster te zien met de reden tot falen.
+Ook worden de foute velden rood gemarkeerd.
+
+
+\item In de tweede stap kan hij zijn toegevoegde onkosten aan het formulier bekijken.
+In het begin is deze lijst leeg, tenzij hij eerder een formulier aan het invullen was (zie infra).
+Indien deze lijst onkosten bevat, is het mogelijk om hierop te klikken en deze te bekijken. Aanpassen is niet meer mogelijk.
+
+\item In stap drie kan een nieuwe onkost worden toegevoegd.
+Dit kan ofwel een binnenlandse of buitenlandse onkost zijn.
+Voor beide dient een datum en projectcode te worden opgegeven.
+De eerstgenoemde is een \term{datepicker} die teruggaat tot twee maanden in de tijd.
+De laatstgenoemde bevat automatische aanvulling, maar de werknemer is niet verplicht om een projectcode uit de aanvulling te selecteren.
+Daarnaast dient het type en bedrag van de onkost, alsook een bewijsstuk te worden opgegeven.
+Bij een buitenlands onkost moet de munteenheid worden opgegeven, waarna de applicatie deze automatisch omvormt naar euro.
+Het scherm voor het toevoegen van een buitenlandse onkost wordt getoond op figuur \ref{fig:poc}. 
+Net zoals bij stap één geldt ook hier validatie op de formuliervelden.
+
+\item In deze laatste stap dient een handtekening te worden geplaatst waarna het formulier kan worden doorgestuurd.
+Indien de gebruiker offline werkt, zal deze worden opgeslaan op het toestel.
+De werknemer kan als hij terug online is, het formulier opnieuw doorsturen.
+Indien de werknemer online is, maar toch nog wil wachten om het formulier door te sturen, kan hij de applicatie afsluiten en later verder gaan met het formulier.
+
+\end{enumerate}
+
+Bij het bekijken van de doorgestuurde formulieren is het mogelijk om per formulier de bijhorende PDF te downloaden. 
+Deze bevat een overzicht van de onkosten met bijhorende bewijsstukken, alsook de handtekening van de werknemer.
 
 \section{Vergelijkingscriteria} % SANDER (iets van 2x de bloglengte)
 \label{sec:vergelijking-criteria}

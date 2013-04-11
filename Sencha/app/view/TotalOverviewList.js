@@ -27,7 +27,25 @@ Ext.define('Expense.view.TotalOverviewList', {
                 }
             ]
         }],
-        itemTpl: '<div>{date:date("d/m/Y")} &mdash; <small> Status {[getStringStatusId(values.statusId)]}</small></div>'
+        itemTpl: ['<div>{date:date("d/m/Y")} &mdash; <small> Status {[this.getStringStatusId(values.statusId)]}</small></div>',
+            {
+                getStringStatusId: function(id){
+                    switch (id) {
+                    case 1    :
+                        return 'New';
+                    case 2:
+                        return 'Verified';
+                    case 3:
+                        return 'Approved';
+                    case 4:
+                        return 'Paidout';
+                    case 5:
+                        return 'Disapproved';
+                    default:
+                        return 'Unknown status';
+                    }
+                }
+            }]
     }
 
 });

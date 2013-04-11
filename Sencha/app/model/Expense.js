@@ -81,21 +81,6 @@ Ext.define('Expense.model.Expense', {
 	}
 });
 
-function convertCurrencyToEuro(curr,value){
-    if(curr=="EUR")
-        return value;
-    else{
-        var currencies = Ext.getStore('currencystore').queryBy(
-            function(testRecord, id) {
-                return testRecord.get('currency') == curr;
-            }).first();
-        var newAmount = value / currencies.get('rate');
-        newAmount = Math.round(newAmount*100)/100;
-        return newAmount;
-    }
-
-};
-
 // HOTEL(1), LUNCH(2), DINER(3), TICKET(4), RESTAURANT(5), OTHER(6);
 function typeId(v, record) {
 	if (typeof (v) == 'string' && v.length>1)

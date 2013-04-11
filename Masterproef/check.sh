@@ -1,6 +1,6 @@
 #!/bin/sh
 #regexp="\b\(we\|men\|je\)\b"
-regexp="^[^%].*\b\(we\|men\|je\)\b"
+regexp="^[^%].*\b\(we\|men\|je\|framework\)\b"
 #regexp="%.*\b\(we\|men\|je\)\b"
 total=0
 

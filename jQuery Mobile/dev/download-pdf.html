@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../js/vendor/jquery-1.9.1.min.js"></script>
+    <script>
+        var baseURL = "http://localhost:8888/";
+        //var baseURL = "http://kulcapexpenseapp.appspot.com/";
+        $(document).ready(function () {
+            console.log("logging in");
+            // log in first to get the token
+            $.ajax({
+                type: "POST",
+                dataType: "html",
+                url: baseURL + "resources/userService/login",
+                data: {
+                    'email': "tim.ameye@student.kuleuven.be",
+                    'password': "test123"
+                },
+                success: function (token) {
+
+                    var $hiddenForm = $('#my-expenses-form');
+
+                    var url = baseURL + "resources/expenseService/getExpenseFormPDF";
+                    $hiddenForm[0].setAttribute('action', url);
+
+                    var id = prompt("Please enter the id:");
+
+                    $("#my-expenses-token").val(token);
+                    $("#my-expenses-form-id").val(id);
+
+                    $hiddenForm.submit();
+
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<form id="my-expenses-form" method="post">
+    <input type="hidden" name="token" id="my-expenses-token">
+    <input type="hidden" name="expenseFormId" id="my-expenses-form-id">
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../js/vendor/jquery-1.9.1.min.js"></script>
+    <script>
+        //var baseURL = "http://localhost:8888/";
+        var baseURL = "http://kulcapexpenseapp.appspot.com/";
+        $(document).ready(function () {
+            console.log("logging in");
+            // log in first to get the token
+            $.ajax({
+                type: "POST",
+                dataType: "html",
+                url: baseURL + "resources/userService/login",
+                data: {
+                    'email': "jan.verhulst@capgemini.com",
+                    'password': "test123"
+                },
+                success: function (token) {
+                    console.log("clearing expenses");
+                    $.ajax({
+                        type: "POST",
+                        url: baseURL + "resources/expenseService/clearExpenses",
+                        data: {
+                            token: token,
+                            employeeId: 109016
+                        },
+                        success: function () {
+                            alert("Expenses deleted");
+                        },
+                        error: function () {
+                            alert("Could not send expense to server");
+                        }
+                    });
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ Hoofdzakelijk zal dit gebeuren aan de hand van een \term{proof of concept} (POC)
 Deze wordt geïntroduceerd in sectie \ref{sec:vergelijking-poc} en zal hoofdzakelijk de gekozen vergelijkingscriteria in sectie \ref{sec:vergelijking-criteria} drijven.
 
 
-\section{POC} % TIM (iets van 2 bladzijden)
+\section{POC}
 \label{sec:vergelijking-poc}
 In sectie \ref{sec:vergelijking-poc-idee} wordt het idee van de gekozen POC besproken, waarna in sectie \ref{sec:vergelijking-poc-detail} dieper wordt ingegaan op de aspecten van de gekozen POC.
 
@@ -44,10 +44,9 @@ Bij het aanpassen van deze gegevens, zullen deze worden gevalideerd.
 Indien deze validatie faalt, krijg de werknemer een dialoogvenster te zien met de reden tot falen.
 Ook worden de foute velden rood gemarkeerd.
 
-
 \item In de tweede stap kan hij zijn toegevoegde onkosten aan het formulier bekijken.
 In het begin is deze lijst leeg, tenzij hij eerder een formulier aan het invullen was (zie infra).
-Indien deze lijst onkosten bevat, is het mogelijk om hierop te klikken en deze te bekijken. Aanpassen is niet meer mogelijk.
+Indien deze lijst onkosten bevat, is het mogelijk om hierop te klikken en deze te bekijken. Aanpassen is niet mogelijk.
 
 \item In stap drie kan een nieuwe onkost worden toegevoegd.
 Dit kan ofwel een binnenlandse of buitenlandse onkost zijn.
@@ -60,7 +59,7 @@ Het scherm voor het toevoegen van een buitenlandse onkost wordt getoond op figuu
 Net zoals bij stap één geldt ook hier validatie op de formuliervelden.
 
 \item In deze laatste stap dient een handtekening te worden geplaatst waarna het formulier kan worden doorgestuurd.
-Indien de gebruiker offline werkt, zal deze worden opgeslaan op het toestel.
+Indien de gebruiker offline werkt, zal deze worden opgeslagen op het toestel.
 De werknemer kan als hij terug online is, het formulier opnieuw doorsturen.
 Indien de werknemer online is, maar toch nog wil wachten om het formulier door te sturen, kan hij de applicatie afsluiten en later verder gaan met het formulier.
 
@@ -69,18 +68,22 @@ Indien de werknemer online is, maar toch nog wil wachten om het formulier door t
 Bij het bekijken van de doorgestuurde formulieren is het mogelijk om per formulier de bijhorende PDF te downloaden. 
 Deze bevat een overzicht van de onkosten met bijhorende bewijsstukken, alsook de handtekening van de werknemer.
 
-\section{Vergelijkingscriteria} % SANDER (iets van 2x de bloglengte)
+\section{Vergelijkingscriteria}
 \label{sec:vergelijking-criteria}
 
-In deze sectie zullen we de criteria toelichten die we zullen toepassen om raamwerken te vergelijken.
+% TODO zeggen WAAROM we deze criteria hebben gekozen en niet de andere, WAAROM de onze 'beter' zijn, WAAROM we reeds bestaande hebben genomen tezamen met nieuwe, …
+
+In deze sectie zullen we de criteria toelichten die we zullen toepassen om de raamwerken te vergelijken.
 In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die in de literatuur worden toegepast.
 Elementen van deze technieken zullen terugkomen in onze methode om de raamwerken te evalueren.
 
-Vijf grote criteria zullen gebruikt worden:  omkadering(\ref{sec:vergelijking-gemeenschap}), productiviteit(\ref{sec:vergelijking-gemeenschap}), gebruik(\ref{sec:vergelijking-gemeenschap}), ondersteuning(\ref{sec:vergelijking-gemeenschap}) en performantie(\ref{sec:vergelijking-gemeenschap}). Elk raamwerk krijgt voor elk criterum een score. 
+Vijf grote criteria zullen gebruikt worden:  gemeenschap (\ref{sec:vergelijking-gemeenschap}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
+Elk raamwerk krijgt voor elk criterium een score. 
 Deze scores zullen in een \term{spiderweb} worden ondergebracht.  
 Dit is een grafiek met vijf dimensies,  de criteria,     waar elke score in de overeenkomstige as met relatieve schaal wordt geplot.
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
-De implementatie van deze POC zal het productiviteit-, gebruik- en ondersteuningcriterium drijven.  
+De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuningscriterium drijven.  
+Dit komt omdat de auteurs ervan uitgaan dat de POC voldoende verschillende functionaliteit bevat om een goeie vergelijking te kunnen maken.
 De score van performantie zal deels bepaald worden door de laadtijden van de POC.
 
 %Niet bekeken criteria:
@@ -93,16 +96,17 @@ De score van performantie zal deels bepaald worden door de laadtijden van de POC
 % Bibliotheken waar het raamwerk op steunt
 % De tools die de programmeur kan gebruiken om sneller te ontwikkelen
 
-
 \subsection{Gemeenschap}
 \label{sec:vergelijking-gemeenschap}
+% 'makkelijk'
 De gemeenschap en populariteit van een raamwerk is makkelijk in cijfers uit te drukken. 
 We voorzien een tabel waar we per raamwerk het aantal volgers op Twitter, watchers/forkers van GitHub en aantal likes van Facebook zullen onderbrengen~\cite{Sarrafi2012a,Ayuso2012}. 
 %github nul geven als het niet beschikbaar is => verantwoorden dat het open source is
 Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal voor elk raamwerk na deze tabel worden toegevoegd.
 %TODO zoals bij onze presentatie gezegd:  ook cijfers per tijd bekijken OK
-\paragraph{}
-De som van Twitter volgers($T_f$), GitHub sterren($G_s$), GitHub forkers ($G_f$), Stackoverflow vragen ($G_{so}$) en Facebook likes($F_f$) vormt de score voor het gemeenschapscriteria:
+%TODO nederlandse letters gebruiken, dus T_v voor Twitter volgers, r ipv f voor raamwerk, ...
+
+De som van Twitter volgers ($T_f$), GitHub sterren ($G_s$), GitHub forkers ($G_f$), Stack Overflow vragen ($G_{so}$) en Facebook likes ($F_f$) vormt de score voor het gemeenschapscriteria:
 \begin{equation} %TODO aanpassen
   G_f={T_f+G_s+G_f+G_{so}+F_f}
   \label{eq:gemeenschap}
@@ -113,10 +117,11 @@ met $f$ de verschillende raamwerken.
 \label{sec:vergelijking-productiviteit}
 De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwerk vertrouwd te raken. 
 %TODO assumptie:  beide gemeensch achtergrond
+%TODO de auteurs
 Twee personen met een gemeenschappelijke achtergrond zullen het raamwerk testen met een implementatie.
 Elk zullen ze de POC en een extra loginscherm maken in vier verschillende raamwerken maken.
 Persoon $1$ maakt de POC in raamwerk $A$ en $B$ en het loginscherm in $C$ en $D$.
-Persoon $2$ zal den de POC in raamwerk $C$ en $D$ maken en de loginschermen in $A$ en $B$.
+Persoon $2$ zal dan de POC in raamwerk $C$ en $D$ maken en de loginschermen in $A$ en $B$.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
 De implementatie van het loginscherm is een extra test.
 Dit scherm bevat UI-elementen, validaties en \term{backend} integratie en kan dit dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
@@ -124,7 +129,7 @@ Het zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raam
 %Ook zullen beide een loginscherm maken in de andere twee raamwerken~\cite{Burris}. 
 %We  
 De tijd die ieder nodig heeft om dit scherm te bouwen, geeft ook een indicatie van de nodige leertijd.
-\paragraph{}
+%TODO r ipv f voor raamwerken
 De som van de uren voor het implementeren van de POC ($t_{f,POC}$) en het loginscherm ($t_{f,login}$) vormt de score voor de productiviteit:
 \begin{equation}
   Pr_f = {t_{f,POC} + t_{f,login}}
@@ -135,27 +140,29 @@ waar $f$ de verschillende raamwerken voorstellen.
 \subsection{Gebruik}
 \label{sec:vergelijking-gebruik}
 % Om het verschil in gebruik van de raamwerken te onderzoeken, zullen we steunen op de logboeken die we hebben bijgehouden tijdens het implementeren van de POC. 
+
+% TODO: ik zou onderstaande zin uit gebruik trekken, is ook relevant voor productiviteit en ondersteuning
 Men kan ervan uitgaat dat de POC alle relevante kenmerken bevat om de raamwerken zoveel mogelijk uit te buiten. 
 Deze POC kan onderverdeeld worden in verschillende deelproblemen.
 Deze deelproblemen worden als uitdaging aan het raamwerk voorgelegd.
 De wijze waarop het raamwerk de uitdaging aangaat zal tot een score voor de uitdaging leiden.
 In totaal onderscheiden we drie gevallen.
-Een hogere score wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. 
-Een lagere score betekent dat een plugin werd gezocht. 
-Wanneer een hack noodzakelijk was om de functionaliteit te beogen, zal de laagste score worden toegekend.
+De hoogste score wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. 
+Een lagere score betekent dat een plug-in werd gezocht. 
+Wanneer de code voor het overgrote deel zelf diende geschreven te worden of een hack noodzakelijk was, zal de laagste score worden toegekend.
 Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $S_{f,i}$ van raamwerk $f$ en voor uitdaging $i$.
 \begin{table}[h]	
   \centering
   \begin{tabular}{ll}
     \toprule
-    \textbf{Score} & \textbf{Assessment criteria}\\
+    \textbf{Score} & \textbf{Beoordelingscriteria}\\
     \midrule
-    $S_{f,i} = 2$ & Ondersteund door het raamwerkk\\
-    $S_{f,i} = 1$ & Een plugin is nodig\\
+    $S_{f,i} = 2$ & Ondersteund door het raamwerk\\
+    $S_{f,i} = 1$ & Een plug-in is nodig\\
     $S_{f,i} = 0$ & Eigen implementatie of hack\\
     \bottomrule
   \end{tabular}
-  \caption{Beoordeling uitdagingen gebruikcriterium}
+  \caption{Beoordeling uitdagingen gebruikscriterium}
   \label{tabel:scores-uitdagingen}
 \end{table}
 \begin{equation}
@@ -169,9 +176,10 @@ met $f$ de verschillende raamwerken en $i$ het aantal uitdagingen.
 \subsection{Ondersteuning}
 \label{sec:vergelijking-ondersteuning}
 Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen met hun verschillende besturingssystemen ondersteund.
-Enkel de standaard browser van het BS (Android browser/Chrome en Safari) zullen beschouwd worden.
+% TODO: duidelijker uitleggen hoe dat zit met browser en OS, nu veel te kort tussen haakjes aangehaald
+Enkel de standaard browser van het BS (Android browser/Chrome en Safari) zal beschouwd worden.
 We spreken van een \term{context} als we één bepaalde configuratie van toestel, BS en browser bedoelen.
-Alle uitdagingen die gebruikt zijn om het gebruikcriterium te testen komen ook hier van pas.
+Alle uitdagingen die gebruikt zijn om het gebruikscriterium te testen, komen ook hier van pas.
 In elke context zullen de $13$ uitdagingen testen die we in vorige sectie hebben opgesteld.
 De correcte weergave en uitvoering van elke uitdaging binnen een context bepalen de score voor die context.
 Deze score kan enkel $0$ of $1$ zijn respectievelijk een probleem of correcte uitvoering.
@@ -179,19 +187,18 @@ Per context brengen we ook de marktwaarde van het toestel in rekening om de mees
 In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
 
 De gewogen som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
-\paragraph{}
 \begin{equation}
   O_f = \sum_{d=1}^{8}{\left(\sum_{i=1}^{13}S_{f,i}*W_d\right)}
   \label{eq:ondersteuning}
 \end{equation}
 met $f$ de verschillende raamwerken,  $d$ de verschillende toestellen en $i$ de uitdagingen. 
-\paragraph{}
 % We zullen een scenario uitwerken waarbij we het gebruik van de POC doorlopen. 
 % Dit scenario zullen we op een reeks van verschillende mobiele apparaten herhalen~\cite{Sarrafi2012a}. 
 % Bij het mislukken van een stap in het scenario, zal een punt worden afgetrokken. 
 % Hierdoor kunnen we een score bekomen hoe goed de applicatie, geïmplementeerd in een bepaald raamwerk, scoort op een bepaald apparaat. 
 %De gebruikte apparaten araten aan het departement HCI.
 Een kanttekening bij dit criterium is of het raamwerk ondersteunt de webapplicatie om te vormen tot een \term{native} applicatie. 
+% TODO nog eens uitleggen war we met native look-and-feel bedoelen
 Ook bekijken we of de \term{native look-and-feel} per besturingssysteem door het raamwerk kan worden benaderd.
 
 \begin{table}[h]
@@ -233,7 +240,7 @@ De redenen waarom deze geïsoleerde applicatie wordt gebruiken is omdat men erva
 Dit is in tegenstelling tot dit scherm, waarbij we exact het aantal lijnen cod een bijhorende performantie kunnen vergelijken.
 
 De formule voor het performantiecriterium wordt dan: 
-\paragraph{}
+
 \begin{equation}
   Pe_f=r_{f,POC}+r_{f,AJAX}+r_{f,UI}+r_{f,login} 
   \label{eq:performantie}

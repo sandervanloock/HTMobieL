@@ -102,12 +102,12 @@ We voorzien een tabel waar we per raamwerk het aantal volgers op Twitter, watche
 Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal voor elk raamwerk na deze tabel worden toegevoegd.
 %TODO zoals bij onze presentatie gezegd:  ook cijfers per tijd bekijken OK
 \paragraph{}
-De som van Twitter volgers($T_f$), GitHub sterren($G_s$), GitHub forkers ($G_f$), Stackoverflow vragen ($G_{so}$) en Facebook likes($F_f$) vormt de score voor het gemeenschapscriteria:
-\begin{equation} %TODO aanpassen
-  G_f={T_f+G_s+G_f+G_{so}+F_f}
+De som van Twitter volgers($T_r$), GitHub sterren($S_r$), GitHub forkers ($F_r$), Stackoverflow vragen ($SO_r$) en Facebook likes($F_r$) vormt de score voor het gemeenschapscriteria:
+\begin{equation}
+  G_r=T_r+S_r+F_r+SO_r+F_r
   \label{eq:gemeenschap}
 \end{equation}
-met $f$ de verschillende raamwerken.
+met $r$ de verschillende raamwerken.
 
 \subsection{Productiviteit}
 \label{sec:vergelijking-productiviteit}
@@ -125,12 +125,12 @@ Het zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raam
 %We  
 De tijd die ieder nodig heeft om dit scherm te bouwen, geeft ook een indicatie van de nodige leertijd.
 \paragraph{}
-De som van de uren voor het implementeren van de POC ($t_{f,POC}$) en het loginscherm ($t_{f,login}$) vormt de score voor de productiviteit:
+De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en het loginscherm ($t_{r,login}$) vormt de score voor de productiviteit:
 \begin{equation}
-  Pr_f = {t_{f,POC} + t_{f,login}}
+  Pr_r = {t_{r,POC} + t_{r,login}}
   \label{eq:productiviteit}
 \end{equation}
-waar $f$ de verschillende raamwerken voorstellen.
+waar $r$ de verschillende raamwerken voorstellen.
 
 \subsection{Gebruik}
 \label{sec:vergelijking-gebruik}
@@ -143,26 +143,26 @@ In totaal onderscheiden we drie gevallen.
 Een hogere score wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. 
 Een lagere score betekent dat een plugin werd gezocht. 
 Wanneer een hack noodzakelijk was om de functionaliteit te beogen, zal de laagste score worden toegekend.
-Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $S_{f,i}$ van raamwerk $f$ en voor uitdaging $i$.
+Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $S_{r,i}$ van raamwerk $r$ en voor uitdaging $i$.
 \begin{table}[h]	
   \centering
   \begin{tabular}{ll}
     \toprule
     \textbf{Score} & \textbf{Assessment criteria}\\
     \midrule
-    $S_{f,i} = 2$ & Ondersteund door het raamwerkk\\
-    $S_{f,i} = 1$ & Een plugin is nodig\\
-    $S_{f,i} = 0$ & Eigen implementatie of hack\\
+    $S_{r,i} = 2$ & Ondersteund door het raamwerkk\\
+    $S_{r,i} = 1$ & Een plugin is nodig\\
+    $S_{r,i} = 0$ & Eigen implementatie of hack\\
     \bottomrule
   \end{tabular}
   \caption{Beoordeling uitdagingen gebruikcriterium}
   \label{tabel:scores-uitdagingen}
 \end{table}
 \begin{equation}
-  G_f = \sum_{i=1}^{13}{\left(S_{f,i}\right)}
+  G_r = \sum_{i=1}^{13}{\left(S_{r,i}\right)}
   \label{eq:gebruik}
 \end{equation}
-met $f$ de verschillende raamwerken en $i$ het aantal uitdagingen.
+met $r$ de verschillende raamwerken en $i$ het aantal uitdagingen.
 
 %TODO tabel met alle uitdagingen?
 
@@ -181,10 +181,10 @@ In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun mar
 De gewogen som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
 \paragraph{}
 \begin{equation}
-  O_f = \sum_{d=1}^{8}{\left(\sum_{i=1}^{13}S_{f,i}*W_d\right)}
+  O_r = \sum_{d=1}^{8}{\left(\sum_{i=1}^{13}S_{r,i}*W_d\right)}
   \label{eq:ondersteuning}
 \end{equation}
-met $f$ de verschillende raamwerken,  $d$ de verschillende toestellen en $i$ de uitdagingen. 
+met $r$ de verschillende raamwerken,  $d$ de verschillende toestellen en $i$ de uitdagingen. 
 \paragraph{}
 % We zullen een scenario uitwerken waarbij we het gebruik van de POC doorlopen. 
 % Dit scenario zullen we op een reeks van verschillende mobiele apparaten herhalen~\cite{Sarrafi2012a}. 
@@ -219,14 +219,14 @@ Ook bekijken we of de \term{native look-and-feel} per besturingssysteem door het
 Dit criterium zal de laattijden van het raamwerk in rekening brengen.
 De tijd die nodig is om één of meerder pagina's te laden zal bepaald worden met Google Page Speed~\cite{Morgan2011}. 
 Hiervoor zullen verschillende testen worden uitgevoerd. 
-Ten eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($r_{f,POC}$). 
-Daarnaast zullen geïsoleerde testen met het verzenden van een AJAX request uitgevoerd worden ($r_{f,AJAX}$).
+Ten eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($r_{r,POC}$). 
+Daarnaast zullen geïsoleerde testen met het verzenden van een AJAX request uitgevoerd worden ($r_{r,AJAX}$).
 Daar wordt het effect van het versturen van een OPTION \term{request} bekeken wanneer een verzoek naar een ander domeinen wordt gestuurd.
 %TODO exacte info tests + extra info CORS zoeken
 
 %Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend.
 Verder zijn er ook geïsoleerde testen met UI-elementen. 
-Hier zal een \term{dummy} pagina voorzien worden 1000 knoppen van het raamwerk en bepaalt Google Page Speed de laadtijd ($r_{f,UI}$). 
+Hier zal een \term{dummy} pagina voorzien worden 1000 knoppen van het raamwerk en bepaalt Google Page Speed de laadtijd ($r_{r,UI}$). 
 %TODO exacte UI tests hier uitleggen
 Als laatste zullen de loginschermen die in sectie \ref{sec:vergelijking-productiviteit} werden geïntroduceerd, worden gebruikt ($t_{r,login}$). 
 De redenen waarom deze geïsoleerde applicatie wordt gebruiken is omdat men ervan uit kan gaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
@@ -235,7 +235,7 @@ Dit is in tegenstelling tot dit scherm, waarbij we exact het aantal lijnen cod e
 De formule voor het performantiecriterium wordt dan: 
 \paragraph{}
 \begin{equation}
-  Pe_f=r_{f,POC}+r_{f,AJAX}+r_{f,UI}+r_{f,login} 
+  Pe_r=r_{r,POC}+r_{r,AJAX}+r_{r,UI}+r_{r,login} 
   \label{eq:performantie}
 \end{equation}
-met $f$ de verschillende raamwerken.
+met $r$ de verschillende raamwerken.

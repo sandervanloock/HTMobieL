@@ -1,6 +1,14 @@
 #!/bin/sh
-#regexp="\b\(we\|men\|je\)\b"
-regexp="^[^%].*\b\(we\|men\|je\|framework\|device\)\b"
-#regexp="%.*\b\(we\|men\|je\)\b"
 
-sh search.sh $regexp
+forbiddenWords=(we men je framework device plugin)
+unset regexp
+
+for w in ${forbiddenWords[@]};
+do
+    regexp="${regexp}${w}\|"
+done
+
+# delete last 2 characters and add brackets
+fullexp="\(${regexp%??}\)"
+#ignore comment lines in tex-files
+sh search.sh "^[^%].*\b\b$fullexp\b"

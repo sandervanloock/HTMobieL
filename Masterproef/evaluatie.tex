@@ -42,13 +42,13 @@ Anderzijds moest het ook mogelijk zijn om de gebruiker maar een bepaald bereik v
 Hierdoor werd gebruik gemaakt van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van jQuery Mobile. 
 Het veld heeft dan het type \code{text}. 
 Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
-Dit wordt belet door ook nog eens een datum validatie te doen op dit tekstveld mocht de plugin het al niet afgedwongen hebben.
+Dit wordt belet door ook nog eens een datum validatie te doen op dit tekstveld mocht de plug-in het al niet afgedwongen hebben.
 
 Het was ook nodig om enkel de maand en jaar in te geven. 
 Ook hier kon niet het \code{date} type gebruikt worden, omdat daar ook een dag voor nodig is. 
 Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
 De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
-Deze functionaliteit had ook met de Mobiscroll plugin kunnen worden verwezenlijkt.
+Deze functionaliteit had ook met de Mobiscroll plug-in kunnen worden verwezenlijkt.
 
 \subsubsection{Validatie}
 
@@ -58,28 +58,28 @@ Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruik
 Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. 
 Daarnaast was het ook nodig om de velden te valideren op hun waarde. 
 Validatie is echter niet standaard aanwezig in jQuery Mobile. 
-Als oplossing werd de plugin van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
-Deze plugin loste ook het probleem met de verplichte velden op. 
-Deze plugin kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS klassen ofwel anderzijds door programmatie met JavaScript. 
+Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
+Deze plug-in loste ook het probleem met de verplichte velden op. 
+Deze plug-in kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS klassen ofwel anderzijds door programmatie met JavaScript. 
 Beide aanpakken werden getest doorheen de POC. 
 
-De plugin bevatte de volgende ingebakken validatieregels nodig in de POC: \code{required}, \code{number}, \code{email} en \code{date}.
+De plug-in bevatte de volgende ingebakken validatieregels nodig in de POC: \code{required}, \code{number}, \code{email} en \code{date}.
 Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
-Zo'n afhankelijkheidsrelatie is standaard aanwezig in de plugin.
+Zo'n afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
 
 Bij fouten tegen validatie moest een dialoogvenster worden weergegeven met daarin een beschrijving van alle foute velden.
-Aangezien de plugin standaard onder het foute formulierveld een foutboodschap toont, diende de plugin  te worden aangepast.
-Door de uitgebreide API van de plugin die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
+Aangezien de plug-in standaard onder het foute formulierveld een foutboodschap toont, diende de plug-in  te worden aangepast.
+Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
 
-Een specifiek mobiel probleem was bij het tonen van het dialoogvenster, waarbij de plugin op de achtergrond de cursor op het eerste veld zette. 
+Een specifiek mobiel probleem was bij het tonen van het dialoogvenster, waarbij de plug-in op de achtergrond de cursor op het eerste veld zette. 
 Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
-Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plugin.
+Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
 
 Bij het sluiten van het dialoogvenster dienden de foute velden met een rode rand te worden gemarkeerd.
-Aangezien de validatie plugin de foute velden annoteert met de \code{error} CSS klasse, kon de rode rand in CSS worden geprogrammeerd. 
+Aangezien de validatie plug-in de foute velden annoteert met de \code{error} CSS klasse, kon de rode rand in CSS worden geprogrammeerd. 
 Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
 Door de extra code die jQuery Mobile genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
-Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plugin.
+Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
 
 \subsubsection{Opladen van bewijs}
 
@@ -101,11 +101,11 @@ Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
 \subsubsection{Handtekening}
 
 \paragraph{jQuery Mobile} 
-Er werd gezocht naar een plugin om deze functionaliteit te bekomen, doordat jQuery Mobile dit niet standaard aanbiedt. 
+Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat jQuery Mobile dit niet standaard aanbiedt. 
 Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
 Door de lange tijd die werd besteed aan het aanpassen van layout, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
 Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
-De plugin maakt gebruik van het HTML5 canvas element en de \code{.toDataURL()} methode.
+De plug-in maakt gebruik van het HTML5 canvas element en de \code{.toDataURL()} methode.
 Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
 
 \subsubsection{AJAX}
@@ -144,10 +144,10 @@ Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correc
 
 \paragraph{jQuery Mobile} 
 Hoewel versie 1.3 automatische aanvulling ter beschikking heeft~\cite{JQuery2013c}, werd tijdens de implementatie gebruik gemaakt van versie 1.2 die dit niet had. 
-Daarom werd de plugin van Andy Matthews gebruikt~\cite{Matthews2013}. 
-Dit is een zeer gemakkelijk te integreren plugin die zowel met lokale data als data op afstand kan werken. 
+Daarom werd de plug-in van Andy Matthews gebruikt~\cite{Matthews2013}. 
+Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken. 
 Daarnaast dienden enkel vijf suggesties te worden getoond. 
-Deze functionaliteit zat niet in de plugin, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
+Deze functionaliteit zat niet in de plug-in, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
 
 \subsubsection{Tabbalk}
 
@@ -185,9 +185,9 @@ Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voo
 \subsubsection{Dialoogvenster}
 
 \paragraph{jQuery Mobile} 
-Eerst werd gebruik gemaakt van DateBox \cite{Sage2013} als plugin om op een gemakkelijke manier een dialoogvenster te tonen.
-Uiteindelijk bleek de plugin niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in jQuery Mobile aanwezig.
-Het is dan ook helemaal niet nodig om hiervoor een plugin te gebruiken.
+Eerst werd gebruik gemaakt van DateBox \cite{Sage2013} als plug-in om op een gemakkelijke manier een dialoogvenster te tonen.
+Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in jQuery Mobile aanwezig.
+Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
 Door zelf de dialoogvenster met jQuery Mobile aan te maken, kon de layout minimier aangepast worden.
 
 \subsubsection{Omvormen van valuta}
@@ -212,14 +212,14 @@ TODO
 
 \paragraph{jQuery Mobile} 
 In jQuery Mobile is er standaard geen splitview aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
-Eerst werd hiervoor gezocht naar plugins aan de hand van~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
+Eerst werd hiervoor gezocht naar plug-ins aan de hand van~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
 Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
 Zo was de eerste destructief ten opzichte van het raamwerk. 
 Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als men wil updaten naar een nieuwe versie. 
-De tweede plugin werkte enkel tot versie 1.0.1 van jQuery Mobile. 
-De laatste plugin had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
+De tweede plug-in werkte enkel tot versie 1.0.1 van jQuery Mobile. 
+De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
 
-Uiteindelijk werd van een plugin afgestapt door \cite{Hadlock2012} waarbij werd aangetoond hoe men via CSS3 media queries hetzelfde kan bereiken. 
+Uiteindelijk werd van een plug-in afgestapt door \cite{Hadlock2012} waarbij werd aangetoond hoe men via CSS3 media queries hetzelfde kan bereiken. 
 Daarnaast gebruikt de documentatie van jQuery Mobile~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
 De uiteindelijke oplossing voor het probleem kwam uit te combinatie van deze twee voorgaande oplossingen.
 Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
@@ -267,10 +267,4 @@ Het aanmaken van lijsten gebeurt met de \term{listview} widget.
 % TODO: verder schrijven
 
 \section{Ondersteuning}
-\subsection{Challenge 1}
-% \paragaph{jQM}
-% %Bespreek alle devices!
-% \paragaph{ST}
-% \paragaph{Kendo}
-% \paragaph{Lungo}
 \section{Performantie}

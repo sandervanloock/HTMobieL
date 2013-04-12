@@ -127,7 +127,7 @@ Ook deze dwingt geen ontwerppatroon af.
 \paragraph{Browserondersteuning}
 \label{sec:jqm-browser-support}
 
-% TODO Tim: verder uitwerken
+% TODO Tim: verser uitwerken browser support
 
 \jqm{} deelt browsers op in drie verschillende klassen: A, B en C~\cite{JQuery2012d}. 
 Hierbij ondersteunt een klasse A browser alles, terwijl een klasse C browser enkel de basis HTML ondersteunt (en dus bijvoorbeeld geen hippe CCS3 overgangen).
@@ -139,40 +139,43 @@ Hierbij ondersteunt een klasse A browser alles, terwijl een klasse C browser enk
 \section{\st}
 \label{sec:raamwerk-st}
 
+% TODO Tim: Ik zou die eerste zin weglaten
 \st{} is een relatief verschillend raamwerk in vergelijking met \jqm{}.  
 Het wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.  
-Ext JS is een JavaScript raamwerk voor de ontwikkeling van web applicaties. 
-jQuery Touch is een jQuery plugin voor mobiele web ontwikkeling.  
+Ext JS is een JavaScript raamwerk voor de ontwikkeling van webapplicaties. 
+jQuery Touch is een jQuery plugin voor mobiele webontwikkeling.  
 Het steunt op WebKit en voegt \term{touch events} toe aan jQuery.  
-Raphaël,  ten slotte,  is een JavaScript bibliotheek voor vector tekeningen. 
+Raphaël,  ten slotte,  is een JavaScript bibliotheek voor vectortekeningen. 
 Op het moment van schrijven is \st{} aan versie 2.1.1~\cite{Inc.}.  
 
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
-\st{} is JavaScript gedreven dus all functionaliteiten worden in JavaScript geïmplementeerd. 
+\st{} is JavaScript gedreven, dus alle functionaliteit wordt in JavaScript geïmplementeerd. 
+%TODO Tim: Ik weet niet of dit nodig is. Misschien meer algemener voor ieder raamwerk, want includen moet je bij ieder raamwerk doen dacht ik?
 Het aanroepen van het raamwerk gebeurt door het invoeren van de \st{} bibliotheek binnen \code{<script>}-elementen.  
-Alle HTML code wordt bij het bekijken van de pagina gegenereerd.  
+Alle HTML-code wordt bij het bekijken van de pagina gegenereerd.  
 
 \paragraph{Tools}
 Naast \st{} levert Sencha nog producten die \st{} uitbreiden of het leven van de ontwikkelaar makkelijker maken.  
 Deze worden hieronder opgelijst~\cite{Inc.}.  
 
 \subparagraph{Sencha Animator}
-Dit is een desktop applicatie om CSS3 animaties te ontwerpen.  
+Dit is een desktopapplicatie om CSS3 animaties te ontwerpen.  
 Deze animaties worden enkel in WebKit browsers ondersteund.
 
 \subparagraph{Sencha Architect}
-Dit is een andere desktop applicatie waarmee je makkelijk een UI kan ontwikkelen met behulp van \term{drag-and-drop} commando's.  
+Dit is een andere desktopapplicatie waarmee je makkelijk een UI kan ontwikkelen met behulp van \term{drag-and-drop} commando's.  
 
 \subparagraph{Sencha GXT}
 Sencha GXT is een uitbreiding op Google Web Toolkit (GWT).  
-De compiler van GWT laat toe applicaties in Java te schrijven en ze te compileren naar geoptimaliseerde,  \term{cross-browser} HTML5 en JavaScript.  Sencha GXT voegt grafieken,  widgets, etc. toe aan GWT.
+De compiler van GWT laat toe applicaties in Java te schrijven en ze te compileren naar geoptimaliseerde,  \term{cross-browser} HTML5 en JavaScript.  
+Sencha GXT voegt grafieken,  \term{widgets}, etc. toe aan GWT.
 
 \subparagraph{Sencha.IO}
-Deze uitbreiding zorgt voor \term{cloud} services binnen mobiele applicaties.  
+Deze uitbreiding zorgt voor \term{cloud services} binnen mobiele applicaties.  
 
 \paragraph{Documentatie}
-Alle documentatie voor \st{} 2.1.1 is te vinden op \url{docs.sencha.com/touch/2-0}.  
+Alle documentatie voor \st{}~2.1.1 is te vinden op \url{docs.sencha.com/touch/2-0}.  
 Een zoekfunctie voor objecten,  eigenschappen en methoden is aanwezig om snel zaken op te zoeken.  
 De meeste functionaliteiten zijn voorzien van codevoorbeelden samen met het resultaat hoe de browser de code rendert.  
 Verder biedt de Sencha website ook een groot aanbod om Sencha te leren gebruiken \url{www.sencha.com/learn/touch/}.  
@@ -180,11 +183,12 @@ Hier staan handleidingen,  introductie video etc..
 
 %Door de snelle ontwikkeling van Sencha blijft de documentatie niet altijd up-to-date.  Zo zijn vele methoden verouderd maar staat er geen alternatief vermeld. 
 %TODO dit is misschien eerer subjectief?
-Een ander handig raadslagwerk is de ‘Kitchen Sink'~\cite{Inc.2013}.  
+%TODO Tim: raadslagwerk? wij zijn de enige op google die deze term gebruiken. bedoelde je raadplegen of naslagwerk?
+Een ander handig raadslagwerk is de Kitchen Sink~\cite{Inc.2013}.  
 Dit is een webapplicatie,  geschreven in \st{},  die de belangrijkste functionaliteiten bevat samen met de bijhorende code.  
 
 \paragraph{Marktadoptatie}
-Volgens de Sencha website is 50\% van de Fortune 100 - een lijst van de grootste Amerikaanse bedrijven gerangschikt op jaaromzet - een Sencha klant~\cite{Inc.}.  
+Volgens de Sencha website is 50\% van de Fortune~100 - een lijst van de grootste Amerikaanse bedrijven gerangschikt op jaaromzet - een Sencha klant~\cite{Inc.}.  
 Enkele van hun grootste klanten zijn CNN,  Samsung,  Cisco en  Visa.
 
 \paragraph{Licenties}
@@ -194,14 +198,16 @@ Deze komt met een GNU GPL v3 \term{open-source} licentie wat wil zeggen dat je d
   
 Voor de ontwikkeling van eigen raamwerken of SDKs betaal je een \term{original equipment manufacturer} (OEM) licentie.  
 Dit wil zeggen dat bedrijven hun producten gaan verkopen onder hun eigen merk en naam, maar gebruik maken van Sencha.  
-Omdat het gebruik hiervan per gebruiker verschilt,  worden OEM licenties op maat gemaakt~\cite{Inc.}.
+Omdat het gebruik hiervan per gebruiker verschilt,  worden OEM-licenties op maat gemaakt~\cite{Inc.}.
 
 \subsection{Code en ontwikkeling}
-Zoals reeds vermeld moet alle code in JavaScript worden geschreven en dient één HTML bestand slechts als container om de bestanden in te laden.  Sencha valt dus onder JavaScript gebaseerde raamwerken.  
+%TODO Tim: … reeds vermeld… … dus… da klinkt alsof we het verveeld vinden om het nog eens te vermelden precies
+Zoals reeds vermeld moet alle code in JavaScript worden geschreven en dient één HTML-bestand slechts als container om de bestanden in te laden.  
+Sencha valt dus onder JavaScript gebaseerde raamwerken.  
 De keuze voor deze aanpak heeft twee belangrijke motivaties.  
 Enerzijds is \st{} gebouwd op Ext JS,  wat op zich een JavaScript raamwerk is.  
 Anderzijds zorgt het voor een betere ondersteuning voor toestellen met verschillende resoluties.  
-Samen met SASS en Compass kan Sencha lay-outs definiëren per device (zie sectie \ref{sec:sencha-aanpasbaarheid}).  
+Samen met SASS en Compass kan Sencha lay-outs definiëren per apparaat (zie sectie \ref{sec:sencha-aanpasbaarheid}).  
 De \code{Ext.env.Browser} en \code{Ext.env.OS} eigenschappen en \code{Ext.Viewport.getOrientation} en \code{Ext.feature.has} methoden kunnen de vereisten bepalen en de juiste lay-out kiezen~\cite{JohnEClark2012}.
 
 Om het de ontwikkelaars makkelijker te maken biedt Sencha ook SDK tools aan.  
@@ -215,9 +221,9 @@ De broncode van \st{} kan ook ingeladen worden met \code{sencha-touch-debug.js} 
 Deze versie is niet gecomprimeerd en bevat commentaar en documentatie om makkelijker te zoeken waar in de code de fout zich juist bevond.
 
 \subsection{Functionele kenmerken}
-Net zoals \jqm{} heeft \st{} ook een hele hoop functionaliteiten om eenvoudig UI elementen te genereren.  
+Net zoals \jqm{} heeft \st{} ook een hele hoop functionaliteiten om eenvoudig UI-elementen te genereren.  
 \st{} bevat alle elementen van de UI als JavaScript objecten.  
-Net zoals alle objectgerichte programmeertalen maken deze objecten gebruik van een klassesysteem,  iets wat slechts vanaf \st{} 2 werd ingevoerd.  
+Net zoals alle objectgerichte programmeertalen maken deze objecten gebruik van een klassensysteem,  iets wat slechts vanaf \st{} 2 werd ingevoerd.  
 Op die manier kunnen klassen worden gedefinieerd (\code{Ext.define}) en aangemaakt (\code{Ext.create}).  
 Hierbij is ook overerving mogelijk.  
 De basisklasse van alle objecten is \code{Ext.Component}.  
@@ -226,10 +232,10 @@ Het aanmaken van componenten kan compacter door het gewenste component als \code
 
 Een andere belangrijke component is \code{Ext.Container}.  
 Containers kunnen subcomponenten bevatten en een lay-out specificeren.  
-Alle componenten krijgen een naam die verwijst naar een namespace.  
+Alle componenten krijgen een naam die verwijst naar een \term{namespace}.  
 Dit is handig om conflicten te vermijden tussen je eigen objecten en de standaard objecten van het raamwerk.  
 
-Voor een opsomming van alle raamwerk componenten verwijzen we naar de documentatie~\cite{Inc.2013a}.
+Voor een opsomming van alle componenten verwijzen we naar de documentatie~\cite{Inc.2013a}.
 
 %jQuery subsecties:
 %Pagina's en dialoogvensters
@@ -240,7 +246,7 @@ Voor een opsomming van alle raamwerk componenten verwijzen we naar de documentat
 %lijsten
 
 \paragraph{Model}
-Data kan intern worden voorgesteld met models.  
+Data kan intern worden voorgesteld met \term{models}.  
 Dit is iets wat hoort bij het MVC patroon (zie sectie \ref{sec:sencha-programeerbaarheid}).  
 Een model specificeert een lijst van velden die bij het model horen waarbij een veld een naam en een type heeft.  
 Optioneel kunnen validaties bij de velden worden toegevoegd om data consistent te houden.  
@@ -254,30 +260,30 @@ Een \term{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) 
 Een \term{proxy} kan ook nog voorzien worden van een \term{reader} die aangeeft hoe de ontvangen data gelezen moet worden.
 
 \paragraph{View}
-Een \term{view} is de benaming voor objecten die aan de gebruiker kunnen getoond worden.  
+Een \term{view} is de benaming voor objecten die aan de gebruiker kunnen worden getoond.  
 Een voorbeeld hiervan zijn lijsten,  waar vaak de data van een \term{store} wordt in weergegeven.  
 Zo'n lijst kan makkelijk gefilterd of gesorteerd worden op basis van velden uit het model.  
 Hiervoor moeten we \term{filters} of \term{sorters} aan de \term{store} toevoegen. 
 De lay-out van één lijstitem bepalen kan via een \code{XTemplate}.  
-Het sjabloon bepaalt de HTML structuur van elk item.  
+Het sjabloon bepaalt de HTML-structuur van elk item.  
 Alle gedefinieerde velden van het model kunnen in de template worden opgeroepen of gemanipuleerd.
 
 %TODO controllers?
 
 \subsection{Niet-functionele kenmerken}
 \paragraph{Performantie}
-In vergelijking met versie 1.1 van \st{} is de performantie gestegen om wille van verschillende factoren.  
+In vergelijking met versie~1.1 van \st{} is de performantie gestegen om wille van verschillende factoren.  
 De introductie van het klasse systeem,  zoals besproken in de vorige sectie,  laat toe objecten dynamisch te laden. 
 Het grote verschil tussen \code{Ext.define} en \code{Ext.create} is dat objecten enkel in het geheugen worden geladen na creatie.  
 Het is dus de taak van de programmeur om objecten enkel te construeren wanneer ze nodig zijn.
 
-Verder kwam versie 2.0 met een nieuwe lay-out \term{engine} die vooral het verwisselen van oriëntatie van het toestel versnelde.  
+Verder kwam versie~2.0 met een nieuwe lay-out \term{engine} die vooral het verwisselen van oriëntatie van het toestel versnelde.  
 Ook een verbetering in performantie op Android toestellen,  voornamelijk bij scrollen en animaties,  werd ingevoerd~\cite{Inc.}.
 
 Een benchmark voor deze verbeteringen zijn de opstarttijden van de Kitchen Sink applicatie.  
 Het opstarten gebeurde met de verschillende \st{} versies en op verschillende toestellen.  
 De resultaten zijn terug te vinden op figuur \ref{fig:sencha_performance}.  
-Op bijna elk toestel blijkt \st{} 2.0 ongeveer één seconde sneller te werken~\cite{SenchaInc.2013}.
+Op bijna elk toestel blijkt \st{}~2.0 ongeveer één seconde sneller te werken~\cite{SenchaInc.2013}.
 
 \begin{figure}
   \centering
@@ -289,37 +295,40 @@ Op bijna elk toestel blijkt \st{} 2.0 ongeveer één seconde sneller te werken~\
 \paragraph{Aanpasbaarheid}
 \label{sec:sencha-aanpasbaarheid}
 Elke component binnen het raamwerk moet overerven van \code{Ext.Component}.  
-Deze voorziet een attribuut \code{ui}.  De waarde hiervan is een CSS klasse die bepaald hoe de component er zal uitzien.  
-encha heeft al twee CSS klassen voorzien:  \code{light} en \code{dark}.  
+Deze voorziet een attribuut \code{ui}.  
+De waarde hiervan is een CSS-klasse die bepaald hoe de component er zal uitzien.  
+Sencha heeft al twee CSS-klassen voorzien:  \code{light} en \code{dark}.  
 Andere componenten kunnen deze lijst uitbreiden.  
 Een knop kan bijvoorbeeld \code{normal},  \code{back},  \code{round},  \code{small},  \code{action} of \code{forward} als \code{ui} waarde hebben.
 
 Het is ook mogelijk om eigen waarden voor \code{ui} te definiëren of de standaarden van Sencha aan te passen.  
 Hiervoor moet je gebruik maken van SASS en Compass om je CSS bestanden aan te maken.  
-SASS staat voor Syntactically Awesome Stylesheets en breidt CSS uit met variabelen,  geneste structuren,  mixins en overerving~\cite{Eppstein2013}.  
-Mixins groeperen enkele CSS eigenschappen en kunnen worden herbruikt.  
-Compass is een raamwerk bovenop SASS en CSS.  Het compileert SCSS (Sassy CSS) naar CSS bestanden~\cite{Eppstein2013a}.        
+SASS staat voor Syntactically Awesome Stylesheets en breidt CSS uit met variabelen,  geneste structuren, \term{mixins} en overerving~\cite{Eppstein2013}.  
+\term{Mixins} groeperen enkele CSS-eigenschappen en kunnen worden hergebruikt.  
+Compass is een raamwerk bovenop SASS en CSS.  
+Het compileert SCSS (Sassy CSS) naar CSS bestanden~\cite{Eppstein2013a}.        
 
 Sencha thema's bestaan allemaal uit een set van \term{mixins}.  
 Door zelf \term{mixins} te creëren of reeds bestaande te manipuleren kunnen we eigen thema's creëren en ze aan de \code{ui}-waarde van een component toekennen.
 
 \paragraph{Programmeerbaarheid}
 \label{sec:sencha-programeerbaarheid}
-Zoals reeds aangehaald ondersteund \st{} het MVC (Model-View-Controller) patroon.  
+Zoals reeds aangehaald ondersteund \st{} het MVC-patroon.  
 Dit patroon vermijdt lange JavaScript bestanden door ze logisch op te delen.  
-Modellen groeperen velden tot een beschrijving van data-objecten,  views definiëren de weergave van componenten en controllers verbinden beide op basis van \term{events}.
+Modellen groeperen velden tot een beschrijving van data-objecten, views definiëren de weergave van componenten en controllers verbinden beide op basis van \term{events}.
 
 In theorie zou het verschil tussen mobiele websites en applicaties enkel in de views terug te vinden zijn.  
 Echter,  dit wordt nog niet volledig ondersteund en raadt men dus aan om hiervoor aparte projecten te voorzien.
 
 \paragraph{Ondersteuning browser}
 \st{} steunt op de WebKit browser \term{engine} dus moet de browser deze bevatten.  
-Hoewel dit bij de meeste browsers geen probleem meer vormt vallen toch enkele populaire browsers uit de boot.  
+Hoewel dit bij de meeste browsers geen probleem meer vormt, vallen toch enkele populaire browsers uit de boot.  
 \st{} is bijvoorbeeld niet compatibel met FireFox Mobile en Opera Mobile~\cite{JohnEClark2012}.
 
-Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen over de context die gehanteerd wordt (browser, OS, toestel, etc.).  Verder kan \st{} ook vragen naar de ondersteuning van specifieke kenmerken (audio,  canvas,  CSS3, …),  analoog als Modernizr.  
+Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen over de context die gehanteerd wordt (browser, OS, toestel, etc.).  
+Verder kan \st{} ook vragen naar de ondersteuning van specifieke kenmerken (audio,  canvas,  CSS3, ...),  analoog als Modernizr.  
 
-Op de Secha website zijn voor sommige browsers en bijhorend besturingssystemen scorecards voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
+Op de Sencha website zijn voor sommige browsers en bijhorend besturingssystemen scorecards voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
 
 
 \section{\kendo}

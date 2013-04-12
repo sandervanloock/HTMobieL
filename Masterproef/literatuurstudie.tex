@@ -319,9 +319,8 @@ Toch worden ze onder de koepel van HTML5 gezien~\cite{MacDonald2011}.
 \paragraph{Kenmerken detecteren}
 Door enerzijds de levendigheid van HTML5 en anderzijds het verdeelde landschap van browsers en besturingssystemen, worden niet alle kenmerken van HTML5 overal ondersteund. 
 Een eerste mogelijkheid is om zelf op te zoeken welke kenmerken op welke apparaten werken. 
-Dat kan je bijvoorbeeld controleren op \url{www.caniuse.com} en \url{www.mobilehtml5.org}~\cite{MacDonald2011}. 
+Dit kan gecontroleerd worden op bijvoorbeeld \url{www.caniuse.com} en \url{www.mobilehtml5.org}~\cite{MacDonald2011}. 
 
-%tool is volgens woordenlijst.org een aanvaarde nederlandse term!
 Wat nog handiger is, is om op het apparaat zelf te detecteren of het gewenste kenmerk beschikbaar is. 
 Een erg handige tool hiervoor is Modernizr~\cite{Modernizr2012}. 
 Het toevoegen van dit JavaScript-bestand creëert een JavaScript-object dat voor elk kenmerk teruggeeft of het al dan niet in de gebruikte browser wordt ondersteund.
@@ -332,6 +331,17 @@ Een voorbeeld van dit eerste kan gebeuren bij het gebruiken van de \code{<video>
 Indien dit niet wordt ondersteund, kan men terugvallen op de Adobe Flash plug-in. 
 Voor het simuleren van een kenmerk maakt men gebruik van \term{polyfills}. 
 Dit zijn alternatieven op basis van JavaScript waarbij de native functionaliteit die normaal moet aanwezig zijn, geëmuleerd wordt~\cite{MacDonald2011,Weyl2011}.
+
+\paragraph{Progressive enhancement en graceful degradation}
+\label{par:progressive-enhancement}
+Er dient een onderscheid te worden gemaakt tussen de begrippen \emph{progressive enhancement} en \emph{graceful degradation}~\cite{Hens2012}. 
+Bij de eerstgenoemde wordt gestart met de basis HTML.
+Deze code wordt door iedere browser op een goede manier weergegeven. 
+Daarna zullen er iteratief elementen worden toegevoegd tot het moment dat de betreffende browser een bepaald kenmerk niet meer ondersteund.
+
+De tegenhanger hiervan is \emph{graceful degradation}. 
+Hierbij wordt eerst een versie ontwikkeld die enkel in de meest recentste browser kan worden getoond. 
+Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implementeren waardoor minder recente browsers de applicatie ook kunnen weergeven.
 
 \subsubsection{HTML5e}
 Een bedrijf wil enerzijds een stabiele webapplicatie en wil anderzijds ook van deze nieuwe kenmerken zoveel mogelijk gebruik gaan maken. 
@@ -449,6 +459,13 @@ Op het moment van schrijven is Kendo UI aan versie 2013 Q1~\cite{Telerik}.
 \subsection{Lungo} % TIM
 
 \subsection{The M-Project} % SANDER
+
+% TODO deze tekst zal later moeten worden verplaatst
+%Een ander raamwerk, genaamd The-M-Project~\cite{Panacoda2012}, dwingt het Model-View-Controller (MVC) echter wel af. 
+%Met dit raamwerk is het mogelijk om webapplicaties te maken die het \jqm{} raamwerk gebruiken. 
+%In plaats van HTML5-code te schrijven, zoals dat bij \jqm{} gebeurt, schrijft je JavaScript-code. 
+%The-M-Project zal dan zelf intern deze JavaScript-code omzetten naar de desbetreffende \jqm{} HTML5-code.
+
 The M-Project is een JavaScript/HTML5 raamwerk dat bouwt op jQuery en jQuery Mobile.
 Origineel werd het in 2012 ontwikkeld door M-Way Solutions maar nu behoort het tot Panacoda,  een duitse ontwikkelaar voor software \term{tools} en mobiele web applicaties.
 Panacoda bezit ook Espresso,  een krachtige \term{tool} om applicaties te bouwen en ontwikkelen met The M-Project.

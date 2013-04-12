@@ -1,21 +1,35 @@
 \chapter{Mobiele HTML5 raamwerken}
 \label{chap:raamwerken}
-In dit hoofdstuk gaan we inzoomen op bestaande mobiele HTML5 raamwerken die gebruik maken van de laatste nieuwe technologieën zoals HTML5, CSS3 en JavaScript. Deze raamwerken worden gecategoriseerd volgens twee courante aanpakken~\cite{Oeflman2011}: opmaak-up gedreven en JavaScript gedreven. Bij een opmaak-up gedreven aanpak wordt de webapplicatie voornamelijk in HTML code geschreven. Daarentegen wordt bij een JavaScript gedreven aanpak hoofdzakelijk in JavaScript geprogrammeerd.
 
-\section{jQuery Mobile}
-jQuery Mobile is een mobiel HTML5 \term{user interface} (UI) raamwerk dat werd aangekondigd in 2010~\cite{Resig2010}. In november 2011 werd versie 1.0 uitgebracht~\cite{Parker2011} en een jaar later werd in oktober versie 1.2 uitgebracht~\cite{Parker2012}. Op het moment van schrijven kwam versie 1.3 uit~\cite{Parker2013a}. Het raamwerk wordt beheerd door het jQuery Project dat onder andere jQuery Core beheert en waar jQuery Mobile afhankelijk van is~\cite{JQuery2012}. jQuery Mobile wordt door onder andere Adobe, BlackBerry en Mozilla gesponsord~\cite{JQuery2012a}.
+% TODO Tim: Waar zetten we WAAROM we deze raamwerken gekozen hebben en niet de andere?
+% TODO Tim: user interface of gebruikersinterface?
+
+In dit hoofdstuk wordt ingezoomd op de mobiele HTML5 raamwerken die dit werk vergelijkt, namelijk \jqm{}~(\ref{sec:raamwerk-jqm}), \st{}~(\ref{sec:raamwerk-st}), \kendo{}~(\ref{sec:raamwerk-kendo}) en \lungo{}~(\ref{sec:raamwerk-lungo}).
+
+\section{\jqm}
+\label{sec:raamwerk-jqm}
+\jqm{} is een mobiel HTML5 \term{user interface} (UI) raamwerk dat werd aangekondigd in 2010~\cite{Resig2010}. 
+In november 2011 werd versie 1.0 uitgebracht~\cite{Parker2011} en een jaar later werd in oktober versie 1.2 uitgebracht~\cite{Parker2012}. 
+Op het moment van schrijven kwam versie 1.3 uit~\cite{Parker2013a}. 
+Het raamwerk wordt beheerd door het jQuery Project dat onder andere jQuery Core beheert en waar \jqm{} afhankelijk van is~\cite{JQuery2012}. 
+\jqm{} wordt door onder andere Adobe, BlackBerry en Mozilla gesponsord~\cite{JQuery2012a}.
 
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
-Om met jQuery Mobile aan de slag te kunnen, heb je niets meer nodig dan kennis over HTML, CSS en JavaScript. Alle UI elementen worden geschreven in HTML en aangeduid met \code{data-}* attributen.
+Om met \jqm{} aan de slag te kunnen, is niets meer nodig dan kennis over HTML, CSS en JavaScript. 
+Alle UI-elementen worden geschreven in HTML en aangeduid met \code{data-}* attributen.
 
 \paragraph{Tools}
-Een basis teksteditor voldoet om met jQuery Mobile aan de slag te kunnen. Natuurlijk kan het gemakkelijk zijn om van \term{integrated development environments}~(IDE's) zoals Aptana Studio~\cite{Aptana2012} of WebStorm~\cite{JetBrains2012} gebruik te maken, waardoor je handige kenmerken krijgt zoals \term{code completion}.
+Een standaard teksteditor voldoet om met \jqm{} aan de slag te kunnen. 
+Natuurlijk kan het gemakkelijk zijn om van \term{integrated development environments}~(IDE's) zoals Aptana Studio~\cite{Aptana2012} of WebStorm~\cite{JetBrains2012} gebruik te maken, waardoor handige kenmerken zoals automatische code-aanvulling beschikbaar zijn.
 
-Je kan ook gebruiken maken van Codiqua om via \term{drag-and-drop} UI elementen op je scherm te slepen. Codiqua zal automatisch op de achtergrond de HTML code voorzien~\cite{Sperry2012}.
+Het is ook mogelijk om gebruik te maken van Codiqua om de UI-elementen op het scherm te slepen en neer te zetten. 
+Codiqua zal automatisch op de achtergrond de HTML-code voorzien~\cite{Sperry2012}.
 
 \paragraph{Documentatie}
-Documentatie is te vinden op \url{www.jquerymobile.com/demos/1.2.0}. Hierop is een catalogus te vinden van alle mogelijke elementen waarover jQuery Mobile beschikt. Door de broncode van een voorbeeld te bekijken, kan je zien welke code je moet schrijven om tot dat resultaat te komen.
+Documentatie is te vinden op \url{www.jquerymobile.com/demos/1.2.0} voor versie 1.2. 
+Hierop is een catalogus te vinden van alle mogelijke elementen waarover \jqm{} beschikt. 
+Door de broncode van een voorbeeld te bekijken, kan worden gekeken welke code moet worden geschreven om tot dat resultaat te komen.
 
 Naast de UI elementen is er ook documentatie over de API. Deze gaat over initiële configuraties, events en methodes die kunnen worden gebruikt.
 
@@ -130,6 +144,7 @@ Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implemente
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Sencha Touch}
+\label{sec:raamwerk-st}
 
 Sencha Touch is een relatief verschillend raamwerk in vergelijking met jQuery Mobile.  
 Het wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.  
@@ -318,14 +333,16 @@ Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen ove
 Op de Secha website zijn voor sommige browsers en bijhorend besturingssystemen scorecards voorzien om hun compatibiliteit met HTLM5 en Sencha Touch te bespreken~\cite{Inc.}.
 
 
-\section{Kendo UI}
+\section{\kendo}
+\label{sec:raamwerk-kendo}
 
 \subsection{Omkadering}
 \subsection{Code en ontwikkeling}
 \subsection{Functionele kenmerken}
 \subsection{Niet-functionele kenmerken}
 
-\section{Lungo}
+\section{\lungo}
+\label{sec:raamwerk-lungo}
 
 \subsection{Omkadering}
 \subsection{Code en ontwikkeling}

@@ -49,7 +49,7 @@ $(document).on("pageinit", "#sign-and-send", function () {
 
     // form validation
     $("#sign-and-send-form").validate({
-        submitHandler:function (form) {
+        submitHandler: function (form) {
             var notification = $("#sign-and-send-notification").val() == "on";
 
             // save data to expense form
@@ -81,25 +81,29 @@ $(document).on("pageinit", "#sign-and-send", function () {
                     expenseRequest.token = EA.getToken();
                     expenseRequest.expenseForm = expenseForm;
 
+                    console.log("Request: " + JSON.stringify(expenseRequest).length);
+                    console.log("Signature: " + expenseForm.signature.length);
+                    console.log("Expense[0]: " + expenses[0].evidence.length);
+
                     // send it
                     $.ajax({
-                        type:"POST",
-                        url:EA.baseURL + "resources/expenseService/saveExpense",
-                        data:JSON.stringify(expenseRequest),
-                        dataType:"json",
-                        contentType:"application/json",
-                        beforeSend:function () {
+                        type: "POST",
+                        url: EA.baseURL + "resources/expenseService/saveExpense",
+                        data: JSON.stringify(expenseRequest),
+                        //dataType:"json",
+                        contentType: "application/json",
+                        beforeSend: function () {
                             // show spinner and text while uploading
                             $.mobile.loading("show", {
-                                text:"Uploading expense form",
-                                textVisible:true
+                                text: "Uploading expense form",
+                                textVisible: true
                             });
                         },
-                        success:function () {
+                        success: function () {
                             $.mobile.loading("hide");
                             clearAndShowSuccess();
                         },
-                        error:function () {
+                        error: function () {
                             $.mobile.loading("hide");
                             EA.showBackendError("Could not send expense to server");
                         }

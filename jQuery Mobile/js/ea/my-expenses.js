@@ -22,73 +22,83 @@ $(document).on("pagebeforeshow", "#my-expenses", function () {
 });
 
 $(document).on("pageshow", "#my-expenses", function () {
-    if (navigator.onLine) {
-        // when the page is shown, check if the server has new expense forms
-        // already shown expense forms will be overriden be the new xml file
-        $.ajax({
-            type:"POST",
-            dataType:"xml",
-            url:EA.baseURL + "resources/expenseService/getExpenseForms",
-            data:{
-                'token':EA.getToken()
-            },
-            beforeSend:function () {
-                // no need to block the user,
-                // so we don't show text together with the spinner
-                $.mobile.loading("show");
-            },
-            complete:function () {
-                $.mobile.loading("hide");
-            },
-            error:function () {
-                EA.showBackendError("Could not fetch expenses from server.");
-            },
-            success:function (xml) {
-                // empty cache of server expense forms
-                EA.emptyServerExpenses();
+    // check if the user is logged in
+    if (!EA.isLoggedIn()) {
+        $.mobile.changePage("#login");
+        event.preventDefault();
+    } else {
+        // show user name on screen
+        var user = EA.getUser();
+        $("#home-employee-name").text(user.firstName + " " + user.lastName);
 
-                // parse the XML response
-                $(xml).find("expenseForm").each(function () {
-                    // put $(this) in a variable for performance reasons
-                    var $this = $(this);
+        if (navigator.onLine) {
+            // when the page is shown, check if the server has new expense forms
+            // already shown expense forms will be overriden be the new xml file
+            $.ajax({
+                type: "POST",
+                dataType: "xml",
+                url: EA.baseURL + "resources/expenseService/getExpenseForms",
+                data: {
+                    'token': EA.getToken()
+                },
+                beforeSend: function () {
+                    // no need to block the user,
+                    // so we don't show text together with the spinner
+                    $.mobile.loading("show");
+                },
+                complete: function () {
+                    $.mobile.loading("hide");
+                },
+                error: function () {
+                    EA.showBackendError("Could not fetch expenses from server.");
+                },
+                success: function (xml) {
+                    // empty cache of server expense forms
+                    EA.emptyServerExpenses();
 
-                    var expenseForm = {};
-                    // > finds the direct descendant in tree
-                    expenseForm.date = new Date($this.find(">date").text());
-                    expenseForm.id = $this.find(">id").text();
-                    expenseForm.statusId = $this.find(">statusId").text();
+                    // parse the XML response
+                    $(xml).find("expenseForm").each(function () {
+                        // put $(this) in a variable for performance reasons
+                        var $this = $(this);
 
-                    // add the expense form
-                    EA.addServerExpense(expenseForm.id, expenseForm);
-                });
+                        var expenseForm = {};
+                        // > finds the direct descendant in tree
+                        expenseForm.date = new Date($this.find(">date").text());
+                        expenseForm.id = $this.find(">id").text();
+                        expenseForm.statusId = $this.find(">statusId").text();
 
-                // sort the expense forms in descending order
-                var expenseForms = EA.getServerExpenses().sort(EA.sortExpensesDescending);
-
-                // hold list in local variable for performance
-                var $expenseList = $("#my-expenses-list");
-
-                // empty list
-                $expenseList.empty();
-
-                // set expense forms
-                if (expenseForms.length == 0) {
-                    $expenseList.append("<li>No expenses submitted.</li>");
-                } else {
-                    var li;
-                    $.each(expenseForms, function (i, expense) {
-                        li = "<li><a id=\"my-expenses-show-pdf-" + expense.id + "\">";
-                        li += "<h1>" + EA.toBelgianDate(new Date(expense.date)) + "</h1>";
-                        li += "<p>" + EA.expenseStatusIdToString(expense.statusId) + "</p>";
-                        li += "</a></li>";
-                        $expenseList.append(li);
+                        // add the expense form
+                        EA.addServerExpense(expenseForm.id, expenseForm);
                     });
-                }
 
-                // refresh the list so it will be shown with proper jQM layout
-                $expenseList.listview("refresh");
-            }
-        });
+                    // sort the expense forms in descending order
+                    var expenseForms = EA.getServerExpenses().sort(EA.sortExpensesDescending);
+
+                    // hold list in local variable for performance
+                    var $expenseList = $("#my-expenses-list");
+
+                    // empty list
+                    $expenseList.empty();
+
+                    // set expense forms
+                    if (expenseForms.length == 0) {
+                        $expenseList.append("<li>No expenses submitted.</li>");
+                    } else {
+                        var li;
+                        $.each(expenseForms, function (i, expense) {
+                            li = "<li><a id=\"my-expenses-show-pdf-" + expense.id + "\">";
+                            li += "<h1>" + EA.toBelgianDate(new Date(expense.date)) + "</h1>";
+                            li += "<p>" + EA.expenseStatusIdToString(expense.statusId) + "</p>";
+                            li += "</a></li>";
+                            $expenseList.append(li);
+                        });
+                    }
+
+                    // refresh the list so it will be shown with proper jQM layout
+                    $expenseList.listview("refresh");
+                }
+            });
+        }
     }
 });
 

@@ -138,12 +138,98 @@ waar $r$ de verschillende raamwerken voorstellen.
 Men kan ervan uitgaat dat de POC alle relevante kenmerken bevat om de raamwerken zoveel mogelijk uit te buiten. 
 Deze POC kan onderverdeeld worden in verschillende deelproblemen.
 Deze deelproblemen worden als uitdaging aan het raamwerk voorgelegd.
+Alle uitdagingen en sub uitdagingen zijn hieronder te vinden.
+
+\begin{enumerate}[label*=U \arabic*.]
+\item \label{challenge:formulieren}Formulieren
+\begin{enumerate}[label*=\arabic*]
+\item Maak formulieren met placeholders,  maar zonder labels
+\item Gebruik tekst, numer en email als formulier types
+\item Aangepaste \term{datepicker} met bereik van data
+\item Aangepaste \term{datepicker} met enkel maand- en jaarveld
+\item Wissen van een formulier
+\end{enumerate}
+\item \label{challenge:invullen}Invullen van een formulier
+\begin{enumerate}
+\item Vul formulierelementen met data
+\item Maak elementen van het formulier \term{read-only}
+\end{enumerate}
+\item \label{challenge:validatie}Formulier validatie
+\begin{enumerate}
+\item Validatie regels voor verplichte,numer en email velden
+\item Validatie regels voor eigen condities
+\item Venster voor foutenboodschappen van ongeldige velden
+\item Rode randen plaatsen rond ongeldige velden
+\end{enumerate}
+\item \label{challenge:handtekening}Handtekening
+\begin{enumerate}
+\item Teken een handtekening met vinger of pen
+\end{enumerate}
+\item \label{challenge:pdf}Toon PDF-bestand
+\begin{enumerate}
+\item Vraag een PDF-bestand op met POST parameters
+\item Toon het PDF-bestand
+\end{enumerate}
+\item \label{challenge:afbeelding}Toevoegen van een afbeelding
+\begin{enumerate}
+\item Kies een afbeelding
+\item Converteer de afbeelding met base64
+\item Voorbeeld van de afbeelding
+\end{enumerate}
+\item \label{challenge:autoaanvullen}Autoaanvullen
+\begin{enumerate}
+\item Haal suggesties op gebaseerd op gebruikersinvoer
+\item Toon suggesties in klikbare dropdownmenu
+\end{enumerate}
+\item \label{challenge:ajax}AJAX: tekst, JSON en XML
+\begin{enumerate}
+\item Haal tekst zonder opmaak op
+\item Haal JSON data op en parse
+\item Zend JSON data
+\item Haal XML data op en parse
+\end{enumerate}
+\item \label{challenge:toestel}Toestel specifieke layout
+\begin{enumerate}
+\item Herkennen van smartphone en tablet
+\item Toon het linker menu op een tablet
+\item Schakel menu in bij smartphone
+\end{enumerate}
+\item \label{challenge:offline}Offline
+\begin{enumerate}
+\item Bewaar login gegevens
+\item Bewaar niet verzonden onkosten
+\item Maak de applicatie offline beschikbaar
+\end{enumerate}
+\item \label{challenge:laadscherm}Laadscherm en dialoog
+\begin{enumerate}
+\item Toon laadscherm
+\item Toon dialoog
+\end{enumerate}
+\item \label{challenge:conversie}Data conversie
+\begin{enumerate}
+\item Conversie van munteenheid
+\item Conversie van ids naar tekst	
+\end{enumerate}
+\item \label{challenge:lijsten}Lijsten
+\begin{enumerate}
+\item Laad data in lijst en stijl de elementen met een template
+\item Klikbare lijst elementen met actie of link naar het record van het element
+\item Sorting data
+\end{enumerate}
+\item \label{challenge:anatomie}Anatomie van een pagina
+\begin{enumerate}
+ \item Toon header,  footer en onderliggende header met titels en knoppen
+ \item Tabbar
+ \item Aanpasbaarheid van kleur van knoppen
+ \end{enumerate}
+\end{enumerate} 
+
 De wijze waarop het raamwerk de uitdaging aangaat zal tot een score voor de uitdaging leiden.
 In totaal onderscheiden we drie gevallen.
 Een hogere score wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. 
 Een lagere score betekent dat een plugin werd gezocht. 
 Wanneer een hack noodzakelijk was om de functionaliteit te beogen, zal de laagste score worden toegekend.
-Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $S_{r,i}$ van raamwerk $r$ en voor uitdaging $i$.
+Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $S_{r,i}$ van raamwerk $r$ en voor sub uitdaging $i$.
 \begin{table}[h]	
   \centering
   \begin{tabular}{ll}
@@ -159,12 +245,10 @@ Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $S_{r,i}$ van raa
   \label{tabel:scores-uitdagingen}
 \end{table}
 \begin{equation}
-  G_r = \sum_{i=1}^{13}{\left(S_{r,i}\right)}
+  G_r = \sum_{i=1}^{14}{\left(S_{r,i}\right)}
   \label{eq:gebruik}
 \end{equation}
 met $r$ de verschillende raamwerken en $i$ de uitdagingen.
-
-%TODO tabel met alle uitdagingen?
 
 \subsection{Ondersteuning}
 \label{sec:vergelijking-ondersteuning}
@@ -172,9 +256,9 @@ Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen met 
 Enkel de standaard browser van het BS (Android browser/Chrome en Safari) zullen beschouwd worden.
 We spreken van een \term{context} als we één bepaalde configuratie van toestel, BS en browser bedoelen.
 Alle uitdagingen die gebruikt zijn om het gebruikcriterium te testen komen ook hier van pas.
-In elke context zullen de $13$ uitdagingen testen die we in vorige sectie hebben opgesteld.
-De correcte weergave en uitvoering van elke uitdaging binnen een context bepalen de score voor die context.
-Deze score kan enkel $0$ of $1$ zijn respectievelijk een probleem of correcte uitvoering.
+In elke context zullen de $14$ uitdagingen die we in vorige sectie hebben opgesteld de ondersteuning testen.
+De correcte weergave en uitvoering van alle sub uitdaging binnen een context bepalen de score voor die context.
+Deze score kan enkel $0$ of $1$ zijn respectievelijk om wille van een probleem of correcte uitvoering van de sub uitdaging.
 Per context brengen we ook de marktwaarde van het toestel in rekening om de meest gebruikte toestellen te bevoordelen.
 In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
 
@@ -200,14 +284,14 @@ Ook bekijken we of de \term{native look-and-feel} per besturingssysteem door het
     \toprule
     \textbf{Toestel} & \textbf{Soort} &\textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Marktwaarde}\\
     \midrule
-    HTCDesireZ & & Android 2.3.3 &  & \\
-    GalaxyTab & & Android 2.3.6 &  & \\
-    Galaxy Gio & & Android 2.3.6 &  & \\
-    Galaxy Ace 2 & & Android 2.3.6 &  & \\
-    GalaxySII & & Android 4.1.2 &  & \\
-    Nexus 7 & &Android 4.2.1  &  & \\
-    iPad3 4GWiFi & & iOS 6.0.1 &  & \\
-    iPhone 3GS & & iOS 6.0.1 &  & \\
+    HTCDesireZ & Smartphone & Android 2.3.3 & Android browser & \\
+    GalaxyTab & Tablet & Android 2.3.6 & Android browser & \\
+    Galaxy Gio & Smartphone & Android 2.3.6 & Android browser & \\
+    Galaxy Ace 2 & Smartphone & Android 2.3.6 & Android browser & \\
+    GalaxySII & Smartphone  & Android 4.1.2 & Chrome & \\
+    Nexus 7 & Tablet & Android 4.2.1  & Chrome & \\
+    iPad3 4GWiFi & Tablet & iOS 6.0.1 & Mobile Safari & \\
+    iPhone 3GS & Smartphone & iOS 6.0.1 & Mobile Safari & \\
     \bottomrule
   \end{tabular}
   \caption{Beschikbare toestellen met hun besturingssysteem, browser en gewicht}

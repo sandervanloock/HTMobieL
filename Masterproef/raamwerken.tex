@@ -2,7 +2,6 @@
 \label{chap:raamwerken}
 
 % TODO Tim: Waar zetten we WAAROM we deze raamwerken gekozen hebben en niet de andere?
-% TODO Tim: user interface of gebruikersinterface?
 
 In dit hoofdstuk wordt ingezoomd op de mobiele HTML5 raamwerken die dit werk vergelijkt, namelijk \jqm{}~(\ref{sec:raamwerk-jqm}), \st{}~(\ref{sec:raamwerk-st}), \kendo{}~(\ref{sec:raamwerk-kendo}) en \lungo{}~(\ref{sec:raamwerk-lungo}).
 In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een tabel weergegeven, waarin deze gegevens worden vergeleken.
@@ -333,11 +332,119 @@ Op de Senplug-incha website zijn voor sommige browsers en bijhorend besturingssy
 
 \section{\kendo}
 \label{sec:raamwerk-kendo}
+\kendo{} is een HTML5 raamwerk van de hand van Telerik.
+Het bestaat uit drie luiken:  Web, Mobile en DataViz.  
+\kendo{} Web eerste is gericht op de ontwikkeling van desktop en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor data visualisatie met HTML5 en JavaScript technologie.
+\kendo{} is een JavaScript gedreven raamwerk met een MVVM-architectuur dat steunt op de jQuery bibliotheek.
+Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig de \term{backend} in integreren aan de klantzijde.
+.NET,  PHP en JSP zij momenteel de ondersteunde \term{server side wrappers}.
+Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}. 
 
 \subsection{Omkadering}
+\paragraph{Programmeertaal}
+\kendo{} kan zowel als JavaScript en \term{markup} gedreven beschouwd worden.  
+Het HTML-element dat moet omgevormd worden tot \kendo{} object moet in een HTML-bestand worden gedeclareerd en voorzien worden van een id.
+Vervolgens kunnen data attributen in HTML-code het element associeren met \kendo{} of kan het overeenkomstige jQuery object in JavaScript het raamwerk oproepen.
+Alle UI-elementen van \kendo{} Mobile kunnen met data-attributen worden opgebouwd.
+Het is niet mogelijk elk UI-element in JavaScript te creëeren.
+Het gebruik van widgets van \kendo{} Web vereist wel dat ze met JavaScript worden opgebouwd.
+
+Het laden van het raamwerk kan door heel \kendo{} op te roepen of enkel de \kendo{} Mobile door respectievelijk \code{kendo.all.js} en \code{kendo.mobile.js}.
+Op een analoge wijze kan de programmeur kiezen tussen twee \term{stylesheets},  \code{kendo.all.css} en \code{kendo.mobile.css}.
+
+\paragraph{Tools}
+Op de \kendo{} website staan drie webtools vermeld die Telerik aanbiedt om de programmeur te ondersteunen.
+De eerste is \kendo{} Dojo~\cite{Telerika},  een interactieve leeromgeving om met \kendo{} vertrouwd te raken.
+De gebruiker kan de basis van \kendo{} leren kennen met geleide handleidingen met en uitvoerbare voorbeelden.
+De twee andere webapplicaties zijn tools om op een grafische manier CSS-bestanden te genereren voor zowel de mobiele als web applicaties.~\cite{Telerikb,Telerikc}.
+Voor \kendo{} Mobile kan een verschillende layout bepaalt worden voor alle ondersteunde besturingssystemen.
+
+\paragraph{Documentatie}
+Alle documentatie kan gevonden worden op \url{http://docs.kendoui.com}~\cite{Telerikd}.
+Twee belangrijke secties binnen de documentatie zijn de API en \term{Getting Started}.
+Beide kunnen op elkaar gemapt worden omdat alle objecten van \kendo{} die in de API worden aangehaald ook in een pagina onder \term{Getting Started} worden besproken.
+Deze laatste probeert met meer woorden en voorbeelden uit te leggen wat het object juist inhoudt.
+Verder staan er bij de documentatie nog handleidingen die complexere functionaliteit uit de doeken doet.
+Ook zijn er demo's die live voorbeelden tonen samen met de code die nodig is om het voorbeeld te maken.
+
+\paragraph{Marktadoptatie}
+Enkele van de populairste klanten van \kendo{} zijn Nikon,  Fujifilm en Symantec.
+
+\paragraph{Licenties}
+Een licentie voor \kendo{} Complete kost $\$699$ per ontwikkelaar.
+Voor \term{backend} ondersteuning in PHP,  JSP of ASP.NET MVC betaal je $\$300$ meer.
+Hierbij zijn één jaar updates mogelijk en wordt professionele ondersteuning aangeboden met een responsetijd onder 48 uur.
+Bij een licentie met \term{server side wrappers} is support zelfs gegarandeerd na 24 uur.
+%TODO apart aankpen van web, mobile en dataviz
+
 \subsection{Code en ontwikkeling}
+%javascript en markup driven
+%single page of multiple page (analoog jqm)
+Zoals reeds vermeld moet de programmeur zowel JavaScript als HTML-code schrijven. 
+De JavaScript en CSS-bestanden van het raamwerk moeten in projectfolder worden gekopieerd respectievelijk in een \term{js} en \term{styles} map.
+\kendo{} steunt op de jQuery bibliotheek en deze moet ingeladen worden voor het \kendo{} raamwerk zelf wordt aangeroepen.
+De initializatie van een applicatie moet via \code{var app = new kendo.mobile.Application()}.
+Hier kunnen parameters meegegeven worden die bijvoorbeeld de stijl van één platform vastlegd voor alle toestellen of het initiële bepalen.
+
+Net zoals bij \jqm{} zijn er drie strategieën om webapplicaties te maken:  volledige applicatie in één webpagina,  elk scherm in een aparte pagina of een combinatie van beide.
+De navigatie naar een scherm gebeurt op basis van de id van dat scherm.
+Standaard navigeert \kendo{} naar het eerste gedefinieerde scherm van een webpagina.
+Een ander scherm kan in dezelfde pagina of in een ander bestand staan.
+Een lokale navigatie wordt herkend door een \term{hashtag} die voor de id van het scherm wordt geplaatst als parameter van de \code{navigate}-methode.
+Navigatie naar een ander bestand kan door de bestandsnaam als parameter op te geven.
+
 \subsection{Functionele kenmerken}
+%observable objecten => binding
+%klassensysteem
+\kendo{} is zowel \term{markup} als JavaScript gedreven en steunt op de MVVM-architectuur.
+Hierin ligt de kracht van het raamwerk,  het beïnvloedt dan ook sterk alle functionele kenmerken.
+
+\paragraph{UI-elementen}
+Formulieren volgen de sterk de HTML5 norm. 
+Deze elementen zijn wel enkel functioneel op iOS 5.x+ en Android 4.x+.  
+Het stylen van alle elementen op andere platformen zal werken, maar is beperkt tot  enkel tekst invoer~\cite{Telerike}.
+
+Het toevoegen van knoppen kan zowel met de \code{button}-tag als met standaard hyperlinks (\code{<a>}).
+Knoppen kunnen ook samengevoegd worden tot een \code{ButtonGroup}.
+Dit maakt het mogelijk om gemeenschappelijke acties aan een groep van knoppen toe te kennen om bijvoorbeeld een menuutje te maken.
+Een \code{TabStrip} is een alternatief waar tabs in de voettekst het scherm kunnen variëren.
+
+\paragraph{View}
+Schermen worden voorsteld met \code{views},  analoog als bij de MVC-architectuur (zie super).
+Een \code{view} aanduiden gebeurt door het attribuut \code{data-role} aan \code{view}  gelijk te stellen.
+\code{Views} kunnen met een \code{layout} worden voorzien met de \code{data-layout}-tag.
+Een \code{layout} bepaalt de vormgeving van een \code{view} en kan hergebruikt worden.
+
+Een \code{listview} is een specifieke \code{view} voor lijsten.
+De \code{data-template} kan bij lijsten de id van een sjabloon bevatten die de opmaak van de lijstelementen definieerd.
+Deze sjablonen zijn specifieke \kendo{} scriptjes die HTML-tags en JavaScript-code kunnen bevatten.
+Ook kunnen ze verwijzen naar attributen van het model dat aan de lijst is toegekend (zie infra).
+
+Twee andere instanties van \code{views} zijn \code{Splitview} en \code{Scrollview}.
+De eerste kan het scherm in twee \code{views} splitsen,  vaak gebruikt bij tablet applicaties.
+De tweede is definieert een verzameling van pagina's die met een swipe bewegingen gelinkt zijn.
+
+\paragraph{View-Model}
+Het \code{View-Model} behoort tot de kern van \kendo{} en wordt \code{ObservableObject} genoemd.
+Dit is een JavaScript object dat kan gebonden worden aan abonnees.
+Het ondersteunt het monitoren van wijzigingen en verwittigd elke abonnee wanneer een wijziging zich voordoet.
+Een \code{ObservableObject} kan aan een \code{view} worden toegekend door het in de \code{data-model}-tag te vermelden.
+
+Er zijn verschillende bindings mogelijk tussen een \code{view} en {ObservableObject} en wordt aangegeven in de \code{data-bind}-tag.
+\kendo{} ondersteunt een binding met volgende eigenschappen:  \code{attr,  checked, clicked, custom, disabled, enabled, events, html, invisible, source, style, text, value} en \code{visible}.
+
+
+\paragraph{Model}
+The Model inherits from the ObservableObject and extends it with the ability to define schema - fields and methods. The DataSource contains instances of the Model when the schema.model setting is specified.
+
+
 \subsection{Niet-functionele kenmerken}
+\paragraph{Performantie}
+%native look-and-feel
+\paragraph{Aanpasbaarheid}
+\paragraph{Programeerbaarheid}
+%MVVM, jQuery core
+\paragraph{Browserondersteuning}
 
 \section{\lungo}
 \label{sec:raamwerk-lungo}

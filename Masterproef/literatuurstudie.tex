@@ -9,8 +9,6 @@ Ten slotte worden verschillende, reeds bestaande manieren om raamwerken te verge
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO Tim: verwerken pie charts
-
 \section{Mobiele apparaten}
 \label{sec:mobiele-apparaten}
 Mobiele apparaten bestaan in alle soorten en maten, met weinig of veel opties, voor weinig of veel geld. 
@@ -117,6 +115,40 @@ Enerzijds kan dit via Wi-Fi. Daarnaast zijn er ook nog andere technologieën zoa
 \label{sec:mobiele-besturingssystemen}
 Net zoals er brede waaier bestaat aan besturingssystemen voor computers, geldt dit ook zo voor mobiele apparaten. 
 In deze sectie wordt overzicht gegeven van mobiele besturingssystemen met een significant marktaandeel~\cite{David2011, Hales2012} zoals iOS en Android, maar ook een nieuwkomer op de markt, namelijk Windows Phone.
+iOS en Android haalden respectievelijk 14,9\% and 75,0\% in het derde kwartaal van 2012~\cite{Protalinski2012}.
+
+\begin{table}[t]
+\centering
+\begin{tabular}[b]{l r@{,}l}
+\toprule
+\textbf{iOS}    	& \multicolumn{2}{c}{\textbf{Marktaandeel (\%)}} \\
+\midrule
+6.01		& 40 & 0 \\
+6.02		& 18 & 3 \\
+6.1		& 17 & 5	\\
+5.1.1	& 17 & 5 \\
+6		& 5 & 8 \\
+4.x		& 0 & 9 \\
+\bottomrule
+\end{tabular}
+\quad
+\begin{tabular}[b]{l r@{,}l}
+\toprule
+\textbf{Android}	& \multicolumn{2}{c}{\textbf{Marktaandeel (\%)}} \\
+\midrule
+2.3		& 45 & 6 \\
+4.0		& 29 & 0 \\
+4.1		& 12 & 2 \\
+2.2		& 8 & 1 \\
+2.1		& 2 & 2 \\
+4.2		& 1 & 4 \\
+3.0		& 1 & 3 \\
+1.6 		& 0 & 2 \\
+\bottomrule
+\end{tabular}
+\caption{Marktaandeel van iOS-versies op 14 februari 2013 en Android-versies op 4 februari 2013 \protect\cite{Sylvain2013,Android2013}.}
+\label{table:marktaandeel-ios-android}
+\end{table}
 
 \subsection{iOS}
 Het iPhone besturingssysteem is voor het eerst uitgekomen in juni 2007 tezamen met de iPhone. 
@@ -128,14 +160,7 @@ De nieuwste versie, iOS 6, werd uitgegeven in september 2012.
 Nieuwigheden zijn onder andere hun eigen Maps (in plaats van Google Maps) en een Pass Kit (de vervanging van het traditionele trein-, cinematicket, enz.). 
 Daarnaast zijn er ook ander andere verbeteringen uitgevoerd met betrekking tot sociale media en spraakcommando's~\cite{Deitel2012}.
 
-Op figuur \ref{fig:marketshare-ios} is te zien dat bijna twee derde van de iOS-gebruikers al iOS 6 gebruikt.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\textwidth]{figuren/marketshare-ios-2012-11-14.png}
-  \caption{Marktaandeel iOS-besturingssystemen op 14 november 2012~\cite{Sylvain2012}.}
-  \label{fig:marketshare-ios}
-\end{figure}
+Op tabel \ref{table:marktaandeel-ios-android} is te zien dat bijna twee derde van de iOS-gebruikers al iOS 6 gebruikt.
 
 Browsen op het web gebeurt met de geïnstalleerde Mobile Safari webbrowser (zie \ref{sec:mobile-safari}). Applicaties kunnen gedownload worden in de App Store, die sinds iOS 2 aanwezig is~\cite{Deitel2012}. 
 
@@ -146,17 +171,10 @@ De eerste stabiele versie, Android 1.0, kwam uit in september 2008.
 Ook hier volgden verschillende versies elkaar op: Android 2.0 (oktober 2009), Android 3.0 (februari 2011) en Android 4.0 (oktober 2011)~\cite{Satyesh2012}. 
 Hun nieuwste versie, Android 4.2, werd aangekondigd in oktober 2012~\cite{Sawers2012}. 
 
-Op figuur \ref{fig:marketshare-android} is het marktaandeel te zien van de verschillende Android besturingssystemen, waargenomen over een periode van 14 dagen. 
+Op tabel \ref{table:marktaandeel-ios-android} is het marktaandeel te zien van de verschillende Android besturingssystemen, waargenomen over een periode van 14 dagen. 
 Het is duidelijk dat Gingerbread (Android 2.3) meer dan de helft van het marktaandeel inneemt.
 Applicaties worden gedownload in Google Play. 
 Android bevat ook een standaard browser (zie \ref{sec:android-browser}).
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{figuren/marketshare-android-2012-11-01.png}
-  \caption{Marktaandeel Android besturingssystemen op 1 november 2012~\cite{Android2012}.}
-  \label{fig:marketshare-android}
-\end{figure}
 
 \subsection{Windows Phone}
 Windows Phone van Microsoft werd aangekondigd in oktober 2010 als vervanging voor Windows Mobile~\cite{Seitz2010,Lieberman2010}. 
@@ -459,7 +477,7 @@ Deze raamwerken worden opgedeeld volgens twee courante aanpakken~\cite{Oeflman20
 % - bedrijf, licentie
 
 \subsection{\jqm} % TIM
-\jqm{} is een markup gedreven 
+\jqm{} is een opmaakgedreven 
 
 \subsection{Sencha Touch}% SANDER
 Sencha Touch wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.

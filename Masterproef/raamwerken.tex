@@ -351,7 +351,7 @@ Op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
 Net zoals bij \jqm{} is er niets meer nodig dan kennis over HTML, CSS en JavaScript.
-De GI-elementen worden geschreven in HTML, maar worden in tegenstelling tot \jqm{} aangeduid aan de hand van CSS-klassen.
+De GI-elementen worden geschreven in HTML en aangeduid aan de hand van CSS-klassen en \code{data-*}-attributen
 
 \paragraph{Tools}
 Er worden geen specifieke tools door TapQuo aangeboden om de ontwikkeling te versnellen.
@@ -385,7 +385,65 @@ Bij \jqm{} dient telkens ook de volledige \code{<head>}-tag op iedere pagina her
 Indien 
 
 \subsection{Functionele kenmerken}
+De documentatiepagina is opgedeeld in 9 groepen die hieronder kort worden aangehaald.
+
+\begin{enumerate}
+
+\item \textbf{Prototype } 
+Hierop worden GI-elementen, navigatie, formulieren, scrollen, lijsten en data-attributen aangehaald. 
+Opmerkelijk is de directe ondersteuning door het raamwerk bij het naar beneden trekken van een lijst waarbij de data automatisch wordt herladen.
+
+\item \textbf{Core }
+Hier worden functies aangehaald die het raamwerk zelf intern gebruik.
+Een voorbeeld hiervan is de \code{Lungo.Core.isMobile()}-functie die controleert op de applicatie in een mobiele omgeving wordt uitgevoerd.
+
+\item \textbf{Data }
+Zoals aangehaald in de inleiding biedt het raamwerk \term{wrappers} voor cache, opslag en SQL.
+De ontwikkelaar dient dus zelf geen \code{if-then-else}-constructies op te stellen of een bepaald kenmerk ondersteund wordt of niet, het raamwerk neemt dat onder de moterkap voor zijn rekening.
+
+\item \textbf{DOM }
+Het manipuleren van de DOM gebeurt door de \quo{}-bibliotheek.
+Hierbij wordt gerefereerd naar de documentatie op \exturl{quojs.tapquo.com}.
+
+\item \textbf{Element }
+Toevoegen van een telbubbel, vooruitgangsbalk, laadbalk, automatisch herladen bij naar beneden trekken van lijst en een fotocarousel zijn mogelijk vanuit JavaScript. 
+
+\item \textbf{Notification }
+Er worden standaard verschillende dialoogvensters aangeboden voor fout-, succes- en infomeldingen.
+ 
+\item \textbf{Routing }
+Hier wordt uitgebreid ingegaan op de navigatie doorheen de applicatie vanuit JavaScript.
+
+\item \textbf{Service }
+Versturen van HTTP-oproepen kan zonder enig probleem vanuit het \lungo{}—raamwerk.
+
+\item \textbf{View }
+Hier worden JavaScript-methoden aangeboden om het uitzicht binnen een \code{<article>} te bepalen.
+ 
+\end{enumerate}
+
 \subsection{Niet-functionele kenmerken}
+\paragraph{Performantie}
+Een voordeel, dat zal moeten blijken in hoofdstuk~\ref{chap:evaluatie}, is dat de JavaScript-bibliotheek waarop \lungo{} steunt, geoptimaliseerd is voor mobiel gebruik.
+Dit is in tegenstelling tot jQuery die ook methodes aanbiedt voor desktopgebruikers.
+Hierdoor bevat \quo{} enkel de nodige code, waardoor het bestand kleiner zal zijn in grootte en dus ook sneller wordt gedownload. 
+
+\paragraph{Aanpasbaarheid}
+\label{sec:sencha-aanpasbaarheid}
+Standaard ziet een \lungo{}-applicatie er goed uit qua lay-out.
+TapQuo biedt zelf geen tools aan om de kleuren of het uitzicht van de applicatie te veranderen.
+Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijven.
+
+\paragraph{Programmeerbaarheid}
+\label{sec:sencha-programeerbaarheid}
+\lungo{} dwingt geen enkel ontwerppatroon af.
+Voor de echte functionaliteit wordt beroep gedaan op JavaScript en meer bepaald op \quo{}. 
+Ook deze dwingt geen ontwerppatroon af.
+
+\paragraph{Ondersteuning browser}
+TapQuo geeft aan op hun website dat ze ondersteuning bieden voor iOS, Android, Blackberry en FirefoxOS.
+Verder halen ze aan dat ze een consistente ervaring willen hebben van een gemaakte applicatie van mobiele apparaten, tv's tot desktopapparaten.
+
 
 \section{Tabel}
 \label{sec:raamwerken-tabel}

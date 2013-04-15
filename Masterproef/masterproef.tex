@@ -42,7 +42,10 @@
 \usepackage{enumitem}
 
 % zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
-\renewcommand{\url}[1]{\href{http://#1}{#1}}
+%\renewcommand{\url}[1]{\href{http://#1}{#1}}
+
+\newcommand{\exturl}[1]{\href{http://#1}{#1}}
+\renewcommand{\url}[1]{\href{#1}{#1}}
 
 % commando's voor veelgebruikte woorden, zodat er geen typefouten tegen gemaakt worden
 \newcommand{\jqm}[0]{jQuery Mobile}
@@ -144,7 +147,7 @@
 % Na de bijlagen plaatst men nog de bibliografie.
 % Je kan de  standaard "abbrv" bibliografiestijl vervangen door een andere.
 \bibliographystyle{abbrv}
-\bibliography{../Referenties/evaluatie-tex,../Referenties/vergelijking-tex,../Referenties/literatuurstudie-tex}
+\bibliography{../Referenties/evaluatie-nl,../Referenties/vergelijking-nl,../Referenties/literatuurstudie-nl}
 
 \end{document}
 

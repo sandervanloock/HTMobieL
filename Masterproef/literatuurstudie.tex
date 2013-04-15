@@ -247,24 +247,20 @@ Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tbl:markta
 
 % TODO toevoegen data over IE mobile
 \begin{table}
-\begin{center}
-\begin{tabular}{ll}
-\hline
-\textbf{Mobiele webbrowser} & \textbf{Marktaandeel} (\%) \\
-\hline
-\hline
-Mobile Safari				& 61.50 \\
-Android browser				& 26.09 \\
-Opera Mini				& 7.02 	\\
-Chrome					& 1.14 	\\
-Opera Mobile				& 0.53 	\\
-Internet Explorer Mobile & 		\\
-Andere					& 		\\
-\hline
+\centering
+\begin{tabular}[b]{l r@{,}l}
+\toprule
+\textbf{Mobiele webbrowser} & \multicolumn{2}{c}{\textbf{Marktaandeel (\%)}} \\
+\midrule
+Mobile Safari		& 61 	& 02	 	\\
+Android browser		& 18 	& 30 	\\
+Opera Mini			& 9 		& 84 	\\
+Chrome				& 2		& 02 	\\
+Andere				& 8		& 82		\\
+\bottomrule
 \end{tabular}
-\caption{Marktaandeel mobiele webbrowsers op november 2012~\cite{NetApplications2012}.}
+\caption{Marktaandeel mobiele webbrowsers op januari 2013~\cite{NetApplications2012}.}
 \label{tbl:marktaandeel-browsers}
-\end{center}
 \end{table}
 
 \subsection{Mobile Safari}
@@ -367,7 +363,7 @@ Toch worden ze onder de koepel van HTML5 gezien~\cite{MacDonald2011}.
 \paragraph{Kenmerken detecteren}
 Door enerzijds de levendigheid van HTML5 en anderzijds het verdeelde landschap van browsers en besturingssystemen, worden niet alle kenmerken van HTML5 overal ondersteund. 
 Een eerste mogelijkheid is om zelf op te zoeken welke kenmerken op welke apparaten werken. 
-Dit kan gecontroleerd worden op bijvoorbeeld \url{www.caniuse.com} en \url{www.mobilehtml5.org}~\cite{MacDonald2011}. 
+Dit kan gecontroleerd worden op bijvoorbeeld \exturl{www.caniuse.com} en \exturl{www.mobilehtml5.org}~\cite{MacDonald2011}. 
 
 Wat nog handiger is, is om op het apparaat zelf te detecteren of het gewenste kenmerk beschikbaar is. 
 Een erg handige tool hiervoor is Modernizr~\cite{Modernizr2012}. 
@@ -469,7 +465,7 @@ Het is ook mogelijk om jQuery uit te breiden met verscheidene plug-ins om de fun
 \label{sec:mobiele-html5-raamwerken}
 
 In deze sectie wordt ingezoomd op bestaande mobiele HTML5-raamwerken die gebruik maken van de laatste nieuwe technologieën zoals HTML5, CSS3 en JavaScript.
-Deze raamwerken worden opgedeeld volgens twee courante aanpakken~\cite{Oeflman2011}: opmaakgedreven en JavaScript gedreven. Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code geschreven. Daarentegen wordt bij een JavaScript-gedreven aanpak hoofdzakelijk in JavaScript geprogrammeerd.
+Deze raamwerken worden gecategoriseerd volgens twee courante aanpakken~\cite{Oeflman2011}: opmaakgedreven en JavaScript-gedreven. Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code geschreven. Daarentegen wordt bij een JavaScript-gedreven aanpak hoofdzakelijk in JavaScript geprogrammeerd.
 
 % paragraaf per framework
 % - welk framework (markup / javascript)
@@ -477,13 +473,18 @@ Deze raamwerken worden opgedeeld volgens twee courante aanpakken~\cite{Oeflman20
 % - bedrijf, licentie
 
 \subsection{\jqm} % TIM
-\jqm{} is een opmaakgedreven 
+\jqm{} is een opmaakgedreven raamwerk dat werd aangekondigd in 2010 en hoofdzakelijk gebruikersinterface-elementen (GI-elementen) aanbiedt~\cite{Resig2010}.
+Het raamwerk wordt beheerd door het jQuery Project dat onder andere jQuery Core beheert en waar \jqm{} afhankelijk van is~\cite{JQuery2012}. 
+Op het moment van schrijven zit \jqm{} aan versie~1.3.1~\cite{Parker2013b}. 
+Sinds september 2012 is het enkel nog mogelijk om \jqm{} onder de Massachusetts Institute of Technology (MIT) licentie te verkrijgen~\cite{Dmethvin2012}. 
+Dit betekent dat de code wordt vrijgegeven als \term{open-source} en dat deze tegelijkertijd kan worden gebruikt in propriëtaire projecten en applicaties~\cite{PhilDutson2012}.
 
 \subsection{Sencha Touch}% SANDER
 Sencha Touch wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.
 Ext JS kan beschouwd worden als de voorganger van Sencha Touch. 
-Sencha Touch is net als Ext JS een JavaScript gedreven raamwerk met een MVC architectuur.
-Alle functionaliteit wordt dus in JavaScript geschreven en MVC bepaalt de implementatie.
+Sencha Touch is net als Ext JS een JavaScript-gedreven raamwerk met een MVC-architectuur.
+Alle functionaliteit wordt dus in JavaScript-geschreven en MVC bepaalt de implementatie.
+% TODO tim: is dat niet zo voor ieder raamwerk?
 Het aanroepen van het raamwerk gebeurt door het invoeren van de Sencha Touch bibliotheek binnen \code{<script>}-elementen.
 Sencha Touch is gratis binnen een commerciële context waarbij het bedrijf in kwestie de broncode niet deelt voor zijn gebruikers.  
 Wanneer je dit wel wil doen bestaat er ook een gratis \term{open-source} versie van Sencha Touch.
@@ -595,14 +596,14 @@ Andere factoren zoals omkadering en uitbreidbaarheid worden niet in de vergelijk
 Ze worden echter wel bekeken.
 
 % \subsubsection{jQuery UI vs Kendo UI}
-% Een andere, meer grondige vergelijking is te vinden op \url{www.jqueryuivskendoui.com}~\cite{Bristowe}.  Deze webpagina bestaat uit één grote tabel die meer specifieke kenmerken tussen beide raamwerkenen vergelijkt.  Er worden geen scores uitgedeeld. In de tabel vinden we onder andere een vergelijking van beschikbare thema's,  browser compatibiliteit,  form validatie,  ondersteuning van het product etc.
+% Een andere, meer grondige vergelijking is te vinden op \exturl{www.jqueryuivskendoui.com}~\cite{Bristowe}.  Deze webpagina bestaat uit één grote tabel die meer specifieke kenmerken tussen beide raamwerkenen vergelijkt.  Er worden geen scores uitgedeeld. In de tabel vinden we onder andere een vergelijking van beschikbare thema's,  browser compatibiliteit,  form validatie,  ondersteuning van het product etc.
 %TODO meer relevante use cases toevoegen
 
 \subsection{Vergelijkingstabellen}
 Naast ISO standaarden of al bestaande use cases, kunnen we ook tabellen raadplegen die zoveel mogelijk raamwerken en zoveel mogelijk kenmerken naast elkaar zetten.  
 Op Wikipedia creëerde men bijvoorbeeld zo'n tabel voor JavaScript raamwerken~\cite{Wikipedia}.  
 
-Specifiek voor mobiele HTML5-raamwerken bestaat er ook zo'n tabel,  te vinden op \url{www.markus-falk.com/mobile-frameworks-comparison-chart}~\cite{Falk2011}.  
+Specifiek voor mobiele HTML5-raamwerken bestaat er ook zo'n tabel,  te vinden op \exturl{www.markus-falk.com/mobile-frameworks-comparison-chart}~\cite{Falk2011}.  
 We zien er een matrix met als rijen de verschillende raamwerken en in de kolommen de vergelijkingscriteria.  
 Deze laatste worden opgedeeld in compatibiliteit met het besturingssysteem,  doel van de applicatie,  taal voor ontwikkeling,  hardware interactie,  UI,  licenties en andere.  
 Deze laatste categorie bevat de criteria of er al-dan-niet een SDK beschikbaar is, encryptie ondersteund wordt en of advertenties worden ondersteund.  

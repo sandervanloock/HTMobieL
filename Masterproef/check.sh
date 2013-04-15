@@ -1,6 +1,6 @@
 #!/bin/sh
 
-forbiddenWords=(we men je framework device plugin)
+forbiddenWords=(we men je u framework device plugin)
 unset regexp
 
 for w in ${forbiddenWords[@]};

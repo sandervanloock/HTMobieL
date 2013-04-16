@@ -71,8 +71,6 @@ Deze bevat een overzicht van de onkosten met bijhorende bewijsstukken, alsook de
 \section{Vergelijkingscriteria}
 \label{sec:vergelijking-criteria}
 
-% TODO zeggen WAAROM we deze criteria hebben gekozen en niet de andere, WAAROM de onze 'beter' zijn, WAAROM we reeds bestaande hebben genomen tezamen met nieuwe, …
-
 In deze sectie zullen de criteria toelicht worden die zullen worden toegepast om de raamwerken te vergelijken.
 In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die in de literatuur worden toegepast.
 Elementen van deze technieken zullen terugkomen in onze methode om de raamwerken te evalueren.
@@ -101,16 +99,23 @@ De score van performantie zal deels bepaald worden door de laadtijden van de POC
 % 'makkelijk'
 De gemeenschap en populariteit van een raamwerk is makkelijk in cijfers uit te drukken. 
 Een tabel zal voorzien worden met in de kolommen het aantal volgers op Twitter, sterren en forkers van GitHub,  vragen op Stackoverflow en aantal \term{likes} van Facebook en de raamwerken in de rijen~\cite{Sarrafi2012a,Ayuso2012}. 
-%github nul geven als het niet beschikbaar is => verantwoorden dat het open source is
+%TODO github nul geven als het niet beschikbaar is => verantwoorden dat het open source is
+Ook de evolutie van de data bekeken worden na een termijn van één maand.
 Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal voor elk raamwerk na deze tabel worden toegevoegd.
-%TODO zoals bij onze presentatie gezegd:  ook cijfers per tijd bekijken OK
-\paragraph{}
+
+
 De som van Twitter volgers($T_r$), GitHub sterren($S_r$), GitHub forkers ($F_r$), Stackoverflow vragen ($SO_r$) en Facebook likes($FB_r$) vormt de score voor het gemeenschapscriteria:
 \begin{equation}
   G_r=T_r+S_r+F_r+SO_r+FB_r
   \label{eq:gemeenschap}
 \end{equation}
 met $r$ de verschillende raamwerken.
+
+\paragraph{Motivatie}
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Productiviteit}
 \label{sec:vergelijking-productiviteit}
@@ -128,13 +133,20 @@ Het zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raam
 %Ook zullen beide een loginscherm maken in de andere twee raamwerken~\cite{Burris}. 
 %We  
 De tijd die ieder nodig heeft om dit scherm te bouwen, geeft ook een indicatie van de nodige leertijd.
-\paragraph{}
+
+
 De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en het loginscherm ($t_{r,login}$) vormt de score voor de productiviteit:
 \begin{equation}
   Pr_r = {t_{r,POC} + t_{r,login}}
   \label{eq:productiviteit}
 \end{equation}
 waar $r$ de verschillende raamwerken voorstellen.
+
+\paragraph{Motivatie}
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Gebruik}
 \label{sec:vergelijking-gebruik}
@@ -257,6 +269,12 @@ Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $S_{r,i}$ van raa
 \end{equation}
 met $r$ de verschillende raamwerken en $i$ de uitdagingen.
 
+\paragraph{Motivatie}
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Ondersteuning}
 \label{sec:vergelijking-ondersteuning}
 Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen met hun verschillende besturingssystemen ondersteund.
@@ -276,14 +294,13 @@ De gewogen som van de scores van de verschillende contexten bepaalt de score van
   \label{eq:ondersteuning}
 \end{equation}
 met $r$ de verschillende raamwerken,  $d$ de verschillende toestellen en $i$ de uitdagingen. 
-\paragraph{}
 % We zullen een scenario uitwerken waarbij we het gebruik van de POC doorlopen. 
 % Dit scenario zullen we op een reeks van verschillende mobiele apparaten herhalen~\cite{Sarrafi2012a}. 
 % Bij het mislukken van een stap in het scenario, zal een punt worden afgetrokken. 
 % Hierdoor kunnen we een score bekomen hoe goed de applicatie, geïmplementeerd in een bepaald raamwerk, scoort op een bepaald apparaat. 
 %De gebruikte apparaten araten aan het departement HCI.
 Een kanttekening bij dit criterium is of het raamwerk ondersteunt de webapplicatie om te vormen tot een \term{native} applicatie. 
-% TODO nog eens uitleggen war we met native look-and-feel bedoelen
+% TODO nog eens uitleggen war we met native look-and-feel bedoelen. 
 Ook zal er gekeken worden of de \term{native look-and-feel} per platform door het raamwerk kan worden benaderd.
 
 \begin{table}[h]
@@ -305,6 +322,13 @@ Ook zal er gekeken worden of de \term{native look-and-feel} per platform door he
   \caption{Beschikbare toestellen met hun besturingssysteem, browser en gewicht}
   \label{tabel:toestellen-hci}
 \end{table}
+
+
+\paragraph{Motivatie}
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
@@ -331,3 +355,9 @@ De formule voor het performantiecriterium wordt dan:
   \label{eq:performantie}
 \end{equation}
 met $r$ de verschillende raamwerken.
+
+\paragraph{Motivatie}
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

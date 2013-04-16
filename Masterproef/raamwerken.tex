@@ -1,8 +1,6 @@
 \chapter{Mobiele HTML5-raamwerken}
 \label{chap:raamwerken}
 
-% TODO Tim: Waar zetten we WAAROM we deze raamwerken gekozen hebben en niet de andere?
-
 In dit hoofdstuk wordt ingezoomd op de mobiele HTML5-raamwerken die dit werk vergelijkt, namelijk \jqm{}~(\ref{sec:raamwerk-jqm}), \st{}~(\ref{sec:raamwerk-st}), \kendo{}~(\ref{sec:raamwerk-kendo}) en \lungo{}~(\ref{sec:raamwerk-lungo}).
 In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een tabel weergegeven, waarin deze gegevens worden vergeleken.
 
@@ -132,15 +130,16 @@ Ook deze dwingt geen ontwerppatroon af.
 Hierbij ondersteunt een klasse A browser alles, terwijl een klasse C browser enkel de basis HTML ondersteunt (en dus bijvoorbeeld geen hippe CCS3 overgangen).
 \jqm{} maakt gebruikt van \emph{progressive enhancement} (zie \ref{par:progressive-enhancement}).
 
+\subsection{Motivatie}
+%TODO
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{\st}
 \label{sec:raamwerk-st}
 
-% TODO Tim: Ik zou die eerste zin weglaten
-\st{} is een relatief verschillend raamwerk in vergelijking met \jqm{}.  
-Het wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.  
+\st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.  
 Ext JS is een JavaScript raamwerk voor de ontwikkeling van webapplicaties. 
 jQuery Touch is een jQuery plug-in voor mobiele webontwikkeling.  
 Het steunt op WebKit en voegt \term{touch events} toe aan jQuery.  
@@ -182,8 +181,7 @@ Hier staan handleidingen,  introductie video etc..
 
 %Door de snelle ontwikkeling van Sencha blijft de documentatie niet altijd up-to-date.  Zo zijn vele methoden verouderd maar staat er geen alternatief vermeld. 
 %TODO dit is misschien eerer subjectief?
-%TODO Tim: raadslagwerk? wij zijn de enige op google die deze term gebruiken. bedoelde je raadplegen of naslagwerk?
-Een ander handig raadslagwerk is de Kitchen Sink~\cite{Inc.2013}.  
+Een ander handig naslagwerk is de Kitchen Sink~\cite{Inc.2013}.  
 Dit is een webapplicatie,  geschreven in \st{},  die de belangrijkste functionaliteiten bevat samen met de bijhorende code.  
 
 \paragraph{Marktadoptatie}
@@ -200,8 +198,7 @@ Dit wil zeggen dat bedrijven hun producten gaan verkopen onder hun eigen merk en
 Omdat het gebruik hiervan per gebruiker verschilt,  worden OEM-licenties op maat gemaakt~\cite{Inc.}.
 
 \subsection{Code en ontwikkeling}
-%TODO Tim: … reeds vermeld… … dus… da klinkt alsof we het verveeld vinden om het nog eens te vermelden precies
-Zoals reeds vermeld moet alle code in JavaScript worden geschreven en dient één HTML-bestand slechts als container om de bestanden in te laden.  
+Alle moet code in JavaScript worden geschreven en dient één HTML-bestand slechts als container om de bestanden in te laden.  
 Sencha valt dus onder JavaScript gebaseerde raamwerken.  
 De keuze voor deze aanpak heeft twee belangrijke motivaties.  
 Enerzijds is \st{} gebouwd op Ext JS,  wat op zich een JavaScript raamwerk is.  
@@ -236,14 +233,6 @@ Dit is handig om conflicten te vermijden tussen eigen objecten en standaard obje
 
 Voor een opsomming van alle componenten verwijzen we naar de documentatie~\cite{Inc.2013a}.
 
-%jQuery subsecties:
-%Pagina's en dialoogvensters
-%werkbalken
-%knoppen
-%inhoud vormgeven
-%elementen voor formulieren
-%lijsten
-
 \paragraph{Model}
 Data kan intern worden voorgesteld met \term{models}.  
 Dit is iets wat hoort bij het MVC patroon (zie sectie \ref{sec:sencha-programeerbaarheid}).  
@@ -259,7 +248,7 @@ Een \term{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) 
 Een \term{proxy} kan ook nog voorzien worden van een \term{reader} die aangeeft hoe de ontvangen data gelezen moet worden.
 
 \paragraph{View}
-Een \term{view} is de benaming voor objecten die aan de gebruiker kunnen worden getoond.  
+Een \term{View} is de benaming voor objecten die aan de gebruiker kunnen worden getoond.  
 Een voorbeeld hiervan zijn lijsten,  waar vaak de data van een \term{store} wordt in weergegeven.  
 Zo'n lijst kan makkelijk gefilterd of gesorteerd worden op basis van velden uit het model.  
 Hiervoor moeten \term{filters} of \term{sorters} aan de \term{store} worden toegevoegd. 
@@ -281,15 +270,15 @@ Ook een verbetering in performantie op Android toestellen,  voornamelijk bij scr
 
 Een benchmark voor deze verbeteringen zijn de opstarttijden van de Kitchen Sink applicatie.  
 Het opstarten gebeurde met de verschillende \st{} versies en op verschillende toestellen.  
-De resultaten zijn terug te vinden op figuur \ref{fig:sencha_performance}.  
+%TODO De resultaten zijn terug te vinden op figuur \ref{fig:sencha_performance}.  
 Op bijna elk toestel blijkt \st{}~2.0 ongeveer één seconde sneller te werken~\cite{SenchaInc.2013}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{figuren/sencha-touch-startup-times.png}
-  \caption{\st{} Kitchen Sink opstarttijden~\cite{SenchaInc.2013}.}
-  \label{fig:sencha_performance}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{figuren/sencha-touch-startup-times.png}
+%   \caption{\st{} Kitchen Sink opstarttijden~\cite{SenchaInc.2013}.}
+%   \label{fig:sencha_performance}
+% \end{figure}
 
 \paragraph{Aanpasbaarheid}
 \label{sec:sencha-aanpasbaarheid}
@@ -314,9 +303,9 @@ Door zelf \term{mixins} te creëren of reeds bestaande te manipuleren kunnen eig
 \label{sec:sencha-programeerbaarheid}
 Zoals reeds aangehaald ondersteund \st{} het MVC-patroon.  
 Dit patroon vermijdt lange JavaScript bestanden door ze logisch op te delen.  
-Modellen groeperen velden tot een beschrijving van data-objecten, views definiëren de weergave van componenten en controllers verbinden beide op basis van \term{events}.
+Modellen groeperen velden tot een beschrijving van data-objecten, \code{Views} definiëren de weergave van componenten en controllers verbinden beide op basis van \term{events}.
 
-In theorie zou het verschil tussen mobiele websites en applicaties enkel in de \code{views} terug te vinden zijn.  
+In theorie zou het verschil tussen mobiele websites en applicaties enkel in de \code{Views} terug te vinden zijn.  
 Echter,  dit wordt nog niet volledig ondersteund en worden aparte projecten voor deze functionaliteit gepromoot.
 
 \paragraph{Ondersteuning browser}
@@ -328,6 +317,12 @@ Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen ove
 Verder kan \st{} ook vragen naar de ondersteuning van specifieke kenmerken (audio,  canvas,  CSS3, ...),  analoog als Modernizr.  
 
 Op de Senplug-incha website zijn voor sommige browsers en bijhorend besturingssystemen scorecards voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
+
+\subsection{Motivatie}
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{\kendo}
@@ -348,8 +343,7 @@ Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}.
 Het HTML-element dat moet omgevormd worden tot \kendo{} object moet in een HTML-bestand worden gedeclareerd en voorzien worden van een id.
 Vervolgens kunnen data attributen in HTML-code het element associeren met \kendo{} of kan het overeenkomstige jQuery object in JavaScript het raamwerk oproepen.
 Alle UI-elementen van \kendo{} Mobile kunnen met data-attributen worden opgebouwd.
-Het is niet mogelijk elk UI-element in JavaScript te creëeren.
-%TODO anders formuleren Het gebruik van widgets van \kendo{} Web vereist wel dat ze met JavaScript worden opgebouwd.
+Widgets van \kendo{} Web kunnen zowel met JavaScript als data-attributen geïnitialiseerd worden.
 
 Het laden van het raamwerk kan door heel \kendo{} op te roepen of enkel \kendo{} Mobile met respectievelijk \code{kendo.all.js} en \code{kendo.mobile.js}.
 Elk van de drie luiken - Web, Mobile en DataViz - kan op zichzelf functioneren door hun JavaScript-bestand in te laden.
@@ -364,7 +358,7 @@ Op de \kendo{} website staan drie webtools vermeld die Telerik aanbiedt om de pr
 De eerste is \kendo{} Dojo~\cite{Telerika},  een interactieve leeromgeving om met \kendo{} vertrouwd te raken.
 De gebruiker kan de basis van \kendo{} leren kennen met geleide handleidingen met en uitvoerbare voorbeelden.
 De twee andere webapplicaties zijn tools om op een grafische manier CSS-bestanden te genereren voor zowel de mobiele als web applicaties.~\cite{Telerikb,Telerikc}.
-Voor \kendo{} Mobile kan een verschillende layout bepaalt worden voor alle ondersteunde besturingssystemen.
+Voor \kendo{} Mobile kan een verschillende lay-out bepaalt worden voor alle ondersteunde besturingssystemen.
 
 \paragraph{Documentatie}
 Alle documentatie kan gevonden worden op \url{http://docs.kendoui.com}~\cite{Telerikd}.
@@ -382,11 +376,9 @@ Een licentie voor \kendo{} Complete kost $\$699$ per ontwikkelaar.
 Voor \term{backend} ondersteuning in PHP,  JSP of ASP.NET MVC moet $\$300$ meer betaald worden.
 Hierbij zijn één jaar updates mogelijk en wordt professionele ondersteuning aangeboden met een responsetijd onder 48 uur.
 Bij een licentie met \term{server side wrappers} is support zelfs gegarandeerd na 24 uur.
-%TODO apart aankpen van web, mobile en dataviz
+Voor \kendo{} Web,  Mobile en DataViz bestaan ook een aparte licenties voor respectievelijk $\$399$,  $\$199$ en $\$399$.
 
 \subsection{Code en ontwikkeling}
-%javascript en markup driven
-%single page of multiple page (analoog jqm)
 Zoals reeds vermeld moet de programmeur zowel JavaScript als HTML-code schrijven. 
 De JavaScript en CSS-bestanden van het raamwerk moeten in projectfolder worden gekopieerd respectievelijk in een \term{js} en \term{styles} map.
 \kendo{} steunt op de jQuery bibliotheek en deze moet ingeladen worden voor het \kendo{} raamwerk zelf wordt aangeroepen.
@@ -417,27 +409,27 @@ Dit maakt het mogelijk om gemeenschappelijke acties aan een groep van knoppen to
 Een \code{TabStrip} is een alternatief waar tabs in de voettekst het scherm kunnen variëren.
 
 \paragraph{View}
-Schermen worden voorsteld met \code{views},  analoog als bij de MVC-architectuur (zie super).
-Een \code{view} aanduiden gebeurt door het attribuut \code{data-role} aan \code{view}  gelijk te stellen.
-\code{Views} kunnen met een \code{layout} worden voorzien met de \code{data-layout}-tag.
-Een \code{layout} bepaalt de vormgeving van een \code{view} en kan hergebruikt worden.
+Schermen worden voorsteld met \code{Views},  analoog als bij de MVC-architectuur (zie super).
+Een \code{View} aanduiden gebeurt door het attribuut \code{data-role} aan \code{View}  gelijk te stellen.
+\code{Views} kunnen met een lay-out worden voorzien met de \code{data-layout}-tag.
+Een \code{Layout} bepaalt de vormgeving van een \code{View} en kan hergebruikt worden.
 
-Een \code{listview} is een specifieke \code{view} voor lijsten.
+Een \code{ListView} is een specifieke \code{View} voor lijsten.
 De \code{data-template} kan bij lijsten de id van een sjabloon bevatten die de opmaak van de lijstelementen definieerd.
 Deze sjablonen zijn specifieke \kendo{} scriptjes die HTML-tags en JavaScript-code kunnen bevatten.
 Ook kunnen ze verwijzen naar attributen van het model dat aan de lijst is toegekend (zie infra).
 
-Twee andere instanties van \code{views} zijn \code{Splitview} en \code{Scrollview}.
-De eerste kan het scherm in twee \code{views} splitsen,  vaak gebruikt bij tablet applicaties.
+Twee andere instanties van \code{Views} zijn \code{SplitView} en \code{ScrollView}.
+De eerste kan het scherm in twee \code{Views} splitsen,  vaak gebruikt bij tablet applicaties.
 De tweede is definieert een verzameling van pagina's die met een swipe bewegingen gelinkt zijn.
 
 \paragraph{View-Model}
 Het \code{View-Model} behoort tot de kern van \kendo{} en wordt \code{ObservableObject} genoemd.
 Dit is een JavaScript object dat kan gebonden worden aan abonnees.
 Het ondersteunt het monitoren van wijzigingen en verwittigd elke abonnee wanneer een wijziging zich voordoet.
-Een \code{ObservableObject} kan aan een \code{view} worden toegekend door het in de \code{data-model}-tag te vermelden.
+Een \code{ObservableObject} kan aan een \code{View} worden toegekend door het in de \code{data-model}-tag te vermelden.
 
-Er zijn verschillende bindingen	 mogelijk tussen een \code{view} en \code{ObservableObject} en wordt aangegeven in de \code{data-bind}-tag.
+Er zijn verschillende bindingen	 mogelijk tussen een \code{View} en \code{ObservableObject} en wordt aangegeven in de \code{data-bind}-tag.
 \kendo{} ondersteunt een binding met volgende eigenschappen:  \code{attr,  checked, clicked, custom, disabled, enabled, events, html, invisible, source, style, text, value} en \code{visible}.
 Als een gebonden eigenschap wijzigt - door gebruikersinvoer of programmatisch - zal het overeenkomstige veld in het \code{ObservableObject} ook wijzigen.
 
@@ -466,30 +458,32 @@ Bij de ontwikkeling van een \code{listView} met data van een externe databron ka
 
 
 \paragraph{Aanpasbaarheid}
-%native look-and-feel
-%Customize mobile themes & widgets
 \kendo{} probeert de \term{native look-and-feel} van verschillende besturingssystemen na te bootsen.
 Op het moment van schrijven ondersteunt het iOS, Android, BlackBerry en WinPhone8.
 
-Het \kendo{} pakket bevat ook tien extra thema's die een alternatieve layout bepalen.
+Het \kendo{} pakket bevat ook tien extra thema's die een alternatieve lay-out bepalen.
 Deze zijn elk nog persoonlijk aan te passen met de Mobile ThemeBuilder zoals beschreven in de sectie \ref{sec:kendo-omkadering}.
 
 \paragraph{Programeerbaarheid}
-%MVVM, jQuery core
 \kendo{} is zowel JavaScipt- als opmaakgedreven.
 Een kennis van zowel HTML als JavaScript is vereist om met dit raamwerk aan de slag te kunnen.
 Het raamwerk is gebouwd op de jQuery Core en moeten vaak jQuery \term{selectors} gebruikt worden.
 Ook kan een AJAX verzoek met jQuery syntax geformuleerd worden om externe data op te halen voor een \code{DataSource}.
 
 \paragraph{Browserondersteuning}
-%WinPhone8, iOS, Android, BlackBerry and beyond
 Zoals reeds gezegd herkent \kendo{} het platform waarop de applicatie wordt uitgevoerd.
-De layout van de applicatie zal de \term{native look-and-feel} van het besturingssysteem vervolgens nabootsen.
+De lay-out van de applicatie zal de \term{native look-and-feel} van het besturingssysteem vervolgens nabootsen.
 Ondersteunde systemen zijn iOS, Android, BlackBerry en WinPhone8.
 
 Alle widgets zoals gebruikt in het raamwerk ondersteunen \term{progressive enhancement}.
 Oudere browsers kunnen zo bestaande inhoud en functionaliteit raadplegen met \term{native} HTML types indien bepaalde elementen niet worden ondersteund.
 Ook de HTML5 formulierelementen worden opgebouwd met \term{progressive enhancement}.
+
+\subsection{Motivatie}
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{\lungo}
 \label{sec:raamwerk-lungo}
@@ -498,6 +492,12 @@ Ook de HTML5 formulierelementen worden opgebouwd met \term{progressive enhanceme
 \subsection{Code en ontwikkeling}
 \subsection{Functionele kenmerken}
 \subsection{Niet-functionele kenmerken}
+
+\subsection{Motivatie}
+%TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Tabel}
 \label{sec:raamwerken-tabel}

@@ -163,7 +163,7 @@ Dit is een desktopapplicatie om CSS3-animaties te ontwerpen.
 Deze animaties worden enkel in WebKit browsers ondersteund.
 
 \subparagraph{Sencha Architect}
-Dit is een andere desktopapplicatie waarmee je makkelijk een GI kan ontwikkelen met behulp van \term{drag-and-drop} commando's.  
+Dit is een andere desktopapplicatie voor de ontwikkeling van een GUI met behulp van \term{drag-and-drop} commando's.  
 
 \subparagraph{Sencha GXT}
 Sencha GXT is een uitbreiding op Google Web Toolkit (GWT).  
@@ -192,10 +192,10 @@ Enkele van hun grootste klanten zijn CNN,  Samsung,  Cisco en  Visa.
 
 \paragraph{Licenties}
 \st{} is gratis binnen een commerciële context waarbij het bedrijf in kwestie de broncode niet deelt voor zijn gebruikers.  
-Wanneer je dit wel wil doen bestaat er ook een gratis \term{open-source} versie van \st{}.  
-Deze komt met een GNU GPL v3 \term{open-source} licentie wat wil zeggen dat je de vrijheid hebt om aanpassingen aan de broncode te maken en te verspreiden,  zolang je zelf je code maar gratis verspreid voor alle gebruikers.
+De gratis \term{open-source} versie van \st{} laat dit wel toe.  
+Deze komt met een GNU GPL v3 \term{open-source} licentie wat wil zeggen dat de vrijheid bestaat om aanpassingen aan de broncode te maken en te verspreiden,  zolang de code maar gratis verspreid wordt voor alle gebruikers.
   
-Voor de ontwikkeling van eigen raamwerken of SDKs betaal je een \term{original equipment manufacturer} (OEM) licentie.  
+Voor de ontwikkeling van eigen raamwerken of SDKs wordt een \term{original equipment manufacturer} (OEM) licentie voorzien.  
 Dit wil zeggen dat bedrijven hun producten gaan verkopen onder hun eigen merk en naam, maar gebruik maken van Sencha.  
 Omdat het gebruik hiervan per gebruiker verschilt,  worden OEM-licenties op maat gemaakt~\cite{Inc.}.
 
@@ -214,7 +214,7 @@ Momenteel bevinden deze zich nog in bèta.
 Concreet zijn deze tools commando's voor de terminal die onder andere nieuwe projecten kunnen aanmaken, JavaScript bestanden kunnen optimaliseren maar vooral de webapplicatie kunnen omzetten naar native applicaties voor iOS en Android.
 
 \paragraph{Debugging}
-Het debuggen van je code gebeurt voornamelijk in de browser zelf.  
+Het debuggen van code gebeurt voornamelijk in de browser zelf.  
 Tools als de Safari Web Inspector,  Chrome Developer Tools of Firebug moeten de fouten kunnen opsporen.  
 De broncode van \st{} kan ook ingeladen worden met \code{sencha-touch-debug.js} als bibliotheek.  
 Deze versie is niet gecomprimeerd en bevat commentaar en documentatie om makkelijker te zoeken waar in de code de fout zich juist bevond.
@@ -232,7 +232,7 @@ Het aanmaken van componenten kan compacter door het gewenste component als \code
 Een andere belangrijke component is \code{Ext.Container}.  
 Containers kunnen subcomponenten bevatten en een lay-out specificeren.  
 Alle componenten krijgen een naam die verwijst naar een \term{namespace}.  
-Dit is handig om conflicten te vermijden tussen je eigen objecten en de standaard objecten van het raamwerk.  
+Dit is handig om conflicten te vermijden tussen eigen objecten en standaard objecten van het raamwerk.  
 
 Voor een opsomming van alle componenten verwijzen we naar de documentatie~\cite{Inc.2013a}.
 
@@ -262,7 +262,7 @@ Een \term{proxy} kan ook nog voorzien worden van een \term{reader} die aangeeft 
 Een \term{view} is de benaming voor objecten die aan de gebruiker kunnen worden getoond.  
 Een voorbeeld hiervan zijn lijsten,  waar vaak de data van een \term{store} wordt in weergegeven.  
 Zo'n lijst kan makkelijk gefilterd of gesorteerd worden op basis van velden uit het model.  
-Hiervoor moeten we \term{filters} of \term{sorters} aan de \term{store} toevoegen. 
+Hiervoor moeten \term{filters} of \term{sorters} aan de \term{store} worden toegevoegd. 
 De lay-out van één lijstitem bepalen kan via een \code{XTemplate}.  
 Het sjabloon bepaalt de HTML-structuur van elk item.  
 Alle gedefinieerde velden van het model kunnen in de template worden opgeroepen of gemanipuleerd.
@@ -301,14 +301,14 @@ Andere componenten kunnen deze lijst uitbreiden.
 Een knop kan bijvoorbeeld \code{normal},  \code{back},  \code{round},  \code{small},  \code{action} of \code{forward} als \code{ui} waarde hebben.
 
 Het is ook mogelijk om eigen waarden voor \code{ui} te definiëren of de standaarden van Sencha aan te passen.  
-Hiervoor moet je gebruik maken van SASS en Compass om je CSS-bestanden aan te maken.  
+SASS en Compass maken dit mogelijk door eigen CSS-bestanden aan te maken.  
 SASS staat voor Syntactically Awesome Stylesheets en breidt CSS uit met variabelen,  geneste structuren, \term{mixins} en overerving~\cite{Eppstein2013}.  
 \term{Mixins} groeperen enkele CSS-eigenschappen en kunnen worden hergebruikt.  
 Compass is een raamwerk bovenop SASS en CSS.  
 Het compileert SCSS (Sassy CSS) naar CSS-bestanden~\cite{Eppstein2013a}.        
 
 Sencha thema's bestaan allemaal uit een set van \term{mixins}.  
-Door zelf \term{mixins} te creëren of reeds bestaande te manipuleren kunnen we eigen thema's creëren en ze aan de \code{ui}-waarde van een component toekennen.
+Door zelf \term{mixins} te creëren of reeds bestaande te manipuleren kunnen eigen thema's gecreëerd worden en ze aan de \code{ui}-waarde van een component toegekend worden.
 
 \paragraph{Programmeerbaarheid}
 \label{sec:sencha-programeerbaarheid}
@@ -316,8 +316,8 @@ Zoals reeds aangehaald ondersteund \st{} het MVC-patroon.
 Dit patroon vermijdt lange JavaScript bestanden door ze logisch op te delen.  
 Modellen groeperen velden tot een beschrijving van data-objecten, views definiëren de weergave van componenten en controllers verbinden beide op basis van \term{events}.
 
-In theorie zou het verschil tussen mobiele websites en applicaties enkel in de views terug te vinden zijn.  
-Echter,  dit wordt nog niet volledig ondersteund en raadt men dus aan om hiervoor aparte projecten te voorzien.
+In theorie zou het verschil tussen mobiele websites en applicaties enkel in de \code{views} terug te vinden zijn.  
+Echter,  dit wordt nog niet volledig ondersteund en worden aparte projecten voor deze functionaliteit gepromoot.
 
 \paragraph{Ondersteuning browser}
 \st{} steunt op de WebKit browser \term{engine} dus moet de browser deze bevatten.  
@@ -379,7 +379,7 @@ Enkele van de populairste klanten van \kendo{} zijn Nikon,  Fujifilm en Symantec
 
 \paragraph{Licenties}
 Een licentie voor \kendo{} Complete kost $\$699$ per ontwikkelaar.
-Voor \term{backend} ondersteuning in PHP,  JSP of ASP.NET MVC betaal je $\$300$ meer.
+Voor \term{backend} ondersteuning in PHP,  JSP of ASP.NET MVC moet $\$300$ meer betaald worden.
 Hierbij zijn één jaar updates mogelijk en wordt professionele ondersteuning aangeboden met een responsetijd onder 48 uur.
 Bij een licentie met \term{server side wrappers} is support zelfs gegarandeerd na 24 uur.
 %TODO apart aankpen van web, mobile en dataviz
@@ -462,7 +462,7 @@ Deze moet er voor zorgen dat de data op het juiste moment geladen wordt.
 Bij het weergeven van een \code{View} gaan drie gebeurtenissen vooraf,  respectievelijk \code{beforeShow,  init} en \code{show}.
 De eerste wordt uitgevoerd voor een \code{View} zichtbaar wordt,  de tweede na initializatie en de laatste bij het tonen van een \code{View}.
 Het initializeren van een \code{View} vindt maar één keer plaats nadat de volledige applicatie geladen is.
-Als je een \code{listView} wil maken met data van een externe databron kan je best de \code{DataSource} laden bij het initializeren van de applicatie,  de lijst maken na de \code{init}-gebeurtenis van de \code{View} van de lijst en de lijst verversen wanneer deze getoond wordt (\code{show} gebeurtenis).
+Bij de ontwikkeling van een \code{listView} met data van een externe databron kan best de \code{DataSource} geladen worden bij het initializeren van de applicatie,  de lijst gemaakt worden na de \code{init}-gebeurtenis van de \code{View} van de lijst en de lijst ververst worden wanneer deze getoond wordt (\code{show} gebeurtenis).
 
 
 \paragraph{Aanpasbaarheid}

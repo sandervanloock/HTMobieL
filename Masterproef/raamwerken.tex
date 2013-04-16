@@ -505,6 +505,7 @@ Ook de HTML5 formulierelementen worden opgebouwd met \term{progressive enhanceme
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%TODO: verder uitschrijven, maar dat zal blijken uit mijn implementatie
 \section{\lungo}
 \label{sec:raamwerk-lungo}
 
@@ -522,7 +523,7 @@ De GI-elementen worden geschreven in HTML en aangeduid aan de hand van CSS-klass
 
 \paragraph{Tools}
 Er worden geen specifieke tools door TapQuo aangeboden om de ontwikkeling te versnellen.
-Wel kan gebruik gemaakt worden van Twitter Bower die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren~\cite{Twitter2013}.
+Wel kan er gebruik worden gemaakt van Twitter Bower die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren~\cite{Twitter2013}.
 Dit is bij \jqm{} niet mogelijk doordat \jqm{} geen geldige component is van Bower.
 
 \paragraph{Documentatie}
@@ -549,7 +550,6 @@ Hierdoor is het duidelijk dat \lungo{} ten opzichte van \jqm{} volledig gebruik 
 \lungo{} biedt de mogelijkheid om de verschillende schermen op afzonderlijke pagina's op te slaan en daarna asynchroon op te halen.
 In tegenstelling tot \jqm{} dient enkel wat binnen de \code{<body>}-tag staat, opgeslaan te worden.
 Bij \jqm{} dient telkens ook de volledige \code{<head>}-tag op iedere pagina herhaald te worden.
-Indien 
 
 \subsection{Functionele kenmerken}
 De documentatiepagina is opgedeeld in 9 groepen die hieronder kort worden aangehaald.
@@ -562,7 +562,7 @@ Opmerkelijk is de directe ondersteuning door het raamwerk bij het naar beneden t
 
 \item \textbf{Core }
 Hier worden functies aangehaald die het raamwerk zelf intern gebruik.
-Een voorbeeld hiervan is de \code{Lungo.Core.isMobile()}-functie die controleert op de applicatie in een mobiele omgeving wordt uitgevoerd.
+Een voorbeeld hiervan is de \code{Lungo.Core.isMobile()}-functie die controleert of de applicatie in een mobiele omgeving wordt uitgevoerd.
 
 \item \textbf{Data }
 Zoals aangehaald in de inleiding biedt het raamwerk \term{wrappers} voor cache, opslag en SQL.
@@ -573,7 +573,7 @@ Het manipuleren van de DOM gebeurt door de \quo{}-bibliotheek.
 Hierbij wordt gerefereerd naar de documentatie op \exturl{quojs.tapquo.com}.
 
 \item \textbf{Element }
-Toevoegen van een telbubbel, vooruitgangsbalk, laadbalk, automatisch herladen bij naar beneden trekken van lijst en een fotocarousel zijn mogelijk vanuit \js{}. 
+Toevoegen van een telbubbel, vooruitgangsbalk, laadbalk, automatisch herladen bij het naar beneden trekken van lijst en een fotocarousel zijn mogelijk vanuit \js{}. 
 
 \item \textbf{Notification }
 Er worden standaard verschillende dialoogvensters aangeboden voor fout-, succes- en infomeldingen.

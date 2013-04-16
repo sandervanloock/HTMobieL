@@ -331,7 +331,7 @@ Op de Senplug-incha website zijn voor sommige browsers en bijhorend besturingssy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+%TODO Tim: moet het eigenlijk niet Kendo UI Mobile zijn ipv Kendo UI? :)
 \section{\kendo}
 \label{sec:raamwerk-kendo}
 % TODO Tim: idem, het zijn allemaal HTML5-raamwerken, dus ik weet niet of het nodig is om dit nog eens aan te halen
@@ -620,3 +620,21 @@ Verder halen ze aan dat ze een consistente ervaring willen hebben van een gemaak
 
 \section{Tabel}
 \label{sec:raamwerken-tabel}
+
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Criterium,jQM,ST,Kendo,Lungo},
+  columns/Criterium/.style={column name={}, column type={c}},  
+  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
+  columns/ST/.style={column name=\textbf{\st}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+    after row=\bottomrule}
+]{tabellen/raamwerken.csv}
+

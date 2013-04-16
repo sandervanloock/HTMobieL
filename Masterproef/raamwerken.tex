@@ -329,10 +329,10 @@ Op de Senplug-incha website zijn voor sommige browsers en bijhorend besturingssy
 \label{sec:raamwerk-kendo}
 \kendo{} is een HTML5 raamwerk van de hand van Telerik.
 Het bestaat uit drie luiken:  Web, Mobile en DataViz.  
-\kendo{} Web eerste is gericht op de ontwikkeling van desktop en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor data visualisatie met HTML5 en JavaScript technologie.
-\kendo{} is een JavaScript gedreven raamwerk met een MVVM-architectuur dat steunt op de jQuery bibliotheek.
+Het eerste is gericht op de ontwikkeling van desktop en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor data visualisatie met HTML5 en JavaScript technologie.
+\kendo{} is een JavaScript-gedreven raamwerk met een MVVM-architectuur dat steunt op de jQuery bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig de \term{backend} in integreren aan de klantzijde.
-.NET,  PHP en JSP zij momenteel de ondersteunde \term{server side wrappers}.
+.NET,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend} integratie.
 Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}. 
 
 \subsection{Omkadering}
@@ -340,25 +340,25 @@ Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}.
 
 \paragraph{Programmeertaal}
 \kendo{} kan zowel als JavaScript- en opmaakgedreven beschouwd worden.  
-Het HTML-element dat moet omgevormd worden tot \kendo{} object moet in een HTML-bestand worden gedeclareerd en voorzien worden van een id.
-Vervolgens kunnen data attributen in HTML-code het element associeren met \kendo{} of kan het overeenkomstige jQuery object in JavaScript het raamwerk oproepen.
+Het HTML-element dat moet omgevormd worden tot \kendo{} object moet in een HTML-bestand worden gedeclareerd.
+Vervolgens kunnen data attributen in HTML-code het element associëren met \kendo{} of kan het overeenkomstige jQuery object in JavaScript het raamwerk oproepen en het element initialiseren.
 Alle UI-elementen van \kendo{} Mobile kunnen met data-attributen worden opgebouwd.
 Widgets van \kendo{} Web kunnen zowel met JavaScript als data-attributen geïnitialiseerd worden.
 
 Het laden van het raamwerk kan door heel \kendo{} op te roepen of enkel \kendo{} Mobile met respectievelijk \code{kendo.all.js} en \code{kendo.mobile.js}.
 Elk van de drie luiken - Web, Mobile en DataViz - kan op zichzelf functioneren door hun JavaScript-bestand in te laden.
-Er kan wel slecht één van de drie script tegelijk gebruikt woren.  
+Er kan wel slecht één van de drie script gelijktijdig gebruikt worden.  
 Wanneer elementen uit verschillende luiken gebruikt worden, moet \code{kendo.all.js} worden gebruikt.
 Een alternatieve oplossing is de keuze van het script van één luik en alle benodigede JavaScript-bestanden te genereren met de JavaScript Builder op \url{http://www.kendoui.com/custom-download.aspx}.
-Hier kunnen de vereiste elemeten geselecteerd worden en wordt het vereiste script gegenereerd.
+Hier kunnen de vereiste elemeten geselecteerd worden en wordt het vereiste JavaScript-bestand gegenereerd.
 Op een analoge wijze als de JavaScript-bestanden, kan de programmeur kiezen tussen verschillende \term{stylesheets}:  \code{kendo.all.css} en \code{kendo.mobile.css}.
 
 \paragraph{Tools}
 Op de \kendo{} website staan drie webtools vermeld die Telerik aanbiedt om de programmeur te ondersteunen.
 De eerste is \kendo{} Dojo~\cite{Telerika},  een interactieve leeromgeving om met \kendo{} vertrouwd te raken.
-De gebruiker kan de basis van \kendo{} leren kennen met geleide handleidingen met en uitvoerbare voorbeelden.
-De twee andere webapplicaties zijn tools om op een grafische manier CSS-bestanden te genereren voor zowel de mobiele als web applicaties.~\cite{Telerikb,Telerikc}.
-Voor \kendo{} Mobile kan een verschillende lay-out bepaalt worden voor alle ondersteunde besturingssystemen.
+De gebruiker kan de basis van \kendo{} leren kennen met geleide handleidingen en uitvoerbare voorbeelden.
+De twee andere webapplicaties zijn een ThemeBuilder voor Web en Mobile die op een grafische manier CSS-bestanden kunnen genereren~\cite{Telerikb,Telerikc}.
+Voor \kendo{} Mobile kan een verschillende lay-out bepaalt worden voor alle ondersteunde platformen.
 
 \paragraph{Documentatie}
 Alle documentatie kan gevonden worden op \url{http://docs.kendoui.com}~\cite{Telerikd}.
@@ -375,15 +375,15 @@ Enkele van de populairste klanten van \kendo{} zijn Nikon,  Fujifilm en Symantec
 Een licentie voor \kendo{} Complete kost $\$699$ per ontwikkelaar.
 Voor \term{backend} ondersteuning in PHP,  JSP of ASP.NET MVC moet $\$300$ meer betaald worden.
 Hierbij zijn één jaar updates mogelijk en wordt professionele ondersteuning aangeboden met een responsetijd onder 48 uur.
-Bij een licentie met \term{server side wrappers} is support zelfs gegarandeerd na 24 uur.
+Bij een licentie met \term{backend} integratie is support zelfs gegarandeerd na 24 uur.
 Voor \kendo{} Web,  Mobile en DataViz bestaan ook een aparte licenties voor respectievelijk $\$399$,  $\$199$ en $\$399$.
 
 \subsection{Code en ontwikkeling}
-Zoals reeds vermeld moet de programmeur zowel JavaScript als HTML-code schrijven. 
-De JavaScript en CSS-bestanden van het raamwerk moeten in projectfolder worden gekopieerd respectievelijk in een \term{js} en \term{styles} map.
+Zoals reeds vermeld moet de programmeur zowel JavaScript- als HTML-code schrijven. 
+De JavaScript- en CSS-bestanden van het raamwerk moeten in de projectfolder worden gekopieerd respectievelijk in een \term{js} en \term{styles} map.
 \kendo{} steunt op de jQuery bibliotheek en deze moet ingeladen worden voor het \kendo{} raamwerk zelf wordt aangeroepen.
 De initializatie van een applicatie moet via \code{var app = new kendo.mobile.Application()}.
-Hier kunnen parameters meegegeven worden die bijvoorbeeld de stijl van één platform vastlegd voor alle toestellen of het initiële bepalen.
+Hier kunnen parameters meegegeven worden die bijvoorbeeld de stijl van één platform vastlegd voor alle toestellen of het initiële scherm bepalen.
 
 Net zoals bij \jqm{} zijn er drie strategieën om webapplicaties te maken:  volledige applicatie in één webpagina,  elk scherm in een aparte pagina of een combinatie van beide.
 De navigatie naar een scherm gebeurt op basis van de id van dat scherm.
@@ -399,29 +399,29 @@ Navigatie naar een ander bestand kan door de bestandsnaam als parameter op te ge
 Hierin ligt de kracht van het raamwerk,  het beïnvloedt dan ook sterk alle functionele kenmerken.
 
 \paragraph{UI-elementen}
-Formulieren volgen de sterk de HTML5 norm. 
+Formulieren volgen de de HTML5-norm. 
 Deze elementen zijn wel enkel functioneel op iOS 5.x+ en Android 4.x+.  
-Het stylen van alle elementen op andere platformen zal werken, maar is beperkt tot  enkel tekst invoer~\cite{Telerike}.
+Het stijlen van de elementen op andere platformen zal werken, maar is beperkt tot  enkel tekst invoer~\cite{Telerike}.
 
 Het toevoegen van knoppen kan zowel met de \code{button}-tag als met standaard hyperlinks (\code{<a>}).
 Knoppen kunnen ook samengevoegd worden tot een \code{ButtonGroup}.
 Dit maakt het mogelijk om gemeenschappelijke acties aan een groep van knoppen toe te kennen om bijvoorbeeld een menuutje te maken.
-Een \code{TabStrip} is een alternatief waar tabs in de voettekst het scherm kunnen variëren.
+Een \code{TabStrip} is een alternatief waar tabs in de voettekst het scherm kunnen laten variëren.
 
 \paragraph{View}
-Schermen worden voorsteld met \code{Views},  analoog als bij de MVC-architectuur (zie super).
-Een \code{View} aanduiden gebeurt door het attribuut \code{data-role} aan \code{View}  gelijk te stellen.
+Schermen worden voorsteld met \code{Views},  analoog als bij de MVC-architectuur.
+Een \code{View} aanduiden gebeurt door het attribuut \code{data-role} aan \code{View} gelijk te stellen.
 \code{Views} kunnen met een lay-out worden voorzien met de \code{data-layout}-tag.
 Een \code{Layout} bepaalt de vormgeving van een \code{View} en kan hergebruikt worden.
 
 Een \code{ListView} is een specifieke \code{View} voor lijsten.
-De \code{data-template} kan bij lijsten de id van een sjabloon bevatten die de opmaak van de lijstelementen definieerd.
+De \code{data-template} kan bij lijsten de id van een sjabloon bevatten die de opmaak van de lijstelementen definieert.
 Deze sjablonen zijn specifieke \kendo{} scriptjes die HTML-tags en JavaScript-code kunnen bevatten.
-Ook kunnen ze verwijzen naar attributen van het model dat aan de lijst is toegekend (zie infra).
+Ook kunnen ze verwijzen naar velden van het model dat aan de lijst is toegekend (zie infra).
 
 Twee andere instanties van \code{Views} zijn \code{SplitView} en \code{ScrollView}.
 De eerste kan het scherm in twee \code{Views} splitsen,  vaak gebruikt bij tablet applicaties.
-De tweede is definieert een verzameling van pagina's die met een swipe bewegingen gelinkt zijn.
+De tweede definieert een verzameling van pagina's die met een swipe bewegingen gelinkt zijn.
 
 \paragraph{View-Model}
 Het \code{View-Model} behoort tot de kern van \kendo{} en wordt \code{ObservableObject} genoemd.
@@ -429,20 +429,20 @@ Dit is een JavaScript object dat kan gebonden worden aan abonnees.
 Het ondersteunt het monitoren van wijzigingen en verwittigd elke abonnee wanneer een wijziging zich voordoet.
 Een \code{ObservableObject} kan aan een \code{View} worden toegekend door het in de \code{data-model}-tag te vermelden.
 
-Er zijn verschillende bindingen	 mogelijk tussen een \code{View} en \code{ObservableObject} en wordt aangegeven in de \code{data-bind}-tag.
+Er zijn verschillende bindingen	 mogelijk tussen een \code{View} en \code{ObservableObject}.
+Deze wordt aangegeven in de \code{data-bind}-tag.
 \kendo{} ondersteunt een binding met volgende eigenschappen:  \code{attr,  checked, clicked, custom, disabled, enabled, events, html, invisible, source, style, text, value} en \code{visible}.
 Als een gebonden eigenschap wijzigt - door gebruikersinvoer of programmatisch - zal het overeenkomstige veld in het \code{ObservableObject} ook wijzigen.
 
-
 \paragraph{Model}
-Het \code{Model} object erft over van \code{ObservableObject} en breidt het uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
+Het \code{Model}-object erft over van \code{ObservableObject} en breidt het uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
 Velden kunnen van het type \code{string, number, boolean} en \code{date} zijn.
 Ook kunnen de velden verder beschreven worden door bijvoorbeeld een standaard waarde of validatie toe te voegen.
 Een schema is een eigenschap van een \code{DataSource},  een \kendo{} object voor de opslag van lokale of externe data.  
 Een \code{DataSource} ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
 Het schema attribuut legt de structuur van de data in de \code{DataSource} vast.
 Bij externe databronnen bepaalt het hoe binnenkomende data geparset moet worden om aan de opgelegde structuur te voldoen.
-Een \code{Model} kan de waarde van een schema zijn.
+Een \code{Model} kan ook als waarde van het attribuut worden gezet.
 Dit wil zeggen dat de bijhorende \code{DataSource} instanties zal bevatten van het toegekende \code{Model}.
 
 \subsection{Niet-functionele kenmerken}
@@ -453,8 +453,8 @@ De performantie van een \kendo{} applicatie wordt deels bepaald door de programm
 Deze moet er voor zorgen dat de data op het juiste moment geladen wordt.
 Bij het weergeven van een \code{View} gaan drie gebeurtenissen vooraf,  respectievelijk \code{beforeShow,  init} en \code{show}.
 De eerste wordt uitgevoerd voor een \code{View} zichtbaar wordt,  de tweede na initializatie en de laatste bij het tonen van een \code{View}.
-Het initializeren van een \code{View} vindt maar één keer plaats nadat de volledige applicatie geladen is.
-Bij de ontwikkeling van een \code{listView} met data van een externe databron kan best de \code{DataSource} geladen worden bij het initializeren van de applicatie,  de lijst gemaakt worden na de \code{init}-gebeurtenis van de \code{View} van de lijst en de lijst ververst worden wanneer deze getoond wordt (\code{show} gebeurtenis).
+Het initialiseren van een \code{View} vindt maar één keer plaats nadat de volledige applicatie geladen is.
+Bij de ontwikkeling van een \code{ListView} met data van een externe databron kan best de \code{DataSource} geladen worden bij het initialiseren van de applicatie,  de lijst gemaakt worden bij de \code{init}-gebeurtenis en de lijst ververst worden wanneer bij een \code{show}-gebeurtenis.
 
 
 \paragraph{Aanpasbaarheid}
@@ -467,15 +467,15 @@ Deze zijn elk nog persoonlijk aan te passen met de Mobile ThemeBuilder zoals bes
 \paragraph{Programeerbaarheid}
 \kendo{} is zowel JavaScipt- als opmaakgedreven.
 Een kennis van zowel HTML als JavaScript is vereist om met dit raamwerk aan de slag te kunnen.
-Het raamwerk is gebouwd op de jQuery Core en moeten vaak jQuery \term{selectors} gebruikt worden.
+Het raamwerk is gebouwd op de jQuery Core en maakt dus vaak van jQuery \term{selectors} gebruik.
 Ook kan een AJAX verzoek met jQuery syntax geformuleerd worden om externe data op te halen voor een \code{DataSource}.
 
 \paragraph{Browserondersteuning}
-Zoals reeds gezegd herkent \kendo{} het platform waarop de applicatie wordt uitgevoerd.
+Zoals reeds vermeld herkent \kendo{} het platform waarop de applicatie wordt uitgevoerd.
 De lay-out van de applicatie zal de \term{native look-and-feel} van het besturingssysteem vervolgens nabootsen.
 Ondersteunde systemen zijn iOS, Android, BlackBerry en WinPhone8.
 
-Alle widgets zoals gebruikt in het raamwerk ondersteunen \term{progressive enhancement}.
+Alle widgets, zoals gebruikt in het raamwerk, ondersteunen \term{progressive enhancement}.
 Oudere browsers kunnen zo bestaande inhoud en functionaliteit raadplegen met \term{native} HTML types indien bepaalde elementen niet worden ondersteund.
 Ook de HTML5 formulierelementen worden opgebouwd met \term{progressive enhancement}.
 

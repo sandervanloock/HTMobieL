@@ -207,21 +207,29 @@
     <div data-role="header">
         <h1>Validation error</h1>
     </div>
-    <ul data-role="listview" id="error-messages"></ul>
-    <a data-align="center" data-click="closeModalView" data-role="button">Close</a>
+    <ul data-role="listview" id="error-messages" data-style="inset"></ul>
+    <a data-align="center" data-click="closeModalView" type="button" data-role="button">Close</a>
 </div>
 
 <div data-role="modalview" id="confirmation" style="width: 95%; height: 18em;">
     <div data-role="header">
-        <h1 id="confirmation-title">Continue?</h1>
+        <h1>Continue?</h1>
     </div>
     <p>You already have a form filled in, would you like to continue that form?</p>
 
     <p>By clicking no, you will start with a new one.</p>
     <div style="display:block;">
-        <a data-align="center" data-click="clearSavedExpenses" data-role="button">No</a>
-        <a data-align="center" data-click="closeModalView" data-role="button">Yes</a>
+        <a data-align="center" data-click="clearSavedExpenses" type="button" data-role="button">No</a>
+        <a data-align="center" data-click="closeModalView" type="button" data-role="button">Yes</a>
     </div>
+</div>
+
+<div data-role="modalview" id="success"  style="width: 95%; height: 18em;">
+    <div data-role="header">
+        <h1>Success</h1>
+    </div>
+    <p>Your expense form was successfully saved to the server.</p>
+    <a data-align="center" data-click="closeModalView" type="button" data-role="button">Ok</a>
 </div>
 
 <!--LAY-OUTS -->

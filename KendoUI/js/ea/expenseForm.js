@@ -69,10 +69,10 @@ function submitExpense(){
                     app.hideLoading();
                 },
                 success: function () {
-                    console.log("succes");
+                    var modalView = $("#success").data("kendoMobileModalView");
+                    modalView.open();
                 },
                 error: function () {
-                    console.log("error");
                     EA.showBackendError("Could not send expense to server");
                 }
             });

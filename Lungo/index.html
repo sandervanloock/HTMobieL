@@ -28,7 +28,7 @@
                     <label for="login-screen-password">Password</label>
                     <input type="password" id="login-screen-password" value="test123">
                 </fieldset>
-                <a href="#home" data-router="section" class="button right" data-label="Log in"></a>
+                <a id="login-screen-button" class="button right" data-label="Log in"></a>
             </div>
         </div>
     </article>
@@ -235,13 +235,16 @@
 </section>
 
 <!-- Lungo - Dependencies -->
-<script src="components/quojs/quo.js"></script>
-<script src="components/lungo/lungo.js"></script>
+<script src="components/quojs/quo.debug.js"></script>
+<script src="components/lungo/lungo.debug.js"></script>
 <!-- Lungo - Sandbox App -->
 <script>
     Lungo.init({
-        name: 'ExpenseApp'
+        name: "ExpenseApp",
+        version: "0.1"
     });
 </script>
+<script src="scripts/ea.js"></script>
+<script src="scripts/login.js"></script>
 </body>
 </html>

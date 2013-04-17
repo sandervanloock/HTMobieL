@@ -1,4 +1,4 @@
-Lungo.dom("#login-screen-button").on("tap", function (event) {
+Lungo.dom("#login-screen-button").on("tap", function () {
     var email = $$("#login-screen-username").val();
     var password = $$("#login-screen-password").val();
 
@@ -17,11 +17,8 @@ Lungo.dom("#login-screen-button").on("tap", function (event) {
             null
         );
     } else {
-        console.log("making ajax request");
-
         // show loading screen
         Lungo.Notification.show();
-
         // make the AJAX-request
         Lungo.Service.post(
             // url
@@ -33,8 +30,9 @@ Lungo.dom("#login-screen-button").on("tap", function (event) {
             },
             // callback
             function (token) {
+                // hide loading screen
                 Lungo.Notification.hide();
-
+                // check if token was returned or not
                 if (token === "") {
                     Lungo.Notification.error(
                         // Title
@@ -49,7 +47,8 @@ Lungo.dom("#login-screen-button").on("tap", function (event) {
                         null
                     );
                 } else {
-                    console.log(token);
+                    // save token
+                    Lungo.Data.Storage.persistent("token", token);
                     // go to home section
                     Lungo.Router.section("home");
                 }

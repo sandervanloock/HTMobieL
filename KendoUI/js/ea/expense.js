@@ -1,10 +1,5 @@
 //example at http://www.kendoui.com/blogs/teamblog/posts/12-03-09/bind_this_a_look_at_kendo_ui_mvvm.aspx
 var expenseForm = kendo.observable({
-    // expenses array will hold the grid values
-    expenses:
-    [
-
-    ],
 
     // the values are bound to the merchant and amount fields
     date: new Date(),
@@ -94,8 +89,10 @@ var expenseDataSource = new kendo.data.DataSource({
             if (Modernizr.localstorage && localStorage.expenses != undefined) {
                 console.log("local expenses read");
                 options.success(JSON.parse(localStorage.expenses));
-            } else
+            } else { //Geen expenses => in lijst weergeven en lege lijst teruggeven
                 options.success([]);
+                $("#overview-list").html("<h2>No expenses submitted</h2>");
+            }
         }
     }
 });

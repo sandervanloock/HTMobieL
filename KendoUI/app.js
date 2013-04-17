@@ -50,7 +50,7 @@ var expenseFormDataSource = new kendo.data.DataSource({
                 success: function(result,textstatus,jqXHR) {
                     // notify the data source that the request succeeded
                     if(jqXHR.status==204)
-                        $("#expenseFormList").html("<h2>No expenses submitted</h2>");
+                        $("#expenseFormList").html("<h2>No expenseForms submitted</h2>");
                     else
                         options.success(result);
                 },

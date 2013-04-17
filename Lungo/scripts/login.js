@@ -1,6 +1,6 @@
 Lungo.dom("#login-screen-button").on("tap", function (event) {
-    var email = $$('#login-screen-username').val();
-    var password = $$('#login-screen-password').val();
+    var email = $$("#login-screen-username").val();
+    var password = $$("#login-screen-password").val();
 
     // TODO: manual validation
     if (email === "" || password === "") {
@@ -25,17 +25,17 @@ Lungo.dom("#login-screen-button").on("tap", function (event) {
         // make the AJAX-request
         Lungo.Service.post(
             // url
-            EA.baseURL + 'resources/userService/login',
+            EA.baseURL + "resources/userService/login",
             // data
             {
-                'email': email,
-                'password': password
+                "email": email,
+                "password": password
             },
             // callback
             function (token) {
                 Lungo.Notification.hide();
 
-                if (token === '') {
+                if (token === "") {
                     Lungo.Notification.error(
                         // Title
                         "Error",
@@ -56,7 +56,7 @@ Lungo.dom("#login-screen-button").on("tap", function (event) {
             }
             ,
             // type
-            'text'
+            "text"
         );
     }
 

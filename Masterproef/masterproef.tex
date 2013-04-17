@@ -21,11 +21,16 @@
 % Kies de fonts voor de gewone tekst, bv. Latin Modern
 \setup{font=lm}
 
+\usepackage{draftwatermark}
+\SetWatermarkColor[rgb]{0.90,0.90,0.90}
+
 % Hier kun je dan nog andere pakketten laden of eigen definities voorzien
 \usepackage[utf8]{inputenc}
 \usepackage{kulemtx}
 \headstyles{kulemtman}
 \kulemtmanToC
+\usepackage{pgfplotstable} %nodig voor CSV to Latex
+\usepackage{booktabs} % voor layout comparisontable
 
 %TODO:  werkt niet -> nieuwe paragraaf niet indenteren maar wel lijn tussen laten.
 %\usepackage{parskip} 
@@ -57,6 +62,7 @@
 \newcommand{\moobile}[0]{Moobile}
 \newcommand{\davinci}[0]{DaVinci}
 \newcommand{\jqt}[0]{jQT}
+\newcommand{\js}[0]{JavaScript}
 
 %%%%%%%
 % Om wat tekst te genereren wordt hier het lipsum pakket gebruikt.
@@ -95,18 +101,20 @@
 \section*{Afkortingen}
 \begin{flushleft}
   \renewcommand{\arraystretch}{1.1}
-  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+  \begin{tabularx}{\textwidth}{@{}p{2cm}X@{}}
      AJAX & Asynchronous JavaScript And XML \\
      API & Application Programming Interface \\
      CSS & Cascading Style Sheets \\
      DOM & Document Object Model \\
      GI & Gebruikersinterface \\
      GWT & Google Web Toolkit \\
+     GPS & Global Positioning System \\
      GPU & Graphics Processing Unit \\
-     (G)UI & (Graphical) User Interface \\
-     HTML & HyperText Markup Language \\
+     GUI & Graphical User Interface \\
+     HTML(5) & HyperText Markup Language (5) \\
      IDE & Integrated Development Environment \\
      JSON & JavaScript Object Notation \\
+     MVC & Model View Controller \\
      PDF & Portable Document Format \\
      POC & Proof Of Concept \\
      PPI & Pixels Per Inch \\
@@ -114,7 +122,11 @@
      SASS & Syntactically Awesome Stylesheets \\
      SDK & Software Development Kit \\
      SEO & Search Engine Optimization \\
-     XML & Extensible Markup Language
+     W3C & World Web Consortium \\
+     WHATWG & Web Hypertext Application Technology Working Group \\
+     WORA & Write Once, Run Anywhere \\
+     XHTML & eXtensible HyperText Markup Language \\ 
+     XML & eXtensible Markup Language
   \end{tabularx}
 \end{flushleft}
 %\section*{Symbolen}

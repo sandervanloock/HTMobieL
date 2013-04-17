@@ -102,7 +102,7 @@
             <a data-role="button" data-theme="b" data-click="gotoOverview">Next</a>
         </div>
 
-        <div data-role="view" data-title="Overview" id="overview" data-show="overviewInit">
+        <div data-role="view" data-title="Overview" id="overview" data-init="overviewInit" data-show="showOverview">
             <h1>2. Overview</h1>
             <ul id="overview-list"></ul>
 
@@ -204,15 +204,22 @@
 
 <div data-role="modalview" id="error-view" style="width: 95%; height: 18em;">
     <div data-role="header">
-        <div data-role="navbar">
-            <span>Please correct the following validation errors</span>
-        </div>
+        <h1>Validation error</h1>
     </div>
+    <ul data-role="listview" id="error-messages"></ul>
+    <a data-align="center" data-click="closeModalView" data-role="button">Close</a>
+</div>
 
-    <ul data-role="listview" id="error-messages">
-    </ul>
-    <div data-role="footer">
-        <a data-align="center" data-click="closeModalView" data-role="button">Close</a>
+<div data-role="modalview" id="confirmation" style="width: 95%; height: 18em;">
+    <div data-role="header">
+        <h1 id="confirmation-title">Continue?</h1>
+    </div>
+    <p>You already have a form filled in, would you like to continue that form?</p>
+
+    <p>By clicking no, you will start with a new one.</p>
+    <div style="display:block;">
+        <a data-align="center" data-click="clearSavedExpenses" data-role="button">No</a>
+        <a data-align="center" data-click="closeModalView" data-role="button">Yes</a>
     </div>
 </div>
 
@@ -260,7 +267,7 @@
 <!--TEMPLATES -->
 <script id="overview-template" type="text/x-kendo-template">
     <a data-role="listview-link" href= #="\"" + "\#detail-expense?expenseId="+uid+"\"" # >
-    Date: <span data-bind="text: date" style="margin-right: 60px">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</span>
+    Date: <span data-bind="text: date" style="margin-right: 60px">#= kendo.toString(date, "dd/MM/yyyy") #</span>
     Amount: #= convertCurrencyToEuro(currency,amount,rate) # EURO
     </a>
 </script>
@@ -309,6 +316,7 @@
             $("#newExpense").remove();
         }
         app = new kendo.mobile.Application();
+
     }(jQuery));
 
 </script>

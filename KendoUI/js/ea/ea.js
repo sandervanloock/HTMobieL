@@ -92,32 +92,6 @@ var EA = {
     /*************************************************
      * Currencies
      *************************************************/
-
-    currencies:[],
-
-    convertToEuro:function (amount, currency) {
-        var rate = this.getRateForCurrency(currency);
-        var converted = amount / rate;
-        return converted.toFixed(2);
-    },
-
-    getRateForCurrency:function (currency) {
-        var currencies = [];
-        if (Modernizr.localstorage) {
-            currencies = JSON.parse(localStorage.currencies);
-        } else {
-            currencies = this.currencies;
-        }
-        // loop over all currency entries
-        var toReturn = null;
-        $(currencies).each(function (i, cur) {
-            if (cur.name == currency) {
-                toReturn = cur.rate;
-            }
-        });
-        return toReturn;
-    },
-
     setCurrencies:function (currencies) {
         if (Modernizr.localstorage) {
             localStorage.currencies = JSON.stringify(currencies);
@@ -132,11 +106,6 @@ var EA = {
         } else {
             return this.currencies;
         }
-    },
-
-    formatEuro:function (amount) {
-        var converted = Number(amount);
-        return "€ " + converted.toFixed(2);
     },
 
     /*************************************************
@@ -176,166 +145,6 @@ var EA = {
             this.expenseForm = null;
         }
         this.emptyLocalExpenses();
-    },
-
-    /*************************************************
-     * Localy saved expenses
-     *************************************************/
-
-    localExpenses:[],
-
-    getLocalExpenses:function () {
-        if (Modernizr.localstorage) {
-            var toReturn = [];
-            // if the key starts with the word expense and
-            // is follow by an integer, we know it is an expense
-            var regExp = /^expense\d+/;
-            // loop through all entries in local storage
-            for (var i = 0; i < localStorage.length; i++) {
-                var key = localStorage.key(i);
-                if (regExp.test(key)) {
-                    toReturn.push(JSON.parse(localStorage.getItem(key)));
-                }
-            }
-            return toReturn;
-        } else {
-            return this.localExpenses;
-        }
-    },
-
-    getLocalExpenseById:function (id) {
-        if (Modernizr.localstorage) {
-            return JSON.parse(localStorage.getItem("expense" + id));
-        } else {
-            for (var expense in this.localExpenses) {
-                if (expense.id == id) {
-                    return expense;
-                }
-            }
-            return null;
-        }
-    },
-
-    addLocalExpense:function (expense) {
-        if (Modernizr.localstorage) {
-            var id = this.getLocalExpenses().length;
-            // save the id
-            // it is only necessary for the UI, not for backend
-            expense.id = id;
-            localStorage['expense' + id] = JSON.stringify(expense);
-        } else {
-            this.localExpenses.push(expense);
-        }
-    },
-
-    hasLocalExpenses:function () {
-        return this.getLocalExpenses().length > 0;
-    },
-
-    emptyLocalExpenses:function () {
-        if (Modernizr.localstorage) {
-            var regExp = /^expense\d+/;
-            var keysToDelete = [];
-            // loop through all entries in local storage
-            for (var i = 0; i < localStorage.length; i++) {
-                var key = localStorage.key(i);
-                if (regExp.test(key)) {
-                    keysToDelete.push(key);
-                }
-            }
-            // now delete the keys
-            $.each(keysToDelete, function (index, value) {
-                localStorage.removeItem(value);
-            });
-        } else {
-            this.localExpenses = {};
-        }
-    },
-
-    /*************************************************
-     * Localy saved expenses
-     *************************************************/
-
-    serverExpenses:[],
-
-    getServerExpenses:function () {
-        if (Modernizr.localstorage) {
-            var toReturn = [];
-            // if the key starts with the word serverExpense and
-            // is follow by an integer, we know it is an expense form
-            var regExp = /^serverExpense\d+/;
-            // loop through all entries in local storage
-            for (var i = 0; i < localStorage.length; i++) {
-                var key = localStorage.key(i);
-                if (regExp.test(key)) {
-                    toReturn.push(JSON.parse(localStorage.getItem(key)));
-                }
-            }
-            return toReturn;
-        } else {
-            return this.serverExpenses;
-        }
-    },
-
-    addServerExpense:function (id, expense) {
-        if (Modernizr.localstorage) {
-            localStorage['serverExpense' + id] = JSON.stringify(expense);
-        } else {
-            this.serverExpenses.push(expense);
-        }
-    },
-
-    emptyServerExpenses:function () {
-        if (Modernizr.localstorage) {
-            // if the key starts with the word serverExpense and
-            // is follow by an integer, we know it is an expense form
-            var regExp = /^serverExpense\d+/;
-            var keysToDelete = [];
-            // loop through all entries in local storage
-            // and save the keys to be deleted
-            for (var i = 0; i < localStorage.length; i++) {
-                var key = localStorage.key(i);
-                if (regExp.test(key)) {
-                    keysToDelete.push(key);
-                }
-            }
-            // now delete those keys
-            $.each(keysToDelete, function (index, value) {
-                localStorage.removeItem(value);
-            });
-        } else {
-            this.serverExpenses = [];
-        }
-    },
-
-    /*************************************************
-     * Expense evidence
-     *************************************************/
-
-    evidence:null,
-
-    getEvidence:function () {
-        if (Modernizr.sessionstorage) {
-            return sessionStorage.evidence;
-        } else {
-            return this.evidence;
-        }
-    },
-
-    setEvidence:function (evidence) {
-        if (Modernizr.sessionstorage) {
-            sessionStorage.evidence = evidence;
-        } else {
-            this.evidence = evidence;
-        }
-    },
-
-    clearEvidence:function () {
-        if (Modernizr.sessionstorage) {
-            sessionStorage.removeItem("evidence");
-        } else {
-            this.evidence = null;
-        }
     },
 
     /*************************************************
@@ -421,9 +230,9 @@ var EA = {
      * Message dialogs
      *************************************************/
     showError:function (errors) {
-        var message = "<li>";
+        var message = "";
         $(errors).each(function() {
-            message += this + "<br/>";
+            message += "<li>" + this + "</li>";
         });
         message +="</li>";
         this.showDialog(message);

@@ -15,7 +15,17 @@ function closeModalView(e) {
     modalView.close();
 }
 
+function clearSavedExpenses(e){
+    var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
+    localStorage.removeItem("expenses");
+    modalView.close();
+}
+
 function gotoNewExpenseForm(){
+    if(Modernizr.localstorage && localStorage.getItem("expenses")!=null){
+        var modalView = $("#confirmation").data("kendoMobileModalView");
+        modalView.open();
+    }
     if(isPhone)
         app.navigate("#side-root");
     else
@@ -124,6 +134,10 @@ function overviewInit(){
         dataSource: expenseDataSource,
         template: $("#overview-template").text()
     });
+};
+
+function showOverview(){
+    expenseDataSource.read();
 };
 
 function addExpenseViewInit(e) {

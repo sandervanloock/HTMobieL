@@ -55,7 +55,7 @@ var expenseForm = kendo.observable({
         var v1 = validator.validate();
         var v2 = otherValidator.validate();
         if (v1 && v2){
-            expenseDataSource.add({
+            var newExpense = {
                 date: kendo.toString(this.get("date"),"dd/MM/yyyy"),
                 projectCode: this.get("projectCode"),
                 expenseTypeId: this.get("expenseTypeId"),
@@ -64,7 +64,14 @@ var expenseForm = kendo.observable({
                 rate: this.get("currency").get("rate"),
                 remarks: this.get("remarks"),
                 expenseLocationId: this.get("expenseLocationId")
-            });
+            };
+            if (Modernizr.localstorage) {
+                console.log("local expenses written");
+                var oldExpenses = localStorage.expenses==undefined? [] : JSON.parse(localStorage.expenses);
+                oldExpenses.push(newExpense);
+                localStorage.setItem("expenses",JSON.stringify(oldExpenses));
+            }
+            expenseDataSource.add(newExpense);
             //reset the form
             this.set("date",new Date());
             this.set("projectCode",null);
@@ -80,42 +87,15 @@ var expenseForm = kendo.observable({
 });
 
 var expenseDataSource = new kendo.data.DataSource({
-    /*data: [
-        {
-            date: kendo.toString(new Date(),"dd/MM/yyyy"),
-            amount: 50,
-            currency: "EUR",
-            rate: 1,
-            expenseId: 0,
-            remarks: "test",
-            expenseTypeId: 5,
-            projectCode: "GZ0565",
-            expenseLocationId: 1
-        },
-        {
-            date: kendo.toString(new Date(2010,5,5),"dd/MM/yyyy"),
-            amount: 100,
-            currency: "USD",
-            rate: 1.5,
-            expenseId: 1,
-            remarks: "test",
-            expenseTypeId: 1,
-            projectCode: "GZ0565",
-            expenseLocationId: 2
-        }],*/
+    autoSync: true,
     sort: { field: "date", dir: "asc" },
     transport: {
         read: function(options){
-            if (Modernizr.localstorage) {
-                return JSON.parse(localStorage.expenses);
-            } else {
-                return [];
-            }
-        },
-        create: function(options){
-            if (Modernizr.localstorage) {
-                localStorage.expenses = JSON.stringify(this.data);
-            }
+            if (Modernizr.localstorage && localStorage.expenses != undefined) {
+                console.log("local expenses read");
+                options.success(JSON.parse(localStorage.expenses));
+            } else
+                options.success([]);
         }
     }
 });

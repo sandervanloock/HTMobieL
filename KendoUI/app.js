@@ -32,10 +32,6 @@ function gotoNewExpenseForm(){
         app.navigate("#newExpense");
 }
 
-/*
-* Datasources
-*/
-
 var expenseFormDataSource = new kendo.data.DataSource({
     transport: {
         read: function(options){
@@ -110,7 +106,7 @@ function loginInit(){
 }
 
 function homeInit(){
-    kendo.bind($("#welcome-name"),employee,kendo.mobile.ui);
+    //kendo.bind($("#welcome-name"),employee,kendo.mobile.ui);
 }
 
 function yourInfoViewInit(){
@@ -148,10 +144,9 @@ function addExpenseViewInit(e) {
     $("#expense-location-button").kendoMobileButtonGroup({
         select: function(e) {
             listviews.hide().eq(this.selectedIndex).show();
-            //var newlocation = expenseForm.get("expenseLocationId") == this.selectedIndex;
-            expenseForm.set("expenseLocationId",this.selectedIndex+1);
+            expense.set("expenseLocationId",this.selectedIndex+1);
         },
-        index: expenseForm.get("expenseLocationId")-1
+        index: expense.get("expenseLocationId")-1
     });
 
     //Date picker from now till two months earlier
@@ -240,6 +235,7 @@ function addExpenseViewInit(e) {
 }
 
 function signAndSendViewInit(){
+    //kendo.bind($("#signAndSend"),expenseForm,kendo.mobile.ui);
     // when this line is in pagebeforeshow, it cannot know
     // width and heigh of the page, therefore it is placed here, but
     // because this code is executed everytime the page is viewed,

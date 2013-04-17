@@ -1,6 +1,8 @@
 var Employee = kendo.data.Model.define( {
-    id: "employeeId", // the identifier of the model
     fields: {
+        "employeeId": {
+            type:"number"
+        },
         "firstName": {
             type: "string"
         },

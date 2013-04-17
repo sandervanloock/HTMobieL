@@ -1,5 +1,5 @@
 //example at http://www.kendoui.com/blogs/teamblog/posts/12-03-09/bind_this_a_look_at_kendo_ui_mvvm.aspx
-var expenseForm = kendo.observable({
+var expense = kendo.observable({
 
     // the values are bound to the merchant and amount fields
     date: new Date(),
@@ -8,8 +8,9 @@ var expenseForm = kendo.observable({
     amount: null,
     currency: null,
     rate: null,
-    remarks: null,
+    remarks: "",
     expenseLocationId: 1,
+    evidence: "",
 
     create: function(e) {
         //console.log($("#expense-evidence").data("kendoUpload"));
@@ -51,18 +52,19 @@ var expenseForm = kendo.observable({
         var v2 = otherValidator.validate();
         if (v1 && v2){
             var newExpense = {
-                date: kendo.toString(this.get("date"),"dd/MM/yyyy"),
+                date: this.get("date"),
                 projectCode: this.get("projectCode"),
                 expenseTypeId: this.get("expenseTypeId"),
                 amount: this.get("amount"),
                 currency: this.get("currency").get("currency"),
                 rate: this.get("currency").get("rate"),
                 remarks: this.get("remarks"),
+                evidence: this.get("evidence"),
                 expenseLocationId: this.get("expenseLocationId")
             };
             if (Modernizr.localstorage) {
                 console.log("local expenses written");
-                var oldExpenses = localStorage.expenses==undefined? [] : JSON.parse(localStorage.expenses);
+                var oldExpenses = localStorage.expenses==undefined ? [] : JSON.parse(localStorage.expenses);
                 oldExpenses.push(newExpense);
                 localStorage.setItem("expenses",JSON.stringify(oldExpenses));
             }
@@ -82,35 +84,20 @@ var expenseForm = kendo.observable({
 });
 
 var expenseDataSource = new kendo.data.DataSource({
-    autoSync: true,
     sort: { field: "date", dir: "asc" },
     transport: {
         read: function(options){
             if (Modernizr.localstorage && localStorage.expenses != undefined) {
                 console.log("local expenses read");
                 options.success(JSON.parse(localStorage.expenses));
-            } else { //Geen expenses => in lijst weergeven en lege lijst teruggeven
+            } else {
+                //Geen expenses => lege lijst teruggeven en tekst in lijst weergeven
                 options.success([]);
                 $("#overview-list").html("<h2>No expenses submitted</h2>");
             }
         }
     }
 });
-
-function submitExpense(){
-    //TODO validate
-    console.log(expense);
-}
-
-function convertCurrencyToEuro(curr,value,rate){
-    if(curr=="EUR")
-        return value;
-    else{
-        var newAmount = value / rate;
-        newAmount = Math.round(newAmount*100)/100;
-        return newAmount;
-    }
-}
 
 /*
 * The expense viewed as detail expense in overview
@@ -133,46 +120,10 @@ function showExpenseDetail(e) {
         via jQuery code expliciet zeggen welke view toonbaar moet zijn!
     */
     listviews.hide().eq(expense.expenseLocationId-1).show();
-    expenseMV.set("date",expense.date);
+    expenseMV.set("date",kendo.toString(new Date(Date.parse(expense.date)), "dd/MM/yyyy"));
     expenseMV.set("projectCode", expense.projectCode);
     expenseMV.set("expenseTypeId", expense.expenseTypeId);
     expenseMV.set("amount",expense.amount);
     expenseMV.set("currency", expense.currency);
     expenseMV.set("remarks", expense.remarks);
-}
-
-$(document).on("click", "[id^=my-expenses-show-pdf]", function () {
-    if (navigator.onLine) {
-        var $hiddenForm = $('#my-expenses-form');
-
-        var url = EA.baseURL + "resources/expenseService/getExpenseFormPDF";
-        $hiddenForm[0].setAttribute('action', url);
-
-        // get the id of the form that is requested
-        var expenseFormId = $(this).attr("id").replace("my-expenses-show-pdf-", "");
-        // guideline: AJAX is not for fetching raw data like a PDF.
-        // to accomplish this, a hidden form is used and the requested data is
-        // copied into that hidden form
-        $("#my-expenses-token").val(EA.getToken());
-        $("#my-expenses-form-id").val(expenseFormId);
-
-        // submit that hidden form so the PDF will be downloaded
-        $hiddenForm.submit();
-    }
-});
-
-function expenseStatusIdToString(id) {
-    if (id == 1) {
-        return "New";
-    } else if (id == 2) {
-        return "Verified";
-    } else if (id == 3) {
-        return "Approved";
-    } else if (id == 4) {
-        return "Paid out";
-    } else if (id == 5) {
-        return "Disapproved";
-    } else {
-        return "ERROR_STATUS";
-    }
 }

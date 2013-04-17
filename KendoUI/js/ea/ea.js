@@ -42,13 +42,14 @@ var EA = {
 
     setUser:function (user) {
         console.log(user);
+        employee.set("employeeId",user.id);
         employee.set("firstName",user.firstName);
         employee.set("lastName",user.lastName);
         employee.set("employeeNumber",user.employeeNumber);
         employee.set("unitId",user.unitId);
         employee.set("email",user.email);
         employee.set("password",user.password);
-        kendo.bind($("#welcome-name"),employee,kendo.mobile.ui);
+        //kendo.bind($("#welcome-name"),employee,kendo.mobile.ui);
     },
 
     hasUser:function () {
@@ -111,9 +112,6 @@ var EA = {
     /*************************************************
      * Expense form
      *************************************************/
-
-    expenseForm:null,
-
     getExpenseForm:function () {
         if (Modernizr.localstorage) {
             return JSON.parse(localStorage.expenseForm);
@@ -161,56 +159,7 @@ var EA = {
         return this.base64Prefix + string;
     },
 
-    sortExpensesAscending:function (a, b) {
-        var dateA = new Date(a.date);
-        var dateB = new Date(b.date);
-        return (dateA - dateB);
-    },
-
-    sortExpensesDescending:function (a, b) {
-        var dateA = new Date(a.date);
-        var dateB = new Date(b.date);
-        return (dateB - dateA);
-    },
-
-    toBelgianDate:function (date) {
-        // get properties
-        var dd = date.getDate();
-        var mm = date.getMonth();
-
-        // January is 0, so plus 1
-        mm += 1;
-
-        // Leading zeros
-        if (dd < 10) {
-            dd = "0" + dd;
-        }
-        if (mm < 10) {
-            mm = "0" + mm;
-        }
-
-        return dd + "/" + mm + "/" + date.getFullYear();
-    },
-
-    expenseTypeIdToString:function (id) {
-        if (id == 1) {
-            return "Hotel";
-        } else if (id == 2) {
-            return "Lunch";
-        } else if (id == 3) {
-            return "Diner";
-        } else if (id == 4) {
-            return "Ticket";
-        } else if (id == 5) {
-            return "Restaurant";
-        } else if (id == 6) {
-            return "Other";
-        } else {
-            return "ERROR_TYPE";
-        }
-    },
-
-    expenseStatusIdToString:function (id) {
+    expenseStatusIdToString: function(id) {
         if (id == 1) {
             return "New";
         } else if (id == 2) {
@@ -223,6 +172,16 @@ var EA = {
             return "Disapproved";
         } else {
             return "ERROR_STATUS";
+        }
+    },
+
+    convertCurrencyToEuro: function(curr,value,rate){
+        if(curr=="EUR")
+            return value;
+        else{
+            var newAmount = value / rate;
+            newAmount = Math.round(newAmount*100)/100;
+            return newAmount;
         }
     },
 

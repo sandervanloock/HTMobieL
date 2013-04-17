@@ -23,7 +23,7 @@
     </form>
 </div>
 
-<div data-role="view" id="home" data-layout="home" data-init="homeInit">
+<div data-role="view" id="home" data-layout="home" data-init="homeInit" data-model="employee">
 
     <h1>Welcome, <span id="welcome-name" data-bind="text: firstName"></span></h1>
 
@@ -142,7 +142,7 @@
             <a data-role="backbutton">Back</a>
         </div>
 
-        <div data-role="view" data-title="Add Expense" id="addExpense" data-model="expenseForm" data-before-show="addExpenseViewInit">
+        <div data-role="view" data-title="Add Expense" id="addExpense" data-model="expense" data-before-show="addExpenseViewInit">
             <h1>3. Add Expense</h1>
             <ul id="expense-location-button" data-index="0">
                 <li>Abroad</li>
@@ -175,15 +175,15 @@
             <a data-role="button" id="create" data-bind="click: create">Add</a>
         </div>
 
-        <div data-role="view" data-title="Overview" id="signAndSend" data-show="signAndSendViewInit">
+        <div data-role="view" data-title="Overview" id="signAndSend" data-model="expenseForm" data-show="signAndSendViewInit">
             <h1>4. Sign & Send</h1>
             <ul data-role="listview" data-style="inset">
                 <li><div id="sign-and-send-signature">Signature</div></li>
                 <!--http://willowsystems.github.com/jSignature/-->
-                <li><label>Remarks<textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea></label></li>
-                <li>Status notifications via Email:<input data-role="switch" id="sign-and-send-notification" checked="checked" /></li>
+                <li><label>Remarks<textarea  id="sign-and-send-remarks" placeholder="Remarks" data-bind="value: remarks"></textarea></label></li>
+                <li>Status notifications via Email:<input data-role="switch" id="sign-and-send-notification" checked="checked"  data-bind="checked: notification"/></li>
             </ul>
-            <a href="#home" data-role="button" data-theme="b" data-target="_top">Send</a>
+            <a href="#home" data-click="submitExpense" data-role="button" data-theme="b" data-target="_top">Send</a>
         </div>
 
         <section data-role="layout" data-id="default-right">
@@ -202,6 +202,7 @@
     </div>
 </div>
 
+<!--MODALVIEWS -->
 <div data-role="modalview" id="error-view" style="width: 95%; height: 18em;">
     <div data-role="header">
         <h1>Validation error</h1>
@@ -223,7 +224,7 @@
     </div>
 </div>
 
-
+<!--LAY-OUTS -->
 <section data-role="layout" data-id="login">
     <header data-role="header">
         <div data-role="navbar">Expense App</div>
@@ -267,15 +268,15 @@
 <!--TEMPLATES -->
 <script id="overview-template" type="text/x-kendo-template">
     <a data-role="listview-link" href= #="\"" + "\#detail-expense?expenseId="+uid+"\"" # >
-    Date: <span data-bind="text: date" style="margin-right: 60px">#= kendo.toString(date, "dd/MM/yyyy") #</span>
-    Amount: #= convertCurrencyToEuro(currency,amount,rate) # EURO
+    Date: <span data-bind="text: date" style="margin-right: 60px">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</span>
+    Amount: #= EA.convertCurrencyToEuro(currency,amount,rate) # EURO
     </a>
 </script>
 
 <script id="expenseForm-template" type="text/x-kendo-template">
     <a data-role="listview-link" id=#="\"my-expenses-show-pdf-" + id+ "\""#>
         <div class="expenseForm-date">#= kendo.toString(new Date(Date.parse(date)), "dd/MM/yyyy") #</div>
-        <div class="expenseForm-status">Status: #= expenseStatusIdToString(statusId) #</div>
+        <div class="expenseForm-status">Status: #= EA.expenseStatusIdToString(statusId) #</div>
     </a>
 </script>
 
@@ -285,6 +286,7 @@
 <script src="js/ea/login.js"></script>
 <script src="js/ea/employee.js"></script>
 <script src="js/ea/expense.js"></script>
+<script src="js/ea/expenseForm.js"></script>
 <script src="app.js"></script>
 
 <!--Modernizr-->

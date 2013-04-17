@@ -212,7 +212,7 @@ Alle uitdagingen en sub uitdagingen zijn hieronder te vinden.
 \item Zend JSON data
 \item Haal XML data op en parse
 \end{enumerate}
-\item \label{challenge:toestel}Toestel specifieke layout
+\item \label{challenge:toestel}Toestel specifieke lay-out
 \begin{enumerate}[label*=\arabic*]
 \item Herkennen van smartphone en tablet
 \item Toon het linker menu op een tablet
@@ -293,17 +293,27 @@ In elke context zullen de $14$ uitdagingen van de vorige sectie worden getest.
 De correcte weergave en uitvoering van alle subuitdaging binnen een context bepaalt de score voor die context.
 Deze score kan enkel $0$ of $1$ zijn om wille van respectievelijk een probleem of correcte uitvoering van de subuitdaging.
 Per context zal ook de marktwaarde van het toestel in rekening worden gebracht om de meest gebruikte toestellen te bevoordelen.
-%TODO Tim: uitleggen hoe we die marktwaarde hebben berekend
+De marktwaarde is afhankelijk van het besturingssysteem,  de versie van het besturingssysteem en de gebruikte mobiele browser.
+Voor de marktwaarden verwijzen we naar tabellen \ref{tabel:marktaandeel-ios-android} en \ref{tabel:marktaandeel-browsers}.
+De formule voor de marktwaarde van een bepaalde context ziet er als volgt uit:
+%TODO ook gewicht van device?
+\begin{equation}
+  W_c = W(BS_d)*W(BS_{c,v})*W(Browser_c)
+ \label{eq:marktwaarde}
+\end{equation}
+met $W$ de functie die de marktwaarde teruggeeft.  
+De marktwaarde voor Android en iOS ($W(BS_c)$) werd vermeld in sectie \ref{sec:mobiele-besturingssystemen}.
+De relatieve marktwaarde van de versie van dat besturingssysteem ($W(BS_{c,v})$) kan gevonden worden in tabel \ref{tabel:marktaandeel-ios-android}.
+De marktwaarde van mobiele webbrowsers ($W(Browser_c)$) kan gevonden worden in tabel \ref{tabel:marktaandeel-browsers}.
+
 In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
 
 De gewogen som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
 \begin{equation}
-  O_r = \sum_{d=1}^{8}{\left(\sum_{i=1}^{13}S_{r,i}*W_d\right)}
+  O_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{13}S_{r,i}*W_c\right)}
   \label{eq:ondersteuning}
 \end{equation}
-met $r$ de verschillende raamwerken,  $d$ de verschillende toestellen en $i$ de uitdagingen. 
-%TODO Tim: uitleggen wat W het gewicht is
-%TODO Tim: idd d van device, maar we spreken over apparaten/toestellen, mss a van apparaat? want t is meestal van tijd
+met $r$ de verschillende raamwerken,  $c$ de verschillende contexten en $i$ de uitdagingen. 
 
 % We zullen een scenario uitwerken waarbij we het gebruik van de POC doorlopen. 
 % Dit scenario zullen we op een reeks van verschillende mobiele apparaten herhalen~\cite{Sarrafi2012a}. 
@@ -322,14 +332,14 @@ met $r$ de verschillende raamwerken,  $d$ de verschillende toestellen en $i$ de 
     \toprule
     \textbf{Toestel} & \textbf{Soort} &\textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Marktwaarde}\\
     \midrule
-    HTCDesireZ & Smartphone & Android 2.3.3 & Android browser & \\
-    GalaxyTab & Tablet & Android 2.3.6 & Android browser & \\
-    GalaxyS & Smartphone  & Android 4.1.2 & Chrome & \\
-    Nexus 7 & Tablet & Android 4.2.1  & Chrome & \\
-    iPad3 1 WiFi & Tablet & iOS 5.1.1 & Mobile Safari & \\
-    iPad3 4G WiFi & Tablet & iOS 6.0.1 & Mobile Safari & \\
-    iPhone 3GS & Smartphone & iOS 6.0.1 & Mobile Safari & \\
-    iPhone 4S & Smartphone & iOS 6.0.1 & Mobile Safari & \\
+    HTCDesireZ & Smartphone & Android 2.3.3 & Android browser & $W_d = 62586$\\ %75.0*45.6*18.30
+    GalaxyTab & Tablet & Android 2.3.6 & Android browser & $W_d = 62586$\\ %75.0*45.6*18.30
+    GalaxyS & Smartphone  & Android 4.1.2 & Chrome & $W_d = 1848.3$\\ %75.0*12.2*2.02
+    Nexus 7 & Tablet & Android 4.2.1  & Chrome & $W_d = 1848.3$\\ %75.0*2*2.02
+    iPad3 1 WiFi & Tablet & iOS 5.1.1 & Mobile Safari & $W_d = 15910.965$\\%14.9*17.5*61.02
+    iPad3 4G WiFi & Tablet & iOS 6.0.1 & Mobile Safari & $W_d = 36367.92$\\%14.9*40.0*61.02
+    iPhone 3GS & Smartphone & iOS 6.0.1 & Mobile Safari & $W_d = 36367.92$\\%14.9*40.0*61.02
+    iPhone 4S & Smartphone & iOS 6.0.1 & Mobile Safari & $W_d = 36367.92$\\%14.9*40.0*61.02
     \bottomrule
   \end{tabular}
   \caption{Beschikbare toestellen met hun besturingssysteem, browser en gewicht}

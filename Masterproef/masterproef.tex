@@ -31,6 +31,7 @@
 \kulemtmanToC
 \usepackage{pgfplotstable} %nodig voor CSV to Latex
 \usepackage{booktabs} % voor layout comparisontable
+\usepackage{float} %floating tabellen onderdrukken
 
 %TODO:  werkt niet -> nieuwe paragraaf niet indenteren maar wel lijn tussen laten.
 %\usepackage{parskip} 
@@ -63,6 +64,8 @@
 \newcommand{\davinci}[0]{DaVinci}
 \newcommand{\jqt}[0]{jQT}
 \newcommand{\js}[0]{JavaScript}
+
+\newcommand{\challenge}[1]{\paragraph{#1}}
 
 %%%%%%%
 % Om wat tekst te genereren wordt hier het lipsum pakket gebruikt.

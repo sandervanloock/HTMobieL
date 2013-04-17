@@ -613,6 +613,8 @@ Verder halen ze aan dat ze een consistente ervaring willen hebben van een gemaak
 \section{Tabel}
 \label{sec:raamwerken-tabel}
 
+\begin{table}[H]
+\centering
 \pgfplotstabletypeset[
   col sep=comma,
   string type,
@@ -629,4 +631,6 @@ Verder halen ze aan dat ze een consistente ervaring willen hebben van een gemaak
   every last row/.style={
     after row=\bottomrule}
 ]{tabellen/raamwerken.csv}
-
+\caption{Samenvattende tabel voor passieve vergelijkingscriteria van mobiele HTML5-raamwerken}
+\label{tabel:raamwerken-tabel}
+\end{table}

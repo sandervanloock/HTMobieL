@@ -1,6 +1,21 @@
 Lungo.dom("#view").on("load", function () {
-// show loading screen
-    Lungo.Notification.show();
+    retrieve_forms(true);
+});
+
+var pull_forms = new Lungo.Element.Pull('#view-screen', {
+    onPull: "Pull down to refresh",
+    onRelease: "Release to get new data",
+    onRefresh: "Refreshing...",
+    callback: function () {
+        retrieve_forms(false);
+        pull_forms.hide();
+    }
+});
+
+function retrieve_forms(showLoadingScreen) {
+    if (showLoadingScreen) {
+        Lungo.Notification.show();
+    }
     // make the AJAX-request
     Lungo.Service.post(
         // url
@@ -11,8 +26,9 @@ Lungo.dom("#view").on("load", function () {
         },
         // callback
         function (xml) {
-            // hide loading screen
-            Lungo.Notification.hide();
+            if (showLoadingScreen) {
+                Lungo.Notification.hide();
+            }
             // variable of expense forms
             var expenseForms = [];
             // parse XML response
@@ -47,4 +63,4 @@ Lungo.dom("#view").on("load", function () {
         // type
         "xml"
     );
-});
+}

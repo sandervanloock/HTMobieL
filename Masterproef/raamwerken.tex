@@ -616,15 +616,18 @@ Verder halen ze aan dat ze een consistente ervaring willen hebben van een gemaak
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  col sep=comma,
+  begin table=\begin{tabular}{p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm}},
+  end table=\end{tabular},
+  col sep=semicolon,
   string type,
   header=true,
+  skip coltypes=true,
   columns={Criterium,jQM,ST,Kendo,Lungo},
-  columns/Criterium/.style={column name={}, column type={c}},  
-  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
-  columns/ST/.style={column name=\textbf{\st}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
+  columns/Criterium/.style={column name=\textbf{Criterium}},  
+  columns/jQM/.style={column name=\textbf{\jqm}},
+  columns/ST/.style={column name=\textbf{\st}},
+  columns/Kendo/.style={column name=\textbf{\kendo}},
+  columns/Lungo/.style={column name=\textbf{\lungo}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},

@@ -1,3 +1,8 @@
+Lungo.dom("#home").on("load", function () {
+    var user = Lungo.Data.Storage.persistent("user");
+    $$("#home-screen-name").text(user.firstName + " " + user.lastName);
+});
+
 Lungo.dom("#home-logout").on("tap", function () {
     // show loading screen
     Lungo.Notification.show();
@@ -21,8 +26,4 @@ Lungo.dom("#home-logout").on("tap", function () {
         // type
         "text"
     );
-});
-
-Lungo.dom("#home").on("load", function () {
-    console.log(Lungo.Data.Storage.persistent("token"));
 });

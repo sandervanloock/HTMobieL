@@ -49,6 +49,25 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                 } else {
                     // save token
                     Lungo.Data.Storage.persistent("token", token);
+                    // show loading screen
+                    Lungo.Notification.show();
+                    // get user info
+                    Lungo.Service.post(
+                        // url
+                        EA.baseURL + "resources/userService/getEmployee",
+                        // data
+                        {
+                            "token": Lungo.Data.Storage.persistent("token")
+                        },
+                        // callback
+                        function (user) {
+                            Lungo.Data.Storage.persistent("user", user);
+                        },
+                        // type
+                        "json"
+                    );
+                    // hide loading screen
+                    Lungo.Notification.hide();
                     // go to home section
                     Lungo.Router.section("home");
                 }

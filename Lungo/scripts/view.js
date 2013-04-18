@@ -53,9 +53,10 @@ function retrieve_forms(showLoadingScreen) {
             } else {
                 $$.each(expenseForms, function (i, expense) {
                     li = "<li class=\"arrow\">";
+                    li += "<a id=\"form-show-pdf-" + expense.id + "\">";
                     li += "<strong>" + EA.toBelgianDate(new Date(expense.date)) + "</strong>";
                     li += "<small>" + EA.expenseStatusIdToString(expense.statusId) + "</small>";
-                    li += "</li>";
+                    li += "</a></li>";
                     $$expenseList.append(li);
                 });
             }
@@ -64,3 +65,8 @@ function retrieve_forms(showLoadingScreen) {
         "xml"
     );
 }
+
+// when the users clicks on an expense form, download it in PDF-format
+Lungo.dom("[id^=form-show-pdf]").on("tap", function () {
+    console.log("tapped");
+});

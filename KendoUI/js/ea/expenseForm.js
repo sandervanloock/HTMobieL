@@ -20,6 +20,13 @@ var ExpenseForm = kendo.data.Model.define( {
             type: 'boolean',
             defaultValue: true
         }
+    },
+    reset: function(){
+        this.set("date",new Date());
+        this.set("employeeId",0);
+        this.set("signature","");
+        this.set("remarks","");
+        this.set("notification",true);
     }
 });
 
@@ -69,8 +76,14 @@ function submitExpense(){
                     app.hideLoading();
                 },
                 success: function () {
+                    //open success form
                     var modalView = $("#success").data("kendoMobileModalView");
                     modalView.open();
+                    //clear expenses
+                    localStorage.removeItem("expenses");
+                    //reset form
+                    $("#sign-and-send-signature").jSignature("reset");
+                    expenseForm.reset();
                 },
                 error: function () {
                     EA.showBackendError("Could not send expense to server");

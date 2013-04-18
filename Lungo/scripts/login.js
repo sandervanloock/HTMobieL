@@ -18,7 +18,8 @@ Lungo.dom("#login-screen-button").on("tap", function () {
         );
     } else {
         // show loading screen
-        Lungo.Notification.show();
+        // TODO loading screen problems
+        // Lungo.Notification.show();
         // make the AJAX-request
         Lungo.Service.post(
             // url
@@ -31,7 +32,8 @@ Lungo.dom("#login-screen-button").on("tap", function () {
             // callback
             function (token) {
                 // hide loading screen
-                Lungo.Notification.hide();
+                // TODO loading screen problems
+                // Lungo.Notification.hide();
                 // check if token was returned or not
                 if (token === "") {
                     Lungo.Notification.error(
@@ -50,7 +52,8 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                     // save token
                     Lungo.Data.Storage.persistent("token", token);
                     // show loading screen
-                    Lungo.Notification.show();
+                    // TODO loading screen problems
+                    // Lungo.Notification.show();
                     // get user info
                     Lungo.Service.post(
                         // url
@@ -61,21 +64,21 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                         },
                         // callback
                         function (user) {
+                            // hide loading screen
+                            // TODO loading screen problems
+                            // Lungo.Notification.hide();
+                            // persist the user
                             Lungo.Data.Storage.persistent("user", user);
+                            // go to home section
+                            Lungo.Router.section("home");
                         },
                         // type
                         "json"
                     );
-                    // hide loading screen
-                    Lungo.Notification.hide();
-                    // go to home section
-                    Lungo.Router.section("home");
                 }
-            }
-            ,
+            },
             // type
             "text"
         );
     }
-
 });

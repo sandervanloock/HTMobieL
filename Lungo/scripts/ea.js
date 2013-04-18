@@ -55,6 +55,24 @@ var EA = {
         } else {
             return "ERROR_STATUS";
         }
+    },
+
+    convertToEuro: function (amount, currency) {
+        var rate = this.getRateForCurrency(currency);
+        var converted = amount / rate;
+        return converted.toFixed(2);
+    },
+
+    getRateForCurrency: function (currency) {
+        var currencies = Lungo.Data.Storage.persistent("currencies");
+        var toReturn = null;
+        // loop over all currency entries
+        $$(currencies).each(function (i, cur) {
+            if (cur.name === currency) {
+                toReturn = cur.rate;
+            }
+        });
+        return toReturn;
     }
 
-}
+};

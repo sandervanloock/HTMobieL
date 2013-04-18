@@ -69,8 +69,39 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                             // Lungo.Notification.hide();
                             // persist the user
                             Lungo.Data.Storage.persistent("user", user);
-                            // go to home section
-                            Lungo.Router.section("home");
+                            // load currencies
+                            // show loading screen
+                            // TODO loading screen problems
+                            // Lungo.Notification.show();
+                            Lungo.Service.post(
+                                // url
+                                EA.baseURL + "resources/currencyService/getCurrencies",
+                                // data
+                                null,
+                                // callback
+                                function (xml) {
+                                    // show loading screen
+                                    // TODO loading screen problems
+                                    // Lungo.Notification.show();
+                                    // persist currencies
+                                    var currencies = [];
+                                    // gets the cube block
+                                    var $$xml = $$(xml).find("Cube Cube Cube");
+                                    // iterate over each entry to get currency and rate
+                                    $$xml.each(function () {
+                                        var $$this = $$(this);
+                                        currencies.push({
+                                            name: $$this.attr("currency"),
+                                            rate: parseFloat($$this.attr("rate"))
+                                        });
+                                    });
+                                    Lungo.Data.Storage.persistent("currencies", currencies);
+                                    // go to home section
+                                    Lungo.Router.section("home");
+                                },
+                                // type
+                                "xml"
+                            );
                         },
                         // type
                         "json"

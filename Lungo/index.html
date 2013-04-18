@@ -13,37 +13,18 @@
     <link rel="stylesheet" href="components/lungo/theme.lungo.css">
     <link rel="stylesheet" href="css/ea.css">
 </head>
+
 <body class="app">
-<section id="login">
-    <header data-title="Expense App"></header>
-
-    <article id="login-screen" class="active scroll">
-        <div class="wrapper">
-            <div class="form">
-                <fieldset>
-                    <label for="login-screen-username">Username</label>
-                    <input type="text" id="login-screen-username" value="tim.ameye@student.kuleuven.be">
-                </fieldset>
-                <fieldset>
-                    <label for="login-screen-password">Password</label>
-                    <input type="password" id="login-screen-password" value="test123">
-                </fieldset>
-                <a href="#home" data-router="section" class="button right" data-label="Log in"></a>
-            </div>
-        </div>
-    </article>
-</section>
-
 <section id="home">
     <header data-title="Expense App">
         <nav>
-            <a href="#login" data-router="section" class="right button">Log out</a>
+            <a id="home-logout" class="right button">Log out</a>
         </nav>
     </header>
 
     <article id="home-screen" class="active scroll">
         <div class="wrapper">
-            <p>Welcome, Tim Ameye</p>
+            <p>Welcome, <span id="home-screen-name">First Last</span></p>
             <br>
 
             <div class="center">
@@ -58,27 +39,15 @@
     </article>
 </section>
 
-<section id="view">
+<section id="view" data-pull="normal">
     <header data-title="Expense App">
         <nav>
             <a href="#home" data-router="section" class="right button">Home</a>
         </nav>
     </header>
 
-    <article id="view-screen" class="active list indented scroll">
+    <article id="view-screen" class="active list indented">
         <ul>
-            <li class="arrow">
-                <strong>DD/MM/YYYY</strong>
-                <small>Status</small>
-            </li>
-            <li class="arrow">
-                <strong>DD/MM/YYYY</strong>
-                <small>Status</small>
-            </li>
-            <li class="arrow">
-                <strong>DD/MM/YYYY</strong>
-                <small>Status</small>
-            </li>
         </ul>
     </article>
 </section>
@@ -234,14 +203,43 @@
     </article>
 </section>
 
+<section id="login">
+    <header data-title="Expense App"></header>
+
+    <article id="login-screen" class="active scroll">
+        <div class="wrapper">
+            <div class="form">
+                <fieldset>
+                    <label for="login-screen-username">Username</label>
+                    <input type="text" id="login-screen-username" value="tim.ameye@student.kuleuven.be">
+                </fieldset>
+                <fieldset>
+                    <label for="login-screen-password">Password</label>
+                    <input type="password" id="login-screen-password" value="test123">
+                </fieldset>
+                <a id="login-screen-button" class="button right" data-label="Log in"></a>
+            </div>
+        </div>
+    </article>
+</section>
+
 <!-- Lungo - Dependencies -->
-<script src="components/quojs/quo.js"></script>
-<script src="components/lungo/lungo.js"></script>
+<script src="components/quojs/quo.debug.js"></script>
+<script src="components/lungo/lungo.debug.js"></script>
 <!-- Lungo - Sandbox App -->
 <script>
     Lungo.init({
-        name: 'ExpenseApp'
+        name: "ExpenseApp",
+        version: "0.1"
     });
+    if (!Lungo.Data.Storage.session("user")) {
+        console.log("their is no user currently logged in");
+        Lungo.Router.section("login");
+    }
 </script>
+<script src="scripts/ea.js"></script>
+<script src="scripts/login.js"></script>
+<script src="scripts/home.js"></script>
+<script src="scripts/view.js"></script>
 </body>
 </html>

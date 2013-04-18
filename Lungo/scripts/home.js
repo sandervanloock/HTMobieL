@@ -6,13 +6,13 @@ Lungo.dom("#home").on("load", function () {
 Lungo.dom("#home-screen-add").on("tap", function () {
     if (Lungo.Data.Storage.persistent("localExpenses")) {
         Lungo.Notification.confirm({
-            icon: "check",
+            icon: "warning",
             title: "Saved expense form",
             description: "You already have a form filled in, would you like to continue that form?",
             accept: {
                 label: "Yes",
                 callback: function () {
-                    Lungo.Router.section("create1");
+                    Lungo.Router.section("create2");
                 }
             },
             cancel: {

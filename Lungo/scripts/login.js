@@ -10,7 +10,7 @@ Lungo.dom("#login-screen-button").on("tap", function () {
             // Description
             "Please fill in the required fields.",
             // Icon
-            "cancel",
+            "warning",
             // Time on screen
             0,
             // Callback function
@@ -42,7 +42,7 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                         // Description
                         "The username and/or password are incorrect.",
                         // Icon
-                        "cancel",
+                        "warning",
                         // Time on screen
                         0,
                         // Callback function

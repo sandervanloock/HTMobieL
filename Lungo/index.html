@@ -190,7 +190,7 @@
                 <br/>
                 <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
             </fieldset>
-            <a href="#home" data-router="section" class="button right" data-label="Send"></a>
+            <a id="create4-sign-button" class="button right" data-label="Send"></a>
         </div>
     </article>
 </section>
@@ -225,6 +225,20 @@
         version: "0.1",
         history: false
     });
+    Lungo.Service.Settings.error = function (type, xhr) {
+        Lungo.Notification.error(
+                // Title
+                "Backend error",
+                // Description
+                "Please check the log in your browser to know the error.",
+                // Icon
+                "warning",
+                // Time on screen
+                0,
+                // Callback function
+                null
+        );
+    };
     if (!Lungo.Data.Storage.persistent("user")) {
         Lungo.Router.section("login");
     }
@@ -236,5 +250,6 @@
 <script src="scripts/create1.js"></script>
 <script src="scripts/create2.js"></script>
 <script src="scripts/create3.js"></script>
+<script src="scripts/create4.js"></script>
 </body>
 </html>

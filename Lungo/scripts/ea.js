@@ -73,6 +73,16 @@ var EA = {
             }
         });
         return toReturn;
+    },
+
+    base64Prefix: "data:image/png;base64,",
+
+    base64WithoutPrefix: function (string) {
+        return string.substring(this.base64Prefix.length);
+    },
+
+    base64WithPrefix: function (string) {
+        return this.base64Prefix + string;
     }
 
 };

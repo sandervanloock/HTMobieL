@@ -30,7 +30,7 @@
             <div class="center">
                 <p>I want to:</p>
 
-                <p><a href="#create" data-router="section" class="button" data-label="Create New Expense"></a></p>
+                <p><a href="#create1" data-router="section" class="button" data-label="Create New Expense"></a></p>
                 <br>
 
                 <p><a href="#view" data-router="section" class="button" data-label="View My Expenses"></a></p>
@@ -52,30 +52,30 @@
     </article>
 </section>
 
-<section id="create">
+<section id="create1">
     <header data-title="Expense App">
         <nav>
             <a href="#home" data-router="section" class="right button">Home</a>
         </nav>
     </header>
 
-    <article id="create-info" class="active scroll">
+    <article id="create1-info" class="active scroll">
         <div class="form">
             <fieldset>
-                <label for="create-info-first-name">First Name</label>
-                <input type="text" id="create-info-first-name" value="Tim" readonly>
+                <label for="create1-info-first-name">First Name</label>
+                <input type="text" id="create1-info-first-name" readonly>
             </fieldset>
             <fieldset>
-                <label for="create-info-last-name">Last Name</label>
-                <input type="text" id="create-info-last-name" value="Ameye" readonly>
+                <label for="create1-info-last-name">Last Name</label>
+                <input type="text" id="create1-info-last-name" readonly>
             </fieldset>
             <fieldset>
-                <label for="create-info-employee-number">Employee Number</label>
-                <input type="number" id="create-info-employee-number" value="4206">
+                <label for="create1-info-employee-number">Employee Number</label>
+                <input type="number" id="create1-info-employee-number">
             </fieldset>
             <fieldset>
                 <label class="select">
-                    <select class="custom">
+                    <select class="custom" id="create1-info-units">
                         <option value="">Unit</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -91,8 +91,8 @@
                 </label>
             </fieldset>
             <fieldset>
-                <label for="create-info-email">Email</label>
-                <input type="email" id="create-info-email" value="tim.ameye@student.kuleuven.be">
+                <label for="create1-info-email">Email</label>
+                <input type="email" id="create1-info-email">
             </fieldset>
             <a href="#create2" data-router="section" class="button right" data-label="Next"></a>
         </div>
@@ -106,7 +106,7 @@
         </nav>
     </header>
 
-    <article id="create-overview" class="active list indented scroll">
+    <article id="create2-overview" class="active list indented scroll">
         <ul>
             <li class="arrow">
                 <strong>DD/MM/YYYY</strong>
@@ -137,15 +137,15 @@
         <a href="#article_2" data-router="article">Domestic</a>
     </nav>
 
-    <article id="create-add" class="active scroll">
+    <article id="create3-add" class="active scroll">
         <div class="form">
             <fieldset>
-                <label for="create-add-date">Date Of Expense</label>
-                <input type="text" id="create-add-date">
+                <label for="create3-add-date">Date Of Expense</label>
+                <input type="text" id="create3-add-date">
             </fieldset>
             <fieldset>
-                <label for="create-add-project-code">Project Code</label>
-                <input type="text" id="create-add-project-code">
+                <label for="create3-add-project-code">Project Code</label>
+                <input type="text" id="create3-add-project-code">
             </fieldset>
             <fieldset>
                 <label>Type</label>
@@ -160,16 +160,16 @@
                 </label>
             </fieldset>
             <fieldset>
-                <label for="create-add-amount">Amount</label>
-                <input type="text" id="create-add-amount">
+                <label for="create3-add-amount">Amount</label>
+                <input type="text" id="create3-add-amount">
             </fieldset>
             <fieldset>
-                <label for="create-add-remarks">Remarks</label>
-                <textarea id="create-add-remarks"></textarea>
+                <label for="create3-add-remarks">Remarks</label>
+                <textarea id="create3-add-remarks"></textarea>
             </fieldset>
             <fieldset>
-                <label for="create-add-evidence">Evidence</label>
-                <input type="file" id="create-add-evidence">
+                <label for="create3-add-evidence">Evidence</label>
+                <input type="file" id="create3-add-evidence">
             </fieldset>
             <a href="#create2" data-router="section" class="button right" data-label="Add"></a>
         </div>
@@ -183,20 +183,20 @@
         </nav>
     </header>
 
-    <article id="create-sign" class="active scroll">
+    <article id="create4-sign" class="active scroll">
         <div class="form">
             <fieldset>
-                <label for="create-sign-signature-code">Signature</label>
-                <input type="text" id="create-sign-signature-code">
+                <label for="create4-sign-signature-code">Signature</label>
+                <input type="text" id="create4-sign-signature-code">
             </fieldset>
             <fieldset>
-                <label for="create-sign-remarks">Remarks</label>
-                <textarea id="create-sign-remarks"></textarea>
+                <label for="create4-sign-remarks">Remarks</label>
+                <textarea id="create4-sign-remarks"></textarea>
             </fieldset>
             <fieldset>
-                <label for="create-sign-notification">Notification</label>
+                <label for="create4-sign-notification">Notification</label>
                 <br/>
-                <input id="create-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
+                <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
             </fieldset>
             <a href="#home" data-router="section" class="button right" data-label="Send"></a>
         </div>
@@ -230,7 +230,8 @@
 <script>
     Lungo.init({
         name: "ExpenseApp",
-        version: "0.1"
+        version: "0.1",
+        history: false
     });
     if (!Lungo.Data.Storage.session("user")) {
         console.log("their is no user currently logged in");
@@ -241,5 +242,6 @@
 <script src="scripts/login.js"></script>
 <script src="scripts/home.js"></script>
 <script src="scripts/view.js"></script>
+<script src="scripts/create1.js"></script>
 </body>
 </html>

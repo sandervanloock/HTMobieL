@@ -23,7 +23,7 @@
     </form>
 </div>
 
-<div data-role="view" id="home" data-layout="home" data-init="homeInit" data-model="employee">
+<div data-role="view" id="home" data-layout="home" data-model="employee">
 
     <h1>Welcome, <span id="welcome-name" data-bind="text: firstName"></span></h1>
 
@@ -326,7 +326,10 @@
             $("#newExpense").remove();
         }
         app = new kendo.mobile.Application();
-        employeeLocalStorage.read();
+        if(EA.hasUser())
+            EA.setUser(EA.getUser());
+        else
+            employee = new Employee();
     }(jQuery));
 
 </script>

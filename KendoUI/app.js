@@ -96,17 +96,12 @@ var currencySource = new kendo.data.DataSource({
     }
 });
 
-/*
-* Initialization methods
-*/
-
+/***************************/
+/* Initialization methods  */
+/***************************/
 function loginInit(){
     if(EA.hasUser())
         app.navigate("#home");
-}
-
-function homeInit(){
-    //kendo.bind($("#welcome-name"),employee,kendo.mobile.ui);
 }
 
 function yourInfoViewInit(){
@@ -132,7 +127,7 @@ function overviewInit(){
     });
 };
 
-function showOverview(){
+function overviewShow(){
     expenseDataSource.read();
 };
 

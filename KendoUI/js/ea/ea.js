@@ -41,7 +41,6 @@ var EA = {
     },
 
     setUser:function (user) {
-        console.log(user);
         employee.set("employeeId",user.id);
         employee.set("firstName",user.firstName);
         employee.set("lastName",user.lastName);
@@ -62,6 +61,7 @@ var EA = {
     deleteUser:function () {
         if (Modernizr.localstorage) {
             localStorage.removeItem("user");
+            employee.reset();
         } else {
             this.user = null;
         }

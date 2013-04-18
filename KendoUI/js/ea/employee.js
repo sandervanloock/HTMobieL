@@ -30,22 +30,30 @@ var Employee = kendo.data.Model.define( {
         "password": {
             type: "string"
         }
+    },
+    reset: function(){
+        this.set("employeeId",0);
+        this.set("firstName","");
+        this.set("lastName","");
+        this.set("employeeNumber",0);
+        this.set("unitId",0);
+        this.set("email","");
+        this.set("password","");
     }
 });
-
 
 var employee = new Employee();
 
 var employeeLocalStorage = new kendo.data.DataSource({
-    transport: {
+    /*transport: {
         read: function(options) {
-            if(EA.hasUser())
-                employee = EA.getUser();
+            /*if(EA.hasUser())
+                employee = EA.setUser(EA.getUser());
             else
                 employee = new Employee();
             options.success(employee);
         }
-    },
+    },*/
     schema: {
         model: Employee
     }

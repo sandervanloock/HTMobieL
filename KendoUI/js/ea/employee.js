@@ -38,13 +38,12 @@ var employee = new Employee();
 
 var employeeLocalStorage = new kendo.data.DataSource({
     transport: {
-        read: function() {
-            if(EA.hasUser()){
+        read: function(options) {
+            if(EA.hasUser())
                 employee = EA.getUser();
-                app.navigate("#home");
-            }
             else
                 employee = new Employee();
+            options.success(employee);
         }
     },
     schema: {

@@ -49,7 +49,6 @@ var EA = {
         employee.set("unitId",user.unitId);
         employee.set("email",user.email);
         employee.set("password",user.password);
-        //kendo.bind($("#welcome-name"),employee,kendo.mobile.ui);
     },
 
     hasUser:function () {

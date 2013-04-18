@@ -101,8 +101,8 @@ var currencySource = new kendo.data.DataSource({
 */
 
 function loginInit(){
-    console.log("login show");
-    employeeLocalStorage.read();
+    if(EA.hasUser())
+        app.navigate("#home");
 }
 
 function homeInit(){

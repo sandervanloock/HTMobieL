@@ -11,7 +11,7 @@ Lungo.dom("#create3").on("load", function () {
     $$("#create3-add-form")[0].reset();
     $$("#create3-tab-domestic").addClass("active");
     $$("#create3-tab-abroad").removeClass("active");
-    $$("#create3-add-currency").parent().parent().hide();
+    $$("#create3-add-currency").parent().parent().parent().hide();
     $$("#create3-add-converted").parent().hide();
     $$("#create3-add-type").append("<option value=\"2\">Lunch</option>");
     $$("#create3-add-type").append("<option value=\"3\">Diner</option>");
@@ -118,7 +118,7 @@ Lungo.dom("#create3-add-button").on("tap", function () {
 });
 
 Lungo.dom("#create3-tab-abroad").on("tap", function () {
-    $$("#create3-add-currency").parent().parent().show();
+    $$("#create3-add-currency").parent().parent().parent().show();
     $$("#create3-add-converted").parent().show();
     toggleNavigationCreate3();
     $$("#create3-add-type").find("option[value='2']").remove();
@@ -127,7 +127,7 @@ Lungo.dom("#create3-tab-abroad").on("tap", function () {
 });
 
 Lungo.dom("#create3-tab-domestic").on("tap", function () {
-    $$("#create3-add-currency").parent().parent().hide();
+    $$("#create3-add-currency").parent().parent().parent().hide();
     $$("#create3-add-converted").parent().hide();
     toggleNavigationCreate3();
     $$("#create3-add-type").append("<option value=\"2\">Lunch</option>");

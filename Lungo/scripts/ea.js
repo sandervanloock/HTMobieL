@@ -98,6 +98,18 @@ var EA = {
     formatEuro: function (amount) {
         var converted = Number(amount);
         return "€ " + converted.toFixed(2);
+    },
+
+    sortExpensesAscending: function (a, b) {
+        var dateA = new Date(a.date);
+        var dateB = new Date(b.date);
+        return (dateA - dateB);
+    },
+
+    sortExpensesDescending: function (a, b) {
+        var dateA = new Date(a.date);
+        var dateB = new Date(b.date);
+        return (dateB - dateA);
     }
 
 };

@@ -1,5 +1,6 @@
 Lungo.dom("#create2").on("load", function () {
     var localExpenses = Lungo.Data.Storage.persistent("localExpenses");
+    // show in list
     var $$list = $$("#create2-overview-list");
     // first empty the list
     $$list.empty();
@@ -8,6 +9,8 @@ Lungo.dom("#create2").on("load", function () {
         $$list.append("<li>No expenses yet added.</li>");
     } else {
         var li;
+        // sort most recent last
+        localExpenses = localExpenses.sort(EA.sortExpensesAscending);
         $$.each(localExpenses, function (i, expense) {
             li = "<li class=\"arrow\" onclick=\"showLocalExpense(" + expense.id + ")\">";
             li += "<strong>" + EA.toBelgianDate(new Date(expense.date)) + "</strong>";

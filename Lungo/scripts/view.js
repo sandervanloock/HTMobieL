@@ -51,6 +51,8 @@ function retrieve_forms(showLoadingScreen) {
             if (serverForms.length == 0) {
                 $$formList.append("<li>No expenses submitted.</li>");
             } else {
+                // sort most recent first
+                serverForms = serverForms.sort(EA.sortExpensesDescending);
                 $$.each(serverForms, function (i, expense) {
                     li = "<li class=\"arrow\" onclick=\"showPdf(" + expense.id + ")\">";
                     li += "<strong>" + EA.toBelgianDate(new Date(expense.date)) + "</strong>";

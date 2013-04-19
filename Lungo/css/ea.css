@@ -1,4 +1,4 @@
-.center{
+.center {
     text-align: center;
 }
 
@@ -13,4 +13,29 @@
 /* Hide canvas needed to convert image to base64 */
 #create3-add-canvas {
     display: none;
+}
+
+/* Responsive design: tablet view */
+@media all and (min-width: 600px) {
+    .secondary {
+        width: 27%;
+        float: left;
+        margin-right: 3%;
+    }
+
+    .primary {
+        width: 70%;
+        float: left;
+    }
+}
+
+/* Responsive design: smartphone view */
+@media all and (max-width: 599px) {
+    .secondary {
+        display: none;
+    }
+
+    .primary {
+        width: 100%;
+    }
 }

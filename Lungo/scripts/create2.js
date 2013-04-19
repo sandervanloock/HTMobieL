@@ -1,6 +1,6 @@
 Lungo.dom("#create2").on("load", function () {
     var localExpenses = Lungo.Data.Storage.persistent("localExpenses");
-    var $$list = $$("#create2-overview ul");
+    var $$list = $$("#create2-overview-list");
     // first empty the list
     $$list.empty();
     // then show the items, if there are any

@@ -2,14 +2,6 @@
     text-align: center;
 }
 
-@media all and (min-width: 600px) {
-    .wrapper {
-        margin-left: auto;
-        width: 400px;
-        margin-right: auto;
-    }
-}
-
 /* Hide canvas needed to convert image to base64 */
 #create3-add-canvas {
     display: none;
@@ -18,9 +10,9 @@
 /* Responsive design: tablet view */
 @media all and (min-width: 600px) {
     .secondary {
-        width: 27%;
+        width: 30%;
         float: left;
-        margin-right: 3%;
+        border-right: thin solid #000000;
     }
 
     .primary {
@@ -37,5 +29,14 @@
 
     .primary {
         width: 100%;
+    }
+}
+
+/* Responsive design: home screen */
+@media all and (min-width: 600px) {
+    .wrapper {
+        margin-left: auto;
+        width: 400px;
+        margin-right: auto;
     }
 }

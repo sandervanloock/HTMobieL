@@ -89,7 +89,7 @@
                     <input type="text" id="create1-info-last-name" readonly>
                 </fieldset>
                 <fieldset>
-                    <label for="create1-info-employee-number">Employee Number</label>
+                    <label for="create1-info-employee-number">Number</label>
                     <input type="number" id="create1-info-employee-number">
                 </fieldset>
                 <fieldset>
@@ -116,11 +116,29 @@
         </nav>
     </header>
 
-    <article id="create2-overview" class="active list indented scroll">
-        <ul>
-        </ul>
-        <a href="#create4" data-router="section" class="button right" data-label="Sign & Send"></a>
-        <a href="#create3" data-router="section" class="button right" data-label="Add Expense"></a>
+    <article id="create2-overview" class="active">
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li>1. Your info</li>
+                <li class="theme">2. Overview</li>
+                <li>3. Add Expense</li>
+                <li>4. Sign & Send</li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center">2. Overview</li>
+                </ul>
+            </div>
+            <div id="create2-overview-list" class="list indented scroll">
+                <ul>
+                </ul>
+            </div>
+            <a href="#create4" data-router="section" class="button right" data-label="Sign & Send"></a>
+            <a href="#create3" data-router="section" class="button right" data-label="Add Expense"></a>
+        </div>
     </article>
 </section>
 
@@ -137,49 +155,65 @@
     </nav>
 
     <article id="show-expense" class="active scroll">
-        <form id="show-expense-form">
-            <div class="form">
-                <fieldset>
-                    <label for="show-expense-date">Date</label>
-                    <input type="text" id="show-expense-date" readonly>
-                </fieldset>
-                <fieldset>
-                    <label for="show-expense-project-code">Project Code</label>
-                    <input type="text" id="show-expense-project-code" readonly>
-                </fieldset>
-                <fieldset>
-                    <label>Type</label>
-                    <label class="select">
-                        <select class="custom" id="show-expense-type">
-                        </select>
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label for="show-expense-amount">Amount</label>
-                    <input type="text" id="show-expense-amount" readonly>
-                </fieldset>
-                <fieldset>
-                    <label>Currency</label>
-                    <label class="select">
-                        <select class="custom" id="show-expense-currency">
-                        </select>
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label for="show-expense-converted">Converted</label>
-                    <input type="text" id="show-expense-converted" readonly>
-                </fieldset>
-                <fieldset>
-                    <label for="show-expense-remarks">Remarks</label>
-                    <textarea id="show-expense-remarks" readonly></textarea>
-                </fieldset>
-                <fieldset>
-                    <label for="show-expense-evidence">Evidence</label>
-                    <img height="100" width="100" id="show-expense-evidence" alt="evidence">
-                </fieldset>
-                <a href="#create2" data-router="section" class="button right" data-label="Back"></a>
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li>1. Your info</li>
+                <li class="theme">2. Overview</li>
+                <li>3. Add Expense</li>
+                <li>4. Sign & Send</li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center">2. Overview</li>
+                </ul>
             </div>
-        </form>
+            <form id="show-expense-form">
+                <div class="form">
+                    <fieldset>
+                        <label for="show-expense-date">Date</label>
+                        <input type="text" id="show-expense-date" readonly>
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-project-code">Project Code</label>
+                        <input type="text" id="show-expense-project-code" readonly>
+                    </fieldset>
+                    <fieldset>
+                        <label>Type</label>
+                        <label class="select">
+                            <select class="custom" id="show-expense-type">
+                            </select>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-amount">Amount</label>
+                        <input type="text" id="show-expense-amount" readonly>
+                    </fieldset>
+                    <fieldset>
+                        <label>Currency</label>
+                        <label class="select">
+                            <select class="custom" id="show-expense-currency">
+                            </select>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-converted">Converted</label>
+                        <input type="text" id="show-expense-converted" readonly>
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-remarks">Remarks</label>
+                        <textarea id="show-expense-remarks" readonly></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-evidence">Evidence</label>
+                        <img height="100" width="100" id="show-expense-evidence" alt="evidence">
+                    </fieldset>
+                    <a href="#create2" data-router="section" class="button right" data-label="Back"></a>
+                </div>
+            </form>
+        </div>
     </article>
 </section>
 <section id="create3">
@@ -195,53 +229,69 @@
     </nav>
 
     <article id="create3-add" class="active scroll">
-        <form id="create3-add-form">
-            <div class="form">
-                <fieldset>
-                    <label for="create3-add-date">Date</label>
-                    <input type="text" id="create3-add-date">
-                </fieldset>
-                <fieldset>
-                    <label for="create3-add-project-code">Project Code</label>
-                    <input type="text" id="create3-add-project-code">
-                </fieldset>
-                <fieldset>
-                    <label>Type</label>
-                    <label class="select">
-                        <select class="custom" id="create3-add-type">
-                            <option value="1">Hotel</option>
-                            <option value="5">Restaurant</option>
-                            <option value="6">Other</option>
-                        </select>
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label for="create3-add-amount">Amount</label>
-                    <input type="number" id="create3-add-amount">
-                </fieldset>
-                <fieldset>
-                    <label>Currency</label>
-                    <label class="select">
-                        <select class="custom" id="create3-add-currency">
-                        </select>
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label for="create3-add-converted">Converted</label>
-                    <input type="text" id="create3-add-converted" readonly>
-                </fieldset>
-                <fieldset>
-                    <label for="create3-add-remarks">Remarks</label>
-                    <textarea id="create3-add-remarks"></textarea>
-                </fieldset>
-                <fieldset>
-                    <label for="create3-add-evidence">Evidence</label>
-                    <input type="file" id="create3-add-evidence">
-                </fieldset>
-                <a id="create3-add-button" class="button right" data-label="Add"></a>
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li>1. Your info</li>
+                <li>2. Overview</li>
+                <li class="theme">3. Add Expense</li>
+                <li>4. Sign & Send</li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center">3. Add Expense</li>
+                </ul>
             </div>
-            <canvas id="create3-add-canvas"></canvas>
-        </form>
+            <form id="create3-add-form">
+                <div class="form">
+                    <fieldset>
+                        <label for="create3-add-date">Date</label>
+                        <input type="text" id="create3-add-date">
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-project-code">Project Code</label>
+                        <input type="text" id="create3-add-project-code">
+                    </fieldset>
+                    <fieldset>
+                        <label>Type</label>
+                        <label class="select">
+                            <select class="custom" id="create3-add-type">
+                                <option value="1">Hotel</option>
+                                <option value="5">Restaurant</option>
+                                <option value="6">Other</option>
+                            </select>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-amount">Amount</label>
+                        <input type="number" id="create3-add-amount">
+                    </fieldset>
+                    <fieldset>
+                        <label>Currency</label>
+                        <label class="select">
+                            <select class="custom" id="create3-add-currency">
+                            </select>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-converted">Converted</label>
+                        <input type="text" id="create3-add-converted" readonly>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-remarks">Remarks</label>
+                        <textarea id="create3-add-remarks"></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-evidence">Evidence</label>
+                        <input type="file" id="create3-add-evidence">
+                    </fieldset>
+                    <a id="create3-add-button" class="button right" data-label="Add"></a>
+                </div>
+                <canvas id="create3-add-canvas"></canvas>
+            </form>
+        </div>
     </article>
 </section>
 
@@ -253,21 +303,37 @@
     </header>
 
     <article id="create4-sign" class="active scroll">
-        <div class="form">
-            <fieldset>
-                <label for="create4-sign-signature-code">Signature</label>
-                <input type="text" id="create4-sign-signature-code">
-            </fieldset>
-            <fieldset>
-                <label for="create4-sign-remarks">Remarks</label>
-                <textarea id="create4-sign-remarks"></textarea>
-            </fieldset>
-            <fieldset>
-                <label for="create4-sign-notification">Notification</label>
-                <br/>
-                <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
-            </fieldset>
-            <a id="create4-sign-button" class="button right" data-label="Send"></a>
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li>1. Your info</li>
+                <li>2. Overview</li>
+                <li>3. Add Expense</li>
+                <li class="theme">4. Sign & Send</li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center">4. Sign & Send</li>
+                </ul>
+            </div>
+            <div class="form">
+                <fieldset>
+                    <label for="create4-sign-signature-code">Signature</label>
+                    <input type="text" id="create4-sign-signature-code">
+                </fieldset>
+                <fieldset>
+                    <label for="create4-sign-remarks">Remarks</label>
+                    <textarea id="create4-sign-remarks"></textarea>
+                </fieldset>
+                <fieldset>
+                    <label for="create4-sign-notification">Notification</label>
+                    <br/>
+                    <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
+                </fieldset>
+                <a id="create4-sign-button" class="button right" data-label="Send"></a>
+            </div>
         </div>
     </article>
 </section>

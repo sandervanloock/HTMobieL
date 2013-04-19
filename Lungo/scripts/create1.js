@@ -14,4 +14,37 @@ Lungo.dom("#create1").on("load", function () {
     }
     // select the unit according to the user
     $$units.find("option[value='" + user.unitId + "']").attr("selected", true);
+
+    // get the day of today
+    var today = new Date();
+    var year = today.getFullYear();
+    var day = today.getDate();
+    var month = today.getMonth();
+
+    // generate year options for this, previous and next year
+    var $$yearOptions = $$("#create1-info-year");
+    $$yearOptions.empty();
+    var years = [year + 1, year, year - 1];
+    $$(years).each(function (i, year) {
+        $$yearOptions.append('<option value="' + year + '">' + year + '</option>');
+    });
+
+    // month and year should be equal to this month if day > 15th
+    if (day <= 15) {
+        // month := previous month
+        // and mind that the month January is 0 in JavaScript
+        if (month == 0) {
+            // previous month is December (not in JavaScript, so January is 1)
+            month = 12;
+            // of previous year
+            year--;
+        } else {
+            month--;
+        }
+    }
+
+    // select according to rule
+    $$yearOptions.find("option[value='" + year + "']").attr("selected", true);
+    var $$monthOptions = $$("#create1-info-month");
+    $$monthOptions.find("option[value='" + (month + 1) + "']").attr("selected", true);
 });

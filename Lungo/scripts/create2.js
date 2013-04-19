@@ -20,10 +20,9 @@ Lungo.dom("#create2").on("load", function () {
                 currency = expense.currency;
             } else {
                 amount = expense.amount;
-                currency = "EUR";
             }
 
-            li += " (" + amount + " " + currency + ")</small>";
+            li += " (" + amount + " EUR)</small>";
             li += "</li>";
             $$list.append(li);
         });
@@ -38,6 +37,7 @@ function showLocalExpense(id) {
     var amount = expense.amount;
     var remarks = expense.remarks;
     var expenseTypeId = expense.expenseTypeId;
+    var currency = expense.currency;
 
     // reset view
     $$("#show-expense-form")[0].reset();
@@ -49,11 +49,13 @@ function showLocalExpense(id) {
     // input data
     $$("#show-expense-date").val(date);
     $$("#show-expense-project-code").val(projectCode);
-    $$("#show-expense-amount").val(amount);
+    $$("#show-expense-amount").val(amount.toString());
     $$("#show-expense-remarks").val(remarks);
+    // type of expense
+    $$("#show-expense-type").empty();
+    $$("#show-expense-type").append("<option>" + EA.expenseTypeIdToString(expenseTypeId) + "</option>");
     //TODO
     //$("#show-expense-evidence").attr("src", EA.base64WithPrefix(expense.evidence));
-
 
     if (expense.expenseLocationId == 1) {
         // domestic
@@ -61,52 +63,17 @@ function showLocalExpense(id) {
         $$("#show-tab-abroad").removeClass("active");
         $$("#show-expense-currency").parent().parent().hide();
         $$("#show-expense-converted").parent().hide();
-
-        // disable all types of expenses
-        /*var $domesticType = $("#domestic-type");
-         // disabled all types of expense
-         $domesticType.find(":radio").each(function () {
-         $(this).attr('checked', false)
-         .attr('disabled', true)
-         .checkboxradio("refresh");
-         });
-         // now check the right type of expense
-         $domesticType.find(":radio[value=" + expenseTypeId + "]")
-         .attr('checked', true)
-         .attr('disabled', false)
-         .checkboxradio("refresh");*/
-
     } else if (expense.expenseLocationId == 2) {
         // abroad
         $$("#show-tab-domestic").removeClass("active");
         $$("#show-tab-abroad").addClass("active");
         $$("#show-expense-currency").parent().parent().show();
         $$("#show-expense-converted").parent().show();
-
-        // disable all types of expenses
-        /*var $abroadType = $("#abroad-type");
-         // disabled all type of expense
-         $abroadType.find(":radio").each(function () {
-         $(this).attr('checked', false)
-         .attr('disabled', true)
-         .checkboxradio("refresh");
-         });
-         // check the right type of expense
-         $abroadType.find(":radio[value=" + expenseTypeId + "]")
-         .attr('checked', true)
-         .attr('disabled', false)
-         .checkboxradio("refresh");
-
-         // type of currency
-         var $abroadCurrency = $("#abroad-currency");
-         // clear all the currencies
-         $abroadCurrency.empty();
-         // add the right curreny
-         $abroadCurrency.append("<option disabled=\"disabled\">" + expense.currency + "</option>");
-         $abroadCurrency.selectmenu("refresh");
-
-         // converted currency
-         $("#abroad-amount-converted").val(EA.formatEuro(EA.convertToEuro(amount, expense.currency)));*/
+        // type of currency
+        $$("#show-expense-currency").empty();
+        $$("#show-expense-currency").append("<option>" + currency + "</option>");
+        // converted currency
+        $$("#show-expense-converted").val(EA.formatEuro(EA.convertToEuro(amount, currency)));
     } else {
         // should not happen, but just to be sure
         Lungo.Notification.error(

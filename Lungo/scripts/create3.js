@@ -13,9 +13,9 @@ Lungo.dom("#create3").on("load", function () {
     $$("#create3-tab-abroad").removeClass("active");
     $$("#create3-add-currency").parent().parent().hide();
     $$("#create3-add-converted").parent().hide();
-    $$("#create3-add-type").find("option[value='2']").remove();
-    $$("#create3-add-type").find("option[value='3']").remove();
-    $$("#create3-add-type").find("option[value='4']").remove();
+    $$("#create3-add-type").append("<option value=\"2\">Lunch</option>");
+    $$("#create3-add-type").append("<option value=\"3\">Diner</option>");
+    $$("#create3-add-type").append("<option value=\"4\">Ticket</option>");
 
     // evidence to base64 via FileReaderAPI and HTML5 canvas
     $$('#create3-add-evidence')[0].onchange = function (e) {
@@ -95,18 +95,18 @@ Lungo.dom("#create3-tab-abroad").on("tap", function () {
     $$("#create3-add-currency").parent().parent().show();
     $$("#create3-add-converted").parent().show();
     toggleNavigationCreate3();
-    $$("#create3-add-type").append("<option value=\"2\">Lunch</option>");
-    $$("#create3-add-type").append("<option value=\"3\">Diner</option>");
-    $$("#create3-add-type").append("<option value=\"4\">Ticket</option>");
+    $$("#create3-add-type").find("option[value='2']").remove();
+    $$("#create3-add-type").find("option[value='3']").remove();
+    $$("#create3-add-type").find("option[value='4']").remove();
 });
 
 Lungo.dom("#create3-tab-domestic").on("tap", function () {
     $$("#create3-add-currency").parent().parent().hide();
     $$("#create3-add-converted").parent().hide();
     toggleNavigationCreate3();
-    $$("#create3-add-type").find("option[value='2']").remove();
-    $$("#create3-add-type").find("option[value='3']").remove();
-    $$("#create3-add-type").find("option[value='4']").remove();
+    $$("#create3-add-type").append("<option value=\"2\">Lunch</option>");
+    $$("#create3-add-type").append("<option value=\"3\">Diner</option>");
+    $$("#create3-add-type").append("<option value=\"4\">Ticket</option>");
 });
 
 function toggleNavigationCreate3() {

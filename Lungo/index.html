@@ -136,7 +136,7 @@
                 </fieldset>
                 <fieldset>
                     <label for="show-expense-amount">Amount</label>
-                    <input type="number" id="show-expense-amount" readonly>
+                    <input type="text" id="show-expense-amount" readonly>
                 </fieldset>
                 <fieldset>
                     <label>Currency</label>
@@ -146,8 +146,8 @@
                     </label>
                 </fieldset>
                 <fieldset>
-                    <label for="show-expense-converted">Amount</label>
-                    <input type="number" id="show-expense-converted" readonly>
+                    <label for="show-expense-converted">Converted</label>
+                    <input type="text" id="show-expense-converted" readonly>
                 </fieldset>
                 <fieldset>
                     <label for="show-expense-remarks">Remarks</label>
@@ -188,9 +188,6 @@
                             <option value="1">Hotel</option>
                             <option value="5">Restaurant</option>
                             <option value="6">Other</option>
-                            <option value="2">Lunch</option>
-                            <option value="3">Diner</option>
-                            <option value="4">Ticket</option>
                         </select>
                     </label>
                 </fieldset>
@@ -206,8 +203,8 @@
                     </label>
                 </fieldset>
                 <fieldset>
-                    <label for="create3-add-converted">Amount</label>
-                    <input type="number" id="create3-add-converted" readonly>
+                    <label for="create3-add-converted">Converted</label>
+                    <input type="text" id="create3-add-converted" readonly>
                 </fieldset>
                 <fieldset>
                     <label for="create3-add-remarks">Remarks</label>
@@ -281,7 +278,7 @@
         version: "0.1",
         history: false
     });
-    Lungo.Service.Settings.error = function (type, xhr) {
+    Lungo.Service.Settings.error = function () {
         Lungo.Notification.error(
                 // Title
                 "Backend error",

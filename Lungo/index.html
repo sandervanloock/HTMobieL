@@ -245,7 +245,7 @@
                     </fieldset>
                     <fieldset>
                         <label for="show-expense-evidence">Evidence</label>
-                        <img height="100" width="100" id="show-expense-evidence" alt="evidence">
+                        <img src="" height="100" width="100" id="show-expense-evidence" alt="evidence">
                     </fieldset>
                     <a href="#create2" data-router="section" class="button right" data-label="Back"></a>
                 </div>
@@ -269,10 +269,10 @@
         <div class="list secondary">
             <ul>
                 <li class="light">New expense</li>
-                <li>1. Your info</li>
-                <li>2. Overview</li>
+                <li><a href="#create1" data-router="section">1. Your info</a></li>
+                <li><a href="#create2" data-router="section">2. Overview</a></li>
                 <li class="theme">3. Add Expense</li>
-                <li>4. Sign & Send</li>
+                <li><a href="#create4" data-router="section">4. Sign & Send</a></li>
             </ul>
         </div>
         <div class="primary">
@@ -349,9 +349,9 @@
         <div class="list secondary">
             <ul>
                 <li class="light">New expense</li>
-                <li>1. Your info</li>
-                <li>2. Overview</li>
-                <li>3. Add Expense</li>
+                <li><a href="#create1" data-router="section">1. Your info</a></li>
+                <li><a href="#create2" data-router="section">2. Overview</a></li>
+                <li><a href="#create3" data-router="section">3. Add Expense</a></li>
                 <li class="theme">4. Sign & Send</li>
             </ul>
         </div>
@@ -371,7 +371,7 @@
                     <textarea id="create4-sign-remarks"></textarea>
                 </fieldset>
                 <fieldset>
-                    <label for="create4-sign-notification">Notification</label>
+                    <label for="create4-sign-notification">Status notification via Email</label>
                     <br/>
                     <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
                 </fieldset>

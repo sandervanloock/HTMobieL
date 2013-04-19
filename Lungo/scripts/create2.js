@@ -54,7 +54,6 @@ function showLocalExpense(id) {
     // type of expense
     $$("#show-expense-type").empty();
     $$("#show-expense-type").append("<option>" + EA.expenseTypeIdToString(expenseTypeId) + "</option>");
-    //TODO
     $$("#show-expense-evidence").attr("src", EA.base64WithPrefix(expense.evidence));
 
     if (expense.expenseLocationId == 1) {

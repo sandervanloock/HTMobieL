@@ -52,11 +52,10 @@ function retrieve_forms(showLoadingScreen) {
                 $$formList.append("<li>No expenses submitted.</li>");
             } else {
                 $$.each(serverForms, function (i, expense) {
-                    li = "<li class=\"arrow\">";
-                    li += "<a id=\"form-show-pdf-" + expense.id + "\">";
+                    li = "<li class=\"arrow\" onclick=\"showPdf(" + expense.id + ")\">";
                     li += "<strong>" + EA.toBelgianDate(new Date(expense.date)) + "</strong>";
                     li += "<small>" + EA.expenseStatusIdToString(expense.statusId) + "</small>";
-                    li += "</a></li>";
+                    li += "</li>";
                     $$formList.append(li);
                 });
             }
@@ -66,7 +65,15 @@ function retrieve_forms(showLoadingScreen) {
     );
 }
 
-// when the users clicks on an expense form, download it in PDF-format
-Lungo.dom("[id^=form-show-pdf]").on("tap", function () {
-    console.log("tapped");
-});
+function showPdf(id) {
+    var $$hiddenForm = $$('#view-form');
+    var url = EA.baseURL + "resources/expenseService/getExpenseFormPDF";
+    $$hiddenForm[0].setAttribute('action', url);
+    // guideline: AJAX is not for fetching raw data like a PDF.
+    // to accomplish this, a hidden form is used and the requested data is
+    // copied into that hidden form
+    $$("#view-form-token").val(Lungo.Data.Storage.persistent("token"));
+    $$("#view-form-id").val(id.toString());
+    // submit that hidden form so the PDF will be downloaded
+    $$hiddenForm[0].submit();
+}

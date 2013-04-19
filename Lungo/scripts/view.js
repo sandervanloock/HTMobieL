@@ -30,7 +30,7 @@ function retrieve_forms(showLoadingScreen) {
                 Lungo.Notification.hide();
             }
             // variable of expense forms
-            var expenseForms = [];
+            var serverForms = [];
             // parse XML response
             $$(xml).find("expenseForm").each(function () {
                 var $$this = $$(this);
@@ -38,26 +38,26 @@ function retrieve_forms(showLoadingScreen) {
                 expenseForm.date = $$this.find("date").text();
                 expenseForm.id = $$this.find("id").text();
                 expenseForm.statusId = $$this.find("statusId").text();
-                expenseForms.push(expenseForm);
+                serverForms.push(expenseForm);
             });
             // persist the expense forms
-            Lungo.Data.Storage.persistent("expenseForms", expenseForms);
+            Lungo.Data.Storage.persistent("serverForms", serverForms);
             // show items in list
             var li;
-            var $$expenseList = $$("#view-screen ul");
+            var $$formList = $$("#view-screen ul");
             // first empty the list
-            $$expenseList.empty();
+            $$formList.empty();
             // then show the items, if there are any
-            if (expenseForms.length == 0) {
-                $$expenseList.append("<li>No expenses submitted.</li>");
+            if (serverForms.length == 0) {
+                $$formList.append("<li>No expenses submitted.</li>");
             } else {
-                $$.each(expenseForms, function (i, expense) {
+                $$.each(serverForms, function (i, expense) {
                     li = "<li class=\"arrow\">";
                     li += "<a id=\"form-show-pdf-" + expense.id + "\">";
                     li += "<strong>" + EA.toBelgianDate(new Date(expense.date)) + "</strong>";
                     li += "<small>" + EA.expenseStatusIdToString(expense.statusId) + "</small>";
                     li += "</a></li>";
-                    $$expenseList.append(li);
+                    $$formList.append(li);
                 });
             }
         },

@@ -30,7 +30,7 @@
             <div class="center">
                 <p>I want to:</p>
 
-                <p><a href="#create1" data-router="section" class="button" data-label="Create New Expense"></a></p>
+                <p><a id="home-screen-add" class="button" data-label="Create New Expense"></a></p>
                 <br>
 
                 <p><a href="#view" data-router="section" class="button" data-label="View My Expenses"></a></p>
@@ -74,19 +74,9 @@
                 <input type="number" id="create1-info-employee-number">
             </fieldset>
             <fieldset>
+                <label>Unit</label>
                 <label class="select">
                     <select class="custom" id="create1-info-units">
-                        <option value="">Unit</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
                     </select>
                 </label>
             </fieldset>
@@ -108,10 +98,6 @@
 
     <article id="create2-overview" class="active list indented scroll">
         <ul>
-            <li class="arrow">
-                <strong>DD/MM/YYYY</strong>
-                <small>Description (amount)</small>
-            </li>
         </ul>
         <a href="#create4" data-router="section" class="button right" data-label="Sign & Send"></a>
         <a href="#create3" data-router="section" class="button right" data-label="Add Expense"></a>
@@ -125,46 +111,60 @@
     </header>
 
     <nav class="groupbar">
-        <a href="#article_1" data-router="article" class="active">Abroad</a>
-        <a href="#article_2" data-router="article">Domestic</a>
+        <a id="create3-tab-abroad">Abroad</a>
+        <a id="create3-tab-domestic" class="active">Domestic</a>
     </nav>
 
     <article id="create3-add" class="active scroll">
-        <div class="form">
-            <fieldset>
-                <label for="create3-add-date">Date Of Expense</label>
-                <input type="text" id="create3-add-date">
-            </fieldset>
-            <fieldset>
-                <label for="create3-add-project-code">Project Code</label>
-                <input type="text" id="create3-add-project-code">
-            </fieldset>
-            <fieldset>
-                <label>Type</label>
-                <label class="select">
-                    <select class="custom">
-                        <option value="1">Hotel</option>
-                        <option value="2">Train/Plane tickets</option>
-                        <option value="3">Restaurant (Lunch)</option>
-                        <option value="4">Restaurant (Dinner)</option>
-                        <option value="5">Other (please specify)</option>
-                    </select>
-                </label>
-            </fieldset>
-            <fieldset>
-                <label for="create3-add-amount">Amount</label>
-                <input type="text" id="create3-add-amount">
-            </fieldset>
-            <fieldset>
-                <label for="create3-add-remarks">Remarks</label>
-                <textarea id="create3-add-remarks"></textarea>
-            </fieldset>
-            <fieldset>
-                <label for="create3-add-evidence">Evidence</label>
-                <input type="file" id="create3-add-evidence">
-            </fieldset>
-            <a href="#create2" data-router="section" class="button right" data-label="Add"></a>
-        </div>
+        <form id="create3-add-form">
+            <div class="form">
+                <fieldset>
+                    <label for="create3-add-date">Date</label>
+                    <input type="text" id="create3-add-date">
+                </fieldset>
+                <fieldset>
+                    <label for="create3-add-project-code">Project Code</label>
+                    <input type="text" id="create3-add-project-code">
+                </fieldset>
+                <fieldset>
+                    <label>Type</label>
+                    <label class="select">
+                        <select class="custom" id="create3-add-type">
+                            <option value="1">Hotel</option>
+                            <option value="5">Restaurant</option>
+                            <option value="6">Other</option>
+                            <option value="2">Lunch</option>
+                            <option value="3">Diner</option>
+                            <option value="4">Ticket</option>
+                        </select>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <label for="create3-add-amount">Amount</label>
+                    <input type="number" id="create3-add-amount">
+                </fieldset>
+                <fieldset>
+                    <label>Currency</label>
+                    <label class="select">
+                        <select class="custom" id="create3-add-currency">
+                        </select>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <label for="create3-add-converted">Amount</label>
+                    <input type="number" id="create3-add-converted" readonly>
+                </fieldset>
+                <fieldset>
+                    <label for="create3-add-remarks">Remarks</label>
+                    <textarea id="create3-add-remarks"></textarea>
+                </fieldset>
+                <fieldset>
+                    <label for="create3-add-evidence">Evidence</label>
+                    <input type="file" id="create3-add-evidence">
+                </fieldset>
+                <a id="create3-add-button" class="button right" data-label="Add"></a>
+            </div>
+        </form>
     </article>
 </section>
 
@@ -190,7 +190,7 @@
                 <br/>
                 <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
             </fieldset>
-            <a href="#home" data-router="section" class="button right" data-label="Send"></a>
+            <a id="create4-sign-button" class="button right" data-label="Send"></a>
         </div>
     </article>
 </section>
@@ -225,8 +225,21 @@
         version: "0.1",
         history: false
     });
-    if (!Lungo.Data.Storage.session("user")) {
-        console.log("their is no user currently logged in");
+    Lungo.Service.Settings.error = function (type, xhr) {
+        Lungo.Notification.error(
+                // Title
+                "Backend error",
+                // Description
+                "Please check the log in your browser to know the error.",
+                // Icon
+                "warning",
+                // Time on screen
+                0,
+                // Callback function
+                null
+        );
+    };
+    if (!Lungo.Data.Storage.persistent("user")) {
         Lungo.Router.section("login");
     }
 </script>
@@ -236,5 +249,7 @@
 <script src="scripts/view.js"></script>
 <script src="scripts/create1.js"></script>
 <script src="scripts/create2.js"></script>
+<script src="scripts/create3.js"></script>
+<script src="scripts/create4.js"></script>
 </body>
 </html>

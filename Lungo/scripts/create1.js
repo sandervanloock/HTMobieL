@@ -9,7 +9,6 @@ Lungo.dom("#create1").on("load", function () {
     // there are 10 options according to Unit.java on the backend
     var $$units = $$("#create1-info-units");
     $$units.empty();
-    $$units.append("<option value=\"\">Unit</option>");
     for (var i = 1; i <= 10; i++) {
         $$units.append("<option value=\"" + i + "\">" + i + "</option>");
     }

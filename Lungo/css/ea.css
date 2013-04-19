@@ -9,3 +9,8 @@
         margin-right: auto;
     }
 }
+
+/* Hide canvas needed to convert image to base64 */
+#create3-add-canvas {
+    display: none;
+}

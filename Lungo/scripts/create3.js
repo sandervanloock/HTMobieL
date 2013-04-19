@@ -19,6 +19,7 @@ Lungo.dom("#create3").on("load", function () {
 
     // evidence to base64 via FileReaderAPI and HTML5 canvas
     $$('#create3-add-evidence')[0].onchange = function (e) {
+        console.log("evidence changed");
         // get the file
         var file = e.target.files[0];
 
@@ -54,6 +55,31 @@ Lungo.dom("#create3").on("load", function () {
             alert("FileReaderAPI not supported");
         }
     };
+
+    // hold local reference for performance
+    var $$currency = $$("#create3-add-currency");
+    var $$amount = $$("#create3-add-amount");
+    var $$converted = $$("#create3-add-converted");
+
+    // convert amount when amount was typed
+    $$amount[0].onchange = showConvertedAmount;
+    // or convert amount when a currency in the list was clicked
+    $$currency[0].onchange = showConvertedAmount;
+
+    function showConvertedAmount() {
+        var amount = parseFloat($$amount.val());
+        var rate = EA.getRateForCurrency($$currency.val());
+        // check if the converted floats are legal
+        if (!isNaN(amount) && !isNaN(rate)) {
+            var converted = amount / rate;
+            // show euro amount with 2 decimals
+            $$converted.val(EA.formatEuro(converted).toString());
+        } else {
+            // set the converted value to empty
+            $$converted.val("");
+        }
+
+    }
 });
 
 Lungo.dom("#create3-add-button").on("tap", function () {

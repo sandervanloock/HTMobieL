@@ -224,9 +224,7 @@ function addExpenseViewInit(e) {
         multiple: false
     });
 
-    $("#domestic-expense-evidence").kendoUpload({
-        multiple: false
-    });
+    $("#domestic-expense-evidence").kendoUpload();
 }
 
 function signAndSendViewInit(){

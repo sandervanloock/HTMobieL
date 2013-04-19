@@ -321,7 +321,7 @@ Zo werd HTML5 geboren, waarbij versie~5 refereert naar waar de vorige versie, HT
 HTML5 is volgens \cite{MacDonald2011} nog altijd in ontwerp. 
 Hierdoor kunnen nieuwe kenmerken op ieder momenten worden toegevoegd.  
 Er is ook nog steeds onduidelijkheid waar HTML5 ons zal brengen.  
-Het W3C focust op een unieke HTML5 standaard (verwacht rond 2014) terwijl WHATWG de nieuwe opmaaktaal ziet als levende taal waarbij voortdurend  nieuwe dingen kunnen worden toegevoegd. 
+Het W3C focust op een unieke HTML5-standaard (verwacht rond 2014) terwijl WHATWG de nieuwe opmaaktaal ziet als levende taal waarbij voortdurend  nieuwe dingen kunnen worden toegevoegd. 
 Een belangrijke opmerking hierbij is dat het laatste woord altijd bij de webbrowserfabrikant ligt, net zoals dat het geval was met de strikte syntax in XHTML. 
 Als een kenmerk niet in de browser wordt ondersteund, heeft het ook geen kans op overleven.
 
@@ -362,10 +362,10 @@ Ook kunnen webpagina's met effecten worden uitgebreid.
 De nieuwe \code{<canvas>}-tag in samenwerking met enkele lijnen \js{} zijn enorm krachtig om eenvoudig tekeningen en animaties zelf te programmeren.
 
 \item \textbf{Verbinding}
-\term{Events} aan server zijde kunnen data naar \term{WebSockets} pushen. Hierdoor moet de webpagina niet meer voortdurend de server raadplegen, wat veel efficiënter is.
+\term{Events} aan server zijde kunnen data naar WebSockets pushen. Hierdoor moet de webpagina niet meer voortdurend de server raadplegen, wat veel efficiënter is.
 
 \item \textbf{Toegang tot het apparaat}
-Webapplicaties kunnen meer en meer kenmerken zoals camera en GPS aanspreken net zoals \term{native} applicaties dat kunnen. 
+Webapplicaties kunnen meer en meer kenmerken zoals camera en GPS aanspreken net zoals native applicaties dat kunnen. 
 \end{enumerate}
 
 Er dient opgemerkt te worden dat aangehaalde klassen zoals CSS3 en geolocatie niet tot de specificaties van HTML5 behoren. 
@@ -488,6 +488,10 @@ Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code g
 Daarentegen wordt bij een \js{}-gedreven aanpak hoofdzakelijk in \js{} geprogrammeerd.
 
 \subsection{Motivatie}
+%jqm en st meest bekend
+%tmp is jqm met mvc
+%kendo, moobile en lungo in literatuur gevonden
+%da vinci door capgemini
 
 % paragraaf per framework
 % - welk framework (markup / javascript)
@@ -505,31 +509,28 @@ Dit betekent dat de code wordt vrijgegeven als \term{open-source} en dat deze te
 \st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.
 Ext JS kan beschouwd worden als de voorganger van \st{}. 
 %TODO Tim: uitleggen MVC, of ten minste zeggen waarvoor de afkorting staat
-\st{} is net als Ext JS een \js{}-gedreven raamwerk met een MVC-architectuur.
+\st{} is net als Ext JS een \js{}-gedreven raamwerk met een MVC-architectuur (Model-View-Controller).
 \st{} is gratis binnen een commerciële context waarbij het bedrijf in kwestie de broncode niet deelt voor zijn gebruikers.  
 Een gratis \term{open-source} versie van \st{} laat dit wel toe.
+Het gebruik van deze licentie binnen een applicatie vereist wel dat de applicatie zelf zijn broncode deelt.
 Op het moment van schrijven is \st{} aan versie 2.1.1~\cite{Inc.}. 
 
 \subsection{\kendo} % SANDER
-%TODO Tim: bij kendo wordt er uitgeweken over andere dingen die Telerik aanbiedt. het stukje over jQM en ST tellen elk 8 lijnen, terwijl dat van Kendo het dubbele telt.
-\kendo{} is een raamwerk van de hand van Telerik.
-Buiten \kendo{} is Telerik voornamelijk gericht op tools voor de ontwikkelaar.
-Zo ontwikkelen ze DevTools dat een grafische gebruikersinterface aanbiedt bij de ontwikkeling binnen een .NET omgeving.
-Ze voorzien ook Icenium voor de ontwikkeling van hybride applicaties en kan als de tegenhanger van \kendo{} gezien worden.
-\kendo{} bestaat uit drie luiken:  Web, Mobile en DataViz.  
-% TODO uitleggen war we met native look-and-feel bedoelen. 
+\kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
+% Buiten \kendo{} is Telerik voornamelijk gericht op tools voor de ontwikkelaar.
+% Zo ontwikkelen ze DevTools dat een grafische gebruikersinterface aanbiedt bij de ontwikkeling binnen een .NET omgeving.
+% Ze voorzien ook Icenium voor de ontwikkeling van hybride applicaties en kan als de tegenhanger van \kendo{} gezien worden.
 Het eerste is gericht op de ontwikkeling van desktop en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-%TODO Tim: uitleggen MVVM, of ten minste zeggen waarvoor de afkorting staat
-\kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur dat steunt op de jQuery-bibliotheek.
+\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
+\kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur (Model-View-ViewModel) dat steunt op de jQuery-bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} in integreren aan de klantzijde.
 .NET,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend} integratie.
 Een licentie voor \kendo{} waarbij één van voornoemde technologieën mogelijk is, kost $\$999$.
 Zonder \term{backend} integratie zijn de kosten met $\$300$ verminderd.
-Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}. 
-%TODO Tim: die referentie is geraadpleegd op 22/03/201.
-
+Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}.
 
 \subsection{\lungo} % TIM
+%TODO Sander:  ik probeer in deze secties zo weinig mogelijk te vergelijken met andere raamwerken om zo objectief mogelijk het raamwerk voor te stellen.  Je verwijst hier twee keer naar jqm,  het wordt zo wel heel duidelijk welke raamwerken je hebt behandeld...
 \lungo{} is een opmaakgedreven raamwerk waarbij versie~1.0 uitkwam in 2011~\cite{TapQuo2011}.
 Het raamwerk wordt onderhouden door TapQuo dat een Spaans bedrijf is, gespecialiseerd rond mobiele gebruikerservaring~\cite{TapQuo2013a}.
 Analoog met \jqm{} is \lungo{} afhankelijk van een \js{}-bibliotheek, namelijk \quo{}.
@@ -542,15 +543,12 @@ Op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
 
 
 \subsection{\tmp} % SANDER
-
 % TODO deze tekst zal later moeten worden verplaatst
 %Een ander raamwerk, genaamd The-M-Project~\cite{Panacoda2012}, dwingt het Model-View-Controller (MVC) echter wel af. 
 %Met dit raamwerk is het mogelijk om webapplicaties te maken die het \jqm{} raamwerk gebruiken. 
 %In plaats van HTML5-code te schrijven, zoals dat bij \jqm{} gebeurt, schrijft je \js{}-code. 
 %The-M-Project zal dan zelf intern deze \js{}-code omzetten naar de desbetreffende \jqm{} HTML5-code.
-
-%TODO tim: referenties?:  zie onderaan
-\tmp{} is een raamwerk dat bouwt op jQuery en \jqm.
+\tmp{} is een raamwerk dat bouwt op jQuery en \jqm{}.
 Origineel werd het in 2012 ontwikkeld door M-Way Solutions maar nu behoort het tot Panacoda,  een Duitse ontwikkelaar voor softwaretools en mobiele webapplicaties.
 Panacoda bezit ook Espresso,  een krachtige tool om applicaties te bouwen en ontwikkelen met \tmp{}.
 Het laat ook toe applicaties om te vormen tot \term{native} applicaties. 
@@ -558,17 +556,20 @@ Het laat ook toe applicaties om te vormen tot \term{native} applicaties.
 Dit raamwerk is volledig \js{}-gedreven en steunt op de MVC-architectuur.
 Ook ondersteunt het HTML5- en CSS3-kenmerken zoals offline  beschikbaarheid en lokale opslag.
 Op het moment van schrijven is \tmp{} aan versie 1.4.
-Het is belangrijk op te merken dat in de zomer van 2013 versie 2.0 wordt verwacht.  
+Het is belangrijk op te merken dat in de zomer van 2013 versie~2.0 wordt verwacht.  
 \tmp{} zal van de grond worden opgebouwd omdat enkel de code aanpassen niet meer voldoende bleek.  
 De voornaamste werkpunten zijn performantie en platformonafhankelijkheid~\cite{Panacoda,Laubach2013}.
 
 \subsection{\moobile} % TIM
+%TODO Sander: jong in de schoenen staan bestaat niet...
 Een raamwerk dat nog heel jong in de schoenen staat is \moobile{}.
 Op het moment van schrijven zit het raamwerk aan versie~0.2.1 sinds de eerste \term{commit} op GitHub in 2011~\cite{Dery2013}.
 Het raamwerk is \js{}-gedreven, volgt de MVC-architectuur en wordt onderhouden door de Canadees Jean-Philippe Déry.
-Zelf biedt \moobile{} voornamelijk GI-elementen aan, maar deze blijven (voorlopig) beperkt tot zeven componenten en drie schermovergangen. 
+Zelf biedt \moobile{} voornamelijk GI-elementen aan, maar deze blijven (voorlopig) beperkt tot zeven componenten en drie schermovergangen.
+%TODO Sander: volgens gonzalo slechte schrijfstijl. Gebruik referentie niet als betekenis in een zin maar als extra info.
 Voor een gedetailleerd overzicht wordt verwezen naar~\cite{Dery2013}.
 \moobile{} ontbreekt echter ondersteuning voor formulieren.
+%TODO Sander: mimieken staat niet op woordelijst.org..
 Een bijzonderheid is dat de lay-out van de componenten gemimiekt kunnen worden zodat ze de \term{look-and-feel} van een Android- of iOS-apparaat nabootsen.
 Bij het raamwerk is een simulator en tool aanwezig om de volledige applicatie te maken.
 Deze laatstgenoemde zorgt automatisch voor compressie van de verschillende bestanden.
@@ -576,42 +577,43 @@ Deze laatstgenoemde zorgt automatisch voor compressie van de verschillende besta
 
 \subsection{\davinci}% SANDER 
 \davinci{} bestaat uit twee tools:  \davinci{} Studio en \davinci{} Animator.
-% TODO Tim: afkorting WYSIWYG
-De nadruk bij dit raamwerk ligt voornamelijk bij de generatie van code in een WYSIWYG-omgeving.
+De nadruk bij dit raamwerk ligt voornamelijk bij de generatie van code in een WYSIWYG-omgeving (What You See Is What You Get).
 De \davinci{} Studio is een Eclipse plug-in die HTML-,  \js{}- en CSS-code genereert.
-% TODO Tim: GI ipv UI
-De gebruiker kan UI-elementen via \term{drag-and-drop} aan de applicatie toevoegen.
+De gebruiker kan GI-elementen via \term{drag-and-drop} aan de applicatie toevoegen.
 Het binden van data kan door op een visuele manier de mapping tussen GI en data weer te geven.
 Het testen van de applicatie kan op een bijgeleverde emulator in een \term{N-screen} omgeving die de applicatie op verschillende lay-outs kan weergeven.
 Het raamwerk gebruikt een open architectuur dat compatibel is met andere \term{open-source} raamwerken zoals jQuery, KnockOut of Backbone.
 \davinci{} Animator kan gebruikt worden om animaties op basis van HTML5 en CSS3 te maken in een grafische omgeving.
 In SNU Research Park te Seoul worden beide tools ontwikkeld.
-Op het moment van schrijven is \davinci{} toe aan versie 2.0.  
+Op het moment van schrijven is \davinci{} toe aan versie~2.0.  
 Alle documentatie is momenteel nog niet vertaald van het Koreaans naar het Engels~\cite{Incross}.
 
 
 \subsection{\jqt}% TIM
+%TODOSander: in lijn met je opmerking dat het allemaal HTML5 raamwerken zijn:  het vermelden dat je er mobiele webapplicties mee kan maken is evenzeer redundant :)
 \jqt{}, voorheen jQTouch, is een plug-in voor jQuery of Zepto waarmee mobiele webapplicaties kunnen worden gemaakt.
 Zepto is een \js{}-bibliotheek die compatibel is met de API van jQuery, maar minimaler is dan jQuery~\cite{Zepto2013}.
 \jqt{} is een opmaakgedreven raamwerk dat wordt vrijgegeven onder de MIT-licentie.
+%TODO: Sander referentie JQT2013 is niet goed ingevuld op mendeley denkik..
+%Ook, David maakte eerst jqt dan Sencha.. check http://unmatchedstyle.com/podcast/david-kaneda.php	
 Het werd gemaakt door David Kaneda die voorheen werkte voor Sencha~\cite{JQT2013,Kaneda2013}.
 De start van het raamwerk dateert van 2010 en op het moment van schrijven zit \jqt{} aan versie~1~beta~4rc~\cite{JQTouch2010,JQT2013}.
+%TODO Sander mimieken bestaat niet
 De GI-elementen mimieken de lay-out van een iOS-apparaat.
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO Tim: herwerken!
-
-% SANDER: bekijken aan de hand van paper
-% hier alles dat we bekeken hebben, maar zonder onze eigen inbreng
 \section{Vergelijken van raamwerken} 
 \label{sec:vergelijken-raamwerken}
-Om de verschillende mobiele HTML5-raamwerken te kunnen vergelijken hebben is een consistente manier nodig.  
-Op deze manier worden alle raamwerken op dezelfde manier getest.
+Om de verschillende mobiele HTML5-raamwerken te kunnen vergelijken is een consistente manier nodig.  
+Enerzijds bestaat er een ISO standaard om software te kunnen vergelijken (\ref{sec:vergelijken-raamwerken}).
+Anderzijds kunnnen ook eigen criteria gezocht worden (\ref{sec:vergelijken-criteria}).
 
 \subsection{ISO 25010}
+\label{sec:vergelijken-iso}
+
 HTML5-raamwerken zijn software en om software te vergelijken bestaat er de ISO 25010 standaard~\cite{Standard2010}.  
 Hieronder vallen twee modellen:  de productkwaliteit en de kwaliteit van het product in gebruik.  
 Beide modellen beschrijven de kwaliteit van software op basis van een aantal categorieën met specifieke kwaliteitseigenschappen. 
@@ -634,34 +636,120 @@ De belanghebbenden worden opgedeeld in primaire en secundaire gebruikers.
 De eerste zijn de personen die het systeem gebruiken. 
 De laatste zijn diegene die zorgen voor het onderhoud.
 
-\subsection{Bestaande use cases}
-Op het web en in de literatuur kunnen ook \term{use cases} teruggevonden worden waar de proef op de som wordt genomen en twee of meer raamwerken met elkaar worden vergeleken.  
-Deze werkwijze verschilt van \term{use case} tot \term{use case}
 
-\subsubsection{Codefessions}
-Op een blogpost van Codefessions wordt een vergelijking gemaakt tussen jQuery Mobile, \st{}, jQTouch en \kendo{}~\cite{Sarrafi2012}.  
-Als referentiesysteem gebruiken ze zeven criteria.  De eerste drie zijn de native \term{look-and-feel}, performantie en platform-onafhankelijke capaciteiten.  
+%TODO Sander: ik vind deze titel niet zo denderend
+\subsection{Vergelijkingscriteria}
+\label{sec:vergelijken-criteria}
+
+Op het web en in de literatuur kunnen ook \term{use cases} teruggevonden worden waar raamwerken met elkaar worden vergeleken.  
+Deze werkwijze verschilt van \term{use case} tot \term{use case} in de gekozen criteria alsook de manier waarop de criteria beoordeeld worden.
+Er kunnen vier grote werkwijzen worden onderscheiden.
+Een eerste methode is het iteratief bespreken van gekozen criteria.
+Een tweede bestaat uit het quoteren van de gekozen criteria op basis van een zelf gekozen puntensysteem.
+Verder kan er ook van een \term{proof of concept} worden uitgegaan om het raamwerk te testen.
+Ten slotte kunnen ook de gekozen criteria in tabelvorm worden ondergebracht om tot een overzichtelijke vergelijking te komen.
+
+%TODO Sander: ik vind deze titel niet zo denderend
+\subsubsection{Bespreken}
+Een voorbeeld van een blogpost waarbij vergelijkingscriteria iteratief besproken worden is de Mobile framework SMACKDOWN! op Dinosaurs with Laserz~\cite{Rozynski2011}.
+Deze vergelijkt \jqt{},  \jqm{},  \st{},  PhoneGap en Titanium.  
+De laatste twee zijn hybride raamwerken.
+De blogpost verdeelt deze 5 raamwerken in onder \term{Web development frameworks} en \term{Custom API frameworks}.
+De eerste term staat voor raamwerken die uitsluitend in HTML, CSS en \js{} ontwikkelen. 
+\jqt{},  \jqm{} en PhoneGap kunnen hiertoe gerekend worden.
+\term{Custom API frameworks} betekent dat de ontwikkelaar uitsluitend gebruik maakt van \js{} of een eigen API van het raamwerk.
+\st{} en Titanium behoren tot deze categorie.
+De critaria die besproken worden zijn:
+\begin{enumerate}
+ \item Nativeness
+ \item Cross-browser support
+ \item Performance
+ \item Ease of development
+ \item Accessible device hardware
+ \item Price of admission
+\end{enumerate}
+
+De auteurs besluiten dat geen enkel raamwerk als het beste kan worden beschouwd.
+De keuze voor een bepaald raamwerk varieert van project tot project.
+
+% Een ander voorbeeld is de Mobile Frameworks Comparison van MonoCaffe~\cite{Ayuso2012}.
+% Deze bespreekt volgende raamwerken:
+% \begin{enumerate}
+%   \item \jqm{}
+%   \item \st{} 2
+%   \item \tmp{}
+%   \item JO
+%   \item iUI
+%   \item DHTMLX Touch
+%   \item Wink
+%   \item Bootstrap + jQuery + AngularJS
+% \end{enumerate}
+% 
+% De criteria die MonoCaffe hanteert zijn: 
+% \begin{enumerate}
+%  \item Latest Published Version
+%  \item Supported Platforms
+%  \item Supporter
+%  \item License
+%  \item Paid Support
+%  \item Documentation (API, Examples, Tutorials)
+%  \item Published Books
+%  \item Community
+%  \item Stack Overflow Questions
+%  \item Google Trends Popularity
+%  \item GUI Designer
+%  \item Theme Designer
+%  \item HTML5 Input support
+%  \item Hides browser navigation bar
+%  \item Geolocalization Support
+%  \item Custom controls
+%  \item International support (i18n)
+% \end{enumerate}
+
+\subsubsection{Puntensysteem}
+Op een blogpost van Codefessions wordt een vergelijking gemaakt tussen \jqm{}, \st{}, \jqt({} en \kendo{}~\cite{Sarrafi2012a}.  
+Als referentiesysteem gebruiken ze zeven criteria.  
+De eerste drie zijn de \term{native look-and-feel}, performantie en platform-onafhankelijke capaciteiten.  
 Deze worden gequoteerd met een cijfer van 0 tot 5 waarbij 5 staat voor de maximale score. 
 Kenmerken worden gequoteerd door de raamwerk met elkaar te vergelijken.  
 Het raamwerk met de meeste kenmerken krijgt een 5, het tweede beste een 4, enzovoort.  
 Op een analoge manier wordt code efficiëntie en gebruiksgemak gequoteerd.  
-Het raamwerk dat de minste lijnen code vereist, krijgt de perfecte score. 
+Het raamwerk dat de minste lijnen code vereist voor een simpele applicatie, krijgt de perfecte score. 
 Hierbij moeten wel alle bestanden gerekend worden die het raamwerk nodig heeft om functioneel te zijn. 
+In zekere zin overlapt dit criterium dus met de \term{proof of concept} werkwijze.
 Licenties krijgen een score van 0 tot 5 waarbij 0 betekent dat het niet beschikbaar is voor een individuele ontwikkelaar en 5 dat het raamwerk \term{open-source} en gratis te gebruiken is. 
 Andere factoren zoals omkadering en uitbreidbaarheid worden niet in de vergelijkingstabel opgenomen omdat ze afhangen van de interesse van de gebruiker.  
 Ze worden echter wel bekeken.
+\subsubsection{Proof of concept}
+Het gebruik van een \term{proof of concept} of voorbeeldapplicatie probeert raamwerken te vergelijken door ze echt toe te passen.
+Oehlman et Al. vergelijken Jo, \jqt{},  \jqm{} en \st{} door een geosociaal spel te ontwikkelen,  Moundz. 
+Deze applicatie maakt gebruik van bestaande sociale lokatie-gebaseerde netwerken als Foursquare en Gowalla.
+Moundz gebruikt \term{check-ins} van gebruikers als middel voor virtueel wereldleiderschap in de wereld van mieren.
+Als benchmark werd deze mobiele applicatie eerst zonder raamwerk gebouwd.
 
-% \subsubsection{jQuery UI vs \kendo{}}
-% Een andere, meer grondige vergelijking is te vinden op \exturl{www.jqueryuivskendoui.com}~\cite{Bristowe}.  Deze webpagina bestaat uit één grote tabel die meer specifieke kenmerken tussen beide raamwerkenen vergelijkt.  Er worden geen scores uitgedeeld. In de tabel vinden we onder andere een vergelijking van beschikbare thema's,  browser compatibiliteit,  form validatie,  ondersteuning van het product etc.
-%TODO meer relevante use cases toevoegen
+De vier besproken raamwerken worden ingeleid met de meest karakteristieke kenmerken en sterktes.
+Vervolgens wordt een vereenvoudigde versie van Moundz omgevormd tot een applicatie in elk raamwerk.
+Bij elke transformatie wordt stap voor stap uitgelegd welke veranderingen de originele code moet ondergaan.
+Hierbij wordt de werking en architectuur van het raamwerk toegelicht.
 
-\subsection{Vergelijkingstabellen}
-Naast ISO standaarden of al bestaande use cases, kunnen ook tabellen geraadpleegd worden die zoveel mogelijk raamwerken en zoveel mogelijk kenmerken naast elkaar zetten.  
-Op Wikipedia staat bijvoorbeeld zo'n tabel voor \js{} raamwerken~\cite{Wikipedia}.  
 
-Specifiek voor mobiele HTML5-raamwerken bestaat er ook zo'n tabel,  te vinden op \exturl{www.markus-falk.com/mobile-frameworks-comparison-chart}~\cite{Falk2011}.  
-We zien er een matrix met als rijen de verschillende raamwerken en in de kolommen de vergelijkingscriteria.  
-Deze laatste worden opgedeeld in compatibiliteit met het besturingssysteem,  doel van de applicatie,  taal voor ontwikkeling,  hardware interactie,  UI,  licenties en andere.  
+Een ander voorbeeld van het gebruik van een \term{proof of concept} staat in Mobile JavaScript Application Development van A. Kosmaczewski~\cite{Kosmaczewski2012}.
+Hier wordt een TODO-applicatie ontwikkeld in PhoneGap, \st{} en \jqm{}.
+Elk raamwerk wordt ingeleid door eerst de platformen op te lijsten die het ondersteunen en de belangrijkste kenmerken weer te geven.
+Vervolgens worden de functionaliteiten van het raamwerk uitgelegd en toegepast door stap voor stap de TODO-applicatie op te bouwen.
+Ook worden er tools besproken die de ontwikkeling vergemakkelijken.
+
+\subsubsection{Vergelijkingstabellen}
+Vergelijkingstabellen proberen raamwerken zo objectief mogelijk te vergelijken.
+Hier worden de raamwerken in de rijen en de vergelijkingscriteria in de kolommen geplaatst of omgekeerd.
+Het aantal raamwerken die in de tabel worden opgenomen kunnen variëren van twee tot oneindig veel.
+
+Een voorbeeld is \exturl{http://www.jqueryuivskendoui.com/} waar jQuery UI met \kendo{} wordt vergeleken~\cite{Bristowe2012}.
+Het bestaat uit één grote tabel die specifieke kenmerken tussen beide raamwerkenen vergelijkt.
+In de tabel vinden we onder andere een vergelijking van beschikbare thema's,  browser compatibiliteit,  formulier validatie,  ondersteuning van het product etc.
+
+Een alternatief is \exturl{www.markus-falk.com/mobile-frameworks-comparison-chart} waar 43 raamwerken in een vergelijkingstabel zijn opgenomen~\cite{Falk2011}.  
+De vergelijkingscriteria worden opgedeeld in compatibiliteit met het besturingssysteem,  doel van de applicatie,  taal voor ontwikkeling,  hardware interactie,  UI,  licenties en andere.  
 Deze laatste categorie bevat de criteria of er al-dan-niet een SDK beschikbaar is, encryptie ondersteund wordt en of advertenties worden ondersteund.  
 Handig hierbij is dat de webpagina een stappenplan voorziet waarin per categorie alle vereisten ingevuld kunnen worden.  
 De resultaten zijn dan de raamwerken die compatibel zijn met deze vereisten.

@@ -13,12 +13,32 @@ var expense = kendo.observable({
     evidence: "",
 
     create: function(e) {
-        //console.log($("#expense-evidence").data("kendoUpload"));
-        var validator = $("#addExpense").kendoValidator().data("kendoValidator");
+
+        var fd = new FormData(document.getElementById("fileinfo"));
+        //fd.append("files",);
+        $.ajax({
+            url: "save.php",
+            type: "POST",
+            data: fd,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,   // tell jQuery not to set contentType
+            success: function(){
+                console.log("success");
+            },
+            complete: function(){
+                console.log("complete");
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
+
+        //var validator = $("#addExpense").kendoValidator().data("kendoValidator");
         //Validator voor 'other' validatie wordt enkel op radiobuttons met value 6 gecontroleerd
         //Omdat de errormessage enkel aan het eerste veld wordt toegekend moeten de radios van beide
         //types appart worden gechecked
-        var otherSelector =  expenseForm.get("expenseLocationId") == 1 ? $("#new-abroad-expense [type='radio'][value='6']") : $("#new-domestic-expense [type='radio'][value='6']");
+        /*var otherSelector =  expenseForm.get("expenseLocationId") == 1 ? $("#new-abroad-expense [type='radio'][value='6']") : $("#new-domestic-expense [type='radio'][value='6']");
         var otherValidator = otherSelector.kendoValidator({
             rules: {
                 other: function (e) {
@@ -38,7 +58,7 @@ var expense = kendo.observable({
             * Set the currency to EUR en rate to 1 and
             * change the validator to the domestic expense form
             * */
-            this.set("currency",{
+            /*this.set("currency",{
                 currency: "EUR",
                 rate: 1
             });
@@ -48,7 +68,7 @@ var expense = kendo.observable({
         * Validaties moeten appart uitgevoerd worden owv lazy evaluation.
         * Beide methodeoproepen in IF-statements zetten roept tweede niet op als eerste FALSE teruggeeft
         * */
-        var v1 = validator.validate();
+        /*var v1 = validator.validate();
         var v2 = otherValidator.validate();
         if (v1 && v2){
             var newExpense = {
@@ -78,7 +98,7 @@ var expense = kendo.observable({
             this.set("rate",null);
             this.set("remarks",null);
         } else
-            EA.showError(validator.errors().concat(otherValidator.errors()));
+            EA.showError(validator.errors().concat(otherValidator.errors()));*/
     }
 
 });

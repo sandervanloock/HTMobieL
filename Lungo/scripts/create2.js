@@ -10,7 +10,8 @@ Lungo.dom("#create2").on("load", function () {
     } else {
         var li;
         // sort most recent last
-        localExpenses = localExpenses.sort(EA.sortExpensesAscending);
+        // super awesome framework method
+        Lungo.Core.orderByProperty(localExpenses, "date", "asc");
         $$.each(localExpenses, function (i, expense) {
             li = "<li class=\"arrow\" onclick=\"showLocalExpense(" + expense.id + ")\">";
             li += "<strong>" + EA.toBelgianDate(new Date(expense.date)) + "</strong>";

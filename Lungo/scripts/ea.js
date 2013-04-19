@@ -65,14 +65,8 @@ var EA = {
 
     getRateForCurrency: function (currency) {
         var currencies = Lungo.Data.Storage.persistent("currencies");
-        var toReturn = null;
-        // loop over all currency entries
-        $$(currencies).each(function (i, cur) {
-            if (cur.name === currency) {
-                toReturn = cur.rate;
-            }
-        });
-        return toReturn;
+        // super awesome framework method
+        return Lungo.Core.findByProperty(currencies, 'name', currency).rate;
     },
 
     base64Prefix: "data:image/png;base64,",
@@ -86,13 +80,9 @@ var EA = {
     },
 
     getLocalExpenseById: function (id) {
-        var expenses = Lungo.Core.toArray(Lungo.Data.Storage.persistent("localExpenses"));
-        for (var i = 0; i < expenses.length; i++) {
-            if (expenses[i].id === id) {
-                return expenses[i];
-            }
-        }
-        return null;
+        var expenses = Lungo.Data.Storage.persistent("localExpenses");
+        // super awesome framework method
+        return Lungo.Core.findByProperty(expenses, 'id', id);
     },
 
     formatEuro: function (amount) {

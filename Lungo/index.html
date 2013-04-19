@@ -103,6 +103,61 @@
         <a href="#create3" data-router="section" class="button right" data-label="Add Expense"></a>
     </article>
 </section>
+
+<section id="show">
+    <header data-title="Expense App" class="extended">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <nav class="groupbar">
+        <a id="show-tab-abroad">Abroad</a>
+        <a id="show-tab-domestic" class="active">Domestic</a>
+    </nav>
+
+    <article id="show-expense" class="active scroll">
+        <form id="show-expense-form">
+            <div class="form">
+                <fieldset>
+                    <label for="show-expense-date">Date</label>
+                    <input type="text" id="show-expense-date" readonly>
+                </fieldset>
+                <fieldset>
+                    <label for="show-expense-project-code">Project Code</label>
+                    <input type="text" id="show-expense-project-code" readonly>
+                </fieldset>
+                <fieldset>
+                    <label>Type</label>
+                    <label class="select">
+                        <select class="custom" id="show-expense-type">
+                        </select>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <label for="show-expense-amount">Amount</label>
+                    <input type="number" id="show-expense-amount" readonly>
+                </fieldset>
+                <fieldset>
+                    <label>Currency</label>
+                    <label class="select">
+                        <select class="custom" id="show-expense-currency">
+                        </select>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <label for="show-expense-converted">Amount</label>
+                    <input type="number" id="show-expense-converted" readonly>
+                </fieldset>
+                <fieldset>
+                    <label for="show-expense-remarks">Remarks</label>
+                    <textarea id="show-expense-remarks" readonly></textarea>
+                </fieldset>
+                <a href="#create2" data-router="section" class="button right" data-label="Back"></a>
+            </div>
+        </form>
+    </article>
+</section>
 <section id="create3">
     <header data-title="Expense App" class="extended">
         <nav>

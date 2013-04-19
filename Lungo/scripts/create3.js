@@ -80,8 +80,10 @@ Lungo.dom("#create3-add-button").on("tap", function () {
 
     var localExpenses = Lungo.Data.Storage.persistent("localExpenses");
     if (!localExpenses) {
+        expense.id = 1;
         Lungo.Data.Storage.persistent("localExpenses", [expense]);
     } else {
+        expense.id = localExpenses.length + 1;
         localExpenses.push(expense);
         Lungo.Data.Storage.persistent("localExpenses", localExpenses);
     }
@@ -92,7 +94,7 @@ Lungo.dom("#create3-add-button").on("tap", function () {
 Lungo.dom("#create3-tab-abroad").on("tap", function () {
     $$("#create3-add-currency").parent().parent().show();
     $$("#create3-add-converted").parent().show();
-    toggleNavigation();
+    toggleNavigationCreate3();
     $$("#create3-add-type").append("<option value=\"2\">Lunch</option>");
     $$("#create3-add-type").append("<option value=\"3\">Diner</option>");
     $$("#create3-add-type").append("<option value=\"4\">Ticket</option>");
@@ -101,13 +103,13 @@ Lungo.dom("#create3-tab-abroad").on("tap", function () {
 Lungo.dom("#create3-tab-domestic").on("tap", function () {
     $$("#create3-add-currency").parent().parent().hide();
     $$("#create3-add-converted").parent().hide();
-    toggleNavigation();
+    toggleNavigationCreate3();
     $$("#create3-add-type").find("option[value='2']").remove();
     $$("#create3-add-type").find("option[value='3']").remove();
     $$("#create3-add-type").find("option[value='4']").remove();
 });
 
-function toggleNavigation() {
+function toggleNavigationCreate3() {
     $$("#create3-tab-domestic").toggleClass("active");
     $$("#create3-tab-abroad").toggleClass("active");
 }

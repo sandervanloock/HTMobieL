@@ -83,6 +83,17 @@ var EA = {
 
     base64WithPrefix: function (string) {
         return this.base64Prefix + string;
+    },
+
+    getLocalExpenseById: function (id) {
+        var expenses = Lungo.Core.toArray(Lungo.Data.Storage.persistent("localExpenses"));
+        for (var i = 0; i < expenses.length; i++) {
+            console.log(expenses[i]);
+            if (expenses[i].id === id) {
+                return expenses[i];
+            }
+        }
+        return null;
     }
 
 };

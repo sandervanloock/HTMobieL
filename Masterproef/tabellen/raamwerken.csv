@@ -2,12 +2,12 @@ Criterium;jQM;ST;Kendo;Lungo
 Beheerder;jQuery Project;Sencha;Telerik;TapQuo
 Eerste stabiele versie;2011;2010;2011;2011
 Huidige stabiele versie;1.3.1;2.2.0;2013 Q1;2.1
-Afhankelijke bibliotheken;;/;jQuery;
+Afhankelijke bibliotheken;jQuery;/;jQuery;QuoJS
 Professionele ondersteuning;;ja;ja;
-Tools;;Gratis commercieel, GNU GPL v3, OEM;Betalend commercieel;
+Tools;;;;
 Marktadoptatie;;;;
-Type;Opmaakgedreven;JavaScript-gedreven;JavaScript-gedreven en opmaakgedreven;Opmaakgedreven
+Type;Opmaakgedreven;JavaScript-gedreven;JavaScript- en opmaakgedreven;Opmaakgedreven
 Architectuur;/;MVC;MVVM;/
 Licentie;MIT;;;MIT, commercieel
 Native look-and-feel;nee;nee ;ja;nee
-Inpakken tot native applicatie;;ja;;
+Inpakken tot native applicatie;nee;ja;;nee

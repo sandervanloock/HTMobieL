@@ -1,11 +1,22 @@
 \chapter{Mobiele HTML5-raamwerken}
 \label{chap:raamwerken}
 
-In dit hoofdstuk wordt ingezoomd op de mobiele HTML5-raamwerken die dit werk vergelijkt, namelijk \jqm{}~(\ref{sec:raamwerk-jqm}), \st{}~(\ref{sec:raamwerk-st}), \kendo{}~(\ref{sec:raamwerk-kendo}) en \lungo{}~(\ref{sec:raamwerk-lungo}).
-In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een tabel weergegeven, waarin deze gegevens worden vergeleken.
+In dit hoofdstuk wordt ingezoomd op de mobiele HTML5-raamwerken die dit werk vergelijkt.
+De keuze van raamwerken wordt eerst gemotiveerd in sectie~\ref{sec:motivatie-vier-raamwerken}.
+Daarna worden deze raamwerken, namelijk \jqm{}~(\ref{sec:raamwerk-jqm}), \st{}~(\ref{sec:raamwerk-st}), \kendo{}~(\ref{sec:raamwerk-kendo}) en \lungo{}~(\ref{sec:raamwerk-lungo}) uitvoerig besproken.
+In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een tabel weergegeven waarin deze gegevens overzichtelijk kunnen worden vergeleken.
 
-\section{Motivatie voor de gekozen raamwerken}
-%TODO
+\section{Motivatie gekozen raamwerken}
+\label{sec:motivatie-vier-raamwerken}
+%TODO Tim: is dit ok?
+In samenspraak met Capgemini werd gekozen om \jqm{}, \st{} en \kendo{} te onderzoeken.
+De twee eerstgenoemde werden gekozen om hun enorme populariteit~\cite{Firtman2013,Hales2012,Oeflman2011,David2011}.
+De laatstgenoemde had het voordeel dat deze de \term{native look-and-feel} kan nabootsen, wat ook een handig onderzoekspunt leek voor Capgemini.
+Het tijdsbudget liet toe om ook een vierde raamwerk te vergelijken.
+Doordat \tmp{} een volledige make-over ondergaat in de zomer van 2013 leek het de auteurs niet nuttig om de huidige versie te onderzoeken als deze toch volledig wordt vernieuwd.
+\moobile{} werd ook uitgesloten door de nog zeer jonge versie van het raamwerk tijdens het onderzoek.
+Als laatste werd besloten om \davinci{} uit te sluiten door de gebrekkige Engelstalige documentatie van dit Koreaans raamwerk.
+Uiteindelijk bleef \lungo{} over en dit werd het vierde raamwerk.
 
 \section{\jqm}
 \label{sec:raamwerk-jqm}
@@ -112,7 +123,7 @@ Deze webpagina bevat allemaal \code{<div>}-verpakkingen voor ieder scherm.
 \jqm{} zal enkel die \code{<div>} verder aanvullen die op dat moment getoond wordt aan de gebruiker. 
 
 \paragraph{Aanpasbaarheid}
-Als \jqm{} \term{out-of-the-box} wordt gebruikt, zit alles al goed qua kleur en design. 
+Als \jqm{} \term{out-of-the-box} wordt gebruikt, zit alles goed qua kleur en design. 
 Er is keuze uit vijf kleurenthema's die kunnen worden toegepast op de gehele applicatie of enkel op bepaalde elementen. 
 Om een applicatie echt te laten onderscheiden van de andere, is een eigen kleurthema noodzakelijk. 
 Hier is \jqm{} op voorzien door hun \term{stylesheet} op te delen in twee delen: thema's en structuur. 
@@ -129,12 +140,11 @@ Ook deze dwingt geen ontwerppatroon af.
 \paragraph{Browserondersteuning}
 \label{sec:jqm-browser-support}
 
-% TODO Tim: verser uitwerken browser support
-
+% TODO Tim: verder uitwerken browser support
 \jqm{} deelt browsers op in drie verschillende klassen: A, B en C~\cite{JQuery2012d}. 
 Hierbij ondersteunt een klasse A browser alles, terwijl een klasse C browser enkel de basis HTML ondersteunt (en dus bijvoorbeeld geen hippe CCS3 overgangen).
 \jqm{} maakt gebruikt van \emph{progressive enhancement} (zie \ref{par:progressive-enhancement}).
-
+Hierdoor wordt in principe ieder apparaat ondersteunt door het raamwerk, maar zal de applicatie op een ouder apparaat minder functionaliteit krijgen dan diezelfde applicatie op een nieuw apparaat.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -272,6 +282,7 @@ Verder kwam versie~2.0 met een nieuwe lay-out \term{engine} die vooral het verwi
 Ook een verbetering in performantie op Android-toestellen,  voornamelijk bij scrollen en animaties,  werd ingevoerd~\cite{Inc.}.
 
 %TODO bekijken of dit nog nuttig si
+%Tim: voor mij mag je dat weglaten
 % Een benchmark voor deze verbeteringen zijn de opstarttijden van de Kitchen Sink applicatie.  
 % Het opstarten gebeurde met de verschillende \st{}-versies en op verschillende toestellen.  
 %De resultaten zijn terug te vinden op figuur \ref{fig:sencha_performance}.  
@@ -325,16 +336,12 @@ Op de Sencha website zijn voor de belangrijkste browsers en bijhorend besturings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%TODO Tim: moet het eigenlijk niet Kendo UI Mobile zijn ipv Kendo UI? :)
-%Ik maak ook gebruik van Kendo UI Web in de POC, maar in principe is Kendo UI Mobile perfect alleenstaand.  
-%Ze sluiten elkaar ook niet uit dus zou ik gewoon bij Kendo UI blijven..
 \section{\kendo}
 \label{sec:raamwerk-kendo}
 \kendo{} is een raamwerk van de hand van Telerik.
 Het bestaat uit drie luiken:  Web, Mobile en DataViz.  
 Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-%TODO Tim: MVVM uitleggen (gebeurt later in tekst...)
-\kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur dat steunt op de jQuery bibliotheek.
+\kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur (zie infra) dat steunt op de jQuery bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig de \term{backend} te integreren aan de klantzijde.
 .NET,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend} integratie.
 Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}. 
@@ -366,6 +373,7 @@ Voor \kendo{} Mobile kan een verschillende lay-out bepaald worden voor alle onde
 \paragraph{Documentatie}
 Alle documentatie kan gevonden worden op \url{http://docs.kendoui.com}~\cite{Telerikd}.
 % TODO Tim: valt getting started onder een 'term' Sander: ik wou de specifieke term zoals in de documentatie gebruiken.. alternatief?
+% Tim: als je het al met een hoofdletter schrijft is het al duidelijk zonder het commando \term te gebruiken. dacht dat we het zo hadden afgesproken?
 Twee belangrijke secties binnen de documentatie zijn de API en \term{Getting Started}.
 Beide kunnen op elkaar gemapt worden omdat alle objecten van \kendo{} die in de API worden aangehaald ook in een pagina onder \term{Getting Started} worden besproken.
 Deze laatste probeert met meer woorden en voorbeelden uit te leggen wat het object juist inhoudt.
@@ -376,6 +384,7 @@ Ook zijn er demo's die live voorbeelden tonen samen met de code die nodig is om 
 Enkele van de populairste klanten van \kendo{} zijn Nikon,  Fujifilm en Symantec~\cite{Telerike}.
 
 \paragraph{Licenties}
+%TODO Tim: citeren
 Een licentie voor \kendo{} Complete kost $\$699$ per ontwikkelaar.
 Voor \term{backend} ondersteuning in PHP,  JSP of ASP.NET MVC moet $\$300$ meer betaald worden.
 Hierbij zijn één jaar updates mogelijk en wordt professionele ondersteuning aangeboden met een responsetijd onder 48 uur.
@@ -385,8 +394,8 @@ Voor \kendo{} Web,  Mobile en DataViz bestaan ook een aparte licenties voor resp
 \subsection{Code en ontwikkeling}
 Zoals reeds vermeld moet de programmeur zowel \js{}- als HTML-code schrijven. 
 De \js{}- en CSS-bestanden van het raamwerk moeten in de projectfolder worden gekopieerd respectievelijk in een \term{js}- en \term{styles}-map.
-\kendo{} steunt op de jQuery bibliotheek en deze moet ingeladen worden voor het \kendo{} raamwerk zelf wordt aangeroepen.
-De initializatie van een applicatie moet via \code{var app = new kendo.mobile.Application()}.
+\kendo{} steunt op de jQuery-bibliotheek en deze moet ingeladen worden voor het \kendo{} raamwerk zelf wordt aangeroepen.
+De initialisatie van een applicatie moet via \code{var app = new kendo.mobile.Application()}.
 Hier kunnen parameters meegegeven worden die bijvoorbeeld de stijl van één platform vastlegt voor alle toestellen of het initiële scherm bepalen.
 
 Net zoals bij \jqm{} zijn er drie strategieën om webapplicaties te maken:  volledige applicatie in één webpagina,  elk scherm in een aparte pagina of een combinatie van beide.
@@ -400,6 +409,7 @@ Navigatie naar een ander bestand kan door de bestandsnaam als parameter op te ge
 \label{sec:kendo-functioneel}
 %TODO klassensysteem
 \kendo{} is zowel opmaak- als \js{}-gedreven en steunt op de MVVM-architectuur.
+%TODO Tim: is de kracht de MVVM of ook die zowel js- als opmaakgedrevenheid?
 Hierin ligt de kracht van het raamwerk,  het beïnvloedt dan ook sterk alle functionele kenmerken.
 
 \paragraph{UI-elementen}
@@ -419,6 +429,7 @@ Een \code{View} aanduiden gebeurt door het attribuut \code{data-role} aan \code{
 Een \code{Layout} bepaalt de vormgeving van een \code{View} en kan hergebruikt worden.
 
 Een \code{ListView} is een specifieke \code{View} voor lijsten.
+%TODO Tim: 'id' woordje lateen opvallen (term of code?)
 De \code{data-template} kan bij lijsten de id van een sjabloon bevatten die de opmaak van de lijstelementen definieert.
 Deze sjablonen zijn specifieke \kendo{} scripts die HTML-tags en \js{}-code kunnen bevatten.
 Ook kunnen ze verwijzen naar velden van het model dat aan de lijst is toegekend (zie infra).
@@ -449,21 +460,22 @@ Bij externe databronnen bepaalt het hoe binnenkomende data geparset moet worden 
 Een \code{Model} kan ook als waarde van het attribuut worden gezet.
 Dit wil zeggen dat de bijhorende \code{DataSource} instanties zal bevatten van het toegekende \code{Model}.
 
-% TODO Tim: ik heb tot hier de Nederlandse spelling verbeterd
 \subsection{Niet-functionele kenmerken}
 \label{sec:kendo-niet-functioneel}
 
 \paragraph{Performantie}
 De performantie van een \kendo{} applicatie wordt deels bepaald door de programmeur.
 Deze moet er voor zorgen dat de data op het juiste moment geladen wordt.
-Bij het weergeven van een \code{View} gaan drie gebeurtenissen vooraf,  respectievelijk \code{beforeShow,  init} en \code{show}.
-De eerste wordt uitgevoerd voor een \code{View} zichtbaar wordt,  de tweede na initializatie en de laatste bij het tonen van een \code{View}.
+Bij het weergeven van een \code{View} gaan drie gebeurtenissen vooraf,  namelijk \code{beforeShow,  init} en \code{show}.
+De eerste wordt uitgevoerd voor een \code{View} zichtbaar wordt,  de tweede na initialisatie en de laatste bij het tonen van een \code{View}.
 Het initialiseren van een \code{View} vindt maar één keer plaats nadat de volledige applicatie geladen is.
+%TODO Tim: bij het laatste van de zin loopt er wat mis precies..
 Bij de ontwikkeling van een \code{ListView} met data van een externe databron kan best de \code{DataSource} geladen worden bij het initialiseren van de applicatie,  de lijst gemaakt worden bij de \code{init}-gebeurtenis en de lijst ververst worden wanneer bij een \code{show}-gebeurtenis.
 
 \paragraph{Aanpasbaarheid}
 \kendo{} probeert de \term{native look-and-feel} van verschillende besturingssystemen na te bootsen.
-Op het moment van schrijven ondersteunt het iOS, Android, BlackBerry en WinPhone8.
+%TODO Tim: deze zin uit Aanpasbaarheid en enkel bij Browserondersteuning.
+Op het moment van schrijven ondersteunt het iOS, Android, BlackBerry en Windows Phone~8.
 
 Het \kendo{} pakket bevat ook tien extra thema's die een alternatieve lay-out bepalen.
 Deze zijn elk nog persoonlijk aan te passen met de Mobile ThemeBuilder zoals beschreven in de sectie \ref{sec:kendo-omkadering}.
@@ -471,16 +483,16 @@ Deze zijn elk nog persoonlijk aan te passen met de Mobile ThemeBuilder zoals bes
 \paragraph{Programeerbaarheid}
 \kendo{} is zowel JavaScipt- als opmaakgedreven.
 Een kennis van zowel HTML als \js{} is vereist om met dit raamwerk aan de slag te kunnen.
-Het raamwerk is gebouwd op de jQuery Core en maakt dus vaak van jQuery \term{selectors} gebruik.
+Het raamwerk is gebouwd op de jQuery Core en maakt dus vaak van jQuery's \term{selectors} gebruik.
 Ook kan een AJAX verzoek met jQuery syntax geformuleerd worden om externe data op te halen voor een \code{DataSource}.
 
 \paragraph{Browserondersteuning}
 Zoals reeds vermeld herkent \kendo{} het platform waarop de applicatie wordt uitgevoerd.
 De lay-out van de applicatie zal de \term{native look-and-feel} van het besturingssysteem vervolgens nabootsen.
-Ondersteunde systemen zijn iOS, Android, BlackBerry en WinPhone8.
+Ondersteunde systemen zijn iOS, Android, BlackBerry en Windows Phone~8.
 
 Alle widgets, zoals gebruikt in het raamwerk, ondersteunen \term{progressive enhancement}.
-Oudere browsers kunnen zo bestaande inhoud en functionaliteit raadplegen met \term{native} HTML types indien bepaalde elementen niet worden ondersteund.
+Oudere browsers kunnen zo bestaande inhoud en functionaliteit raadplegen met \term{native} HTML-types indien bepaalde elementen niet worden ondersteund.
 Ook de HTML5 formulierelementen worden opgebouwd met \term{progressive enhancement}.
 
 
@@ -490,54 +502,52 @@ Ook de HTML5 formulierelementen worden opgebouwd met \term{progressive enhanceme
 %TODO: verder uitschrijven, maar dat zal blijken uit mijn implementatie
 \section{\lungo}
 \label{sec:raamwerk-lungo}
-%TODO Sander: zelfde opmerking als literatuurstudie:  raamwerken objectief voorstellen, nog niet vergelijken naar andere ?
 \lungo{} is een opmaakgedreven raamwerk waarbij versie~1.0 uitkwam in 2011~\cite{TapQuo2011}.
 Het raamwerk wordt onderhouden door TapQuo dat een Spaans bedrijf is, gespecialiseerd rond mobiele gebruikerservaring~\cite{TapQuo2013a}.
-Analoog met \jqm{} is \lungo{} afhankelijk van een \js{}-bibliotheek, namelijk \quo{}.
+\lungo{} is afhankelijk van een \js{}-bibliotheek, namelijk \quo{}.
 \lungo{} biedt vooral GI-elementen aan, maar daarnaast zijn er ook \term{wrappers} voor cache, opslag en SQL beschikbaar~\cite{TapQuo2013}.
-Net zoals \jqm{} wordt geen programmeerstijl zoals MVC afgedwongen.
+Er wordt geen programmeerstijl zoals MVC afgedwongen.
 Op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
 
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
-Net zoals bij \jqm{} is er niets meer nodig dan kennis over HTML, CSS en \js{}.
+Er is niets meer nodig dan kennis over HTML, CSS en \js{}.
 De GI-elementen worden geschreven in HTML en aangeduid aan de hand van CSS-klassen en \code{data-*}-attributen
 
 \paragraph{Tools}
-%TODO Sander: zelfde opmerking als literatuurstudie:  raamwerken objectief voorstellen, nog niet vergelijken naar andere ?
 Er worden geen specifieke tools door TapQuo aangeboden om de ontwikkeling te versnellen.
 Wel kan er gebruik worden gemaakt van Twitter Bower die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren~\cite{Twitter2013}.
-Dit is bij \jqm{} niet mogelijk doordat \jqm{} geen geldige component is van Bower.
+%TODO Tim: verplaatsen naar uitleg bij evaluatie
+%Dit is bij \jqm{} niet mogelijk doordat \jqm{} geen geldige component is van Bower.
 
 \paragraph{Documentatie}
-%TODO Sander: `start op..`
-De documentatie start op \exturl{lungo.tapquo.com/howto/prototype/} waar getoond wordt hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
-Daarnaast zijn er nog acht andere hoofdstukken die de aangeboden GI-elementen en API uitleggen.
+De documentatie begint op \exturl{lungo.tapquo.com/howto/prototype/} waar getoond wordt hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
+Vervolgens zijn er nog acht andere hoofdstukken die de aangeboden GI-elementen en API uitleggen.
 Op de documentatiepagina's is altijd eerst de broncode te zien.
-%TODO Sander: `levensecht`` => live ? :) ofzoiets..
-Er kan dan boven de broncode op een knop geklikt worden, waarna een levensecht voorbeeld wordt getoond.
+Er kan dan boven de broncode op een knop geklikt worden, waarna een livevoorbeeld wordt getoond.
 
 \paragraph{Marktadoptatie}
-TODO (mail sturen)
+%TODO Tim: mail gestuurd
 
 \paragraph{Licenties}
 Het raamwerk wordt onder de GPLv3-licentie vrijgegeven.
 %TODO Sander: ik ben geen licentie expert,  wat is het verschil tussen gplv3 en commercieel?  Mss iets uitwerken?
+%Tim: zoals toen vrijdag verteld heb ik ook hiervoor een mail gestuurd
 Een commerciële versie is mogelijk.
 
 \subsection{Code en ontwikkeling}
 Zoals gezegd wordt een \lungo{}-applicatie geprogrammeerd vanuit geannoteerde HTML-code door middel van CSS-klassen.
-%TODO Sander: zelfde opmerking als literatuurstudie:  raamwerken objectief voorstellen, nog niet vergelijken naar andere ?
-%staat hier echt vol referenties naar jqm... (dit is toch slechts een voorstelling van raamwerken)
-Net zoals \jqm{} wordt er geen programmeerstijl zoals MVC afgedwongen.
+Er wordt geen programmeerstijl zoals MVC afgedwongen.
 
 Om de verschillende schermen te scheiden wordt gebruik gemaakt van \code{<article>}- en \code{<section>}-tags die specifiek zijn voor HTML5.
 Analoog wordt ook voor de kop- en voettekst de \code{<header>}- en \code{<footer>}-tags gebruikt.
-Hierdoor is het duidelijk dat \lungo{} ten opzichte van \jqm{} volledig gebruik maakt van de nieuwste HTML5-tags.
+%TODO Tim: verplaatsen naar evaluatie
+%Hierdoor is het duidelijk dat \lungo{} ten opzichte van \jqm{} volledig gebruik maakt van de nieuwste HTML5-tags.
 
 \lungo{} biedt de mogelijkheid om de verschillende schermen op afzonderlijke pagina's op te slaan en daarna asynchroon op te halen.
-In tegenstelling tot \jqm{} dient enkel wat binnen de \code{<body>}-tag staat, opgeslaan te worden.
-Bij \jqm{} dient telkens ook de volledige \code{<head>}-tag op iedere pagina herhaald te worden.
+%TODO Tim: verplaatsen naar evaluatie
+%In tegenstelling tot \jqm{} dient enkel wat binnen de \code{<body>}-tag staat, opgeslaan te worden.
+%Bij \jqm{} dient telkens ook de volledige \code{<head>}-tag op iedere pagina herhaald te worden.
 
 \subsection{Functionele kenmerken}
 De documentatiepagina is opgedeeld in negen groepen die hieronder kort worden aangehaald.
@@ -549,7 +559,7 @@ Hierop worden GI-elementen, navigatie, formulieren, scrollen, lijsten en data-at
 Opmerkelijk is de directe ondersteuning door het raamwerk bij het naar beneden trekken van een lijst waarbij de data automatisch wordt herladen.
 
 \item \textbf{Core }
-%TODO Sander: onderstaande zin?
+%TODO Sander: onderstaande zin? Tim: wat is nu je vraag? ;-)
 Hier worden functies aangehaald die het raamwerk zelf intern gebruik.
 Een voorbeeld hiervan is de \code{Lungo.Core.isMobile()}-functie die controleert of de applicatie in een mobiele omgeving wordt uitgevoerd.
 
@@ -571,8 +581,7 @@ Er worden standaard verschillende dialoogvensters aangeboden voor fout-, succes-
 Hier wordt uitgebreid ingegaan op de navigatie doorheen de applicatie vanuit \js{}.
 
 \item \textbf{Service }
-%TODO Sander: 'zonder enig probleem'
-Versturen van HTTP-oproepen kan zonder enig probleem vanuit het \lungo{}—raamwerk.
+Versturen van HTTP-oproepen kan zonder meer vanuit het \lungo{}—raamwerk.
 
 \item \textbf{View }
 Hier worden \js{}-methoden aangeboden om het uitzicht binnen een \code{<article>} te bepalen.
@@ -581,15 +590,12 @@ Hier worden \js{}-methoden aangeboden om het uitzicht binnen een \code{<article>
 
 \subsection{Niet-functionele kenmerken}
 \paragraph{Performantie}
-%TODO Sander: onderstaande zin zou ik veranderen.  Weeral, objectiviteit
-Een voordeel, dat zal moeten blijken in hoofdstuk~\ref{chap:evaluatie}, is dat de \js{}-bibliotheek waarop \lungo{} steunt, geoptimaliseerd is voor mobiel gebruik.
-Dit is in tegenstelling tot jQuery die ook methodes aanbiedt voor desktopgebruikers.
-Hierdoor bevat \quo{} enkel de nodige code, waardoor het bestand kleiner zal zijn in grootte en dus ook sneller wordt gedownload. 
+De \js{}-bibliotheek waarop \lungo{} steunt is geoptimaliseerd voor mobiel gebruik.
+Hierdoor bevat het geen methodes voor desktopgebruikers, waardoor het bestand kleiner is dan traditionele \js{}-bibliotheken.
 
 \paragraph{Aanpasbaarheid}
 \label{sec:lungo-aanpasbaarheid}
-%TODO Sander: 'ziet er goed uit' :) Maaike en Marjan zien er ook goed uit maar anderen vinden dit misschien niet...
-Standaard ziet een \lungo{}-applicatie er goed uit qua lay-out.
+Standaard zit een \lungo{}-applicatie goed qua lay-out.
 TapQuo biedt zelf geen tools aan om de kleuren of het uitzicht van de applicatie te veranderen.
 Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijven.
 
@@ -601,19 +607,21 @@ Ook deze dwingt geen ontwerppatroon af.
 
 \paragraph{Ondersteuning browser}
 TapQuo geeft aan op hun website dat ze ondersteuning bieden voor iOS, Android, Blackberry en FirefoxOS.
-%TODO Sander: ik snap onderstaande zin niet goed. consistente ervaring? 
-Verder halen ze aan dat ze een consistente ervaring willen hebben van een gemaakte applicatie van mobiele apparaten, tv's tot desktopapparaten.
+Verder halen ze aan dat ze een zelfde ervaring willen hebben voor een gemaakte applicatie gaande van mobiele apparaten, tv's tot desktopapparaten.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{landscape}
 
 \section{Tabel}
 \label{sec:raamwerken-tabel}
+In tabel~\ref{tabel:raamwerken-tabel} wordt de vergelijking getoond van de vier raamwerken.
 
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm}},
+  begin table=\begin{tabular}{p{5cm} p{3.5cm} p{3.5cm} p{3.5cm} p{3.5cm}},
   end table=\end{tabular},
   col sep=semicolon,
   string type,
@@ -634,3 +642,4 @@ Verder halen ze aan dat ze een consistente ervaring willen hebben van een gemaak
 \caption{Samenvattende tabel voor passieve vergelijkingscriteria van mobiele HTML5-raamwerken}
 \label{tabel:raamwerken-tabel}
 \end{table}
+\end{landscape}

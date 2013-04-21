@@ -8,7 +8,7 @@ Deze wordt geïntroduceerd in sectie \ref{sec:vergelijking-poc} en zal hoofdzake
 
 \section{POC}
 \label{sec:vergelijking-poc}
-In sectie \ref{sec:vergelijking-poc-idee} wordt het idee van de gekozen POC besproken, waarna in sectie \ref{sec:vergelijking-poc-detail} dieper wordt ingegaan op de aspecten van de gekozen POC.
+In sectie \ref{sec:vergelijking-poc-idee} wordt het idee van de gekozen POC besproken, waarna in sectie \ref{sec:vergelijking-poc-detail} de fases die door een werknemer worden uitgevoerd, gedetailleerd worden besproken.
 
 \subsection{Idee}
 \label{sec:vergelijking-poc-idee}
@@ -38,15 +38,15 @@ De term onkostenformulier is een groepering van meerdere onkosten met bijhorende
 Het aanmaken van een nieuw onkostenformulier verloopt in vier stappen.
 Indien de werknemer al eerder begonnen was met het aanmaken van een formulier, zal hij worden gevraagd of hij verder wil gaan met dat formulier of met een nieuw formulier wil starten.
 
-%TODO Sander: mss verduidelijken dat deze fases door een werknemer worden uitgevoerd.
-%Ik kreeg het gevoel dat de schrijfstijl veranderd.  Soms wordt er naar 'zijn', 'hij', ... verwezen,  dan weer is er de beschrijvende stijl met een verwijzing naar 'de werknemer`.. snapte? :)
+%Ik kreeg het gevoel dat de schrijfstijl veranderd.  Soms wordt er naar 'zijn', 'hij', ... verwezen,  dan weer is er de beschrijvende stijl met een verwijzing naar 'de werknemer`.. snapte? :) Tim: nee
+
 \begin{enumerate}
-\item De eerste stap is het bekijken en/of aanpassen van zijn persoonlijke informatie.
+\item De eerste stap is het bekijken en/of aanpassen van de persoonlijke informatie van de werknemer.
 Bij het aanpassen van deze gegevens, zullen deze worden gevalideerd.
 Indien deze validatie faalt, krijg de werknemer een dialoogvenster te zien met de reden tot falen.
 Ook worden de foute velden rood gemarkeerd.
 
-\item In de tweede stap kan hij zijn toegevoegde onkosten aan het formulier bekijken.
+\item In de tweede stap kan de werknemer zijn toegevoegde onkosten aan het formulier bekijken.
 In het begin is deze lijst leeg, tenzij hij eerder een formulier aan het invullen was (zie infra).
 Indien deze lijst onkosten bevat, is het mogelijk om hierop te klikken en deze te bekijken. Aanpassen is niet mogelijk.
 
@@ -63,8 +63,6 @@ Net zoals bij stap één geldt ook hier validatie op de formuliervelden.
 \item In deze laatste stap dient een handtekening te worden geplaatst waarna het formulier kan worden doorgestuurd.
 Indien de gebruiker offline werkt, zal deze worden opgeslagen op het toestel.
 De werknemer kan het formulier opnieuw doorsturen zodra hij terug online is.
-%TODO Sander: staat dat in POC? deze feature komt voort uit de vorige
-Indien de werknemer online is, maar toch nog wil wachten om het formulier door te sturen, kan hij de applicatie afsluiten en later verder gaan met het formulier.
 
 \end{enumerate}
 
@@ -79,8 +77,9 @@ In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die
 Elementen van deze technieken zullen terugkomen in onze methode om de raamwerken te evalueren.
 
 %TODO passieve criteria, actieve criteria? De eerste zijn die van vorig hoofdstuk,  de laatste die nu volgen...
+%Tim: dit moet zeker duidelijk naar voor komen, want dat is nogal belangrijk
 
-Vijf grote criteria zullen gebruikt worden:  gemeenschap (\ref{sec:vergelijking-gemeenschap}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
+Vijf grote criteria zullen worden gebruikt: gemeenschap (\ref{sec:vergelijking-gemeenschap}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
 Elk raamwerk krijgt voor elk criterium een score. 
 Deze scores zullen in een \term{spiderweb} worden ondergebracht.
 Dit is een grafiek waar elke score in de overeenkomstige as met relatieve schaal wordt geplot.
@@ -97,16 +96,15 @@ Een tabel zal voorzien worden met in de kolommen het aantal volgers op Twitter, 
 Ook de evolutie van deze data zal worden bekeken na een termijn van één maand.
 Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal ook voor elk raamwerk worden toegevoegd.
 
-
 De som van Twitter volgers ($T_r$), GitHub sterren ($S_r$), GitHub forkers ($F_r$), Stackoverflow vragen ($SO_r$) en Facebook \term{likes} ($FB_r$) vormt de score voor het gemeenschapscriteria:
 \begin{equation}
-  G_r=T_r+S_r+F_r+SO_r+FB_r
+  GM_r=T_r+S_r+F_r+SO_r+FB_r
   \label{eq:gemeenschap}
 \end{equation}
 met $r$ de verschillende raamwerken.
 
 \paragraph{Motivatie}
-%TODO
+TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,6 +115,7 @@ De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwer
 De auteurs zullen het raamwerk testen met een implementatie van de POC.
 Er kan verondersteld worden dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
 %TODO Tim: 'extra' loginscherm, 'daarnaast' Sander: ksnap het niet
+%Tim: die zin is niet correct, want nu komt het erop neer dat we beide 4xPOC en 4xlogin zullen doen
 Elk zullen ze de POC en een extra loginscherm maken in vier verschillende raamwerken maken.
 Tim Ameye maakt de POC in \jqm{} en \lungo{} en het loginscherm in \st{} en \kendo{}.
 Sander Van Loock zal dan de POC in \st{} en \kendo{} maken en de loginschermen in \jqm{} en \lungo{}.
@@ -136,7 +135,7 @@ De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en het logins
 waar $r$ de verschillende raamwerken voorstellen.
 
 \paragraph{Motivatie}
-%TODO
+TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,7 +145,7 @@ waar $r$ de verschillende raamwerken voorstellen.
 % Om het verschil in gebruik van de raamwerken te onderzoeken, zullen we steunen op de logboeken die we hebben bijgehouden tijdens het implementeren van de POC. 
 
 % TODO Tim: ik zou onderstaande zin uit gebruik trekken, is ook relevant voor productiviteit en ondersteuning
-%Sander: evt. alle assumpties ook met equations weergeven.  Dan kunnen we er altijd naar verwijzen als we ze nodig hebben??
+%Sander: evt. alle assumpties ook met equations weergeven.  Dan kunnen we er altijd naar verwijzen als we ze nodig hebben?? Tim: ok voor mij
 Men kan ervan uitgaat dat de POC alle relevante kenmerken bevat om de raamwerken zoveel mogelijk uit te buiten. 
 Deze POC kan onderverdeeld worden in verschillende deelproblemen.
 Deze deelproblemen worden als uitdaging aan het raamwerk voorgelegd.
@@ -239,8 +238,6 @@ Alle uitdagingen en sub uitdagingen zijn hieronder te vinden.
 
 De wijze waarop het raamwerk de uitdaging aangaat zal tot een score voor de uitdaging leiden.
 In totaal zijn er drie gevallen.
-%TODO Tim: misschien ook uitleggen waarom we er 3 gekozen hebben en bv. niet de 4 van mij… 'omdat we raamwerken testen en niet pure HTML5/CSS3'
-%Sander: zullen we paragraaf motivatie doen
 De hoogste score wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. 
 Een lagere score betekent dat een plug-in werd gezocht. 
 Wanneer de code voor het overgrote deel zelf diende geschreven te worden of een hack noodzakelijk was, zal de laagste score worden toegekend.
@@ -260,13 +257,14 @@ Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $U_{r,i}$ van raa
   \label{tabel:scores-uitdagingen}
 \end{table}
 \begin{equation}
-  G_r = \sum_{i=1}^{14}{\left(U_{r,i}\right)}
+  GB_r = \sum_{i=1}^{14}{\left(U_{r,i}\right)}
   \label{eq:gebruik}
 \end{equation}
 met $r$ de verschillende raamwerken en $i$ de uitdagingen.
 
 \paragraph{Motivatie}
-%TODO
+TODO
+%TODO Tim: uitleggen waarom we er 3 gekozen hebben en bv. niet de 4 van mij… 'omdat we raamwerken testen en niet pure HTML5/CSS3'
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -274,7 +272,8 @@ met $r$ de verschillende raamwerken en $i$ de uitdagingen.
 \subsection{Ondersteuning}
 \label{sec:vergelijking-ondersteuning}
 Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen met hun verschillende besturingssystemen ondersteund.
-% TODO: duidelijker uitleggen hoe dat zit met browser en OS, nu veel te kort tussen haakjes aangehaald
+% TODO Tim: de eerste keer de afkorting BS, dus uitleggen of volluit schrijven
+% TODO Tim: duidelijker uitleggen hoe dat zit met browser en OS, nu veel te kort tussen haakjes aangehaald
 Enkel de standaard browser van het BS (Android browser/Chrome en Safari) zal beschouwd worden.
 Een \term{context} is één bepaalde configuratie van toestel, BS en browser.
 Alle uitdagingen die gebruikt zijn om het gebruikscriterium te testen komen ook hier van pas.
@@ -283,6 +282,7 @@ De correcte weergave en uitvoering van alle subuitdaging binnen een context bepa
 Deze score kan enkel $0$ of $1$ zijn om wille van respectievelijk een probleem of correcte uitvoering van de subuitdaging.
 Per context zal ook de marktwaarde van het toestel in rekening worden gebracht om de meest gebruikte toestellen te bevoordelen.
 De marktwaarde is afhankelijk van het besturingssysteem,  de versie van het besturingssysteem en de gebruikte mobiele browser.
+%TODO Tim: gebruik van 'we'
 Voor de marktwaarden verwijzen we naar tabellen \ref{tabel:marktaandeel-ios-android} en \ref{tabel:marktaandeel-browsers}.
 De formule voor de marktwaarde van een bepaalde context ziet er als volgt uit:
 %TODO Sander: ook gewicht van device?
@@ -290,6 +290,7 @@ De formule voor de marktwaarde van een bepaalde context ziet er als volgt uit:
   G_c = G(BS_d)*G(BS_{c,v})*G(Browser_c)
  \label{eq:marktwaarde}
 \end{equation}
+%TODO Tim: a van apparaat ipv d
 met $G$ de functie die de marktwaarde teruggeeft.  
 De marktwaarde voor Android en iOS ($G(BS_c)$) werd vermeld in sectie \ref{sec:mobiele-besturingssystemen}.
 De relatieve marktwaarde van de versie van dat besturingssysteem ($G(BS_{c,v})$) kan gevonden worden in tabel \ref{tabel:marktaandeel-ios-android}.
@@ -318,16 +319,16 @@ met $r$ de verschillende raamwerken,  $c$ de verschillende contexten en $i$ de u
   \centering
   \begin{tabular}{lllll}
     \toprule
-    \textbf{Toestel} & \textbf{Soort} &\textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Marktwaarde}\\
+    \textbf{Toestel} & \textbf{Soort} &\textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Marktwaarde ($G_d$)}\\
     \midrule
-    HTCDesireZ & Smartphone & Android 2.3.3 & Android browser & $G_d = 62586$\\ %75.0*45.6*18.30
-    GalaxyTab & Tablet & Android 2.3.6 & Android browser & $G_d = 62586$\\ %75.0*45.6*18.30
-    GalaxyS & Smartphone  & Android 4.1.2 & Chrome & $G_d = 1848.3$\\ %75.0*12.2*2.02
-    Nexus 7 & Tablet & Android 4.2.1  & Chrome & $G_d = 1848.3$\\ %75.0*2*2.02
-    iPad1 WiFi & Tablet & iOS 5.1.1 & Mobile Safari & $G_d = 15910.965$\\%14.9*17.5*61.02
-    iPad3 4G WiFi & Tablet & iOS 6.0.1 & Mobile Safari & $G_d = 36367.92$\\%14.9*40.0*61.02
-    iPhone 3GS & Smartphone & iOS 6.0.1 & Mobile Safari & $G_d = 36367.92$\\%14.9*40.0*61.02
-    iPhone 4S & Smartphone & iOS 6.0.1 & Mobile Safari & $G_d = 36367.92$\\%14.9*40.0*61.02
+    HTCDesireZ & Smartphone & Android 2.3.3 & Android browser & $62586$\\ %75.0*45.6*18.30
+    GalaxyTab & Tablet & Android 2.3.6 & Android browser & $62586$\\ %75.0*45.6*18.30
+    GalaxyS & Smartphone  & Android 4.1.2 & Chrome & $1848.3$\\ %75.0*12.2*2.02
+    Nexus 7 & Tablet & Android 4.2.1  & Chrome & $1848.3$\\ %75.0*2*2.02
+    iPad1 WiFi & Tablet & iOS 5.1.1 & Mobile Safari & $15910.965$\\%14.9*17.5*61.02
+    iPad3 4G WiFi & Tablet & iOS 6.0.1 & Mobile Safari & $36367.92$\\%14.9*40.0*61.02
+    iPhone 3GS & Smartphone & iOS 6.0.1 & Mobile Safari & $36367.92$\\%14.9*40.0*61.02
+    iPhone 4S & Smartphone & iOS 6.0.1 & Mobile Safari & $36367.92$\\%14.9*40.0*61.02
     \bottomrule
   \end{tabular}
   \caption{Beschikbare toestellen met hun besturingssysteem, browser en gewicht}
@@ -336,7 +337,7 @@ met $r$ de verschillende raamwerken,  $c$ de verschillende contexten en $i$ de u
 
 
 \paragraph{Motivatie}
-%TODO
+TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

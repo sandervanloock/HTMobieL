@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="components/lungo/lungo.icon.brand.css">
     <link rel="stylesheet" href="components/lungo/lungo.css">
     <link rel="stylesheet" href="components/lungo/theme.lungo.css">
+    <link rel="stylesheet" href="plugins/lungo.third.datepicker.css">
     <link rel="stylesheet" href="css/ea.css">
 </head>
 
@@ -285,7 +286,7 @@
                 <div class="form">
                     <fieldset>
                         <label for="create3-add-date">Date</label>
-                        <input type="text" id="create3-add-date">
+                        <input type="text" id="create3-add-date" onclick="showDatePicker()" readonly>
                     </fieldset>
                     <fieldset>
                         <label for="create3-add-project-code">Project Code</label>
@@ -418,6 +419,7 @@
 <!-- Lungo - Dependencies -->
 <script src="components/quojs/quo.debug.js"></script>
 <script src="components/lungo/lungo.debug.js"></script>
+<script src="plugins/lungo.third.datepicker.js"></script>
 <!-- Lungo - Sandbox App -->
 <script>
     Lungo.init({

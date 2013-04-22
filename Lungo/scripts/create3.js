@@ -138,3 +138,11 @@ function toggleNavigationCreate3() {
     $$("#create3-tab-domestic").toggleClass("active");
     $$("#create3-tab-abroad").toggleClass("active");
 }
+
+function showDatePicker() {
+    Lungo.Sugar.DatePicker.startDatepicker('en', insertDate);
+}
+
+function insertDate(day, month, year) {
+    $$("#create3-add-date").val(year + '-' + month + '-' + day);
+}

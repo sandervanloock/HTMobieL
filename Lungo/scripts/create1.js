@@ -44,7 +44,6 @@ Lungo.dom("#create1").on("load", function () {
     }
 
     // select according to rule
-    $$yearOptions.find("option[value='" + year + "']").attr("selected", true);
-    var $$monthOptions = $$("#create1-info-month");
-    $$monthOptions.find("option[value='" + (month + 1) + "']").attr("selected", true);
+    $$yearOptions.val(year.toString());
+    $$("#create1-info-month").val((month + 1).toString());
 });

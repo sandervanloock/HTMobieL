@@ -431,6 +431,17 @@
         version: "0.1",
         history: false
     });
+    Lungo.dom(document).ready(function () {
+        if (!Lungo.Data.Storage.persistent("user")) {
+            // user is not logged in, redirect to login screen
+            Lungo.Router.section("login");
+        } else {
+            // user is already logged in
+            var user = Lungo.Data.Storage.persistent("user");
+            $$("#home-screen-name").text(user.firstName + " " + user.lastName);
+        }
+    });
+    // error function when failing AJAX requests to backend
     Lungo.Service.Settings.error = function () {
         Lungo.Notification.error(
                 // Title
@@ -445,9 +456,6 @@
                 null
         );
     };
-    if (!Lungo.Data.Storage.persistent("user")) {
-        Lungo.Router.section("login");
-    }
 </script>
 <script src="scripts/ea.js"></script>
 <script src="scripts/login.js"></script>

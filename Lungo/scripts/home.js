@@ -1,8 +1,3 @@
-Lungo.dom("#home").on("load", function () {
-    var user = Lungo.Data.Storage.persistent("user");
-    $$("#home-screen-name").text(user.firstName + " " + user.lastName);
-});
-
 Lungo.dom("#home-screen-add").on("tap", function () {
     if (Lungo.Data.Storage.persistent("localExpenses")) {
         Lungo.Notification.confirm({

@@ -2,6 +2,7 @@ function login() {
     var validator = $("#login-view").kendoValidator().data("kendoValidator");
     //validate login screen
     if (validator.validate()){
+        app.showLoading();
         $.ajax({
             type:"POST",
             dataType:"text",
@@ -30,11 +31,18 @@ function login() {
                         error:function () {
                             EA.showDialog("Could not fetch user information");
                         },
-                        success:function (userData) {
-                            EA.setUser(userData);
-                            if (Modernizr.localstorage)
-                                localStorage.user = JSON.stringify(employee.toJSON());
-                            app.navigate("#home")
+                        success:function (userData,textstatus,jqXHR) {
+                            if(jqXHR.status==204)
+                                login(); //backend return no data,  resent login form (backend issue)
+                            else{
+                                EA.setUser(userData);
+                                if (Modernizr.localstorage)
+                                    localStorage.user = JSON.stringify(employee.toJSON());
+                                app.navigate("#home")
+                            }
+                        },
+                        complete: function(){
+                            app.hideLoading();
                         }
                     });
                 }

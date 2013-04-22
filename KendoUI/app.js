@@ -221,14 +221,67 @@ function addExpenseViewInit(e) {
     });
 
     $("#abroad-expense-evidence").kendoUpload({
-        multiple: false
+        async: {
+            saveUrl: "save.php",
+            removeFields: "evidences[]"
+        },
+        success: onFileUploadSuccess
     });
 
-    $("#domestic-expense-evidence").kendoUpload();
+    $("#domestic-expense-evidence").kendoUpload({
+        multiple: false,
+        showFileList: false,
+        async: {
+            saveUrl: "save.php"
+        },
+        success: onFileUploadSuccess
+    });
+}
+
+function onFileUploadSuccess(e){
+        // get the file
+        var file = e.files[0].rawFile;
+        if (window.FileReader) {
+            // initialize reader
+            var reader = new FileReader();
+            // if the image was read, load it into the canvas
+            reader.onload = function (e) {
+                // get the canvas that is hidden on that page
+                var canvas = $('#expense-evidence-canvas')[0];
+                var context = canvas.getContext('2d');
+                var img = new Image();
+                // if the image is in canvas, get base64
+                img.onload = function () {
+                    // set canvas dimensions to image dimensions
+                    canvas.width = this.width;
+                    canvas.height = this.height;
+                    // draw the image on the canvas
+                    context.drawImage(this, 0, 0);
+                    // get the base64 string
+                    var base64 = EA.base64WithoutPrefix(canvas.toDataURL());
+
+                    // this can fail due to limitations of browser storage
+                    try {
+                        EA.setEvidence(base64);
+                    } catch (error) {
+                        // TODO solve problem
+                        EA.showDialog("Session storage exceeds the limit");
+                    }
+
+                    app.hideLoading();
+                };
+                img.src = e.target.result;
+            };
+
+            // read the image
+            app.showLoading();
+            reader.readAsDataURL(file);
+        } else {
+            EA.showDialog("FileReaderAPI not supported");
+        }
 }
 
 function signAndSendViewInit(){
-    //kendo.bind($("#signAndSend"),expenseForm,kendo.mobile.ui);
     // when this line is in pagebeforeshow, it cannot know
     // width and heigh of the page, therefore it is placed here, but
     // because this code is executed everytime the page is viewed,
@@ -240,7 +293,6 @@ function signAndSendViewInit(){
 }
 
 function initExpenseFormOverview() {
-    console.log("init");
     expenseFormDataSource.read();
     $("#expenseFormList").kendoMobileListView({
         dataSource: expenseFormDataSource,

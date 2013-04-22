@@ -208,5 +208,35 @@ var EA = {
 
     showBackendError:function (html) {
         this.showDialog("Backend error");
-    }
+    },
+
+    /*************************************************
+     * Expense evidence
+     *************************************************/
+
+    evidence:null,
+
+    getEvidence:function () {
+        if (Modernizr.sessionstorage) {
+            return sessionStorage.evidence;
+        } else {
+            return this.evidence;
+        }
+    },
+
+    setEvidence:function (evidence) {
+        if (Modernizr.sessionstorage) {
+            sessionStorage.evidence = evidence;
+        } else {
+            this.evidence = evidence;
+        }
+    },
+
+    clearEvidence:function () {
+        if (Modernizr.sessionstorage) {
+            sessionStorage.removeItem("evidence");
+        } else {
+            this.evidence = null;
+        }
+    },
 };

@@ -19,7 +19,6 @@ Lungo.dom("#create3").on("load", function () {
 
     // evidence to base64 via FileReaderAPI and HTML5 canvas
     $$('#create3-add-evidence')[0].onchange = function (e) {
-        console.log("evidence changed");
         // get the file
         var file = e.target.files[0];
 

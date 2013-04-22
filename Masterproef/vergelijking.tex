@@ -114,9 +114,7 @@ TODO
 De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwerk vertrouwd te raken.
 De auteurs zullen het raamwerk testen met een implementatie van de POC.
 Er kan verondersteld worden dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
-%TODO Tim: 'extra' loginscherm, 'daarnaast' Sander: ksnap het niet
-%Tim: die zin is niet correct, want nu komt het erop neer dat we beide 4xPOC en 4xlogin zullen doen
-Elk zullen ze de POC en een extra loginscherm maken in vier verschillende raamwerken maken.
+Elk zullen ze de POC in twee verschillende raamwerken maken,  daarnaast ook een extra loginscherm in twee andere raamwerken.
 Tim Ameye maakt de POC in \jqm{} en \lungo{} en het loginscherm in \st{} en \kendo{}.
 Sander Van Loock zal dan de POC in \st{} en \kendo{} maken en de loginschermen in \jqm{} en \lungo{}.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
@@ -272,10 +270,9 @@ TODO
 \subsection{Ondersteuning}
 \label{sec:vergelijking-ondersteuning}
 Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen met hun verschillende besturingssystemen ondersteund.
-% TODO Tim: de eerste keer de afkorting BS, dus uitleggen of volluit schrijven
 % TODO Tim: duidelijker uitleggen hoe dat zit met browser en OS, nu veel te kort tussen haakjes aangehaald
-Enkel de standaard browser van het BS (Android browser/Chrome en Safari) zal beschouwd worden.
-Een \term{context} is één bepaalde configuratie van toestel, BS en browser.
+Enkel de standaard browser van het besturingssysteem (Android browser/Chrome en Safari) zal beschouwd worden.
+Een \term{context} is één bepaalde configuratie van toestel, besturingssysteem en browser.
 Alle uitdagingen die gebruikt zijn om het gebruikscriterium te testen komen ook hier van pas.
 In elke context zullen de $14$ uitdagingen van de vorige sectie worden getest.
 De correcte weergave en uitvoering van alle subuitdaging binnen een context bepaalt de score voor die context.
@@ -283,14 +280,13 @@ Deze score kan enkel $0$ of $1$ zijn om wille van respectievelijk een probleem o
 Per context zal ook de marktwaarde van het toestel in rekening worden gebracht om de meest gebruikte toestellen te bevoordelen.
 De marktwaarde is afhankelijk van het besturingssysteem,  de versie van het besturingssysteem en de gebruikte mobiele browser.
 %TODO Tim: gebruik van 'we'
-Voor de marktwaarden verwijzen we naar tabellen \ref{tabel:marktaandeel-ios-android} en \ref{tabel:marktaandeel-browsers}.
+Voor de marktwaarden wordt naar tabellen \ref{tabel:marktaandeel-ios-android} en \ref{tabel:marktaandeel-browsers} verwezen.
 De formule voor de marktwaarde van een bepaalde context ziet er als volgt uit:
 %TODO Sander: ook gewicht van device?
 \begin{equation}
-  G_c = G(BS_d)*G(BS_{c,v})*G(Browser_c)
+  G_c = G(BS_c)*G(BS_{c,v})*G(Browser_c)
  \label{eq:marktwaarde}
 \end{equation}
-%TODO Tim: a van apparaat ipv d
 met $G$ de functie die de marktwaarde teruggeeft.  
 De marktwaarde voor Android en iOS ($G(BS_c)$) werd vermeld in sectie \ref{sec:mobiele-besturingssystemen}.
 De relatieve marktwaarde van de versie van dat besturingssysteem ($G(BS_{c,v})$) kan gevonden worden in tabel \ref{tabel:marktaandeel-ios-android}.

@@ -8,7 +8,7 @@ In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een tabel weergegeven wa
 
 \section{Motivatie gekozen raamwerken}
 \label{sec:motivatie-vier-raamwerken}
-%TODO Tim: is dit ok?
+%TODO Tim: is dit ok? Sander: OK
 In samenspraak met Capgemini werd gekozen om \jqm{}, \st{} en \kendo{} te onderzoeken.
 De twee eerstgenoemde werden gekozen om hun enorme populariteit~\cite{Firtman2013,Hales2012,Oeflman2011,David2011}.
 De laatstgenoemde had het voordeel dat deze de \term{native look-and-feel} kan nabootsen, wat ook een handig onderzoekspunt leek voor Capgemini.
@@ -372,9 +372,7 @@ Voor \kendo{} Mobile kan een verschillende lay-out bepaald worden voor alle onde
 
 \paragraph{Documentatie}
 Alle documentatie kan gevonden worden op \url{http://docs.kendoui.com}~\cite{Telerikd}.
-% TODO Tim: valt getting started onder een 'term' Sander: ik wou de specifieke term zoals in de documentatie gebruiken.. alternatief?
-% Tim: als je het al met een hoofdletter schrijft is het al duidelijk zonder het commando \term te gebruiken. dacht dat we het zo hadden afgesproken?
-Twee belangrijke secties binnen de documentatie zijn de API en \term{Getting Started}.
+Twee belangrijke secties binnen de documentatie zijn de API en Getting Started.
 Beide kunnen op elkaar gemapt worden omdat alle objecten van \kendo{} die in de API worden aangehaald ook in een pagina onder \term{Getting Started} worden besproken.
 Deze laatste probeert met meer woorden en voorbeelden uit te leggen wat het object juist inhoudt.
 Verder staan er bij de documentatie nog handleidingen die complexere functionaliteit uit de doeken doet.
@@ -384,12 +382,11 @@ Ook zijn er demo's die live voorbeelden tonen samen met de code die nodig is om 
 Enkele van de populairste klanten van \kendo{} zijn Nikon,  Fujifilm en Symantec~\cite{Telerike}.
 
 \paragraph{Licenties}
-%TODO Tim: citeren
 Een licentie voor \kendo{} Complete kost $\$699$ per ontwikkelaar.
 Voor \term{backend} ondersteuning in PHP,  JSP of ASP.NET MVC moet $\$300$ meer betaald worden.
 Hierbij zijn één jaar updates mogelijk en wordt professionele ondersteuning aangeboden met een responsetijd onder 48 uur.
 Bij een licentie met \term{backend} integratie is support zelfs gegarandeerd na 24 uur.
-Voor \kendo{} Web,  Mobile en DataViz bestaan ook een aparte licenties voor respectievelijk $\$399$,  $\$199$ en $\$399$.
+Voor \kendo{} Web,  Mobile en DataViz bestaan ook een aparte licenties voor respectievelijk $\$399$,  $\$199$ en $\$399$~\cite{Telerik}.
 
 \subsection{Code en ontwikkeling}
 Zoals reeds vermeld moet de programmeur zowel \js{}- als HTML-code schrijven. 
@@ -409,8 +406,7 @@ Navigatie naar een ander bestand kan door de bestandsnaam als parameter op te ge
 \label{sec:kendo-functioneel}
 %TODO klassensysteem
 \kendo{} is zowel opmaak- als \js{}-gedreven en steunt op de MVVM-architectuur.
-%TODO Tim: is de kracht de MVVM of ook die zowel js- als opmaakgedrevenheid?
-Hierin ligt de kracht van het raamwerk,  het beïnvloedt dan ook sterk alle functionele kenmerken.
+Dit beïnvloedt sterk alle functionele kenmerken.
 
 \paragraph{UI-elementen}
 Formulieren volgen de de HTML5-norm. 
@@ -429,8 +425,7 @@ Een \code{View} aanduiden gebeurt door het attribuut \code{data-role} aan \code{
 Een \code{Layout} bepaalt de vormgeving van een \code{View} en kan hergebruikt worden.
 
 Een \code{ListView} is een specifieke \code{View} voor lijsten.
-%TODO Tim: 'id' woordje lateen opvallen (term of code?)
-De \code{data-template} kan bij lijsten de id van een sjabloon bevatten die de opmaak van de lijstelementen definieert.
+De \code{data-template} kan bij lijsten de \term{identifier} van een sjabloon bevatten die de opmaak van de lijstelementen definieert.
 Deze sjablonen zijn specifieke \kendo{} scripts die HTML-tags en \js{}-code kunnen bevatten.
 Ook kunnen ze verwijzen naar velden van het model dat aan de lijst is toegekend (zie infra).
 
@@ -469,14 +464,12 @@ Deze moet er voor zorgen dat de data op het juiste moment geladen wordt.
 Bij het weergeven van een \code{View} gaan drie gebeurtenissen vooraf,  namelijk \code{beforeShow,  init} en \code{show}.
 De eerste wordt uitgevoerd voor een \code{View} zichtbaar wordt,  de tweede na initialisatie en de laatste bij het tonen van een \code{View}.
 Het initialiseren van een \code{View} vindt maar één keer plaats nadat de volledige applicatie geladen is.
-%TODO Tim: bij het laatste van de zin loopt er wat mis precies..
-Bij de ontwikkeling van een \code{ListView} met data van een externe databron kan best de \code{DataSource} geladen worden bij het initialiseren van de applicatie,  de lijst gemaakt worden bij de \code{init}-gebeurtenis en de lijst ververst worden wanneer bij een \code{show}-gebeurtenis.
+Bij de ontwikkeling van een \code{ListView} met data van een externe databron kan best de \code{DataSource} geladen worden bij het initialiseren van de applicatie,  de lijst gemaakt worden bij de \code{init}-gebeurtenis en de lijst ververst worden bij een \code{show}-gebeurtenis.
 
 \paragraph{Aanpasbaarheid}
 \kendo{} probeert de \term{native look-and-feel} van verschillende besturingssystemen na te bootsen.
 %TODO Tim: deze zin uit Aanpasbaarheid en enkel bij Browserondersteuning.
-Op het moment van schrijven ondersteunt het iOS, Android, BlackBerry en Windows Phone~8.
-
+%Op het moment van schrijven ondersteunt het iOS, Android, BlackBerry en Windows Phone~8.
 Het \kendo{} pakket bevat ook tien extra thema's die een alternatieve lay-out bepalen.
 Deze zijn elk nog persoonlijk aan te passen met de Mobile ThemeBuilder zoals beschreven in de sectie \ref{sec:kendo-omkadering}.
 
@@ -560,7 +553,7 @@ Opmerkelijk is de directe ondersteuning door het raamwerk bij het naar beneden t
 
 \item \textbf{Core }
 %TODO Sander: onderstaande zin? Tim: wat is nu je vraag? ;-)
-Hier worden functies aangehaald die het raamwerk zelf intern gebruik.
+Hier worden functies aangehaald die het raamwerk zelf intern gebruikt.
 Een voorbeeld hiervan is de \code{Lungo.Core.isMobile()}-functie die controleert of de applicatie in een mobiele omgeving wordt uitgevoerd.
 
 \item \textbf{Data }

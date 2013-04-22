@@ -43,20 +43,7 @@ Lungo.dom("#create4-sign-button").on("tap", function () {
             var expenseRequest = {};
             expenseRequest.token = Lungo.Data.Storage.persistent("token");
             expenseRequest.expenseForm = expenseForm;
-            // save the expense form
-            Lungo.Service.post(
-                // url
-                EA.baseURL + "resources/expenseService/saveExpense",
-                // data
-                JSON.stringify(expenseRequest),
-                // callback
-                function (response) {
-                    console.log("it was send");
-                    console.log(response);
-                },
-                // type
-                "json"
-            );
+            //TODO save the expense form
         }
     }
 });

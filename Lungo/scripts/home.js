@@ -39,8 +39,9 @@ Lungo.dom("#home-logout").on("tap", function () {
         function () {
             // hide loading screen
             Lungo.Notification.hide();
-            // delete token
+            // delete token and user
             Lungo.Data.Storage.persistent("token", null);
+            Lungo.Data.Storage.persistent("user", null);
             // go to login screen
             Lungo.Router.section("login");
         },

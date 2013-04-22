@@ -147,7 +147,7 @@ function showDatePicker() {
 }
 
 function insertDate(day, month, year) {
-    $$("#create3-add-date").val(year + '-' + month + '-' + day);
+    $$("#create3-add-date").val(year + '/' + month + '/' + day);
 }
 
 /**

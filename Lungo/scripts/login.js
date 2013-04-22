@@ -1,14 +1,36 @@
 Lungo.dom("#login-screen-button").on("tap", function () {
-    var email = $$("#login-screen-username").val();
-    var password = $$("#login-screen-password").val();
+    var $$email = $$("#login-screen-username");
+    var $$password = $$("#login-screen-password");
+    var email = $$email.val();
+    var password = $$password.val();
 
     // TODO: manual validation
     if (email === "" || password === "") {
+        var errors = [];
+        // delete red border before validation
+        $$email.parent().removeClass("red-border");
+        $$password.parent().removeClass("red-border");
+        // add red borders
+        if (email === "") {
+            $$email.parent().addClass("red-border");
+            errors.push("Username is required.");
+        }
+        if (password === "") {
+            $$password.parent().addClass("red-border");
+            errors.push("Password is required.");
+        }
+        // convert errors to html code
+        var htmlError = "<ul>";
+        $$(errors).each(function (i, error) {
+            htmlError += "<li>" + error + "</li>";
+        });
+        htmlError += "</ul>";
+        // show notification
         Lungo.Notification.error(
             // Title
             "Validation error",
             // Description
-            "Please fill in the required fields.",
+            "The following fields were not correctly validated:" + htmlError,
             // Icon
             "warning",
             // Time on screen

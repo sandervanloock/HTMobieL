@@ -69,7 +69,10 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                             // Lungo.Notification.hide();
                             // persist the user
                             Lungo.Data.Storage.persistent("user", user);
-                            // load currencies
+                            // go to home section
+                            Lungo.Router.section("home");
+
+                            // load currencies asynchronously
                             // show loading screen
                             // TODO loading screen problems
                             // Lungo.Notification.show();
@@ -96,11 +99,36 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                                         });
                                     });
                                     Lungo.Data.Storage.persistent("currencies", currencies);
-                                    // go to home section
-                                    Lungo.Router.section("home");
+
                                 },
                                 // type
                                 "xml"
+                            );
+
+                            // load project codes asynchronously
+                            Lungo.Service.post(
+                                // url
+                                EA.baseURL + "resources/expenseService/getProjectCodeSuggestion",
+                                // data
+                                {
+                                    "keyword": ""
+                                },
+                                // callback
+                                function (json) {
+                                    // show loading screen
+                                    // TODO loading screen problems
+                                    // Lungo.Notification.show();
+                                    if (json != null) {
+                                        // persist project codes
+                                        Lungo.Data.Storage.persistent("projectCodes", json.data);
+                                    } else {
+                                        // silent fail
+                                        // it could happen that there are no project codes yet
+                                        console.log("No project code suggestions were returned.");
+                                    }
+                                },
+                                // type
+                                "json"
                             );
                         },
                         // type

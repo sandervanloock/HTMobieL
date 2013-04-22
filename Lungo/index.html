@@ -284,14 +284,15 @@
             </div>
             <form id="create3-add-form">
                 <div class="form">
-                    <fieldset>
+                    <fieldset data-icon="calendar">
                         <label for="create3-add-date">Date</label>
                         <input type="text" id="create3-add-date" onclick="showDatePicker()" readonly>
                     </fieldset>
-                    <fieldset>
+                    <fieldset data-icon="search">
                         <label for="create3-add-project-code">Project Code</label>
                         <input type="text" id="create3-add-project-code">
                     </fieldset>
+                    <ul id="create3-add-results"></ul>
                     <fieldset>
                         <label>Type</label>
 
@@ -420,6 +421,7 @@
 <script src="components/quojs/quo.debug.js"></script>
 <script src="components/lungo/lungo.debug.js"></script>
 <script src="plugins/lungo.third.datepicker.js"></script>
+<script src="plugins/lungo.third.autocomplete.js"></script>
 <!-- Lungo - Sandbox App -->
 <script>
     Lungo.init({

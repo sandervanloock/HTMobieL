@@ -222,7 +222,7 @@ function addExpenseViewInit(e) {
 
     $("#abroad-expense-evidence").kendoUpload({
         async: {
-            saveUrl: "save.php",
+            saveUrl: "http://www.chiroelzestraat.be/chirojongens/uploads/thesis/save.php",
             removeFields: "evidences[]"
         },
         success: onFileUploadSuccess
@@ -232,7 +232,7 @@ function addExpenseViewInit(e) {
         multiple: false,
         showFileList: false,
         async: {
-            saveUrl: "save.php"
+            saveUrl: "http://www.chiroelzestraat.be/chirojongens/uploads/thesis/save.php"
         },
         success: onFileUploadSuccess
     });

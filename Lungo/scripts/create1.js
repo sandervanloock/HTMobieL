@@ -47,3 +47,7 @@ Lungo.dom("#create1").on("load", function () {
     $$yearOptions.val(year.toString());
     $$("#create1-info-month").val((month + 1).toString());
 });
+
+Lungo.dom("#create1-info-submit").on("tap", function () {
+    Lungo.Router.section("create2");
+});

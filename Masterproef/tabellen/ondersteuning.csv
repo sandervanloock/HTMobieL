@@ -1,66 +1,66 @@
-Toestel;HTCDesireZ;GalaxyTab;Opmerking;GalaxyS;Nexus 7;iPad3 1 WiFi;iPad3 4G WiFi;iPhone 3GS;iPhone 4S
-Model;;;;;;;;;MD242NF/A
-Besturingssysteem;;Kernel version 2.3.35.7 Overcome-v4.0.0#40;;;;;;;6,13, (10B329)
-Firmware version;;2,3,6;;;;;;;3,4,03
-Browser;;Android Browser;;;;;;;Safari
-;;;;;;;;;
-Formulieren;0;4;9;0;0;0;0;0;0
-Maak formulieren met placeholders,  maar zonder labels;;1;2;;;;;;
-Gebruik tekst, numer en email als formulier types;;0;1;;;;;;
-Aangepaste \term{datepicker} met bereik van data;;1;2;;;;;;
-Aangepaste \term{datepicker} met enkel maand- en jaarveld;;1;2;;;;;;
-Wissen van een formulier;;1;2;;;;;;
-Formulier validatie;0;4;8;0;0;0;0;0;0
-Validatie regels voor verplichte,numer en email velden;;1;2;;;;;;
-Validatie regels voor eigen condities;;1;2;;;;;;
-Venster voor foutenboodschappen van ongeldige velden;;1;2;;;;;;
-Rode randen plaatsen rond ongeldige velden;;1;2;;;;;;
-Autoaanvullen;0;0;2;0;0;0;0;0;0
-Haal suggesties op gebaseerd op gebruikersinvoer;;0;1;;;;;;
-Toon suggesties in klikbare dropdownmenu;;0;1;;;;;;
-Toevoegen van een afbeelding;0;1;4;;;;;;
-Kies een afbeelding;;1;2;;;;;;
-Converteer de afbeelding met base64;;0;1;;;;;;
-Voorbeeld van de afbeelding;;0;1;;;;;;
-Lijsten;0;3;6;0;0;0;0;0;0
-Laad data in lijst en stijl de elementen met een template;;1;2;;;;;;
-Klikbare lijst elementen met actie of link naar het record van het element;;1;2;;;;;;
-Sorting data;;1;2;;;;;;
-Data conversie;0;2;4;0;0;0;0;0;0
-Conversie van munteenheid;;1;2;;;;;;
-Conversie van ids naar tekst;;1;2;;;;;;
-Invullen van een formulier;0;2;4;0;0;0;0;0;0
-Vul formulierelementen met data;;1;2;;;;;;
-Maak elementen van het formulier \term{read-only};;1;2;;;;;;
-Anatomie van een pagina;0;2;4;0;0;0;0;0;0
-Toon header,  footer en onderliggende header met titels en knoppen;;1;2;;;;;;
-Tabbar;;1;2;;;;;;
-Aanpasbaarheid van kleur van knoppen;;;;;;;;;
-Handtekening;0;1;2;0;0;0;0;0;0
-Teken een handtekening met vinger of pen;;1;2;;;;;;
-Laadscherm en dialoog;;;;;;;;;
-Toon laadscherm;;1;2;;;;;;
-Toon dialoog;;1;2;;;;;;
-Toon PDF-bestand;0;1;3;0;0;0;0;0;0
-Vraag een PDF-bestand op met POST parameters;;1;2;;;;;;
-Toon het PDF-bestand;;0;1;;;;;;
-AJAX: tekst, JSON en XML;0;;12;12;8;0;0;0;0
-Haal tekst zonder opmaak op;;1;2;;;;;;
-Haal JSON data op en parse;;1;2;;;;;;
-Zend JSON data;;1;2;;;;;;
-Haal XML data op en parse;;1;2;;;;;;
-Toestel specifieke lay-out;0;1;4;0;0;0;0;0;0
-Herkennen van smartphone en tablet;;0;1;;;;;;
-Toon het linker menu op een tablet;;0;1;;;;;;
-Schakel menu in bij smartphone;;1;2;;;;;;
-Offline;0;2;5;0;0;0;0;0;0
-Bewaar login gegevens;;1;2;;;;;;
-Bewaar niet verzonden onkosten;;1;2;;;;;;
-Maak de applicatie offline beschikbaar;;0;1;;;;;;
-TOTALE SCORE;0;22;65;12;8;0;0;0;0
-Marktaandeel Besturingssysteem;;75;76;;;;;;
-Marktaandeel Versie Besturingssysteem;;45,6;46,6;;;;;;
-Marktaandeel Browser;;18,3;19,3;;;;;;
-GEWICHT;;62586;68352,88;0;0;0;0;0;0
-;;;;;;;;;
-SCORE;0;1376892;4442937,2;0;0;0;0;0;0
+Toestel;HTCDesireZ;GalaxyTab;Opmerking;GalaxyS;Opmerkingen;Nexus 7;Opmerkingen;iPad3 1 WiFi;iPad3 4G WiFi;iPhone 3GS;iPhone 4S;Opmerkingen
+Model;;;;GT-I9000;;;;;;;MD242NF/A;
+Besturingssysteem;;Kernel version 2.3.35.7 Overcome-v4.0.0#40;;4,1,2;;;;;;;6,1,3, (10B329);
+Firmware version;;2,3,6;;;;;;;;;3,4,03;
+Browser;;Android Browser;;Android Browser;;;;;;;Safari;
+;;;;;;;;;;;;
+Formulieren;0;3;;5;;0;;0;0;0;4;
+Maak formulieren met placeholders,  maar zonder labels;;0;placeholders bij lange namen afgekort met ?;1;;;;;;;0;placeholders bij lange namen afgekort met ?
+Gebruik tekst, numer en email als formulier types;;0;geen apenstaart;1;;;;;;;1;
+Aangepaste \term{datepicker} met bereik van data;;1;;1;;;;;;;1;
+Aangepaste \term{datepicker} met enkel maand- en jaarveld;;1;standaard dropdown;1;standaard dropdown;;;;;;1;standaard drop down
+Wissen van een formulier;;1;;1;evidence niet gewist;;;;;;1;
+Formulier validatie;0;4;;4;;0;;0;0;0;4;
+Validatie regels voor verplichte,numer en email velden;;1;;1;;;;;;;1;
+Validatie regels voor eigen condities;;1;geen evidence validatie geimplementeerd;1;;;;;;;1;
+Venster voor foutenboodschappen van ongeldige velden;;1;;1;;;;;;;1;
+Rode randen plaatsen rond ongeldige velden;;1;Geen onderste rand;1;niet onderaan;;;;;;1;geen onderste rand
+Autoaanvullen;0;0;;0;;0;;0;0;0;0;
+Haal suggesties op gebaseerd op gebruikersinvoer;;0;;0;;;;;;;0;
+Toon suggesties in klikbare dropdownmenu;;0;;0;;;;;;;0;
+Toevoegen van een afbeelding;0;1;;;;;;;;;;
+Kies een afbeelding;;1;geen camera mogelijk;1;met camera;;;;;;1;
+Converteer de afbeelding met base64;;0;;1;;;;;;;1;
+Voorbeeld van de afbeelding;;0;fileapi niet ondersteund;1;;;;;;;1;
+Lijsten;0;3;;3;;0;;0;0;0;3;
+Laad data in lijst en stijl de elementen met een template;;1;;1;geselecteerde element wit (bijna onleesbaar);;;;;;1;(diner 0,38 euro is te lang,  EUR wordt op volgende lijn geplaats en is maar half leesbaar)
+Klikbare lijst elementen met actie of link naar het record van het element;;1;geselecteerde element wit (niet leesbaar);1;;;;;;;1;
+Sorting data;;1;;1;;;;;;;1;
+Data conversie;0;2;;2;;0;;0;0;0;2;
+Conversie van munteenheid;;1;;1;;;;;;;1;
+Conversie van ids naar tekst;;1;;1;;;;;;;1;
+Invullen van een formulier;0;2;;2;;0;;0;0;0;2;
+Vul formulierelementen met data;;1;;1;;;;;;;1;
+Maak elementen van het formulier \term{read-only};;1;;1;;;;;;;1;
+Anatomie van een pagina;0;2;;2;hoge resolutie (kleine scherm weergave);0;;0;0;0;2;
+Toon header,  footer en onderliggende header met titels en knoppen;;1;;1;;;;;;;1;
+Tabbar;;1;;1;;;;;;;1;
+Aanpasbaarheid van kleur van knoppen;;;;;;;;;;;;
+Handtekening;0;1;;1;;0;;0;0;0;1;
+Teken een handtekening met vinger of pen;;1;;1;;;;;;;1;
+Laadscherm en dialoog;;;;;;;;;;;;
+Toon laadscherm;;1;;1;;;;;;;1;
+Toon dialoog;;1;;1;;;;;;;1;
+Toon PDF-bestand;0;1;;1;;0;;0;0;0;1;
+Vraag een PDF-bestand op met POST parameters;;1;;1;;;;;;;1;
+Toon het PDF-bestand;;0;Opgehaald maar niet toonbaar;;;;;;;;;
+AJAX: tekst, JSON en XML;0;4;;4;;4;;4;0;0;4;
+Haal tekst zonder opmaak op;;1;;1;;;;;;;1;
+Haal JSON data op en parse;;1;;1;;;;;;;1;
+Zend JSON data;;1;;1;;;;;;;1;
+Haal XML data op en parse;;1;;1;;;;;;;1;
+Toestel specifieke lay-out;0;1;;2;;0;;0;0;0;2;
+Herkennen van smartphone en tablet;;0;;1;;;;;;;1;
+Toon het linker menu op een tablet;;0;;0;;;;;;;0;
+Schakel menu in bij smartphone;;1;;1;;;;;;;1;
+Offline;0;2;;3;;0;;0;0;0;3;
+Bewaar login gegevens;;1;;1;;;;;;;1;
+Bewaar niet verzonden onkosten;;1;;1;;;;;;;1;
+Maak de applicatie offline beschikbaar;;0;zegt dat er geen verbinding is;1;;;;;;;1;
+TOTALE SCORE;0;25;;28;;4;;4;0;0;27;
+Marktaandeel Besturingssysteem;;75;;;;;;;;;14,9;
+Marktaandeel Versie Besturingssysteem;;45,6;;;;;;;;;17,5;
+Marktaandeel Browser;;18,3;;;;;;;;;61,02;
+GEWICHT;;62586;;0;;0;;0;0;0;15910,965;
+;;;;;;;;;;;;
+SCORE;0;1564650;;0;;0;;0;0;0;429596,055;

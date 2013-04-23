@@ -13,6 +13,7 @@
 
 /* auto complete */
 #create3-add-results {
+    list-style-type: none;
 }
 
 #create3-add-results li {

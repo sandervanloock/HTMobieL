@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html>
+<!--<html>-->
+<html manifest="ea.appcache">
 <head>
     <meta charset="utf-8">
     <title>Expense App</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Main Stylesheet -->
+    <!-- build:css styles/lungo.css -->
     <link rel="stylesheet" href="components/lungo/lungo.css">
     <link rel="stylesheet" href="components/lungo/lungo.icon.css">
     <link rel="stylesheet" href="components/lungo/lungo.icon.brand.css">
-    <link rel="stylesheet" href="components/lungo/lungo.css">
     <link rel="stylesheet" href="components/lungo/theme.lungo.css">
     <link rel="stylesheet" href="plugins/lungo.third.datepicker.css">
-    <link rel="stylesheet" href="css/ea.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body class="app">
@@ -69,9 +70,9 @@
             <ul>
                 <li class="light">New expense</li>
                 <li class="theme">1. Your info</li>
-                <li>2. Overview</li>
-                <li>3. Add Expense</li>
-                <li>4. Sign & Send</li>
+                <li><a href="#create2" data-router="section">2. Overview</a></li>
+                <li><a href="#create3" data-router="section">3. Add Expense</a></li>
+                <li><a href="#create4" data-router="section">4. Sign & Send</a></li>
             </ul>
         </div>
         <div class="primary">
@@ -419,45 +420,13 @@
     </article>
 </section>
 
-<!-- Lungo - Dependencies -->
+<!-- build:js scripts/app.js -->
 <script src="scripts/ea.js"></script>
 <script src="components/quojs/quo.debug.js"></script>
 <script src="components/lungo/lungo.debug.js"></script>
 <script src="plugins/lungo.third.datepicker.js"></script>
 <script src="plugins/lungo.third.autocomplete.js"></script>
-<!-- Lungo - Sandbox App -->
-<script>
-    Lungo.init({
-        name: "ExpenseApp",
-        version: "0.1",
-        history: false
-    });
-    Lungo.dom(document).ready(function () {
-        if (!Lungo.Data.Storage.persistent("user")) {
-            // user is not logged in, redirect to login screen
-            Lungo.Router.section("login");
-        } else {
-            // user is already logged in
-            var user = Lungo.Data.Storage.persistent("user");
-            $$("#home-screen-name").text(user.firstName + " " + user.lastName);
-        }
-    });
-    // error function when failing AJAX requests to backend
-    Lungo.Service.Settings.error = function () {
-        Lungo.Notification.error(
-                // Title
-                "Backend error",
-                // Description
-                "Please check the log in your browser to know the error.",
-                // Icon
-                "warning",
-                // Time on screen
-                0,
-                // Callback function
-                null
-        );
-    };
-</script>
+<script src="scripts/main.js"></script>
 <script src="scripts/login.js"></script>
 <script src="scripts/home.js"></script>
 <script src="scripts/view.js"></script>
@@ -465,5 +434,6 @@
 <script src="scripts/create2.js"></script>
 <script src="scripts/create3.js"></script>
 <script src="scripts/create4.js"></script>
+<!-- endbuild -->
 </body>
 </html>

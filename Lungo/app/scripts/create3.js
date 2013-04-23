@@ -13,6 +13,9 @@ Lungo.dom("#create3").on("load", function () {
     $$("#create3-tab-abroad").removeClass("active");
     $$("#create3-add-currency").parent().parent().parent().hide();
     $$("#create3-add-converted").parent().hide();
+    $$("#create3-add-type").find("option[value='2']").remove();
+    $$("#create3-add-type").find("option[value='3']").remove();
+    $$("#create3-add-type").find("option[value='4']").remove();
     $$("#create3-add-type").append("<option value=\"2\">Lunch</option>");
     $$("#create3-add-type").append("<option value=\"3\">Diner</option>");
     $$("#create3-add-type").append("<option value=\"4\">Ticket</option>");
@@ -160,5 +163,4 @@ Lungo.Sugar.AutoComplete().init({
     afterx: function (el, e) {
         alert(el.val());
     }
-})
-;
+});

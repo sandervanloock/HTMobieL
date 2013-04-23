@@ -4,7 +4,7 @@ Lungo.dom("#login-screen-button").on("tap", function () {
     var email = $$email.val();
     var password = $$password.val();
 
-    // TODO: manual validation
+    // TODO: validation with plugin
     if (email === "" || password === "") {
         var errors = [];
         // delete red border before validation
@@ -13,24 +13,23 @@ Lungo.dom("#login-screen-button").on("tap", function () {
         // add red borders
         if (email === "") {
             $$email.parent().addClass("red-border");
-            errors.push("Username is required.");
+            errors.push("Username: This is a required field.");
         }
         if (password === "") {
             $$password.parent().addClass("red-border");
-            errors.push("Password is required.");
+            errors.push("Password: This is a required field.");
         }
         // convert errors to html code
-        var htmlError = "<ul>";
+        var htmlError = "";
         $$(errors).each(function (i, error) {
-            htmlError += "<li>" + error + "</li>";
+            htmlError += "<p>" + error + "</p>";
         });
-        htmlError += "</ul>";
         // show notification
         Lungo.Notification.error(
             // Title
             "Validation error",
             // Description
-            "The following fields were not correctly validated:" + htmlError,
+            "Please complete the following fields:" + htmlError,
             // Icon
             "warning",
             // Time on screen
@@ -39,9 +38,10 @@ Lungo.dom("#login-screen-button").on("tap", function () {
             null
         );
     } else {
+        $$email.parent().removeClass("red-border");
+        $$password.parent().removeClass("red-border");
         // show loading screen
-        // TODO loading screen problems
-        // Lungo.Notification.show();
+        Lungo.Notification.show();
         // make the AJAX-request
         Lungo.Service.post(
             // url
@@ -53,9 +53,6 @@ Lungo.dom("#login-screen-button").on("tap", function () {
             },
             // callback
             function (token) {
-                // hide loading screen
-                // TODO loading screen problems
-                // Lungo.Notification.hide();
                 // check if token was returned or not
                 if (token === "") {
                     Lungo.Notification.error(
@@ -73,9 +70,6 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                 } else {
                     // save token
                     Lungo.Data.Storage.persistent("token", token);
-                    // show loading screen
-                    // TODO loading screen problems
-                    // Lungo.Notification.show();
                     // get user info
                     Lungo.Service.post(
                         // url
@@ -87,17 +81,15 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                         // callback
                         function (user) {
                             // hide loading screen
-                            // TODO loading screen problems
-                            // Lungo.Notification.hide();
+                            Lungo.Notification.hide();
                             // persist the user
                             Lungo.Data.Storage.persistent("user", user);
+                            // load information into home screen
+                            loadUserInformation();
                             // go to home section
                             Lungo.Router.section("home");
 
                             // load currencies asynchronously
-                            // show loading screen
-                            // TODO loading screen problems
-                            // Lungo.Notification.show();
                             Lungo.Service.post(
                                 // url
                                 EA.baseURL + "resources/currencyService/getCurrencies",
@@ -105,9 +97,6 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                                 null,
                                 // callback
                                 function (xml) {
-                                    // show loading screen
-                                    // TODO loading screen problems
-                                    // Lungo.Notification.show();
                                     // persist currencies
                                     var currencies = [];
                                     // gets the cube block
@@ -121,7 +110,6 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                                         });
                                     });
                                     Lungo.Data.Storage.persistent("currencies", currencies);
-
                                 },
                                 // type
                                 "xml"
@@ -137,9 +125,6 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                                 },
                                 // callback
                                 function (json) {
-                                    // show loading screen
-                                    // TODO loading screen problems
-                                    // Lungo.Notification.show();
                                     if (json != null) {
                                         // persist project codes
                                         Lungo.Data.Storage.persistent("projectCodes", json.data);

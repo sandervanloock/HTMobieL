@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!--<html>-->
+<html manifest="ea.appcache">
+<head>
+    <meta charset="utf-8">
+    <title>Expense App</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="styles/lungo.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body class="app">
+<section id="home">
+    <header data-title="Expense App">
+        <nav>
+            <a id="home-logout" class="right button">Log out</a>
+        </nav>
+    </header>
+
+    <article id="home-screen" class="active scroll">
+        <div class="wrapper">
+            <p>Welcome, <span id="home-screen-name">First Last</span></p>
+            <br>
+
+            <div class="center">
+                <p>I want to:</p>
+
+                <p><a id="home-screen-add" class="button" data-label="Create New Expense"></a></p>
+                <br>
+
+                <p><a href="#view" data-router="section" class="button" data-label="View My Expenses"></a></p>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section id="view" data-pull="normal">
+    <header data-title="Expense App">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <article id="view-screen" class="active list indented">
+        <ul>
+        </ul>
+        <form id="view-form" target="_blank" method="post">
+            <input type="hidden" name="token" id="view-form-token">
+            <input type="hidden" name="expenseFormId" id="view-form-id">
+        </form>
+    </article>
+</section>
+
+<section id="create1">
+    <header data-title="Expense App">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <article id="create1-info" class="active scroll">
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li class="theme">1. Your info</li>
+                <li><a href="#create2" data-router="section">2. Overview</a></li>
+                <li><a href="#create3" data-router="section">3. Add Expense</a></li>
+                <li><a href="#create4" data-router="section">4. Sign & Send</a></li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center"><a href="#smartphone" data-router="section">1. Your info</a></li>
+                </ul>
+            </div>
+            <div class="form">
+                <form id="create1-info-form">
+                    <fieldset>
+                        <label>Date</label>
+
+                        <div class="four columns">
+                            <label class="select">
+                                <select class="custom" id="create1-info-month">
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="four columns">
+                            <label class="select">
+                                <select class="custom" id="create1-info-year">
+                                </select>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create1-info-first-name">First Name</label>
+                        <input type="text" id="create1-info-first-name" readonly="readonly">
+                    </fieldset>
+                    <fieldset>
+                        <label for="create1-info-last-name">Last Name</label>
+                        <input type="text" id="create1-info-last-name" readonly="readonly">
+                    </fieldset>
+                    <fieldset>
+                        <label for="create1-info-employee-number">Number</label>
+                        <input type="number" id="create1-info-employee-number">
+                    </fieldset>
+                    <fieldset>
+                        <label>Unit</label>
+
+                        <div class="eight columns">
+                            <label class="select">
+                                <select class="custom" id="create1-info-units">
+                                </select>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create1-info-email">Email</label>
+                        <input type="email" id="create1-info-email">
+                    </fieldset>
+                    <a id="create1-info-submit" class="button right" data-label="Next"></a>
+                </form>
+            </div>
+        </div>
+    </article>
+
+</section>
+<section id="create2">
+    <header data-title="Expense App">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <article id="create2-overview" class="active">
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li><a href="#create1" data-router="section">1. Your info</a></li>
+                <li class="theme">2. Overview</li>
+                <li><a href="#create3" data-router="section">3. Add Expense</a></li>
+                <li><a href="#create4" data-router="section">4. Sign & Send</a></li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center"><a href="#smartphone" data-router="section">2. Overview</a></li>
+                </ul>
+            </div>
+            <div id="create2-overview-list" class="list indented scroll">
+                <ul>
+                </ul>
+            </div>
+            <a href="#create4" data-router="section" class="button right" data-label="Sign & Send"></a>
+            <a href="#create3" data-router="section" class="button right" data-label="Add Expense"></a>
+        </div>
+    </article>
+</section>
+
+<section id="show">
+    <header data-title="Expense App" class="extended">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <nav class="groupbar">
+        <a id="show-tab-abroad">Abroad</a>
+        <a id="show-tab-domestic" class="active">Domestic</a>
+    </nav>
+
+    <article id="show-expense" class="active scroll">
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li><a href="#create1" data-router="section">1. Your info</a></li>
+                <li class="theme">2. Overview</li>
+                <li><a href="#create3" data-router="section">3. Add Expense</a></li>
+                <li><a href="#create4" data-router="section">4. Sign & Send</a></li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center"><a href="#smartphone" data-router="section">2. Overview</a></li>
+                </ul>
+            </div>
+            <form id="show-expense-form">
+                <div class="form">
+                    <fieldset>
+                        <label for="show-expense-date">Date</label>
+                        <input type="text" id="show-expense-date" readonly="readonly">
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-project-code">Project Code</label>
+                        <input type="text" id="show-expense-project-code" readonly="readonly">
+                    </fieldset>
+                    <fieldset>
+                        <label>Type</label>
+
+                        <div class="eight columns">
+                            <label class="select">
+                                <select class="custom" id="show-expense-type">
+                                </select>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-amount">Amount</label>
+                        <input type="text" id="show-expense-amount" readonly="readonly">
+                    </fieldset>
+                    <fieldset>
+                        <label>Currency</label>
+
+                        <div class="eight columns">
+                            <label class="select">
+                                <select class="custom" id="show-expense-currency">
+                                </select>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-converted">Converted</label>
+                        <input type="text" id="show-expense-converted" readonly="readonly">
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-remarks">Remarks</label>
+                        <textarea id="show-expense-remarks" readonly="readonly"></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <label for="show-expense-evidence">Evidence</label>
+                        <img src="" height="100" width="100" id="show-expense-evidence" alt="evidence">
+                    </fieldset>
+                    <a href="#create2" data-router="section" class="button right" data-label="Back"></a>
+                </div>
+            </form>
+        </div>
+    </article>
+</section>
+<section id="create3">
+    <header data-title="Expense App" class="extended">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <nav class="groupbar">
+        <a id="create3-tab-abroad">Abroad</a>
+        <a id="create3-tab-domestic" class="active">Domestic</a>
+    </nav>
+
+    <article id="create3-add" class="active scroll">
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li><a href="#create1" data-router="section">1. Your info</a></li>
+                <li><a href="#create2" data-router="section">2. Overview</a></li>
+                <li class="theme">3. Add Expense</li>
+                <li><a href="#create4" data-router="section">4. Sign & Send</a></li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center"><a href="#smartphone" data-router="section">3. Add Expense</a></li>
+                </ul>
+            </div>
+            <form id="create3-add-form">
+                <div class="form">
+                    <fieldset data-icon="calendar">
+                        <label for="create3-add-date">Date</label>
+                        <input type="text" id="create3-add-date" onclick="showDatePicker()" readonly="readonly">
+                    </fieldset>
+                    <fieldset data-icon="search">
+                        <label for="create3-add-project-code">Project Code</label>
+                        <input type="text" id="create3-add-project-code">
+                    </fieldset>
+                    <ul id="create3-add-results"></ul>
+                    <fieldset>
+                        <label>Type</label>
+
+                        <div class="eight columns">
+                            <label class="select">
+                                <select class="custom" id="create3-add-type">
+                                    <option value="1">Hotel</option>
+                                    <option value="5">Restaurant</option>
+                                    <option value="6">Other</option>
+                                </select>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-amount">Amount</label>
+                        <input type="number" id="create3-add-amount">
+                    </fieldset>
+                    <fieldset>
+                        <label>Currency</label>
+
+                        <div class="eight columns">
+                            <label class="select">
+                                <select class="custom" id="create3-add-currency">
+                                </select>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-converted">Converted</label>
+                        <input type="text" id="create3-add-converted" readonly="readonly">
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-remarks">Remarks</label>
+                        <textarea id="create3-add-remarks"></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <label for="create3-add-evidence">Evidence</label>
+                        <input type="file" id="create3-add-evidence">
+                    </fieldset>
+                    <a id="create3-add-button" class="button right" data-label="Add"></a>
+                </div>
+                <canvas id="create3-add-canvas"></canvas>
+            </form>
+        </div>
+    </article>
+</section>
+
+<section id="create4">
+    <header data-title="Expense App">
+        <nav>
+            <a href="#home" data-router="section" class="right button">Home</a>
+        </nav>
+    </header>
+
+    <article id="create4-sign" class="active scroll">
+        <div class="list secondary">
+            <ul>
+                <li class="light">New expense</li>
+                <li><a href="#create1" data-router="section">1. Your info</a></li>
+                <li><a href="#create2" data-router="section">2. Overview</a></li>
+                <li><a href="#create3" data-router="section">3. Add Expense</a></li>
+                <li class="theme">4. Sign & Send</li>
+            </ul>
+        </div>
+        <div class="primary">
+            <div class="list">
+                <ul>
+                    <li class="light center"><a href="#smartphone" data-router="section">4. Sign & Send</a></li>
+                </ul>
+            </div>
+            <div class="form">
+                <fieldset>
+                    <label for="create4-sign-signature-code">Signature</label>
+                    <input type="text" id="create4-sign-signature-code">
+                </fieldset>
+                <fieldset>
+                    <label for="create4-sign-remarks">Remarks</label>
+                    <textarea id="create4-sign-remarks"></textarea>
+                </fieldset>
+                <fieldset>
+                    <label for="create4-sign-notification">Status notification via Email</label>
+                    <br>
+                    <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
+                </fieldset>
+                <a id="create4-sign-button" class="button right" data-label="Send"></a>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section id="smartphone">
+    <header data-title="Expense App"></header>
+
+    <article id="smartphone-screen" class="active list scroll">
+        <ul>
+            <li class="light">New expense</li>
+            <li><a href="#create1" data-router="section">1. Your info</a></li>
+            <li><a href="#create2" data-router="section">2. Overview</a></li>
+            <li><a href="#create3" data-router="section">3. Add Expense</a></li>
+            <li><a href="#create4" data-router="section">4. Sign & Send</a></li>
+        </ul>
+    </article>
+</section>
+
+<section id="login">
+    <header data-title="Expense App"></header>
+
+    <article id="login-screen" class="active scroll">
+        <div class="wrapper">
+            <div class="form">
+                <fieldset>
+                    <label for="login-screen-username">Username</label>
+                    <input type="text" id="login-screen-username" value="tim.ameye@student.kuleuven.be">
+                </fieldset>
+                <fieldset>
+                    <label for="login-screen-password">Password</label>
+                    <input type="password" id="login-screen-password" value="test123">
+                </fieldset>
+                <a id="login-screen-button" class="button right" data-label="Log in"></a>
+            </div>
+        </div>
+    </article>
+</section>
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

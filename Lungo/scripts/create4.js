@@ -56,7 +56,6 @@ Lungo.dom("#create4-sign-button").on("tap", function () {
                 dataType: 'json', //'json', 'xml', 'html', or 'text'
                 async: true,
                 success: function () {
-                    Lungo.Notification.hide();
                     Lungo.Data.Storage.persistent("localExpenses", null);
                     Lungo.Notification.success(
                         "Success", //Title

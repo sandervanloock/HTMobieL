@@ -39,9 +39,14 @@ Lungo.dom("#home-logout").on("tap", function () {
         function () {
             // hide loading screen
             Lungo.Notification.hide();
-            // delete token and user
+            // delete everything
             Lungo.Data.Storage.persistent("token", null);
             Lungo.Data.Storage.persistent("user", null);
+            Lungo.Data.Storage.persistent("serverForms", null);
+            Lungo.Data.Storage.persistent("localExpenses", null);
+            Lungo.Data.Storage.persistent("projectCodes", null);
+            Lungo.Data.Storage.persistent("currencies", null);
+            Lungo.Data.Storage.session("tempEvidence", null);
             // go to login screen
             Lungo.Router.section("login");
         },

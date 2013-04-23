@@ -71,7 +71,7 @@ function displayForms() {
     // first empty the list
     $$formList.empty();
     // then show the items, if there are any
-    if (serverForms.length == 0) {
+    if (!serverForms || serverForms.length == 0) {
         $$formList.append("<li>No expenses submitted.</li>");
     } else {
         // sort most recent first

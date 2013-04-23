@@ -10,7 +10,7 @@
 
     "js": [
         {
-            "path": "touch/sencha-touch-all-debug.js",
+            "path": "touch/sencha-touch.js",
             "x-bootstrap": true
         },
         {

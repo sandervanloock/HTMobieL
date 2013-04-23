@@ -86,7 +86,7 @@ Ext.define('Expense.controller.ExpenseController', {
 	            fullscreen: true,
 	            layout    : 'fit',
 	            src       : getBaseURL() + '/resources/expenseService/getExpenseFormPDF', // URL to the PDF - Same Domain or Server with CORS Support
-	            extraParams: 'token='+ getToken()+'&expenseFormId='+record.get('id') //TODO expenseFormId
+	            extraParams: 'token='+ getToken()+'&expenseFormId='+record.get('id')
 	        }));
     },
 

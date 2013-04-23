@@ -268,6 +268,7 @@ module.exports = function (grunt) {
                         src: [
                             '*.{ico,txt}',
                             '.htaccess',
+                            '*.appcache',
                             'images/{,*/}*.{webp,gif}',
                             'styles/fonts/*'
                         ]
@@ -326,7 +327,6 @@ module.exports = function (grunt) {
         'concat',
         'uglify',
         'copy',
-        'rev',
         'usemin'
     ]);
 

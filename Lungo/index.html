@@ -438,8 +438,7 @@
             Lungo.Router.section("login");
         } else {
             // user is already logged in
-            var user = Lungo.Data.Storage.persistent("user");
-            $$("#home-screen-name").text(user.firstName + " " + user.lastName);
+            loadUserInformation();
         }
     });
     // error function when failing AJAX requests to backend

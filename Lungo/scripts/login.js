@@ -4,7 +4,7 @@ Lungo.dom("#login-screen-button").on("tap", function () {
     var email = $$email.val();
     var password = $$password.val();
 
-    // TODO: manual validation
+    // TODO: validation with plugin
     if (email === "" || password === "") {
         var errors = [];
         // delete red border before validation
@@ -39,6 +39,8 @@ Lungo.dom("#login-screen-button").on("tap", function () {
             null
         );
     } else {
+        $$email.parent().removeClass("red-border");
+        $$password.parent().removeClass("red-border");
         // show loading screen
         // TODO loading screen problems
         // Lungo.Notification.show();
@@ -91,6 +93,8 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                             // Lungo.Notification.hide();
                             // persist the user
                             Lungo.Data.Storage.persistent("user", user);
+                            // load information into home screen
+                            loadUserInformation();
                             // go to home section
                             Lungo.Router.section("home");
 

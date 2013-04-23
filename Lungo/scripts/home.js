@@ -49,3 +49,8 @@ Lungo.dom("#home-logout").on("tap", function () {
         "text"
     );
 });
+
+function loadUserInformation() {
+    var user = Lungo.Data.Storage.persistent("user");
+    $$("#home-screen-name").text(user.firstName + " " + user.lastName);
+}

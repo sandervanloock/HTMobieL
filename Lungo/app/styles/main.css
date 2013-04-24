@@ -6,6 +6,14 @@
     border: 2px solid red;
 }
 
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
 /* Hide canvas needed to convert image to base64 */
 #create3-add-canvas {
     display: none;
@@ -48,6 +56,10 @@
 
     .primary {
         width: 100%;
+    }
+
+    .footer {
+        display: none;
     }
 }
 

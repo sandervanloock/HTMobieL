@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html manifest="ea.appcache">
+<head>
+    <meta charset="utf-8">
+    <title>Expense App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Tim Ameye">
+    <meta name="description" content="A proof of concept expense application">
+
+    <!-- build:css styles/app.css -->
+    <link rel="stylesheet" href="styles/f-swatch.css">
+    <link rel="stylesheet" href="styles/g-swatch.css">
+    <link rel="stylesheet" href="styles/jquery.mobile-1.3.0.css">
+    <link rel="stylesheet" href="styles/ea.css">
+    <link rel="stylesheet" href="plugins/mobiscroll-2.3.1.custom.min.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/app.js -->
+    <script src="components/jquery/jquery-1.9.1.js"></script>
+    <script src="plugins/jquery.validate.js"></script>
+    <script src="scripts/custom.js"></script>
+    <script src="components/jquery-mobile/jquery.mobile-1.3.0.js"></script>
+    <script src="scripts/update.js"></script>
+    <script src="scripts/ea.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/home.js"></script>
+    <script src="scripts/my-expenses.js"></script>
+    <script src="scripts/your-info.js"></script>
+    <script src="scripts/overview.js"></script>
+    <script src="scripts/expense.js"></script>
+    <script src="scripts/sign-and-send.js"></script>
+    <script src="components/modernizr/modernizr-latest.js"></script>
+    <script src="plugins/jSignature.js"></script>
+    <script src="plugins/mobiscroll-2.3.1.custom.min.js"></script>
+    <!-- endbuild -->
+</head>
+<body>
+
+<div data-role="page" id="home">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#" id="home-logout" class="ui-btn-right">Log out</a>
+    </div>
+
+    <div data-role="content">
+        <p>Welcome, <span id="home-employee-name"></span>.</p>
+
+        <div class="wrapper">
+            <p class="align-center">I want to:</p>
+            <a href="#" id="home-new-expense" data-role="button" data-theme="b">Create New Expense</a>
+            <a href="#my-expenses" data-role="button" data-theme="b">View My Expenses</a>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="my-expenses">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview" id="my-expenses-list" data-inset="true">
+
+        </ul>
+        <form id="my-expenses-form" target="_blank" method="post">
+            <input type="hidden" name="token" id="my-expenses-token">
+            <input type="hidden" name="expenseFormId" id="my-expenses-form-id">
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="add">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <ol data-role="listview">
+            <li data-role="list-divider">New expense</li>
+            <li><a href="#your-info">Your info</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#expense">Add Expense</a></li>
+            <li><a href="#sign-and-send">Sign and send</a></li>
+        </ol>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="your-info" class="type-interior">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <div class="content-secondary">
+            <ol data-role="listview" data-divider-theme="c">
+                <li data-role="list-divider">New expense</li>
+                <li data-theme="b" data-icon="false"><a href="#">Your info</a></li>
+                <li data-icon="false"><a href="#" id="your-info-menu-overview">Overview</a></li>
+                <li data-icon="false"><a href="#" id="your-info-menu-add-expense">Add Expense</a></li>
+                <li data-icon="false"><a href="#" id="your-info-menu-sign-and-send">Sign & Send</a></li>
+            </ol>
+        </div>
+
+        <div class="content-primary">
+            <div class="content-primary-inner">
+                <div class="ui-bar ui-bar-c subheader" id="your-info-subheader">
+                    <h2>1. Your info</h2>
+                </div>
+
+                <form id="your-info-form" class="content-primary-content">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <label for="your-info-date-month">Month</label>
+                            <select id="your-info-date-month" name="your-info-date-month">
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+
+                            <label for="your-info-date-year">Year</label>
+                            <select name="your-info-date-year" id="your-info-date-year">
+                            </select>
+                        </fieldset>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="your-info-firstname">First Name</label>
+                        <input type="text" name="your-info-firstname" id="your-info-firstname" placeholder="First Name"
+                               readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="your-info-lastname">Last Name</label>
+                        <input type="text" name="your-info-lastname" id="your-info-lastname" placeholder="Last Name"
+                               readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="your-info-employee-number">Employee Number</label>
+                        <input type="number" name="your-info-employee-number" id="your-info-employee-number"
+                               placeholder="Employee Number">
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="your-info-units" class="select">Unit</label>
+                        <select name="your-info-units" id="your-info-units">
+                        </select>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="your-info-email">Email</label>
+                        <input type="email" name="your-info-email" id="your-info-email" placeholder="Email">
+                    </div>
+
+                    <input type="hidden" name="your-info-next-page" id="your-info-next-page">
+                    <input type="submit" data-role="submit" data-theme="f" value="Next">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="overview" class="type-interior">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <div class="content-secondary">
+            <ol data-role="listview" data-divider-theme="c">
+                <li data-role="list-divider">New expense</li>
+                <li data-icon="false"><a href="#your-info">Your info</a></li>
+                <li data-theme="b" data-icon="false"><a href="#">Overview</a></li>
+                <li data-icon="false"><a href="#expense">Add Expense</a></li>
+                <li data-icon="false"><a href="#sign-and-send">Sign & Send</a></li>
+            </ol>
+        </div>
+
+        <div class="content-primary">
+            <div class="content-primary-inner">
+                <div class="ui-bar ui-bar-c subheader" id="overview-subheader">
+                    <h2>2. Overview</h2>
+                </div>
+
+                <div class="content-primary-content">
+                    <ul data-role="listview" id="overview-list" data-inset="true">
+
+                    </ul>
+                    <p class="align-right">
+                        <a href="#expense" data-role="button" data-theme="f" data-inline="true">Add Expense</a>
+                        <a href="#sign-and-send" data-role="button" data-theme="f" data-inline="true">Sign & Send</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="abroad" class="type-interior">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <div class="content-secondary">
+            <ol data-role="listview" data-divider-theme="c">
+                <li data-role="list-divider">New expense</li>
+                <li data-icon="false"><a href="#your-info">Your info</a></li>
+                <li data-theme="b" data-icon="false"><a href="#overview">Overview</a></li>
+                <li data-icon="false"><a href="#expense">Add Expense</a></li>
+                <li data-icon="false"><a href="#sign-and-send">Sign & Send</a></li>
+            </ol>
+        </div>
+
+        <div class="content-primary">
+            <div class="content-primary-inner">
+                <div class="ui-bar ui-bar-c subheader" id="abroad-subheader">
+                    <h2>2. Overview</h2>
+                </div>
+
+                <div class="content-primary-content">
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <fieldset data-role="controlgroup" data-type="horizontal" id="abroad-tabbar">
+                            <legend>Type</legend>
+
+                            <label for="abroad-tabbar-abroad">Abroad</label>
+                            <input type="radio" name="abroad-tabbar" id="abroad-tabbar-abroad" value="2" checked>
+
+                            <label for="abroad-tabbar-domestic">Domestic</label>
+                            <input type="radio" name="abroad-tabbar" id="abroad-tabbar-domestic" value="1" disabled>
+                        </fieldset>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="abroad-date">Date of Expense</label>
+                        <input type="text" name="abroad-date" id="abroad-date" placeholder="Date of Expense" readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="abroad-project-code">Project Code</label>
+                        <input type="text" name="abroad-project-code" id="abroad-project-code"
+                               placeholder="Project Code"
+                               readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <fieldset data-role="controlgroup" id="abroad-type">
+                            <legend>Expense type</legend>
+
+                            <label for="abroad-type-hotel">Hotel</label>
+                            <input type="radio" name="abroad-type" id="abroad-type-hotel" value="1">
+
+                            <label for="abroad-type-restaurant">Restaurant</label>
+                            <input type="radio" name="abroad-type" id="abroad-type-restaurant" value="5">
+
+                            <label for="abroad-type-other">Other (please specify)</label>
+                            <input type="radio" name="abroad-type" id="abroad-type-other" value="6">
+                        </fieldset>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="abroad-amount">Amount</label>
+                        <input type="number" name="abroad-amount" id="abroad-amount" placeholder="Amount" readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label" id="abroad-currency-div">
+                        <label for="abroad-currency" class="select">Currency</label>
+                        <select name="abroad-currency" id="abroad-currency">
+
+                        </select>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="abroad-amount-converted">Converted amount</label>
+                        <input type="text" name="abroad-amount-converted" id="abroad-amount-converted" placeholder="€"
+                               readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="abroad-remarks">Remarks</label>
+                        <textarea name="abroad-remarks" id="abroad-remarks" placeholder="Remarks" readonly></textarea>
+                    </div>
+
+                    <div data-role="fieldcontain">
+                        <img width="100" height="100" id="abroad-evidence" alt="evidence">
+                    </div>
+
+                    <p class="align-right">
+                        <a href="#overview" data-role="button" data-inline="true" data-theme="f">Back</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="domestic" class="type-interior">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <div class="content-secondary">
+            <ol data-role="listview" data-divider-theme="c">
+                <li data-role="list-divider">New expense</li>
+                <li data-icon="false"><a href="#your-info">Your info</a></li>
+                <li data-theme="b" data-icon="false"><a href="#overview">Overview</a></li>
+                <li data-icon="false"><a href="#expense">Add Expense</a></li>
+                <li data-icon="false"><a href="#sign-and-send">Sign & Send</a></li>
+            </ol>
+        </div>
+
+        <div class="content-primary">
+            <div class="content-primary-inner">
+                <div class="ui-bar ui-bar-c subheader" id="domestic-subheader">
+                    <h2>2. Overview</h2>
+                </div>
+
+                <div class="content-primary-content">
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <fieldset data-role="controlgroup" data-type="horizontal" id="domestic-tabbar">
+                            <legend>Type</legend>
+
+                            <label for="domestic-tabbar-abroad">Abroad</label>
+                            <input type="radio" name="domestic-tabbar" id="domestic-tabbar-abroad" value="2" disabled>
+
+                            <label for="domestic-tabbar-domestic">Domestic</label>
+                            <input type="radio" name="domestic-tabbar" id="domestic-tabbar-domestic" value="1" checked>
+                        </fieldset>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="domestic-date">Date of Expense</label>
+                        <input type="text" name="domestic-date" id="domestic-date" placeholder="Date of Expense"
+                               readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="domestic-project-code">Project Code</label>
+                        <input type="text" name="domestic-project-code" id="domestic-project-code"
+                               placeholder="Project Code"
+                               readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <fieldset data-role="controlgroup" id="domestic-type">
+                            <legend>Expense type</legend>
+
+                            <label for="domestic-type-hotel">Hotel</label>
+                            <input type="radio" name="domestic-type" id="domestic-type-hotel" value="1">
+
+                            <label for="domestic-type-ticket">Train/Plane tickets</label>
+                            <input type="radio" name="domestic-type" id="domestic-type-ticket" value="4">
+
+                            <label for="domestic-type-restaurant-lunch">Restaurant (Lunch)</label>
+                            <input type="radio" name="domestic-type" id="domestic-type-restaurant-lunch" value="2">
+
+                            <label for="domestic-type-restaurant-diner">Restaurant (Diner)</label>
+                            <input type="radio" name="domestic-type" id="domestic-type-restaurant-diner" value="3">
+
+                            <label for="domestic-type-other">Other (please specify)</label>
+                            <input type="radio" name="domestic-type" id="domestic-type-other" value="6">
+                        </fieldset>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="domestic-amount">Amount</label>
+                        <input type="number" name="domestic-amount" id="domestic-amount" placeholder="Amount" readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="domestic-remarks">Remarks</label>
+                        <textarea name="domestic-remarks" id="domestic-remarks" placeholder="Remarks"
+                                  readonly></textarea>
+                    </div>
+
+                    <div data-role="fieldcontain">
+                        <img height="100" width="100" id="domestic-evidence" alt="evidence">
+                    </div>
+
+                    <p class="align-right">
+                        <a href="#overview" data-role="button" data-inline="true" data-theme="f">Back</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="expense" class="type-interior">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <div class="content-secondary">
+            <ol data-role="listview" data-divider-theme="c">
+                <li data-role="list-divider">New expense</li>
+                <li data-icon="false"><a href="#your-info">Your info</a></li>
+                <li data-icon="false"><a href="#overview">Overview</a></li>
+                <li data-theme="b" data-icon="false"><a href="#">Add Expense</a></li>
+                <li data-icon="false"><a href="#sign-and-send">Sign & Send</a></li>
+            </ol>
+        </div>
+
+        <div class="content-primary">
+            <div class="content-primary-inner">
+                <div class="ui-bar ui-bar-c subheader" id="expense-subheader">
+                    <h2>3. Add Expense</h2>
+                </div>
+
+
+                <form id="expense-form" class="content-primary-content">
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <fieldset data-role="controlgroup" data-type="horizontal" id="expense-tabbar">
+                            <legend>Type</legend>
+
+                            <label for="expense-tabbar-abroad">Abroad</label>
+                            <input type="radio" name="expense-tabbar" id="expense-tabbar-abroad" value="2">
+
+                            <label for="expense-tabbar-domestic">Domestic</label>
+                            <input type="radio" name="expense-tabbar" id="expense-tabbar-domestic" value="1" checked>
+                        </fieldset>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="expense-date">Date of Expense</label>
+                        <input type="text" name="expense-date" id="expense-date" placeholder="Date of Expense">
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <ul id="expense-project-code-autocomplete" data-role="listview" data-inset="true"
+                            data-filter="true"
+                            data-filter-placeholder="Project code" data-filter-theme="d">
+                        </ul>
+                        <input type="hidden" class="required" name="expense-project-code" id="expense-project-code"
+                               placeholder="Project code">
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <fieldset data-role="controlgroup" id="expense-type">
+                            <legend>Expense type</legend>
+
+                            <label for="expense-type-hotel">Hotel</label>
+                            <input type="radio" name="expense-type" id="expense-type-hotel" value="1">
+
+                            <label for="expense-type-ticket">Train/Plane tickets</label>
+                            <input type="radio" name="expense-type" id="expense-type-ticket" value="4">
+
+                            <label for="expense-type-restaurant">Restaurant</label>
+                            <input type="radio" name="expense-type" id="expense-type-restaurant" value="5">
+
+                            <label for="expense-type-restaurant-lunch">Restaurant (Lunch)</label>
+                            <input type="radio" name="expense-type" id="expense-type-restaurant-lunch" value="2">
+
+                            <label for="expense-type-restaurant-diner">Restaurant (Diner)</label>
+                            <input type="radio" name="expense-type" id="expense-type-restaurant-diner" value="3">
+
+                            <label for="expense-type-other">Other (please specify)</label>
+                            <input type="radio" name="expense-type" id="expense-type-other" value="6">
+                        </fieldset>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="expense-amount">Amount</label>
+                        <input type="number" name="expense-amount" id="expense-amount" placeholder="Amount">
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label" id="expense-currency-div">
+                        <label for="expense-currency" class="select">Currency</label>
+                        <select name="expense-currency" id="expense-currency">
+                            <option value="">Currency</option>
+                        </select>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="expense-amount-converted">Converted amount</label>
+                        <input type="text" name="expense-amount-converted" id="expense-amount-converted" placeholder="€"
+                               readonly>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="expense-remarks">Remarks</label>
+                        <textarea name="expense-remarks" id="expense-remarks" placeholder="Remarks"></textarea>
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="expense-evidence-file">Evidence</label>
+                        <input type="file" accept="image/*" name="expense-evidence-file" id="expense-evidence-file"
+                               placeholder="Evidence">
+                    </div>
+
+                    <canvas id="expense-evidence-canvas"></canvas>
+
+                    <input type="hidden" name="expense-next-page" id="expense-next-page">
+                    <input type="submit" data-role="submit" data-theme="f" value="Add">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="sign-and-send" class="type-interior">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+        <a href="#home" data-icon="home" class="ui-btn-right">Home</a>
+    </div>
+
+    <div data-role="content">
+        <div class="content-secondary">
+            <ol data-role="listview" data-divider-theme="c">
+                <li data-role="list-divider">New expense</li>
+                <li data-icon="false"><a href="#your-info">Your info</a></li>
+                <li data-icon="false"><a href="#overview">Overview</a></li>
+                <li data-icon="false"><a href="#expense">Add Expense</a></li>
+                <li data-theme="b" data-icon="false"><a href="#">Sign & Send</a></li>
+            </ol>
+        </div>
+
+        <div class="content-primary">
+            <div class="content-primary-inner">
+                <div class="ui-bar ui-bar-c subheader" id="sign-and-send-subheader">
+                    <h2>4. Sign & send</h2>
+                </div>
+
+
+                <form id="sign-and-send-form" class="content-primary-content">
+
+                    <div id="sign-and-send-signature" class="signature"></div>
+                    <a href="#" id="sign-and-send-signature-reset" data-role="button">Redraw signature</a>
+                    <input type="hidden" id="sign-and-send-signature-empty">
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="sign-and-send-remarks">Remarks</label>
+                        <textarea name="sign-and-send-remarks" id="sign-and-send-remarks"
+                                  placeholder="Remarks"></textarea>
+                    </div>
+
+                    <div data-role="fieldcontain">
+                        <label for="sign-and-send-notification">Status notification via Email</label>
+                        <select name="sign-and-send-notification" id="sign-and-send-notification" data-role="slider">
+                            <option value="off">Off</option>
+                            <option value="on" selected>On</option>
+                        </select>
+                    </div>
+
+                    <p class="align-right">
+                        <input type="submit" data-role="submit" data-theme="f" data-inline="true" value="Send">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="page" id="login">
+
+    <div data-role="header">
+        <h1>Expense App</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="login-form" class="wrapper">
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-username">Username</label>
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username"
+                       value="tim.ameye@student.kuleuven.be">
+            </div>
+
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="login-password">Password</label>
+                <input type="password" class="required" name="login-password" id="login-password"
+                       placeholder="Password" value="test123">
+            </div>
+
+            <input type="submit" data-role="submit" data-theme="f" value="Log in">
+        </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="ui-grid-b footer">
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
+            <div class="ui-block-b"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
+        </div>
+    </div>
+
+</div>
+
+<div data-role="dialog" id="dialog">
+    <div data-role="header">
+        <h1 id="dialog-title"></h1>
+    </div>
+    <div data-role="content">
+        <p id="dialog-message"></p>
+        <a href="#" id="dialog-button" data-role="button" data-rel="back" data-theme="b">Ok</a>
+    </div>
+</div>
+
+<div data-role="dialog" id="error-validation">
+    <div data-role="header">
+        <h1>Validation error</h1>
+    </div>
+    <div data-role="content">
+        <p id="error-validation-message"></p>
+        <ul id="error-validation-items"></ul>
+        <a href="#" data-role="button" data-rel="back" data-theme="b">Close</a>
+    </div>
+</div>
+
+<div data-role="dialog" id="confirmation">
+    <div data-role="header">
+        <h1 id="confirmation-title">Continue?</h1>
+    </div>
+    <div data-role="content">
+        <p>You already have a form filled in, would you like to continue that form?</p>
+
+        <p>By clicking no, you will start with a new one.</p>
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a"><a href="#" id="confirmation-cancel" data-role="button" data-theme="c">No</a></div>
+            <div class="ui-block-b"><a href="#" id="confirmation-ok" data-role="button" data-theme="b">Yes</a></div>
+        </fieldset>
+    </div>
+</div>
+
+<div data-role="dialog" id="success">
+    <div data-role="header" data-theme="g">
+        <h1>Success</h1>
+    </div>
+    <div data-role="content">
+        <p>Your expense form was successfully saved to the server.</p>
+        <a href="#" id="success-button" data-role="button" data-theme="b">Ok</a>
+    </div>
+</div>
+</body>
+</html>

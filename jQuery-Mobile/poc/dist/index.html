@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--<html manifest="ea.appcache">-->
-<html>
+<html manifest="ea.appcache">
 <head>
     <meta charset="utf-8">
     <title>Expense App</title>
@@ -8,39 +7,9 @@
     <meta name="author" content="Tim Ameye">
     <meta name="description" content="A proof of concept expense application">
 
-    <!-- iOS web app -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
-    <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
-    <link rel="apple-touch-startup-image" href="img/startup/startup.png">
+    <link rel="stylesheet" href="styles/app.css">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/f-swatch.css">
-    <link rel="stylesheet" href="css/g-swatch.css">
-    <link rel="stylesheet" href="css/jquery.mobile-1.3.0.css">
-    <link rel="stylesheet" href="css/ea.css">
-    <link rel="stylesheet" href="css/mobiscroll-2.3.1.custom.min.css">
-
-    <!-- JavaScripts -->
-    <script src="js/vendor/jquery-1.9.1.js"></script>
-    <script src="js/vendor/jquery.validate.js"></script>
-    <script src="js/ea/custom.js"></script>
-    <script src="js/vendor/jquery.mobile-1.3.0.js"></script>
-    <script src="js/ea/update.js"></script>
-    <script src="js/ea/ea.js"></script>
-    <script src="js/ea/login.js"></script>
-    <script src="js/ea/home.js"></script>
-    <script src="js/ea/my-expenses.js"></script>
-    <script src="js/ea/your-info.js"></script>
-    <script src="js/ea/overview.js"></script>
-    <script src="js/ea/expense.js"></script>
-    <script src="js/ea/sign-and-send.js"></script>
-    <script src="js/vendor/modernizr-latest.js"></script>
-    <script src="js/vendor/jSignature.js"></script>
-    <script src="js/vendor/mobiscroll-2.3.1.custom.min.js"></script>
+    <script src="scripts/app.js"></script>
 </head>
 <body>
 
@@ -63,9 +32,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -90,9 +59,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -117,9 +86,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -177,20 +146,17 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="your-info-firstname">First Name</label>
-                        <input type="text" name="your-info-firstname" id="your-info-firstname" placeholder="First Name"
-                               readonly>
+                        <input type="text" name="your-info-firstname" id="your-info-firstname" placeholder="First Name" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="your-info-lastname">Last Name</label>
-                        <input type="text" name="your-info-lastname" id="your-info-lastname" placeholder="Last Name"
-                               readonly>
+                        <input type="text" name="your-info-lastname" id="your-info-lastname" placeholder="Last Name" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="your-info-employee-number">Employee Number</label>
-                        <input type="number" name="your-info-employee-number" id="your-info-employee-number"
-                               placeholder="Employee Number">
+                        <input type="number" name="your-info-employee-number" id="your-info-employee-number" placeholder="Employee Number">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
@@ -213,9 +179,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -260,9 +226,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -298,23 +264,21 @@
                             <legend>Type</legend>
 
                             <label for="abroad-tabbar-abroad">Abroad</label>
-                            <input type="radio" name="abroad-tabbar" id="abroad-tabbar-abroad" value="2" checked>
+                            <input type="radio" name="abroad-tabbar" id="abroad-tabbar-abroad" value="2" checked="checked">
 
                             <label for="abroad-tabbar-domestic">Domestic</label>
-                            <input type="radio" name="abroad-tabbar" id="abroad-tabbar-domestic" value="1" disabled>
+                            <input type="radio" name="abroad-tabbar" id="abroad-tabbar-domestic" value="1" disabled="disabled">
                         </fieldset>
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="abroad-date">Date of Expense</label>
-                        <input type="text" name="abroad-date" id="abroad-date" placeholder="Date of Expense" readonly>
+                        <input type="text" name="abroad-date" id="abroad-date" placeholder="Date of Expense" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="abroad-project-code">Project Code</label>
-                        <input type="text" name="abroad-project-code" id="abroad-project-code"
-                               placeholder="Project Code"
-                               readonly>
+                        <input type="text" name="abroad-project-code" id="abroad-project-code" placeholder="Project Code" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
@@ -334,7 +298,7 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="abroad-amount">Amount</label>
-                        <input type="number" name="abroad-amount" id="abroad-amount" placeholder="Amount" readonly>
+                        <input type="number" name="abroad-amount" id="abroad-amount" placeholder="Amount" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label" id="abroad-currency-div">
@@ -346,13 +310,12 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="abroad-amount-converted">Converted amount</label>
-                        <input type="text" name="abroad-amount-converted" id="abroad-amount-converted" placeholder="€"
-                               readonly>
+                        <input type="text" name="abroad-amount-converted" id="abroad-amount-converted" placeholder="€" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="abroad-remarks">Remarks</label>
-                        <textarea name="abroad-remarks" id="abroad-remarks" placeholder="Remarks" readonly></textarea>
+                        <textarea name="abroad-remarks" id="abroad-remarks" placeholder="Remarks" readonly="readonly"></textarea>
                     </div>
 
                     <div data-role="fieldcontain">
@@ -369,9 +332,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -407,24 +370,21 @@
                             <legend>Type</legend>
 
                             <label for="domestic-tabbar-abroad">Abroad</label>
-                            <input type="radio" name="domestic-tabbar" id="domestic-tabbar-abroad" value="2" disabled>
+                            <input type="radio" name="domestic-tabbar" id="domestic-tabbar-abroad" value="2" disabled="disabled">
 
                             <label for="domestic-tabbar-domestic">Domestic</label>
-                            <input type="radio" name="domestic-tabbar" id="domestic-tabbar-domestic" value="1" checked>
+                            <input type="radio" name="domestic-tabbar" id="domestic-tabbar-domestic" value="1" checked="checked">
                         </fieldset>
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="domestic-date">Date of Expense</label>
-                        <input type="text" name="domestic-date" id="domestic-date" placeholder="Date of Expense"
-                               readonly>
+                        <input type="text" name="domestic-date" id="domestic-date" placeholder="Date of Expense" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="domestic-project-code">Project Code</label>
-                        <input type="text" name="domestic-project-code" id="domestic-project-code"
-                               placeholder="Project Code"
-                               readonly>
+                        <input type="text" name="domestic-project-code" id="domestic-project-code" placeholder="Project Code" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
@@ -450,13 +410,12 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="domestic-amount">Amount</label>
-                        <input type="number" name="domestic-amount" id="domestic-amount" placeholder="Amount" readonly>
+                        <input type="number" name="domestic-amount" id="domestic-amount" placeholder="Amount" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="domestic-remarks">Remarks</label>
-                        <textarea name="domestic-remarks" id="domestic-remarks" placeholder="Remarks"
-                                  readonly></textarea>
+                        <textarea name="domestic-remarks" id="domestic-remarks" placeholder="Remarks" readonly="readonly"></textarea>
                     </div>
 
                     <div data-role="fieldcontain">
@@ -473,9 +432,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -515,7 +474,7 @@
                             <input type="radio" name="expense-tabbar" id="expense-tabbar-abroad" value="2">
 
                             <label for="expense-tabbar-domestic">Domestic</label>
-                            <input type="radio" name="expense-tabbar" id="expense-tabbar-domestic" value="1" checked>
+                            <input type="radio" name="expense-tabbar" id="expense-tabbar-domestic" value="1" checked="checked">
                         </fieldset>
                     </div>
 
@@ -525,12 +484,9 @@
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
-                        <ul id="expense-project-code-autocomplete" data-role="listview" data-inset="true"
-                            data-filter="true"
-                            data-filter-placeholder="Project code" data-filter-theme="d">
+                        <ul id="expense-project-code-autocomplete" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Project code" data-filter-theme="d">
                         </ul>
-                        <input type="hidden" class="required" name="expense-project-code" id="expense-project-code"
-                               placeholder="Project code">
+                        <input type="hidden" class="required" name="expense-project-code" id="expense-project-code" placeholder="Project code">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
@@ -571,8 +527,7 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="expense-amount-converted">Converted amount</label>
-                        <input type="text" name="expense-amount-converted" id="expense-amount-converted" placeholder="€"
-                               readonly>
+                        <input type="text" name="expense-amount-converted" id="expense-amount-converted" placeholder="€" readonly="readonly">
                     </div>
 
                     <div data-role="fieldcontain" class="ui-hide-label">
@@ -582,8 +537,7 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="expense-evidence-file">Evidence</label>
-                        <input type="file" accept="image/*" name="expense-evidence-file" id="expense-evidence-file"
-                               placeholder="Evidence">
+                        <input type="file" accept="image/*" name="expense-evidence-file" id="expense-evidence-file" placeholder="Evidence">
                     </div>
 
                     <canvas id="expense-evidence-canvas"></canvas>
@@ -597,9 +551,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -638,15 +592,14 @@
 
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="sign-and-send-remarks">Remarks</label>
-                        <textarea name="sign-and-send-remarks" id="sign-and-send-remarks"
-                                  placeholder="Remarks"></textarea>
+                        <textarea name="sign-and-send-remarks" id="sign-and-send-remarks" placeholder="Remarks"></textarea>
                     </div>
 
                     <div data-role="fieldcontain">
                         <label for="sign-and-send-notification">Status notification via Email</label>
                         <select name="sign-and-send-notification" id="sign-and-send-notification" data-role="slider">
                             <option value="off">Off</option>
-                            <option value="on" selected>On</option>
+                            <option value="on" selected="selected">On</option>
                         </select>
                     </div>
 
@@ -660,9 +613,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -679,14 +632,12 @@
 
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="login-username">Username</label>
-                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username"
-                       value="tim.ameye@student.kuleuven.be">
+                <input type="text" class="required" name="login-username" id="login-username" placeholder="Username" value="tim.ameye@student.kuleuven.be">
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
                 <label for="login-password">Password</label>
-                <input type="password" class="required" name="login-password" id="login-password"
-                       placeholder="Password" value="test123">
+                <input type="password" class="required" name="login-password" id="login-password" placeholder="Password" value="test123">
             </div>
 
             <input type="submit" data-role="submit" data-theme="f" value="Log in">
@@ -695,9 +646,9 @@
 
     <div data-role="footer" data-position="fixed">
         <div class="ui-grid-b footer">
-            <div class="ui-block-a"><img src="img/footer/kuleuven.png"></div>
+            <div class="ui-block-a"><img src="images/footer/kuleuven.png"></div>
             <div class="ui-block-b"></div>
-            <div class="ui-block-c align-right"><img src="img/footer/cap.jpg"></div>
+            <div class="ui-block-c align-right"><img src="images/footer/cap.jpg"></div>
         </div>
     </div>
 
@@ -748,6 +699,5 @@
         <a href="#" id="success-button" data-role="button" data-theme="b">Ok</a>
     </div>
 </div>
-
 </body>
 </html>

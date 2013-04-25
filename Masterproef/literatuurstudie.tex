@@ -256,19 +256,24 @@ Daarna worden Internet Explorer Mobile en Opera Mobile kort besproken.
 Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tabel:marktaandeel-browsers}.
 
 % TODO Tim: toevoegen data over IE mobile?
-\begin{table}
+\begin{table}[t]
 \centering
-\begin{tabular}[b]{l r@{,}l}
-\toprule
-\textbf{Mobiele webbrowser} & \multicolumn{2}{c}{\textbf{Marktaandeel (\%)}} \\
-\midrule
-Mobile Safari		& 61 	& 02	 	\\
-Android browser		& 18 	& 30 	\\
-Opera Mini			& 9 		& 84 	\\
-Chrome				& 2		& 02 	\\
-Andere				& 8		& 82		\\
-\bottomrule
-\end{tabular}
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{l l},
+  end table=\end{tabular},
+  col sep=comma,
+  header=true,
+  string type,
+  skip coltypes=true,
+  columns={BrowserNL,Marktaandeel},
+  columns/BrowserNL/.style={column name=\textbf{Mobiele webbrowser}},  
+  columns/Marktaandeel/.style={column name=\textbf{Marktaandeel (\%)}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+    after row=\bottomrule}
+]{tabellen/browsers.csv}
 \caption{Marktaandeel mobiele webbrowsers op januari 2013~\cite{NetApplications2012}.}
 \label{tabel:marktaandeel-browsers}
 \end{table}

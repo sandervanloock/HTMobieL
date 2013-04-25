@@ -152,15 +152,3 @@ function showDatePicker() {
 function insertDate(day, month, year) {
     $$("#create3-add-date").val(year + '/' + month + '/' + day);
 }
-
-/**
- * Auto completion
- */
-Lungo.Sugar.AutoComplete().init({
-    el: $$('#create3-add-project-code'),
-    results_el: $$('#create3-add-results'),
-    choices: Lungo.Data.Storage.persistent("projectCodes"),
-    afterx: function (el, e) {
-        alert(el.val());
-    }
-});

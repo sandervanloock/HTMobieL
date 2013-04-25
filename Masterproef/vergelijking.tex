@@ -310,19 +310,29 @@ met $r$ de verschillende raamwerken,  $c$ de verschillende contexten en $i$ de u
 %Een kanttekening bij dit criterium is of het raamwerk ondersteunt de webapplicatie om te vormen tot een \term{native} applicatie. 
 %Ook zal er gekeken worden of de \term{native look-and-feel} per platform door het raamwerk kan worden benaderd.
 
-%TODO Tim: geef problemen bij compileren
-%\begin{table}[h]
-%  \centering
-%  \begin{tabular}{lllll}
-%    \toprule
-%    \textbf{Toestel} & \textbf{Soort} &\textbf{Besturingssysteem} & \textbf{Browser} & \textbf{Marktwaarde ($G_d$)}\\
-%    \midrule
-%   B
-%    \bottomrule
-%  \end{tabular}
-%  \caption{Beschikbare toestellen met hun besturingssysteem, browser en gewicht}
-%  \label{tabel:toestellen-hci}
-%\end{table}
+%TODO Tim: andere kolommen includen
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{l l},
+  end table=\end{tabular},
+  col sep=comma,
+  header=true,
+  string type,
+  skip coltypes=true,
+  columns={Apparaat,Soort},
+  columns/Apparaat/.style={column name=\textbf{Apparaat}},  
+  columns/Soort/.style={column name=\textbf{Soort}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+    after row=\bottomrule}
+]{tabellen/apparaten.csv}
+\caption{Beschikbare apparaten met hun besturingssysteem, browser en gewicht.}
+\label{tabel:toestellen-hci}
+\end{table}
+
 
 
 \paragraph{Motivatie}

@@ -128,17 +128,8 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                                     if (json != null) {
                                         // persist project codes
                                         Lungo.Data.Storage.persistent("projectCodes", json.data);
-                                        /**
-                                         * Auto completion
-                                         */
-                                        Lungo.Sugar.AutoComplete().init({
-                                            el: $$('#create3-add-project-code'),
-                                            results_el: $$('#create3-add-results'),
-                                            choices: Lungo.Data.Storage.persistent("projectCodes"),
-                                            afterx: function (el, e) {
-                                                alert(el.val());
-                                            }
-                                        });
+                                        // initialize autocompletion
+                                        initAutoCompletion();
                                     } else {
                                         // silent fail
                                         // it could happen that there are no project codes yet

@@ -1,4 +1,8 @@
 Lungo.dom("#create3").on("load", function () {
+    if (Lungo.Data.Storage.persistent("projectCodes")) {
+        initAutoCompletion();
+    }
+
     // show currencies
     var $$currencyList = $$("#create3-add-currency");
     var currencies = Lungo.Data.Storage.persistent("currencies");
@@ -151,4 +155,18 @@ function showDatePicker() {
 
 function insertDate(day, month, year) {
     $$("#create3-add-date").val(year + '/' + (month + 1) + '/' + day);
+}
+
+/**
+ * Auto completion
+ */
+function initAutoCompletion() {
+    Lungo.Sugar.AutoComplete().init({
+        el: $$('#create3-add-project-code'),
+        results_el: $$('#create3-add-results'),
+        choices: Lungo.Data.Storage.persistent("projectCodes"),
+        afterx: function (el, e) {
+            alert(el.val());
+        }
+    });
 }

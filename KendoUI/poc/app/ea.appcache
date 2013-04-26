@@ -1,0 +1,30 @@
+CACHE MANIFEST
+# version 0.14
+
+CACHE:
+index.html
+styles/kendo.mobile.all.min.css
+styles/kendo.default.min.css
+styles/kendo.common.min.css
+styles/Default/sprite.png
+styles/Default/loading.gif
+styles/images/back.png
+styles/images/KendoUI.ttf
+styles/images/KendoUI.woff
+app.css
+js/vendor/jquery.min.js
+js/vendor/kendo.all.min.js
+js/ea/ea.js
+js/ea/login.js
+js/ea/employee.js
+js/ea/expense.js
+js/ea/expenseForm.js
+app.js
+js/vendor/modernizr-latest.js
+js/vendor/jSignature.min.js
+
+
+
+img/cap.jpg
+img/kuleuven.png
+

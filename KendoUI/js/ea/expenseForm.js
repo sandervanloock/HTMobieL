@@ -61,7 +61,6 @@ function submitExpense(){
 
             console.log("Request: " + JSON.stringify(expenseRequest).length);
             console.log("Signature: " + expenseForm.signature.length);
-            console.log("Expense[0]: " + expenses[0].evidence.length);
 
             // send it
             app.showLoading();

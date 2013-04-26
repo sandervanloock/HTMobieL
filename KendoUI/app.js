@@ -1,9 +1,20 @@
 function gotoOverview(){
-    var validator = $("#yourInfo").kendoValidator().data("kendoValidator");
-    if (validator.validate()) //A valid employee is filled in
-        $("#main-pane").data("kendoMobilePane").navigate("#overview");
+    validateEmployee();
+    if(isPhone)
+        app.navigate("#overview");
     else
+        $("#main-pane").data("kendoMobilePane").navigate("#overview");
+}
+
+function validateEmployee(){
+    var validator = $("#yourInfo").kendoValidator().data("kendoValidator");
+    if(!validator.validate()){
         EA.showError(validator.errors());
+        if(isPhone)
+            app.navigate("#yourInfo");
+        else
+            $("#main-pane").data("kendoMobilePane").navigate("#yourInfo");
+    }
 }
 
 /*
@@ -45,8 +56,10 @@ var expenseFormDataSource = new kendo.data.DataSource({
                 },
                 success: function(result,textstatus,jqXHR) {
                     // notify the data source that the request succeeded
-                    if(jqXHR.status==204)
-                        $("#expenseFormList").html("<h2>No expenseForms submitted</h2>");
+                    if(jqXHR.status==204){
+                        options.success("<expenseForms></expenseForms>");
+                        $("#expenseFormList").html("<li>No expenses submitted</li>");
+                    }
                     else
                         options.success(result);
                 },
@@ -132,8 +145,6 @@ function overviewShow(){
 };
 
 function addExpenseViewInit(e) {
-    e.view.useNativeScrolling = true; //TODO TESTEN scrolling
-
     //Necessary for the Abroad / Domestic switch (found in examples)
     var listviews = this.element.find("ul.km-listview");
     $("#expense-location-button").kendoMobileButtonGroup({
@@ -162,17 +173,32 @@ function addExpenseViewInit(e) {
 
     $("#abroad-expense-project-code").kendoAutoComplete({
         placeholder: 'Project Code',
+        ignoreCase: true,
         dataSource: new kendo.data.DataSource({
+            serverFiltering: true,
             type: "json", // specifies data protocol
             transport: {
-                read: {
-                    url:  EA.baseURL + "/resources/expenseService/getProjectCodeSuggestion",
-                    type: "POST"
-                },
-                parameterMap: function(options) {
-                    return {
-                        keyword: $("#abroad-expense-project-code").val()
-                    };
+                read: function(options) {
+                    // make JSONP request to http://demos.kendoui.com/service/products
+                    $.ajax( {
+                        url:  EA.baseURL + "resources/expenseService/getProjectCodeSuggestion",
+                        dataType: "json",
+                        type: "POST",
+                        data: {
+                            keyword: $("#abroad-expense-project-code").val()
+                        },
+                        success: function(result) {
+                            // notify the data source that the request succeeded
+                            if(result==null)
+                                options.success({data: []});
+                            else
+                                options.success(result);
+                        },
+                        error: function(result) {
+                            // notify the data source that the request failed
+                            options.error(result);
+                        }
+                    });
                 }
             },
             schema: { // describe the result format
@@ -184,17 +210,32 @@ function addExpenseViewInit(e) {
 
     $("#domestic-expense-project-code").kendoAutoComplete({
         placeholder: 'Project Code',
+        ignoreCase: true,
         dataSource: new kendo.data.DataSource({
+            serverFiltering: true,
             type: "json", // specifies data protocol
             transport: {
-                read: {
-                    url:  EA.baseURL + "/resources/expenseService/getProjectCodeSuggestion",
-                    type: "POST"
-                },
-                parameterMap: function(options) {
-                    return {
-                        keyword: $("#domestic-expense-project-code").val()
-                    };
+                read: function(options) {
+                    // make JSONP request to http://demos.kendoui.com/service/products
+                    $.ajax( {
+                        url:  EA.baseURL + "resources/expenseService/getProjectCodeSuggestion",
+                        dataType: "json",
+                        type: "POST",
+                        data: {
+                            keyword: $("#domestic-expense-project-code").val()
+                        },
+                        success: function(result) {
+                            // notify the data source that the request succeeded
+                            if(result==null)
+                                options.success({data: []});
+                            else
+                                options.success(result);
+                        },
+                        error: function(result) {
+                            // notify the data source that the request failed
+                            options.error(result);
+                        }
+                    });
                 }
             },
             schema: { // describe the result format
@@ -220,21 +261,20 @@ function addExpenseViewInit(e) {
         optionLabel: "Currency"
     });
 
-    $("#abroad-expense-evidence").kendoUpload({
+    $("#expense-evidence").kendoUpload({
+        multiple: false,
         async: {
             saveUrl: "http://www.chiroelzestraat.be/chirojongens/uploads/thesis/save.php",
             removeFields: "evidences[]"
         },
-        success: onFileUploadSuccess
-    });
-
-    $("#domestic-expense-evidence").kendoUpload({
-        multiple: false,
-        showFileList: false,
-        async: {
-            saveUrl: "http://www.chiroelzestraat.be/chirojongens/uploads/thesis/save.php"
+        success: onFileUploadSuccess,
+        complete: function(){
+            $(".k-widget.k-upload").find("ul").remove();
+            $(".k-widget.k-dropzone").remove();
         },
-        success: onFileUploadSuccess
+        localization: {
+            select: "Upload Evidence"
+        }
     });
 }
 
@@ -292,12 +332,6 @@ function signAndSendViewInit(){
     }
 }
 
-function initExpenseFormOverview() {
-    expenseFormDataSource.read();
-    $("#expenseFormList").kendoMobileListView({
-        dataSource: expenseFormDataSource,
-        pullToRefresh: true,
-        template: $("#expenseForm-template").text(),
-        style: "inset"
-    });
-};
+function resetSignature(){
+    $("#sign-and-send-signature").jSignature("reset");
+}

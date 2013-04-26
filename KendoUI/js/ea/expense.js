@@ -1,13 +1,3 @@
-oFReader = new FileReader(), rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
-
-function loadImageFile() {
-    if (document.getElementById("uploadImage").files.length === 0) { return; }
-    var oFile = document.getElementById("uploadImage").files[0];
-    if (!rFilter.test(oFile.type)) { alert("You must select a valid image file!"); return; }
-    console.log(oFReader.readAsDataURL(oFile));
-}
-
-
 //example at http://www.kendoui.com/blogs/teamblog/posts/12-03-09/bind_this_a_look_at_kendo_ui_mvvm.aspx
 var expense = kendo.observable({
 
@@ -86,9 +76,9 @@ var expense = kendo.observable({
             this.set("rate",null);
             this.set("remarks",null);
             //clear the evidence image http://www.telerik.com/community/forums/aspnet-mvc/upload/programmatically-remove-clear-uploaded-files.aspx
-            $("ul.k-upload-files").remove();
             var canvas = $('#expense-evidence-canvas')[0];
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+            EA.clearEvidence();
         } else
             EA.showError(validator.errors().concat(otherValidator.errors()));
     }
@@ -105,7 +95,7 @@ var expenseDataSource = new kendo.data.DataSource({
             } else {
                 //Geen expenses => lege lijst teruggeven en tekst in lijst weergeven
                 options.success([]);
-                $("#overview-list").html("<h2>No expenses submitted</h2>");
+                $("#overview-list").html("<li>No expenses submitted</li>");
             }
         }
     }
@@ -138,5 +128,5 @@ function showExpenseDetail(e) {
     expenseMV.set("amount",expense.amount);
     expenseMV.set("currency", expense.currency);
     expenseMV.set("remarks", expense.remarks);
-    $("#expense-evidence").attr("src", EA.base64WithPrefix(expense.evidence));
+    $("#expense-evidence-img").attr("src", EA.base64WithPrefix(expense.evidence));
 }

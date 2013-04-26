@@ -113,3 +113,16 @@ $(document).on("click", "[id^=my-expenses-show-pdf]", function () {
         $hiddenForm.submit();
     }
 });
+
+function expenseFormOverviewInit() {
+    $("#expenseFormList").kendoMobileListView({
+        dataSource: expenseFormDataSource,
+        pullToRefresh: true,
+        template: $("#expenseForm-template").text(),
+        style: "inset"
+    });
+};
+
+function expenseFormOverviewShow(){
+    expenseFormDataSource.read();
+}

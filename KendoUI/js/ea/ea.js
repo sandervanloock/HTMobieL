@@ -238,5 +238,5 @@ var EA = {
         } else {
             this.evidence = null;
         }
-    },
+    }
 };

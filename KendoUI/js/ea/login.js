@@ -11,9 +11,13 @@ function login() {
                 'email':$("#login-username").val(),
                 'password':$("#login-password").val()
             },
+            complete: function(){
+                app.hideLoading();
+            },
             success:function (token,status,jqXHR) {
                 // don't write the loading hide in a complete handler,
                 // because we chain the ajax requests
+                app.showLoading();
                 if (status=='nocontent' || token == '') {
                     EA.showDialog("The username and/or password are incorrect.");
                 } else {

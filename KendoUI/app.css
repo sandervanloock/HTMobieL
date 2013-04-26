@@ -83,6 +83,7 @@ transition animation will occur on its own through .kendoToggleClass */
 }
 
 /* Fix android switch footer en header*/
-.km-android div.km-view {
+.km-root .km-android .km-view {
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
 }

@@ -68,19 +68,20 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  col sep=semicolon,
+  col sep=comma,
   string type,
   header=true,
-  columns={Gebruik,jQM,ST,Kendo,Lungo},
-  columns/Gebruik/.style={column name=\textbf{Gebruik}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
-  columns/ST/.style={column name=\textbf{\st}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
+  	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik.csv}
 \caption{Samenvattende tabel voor gebruikscriterium}
@@ -98,10 +99,10 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
   header=true,
   columns={Apparaat,jQM,ST,Kendo,Lungo},
   columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
-  columns/ST/.style={column name=\textbf{\st}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},

@@ -37,6 +37,8 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 \label{tabel:evaluatie-gemeenschap}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Productiviteit}
 \label{sec:evaluatie-productiviteit}
 
@@ -62,8 +64,189 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 \label{tabel:evaluatie-productiviteit}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
+Gebruik wordt opgedeeld per uitdaging.
+
+\subsection{U1}
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/u1.csv}
+\caption{U1}
+\label{tabel:evaluatie-gebruik-u1}
+\end{table}
+
+\paragraph{\jqm} 
+%Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder} attribuut in HTML5. 
+%Er dienden geen labels te worden gezet voor de velden. 
+%Deze labels zijn echter wel verplicht in jQuery Mobile, maar kunnen onzichtbaar worden gemaakt met de \code{ui-hide-label} CSS klasse~\cite{JQuery2013}. 
+%Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. 
+%Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. 
+%Dit kan met behulp van JavaScript via de \code{reset()}-functie op het formulier.
+% 
+%Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
+%Deze zorgen ervoor dat op de mobiele apparaten aangepaste toetsenborden te voorschijn komen. 
+%Het \code{date} type werd echter niet gebruikt. 
+%Enerzijds was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013b}. 
+%Dit betekende onder andere dat Android 2.3 dit niet ondersteunde. 
+%Een ander probleem was het ontbreken van een \term{placeholder} in het veld op iOS 6 en Android 4.2. 
+%Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen, omdat er ook geen labels aanwezig moesten zijn. 
+%Daarnaast is een \code{placeholder} instellen onmogelijk voor een \code{date} type~\cite{Berjon2012}. 
+%Anderzijds moest het ook mogelijk zijn om de gebruiker maar een bepaald bereik van data op te leggen, wat met het \code{date} type onmogelijk is. 
+%Hierdoor werd gebruik gemaakt van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van jQuery Mobile. 
+%Het veld heeft dan het type \code{text}. 
+%Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
+%Dit wordt belet door ook nog eens een datum validatie te doen op dit tekstveld mocht de plug-in het al niet afgedwongen hebben.
+% 
+%Het was ook nodig om enkel de maand en jaar in te geven.  
+%Ook hier kon niet het \code{date} type gebruikt worden, omdat daar ook een dag voor nodig is. 
+%Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
+%De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
+%Deze functionaliteit had ook met de Mobiscroll plug-in kunnen worden verwezenlijkt.
+
+\paragraph{\st} 
+TODO
+
+\paragraph{\kendo}
+TODO
+ 
+\paragraph{\lungo} 
+TODO
+
+\subsection{U2}
+
+\subsection{U3}
+% \paragraph{jQuery Mobile} 
+% Sommige formuliervelden waren verplicht in te vullen, terwijl andere niet. 
+% Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. 
+% Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. 
+% Daarnaast was het ook nodig om de velden te valideren op hun waarde. 
+% Validatie is echter niet standaard aanwezig in jQuery Mobile. 
+% Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
+% Deze plug-in loste ook het probleem met de verplichte velden op. 
+% Deze plug-in kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS klassen ofwel anderzijds door programmatie met JavaScript. 
+% Beide aanpakken werden getest doorheen de POC. 
+% 
+% De plug-in bevatte de volgende ingebakken validatieregels nodig in de POC: \code{required}, \code{number}, \code{email} en \code{date}.
+% Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
+% Zo'n afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
+% 
+% Bij fouten tegen validatie moest een dialoogvenster worden weergegeven met daarin een beschrijving van alle foute velden.
+% Aangezien de plug-in standaard onder het foute formulierveld een foutboodschap toont, diende de plug-in  te worden aangepast.
+% Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
+% 
+% Een specifiek mobiel probleem was bij het tonen van het dialoogvenster, waarbij de plug-in op de achtergrond de cursor op het eerste veld zette. 
+% Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
+% Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
+% 
+% Bij het sluiten van het dialoogvenster dienden de foute velden met een rode rand te worden gemarkeerd.
+% Aangezien de validatie plug-in de foute velden annoteert met de \code{error} CSS klasse, kon de rode rand in CSS worden geprogrammeerd. 
+% Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
+% Door de extra code die jQuery Mobile genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
+% Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
+
+\subsection{U4}
+% \paragraph{jQuery Mobile} 
+% Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat jQuery Mobile dit niet standaard aanbiedt. 
+% Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
+% Door de lange tijd die werd besteed aan het aanpassen van layout, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
+% Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
+% De plug-in maakt gebruik van het HTML5 canvas element en de \code{.toDataURL()} methode.
+% Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
+
+\subsection{U5}
+% \paragraph{jQuery Mobile} 
+% Het is niet aangeraden om ruwe data, zoals een PDF, op te halen via AJAX. 
+% Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
+% Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft in de browser. 
+% Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
+
+\subsection{U6}
+% \paragraph{jQuery Mobile} 
+% Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. 
+% In versie 1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
+% Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. 
+% Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. 
+% Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. 
+% Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
+% Deze aanpak werkt correct op recente mobiele apparaten. 
+% De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a} waardoor het opladen van een bewijs niet werkt.
+% 
+% Het voorvertonen van het geüploade bestand hangt af van het mobiele besturingssysteem.
+% Zo wordt op iOS 6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
+% Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
+% Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
+
+
+\subsection{U7}
+% \paragraph{jQuery Mobile} 
+% Hoewel versie 1.3 automatische aanvulling ter beschikking heeft~\cite{JQuery2013c}, werd tijdens de implementatie gebruik gemaakt van versie 1.2 die dit niet had. 
+% Daarom werd de plug-in van Andy Matthews gebruikt~\cite{Matthews2013}. 
+% Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken. 
+% Daarnaast dienden enkel vijf suggesties te worden getoond. 
+% Deze functionaliteit zat niet in de plug-in, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
+
+\subsection{U8}
+% \paragraph{jQuery Mobile} 
+% Het maken van oproepen via AJAX gebeurt via de jQuery bibliotheek waar jQuery Mobile op steunt. 
+% Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
+% Bij het succesvol uitvoeren van de oproep wordt de \code{succes} functie opgeroepen, bij faling de \code{error} functie waarna een relevante foutboodschap wordt getoond.
+% Het afmelden zonder antwoord, het aanmelden voor het bekomen van het token (tekst), het ophalen van de gebruikersgegevens (JSON), het ophalen van de uitgaveformulieren (XML) en het ophalen van de omwisselingskoersen (XML) ging zonder enig probleem.
+
+% In jQuery is er de functie \code{parseJSON} aanwezig, maar aangezien we in de AJAX oproep instellen dat we JSON verwachten, parst jQuery al automatisch het antwoord. 
+% Hierdoor hebben we \code{parseJSON} niet nodig en kunnen we direct omgaan met het antwoord.
+% 
+% Het is ook nodig om JSON te versturen als oproep naar de backend. 
+% Dit wordt gedaan vanuit JavaScript zonder een jQuery nodig te hebben. 
+% Eerst wordt een object met de nodige inhoud aangemaakt, waarop daarna de functie \code{JSON.stringify} opgeroepen wordt die het object in een string omzet.
+% Deze is daarna klaar om te worden verstuurd als data via een AJAX oproep met behulp van jQuery.
+
+% Net zoals bij JSON het geval was, was het ook niet nodig om expliciet de \code{parseXML} functie te gebruiken. Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. Waar je bij JSON direct aan de data kon, moet je bij XML de data ophalen net zoals je dat zou doen uit een HTML-pagina. Dit betekent dus met selectoren aan de hand van de jQuery bibliotheek.
+
+
+\subsection{U9}
+
+\subsection{U10}
+
+\subsection{U11} 
+% \paragraph{jQuery Mobile} 
+% Het standaard laadscherm is enkel een \term{spinner} die niet opvallend aanwezig is en ook zonder een tekst eronder ronddraait.
+% Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor en staat er ook een tekst onder.
+
+% Eerst werd gebruik gemaakt van DateBox \cite{Sage2013} als plug-in om op een gemakkelijke manier een dialoogvenster te tonen.
+% Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in jQuery Mobile aanwezig.
+% Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
+% Door zelf de dialoogvenster met jQuery Mobile aan te maken, kon de layout minimier aangepast worden.
+
+
+\subsection{U12}
+
+\subsection{U13}
+% \paragraph{jQuery Mobile} 
+% Het aanmaken van lijsten gebeurt met de \term{listview} widget.
+
+\subsection{U14}
+
+\subsection{Overzicht}
 
 \begin{table}[H]
 \centering
@@ -140,136 +323,8 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 \end{table}
 
 
-% \subsubsection{Formulieren}
-% \label{sec:evaluatie-formulieren}
-% 
-% \paragraph{jQuery Mobile} 
-% Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder} attribuut in HTML5. 
-% Er dienden geen labels te worden gezet voor de velden. 
-% Deze labels zijn echter wel verplicht in jQuery Mobile, maar kunnen onzichtbaar worden gemaakt met de \code{ui-hide-label} CSS klasse~\cite{JQuery2013}. 
-% Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. 
-% Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. 
-% Dit kan met behulp van JavaScript via de \code{reset()}-functie op het formulier.
-% 
-% Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
-% Deze zorgen ervoor dat op de mobiele apparaten aangepaste toetsenborden te voorschijn komen. 
-% Het \code{date} type werd echter niet gebruikt. 
-% Enerzijds was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013b}. 
-% Dit betekende onder andere dat Android 2.3 dit niet ondersteunde. 
-% Een ander probleem was het ontbreken van een \term{placeholder} in het veld op iOS 6 en Android 4.2. 
-% Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen, omdat er ook geen labels aanwezig moesten zijn. 
-% Daarnaast is een \code{placeholder} instellen onmogelijk voor een \code{date} type~\cite{Berjon2012}. 
-% Anderzijds moest het ook mogelijk zijn om de gebruiker maar een bepaald bereik van data op te leggen, wat met het \code{date} type onmogelijk is. 
-% Hierdoor werd gebruik gemaakt van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van jQuery Mobile. 
-% Het veld heeft dan het type \code{text}. 
-% Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
-% Dit wordt belet door ook nog eens een datum validatie te doen op dit tekstveld mocht de plug-in het al niet afgedwongen hebben.
-% 
-% Het was ook nodig om enkel de maand en jaar in te geven. 
-% Ook hier kon niet het \code{date} type gebruikt worden, omdat daar ook een dag voor nodig is. 
-% Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
-% De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
-% Deze functionaliteit had ook met de Mobiscroll plug-in kunnen worden verwezenlijkt.
-% 
-% \subsubsection{Validatie}
-% 
-% \paragraph{jQuery Mobile} 
-% Sommige formuliervelden waren verplicht in te vullen, terwijl andere niet. 
-% Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. 
-% Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. 
-% Daarnaast was het ook nodig om de velden te valideren op hun waarde. 
-% Validatie is echter niet standaard aanwezig in jQuery Mobile. 
-% Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
-% Deze plug-in loste ook het probleem met de verplichte velden op. 
-% Deze plug-in kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS klassen ofwel anderzijds door programmatie met JavaScript. 
-% Beide aanpakken werden getest doorheen de POC. 
-% 
-% De plug-in bevatte de volgende ingebakken validatieregels nodig in de POC: \code{required}, \code{number}, \code{email} en \code{date}.
-% Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
-% Zo'n afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
-% 
-% Bij fouten tegen validatie moest een dialoogvenster worden weergegeven met daarin een beschrijving van alle foute velden.
-% Aangezien de plug-in standaard onder het foute formulierveld een foutboodschap toont, diende de plug-in  te worden aangepast.
-% Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
-% 
-% Een specifiek mobiel probleem was bij het tonen van het dialoogvenster, waarbij de plug-in op de achtergrond de cursor op het eerste veld zette. 
-% Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
-% Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
-% 
-% Bij het sluiten van het dialoogvenster dienden de foute velden met een rode rand te worden gemarkeerd.
-% Aangezien de validatie plug-in de foute velden annoteert met de \code{error} CSS klasse, kon de rode rand in CSS worden geprogrammeerd. 
-% Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
-% Door de extra code die jQuery Mobile genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
-% Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
-% 
-% \subsubsection{Opladen van bewijs}
-% 
-% \paragraph{jQuery Mobile} 
-% Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. 
-% In versie 1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
-% Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. 
-% Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. 
-% Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. 
-% Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
-% Deze aanpak werkt correct op recente mobiele apparaten. 
-% De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a} waardoor het opladen van een bewijs niet werkt.
-% 
-% Het voorvertonen van het geüploade bestand hangt af van het mobiele besturingssysteem.
-% Zo wordt op iOS 6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
-% Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
-% Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
-% 
-% \subsubsection{Handtekening}
-% 
-% \paragraph{jQuery Mobile} 
-% Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat jQuery Mobile dit niet standaard aanbiedt. 
-% Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
-% Door de lange tijd die werd besteed aan het aanpassen van layout, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
-% Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
-% De plug-in maakt gebruik van het HTML5 canvas element en de \code{.toDataURL()} methode.
-% Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
-% 
-% \subsubsection{AJAX}
-% 
-% \paragraph{jQuery Mobile} 
-% Het maken van oproepen via AJAX gebeurt via de jQuery bibliotheek waar jQuery Mobile op steunt. 
-% Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
-% Bij het succesvol uitvoeren van de oproep wordt de \code{succes} functie opgeroepen, bij faling de \code{error} functie waarna een relevante foutboodschap wordt getoond.
-% Het afmelden zonder antwoord, het aanmelden voor het bekomen van het token (tekst), het ophalen van de gebruikersgegevens (JSON), het ophalen van de uitgaveformulieren (XML) en het ophalen van de omwisselingskoersen (XML) ging zonder enig probleem.
-% 
-% \subsubsection{JSON}
-% 
-% \paragraph{jQuery Mobile} 
-% In jQuery is er de functie \code{parseJSON} aanwezig, maar aangezien we in de AJAX oproep instellen dat we JSON verwachten, parst jQuery al automatisch het antwoord. 
-% Hierdoor hebben we \code{parseJSON} niet nodig en kunnen we direct omgaan met het antwoord.
-% 
-% Het is ook nodig om JSON te versturen als oproep naar de backend. 
-% Dit wordt gedaan vanuit JavaScript zonder een jQuery nodig te hebben. 
-% Eerst wordt een object met de nodige inhoud aangemaakt, waarop daarna de functie \code{JSON.stringify} opgeroepen wordt die het object in een string omzet.
-% Deze is daarna klaar om te worden verstuurd als data via een AJAX oproep met behulp van jQuery.
-% 
-% \subsubsection{XML}
-% 
-% \paragraph{jQuery Mobile} 
-% Net zoals bij JSON het geval was, was het ook niet nodig om expliciet de \code{parseXML} functie te gebruiken. Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. Waar je bij JSON direct aan de data kon, moet je bij XML de data ophalen net zoals je dat zou doen uit een HTML-pagina. Dit betekent dus met selectoren aan de hand van de jQuery bibliotheek.
-% 
-% \subsubsection{PDF}
-% 
-% \paragraph{jQuery Mobile} 
-% Het is niet aangeraden om ruwe data, zoals een PDF, op te halen via AJAX. 
-% Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
-% Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft in de browser. 
-% Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
-% 
-% \subsubsection{Automatische aanvulling}
-% 
-% \paragraph{jQuery Mobile} 
-% Hoewel versie 1.3 automatische aanvulling ter beschikking heeft~\cite{JQuery2013c}, werd tijdens de implementatie gebruik gemaakt van versie 1.2 die dit niet had. 
-% Daarom werd de plug-in van Andy Matthews gebruikt~\cite{Matthews2013}. 
-% Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken. 
-% Daarnaast dienden enkel vijf suggesties te worden getoond. 
-% Deze functionaliteit zat niet in de plug-in, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
-% 
+
+% TODO Tim: opruimen hieronder
 % \subsubsection{Tabbalk}
 % 
 % \paragraph{jQuery Mobile} 
@@ -297,19 +352,6 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 % Het invullen van het formulier zelf werd bekomen door de \code{id}'s van de velden op te vragen en hun waarde in te stellen volgens de JSON voorstelling van die uitgave. 
 % Er is met andere woorden geen automatische mapping van de JSON data naar de formuliervelden. 
 % 
-% \subsubsection{Laadscherm}
-% 
-% \paragraph{jQuery Mobile} 
-% Het standaard laadscherm is enkel een \term{spinner} die niet opvallend aanwezig is en ook zonder een tekst eronder ronddraait.
-% Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor en staat er ook een tekst onder.
-% 
-% \subsubsection{Dialoogvenster}
-% 
-% \paragraph{jQuery Mobile} 
-% Eerst werd gebruik gemaakt van DateBox \cite{Sage2013} als plug-in om op een gemakkelijke manier een dialoogvenster te tonen.
-% Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in jQuery Mobile aanwezig.
-% Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
-% Door zelf de dialoogvenster met jQuery Mobile aan te maken, kon de layout minimier aangepast worden.
 % 
 % \subsubsection{Omvormen van valuta}
 % 
@@ -374,15 +416,4 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 % Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's was en men die direct kan gebruiken.
 % 
 % Knoppen toevoegen aan de koptekst gaat ook op een zeer eenvoudige manier.
-% % TODO: verder schrijven
-% 
-% \subsubsection{Lijsten}
-% 
-% \paragraph{jQuery Mobile} 
-% Het aanmaken van lijsten gebeurt met de \term{listview} widget.
-% % TODO: verder schrijven
-% 
-% \subsubsection{Lijsten}
-% 
-% \paragraph{jQuery Mobile} 
 % % TODO: verder schrijven

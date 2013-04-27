@@ -1,10 +1,10 @@
-Ondersteuning,jQM,ST,Kendo,Lungo
-HTCDesireZ,,,,
-GalaxyTab,,,,
-GalaxyS,,,,
-Nexus 7,,,,
-iPad3 1 WiFi,,,,
-iPad3 4G WiFi,,,,
-iPhone 3GS,,,,
-iPhone 4S,,,,
-Score,,,,
+Apparaat,Device,jQM,ST,Lungo,Kendo
+ HTCDesireZ, HTCDesireZ,10,5,0,5
+GalaxyTab,GalaxyTab,9,3,0,3
+GalaxyS,GalaxyS,9,8,7,8
+Nexus 7,Nexus 7,12,8,9,10
+iPad1 WiFi,iPad1 WiFi,10,7,8,8
+iPad3 4G WiFi,iPad3 4G WiFi,12,7,9,9
+iPhone 3GS,iPhone 3GS,12,7,9,10
+iPhone 4S,iPhone 4S,12,7,9,10
+Totaal,Total,86,52,51,63

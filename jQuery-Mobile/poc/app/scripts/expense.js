@@ -58,18 +58,18 @@ $(document).on("pageinit", "#expense", function () {
     var minDate = new Date();
     $('#expense-date').mobiscroll().date({
         // theme is jQuery Mobile
-        theme:'jqm',
+        theme: 'jqm',
         // popup windo
-        display:'modal',
-        mode:'scroller',
+        display: 'modal',
+        mode: 'scroller',
         // format that will be put in the form
-        dateFormat:'yy-mm-dd',
+        dateFormat: 'yy/mm/dd',
         // format that will be shown to the user
-        dateOrder:'D d M yy',
+        dateOrder: 'D d M yy',
         // this month
-        maxDate:today,
+        maxDate: today,
         // till 2 months earlier
-        minDate:new Date(minDate.setMonth(today.getMonth() - 2))
+        minDate: new Date(minDate.setMonth(today.getMonth() - 2))
     });
 
     // hold local reference for performance
@@ -180,8 +180,8 @@ $(document).on("pageinit", "#expense", function () {
 
             // read the image
             $.mobile.loading("show", {
-                text:"Analyzing evidence",
-                textVisible:true
+                text: "Analyzing evidence",
+                textVisible: true
             });
             reader.readAsDataURL(file);
         } else {
@@ -202,50 +202,50 @@ $(document).on("pageinit", "#expense", function () {
 
     // initialize form validation
     $("#expense-form").validate({
-        ignore:[],
-        rules:{
-            "expense-date":{
-                "required":true,
+        ignore: [],
+        rules: {
+            "expense-date": {
+                "required": true,
                 // we don't use date as input type,
                 // so we have to check if the text is a valid date
-                "date":true,
+                "date": true,
                 // check if the date is in the valid range of this month
                 // and 2 months earlier
-                "isCorrectDate":true
+                "isCorrectDate": true
             },
 
             // expense-project-code is required via the required class
             // http://stackoverflow.com/questions/7429807/jquery-validate-valid-if-hidden-field-has-a-value
 
-            "expense-type":"required",
-            "expense-amount":{
-                required:true,
+            "expense-type": "required",
+            "expense-amount": {
+                required: true,
                 // a negative amount is not valid
-                min:0
+                min: 0
             },
-            "expense-currency":"required",
-            "expense-remarks":{
-                required:function () {
+            "expense-currency": "required",
+            "expense-remarks": {
+                required: function () {
                     // remarks are required when 'other' is checked
                     return $("#expense-type-other").is(":checked");
                 }
             },
-            "expense-evidence-file":"required"
+            "expense-evidence-file": "required"
         },
 
         // needed for bug that shows keyboard and dialog at the same time
-        focusInvalid:false,
+        focusInvalid: false,
 
         // no real time validation checking needed
-        onkeyup:false,
-        onfocusout:false,
+        onkeyup: false,
+        onfocusout: false,
 
-        errorPlacement:function () {
+        errorPlacement: function () {
             // no body, because we want no error labels on the form
         },
 
         // custom highlight function
-        highlight:function (element, errorClass, validClass) {
+        highlight: function (element, errorClass, validClass) {
             var $element = $(element);
 
             if ($element.attr("id") === "expense-type-hotel") {
@@ -264,7 +264,7 @@ $(document).on("pageinit", "#expense", function () {
         },
 
         // custom unhighlight function
-        unhighlight:function (element, errorClass, validClass) {
+        unhighlight: function (element, errorClass, validClass) {
             var $element = $(element);
             if ($element.attr("id") === "expense-type-hotel") {
                 // as of jQM 1.3, this has changed for fieldsets
@@ -282,17 +282,17 @@ $(document).on("pageinit", "#expense", function () {
         },
 
         // prepare the errors in the dialog box
-        showErrors:function (errorMap) {
+        showErrors: function (errorMap) {
             EA.prepareValidationError(this, errorMap);
         },
 
         // show the dialog box
-        invalidHandler:function () {
+        invalidHandler: function () {
             $.mobile.changePage("#error-validation");
         },
 
         // execute when the form was successfully validated
-        submitHandler:function (form) {
+        submitHandler: function (form) {
             var date = new Date($("#expense-date").val());
             var currency;
 
@@ -306,14 +306,14 @@ $(document).on("pageinit", "#expense", function () {
             // save the expense locally
             try {
                 EA.addLocalExpense({
-                    "date":date.toISOString(),
-                    "projectCode":$("#expense-project-code").val(),
-                    "currency":currency,
-                    "amount":$("#expense-amount").val(),
-                    "remarks":$("#expense-remarks").val(),
-                    "expenseTypeId":$("input[name=expense-type]:checked").val(),
-                    "expenseLocationId":$("input[name=expense-tabbar]:checked").val(),
-                    "evidence":EA.getEvidence()
+                    "date": date.toISOString(),
+                    "projectCode": $("#expense-project-code").val(),
+                    "currency": currency,
+                    "amount": $("#expense-amount").val(),
+                    "remarks": $("#expense-remarks").val(),
+                    "expenseTypeId": $("input[name=expense-type]:checked").val(),
+                    "expenseLocationId": $("input[name=expense-tabbar]:checked").val(),
+                    "evidence": EA.getEvidence()
                 });
             } catch (error) {
                 // TODO solve problem

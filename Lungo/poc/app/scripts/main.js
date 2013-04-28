@@ -5,12 +5,24 @@ Lungo.init({
 });
 
 Lungo.dom(document).ready(function () {
-    if (!Lungo.Data.Storage.persistent("user")) {
-        // user is not logged in, redirect to login screen
-        Lungo.Router.section("login");
+    // check manifest for updates
+    if (window.applicationCache) {
+        // if there is an update, ask to load it
+        var appCache = window.applicationCache;
+        appCache.onupdateready = function () {
+            if (confirm("A new version is available. Load it?")) {
+                window.location.reload();
+            }
+        };
     } else {
-        // user is already logged in
-        loadUserInformation();
+        // do redirection
+        if (!Lungo.Data.Storage.persistent("user")) {
+            // user is not logged in, redirect to login screen
+            Lungo.Router.section("login");
+        } else {
+            // user is already logged in
+            loadUserInformation();
+        }
     }
 });
 

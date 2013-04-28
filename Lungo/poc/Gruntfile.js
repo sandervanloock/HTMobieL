@@ -254,7 +254,9 @@ module.exports = function (grunt) {
                 src: [
                     'scripts/*.js',
                     'styles/*.css',
-                    'images/*'
+                    'images/footer/*',
+                    'images/startup/*',
+                    'images/touch/*'
                 ],
                 dest: '<%= yeoman.dist %>/ea.appcache'
             }

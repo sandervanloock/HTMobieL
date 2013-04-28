@@ -254,9 +254,7 @@ module.exports = function (grunt) {
                 src: [
                     'scripts/*.js',
                     'styles/*.css',
-                    'images/footer/*',
-                    'images/startup/*',
-                    'images/touch/*'
+                    'images/*'
                 ],
                 dest: '<%= yeoman.dist %>/ea.appcache'
             }
@@ -274,7 +272,7 @@ module.exports = function (grunt) {
                             '*.{ico,txt}',
                             '.htaccess',
                             '*.appcache',
-                            'images/{,*/}*.{webp,gif}',
+                            'images/{,*/}*.{webp,gif,ico}',
                             'styles/fonts/*'
                         ]
                     }

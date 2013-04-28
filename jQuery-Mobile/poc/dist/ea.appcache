@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Time: Sun Apr 28 2013 11:08:52 GMT+0200 (CEST)
+# Time: Sun Apr 28 2013 11:55:31 GMT+0200 (CEST)
 
 CACHE:
 scripts/5c6e1968.app.js
@@ -11,6 +11,7 @@ styles/images/icons-36-black.png
 styles/images/icons-36-white.png
 images/footer/cap.jpg
 images/footer/kuleuven.png
+images/startup/startup-retina-4in.png
 images/startup/startup-retina.png
 images/startup/startup-tablet-landscape-retina.png
 images/startup/startup-tablet-landscape.png

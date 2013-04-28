@@ -323,10 +323,10 @@ module.exports = function (grunt) {
         'clean:dist',
         'useminPrepare',
         'concurrent:dist',
-        'cssmin',
         'concat',
         'uglify',
         'copy',
+        'cssmin',
         'usemin'
     ]);
 

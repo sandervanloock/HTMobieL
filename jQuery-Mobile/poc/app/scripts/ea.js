@@ -11,16 +11,16 @@ var EA = {
     token: null,
 
     getToken: function () {
-        if (Modernizr.sessionstorage) {
-            return sessionStorage.token;
+        if (Modernizr.localstorage) {
+            return localStorage.token;
         } else {
             return this.token;
         }
     },
 
     setToken: function (token) {
-        if (Modernizr.sessionstorage) {
-            sessionStorage.token = token;
+        if (Modernizr.localstorage) {
+            localStorage.token = token;
         } else {
             this.token = token;
         }

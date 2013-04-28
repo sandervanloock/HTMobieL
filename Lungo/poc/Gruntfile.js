@@ -179,9 +179,7 @@ module.exports = function (grunt) {
                 files: {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                        '<%= yeoman.dist %>/styles/fonts/*'
+                        '<%= yeoman.dist %>/styles/{,*/}*.css'
                     ]
                 }
             }
@@ -244,6 +242,21 @@ module.exports = function (grunt) {
                         dest: '<%= yeoman.dist %>'
                     }
                 ]
+            }
+        },
+        manifest: {
+            generate: {
+                options: {
+                    basePath: '<%= yeoman.dist %>',
+                    verbose: false,
+                    timestamp: true
+                },
+                src: [
+                    'scripts/*.js',
+                    'styles/*.css',
+                    'images/*'
+                ],
+                dest: '<%= yeoman.dist %>/ea.appcache'
             }
         },
         // Put files not handled in other tasks here
@@ -317,6 +330,8 @@ module.exports = function (grunt) {
         'uglify',
         'copy',
         'cssmin',
+        'rev',
+        'manifest',
         'usemin'
     ]);
 

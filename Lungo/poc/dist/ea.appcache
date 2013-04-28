@@ -1,9 +1,11 @@
 CACHE MANIFEST
-# version 0.3
+# Time: Sun Apr 28 2013 10:44:01 GMT+0200 (CEST)
 
 CACHE:
-styles/app.css
-scripts/app.js
-
+scripts/521874a9.app.js
+styles/67d62802.app.css
 images/cap.jpg
 images/kuleuven.png
+
+NETWORK:
+*

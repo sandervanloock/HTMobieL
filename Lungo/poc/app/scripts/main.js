@@ -19,7 +19,7 @@ Lungo.dom(document).ready(function () {
 });
 
 function checkIfUserIsLoggedIn() {
-    if (!Lungo.Data.Storage.persistent("user")) {
+    if (!Lungo.Data.Storage.persistent(EA.app + "user")) {
         // user is not logged in, redirect to login screen
         Lungo.Router.section("login");
     } else {

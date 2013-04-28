@@ -1,5 +1,5 @@
 Lungo.dom("#create2").on("load", function () {
-    var localExpenses = Lungo.Data.Storage.persistent("localExpenses");
+    var localExpenses = Lungo.Data.Storage.persistent(EA.app + "localExpenses");
     // show in list
     var $$list = $$("#create2-overview-list");
     // first empty the list

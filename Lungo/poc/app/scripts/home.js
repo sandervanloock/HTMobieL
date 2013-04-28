@@ -1,5 +1,5 @@
 Lungo.dom("#home-screen-add").on("tap", function () {
-    if (Lungo.Data.Storage.persistent("localExpenses")) {
+    if (Lungo.Data.Storage.persistent(EA.app + "localExpenses")) {
         Lungo.Notification.confirm({
             icon: "warning",
             title: "Saved expense form",
@@ -14,7 +14,7 @@ Lungo.dom("#home-screen-add").on("tap", function () {
                 label: "No",
                 callback: function () {
                     // clear local expenses
-                    Lungo.Data.Storage.persistent("localExpenses", null);
+                    Lungo.Data.Storage.persistent(EA.app + "localExpenses", null);
                     Lungo.Router.section("create1");
                 }
             }
@@ -33,20 +33,20 @@ Lungo.dom("#home-logout").on("tap", function () {
         EA.baseURL + "resources/userService/logout",
         // data
         {
-            "token": Lungo.Data.Storage.persistent("token")
+            "token": Lungo.Data.Storage.persistent(EA.app + "token")
         },
         // callback
         function () {
             // hide loading screen
             Lungo.Notification.hide();
             // delete everything
-            Lungo.Data.Storage.persistent("token", null);
-            Lungo.Data.Storage.persistent("user", null);
-            Lungo.Data.Storage.persistent("serverForms", null);
-            Lungo.Data.Storage.persistent("localExpenses", null);
-            Lungo.Data.Storage.persistent("projectCodes", null);
-            Lungo.Data.Storage.persistent("currencies", null);
-            Lungo.Data.Storage.session("tempEvidence", null);
+            Lungo.Data.Storage.persistent(EA.app + "token", null);
+            Lungo.Data.Storage.persistent(EA.app + "user", null);
+            Lungo.Data.Storage.persistent(EA.app + "serverForms", null);
+            Lungo.Data.Storage.persistent(EA.app + "localExpenses", null);
+            Lungo.Data.Storage.persistent(EA.app + "projectCodes", null);
+            Lungo.Data.Storage.persistent(EA.app + "currencies", null);
+            Lungo.Data.Storage.session(EA.app + "tempEvidence", null);
             // go to login screen
             Lungo.Router.section("login");
         },
@@ -56,6 +56,6 @@ Lungo.dom("#home-logout").on("tap", function () {
 });
 
 function loadUserInformation() {
-    var user = Lungo.Data.Storage.persistent("user");
+    var user = Lungo.Data.Storage.persistent(EA.app + "user");
     $$("#home-screen-name").text(user.firstName + " " + user.lastName);
 }

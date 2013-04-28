@@ -1,5 +1,7 @@
 var EA = {
 
+    app: "lungo_",
+
     baseURL: "http://kulcapexpenseapp.appspot.com/",
 //    baseURL:"http://localhost:8888/",
 //    baseURL:"http://192.168.1.11:8888/",
@@ -64,7 +66,7 @@ var EA = {
     },
 
     getRateForCurrency: function (currency) {
-        var currencies = Lungo.Data.Storage.persistent("currencies");
+        var currencies = Lungo.Data.Storage.persistent(EA.app + "currencies");
         // super awesome framework method
         return Lungo.Core.findByProperty(currencies, 'name', currency).rate;
     },
@@ -80,7 +82,7 @@ var EA = {
     },
 
     getLocalExpenseById: function (id) {
-        var expenses = Lungo.Data.Storage.persistent("localExpenses");
+        var expenses = Lungo.Data.Storage.persistent(EA.app + "localExpenses");
         // super awesome framework method
         return Lungo.Core.findByProperty(expenses, 'id', id);
     },

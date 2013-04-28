@@ -1,5 +1,5 @@
 Lungo.dom("#create4-sign-button").on("tap", function () {
-    var localExpenses = Lungo.Data.Storage.persistent("localExpenses");
+    var localExpenses = Lungo.Data.Storage.persistent(EA.app + "localExpenses");
     // then show the items, if there are any
     if (!localExpenses) {
         Lungo.Notification.error(
@@ -32,7 +32,7 @@ Lungo.dom("#create4-sign-button").on("tap", function () {
             // make expense form
             var expenseForm = {};
             expenseForm.date = new Date().toISOString();
-            expenseForm.employeeId = Lungo.Data.Storage.persistent("user").id;
+            expenseForm.employeeId = Lungo.Data.Storage.persistent(EA.app + "user").id;
             //TODO signature
             expenseForm.signature = Signature.base64;
             expenseForm.remarks = $$("#create4-sign-remarks").val();
@@ -41,7 +41,7 @@ Lungo.dom("#create4-sign-button").on("tap", function () {
             expenseForm.expenses = localExpenses;
             // prepare the request
             var expenseRequest = {};
-            expenseRequest.token = Lungo.Data.Storage.persistent("token");
+            expenseRequest.token = Lungo.Data.Storage.persistent(EA.app + "token");
             expenseRequest.expenseForm = expenseForm;
 
             // sending data
@@ -56,7 +56,7 @@ Lungo.dom("#create4-sign-button").on("tap", function () {
                 dataType: 'json', //'json', 'xml', 'html', or 'text'
                 async: true,
                 success: function () {
-                    Lungo.Data.Storage.persistent("localExpenses", null);
+                    Lungo.Data.Storage.persistent(EA.app + "localExpenses", null);
                     Lungo.Notification.success(
                         "Success", //Title
                         "The expense form was uploaded successfully.", //Description

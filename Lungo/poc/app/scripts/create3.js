@@ -1,11 +1,11 @@
 Lungo.dom("#create3").on("load", function () {
-    if (Lungo.Data.Storage.persistent("projectCodes")) {
+    if (Lungo.Data.Storage.persistent(EA.app + "projectCodes")) {
         initAutoCompletion();
     }
 
     // show currencies
     var $$currencyList = $$("#create3-add-currency");
-    var currencies = Lungo.Data.Storage.persistent("currencies");
+    var currencies = Lungo.Data.Storage.persistent(EA.app + "currencies");
     $$currencyList.empty();
     $$.each(currencies, function (i, currency) {
         $$currencyList.append("<option value=\"" + currency.name + "\">" + currency.name + "</option>");
@@ -48,7 +48,7 @@ Lungo.dom("#create3").on("load", function () {
                     // get the base64 string
                     var base64 = EA.base64WithoutPrefix(canvas.toDataURL());
                     // TODO check if this can fail in Lungo
-                    Lungo.Data.Storage.session("tempEvidence", base64);
+                    Lungo.Data.Storage.session(EA.app + "tempEvidence", base64);
                     // hide loading screen
                     Lungo.Notification.hide();
                 };
@@ -107,19 +107,19 @@ Lungo.dom("#create3-add-button").on("tap", function () {
         "remarks": $$("#create3-add-remarks").val(),
         "expenseTypeId": parseInt($$("#create3-add-type").val()),
         "expenseLocationId": expenseLocation,
-        "evidence": Lungo.Data.Storage.session("tempEvidence")
+        "evidence": Lungo.Data.Storage.session(EA.app + "tempEvidence")
     };
 
-    var localExpenses = Lungo.Data.Storage.persistent("localExpenses");
+    var localExpenses = Lungo.Data.Storage.persistent(EA.app + "localExpenses");
     if (!localExpenses) {
         expense.id = 1;
-        Lungo.Data.Storage.persistent("localExpenses", [expense]);
+        Lungo.Data.Storage.persistent(EA.app + "localExpenses", [expense]);
     } else {
         expense.id = localExpenses.length + 1;
         localExpenses.push(expense);
-        Lungo.Data.Storage.persistent("localExpenses", localExpenses);
+        Lungo.Data.Storage.persistent(EA.app + "localExpenses", localExpenses);
     }
-    Lungo.Data.Storage.session("tempEvidence", null);
+    Lungo.Data.Storage.session(EA.app + "tempEvidence", null);
     Lungo.Router.section("create2");
 });
 
@@ -164,7 +164,7 @@ function initAutoCompletion() {
     Lungo.Sugar.AutoComplete().init({
         el: $$('#create3-add-project-code'),
         results_el: $$('#create3-add-results'),
-        choices: Lungo.Data.Storage.persistent("projectCodes"),
+        choices: Lungo.Data.Storage.persistent(EA.app + "projectCodes"),
         afterx: function (el, e) {
             alert(el.val());
         }

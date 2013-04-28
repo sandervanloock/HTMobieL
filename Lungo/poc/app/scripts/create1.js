@@ -1,6 +1,6 @@
 Lungo.dom("#create1").on("load", function () {
     // set user info into the form
-    var user = Lungo.Data.Storage.persistent("user");
+    var user = Lungo.Data.Storage.persistent(EA.app + "user");
     $$("#create1-info-first-name").val(user.firstName);
     $$("#create1-info-last-name").val(user.lastName);
     $$("#create1-info-employee-number").val(user.employeeNumber);

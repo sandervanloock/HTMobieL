@@ -69,21 +69,21 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                     );
                 } else {
                     // save token
-                    Lungo.Data.Storage.persistent("token", token);
+                    Lungo.Data.Storage.persistent(EA.app + "token", token);
                     // get user info
                     Lungo.Service.post(
                         // url
                         EA.baseURL + "resources/userService/getEmployee",
                         // data
                         {
-                            "token": Lungo.Data.Storage.persistent("token")
+                            "token": Lungo.Data.Storage.persistent(EA.app + "token")
                         },
                         // callback
                         function (user) {
                             // hide loading screen
                             Lungo.Notification.hide();
                             // persist the user
-                            Lungo.Data.Storage.persistent("user", user);
+                            Lungo.Data.Storage.persistent(EA.app + "user", user);
                             // load information into home screen
                             loadUserInformation();
                             // go to home section
@@ -109,7 +109,7 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                                             rate: parseFloat($$this.attr("rate"))
                                         });
                                     });
-                                    Lungo.Data.Storage.persistent("currencies", currencies);
+                                    Lungo.Data.Storage.persistent(EA.app + "currencies", currencies);
                                 },
                                 // type
                                 "xml"
@@ -127,7 +127,7 @@ Lungo.dom("#login-screen-button").on("tap", function () {
                                 function (json) {
                                     if (json != null) {
                                         // persist project codes
-                                        Lungo.Data.Storage.persistent("projectCodes", json.data);
+                                        Lungo.Data.Storage.persistent(EA.app + "projectCodes", json.data);
                                         // initialize autocompletion
                                         initAutoCompletion();
                                     } else {

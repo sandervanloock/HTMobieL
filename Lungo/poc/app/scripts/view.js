@@ -1,5 +1,5 @@
 Lungo.dom("#view").on("load", function () {
-    displayForms(Lungo.Data.Storage.persistent("serverForms"));
+    displayForms(Lungo.Data.Storage.persistent(EA.app + "serverForms"));
     retrieve_forms(true);
 });
 
@@ -19,13 +19,13 @@ function retrieve_forms(showLoadingScreen) {
             Lungo.Notification.show();
         }
         // make the AJAX-request
-        Lungo.Data.Storage.persistent("serverForms", null);
+        Lungo.Data.Storage.persistent(EA.app + "serverForms", null);
         Lungo.Service.post(
             // url
             EA.baseURL + "resources/expenseService/getExpenseForms",
             // data
             {
-                "token": Lungo.Data.Storage.persistent("token")
+                "token": Lungo.Data.Storage.persistent(EA.app + "token")
             },
             // callback
             function (xml) {
@@ -44,7 +44,7 @@ function retrieve_forms(showLoadingScreen) {
                     serverForms.push(expenseForm);
                 });
                 // persist the expense forms
-                Lungo.Data.Storage.persistent("serverForms", serverForms);
+                Lungo.Data.Storage.persistent(EA.app + "serverForms", serverForms);
                 // show items in list
                 displayForms(serverForms);
             },
@@ -94,7 +94,7 @@ function showPdf(id) {
     // guideline: AJAX is not for fetching raw data like a PDF.
     // to accomplish this, a hidden form is used and the requested data is
     // copied into that hidden form
-    $$("#view-form-token").val(Lungo.Data.Storage.persistent("token"));
+    $$("#view-form-token").val(Lungo.Data.Storage.persistent(EA.app + "token"));
     $$("#view-form-id").val(id.toString());
     // submit that hidden form so the PDF will be downloaded
     $$hiddenForm[0].submit();

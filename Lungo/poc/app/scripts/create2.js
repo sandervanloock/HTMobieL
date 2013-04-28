@@ -47,7 +47,7 @@ function showLocalExpense(id) {
     $$("#show-expense-form")[0].reset();
     $$("#show-tab-domestic").addClass("active");
     $$("#show-tab-abroad").removeClass("active");
-    $$("#show-expense-currency").parent().parent().hide();
+    $$("#show-expense-currency").parent().parent().parent().hide();
     $$("#show-expense-converted").parent().hide();
 
     // input data
@@ -64,13 +64,13 @@ function showLocalExpense(id) {
         // domestic
         $$("#show-tab-domestic").addClass("active");
         $$("#show-tab-abroad").removeClass("active");
-        $$("#show-expense-currency").parent().parent().hide();
+        $$("#show-expense-currency").parent().parent().parent().hide();
         $$("#show-expense-converted").parent().hide();
     } else if (expense.expenseLocationId == 2) {
         // abroad
         $$("#show-tab-domestic").removeClass("active");
         $$("#show-tab-abroad").addClass("active");
-        $$("#show-expense-currency").parent().parent().show();
+        $$("#show-expense-currency").parent().parent().parent().show();
         $$("#show-expense-converted").parent().show();
         // type of currency
         $$("#show-expense-currency").empty();

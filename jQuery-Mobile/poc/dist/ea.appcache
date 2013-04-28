@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Time: Sun Apr 28 2013 11:55:31 GMT+0200 (CEST)
+# Time: Sun Apr 28 2013 12:15:22 GMT+0200 (CEST)
 
 CACHE:
 scripts/5c6e1968.app.js
@@ -9,21 +9,20 @@ styles/images/icons-18-black.png
 styles/images/icons-18-white.png
 styles/images/icons-36-black.png
 styles/images/icons-36-white.png
-images/footer/cap.jpg
-images/footer/kuleuven.png
-images/startup/startup-retina-4in.png
-images/startup/startup-retina.png
-images/startup/startup-tablet-landscape-retina.png
-images/startup/startup-tablet-landscape.png
-images/startup/startup-tablet-portrait-retina.png
-images/startup/startup-tablet-portrait.png
-images/startup/startup.png
-images/touch/apple-touch-icon-114x114-precomposed.png
-images/touch/apple-touch-icon-144x144-precomposed.png
-images/touch/apple-touch-icon-57x57-precomposed.png
-images/touch/apple-touch-icon-72x72-precomposed.png
-images/touch/apple-touch-icon-precomposed.png
-images/touch/apple-touch-icon.png
+images/apple-touch-icon-114x114.png
+images/apple-touch-icon-144x144.png
+images/apple-touch-icon-57x57.png
+images/apple-touch-icon-72x72.png
+images/apple-touch-startup-image-1496x2048.png
+images/apple-touch-startup-image-1536x2008.png
+images/apple-touch-startup-image-320x460.png
+images/apple-touch-startup-image-640x1096.png
+images/apple-touch-startup-image-640x920.png
+images/apple-touch-startup-image-748x1024.png
+images/apple-touch-startup-image-768x1004.png
+images/cap.jpg
+images/favicon.ico
+images/kuleuven.png
 
 NETWORK:
 *

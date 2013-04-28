@@ -1,5 +1,5 @@
 Lungo.dom("#view").on("load", function () {
-    displayForms();
+    displayForms(Lungo.Data.Storage.persistent("serverForms"));
     retrieve_forms(true);
 });
 
@@ -19,6 +19,7 @@ function retrieve_forms(showLoadingScreen) {
             Lungo.Notification.show();
         }
         // make the AJAX-request
+        Lungo.Data.Storage.persistent("serverForms", null);
         Lungo.Service.post(
             // url
             EA.baseURL + "resources/expenseService/getExpenseForms",
@@ -45,7 +46,7 @@ function retrieve_forms(showLoadingScreen) {
                 // persist the expense forms
                 Lungo.Data.Storage.persistent("serverForms", serverForms);
                 // show items in list
-                displayForms();
+                displayForms(serverForms);
             },
             // type
             "xml"
@@ -64,10 +65,9 @@ function retrieve_forms(showLoadingScreen) {
     }
 }
 
-function displayForms() {
+function displayForms(serverForms) {
     var li;
     var $$formList = $$("#view-screen ul");
-    var serverForms = Lungo.Data.Storage.persistent("serverForms");
     // first empty the list
     $$formList.empty();
     // then show the items, if there are any

@@ -1,6 +1,6 @@
 var EA = {
 
-    baseURL:"http://kulcapexpenseapp.appspot.com/",
+    baseURL: "http://kulcapexpenseapp.appspot.com/",
 //    baseURL:"http://localhost:8888/",
 //    baseURL:"http://192.168.1.11:8888/",
 
@@ -8,9 +8,9 @@ var EA = {
      * Acces token
      *************************************************/
 
-    token:null,
+    token: null,
 
-    getToken:function () {
+    getToken: function () {
         if (Modernizr.sessionstorage) {
             return sessionStorage.token;
         } else {
@@ -18,7 +18,7 @@ var EA = {
         }
     },
 
-    setToken:function (token) {
+    setToken: function (token) {
         if (Modernizr.sessionstorage) {
             sessionStorage.token = token;
         } else {
@@ -26,7 +26,7 @@ var EA = {
         }
     },
 
-    isLoggedIn:function () {
+    isLoggedIn: function () {
         return this.hasUser();
     },
 
@@ -34,9 +34,9 @@ var EA = {
      * User
      *************************************************/
 
-    user:{},
+    user: {},
 
-    getUser:function () {
+    getUser: function () {
         if (Modernizr.localstorage) {
             return JSON.parse(localStorage.user);
         } else {
@@ -44,7 +44,7 @@ var EA = {
         }
     },
 
-    setUser:function (user) {
+    setUser: function (user) {
         if (Modernizr.localstorage) {
             localStorage.user = JSON.stringify(user);
         } else {
@@ -52,7 +52,7 @@ var EA = {
         }
     },
 
-    hasUser:function () {
+    hasUser: function () {
         if (Modernizr.localstorage) {
             return localStorage.user != null;
         } else {
@@ -60,11 +60,19 @@ var EA = {
         }
     },
 
-    deleteUser:function () {
+    deleteUser: function () {
         if (Modernizr.localstorage) {
-            localStorage.removeItem("user");
+            localStorage.clear();
+            sessionStorage.clear();
         } else {
             this.user = null;
+            this.token = null;
+            this.projectCodeSuggestions = null;
+            this.currencies = null;
+            this.expenseForm = null;
+            this.localExpenses = null;
+            this.serverExpenses = null;
+            this.evidence = null;
         }
     },
 
@@ -72,9 +80,9 @@ var EA = {
      * Project codes
      *************************************************/
 
-    projectCodeSuggestions:[],
+    projectCodeSuggestions: [],
 
-    getProjectCodeSuggestions:function () {
+    getProjectCodeSuggestions: function () {
         if (Modernizr.localstorage) {
             return JSON.parse(localStorage.projectCodes);
         } else {
@@ -82,7 +90,7 @@ var EA = {
         }
     },
 
-    setProjectCodeSuggestions:function (suggestions) {
+    setProjectCodeSuggestions: function (suggestions) {
         if (Modernizr.localstorage) {
             localStorage.projectCodes = JSON.stringify(suggestions);
         } else {
@@ -94,15 +102,15 @@ var EA = {
      * Currencies
      *************************************************/
 
-    currencies:[],
+    currencies: [],
 
-    convertToEuro:function (amount, currency) {
+    convertToEuro: function (amount, currency) {
         var rate = this.getRateForCurrency(currency);
         var converted = amount / rate;
         return converted.toFixed(2);
     },
 
-    getRateForCurrency:function (currency) {
+    getRateForCurrency: function (currency) {
         var currencies = [];
         if (Modernizr.localstorage) {
             currencies = JSON.parse(localStorage.currencies);
@@ -119,7 +127,7 @@ var EA = {
         return toReturn;
     },
 
-    setCurrencies:function (currencies) {
+    setCurrencies: function (currencies) {
         if (Modernizr.localstorage) {
             localStorage.currencies = JSON.stringify(currencies);
         } else {
@@ -127,7 +135,7 @@ var EA = {
         }
     },
 
-    getCurrencies:function () {
+    getCurrencies: function () {
         if (Modernizr.localstorage) {
             return JSON.parse(localStorage.currencies);
         } else {
@@ -135,7 +143,7 @@ var EA = {
         }
     },
 
-    formatEuro:function (amount) {
+    formatEuro: function (amount) {
         var converted = Number(amount);
         return "€ " + converted.toFixed(2);
     },
@@ -144,9 +152,9 @@ var EA = {
      * Expense form
      *************************************************/
 
-    expenseForm:null,
+    expenseForm: null,
 
-    getExpenseForm:function () {
+    getExpenseForm: function () {
         if (Modernizr.localstorage) {
             return JSON.parse(localStorage.expenseForm);
         } else {
@@ -154,7 +162,7 @@ var EA = {
         }
     },
 
-    setExpenseForm:function (expenseForm) {
+    setExpenseForm: function (expenseForm) {
         if (Modernizr.localstorage) {
             localStorage.expenseForm = JSON.stringify(expenseForm);
         } else {
@@ -162,7 +170,7 @@ var EA = {
         }
     },
 
-    hasExpenseForm:function () {
+    hasExpenseForm: function () {
         if (Modernizr.localstorage) {
             return localStorage.expenseForm != null;
         } else {
@@ -170,7 +178,7 @@ var EA = {
         }
     },
 
-    clearExpenseForm:function () {
+    clearExpenseForm: function () {
         if (Modernizr.localstorage) {
             localStorage.removeItem("expenseForm");
         } else {
@@ -183,9 +191,9 @@ var EA = {
      * Localy saved expenses
      *************************************************/
 
-    localExpenses:[],
+    localExpenses: [],
 
-    getLocalExpenses:function () {
+    getLocalExpenses: function () {
         if (Modernizr.localstorage) {
             var toReturn = [];
             // if the key starts with the word expense and
@@ -204,7 +212,7 @@ var EA = {
         }
     },
 
-    getLocalExpenseById:function (id) {
+    getLocalExpenseById: function (id) {
         if (Modernizr.localstorage) {
             return JSON.parse(localStorage.getItem("expense" + id));
         } else {
@@ -217,7 +225,7 @@ var EA = {
         }
     },
 
-    addLocalExpense:function (expense) {
+    addLocalExpense: function (expense) {
         if (Modernizr.localstorage) {
             var id = this.getLocalExpenses().length;
             // save the id
@@ -229,11 +237,11 @@ var EA = {
         }
     },
 
-    hasLocalExpenses:function () {
+    hasLocalExpenses: function () {
         return this.getLocalExpenses().length > 0;
     },
 
-    emptyLocalExpenses:function () {
+    emptyLocalExpenses: function () {
         if (Modernizr.localstorage) {
             var regExp = /^expense\d+/;
             var keysToDelete = [];
@@ -257,9 +265,9 @@ var EA = {
      * Localy saved expenses
      *************************************************/
 
-    serverExpenses:[],
+    serverExpenses: [],
 
-    getServerExpenses:function () {
+    getServerExpenses: function () {
         if (Modernizr.localstorage) {
             var toReturn = [];
             // if the key starts with the word serverExpense and
@@ -278,7 +286,7 @@ var EA = {
         }
     },
 
-    addServerExpense:function (id, expense) {
+    addServerExpense: function (id, expense) {
         if (Modernizr.localstorage) {
             localStorage['serverExpense' + id] = JSON.stringify(expense);
         } else {
@@ -286,7 +294,7 @@ var EA = {
         }
     },
 
-    emptyServerExpenses:function () {
+    emptyServerExpenses: function () {
         if (Modernizr.localstorage) {
             // if the key starts with the word serverExpense and
             // is follow by an integer, we know it is an expense form
@@ -313,9 +321,9 @@ var EA = {
      * Expense evidence
      *************************************************/
 
-    evidence:null,
+    evidence: null,
 
-    getEvidence:function () {
+    getEvidence: function () {
         if (Modernizr.sessionstorage) {
             return sessionStorage.evidence;
         } else {
@@ -323,7 +331,7 @@ var EA = {
         }
     },
 
-    setEvidence:function (evidence) {
+    setEvidence: function (evidence) {
         if (Modernizr.sessionstorage) {
             sessionStorage.evidence = evidence;
         } else {
@@ -331,7 +339,7 @@ var EA = {
         }
     },
 
-    clearEvidence:function () {
+    clearEvidence: function () {
         if (Modernizr.sessionstorage) {
             sessionStorage.removeItem("evidence");
         } else {
@@ -343,29 +351,29 @@ var EA = {
      * Helper functions for expenses
      *************************************************/
 
-    base64Prefix:"data:image/png;base64,",
+    base64Prefix: "data:image/png;base64,",
 
-    base64WithoutPrefix:function (string) {
+    base64WithoutPrefix: function (string) {
         return string.substring(this.base64Prefix.length);
     },
 
-    base64WithPrefix:function (string) {
+    base64WithPrefix: function (string) {
         return this.base64Prefix + string;
     },
 
-    sortExpensesAscending:function (a, b) {
+    sortExpensesAscending: function (a, b) {
         var dateA = new Date(a.date);
         var dateB = new Date(b.date);
         return (dateA - dateB);
     },
 
-    sortExpensesDescending:function (a, b) {
+    sortExpensesDescending: function (a, b) {
         var dateA = new Date(a.date);
         var dateB = new Date(b.date);
         return (dateB - dateA);
     },
 
-    toBelgianDate:function (date) {
+    toBelgianDate: function (date) {
         // get properties
         var dd = date.getDate();
         var mm = date.getMonth();
@@ -384,7 +392,7 @@ var EA = {
         return dd + "/" + mm + "/" + date.getFullYear();
     },
 
-    expenseTypeIdToString:function (id) {
+    expenseTypeIdToString: function (id) {
         if (id == 1) {
             return "Hotel";
         } else if (id == 2) {
@@ -402,7 +410,7 @@ var EA = {
         }
     },
 
-    expenseStatusIdToString:function (id) {
+    expenseStatusIdToString: function (id) {
         if (id == 1) {
             return "New";
         } else if (id == 2) {
@@ -422,21 +430,21 @@ var EA = {
      * Message dialogs
      *************************************************/
 
-    showDialog:function (title, html) {
+    showDialog: function (title, html) {
         $("#dialog-title").text(title);
         $("#dialog-message").text(html);
         $.mobile.changePage("#dialog");
     },
 
-    showError:function (title, html) {
+    showError: function (title, html) {
         this.showDialog(title, html);
     },
 
-    showBackendError:function (html) {
+    showBackendError: function (html) {
         this.showError("Backend error", html);
     },
 
-    prepareValidationError:function (validator, errorMap) {
+    prepareValidationError: function (validator, errorMap) {
         $("#error-validation-message").text("Please complete the following "
             + validator.numberOfInvalids()
             + " field(s):");

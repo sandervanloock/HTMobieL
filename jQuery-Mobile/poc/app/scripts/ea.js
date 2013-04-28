@@ -1,5 +1,7 @@
 var EA = {
 
+    app: "jqm_",
+
     baseURL: "http://kulcapexpenseapp.appspot.com/",
 //    baseURL:"http://localhost:8888/",
 //    baseURL:"http://192.168.1.11:8888/",
@@ -12,7 +14,7 @@ var EA = {
 
     getToken: function () {
         if (Modernizr.localstorage) {
-            return localStorage.token;
+            return localStorage.getItem(EA.app + "token");
         } else {
             return this.token;
         }
@@ -20,7 +22,7 @@ var EA = {
 
     setToken: function (token) {
         if (Modernizr.localstorage) {
-            localStorage.token = token;
+            localStorage.setItem(EA.app + "token", token);
         } else {
             this.token = token;
         }
@@ -38,7 +40,7 @@ var EA = {
 
     getUser: function () {
         if (Modernizr.localstorage) {
-            return JSON.parse(localStorage.user);
+            return JSON.parse(localStorage.getItem(EA.app + "user"));
         } else {
             return this.user;
         }
@@ -46,7 +48,7 @@ var EA = {
 
     setUser: function (user) {
         if (Modernizr.localstorage) {
-            localStorage.user = JSON.stringify(user);
+            localStorage.setItem(EA.app + "user", JSON.stringify(user));
         } else {
             this.user = user;
         }
@@ -54,7 +56,7 @@ var EA = {
 
     hasUser: function () {
         if (Modernizr.localstorage) {
-            return localStorage.user != null;
+            return localStorage.getItem(EA.app + "user") != null;
         } else {
             return this.user != null;
         }
@@ -62,18 +64,20 @@ var EA = {
 
     deleteUser: function () {
         if (Modernizr.localstorage) {
-            localStorage.clear();
-            sessionStorage.clear();
+            localStorage.removeItem(EA.app + "token");
+            localStorage.removeItem(EA.app + "user");
+            localStorage.removeItem(EA.app + "projectCodes");
+            localStorage.removeItem(EA.app + "currencies");
         } else {
             this.user = null;
             this.token = null;
             this.projectCodeSuggestions = null;
             this.currencies = null;
-            this.expenseForm = null;
-            this.localExpenses = null;
-            this.serverExpenses = null;
-            this.evidence = null;
         }
+        this.clearExpenseForm();
+        this.emptyLocalExpenses();
+        this.emptyServerExpenses();
+        this.clearEvidence();
     },
 
     /*************************************************
@@ -84,7 +88,7 @@ var EA = {
 
     getProjectCodeSuggestions: function () {
         if (Modernizr.localstorage) {
-            return JSON.parse(localStorage.projectCodes);
+            return JSON.parse(localStorage.getItem(EA.app + "projectCodes"));
         } else {
             return this.projectCodeSuggestions;
         }
@@ -92,7 +96,7 @@ var EA = {
 
     setProjectCodeSuggestions: function (suggestions) {
         if (Modernizr.localstorage) {
-            localStorage.projectCodes = JSON.stringify(suggestions);
+            localStorage.setItem(EA.app + "projectCodes", JSON.stringify(suggestions));
         } else {
             this.projectCodeSuggestions = suggestions;
         }
@@ -113,7 +117,7 @@ var EA = {
     getRateForCurrency: function (currency) {
         var currencies = [];
         if (Modernizr.localstorage) {
-            currencies = JSON.parse(localStorage.currencies);
+            currencies = JSON.parse(localStorage.getItem(EA.app + "currencies"));
         } else {
             currencies = this.currencies;
         }
@@ -129,7 +133,7 @@ var EA = {
 
     setCurrencies: function (currencies) {
         if (Modernizr.localstorage) {
-            localStorage.currencies = JSON.stringify(currencies);
+            localStorage.setItem(EA.app + "currencies", JSON.stringify(currencies));
         } else {
             this.currencies = currencies;
         }
@@ -137,7 +141,7 @@ var EA = {
 
     getCurrencies: function () {
         if (Modernizr.localstorage) {
-            return JSON.parse(localStorage.currencies);
+            return JSON.parse(localStorage.getItem(EA.app + "currencies"));
         } else {
             return this.currencies;
         }
@@ -156,7 +160,7 @@ var EA = {
 
     getExpenseForm: function () {
         if (Modernizr.localstorage) {
-            return JSON.parse(localStorage.expenseForm);
+            return JSON.parse(localStorage.getItem(EA.app + "expenseForm"));
         } else {
             return this.expenseForm;
         }
@@ -164,7 +168,7 @@ var EA = {
 
     setExpenseForm: function (expenseForm) {
         if (Modernizr.localstorage) {
-            localStorage.expenseForm = JSON.stringify(expenseForm);
+            localStorage.setItem(EA.app + "expenseForm", JSON.stringify(expenseForm));
         } else {
             this.expenseForm = expenseForm;
         }
@@ -172,7 +176,7 @@ var EA = {
 
     hasExpenseForm: function () {
         if (Modernizr.localstorage) {
-            return localStorage.expenseForm != null;
+            return localStorage.getItem(EA.app + "expenseForm") != null;
         } else {
             return this.expenseForm != null;
         }
@@ -180,7 +184,7 @@ var EA = {
 
     clearExpenseForm: function () {
         if (Modernizr.localstorage) {
-            localStorage.removeItem("expenseForm");
+            localStorage.removeItem(EA.app + "expenseForm");
         } else {
             this.expenseForm = null;
         }
@@ -198,7 +202,7 @@ var EA = {
             var toReturn = [];
             // if the key starts with the word expense and
             // is follow by an integer, we know it is an expense
-            var regExp = /^expense\d+/;
+            var regExp = /^jqm_expense\d+/;
             // loop through all entries in local storage
             for (var i = 0; i < localStorage.length; i++) {
                 var key = localStorage.key(i);
@@ -214,7 +218,7 @@ var EA = {
 
     getLocalExpenseById: function (id) {
         if (Modernizr.localstorage) {
-            return JSON.parse(localStorage.getItem("expense" + id));
+            return JSON.parse(localStorage.getItem(EA.app + "expense" + id));
         } else {
             for (var expense in this.localExpenses) {
                 if (expense.id == id) {
@@ -231,7 +235,7 @@ var EA = {
             // save the id
             // it is only necessary for the UI, not for backend
             expense.id = id;
-            localStorage['expense' + id] = JSON.stringify(expense);
+            localStorage.setItem(EA.app + "expense" + id, JSON.stringify(expense));
         } else {
             this.localExpenses.push(expense);
         }
@@ -243,7 +247,7 @@ var EA = {
 
     emptyLocalExpenses: function () {
         if (Modernizr.localstorage) {
-            var regExp = /^expense\d+/;
+            var regExp = /^jqm_expense\d+/;
             var keysToDelete = [];
             // loop through all entries in local storage
             for (var i = 0; i < localStorage.length; i++) {
@@ -272,7 +276,7 @@ var EA = {
             var toReturn = [];
             // if the key starts with the word serverExpense and
             // is follow by an integer, we know it is an expense form
-            var regExp = /^serverExpense\d+/;
+            var regExp = /^jqm_serverExpense\d+/;
             // loop through all entries in local storage
             for (var i = 0; i < localStorage.length; i++) {
                 var key = localStorage.key(i);
@@ -288,7 +292,7 @@ var EA = {
 
     addServerExpense: function (id, expense) {
         if (Modernizr.localstorage) {
-            localStorage['serverExpense' + id] = JSON.stringify(expense);
+            localStorage.setItem(EA.app + "serverExpense" + id, JSON.stringify(expense));
         } else {
             this.serverExpenses.push(expense);
         }
@@ -298,7 +302,7 @@ var EA = {
         if (Modernizr.localstorage) {
             // if the key starts with the word serverExpense and
             // is follow by an integer, we know it is an expense form
-            var regExp = /^serverExpense\d+/;
+            var regExp = /^jqm_serverExpense\d+/;
             var keysToDelete = [];
             // loop through all entries in local storage
             // and save the keys to be deleted
@@ -325,7 +329,7 @@ var EA = {
 
     getEvidence: function () {
         if (Modernizr.sessionstorage) {
-            return sessionStorage.evidence;
+            return sessionStorage.getItem(EA.app + "evidence");
         } else {
             return this.evidence;
         }
@@ -333,7 +337,7 @@ var EA = {
 
     setEvidence: function (evidence) {
         if (Modernizr.sessionstorage) {
-            sessionStorage.evidence = evidence;
+            sessionStorage.setItem(EA.app + "evidence", evidence);
         } else {
             this.evidence = evidence;
         }
@@ -341,7 +345,7 @@ var EA = {
 
     clearEvidence: function () {
         if (Modernizr.sessionstorage) {
-            sessionStorage.removeItem("evidence");
+            sessionStorage.removeItem(EA.app + "evidence");
         } else {
             this.evidence = null;
         }

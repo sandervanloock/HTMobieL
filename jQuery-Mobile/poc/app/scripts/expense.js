@@ -107,7 +107,7 @@ $(document).on("pageinit", "#expense", function () {
     // tabbar abroad or domestic
     $("#expense-type-restaurant").parent().hide();
     $("#expense-currency-div").hide();
-    $expenseCurrencyConverted.parent().hide();
+    $expenseCurrencyConverted.parent().parent().hide();
     //$euroSign.show();
 
     // shows form items for abroad
@@ -117,7 +117,7 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().hide();
         $("#expense-type-restaurant").parent().show();
         $("#expense-currency-div").show();
-        $expenseCurrencyConverted.parent().show();
+        $expenseCurrencyConverted.parent().parent().show();
         $("#expense-type ").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");
@@ -132,7 +132,7 @@ $(document).on("pageinit", "#expense", function () {
         $("#expense-type-restaurant-diner").parent().show();
         $("#expense-type-restaurant").parent().hide();
         $("#expense-currency-div").hide();
-        $expenseCurrencyConverted.parent().hide();
+        $expenseCurrencyConverted.parent().parent().hide();
         $("#expense-type").find("input:radio").each(function () {
             $(this).prop("checked", false);
             $(this).checkboxradio("refresh");

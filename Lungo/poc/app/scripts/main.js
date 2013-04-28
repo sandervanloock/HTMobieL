@@ -14,17 +14,19 @@ Lungo.dom(document).ready(function () {
                 window.location.reload();
             }
         };
-    } else {
-        // do redirection
-        if (!Lungo.Data.Storage.persistent("user")) {
-            // user is not logged in, redirect to login screen
-            Lungo.Router.section("login");
-        } else {
-            // user is already logged in
-            loadUserInformation();
-        }
     }
+    checkIfUserIsLoggedIn();
 });
+
+function checkIfUserIsLoggedIn() {
+    if (!Lungo.Data.Storage.persistent("user")) {
+        // user is not logged in, redirect to login screen
+        Lungo.Router.section("login");
+    } else {
+        // user is already logged in
+        loadUserInformation();
+    }
+}
 
 // error function when failing AJAX requests to backend
 Lungo.Service.Settings.error = function () {

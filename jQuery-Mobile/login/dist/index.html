@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense App Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/51865353.app.css">
+    <script src="scripts/5f68ead2.app.js"></script>
+</head>
+
+<body>
+<div data-role="page" id="login-page">
+    <div data-role="header"><h1>Expense App</h1></div>
+    <div data-role="content" class="wrapper">
+        <form id="form" method="POST" action="">
+            <div data-role="fieldcontain">
+                <input type="text" name="username" id="username" value="tim.ameye@student.kuleuven.be" placeholder="Username">
+            </div>
+            <div data-role="fieldcontain">
+                <input type="password" name="password" id="password" value="test123" placeholder="Password">
+            </div>
+            <input type="submit" id="login-button" data-role="button" value="Log In">
+        </form>
+    </div>
+    <div data-role="footer" data-position="fixed"></div>
+</div>
+
+<div data-role="page" id="list-page">
+    <div data-role="header"><h1>Expense App</h1><a data-rel="back" data-icon="arrow-l" class="ui-btn-right">Back</a></div>
+    <div data-role="content" class="wrapper">
+        <ul data-role="listview" id="list">
+        </ul>
+    </div>
+    <div data-role="footer" data-position="fixed"></div>
+</div>
+
+<div data-role="dialog" id="error-validation">
+    <div data-role="header">
+        <h1>Validation error</h1>
+    </div>
+    <div data-role="content">
+        <p id="error-validation-message"></p>
+        <ul id="error-validation-items"></ul>
+        <a href="#" data-role="button" data-rel="back" data-theme="b">Close</a>
+    </div>
+</div>
+<script src="scripts/5f68ead2.app.js"></script>
+</body>
+</html>

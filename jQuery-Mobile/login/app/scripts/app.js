@@ -1,5 +1,4 @@
 $('#login-button').click(function(event) {
-    console.log("click");
     $("form").validate({
         rules: {
             username: {
@@ -57,7 +56,7 @@ $('#login-button').click(function(event) {
                 },
                 success: function(data, textStatus, jqXHR){
                     //alert(data);
-                    $.mobile.navigate("#list");
+                    $.mobile.navigate("#list-page");
                 },
                 complete: function(){
                     $.mobile.loading("hide");
@@ -65,4 +64,17 @@ $('#login-button').click(function(event) {
             });
         }
     });
+});
+
+var start, stop, nbButtons=100;
+
+
+$( '#list-page' ).on( 'pageinit',function(event){
+    start = new Date();
+    for (var i=0; i<nbButtons; i++){
+        var temp = i+1;
+        $('#list').append('<li><a href="#"><img src="images/music_icon.jpg" alt="Music">' + temp + ': Titel: Artist</li>').listview('refresh');
+    }
+    stop = new Date() - start;
+    alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
 });

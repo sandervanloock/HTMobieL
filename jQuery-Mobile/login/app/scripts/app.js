@@ -1,4 +1,5 @@
-$('#login-page').bind('pageinit', function(event) {
+$('#login-button').click(function(event) {
+    console.log("click");
     $("form").validate({
         rules: {
             username: {
@@ -34,15 +35,18 @@ $('#login-page').bind('pageinit', function(event) {
             })
             message +="</ul>";
             $("#error-validation-items").html(message);
-            $.mobile.changePage("#error-validation");
             this.defaultShowErrors();
         },
 
         invalidHandler:function () {
-
+            $.mobile.changePage("#error-validation");
         },
 
         submitHandler: function(form) {
+            $.mobile.loading("show", {
+                text:"Logging in",
+                textVisible:true
+            });
             $.ajax({
                 url: "http://kulcapexpenseapp.appspot.com/resources/userService/login",
                 type: "POST",
@@ -52,7 +56,11 @@ $('#login-page').bind('pageinit', function(event) {
                     password: $("#password").val()
                 },
                 success: function(data, textStatus, jqXHR){
-                    alert(data);
+                    //alert(data);
+                    $.mobile.navigate("#list");
+                },
+                complete: function(){
+                    $.mobile.loading("hide");
                 }
             });
         }

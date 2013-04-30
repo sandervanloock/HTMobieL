@@ -1,0 +1,6 @@
+Uitdaging,Challenge,jQM,ST,Lungo,Kendo
+"U3.1 Validatieregels voor verplichte, nummer- en e-mailvelden","C3.1 Validation rules for a required, number and email field ",1,2,0,0
+U3.2 Validatieregels voor eigen condities,C3.2 Validation depends on custom conditions ,1,1,0,0
+U3.3 Venster voor foutenboodschappen van ongeldige velden,C3.3 Error dialog with invalid fields and explanation,0,2,0,0
+U3.4 Rode randen plaatsen rond ongeldige velden,C3.4 Red borders around invalid fields ,0,0,0,0
+Totaal,Total,2,5,0,0

@@ -63,26 +63,18 @@
             <article id="main-article" class="active list indented text align_center">
                 <div class="form">
                     <fieldset >
-                        <input type="text" value="sander.vanloock1@student.kuleuven.be" placeholder="Username">
+                        <input type="text" value="sander.vanloock1@student.kuleuven.be" id="username" placeholder="Username">
+                        <input type="password" value="test123" placeholder="Password" id="password">
                     </fieldset>
-                    <fieldset>
-                        <input type="password" value="test123" placeholder="Password">
-                    </fieldset>
-                    <a href="#list-section" class="button" data-router="section" data-icon="forward">
-                        Log in
-                    </a>
+                    <a id="login-button" class="button" style="float: right;width: 50%;">Log in</a>
                 </div>
             </article>
 
         </section>
-        <section id="list-section" data-transition="slide">
+        <section id="list-section" data-transition="slide" data-loading="">
             <header data-back="home blue" data-title="Expense App Login"></header>
             <article id="list-page" class="active list indented text scroll align_center">
-                <ul>
-                    <li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg">Titel: artiest</a></li>
-                    <li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg">Titel: artiest</a></li>
-                    <li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg">Titel: artiest</a></li>
-                    <li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg">Titel: artiest</a></li>
+                <ul id="listview">
                 </ul>
             </article>
         </section>

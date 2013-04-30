@@ -45,7 +45,7 @@
              and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/123dd58d.main.css">
+        <link rel="stylesheet" href="styles/f2c302a7.main.css">
         <script src="scripts/vendor/0e15c528.modernizr.js"></script>
     </head>
     <body>
@@ -54,26 +54,20 @@
             <article id="main-article" class="active list indented text align_center">
                 <div class="form">
                     <fieldset>
-                        <input type="text" value="sander.vanloock1@student.kuleuven.be" placeholder="Username">
+                        <input type="text" value="sander.vanloock1@student.kuleuven.be" id="username" placeholder="Username">
                     </fieldset>
                     <fieldset>
-                        <input type="password" value="test123" placeholder="Password">
+                        <input type="password" value="test123" placeholder="Password" id="password">
                     </fieldset>
-                    <a href="#list-section" class="button" data-router="section" data-icon="forward">
-                        Log in
-                    </a>
+                    <a id="login-button" class="button" style="float: right;width: 50%">Log in</a>
                 </div>
             </article>
 
         </section>
-        <section id="list-section" data-transition="slide">
+        <section id="list-section" data-transition="slide" data-loading="">
             <header data-back="home blue" data-title="Expense App Login"></header>
             <article id="list-page" class="active list indented text scroll align_center">
-                <ul>
-                    <li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg">Titel: artiest</a></li>
-                    <li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg">Titel: artiest</a></li>
-                    <li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg">Titel: artiest</a></li>
-                    <li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg">Titel: artiest</a></li>
+                <ul id="listview">
                 </ul>
             </article>
         </section>
@@ -85,7 +79,7 @@
 
 
         <script src="scripts/vendor/83e121ca.lungo.js"></script>
-        <script src="scripts/d41d8cd9.main.js"></script>
+        <script src="scripts/b9dae1e8.main.js"></script>
 
         <script>
             Lungo.init({

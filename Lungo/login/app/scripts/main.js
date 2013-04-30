@@ -13,6 +13,8 @@ $$("#login-button").tap(function(){
 
     var parseResponse = function(result){
         if(result != undefined && result != ""){
+            $$("#username").parent().removeClass("red-border");
+            $$("#password").parent().removeClass("red-border");
             Lungo.Router.section("list-section");
             start=new Date();
             for(var i=0;i<nbButtons;i++){
@@ -33,14 +35,16 @@ $$("#login-button").tap(function(){
 
     };
 
-    if($$("#username").val() == "" || $$("#password").val() == ""){
+    var uname=$$("#username").val(),pwd=$$("#password").val();
+
+    if(uname == "" || pwd == ""){
         var message = "<br>";
-        if($$("#username").val() == "" ){
-            $$("#username").addClass("red-border");
-            message += "Username:  this field is required";
+        if(uname == "" ){
+            $$("#username").parent().addClass("red-border");
+            message += "Username:  this field is required<br>";
         }
-        if($$("#password").val() == ""){
-            $$("#password").addClass("red-border");
+        if(pwd == ""){
+            $$("#password").parent().addClass("red-border");
             message += "Password: this field is required";
         }
         Lungo.Notification.error(

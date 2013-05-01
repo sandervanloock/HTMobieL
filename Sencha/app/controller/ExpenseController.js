@@ -166,13 +166,14 @@ Ext.define('Expense.controller.ExpenseController', {
 
 
     sendExpenses : function(button, e, options){
+        Ext.getCmp('signature').removeCls('x-field-custom-error');
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
             message: 'Loading...'
         });
         var field = this.getSignfield().getValues();
         var expenseForm =  getExpenseForm();
-        if(!Ext.isEmpty(Ext.getCmp('signature').getValue())){
+        if(Ext.getCmp('signature').fieldValue!=undefined && Ext.getStore("expensestore").getData().length!=0){
             expenseForm.set('id',Math.floor(Math.random()*1000));
             expenseForm.set('date',new Date()); //TODO volgens POC
             expenseForm.set('employeeId', getEmployee().get('id'));
@@ -236,9 +237,15 @@ Ext.define('Expense.controller.ExpenseController', {
             Ext.Viewport.setActiveItem(Ext.getCmp('home'));
             Ext.getStore('expenseformstore').removeAll();
         } else { //validation error
-            //can't use build in validation because of singfield plugin can't have a name!
-            message = 'A signature must be present';
-            Ext.getCmp('signature').addCls('x-field-custom-error');
+            Ext.Viewport.setMasked(false);
+            var message = "";
+            if(Ext.getCmp('signature').fieldValue==undefined){
+                //can't use build in validation because of singfield plugin can't have a name!
+                message = 'A signature must be present';
+                Ext.getCmp('signature').addCls('x-field-custom-error');
+            }
+            if(Ext.getStore("expensestore").getData().length==0)
+                message += "<br>Expenses must be added";
             Ext.Msg.show({
                 title: 'Error',
                 message: message,

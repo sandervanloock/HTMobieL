@@ -7,7 +7,6 @@ Ext.define('Expense.view.SignField', {
         items: [
             {
                 xtype: 'fieldset',
-                //id: 'signfield',
                 items: [
                     {
                         xtype: 'signaturefield',

@@ -5,30 +5,34 @@
     <!-- build:css styles/app.css -->
     <link href="styles/kendo.mobile.all.min.css" rel="stylesheet">
     <!-- endbuild -->
-    <!-- build:js scripts/vendor.js -->
-    <script src="components/kendo/jquery.min.js"></script>
-    <script src="components/kendo/kendo.mobile.min.js"></script>
-    <!-- endbuild -->
 </head>
 <body>
-<div data-role="view" data-title="View" id="index">
+<div data-role="view" data-title="Expense App" id="index">
     <header data-role="header">
         <div data-role="navbar">
             <span data-role="view-title"></span>
         </div>
     </header>
-    <ul data-role="listview">
-        <li>Item 1</li>
-        <li>Item 2</li>
+
+    <ul data-role="listview" data-style="inset">
+        <li>
+            <label>
+                Username
+                <input type="text" placeholder="Username">
+            </label>
+        </li>
+        <li>
+            <label>
+                Password
+                <input type="password" placeholder="Password">
+            </label>
+        </li>
     </ul>
-    <footer data-role="footer">
-        <div data-role="tabstrip">
-            <a data-icon="home" href="#index">Home</a>
-            <a data-icon="settings" href="#settings">Settings</a>
-        </div>
-    </footer>
 </div>
+
 <!-- build:js scripts/app.js -->
+<script src="components/kendo/jquery.min.js"></script>
+<script src="components/kendo/kendo.mobile.min.js"></script>
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
 </body>

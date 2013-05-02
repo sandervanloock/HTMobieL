@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <title>Kendo UI Mobile</title>
+    <!-- build:css styles/app.css -->
+    <link href="styles/kendo.mobile.all.min.css" rel="stylesheet">
+    <!-- endbuild -->
+</head>
+<body>
+<div data-role="view" data-title="Expense App" id="index">
+    <header data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+        </div>
+    </header>
+
+    <ul data-role="listview" data-style="inset">
+        <li>
+            <label>
+                Username
+                <input type="text" placeholder="Username">
+            </label>
+        </li>
+        <li>
+            <label>
+                Password
+                <input type="password" placeholder="Password">
+            </label>
+        </li>
+    </ul>
+</div>
+
+<!-- build:js scripts/app.js -->
+<script src="components/kendo/jquery.min.js"></script>
+<script src="components/kendo/kendo.mobile.min.js"></script>
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>

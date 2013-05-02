@@ -1,5 +1,4 @@
-Ext.define(
-				'Expense.controller.MainController',
+Ext.define('Expense.controller.MainController',
 				{
 					extend : 'Ext.app.Controller',
 					

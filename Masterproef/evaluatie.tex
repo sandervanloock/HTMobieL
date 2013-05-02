@@ -176,10 +176,6 @@ TODO
 TODO
 
 \paragraph{\st}
-% The controller can fill an empty form with a model instance.
-% Field names that correspond to the object's properties are linked and filled in.
-% Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.  
-% Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
 Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
 Twee verschillende methoden worden in de POC gebruikt.
 Een eerste maakt gebruik van de \code{setRecord} methode van een \code{formpanel}.
@@ -272,11 +268,6 @@ TODO
 % Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
 
 \paragraph{\st}
-% Required fields and email validation can be assigned to a model.  
-% To add custom validation rules or messages,  the \code{validate} method of \code{Ext.data.Model} needs to be overridden.  
-% This method accepts a model instance and returns the possible validation errors.  
-% The errors must be iterated to concatenate the validation messages.
-% The red borders are created by adding a custom CSS class to the form element.
 Een model kan worden voorzien van validatieregels.
 Deze regels worden als objecten in een rij aan de \code{validations} eigenschap van een model toegekend.
 Volgende validatieregels zijn ingebouwd:
@@ -345,9 +336,6 @@ TODO
 % Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
 
 \paragraph{\st}
-% Drawing a signature is handled by a plugin~\cite{SimFla2011}.  
-% Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
-% This plugin could be used as-is by using the newly \code{signaturefield} component.  
 Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden op \exturl{market.sencha.com/extensions/signature-pad-field}.
 Een plug-in aan het raamwerk toevoegen kan door het \js-bestand in de touch/src/ux folder te plaatsen.
 Vervolgens moet de plug-in worden geladen bij het initialiseren van de applicatie.
@@ -398,10 +386,6 @@ TODO
 % Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
 \paragraph{\st}
-% A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
-% Some modifications were necessary to made it compliant with the POC.  
-% The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
-% The plugin automatically creates views for every PDF page.  
 Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
 Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
 Deze \code{view} bestaat uit een paneel met een hoofdtekst.
@@ -462,11 +446,6 @@ TODO
 % Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
 
 \paragraph{\st}
-% A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
-% This button enables users to select an image and passes it to a PHP file.  
-% This file uploads the image and converts it to base64.
-% A requirement is that your server is able to run that PHP file.    
-% A ST image can be created based on this base64 string.
 Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/file-uploading-component-for-sencha-touch}.
 De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
 Het \js-bestand moet in de touch/src/ux folder worden geplaatst en de \code{Ext.ux.Fileup} klasse moet worden geïnitialiseerd.
@@ -523,13 +502,7 @@ TODO
 % Deze functionaliteit zat niet in de plug-in, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
 
 \paragraph{\st}
-% A plugin can be found at~\cite{Mysamplecode2012} to create an autocomplete field.  
-% A request to the backend with a keyword returns a JSON array named \code{data}.  
-% ST can parse this array in two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  
-% The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  
-% Both strategies cannot be used to parse the array and create separate model instances for each array item.  
-% This implies that no clickable drop-down could be implemented.
-Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur. %TODO referentie https://github.com/martintajur/sencha-touch-2-autocomplete-textfield
+Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
 Deze plug-in is niet op de Sencha Market terug te vinden.
 Door het \js-bestand toe te voegen wordt het xtype \code{autocompletefield} beschikbaar.
 Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
@@ -601,13 +574,6 @@ TODO
 %Dit betekent dus met selectoren aan de hand van de jQuery bibliotheek.
 
 \paragraph{\st}
-% AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
-% The plain text of the AJAX response can be used in the callback.   
-% Stores can be configured with a model to define the structure of the recorded objects.  
-% A proxy configures readers and writers that define where the data can be read or written.  
-% This can be locally at the client side or via a remote server.  
-% Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
-% Sending JSON payload must be done via an AJAX request where the \code{jsonData} is encoded via \code{Ext.encode}.
 AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
 De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van jQuery.
 Een enige uitzondering is te vinden bij kruis-domein AJAX-verzoeken.
@@ -616,7 +582,7 @@ Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de ei
 
 De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{stores}.
 Een \code{store} wordt voorzien van een \code{proxy}.  
-Deze kan data aan de client of server zijde opslaan.  
+Deze kan data aan de klant of server zijde opslaan.  
 Een \code{proxy} voor opslag aan client zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
 Een \code{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
 Een \code{proxy} kan ook geconfigureerd worden met \code{readers} en \code{writers} om data van de server te lezen of naar de server te schrijven.
@@ -662,15 +628,6 @@ TODO
 TODO
 
 \paragraph{\st}
-% Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
-% If this method returns false,  we assume to be in tablet mode.    
-% The main screen of the POC requires a splitted view in tablet mode.  
-% A \code{vbox} layout splits the viewport with a vertical axis.  
-% The \code{flex} property defines the ratio of the sizes of both resulting components.  
-% %TODO niet meer relevant The right component is the page that changes by clicking the menu items in the left component.  
-% %This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout.
-% In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
-% Making the sub header clickable is not possible  
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
 \st{} kan zowel besturingssysteem, browser als ondersteunde (HTML5-)kenmerken opvragen en herkennen.
 Het besturingssysteem kan bevraagd worden via \code{Ext.os.name}.
@@ -689,7 +646,7 @@ Het opvragen en herkennen van browser en (HTML5-)kenmerken gebeurt op een analog
  \item [\code{Docking}] maakt het plaatsen van extra componenten mogelijk in de top-, rechter-, bodem- of linkerrand van zijn ouder container.
 \end{description}
 De creatie van de tablet lay-out steunt op de \code{HBox} lay-out.
-De \code{flex} eigenschap van deze layout definieert de ratio van de groottes van beide componenten.
+De \code{flex} eigenschap van deze lay-out definieert de ratio van de groottes van beide componenten.
 De creatie van de smartphone lay-out maakt het menu in de linkse component van de lay-out onzichtbaar.
 Om naar het menu terug te keren moet een extra knop in de hoofdtekst worden toegevoegd die naar het menu navigeert.
 \st{} ondersteund geen klikbare hoofdteksten die deze functionaliteit toelaten.
@@ -732,7 +689,38 @@ TODO
 TODO
 
 \paragraph{\st}
-TODO
+% U10.1 Bewaar login gegevens
+Zoals besproken bij U8: AJAX kan een \code{store} voozien worden van een \code{proxy} die data opslaat aan klantzijde.
+Deze \code{store} maakt gebruik van de HTML5-localStorage API.
+Om inlog gegevens en onverzonden onkosten lokaal te bewaren moeten twee \code{stores} met deze \code{proxy} worden gedefinieerd.
+Een belangrijke opmerking is dat geen twee \code{proxies} aan een \code{store} kunnen worden toegevoegd.
+Gegevens van een gebruiker moeten van de server worden opgehaald - met een AJAX-\code{proxy} - en lokaal worden opgeslagen - met een \term{local storage} \code{proxy}.
+Hiervoor zijn twee verschillende \code{store} instanties nodig die gesynchronizeerd moeten worden!
+Bij het laden van de applicatie zal de \code{store} die gebruikers lokaal opslaat, op data worden gecontroleerd.
+Indien er data wordt gevonden,  was de gebruiker reeds ingelogd.
+De applicatie zal dan meteen naar het startscherm navigeren.
+
+Om onverzonden uitgaven lokaal op te slaan, moeten de uitgaven ook aan een \code{store} met lokale \code{proxy} worden toegevoegd.
+Deze worden dan automatisch naar de \term{local storage} weggeschreven.
+De controle op onverzonde uitgaven wordt herleid tot het controleren van data in de \code{store}.
+Het verwijderen van onverzonden lokale uitgaven kan door de data in de \code{store} te wissen.
+
+% U10.3 Maak de applicatie offline beschikbaar
+De applicatie offline beschikbaar maken wordt ondersteund door Sencha Cmd~\cite{Sencha2012}.
+
+Deze tool kan de initiële applicaties opzetten,  bestanden toevoegen en de applicatie bouwen en deployen.
+Een applicatie,  zoals geinitialiseerd door Sencha Cmd,  moet alle benodigde \js-, en CSS-bestanden in een JSON-bestand onderbrengen.
+Een \code{microloader} zal de afhankelijke bestanden automatisch laden bij het opstarten van de applicatie.
+
+Het bouwen en deployen van een applicatie kan op vier niveaus:
+\begin{description}
+  \item [testing] maakt een testapplicatie om de kwaliteit te testen.  \js- en CSS-bestanden worden samengevoegd maar niet verkleind om makkelijk te debuggen
+  \item [package] maakt een zelfstandige applicatie die verspreidbaar is en vanop een bestandensyteem,  zonder web server,  kan lopen.
+  \item [production] maakt een applicatie die op een webserver beschikbaar wordt gemaakt waarvan de \js-, en CSS- bestanden zijn samengevoegd en verkleind.  Het maakt de applicatie ook offline beschikbaar door gebruik te maken van de HTML5-applicatie cache.  Ook is het mogelijk de applicatie op te waarderen naar een nieuwe versie.
+  \item [native] maakt een \term{native} applicatie die op het Android of iOS besturingssysteem kan lopen.
+\end{description}
+Om de applicatie offline beschikbaar te maken moet de applicatie gebouwd worden voor productie.
+De tool zal automatisch een manifest bestand aanmaken die alle vereiste bestanden bevat.
 
 \paragraph{\kendo}
 TODO
@@ -779,7 +767,19 @@ TODO
 % Door zelf de dialoogvenster met jQuery Mobile aan te maken, kon de layout minimier aangepast worden.
 
 \paragraph{\st}
-TODO
+Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{view} te plaatsen.
+Een object van dit xtype kan een bericht bevatten wat de laadtekst voorstelt.
+Het toten van een masker kan door de \code{setMasked} methode op een \code{view} op te roepen.
+Een courante aanpak is te werken met de \term{singleton} klasse \code{Ext.Viewport} die de huidige zichtbare \code{view} voorsteld.
+Hierop de \code{setMasked} methode oproepen verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
+
+De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialogen weer te geven.
+\st{} biedt drie standaarden van dialogen aan: \code{alert}, \code{promt} en \code{confirm}.
+De eerste laat de gebruiker een bericht zien,  de tweede vraagt de gebruiker om invoer en de laatste vraagt bevestiging aan de gebruiker.
+Deze drie standaarden zijn als methode in \code{Ext.Msg} beschikbaar.
+Parameters van de methoden kunnen de titel, tekst en functie van de knoppen bepalen.
+Een meer generieke aanpak is het oproepen van de \code{show} methode van \code{Ext.Msg}.
+Intern roepen de standaard dialogen deze methode ook op.
 
 \paragraph{\kendo}
 TODO
@@ -819,7 +819,18 @@ TODO
 TODO
 
 \paragraph{\st}
-TODO
+%TODO score? verplaatsten met lijsten
+De omzetting van \code{identifiers} en munteenheden vindt plaats in de overzichtslijsten.  
+Lijsten kunnen voorzien worden van een sjabloon om de elementen in de lijst op te maken.
+Hierop wordt verder ingegaan in de volgende uitdaging.
+In de lijst van uitgaven moet elke uitgave getoond worden met het bedrag in euro.
+In het sjabloon voor deze lijst kan een \js-methode worden geplaatst die het bedrag van de uitgave eerst naar euro zal omzetten.
+De progammeur heeft toegang tot alle eigenschappen van een model waarvan modelinstanties de lijstelementen zullen bepalen.
+De methode die de munteenheid tot euro omvormt, kan dus ook deze eigenschappen gebruiken.
+De methode moet echter wel zelf worden geschreven.
+Op een analoge manier verloopt de conversie van \code{identifier} naar tekstuele vorm.
+
+%TODO alternatief data geconverteerd opslagen en bij versturen/tonen als detailexpense terug omvormen.
 
 \paragraph{\kendo}
 TODO
@@ -859,9 +870,34 @@ TODO
 % Het aanmaken van lijsten gebeurt met de \term{listview} widget.
 
 \paragraph{\st}
-Navigationview:
+Zoals besproken in de vorige uitdaging kan een lijst voorzien worden van een sjabloon.
+Dit sjabloon kan HTML-code of een instantie van de \code{Ext.XTemplate} klasse zijn.
+De eerste definieert met HTML-tags de lay-out van de lijstelementen,  de tweede is geavanceerder.
+De functionaliteiten van \code{Ext.XTemplate} zijn:
+\begin{itemize}
+  \item Doorlopen van een rij.
+  \item Conditionele processen met de basis operatoren.
+  \item Ondersteuning voor basis wiskundige operaties.
+  \item Uitvoeren van willekeurige \js-code.
+  \item Eigen functies in het sjabloon oproepen.
+\end{itemize}
+Het formateren van een datum kan door de \code{date} methode van \code{Ext.util.Format} op te roepen in het sjabloon.
+
+Zoals reeds besproken bij uitdaging U2.1 Vul formulierelementen met data, kan een formulier worden ingevuld met een \code{navigationview}.
 Deze \code{view} heeft een \code{push} en \code{pop} methode om een \code{view} op een \code{stack} te plaatsen of af te halen.
-De 
+Om een \code{view} te tonen die hoort bij een lijstelement wordt gebruik gemaakt van deze \code{navigationview} en de \code{push} methode.
+De lijst wordt in een \code{navigationview} ingesloten.
+Het aanklikken van een lijstelement veroorzaakt een \code{disclosure} gebeurtenis.
+Een \code{controller} kan deze gebeurtenis opvangen en de \code{push} methode op de \code{navigationview} oproepen.
+De methode kan geparameteriseerd worden met een modelinstantie, analoog als de \code{setRecord} methode van een formulierpaneel.
+
+Het sorteren van een lijst kan automatisch met een \code{store}.
+Een \code{store} kan aan een lijst worden gekoppeld zodat alle modelinstanties van de \code{store} in de lijst worden weergegeven.
+De \code{store} moet dan voorzien worden van een \code{sorter}.
+Deze kan modelinstanties van een \code{store} sorteren op basis van eigenschappen van het bijhorende model.
+Ook kan de richting van sorteren worden geconfigureerd.
+Meerdere \code{sorters} definiëren is mogelijk voor het geval er gelijkheden op vorige niveau's optreden.
+Een \code{store} sorteren kan ook expliciet door de \code{sort} methode op de \code{store} op te roepen.
 
 \paragraph{\kendo}
 TODO
@@ -904,7 +940,19 @@ TODO
 TODO
 
 \paragraph{\kendo}
-TODO
+Het opbouwen van een \code{view} in \st{} gebeurt hiërarchisch met containers.
+Een component die aan een container kan worden toegevoegd is de \code{toolbar}.
+Een \code{toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
+Dit kan dan dienstdoen als hoofdtekst en voettekst.
+Een cascade van hoofdteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
+Een \code{toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
+Knoppen aan een \code{toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
+
+Het toevoegen van een tabbar verloopt analoog door een \code{tabpanel} toe te voegen.
+De \code{items} eigenschap bevat dan een lijst van \code{views} met een titel waarbij de \code{view} zichtbaar wordt als op de titel wordt gedrukt.
+
+Knoppen van kleur veranderen kan door de \code{style} van een knop te zetten.
+Deze eigenschap laat toe om CSS-eigenschappen als tekst of object aan de knop toe te voegen.
 
 \paragraph{\lungo}
 TODO

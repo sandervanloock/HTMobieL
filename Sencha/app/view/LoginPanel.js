@@ -35,7 +35,10 @@ Ext.define('Expense.view.LoginPanel', {
                         width: 212,
                         iconAlign: 'center',
                         text: 'Login',
-                        action: 'login'
+                        action: 'login',
+                        style: {
+                            background: 'green'
+                        }
                     }
                   ]
             }

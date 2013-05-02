@@ -24,7 +24,6 @@ Ext.define('Expense.controller.ExpenseController', {
         control: {
             "#overviewlist": {
                 disclose: 'showDetailExpense',
-                painted: 'decodeCurrencies'
             }, "#totaloverviewlist": {
             	disclose: 'showExpensePDF'
             }, 'button[action=showExpenseOverview]' : {
@@ -35,18 +34,6 @@ Ext.define('Expense.controller.ExpenseController', {
                 tap: 'sendDomesticExpense'
             },'button[action=sendExpenses]' : {
                 tap: 'sendExpenses'
-            }, 'abroadexpense textfield[itemId=projectCodeAbroad]' : {
-                //clear the input text box
-                clearicontap : 'onClearSearch',
-                //on every key stroke
-                keyup: 'onSearchKeyUp'
-            },'domesticexpense textfield[itemId=projectCodeDomestic]' : {
-                //clear the input text box
-                clearicontap : 'onClearSearch',
-                //on every key stroke
-                keyup: 'onSearchKeyUp'
-            },'projectcodelist': {
-                itemtap: 'onSelectRow'
             },fileLoadAbroad: {
                 loadsuccess: 'onFileUploadAbroadSuccess',
                 loadfailure: 'onFileUploadFailure'
@@ -56,13 +43,6 @@ Ext.define('Expense.controller.ExpenseController', {
             }
         }
     },
-
-    decodeCurrencies: function(comp, e){
-        /*Ext.getStore('expensestore').each(function(item,index,length){
-            encodeCurrency(item);
-        });*/
-    },
-
 
     showDetailExpense: function(list, record, target, index, e, options) {
     	if(record.getData()['expenseLocation'] == 'Abroad'){
@@ -77,7 +57,7 @@ Ext.define('Expense.controller.ExpenseController', {
 	            record: record
 	        });
     	}
-        comp.down('radiofield[name=expenseType]').setGroupValue(record.getData()['expenseType']);
+            comp.down('radiofield[name=expenseType]').setGroupValue(record.getData()['expenseType']);
         addImage(record.getData()['evidence'],comp,'loadedImageExpense');
     },
     

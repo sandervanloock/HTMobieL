@@ -106,11 +106,43 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 % Creating custom datepickers is not supported.  
 % It is impossible to ignore the days field and only years can be delimited.  
 % Clearing the form after it was send, has to be programmed manually.
+Een formulier wordt in \st{} \code{fielset} genoemd.
+Een \code{view} van een formulier voorzien kan door in de rij van elementen een object met \code{xtype} \code{fieldset} te maken.
+Dit object kan op zijn beurt voorzien worden van een rij van elementen.
+Volgende velden worden aangeboden in \st{}:
+\begin{enumerate}
+  \item \code{textfield}        Ext.field.Text
+  \item \code{numberfield}      Ext.field.Number
+  \item \code{emailfield}	 Ext.field.Email			
+  \item \code{textareafield}    Ext.field.TextArea
+  \item \code{hiddenfield}      Ext.field.Hidden
+  \item \code{radiofield}       Ext.field.Radio
+  \item \code{checkboxfield}    Ext.field.Checkbox
+  \item \code{selectfield}      Ext.field.Select	
+  \item \code{togglefield}      Ext.field.Toggle
+  \item \code{fieldset}         Ext.form.FieldSet
+\end{enumerate}
+
+Tekst-, email en nummervelden worden bij het renderen tot HTML5-invoertypes omgevormd en bijgevolg worden op mobiele toestellen bijhorende virtuele toetsenborden weergegeven.
+Een placeholder toevoegen kan door een veld met \code{placeholder} eigenschap te voorzien en de waarde aan de gewenste placeholder gelijk te stellen. 
+Een label toevoegen verloopt analoog,  deze weglaten zal geen label renderen.
+
+Een aangepaste \term{datepicker} maken is niet standaard voorzien.
+Een standaard \term{datepicker} is echter wel voorzien met \code{datepicker} als xtype.
+Deze kan enkel geconfigureerd worden door een begin- en eindjaar in te stellen.
+Een \term{datepicker} maken waarbij het bereik kleiner is dan een jaar, is niet mogelijk.
+Ook is het onmogelijk om enkel een maand- en jaarveld te tonen.
+
+%TODO challenge bekijken (enkel reset oproepen normaal ok )
+Het leegmaken van een formulier gebeurt niet automatisch wanneer het verzonden wordt.
+Hiervoor moet de \code{reset} methode op het bijhorende \code{formpanel} worden opgeroepen.
 
 \paragraph{\kendo}
  TODO
+ 
 \paragraph{\lungo} 
 TODO
+
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -142,15 +174,46 @@ TODO
 
 \paragraph{\jqm}
 TODO
+
 \paragraph{\st}
 % The controller can fill an empty form with a model instance.
 % Field names that correspond to the object's properties are linked and filled in.
 % Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.  
 % Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
+Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
+Twee verschillende methoden worden in de POC gebruikt.
+Een eerste maakt gebruik van de \code{setRecord} methode van een \code{formpanel}.
+De modelinstantie die het formulier zal invullen als parameter worden meegeven.
+\st{} zal automatisch de velden invullen waarbij de naam gelijk is aan de eigenschap van het model.
+Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op \code{togglefields}.
+Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
+Een model kan worden voorzien met eigenschappen met volgende types:
+\begin{enumerate}
+  \item auto (Default, implies no conversion)
+  \item string
+  \item int
+  \item float
+  \item boolean
+  \item date
+\end{enumerate}
+Er bestaat dus geen vlekkeloze mapping tussen een eigenschap van een model en een \code{radiofield}.
+Hetzelfde geldt voor een \code{checkboxfield}.
+Om deze in te vullen moet de \code{setGroupValue} van het veld worden aangesproken.
+
+
+%TODO u13 lijsten en click invullen van formulier,  hier ook...
+De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{navigationview} en wordt in U13: Lijsten besproken.
+
+Velden read-only maken kan door objecten te voozien van de \code{readOnly} eigenschap en de waarde op \code{true} te zetten.
+Bij \code{radiofields} en \code{checkboxfields} heet deze eigenschap \code{disabled}.
+
+
 \paragraph{\kendo}
 TODO
+
 \paragraph{\lungo}
 TODO
+
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -214,10 +277,36 @@ TODO
 % This method accepts a model instance and returns the possible validation errors.  
 % The errors must be iterated to concatenate the validation messages.
 % The red borders are created by adding a custom CSS class to the form element.
+Een model kan worden voorzien van validatieregels.
+Deze regels worden als objecten in een rij aan de \code{validations} eigenschap van een model toegekend.
+Volgende validatieregels zijn ingebouwd:
+\begin{description}
+  \item [presence] verzekert dat het het veld een waarde heeft waarbij nul als geldig wordt beschouwd,  lege tekst niet.
+  \item [length] verzekert dat een text een minimale en/of maximale waarde heeft.
+  \item [format] verzekert dat een text voldoet aan een opgegeven reguliere expressie.
+  \item [inclusion] verzekert dat de waarde van een veld gelijk is aan een element van een gespecifieerde set.
+  \item [exclusion] verzekert dat de waarde van een veld zeker niet gelijk is aan een element van een gespecifieerde set.
+\end{description}
+De controle of een opgegeven waarde een nummer is kan met de \code{format} regel en de \code{/\d+/} reguliere expressie.
+Om een bepaalde modelinstantie te valideren moet de \code{validate} methode op de instantie worden opgeroepen.
+Om eigen validatieregels toe te laten moet de implementatie van deze methode worden overschreven. \footnote{Informatie gevonden op \exturl{www.sencha.com/forum/showthread.php?122680-Conditional-fields-validations}}
+Deze functionaliteit zit dus niet standaard in \st{}.
+Met de nieuwe \code{validate} methode kan een \code{validator} aan een validatieregel worden toegevoegd.
+Dit is een functie die de programmeur zelf bepaalt en \code{true} of \code{false} teruggeeft bij het al dan niet slagen van een conditie.
+
+Het opbouwen van een foutenboodschap kan door te itereren over de fouten die na validtie werden teruggevonden.
+Een specifieke foutenboodschap kan aan elke validatieregel worden toegekend.
+
+Invalide formulierelementen aanduiden met een rode rand wordt niet door \st{} ondersteund.
+Hiervoor moet CSS worden gebruikt.
+Foutief ingevulde formulierelementen moeten na valiatie met een CSS-klasse worden aangevuld.
+
 \paragraph{\kendo}
 TODO
+
 \paragraph{\lungo}
 TODO
+
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -259,6 +348,14 @@ TODO
 % Drawing a signature is handled by a plugin~\cite{SimFla2011}.  
 % Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
 % This plugin could be used as-is by using the newly \code{signaturefield} component.  
+Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden op \exturl{market.sencha.com/extensions/signature-pad-field}.
+Een plug-in aan het raamwerk toevoegen kan door het \js-bestand in de touch/src/ux folder te plaatsen.
+Vervolgens moet de plug-in worden geladen bij het initialiseren van de applicatie.
+
+De plug-in maakt een nieuw xtype \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
+
+De plug-in maakt gebruikt van het HTML5-canvas en retourneert de handtekening als geëncodeerde base64 text.
+
 
 \paragraph{\kendo}
 TODO
@@ -301,10 +398,19 @@ TODO
 % Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
 \paragraph{\st}
-A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
-Some modifications were necessary to made it compliant with the POC.  
-The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
-The plugin automatically creates views for every PDF page.  
+% A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
+% Some modifications were necessary to made it compliant with the POC.  
+% The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
+% The plugin automatically creates views for every PDF page.  
+Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
+Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
+Deze \code{view} bestaat uit een paneel met een hoofdtekst.
+Het paneel toont één pagina van het PDF-bestand,  de hoofdtekst bevat de navigatie naar andere pagina's.
+
+Om de plug-in in de POC in te passen waren echter twee aanpassingen noodzakelijk.
+Het PDF-bestand moet via een POST verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
+Ook moest er een terugknop in de hoofdtekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
+Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
 
 \paragraph{\kendo}
 TODO
@@ -356,11 +462,23 @@ TODO
 % Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
 
 \paragraph{\st}
-A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
-This button enables users to select an image and passes it to a PHP file.  
-This file uploads the image and converts it to base64.
-A requirement is that your server is able to run that PHP file.    
-A ST image can be created based on this base64 string.
+% A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
+% This button enables users to select an image and passes it to a PHP file.  
+% This file uploads the image and converts it to base64.
+% A requirement is that your server is able to run that PHP file.    
+% A ST image can be created based on this base64 string.
+Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/file-uploading-component-for-sencha-touch}.
+De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
+Het \js-bestand moet in de touch/src/ux folder worden geplaatst en de \code{Ext.ux.Fileup} klasse moet worden geïnitialiseerd.
+Het xtype \code{img} wordt dan beschikbaar voor \st{} componenten.
+
+De plug-in voorziet twee modes voor het opladen van bestanden: lokale als base64 of extern naar een server.
+De eerste laat toe afbeeldingen in het DOM of \term{local storage} te laden.
+Dit laatste is een aspect van de POC.
+
+Nadat een bestand is opgeladen kunnen twee gebeurtenissen zich voordoen:  \code{loadsuccess} of \code{loadfailure}.
+Het is de taak van een \code{controller} om deze gebeurtenissen op te vangen en een bijhorende methode te definiëren.
+De succes functie krijgt de base64 text mee en kan een voorbeeld van de afbeelding laten weergeven.
 
 \paragraph{\kendo}
 TODO
@@ -411,6 +529,22 @@ TODO
 % The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  
 % Both strategies cannot be used to parse the array and create separate model instances for each array item.  
 % This implies that no clickable drop-down could be implemented.
+Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur. %TODO referentie https://github.com/martintajur/sencha-touch-2-autocomplete-textfield
+Deze plug-in is niet op de Sencha Market terug te vinden.
+Door het \js-bestand toe te voegen wordt het xtype \code{autocompletefield} beschikbaar.
+Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
+Ook is het mogelijk het maximaal aantal suggesties vast te leggen.
+
+De \term{backend} server die bij de POC hoort geeft bij een bepaald sleutelwoord suggesties in een JSON-rij terug.
+De rij is voorzien van een sleutel maar alle elementen van de rij hebben geen sleutel.
+\st{} voorziet vier methoden om de resultaten van een \code{proxy} te parsen naar modelinstanties:
+\begin{description}
+ \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
+ \item [\code{XmlReader}] parst XML-tags naar model velden.
+ \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
+\end{description}
+Geen van voorgaande methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
+Hierdoor kon geen klikbare dropdownmenu worden getoond.
 
 \paragraph{\kendo}
 TODO
@@ -467,14 +601,28 @@ TODO
 %Dit betekent dus met selectoren aan de hand van de jQuery bibliotheek.
 
 \paragraph{\st}
+% AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
+% The plain text of the AJAX response can be used in the callback.   
+% Stores can be configured with a model to define the structure of the recorded objects.  
+% A proxy configures readers and writers that define where the data can be read or written.  
+% This can be locally at the client side or via a remote server.  
+% Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
+% Sending JSON payload must be done via an AJAX request where the \code{jsonData} is encoded via \code{Ext.encode}.
+AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
+De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van jQuery.
+Een enige uitzondering is te vinden bij kruis-domein AJAX-verzoeken.
+Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de eigenschap \code{useDefaultXhrHeader} op \code{false} worden gezet.
+%TODO referentie cors + opzoeken options request
 
-AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
-The plain text of the AJAX response can be used in the callback.   
-Stores can be configured with a model to define the structure of the recorded objects.  
-A proxy configures readers and writers that define where the data can be read or written.  
-This can be locally at the client side or via a remote server.  
-Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
-Sending JSON payload must be done via an AJAX request where the \code{jsonData} is encoded via \code{Ext.encode}.
+De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{stores}.
+Een \code{store} wordt voorzien van een \code{proxy}.  
+Deze kan data aan de client of server zijde opslaan.  
+Een \code{proxy} voor opslag aan client zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
+Een \code{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
+Een \code{proxy} kan ook geconfigureerd worden met \code{readers} en \code{writers} om data van de server te lezen of naar de server te schrijven.
+
+Het verzenden van een JSON-\term{payload} moet via een expliciet AJAX-verzoek gebeuren.
+Data kan via \code{Ext.encode} naar JSON worden geëncodeerd en via de \code{jsonData} eigenschap aan het verzoek worden gekoppeld.
 
 \paragraph{\kendo}
 TODO
@@ -514,15 +662,37 @@ TODO
 TODO
 
 \paragraph{\st}
-Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
-If this method returns false,  we assume to be in tablet mode.    
-The main screen of the POC requires a splitted view in tablet mode.  
-A \code{vbox} layout splits the viewport with a vertical axis.  
-The \code{flex} property defines the ratio of the sizes of both resulting components.  
-%TODO niet meer relevant The right component is the page that changes by clicking the menu items in the left component.  
-%This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout.
-In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
-Making the sub header clickable is not possible  
+% Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
+% If this method returns false,  we assume to be in tablet mode.    
+% The main screen of the POC requires a splitted view in tablet mode.  
+% A \code{vbox} layout splits the viewport with a vertical axis.  
+% The \code{flex} property defines the ratio of the sizes of both resulting components.  
+% %TODO niet meer relevant The right component is the page that changes by clicking the menu items in the left component.  
+% %This can be realized via a \code{card} layout where changing the page implies setting the active component of the \code{card} layout.
+% In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
+% Making the sub header clickable is not possible  
+\st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
+\st{} kan zowel besturingssysteem, browser als ondersteunde (HTML5-)kenmerken opvragen en herkennen.
+Het besturingssysteem kan bevraagd worden via \code{Ext.os.name}.
+Deze methode herkent onder andere Android, iOS, Windows en BlackBerry.
+Er kan ook gebruik worden gemaakt van de \term{singleton} klasse \code{Ext.os.is}.
+Zo geeft \code{Ext.os.is.Android} terug of Android het gebruikte besturingssysteem is of niet.
+Het opvragen en herkennen van browser en (HTML5-)kenmerken gebeurt op een analoge manier.
+
+
+\st{} voorziet vijf lay-outs die aan een component kunnen worden toegekend:
+\begin{description}
+ \item [\code{HBox}] plaatst de componenten horizontaal naast elkaar.
+ \item [\code{VBox}] plaatst de componenten verticaal onder elkaar.
+ \item [\code{Card}] plaatst de componenten boven elkaar.
+ \item [\code{Fit}] maakt de component passend voor zijn ouder container.
+ \item [\code{Docking}] maakt het plaatsen van extra componenten mogelijk in de top-, rechter-, bodem- of linkerrand van zijn ouder container.
+\end{description}
+De creatie van de tablet lay-out steunt op de \code{HBox} lay-out.
+De \code{flex} eigenschap van deze layout definieert de ratio van de groottes van beide componenten.
+De creatie van de smartphone lay-out maakt het menu in de linkse component van de lay-out onzichtbaar.
+Om naar het menu terug te keren moet een extra knop in de hoofdtekst worden toegevoegd die naar het menu navigeert.
+\st{} ondersteund geen klikbare hoofdteksten die deze functionaliteit toelaten.
 
 \paragraph{\kendo}
 TODO
@@ -689,7 +859,9 @@ TODO
 % Het aanmaken van lijsten gebeurt met de \term{listview} widget.
 
 \paragraph{\st}
-TODO
+Navigationview:
+Deze \code{view} heeft een \code{push} en \code{pop} methode om een \code{view} op een \code{stack} te plaatsen of af te halen.
+De 
 
 \paragraph{\kendo}
 TODO

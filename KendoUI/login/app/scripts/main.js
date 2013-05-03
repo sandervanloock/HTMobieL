@@ -46,7 +46,7 @@ $("#login-button").click(function () {
                     // http://www.kendoui.com/forums/mobile/application/programmatic-navigation.aspx
                     var start = new Date();
                     for (var i = 0; i < 1000; i++) {
-                        $("#home-list").append("<li>Item " + i + "</li>")
+                        $('#home-list').append("<li><h2>Item " + i + '</h2><img src="images/boston.jpg"><a data-role="detailbutton" data-style="detaildisclose"></a></li>')
                     }
                     app.navigate("#home");
                     var stop = new Date();

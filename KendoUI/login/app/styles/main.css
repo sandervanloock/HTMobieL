@@ -1,0 +1,12 @@
+#login-button {
+    background-color: green;
+}
+
+.align-right {
+    text-align: right;
+}
+
+#login-dialog {
+    width: 90%;
+    height: 18em;
+}

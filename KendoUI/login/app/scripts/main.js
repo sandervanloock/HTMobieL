@@ -10,17 +10,22 @@ var validator = $("#login-form").kendoValidator({
 
 // check validation on save button click
 $("#login-button").click(function () {
+    var $dialogList = $("#dialog-list");
+    var $dialog = $("#dialog");
+
     if (!validator.validate()) {
         // don't show messages on the form
         validator.hideMessages();
         // get the errors to show them in a dialog
         var errors = validator.errors();
-        $("#login-dialog-errors").empty();
+        $dialogList.empty();
         $(errors).each(function () {
-            $("#login-dialog-errors").append("<li>" + this + "</li>");
+            $dialogList.append("<li>" + this + "</li>");
         });
+        // show red border
+        $("#login-username").parent().parent().addClass("red-border");
         // open the dialog
-        $("#login-dialog").kendoMobileModalView("open");
+        $dialog.kendoMobileModalView("open");
     } else {
         // copied from jQM
         $.ajax({
@@ -31,26 +36,23 @@ $("#login-button").click(function () {
                 'email': $("#login-username").val(),
                 'password': $("#login-password").val()
             },
-            beforeSend: function () {
-                app.showLoading();
-            },
-            error: function () {
-                app.hideLoading();
-                alert("Backend error");
-            },
             success: function (token) {
-                app.hideLoading();
                 if (!token || token == '') {
-                    alert("Username and/or password is incorrect.");
+                    $dialogList.empty();
+                    $dialogList.append("<li>Username and/or password are incorrect</li>");
+                    $("#login-username").parent().parent().addClass("red-border");
+                    $dialog.kendoMobileModalView("open");
                 } else {
                     // http://www.kendoui.com/forums/mobile/application/programmatic-navigation.aspx
                     var start = new Date();
                     for (var i = 0; i < 1000; i++) {
-                        $('#home-list').append("<li><h2>Item " + i + '</h2><img src="images/boston.jpg"><a data-role="detailbutton" data-style="detaildisclose"></a></li>')
+                        $('#home-list').append("<li><h2>" + i + ': Title: Artist</h2><img src="images/boston.jpg"><a data-role="detailbutton" data-style="detaildisclose"></a></li>')
                     }
                     app.navigate("#home");
                     var stop = new Date();
-                    alert(stop - start + " ms");
+                    $dialogList.empty();
+                    $dialogList.append("<li>" + (stop - start) + " ms</li>");
+                    $dialog.kendoMobileModalView("open");
                 }
             }
         });
@@ -59,5 +61,6 @@ $("#login-button").click(function () {
 
 function closeDialog(e) {
     // TODO: Maximum call stack size exceeded
-    $("#login-dialog").kendoMobileModalView("close");
+    $("#dialog").kendoMobileModalView("close");
+    $("#login-username").parent().parent().removeClass("red-border");
 }

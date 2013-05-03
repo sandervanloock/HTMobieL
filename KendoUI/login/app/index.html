@@ -18,12 +18,11 @@
     <div id="login-form">
         <ul data-role="listview" data-style="inset">
             <li>
-                <label>Username</label>
-                <input type="text" id="login-username" placeholder="Username" value="tim.ameye@student.kuleuven.be" required
+                <input type="text" id="login-username" placeholder="Username" value="tim.ameye@student.kuleuven.be"
+                       required
                        validationMessage="Username: This field is required.">
             </li>
             <li>
-                <label>Password</label>
                 <input type="password" id="login-password" placeholder="Password" value="test123" required
                        validationMessage="Password: This field is required.">
             </li>
@@ -34,16 +33,11 @@
     </div>
 </div>
 
-<div data-role="modalview" id="login-dialog" data-close="closeDialog">
-    <div data-role="header">
-        <div data-role="navbar">
-            <span>Validation error</span>
-            <a data-click="closeDialog" data-role="button" data-align="right">Close</a>
-        </div>
-    </div>
-    <ul id="login-dialog-errors" data-role="listview" data-style="inset">
+<div data-role="modalview" id="dialog" data-close="closeDialog">
+    <ul id="dialog-list" data-role="listview" data-style="inset">
 
     </ul>
+    <a data-click="closeDialog" data-role="button" data-align="right">Close</a>
 </div>
 
 <div data-role="view" data-title="Expense App" id="home">

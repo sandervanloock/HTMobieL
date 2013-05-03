@@ -2,11 +2,20 @@
     background-color: green;
 }
 
+#login input {
+    position: static;
+    width: 100%;
+}
+
+.red-border {
+    border: 2px solid red;
+}
+
 .align-right {
     text-align: right;
 }
 
-#login-dialog {
+#dialog {
     width: 90%;
     height: 18em;
 }

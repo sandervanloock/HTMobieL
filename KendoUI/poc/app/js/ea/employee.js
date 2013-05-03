@@ -45,15 +45,15 @@ var Employee = kendo.data.Model.define( {
 var employee = new Employee();
 
 var employeeLocalStorage = new kendo.data.DataSource({
-    /*transport: {
+    transport: {
         read: function(options) {
-            /*if(EA.hasUser())
+            if(EA.hasUser())
                 employee = EA.setUser(EA.getUser());
             else
                 employee = new Employee();
             options.success(employee);
         }
-    },*/
+    },
     schema: {
         model: Employee
     }

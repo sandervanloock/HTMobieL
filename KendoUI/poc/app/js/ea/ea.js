@@ -214,14 +214,19 @@ var EA = {
      * Expense evidence
      *************************************************/
 
-    evidence:"",
+    evidence: "",
 
     getEvidence:function () {
+        var result;
         if (Modernizr.sessionstorage) {
-            return sessionStorage.evidence;
+            result= sessionStorage.evidence;
         } else {
-            return this.evidence;
+            result=this.evidence;
         }
+        if(result==undefined)
+            return "";
+        else
+            return result;
     },
 
     setEvidence:function (evidence) {

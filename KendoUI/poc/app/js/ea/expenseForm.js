@@ -53,11 +53,16 @@ function submitExpense(){
         } else {
             // attach expenses to the request
             expenseForm.expenses = expenses;
+            $.each(expenseForm.expenses,function(index,value){
+                delete value.rate;
+            });
 
             // prepare the request
             var expenseRequest = {};
             expenseRequest.token = EA.getToken();
             expenseRequest.expenseForm = expenseForm.toJSON();
+
+
 
             console.log("Request: " + JSON.stringify(expenseRequest).length);
             console.log("Signature: " + expenseForm.signature.length);

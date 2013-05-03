@@ -52,13 +52,13 @@ var expense = kendo.observable({
             var newExpense = {
                 date: this.get("date"),
                 projectCode: this.get("projectCode"),
-                expenseTypeId: this.get("expenseTypeId"),
-                amount: this.get("amount"),
                 currency: this.get("currency").get("currency"),
-                rate: this.get("currency").get("rate"),
+                amount: this.get("amount"),
                 remarks: this.get("remarks"),
-                evidence: EA.getEvidence(),
-                expenseLocationId: this.get("expenseLocationId")
+                expenseTypeId: this.get("expenseTypeId"),
+                expenseLocationId: this.get("expenseLocationId"),
+                rate: this.get("currency").get("rate"),
+                evidence: EA.getEvidence()
             };
             if (Modernizr.localstorage) {
                 console.log("local expenses written");
@@ -74,7 +74,7 @@ var expense = kendo.observable({
             this.set("amount",null);
             this.set("currency",null);
             this.set("rate",null);
-            this.set("remarks",null);
+            this.set("remarks","");
             //clear the evidence image http://www.telerik.com/community/forums/aspnet-mvc/upload/programmatically-remove-clear-uploaded-files.aspx
             var canvas = $('#expense-evidence-canvas')[0];
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);

@@ -1,6 +1,6 @@
 <!doctype html>
 <!--http://codingwithspike.wordpress.com/2012/12/31/kendo-mobile-gotchas-tips-tricks/-->
-<html manifest="ea.appcache">
+<html>
 <head>
     <title>Expense App</title>
     <!-- build:css styles/app.css -->
@@ -20,7 +20,7 @@
     //eliminate this by supporting splash screens
 </script>
 
-<div data-role="view" id="login-view" data-layout="login" data-show="loginInit" data-init="loginInit">
+<div data-role="view" id="login-view" data-layout="login" data-show="loginInit" data-init="loginInit" data-use-native-scroller="true">
 
     <form>
         <ul data-role="listview" data-style="inset">
@@ -84,7 +84,7 @@
 
     <div data-role="pane" id="main-pane" >
 
-        <div data-role="view" data-title="Your Info" id="yourInfo" data-model="employee" data-init="yourInfoViewInit" data-layout="default-right">
+        <div data-role="view" data-title="Your Info" id="yourInfo" data-model="employee" data-init="yourInfoViewInit" data-layout="default-right" data-use-native-scroller="true">
             <h1>1. Your Info</h1>
             <ul data-role="listview" data-style="inset">
                 <li><input type="date" id="your-info-date" /></li>
@@ -154,7 +154,7 @@
             <a data-role="backbutton" style="float:right;">Back</a>
         </div>
 
-        <div data-role="view" data-title="Add Expense" id="addExpense" data-model="expense" data-init="addExpenseViewInit" data-layout="default-right">
+        <div data-role="view" data-title="Add Expense" id="addExpense" data-model="expense" data-init="addExpenseViewInit" data-layout="default-right" data-use-native-scroller="true">
             <h1>3. Add Expense</h1>
             <ul id="expense-location-button" data-index="0">
                 <li>Abroad</li>
@@ -190,7 +190,7 @@
             <canvas id="expense-evidence-canvas" style="display:block"></canvas>
         </div>
 
-        <div data-role="view" data-title="Overview" id="signAndSend" data-model="expenseForm" data-show="signAndSendViewInit" data-layout="default-right">
+        <div data-role="view" data-title="Overview" id="signAndSend" data-model="expenseForm" data-show="signAndSendViewInit" data-layout="default-right" data-use-native-scroller="true">
             <h1>4. Sign & Send</h1>
             <ul data-role="listview" data-style="inset">
                 <li><div id="sign-and-send-signature">Signature</div>

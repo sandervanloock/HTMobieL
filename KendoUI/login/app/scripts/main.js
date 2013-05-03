@@ -1,5 +1,6 @@
 var app = new kendo.mobile.Application();
 
+// http://docs.kendoui.com/api/framework/validator
 // get a reference to the validatable form
 var validator = $("#login-form").kendoValidator({
         // no validation when element loses focus
@@ -21,6 +22,7 @@ $("#login-button").click(function () {
         // open the dialog
         $("#login-dialog").kendoMobileModalView("open");
     } else {
+        // copied from jQM
         $.ajax({
             type: "POST",
             dataType: "text",
@@ -41,7 +43,14 @@ $("#login-button").click(function () {
                 if (!token || token == '') {
                     alert("Username and/or password is incorrect.");
                 } else {
-                    alert(token);
+                    // http://www.kendoui.com/forums/mobile/application/programmatic-navigation.aspx
+                    var start = new Date();
+                    for (var i = 0; i < 1000; i++) {
+                        $("#home-list").append("<li>Item " + i + "</li>")
+                    }
+                    app.navigate("#home");
+                    var stop = new Date();
+                    alert(stop - start + " ms");
                 }
             }
         });

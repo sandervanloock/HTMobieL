@@ -254,6 +254,7 @@ module.exports = function (grunt) {
                 src: [
                     'scripts/*.js',
                     'styles/*.css',
+                    'styles/images/*',
                     'images/*'
                 ],
                 dest: '<%= yeoman.dist %>/ea.appcache'
@@ -275,6 +276,13 @@ module.exports = function (grunt) {
                             'images/{,*/}*.{webp,gif,ico}',
                             'styles/fonts/*'
                         ]
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: '<%= yeoman.app %>',
+                        dest: '<%= yeoman.dist %>/styles/images/',
+                        src: ['components/kendo/styles/images/*']
                     }
                 ]
             }
@@ -331,7 +339,7 @@ module.exports = function (grunt) {
         'copy',
         'cssmin',
         'rev',
-        'manifest',
+//        'manifest',
         'usemin'
     ]);
 

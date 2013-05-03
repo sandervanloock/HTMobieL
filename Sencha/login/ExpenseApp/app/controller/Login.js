@@ -1,42 +1,42 @@
 Ext.define("ExpenseApp.controller.Login", {
-    extend:"Ext.app.Controller",
+    extend: "Ext.app.Controller",
 
-    requires:[
+    requires: [
         "ExpenseApp.model.User"
     ],
 
-    config:{
-        refs:{
-            form:"#loginForm",
-            btn:"#loginButton"
+    config: {
+        refs: {
+            form: "#loginForm",
+            btn: "#loginButton"
         },
 
-        control:{
-            btn:{
-                tap:"login"
+        control: {
+            btn: {
+                tap: "login"
             }
         }
     },
 
-    login:function () {
+    login: function () {
         var form = this.getForm();
         var user = Ext.create("ExpenseApp.model.User", form.getValues());
         var errors = user.validate();
 
         if (errors.isValid()) {
             Ext.Ajax.request({
-                url:'http://kulcapexpenseapp.appspot.com/resources/userService/login',
-                method:"POST",
-                params:{
-                    email:user.get("username"),
-                    password:user.get("password")
+                url: 'http://kulcapexpenseapp.appspot.com/resources/userService/login',
+                method: "POST",
+                params: {
+                    email: user.get("username"),
+                    password: user.get("password")
                 },
-                success:function (response) {
+                success: function (response) {
                     var token = response.responseText;
                     if (token == "") {
                         Ext.Msg.alert("Authentication Failed", "Wrong username and/or password.");
                     } else {
-                        Ext.Msg.alert("Token", token);
+                        Ext.Viewport.setActiveItem(Ext.create('ExpenseApp.view.List'));
                     }
                 }
             });

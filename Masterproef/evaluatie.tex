@@ -110,7 +110,7 @@ Een formulier wordt in \st{} \code{fielset} genoemd.
 Een \code{view} van een formulier voorzien kan door in de rij van elementen een object met \code{xtype} \code{fieldset} te maken.
 Dit object kan op zijn beurt voorzien worden van een rij van elementen.
 Volgende velden worden aangeboden in \st{}:
-\begin{enumerate}
+\begin{itemize}
   \item \code{textfield}        Ext.field.Text
   \item \code{numberfield}      Ext.field.Number
   \item \code{emailfield}	 Ext.field.Email			
@@ -121,7 +121,7 @@ Volgende velden worden aangeboden in \st{}:
   \item \code{selectfield}      Ext.field.Select	
   \item \code{togglefield}      Ext.field.Toggle
   \item \code{fieldset}         Ext.form.FieldSet
-\end{enumerate}
+\end{itemize}
 
 Tekst-, email en nummervelden worden bij het renderen tot HTML5-invoertypes omgevormd en bijgevolg worden op mobiele toestellen bijhorende virtuele toetsenborden weergegeven.
 Een placeholder toevoegen kan door een veld met \code{placeholder} eigenschap te voorzien en de waarde aan de gewenste placeholder gelijk te stellen. 
@@ -138,7 +138,40 @@ Het leegmaken van een formulier gebeurt niet automatisch wanneer het verzonden w
 Hiervoor moet de \code{reset} methode op het bijhorende \code{formpanel} worden opgeroepen.
 
 \paragraph{\kendo}
- TODO
+ Formulierelementen definiëren kan via data-attributen door gebruik te maken van de opmaakgedreven aanpak van \kendo.
+ Deze methodologie volgt dus sterk de HTML5-standaard.
+ Het placeholder attribuut kan een placeholder definiëren,  het vermijden van een label zal geen labels genereren.
+ Het type van het formulierelement moet met het type attribuut worden weergegeven.
+ Volgende types worden door \kendo{} ondersteund:
+ \begin{itemize}
+  \item \code{text}
+  \item \code{password}
+  \item \code{search}
+  \item \code{url}
+  \item \code{email}
+  \item \code{number}
+  \item \code{tel}
+  \item \code{file} (niett in iOS)
+  \item \code{date}
+  \item \code{timemonth} 
+  \item \code{datetime}
+ \end{itemize}
+
+ \term{Datepickers} worden als widget aangeboden in het Web luik van \kendo{}.
+ Het raamwerk zal een invoerelement omvormen naar een \code{kendoDatePicker}.
+ Het invoerelement ziet er als volgt uit: \code{<input id=\"datepicker\"\/>}.  
+ Vervolgens moet het element worden geïnitialiseerd met \code{\$("\#datePicker").kendoDatePicker()}.
+ De datepicker is aanpasbaar zoals gevraagd in de POC.
+ Het bereik van de data selectie kan worden ingeperkt door de \code{min} en \code{max} eigenschap van de \code{kendoDatePicker} te zetten.
+ Deze eigenschappen worden bij initialisatie van het object meegegeven.
+ Enkel maand- en jaarvelden tonen kan door de diepte van de \term{datepicker} in te stellen.
+ Hiervoor moet de eigenschap \code{depth} aan \code{year} worden gelijkgesteld.
+ 
+ Het wissen van formulieren steunt op de MVVM-architectuur.
+ Een fomulier is gebonden aan een \code{(view)model}:  de inhoud van elk formulierelement komt overeen met de waarde van een eigenschap van een \code{(view)model} met dezelfde naam.
+ Wanneer een uitgave wordt verzonden, zal de huidige waarde van het \code{(view)model} in een \js-object worden opgeslagen en wordt het \code{(view)model} gereset.
+ Door de dubbele binding tussen formulier en \code{(view)model} zal ook de inhoud van de formulierelementen worden gewist.
+ 
  
 \paragraph{\lungo} 
 TODO
@@ -184,14 +217,14 @@ De modelinstantie die het formulier zal invullen als parameter worden meegeven.
 Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op \code{togglefields}.
 Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
 Een model kan worden voorzien met eigenschappen met volgende types:
-\begin{enumerate}
+\begin{itemize}
   \item auto (Default, implies no conversion)
   \item string
   \item int
   \item float
   \item boolean
   \item date
-\end{enumerate}
+\end{itemize}
 Er bestaat dus geen vlekkeloze mapping tussen een eigenschap van een model en een \code{radiofield}.
 Hetzelfde geldt voor een \code{checkboxfield}.
 Om deze in te vullen moet de \code{setGroupValue} van het veld worden aangesproken.
@@ -205,7 +238,19 @@ Bij \code{radiofields} en \code{checkboxfields} heet deze eigenschap \code{disab
 
 
 \paragraph{\kendo}
-TODO
+Het invullen van een formulier steunt ook op de MVVM-architectuur en is gelijkaardig aan het resetten van een formulier.
+De dubbele binding tussen een formulier en \code{(view)model} wordt met de HTML-tag \code{data-model} aangegeven.
+Een \code{viewmodel} wordt in \kendo{} \code{ObservableObject} genoemd.
+Een \code{model} heet \code{Model} en erft over van een \code{ObservableObject}.
+Deze laatste breidt een \code{ObservableObject} uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
+In wat volgt zal aangenomen worden dat een \code{ObservableObject} wordt gebruikt in plaats van een \code{Model},  tenzij anders vermeld.
+Om een formulier met data te vullen is het de taak van de programmeur de velden van het \code{ObservableObject} van de correct waarden te voorzien.
+De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
+
+
+Read-only velden moeten in het data-attribuut van het formulierelement worden gespecificeerd.
+Alle invoer types buiten radio- en selectknoppen gebruiken hiervoor het \code{readOnly} sleutelwoord.
+Radio- en selectknoppen worden onbeschikbaar met het \code{disabled} sleutelwoord.
 
 \paragraph{\lungo}
 TODO
@@ -293,7 +338,40 @@ Hiervoor moet CSS worden gebruikt.
 Foutief ingevulde formulierelementen moeten na valiatie met een CSS-klasse worden aangevuld.
 
 \paragraph{\kendo}
-TODO
+Het \kendo{} raamwerk ondersteunt de validaties zoals aangeboden binnen HTML5:
+\begin{itemize}
+  \item [required] verzekert dat een het veld een waarde heeft.
+  \item [pattern] verzekert dat de waarde van een veld voldoet aan een opgegeven reguliere expressie.
+  \item [min/max] verzekert dat de waarde van een veld groter en/of kleiner is dan een opgegeven waarde.
+  \item [data types] verzekert dat de waarde van een veld gelijk is aan het opgegeven type (e-mail, url, number, enz.)
+\end{itemize}
+Deze validaties moeten binnen het data-attribuut van het formulierelement worden aangebracht.
+
+De \kendo{} \code{validator} is compatibel met deze HTML5-validaties.
+Een \code{validator} moet in \js worden aangemaakt met volgend commando:  \code{\$("\#myform").kendoValidator().data("kendoValidator")}.
+Hierbij kan de jQuery selector eender welk element uit het DOM aanduiden.
+De \code{validator} zal geselecteerde invoerelementen controleren op validatieregels.
+
+Eigen condities kunnen als validatieregels worden geformuleerd als \js-functie die \code{true} teruggeeft als de validatie slaagt.
+Deze functie kan aan de set van regels van een \code{validator} worden toegevoegd.
+De validatiecontrole starten kan door de \code{validate} methode op de \code{validator} op te roepen.
+Bij het controleren van invoerelementen worden altijd eerst de standaard validatieregels gecontoleerd,  daarna de eigen validatieregels.
+De volgorde waarin de controles worden uitgevoerd ligt vast en zal stoppen zodra één controle mislukt.
+
+%TODO mijn tricky implementatie van other -> remkars validatie vermelden?
+
+Validatieberichten kunnen voor standaard validaties door het raamwerk zelf worden opgebouwd.
+Deze kunnen worden overschreven door zelf een data-attribuut \code{validationMessage} aan het invoerelement toe te kennen.
+Bij eigen validatieregels kan een validatiebericht per regel worden gespecificeerd.
+
+Invalide formulierelementen aanduiden met een rode rand wordt niet door \kendo{} ondersteund.
+De standaard implementatie voorziet een \code{tooltip} per invalied veld.
+Deze zal het validatiebericht naast het invalide formulierelement plaatsen. 
+
+Een venster tonen waarbij alle foutenboodschappen zijn samengevat is ook niet standaard aanwezig.
+De \code{errors} methode van een \code{validator} geeft een rij van foutenboodschappen terug.
+De volledige foutenboodschap moet vervolgens worden geconstrueerd door alle foutenboodschappen te concateneren.
+Hoe een dialoogvenster gemaakt wordt zal in U11.2 Toon dialoog worden besproken.
 
 \paragraph{\lungo}
 TODO

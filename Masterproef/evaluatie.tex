@@ -905,9 +905,44 @@ Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met 
 
 %%%%%%%%%%%%%
 \subsection{U10: Offline}
+In tabel \ref{tabel:evaluatie-gebruik-u10} worden de resultaten getoond van de drie deeluitdagingen van U10:~Offline.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik/u10.csv}
+\caption{Gebruik voor U10: Offline}
+\label{tabel:evaluatie-gebruik-u10}
+\end{table}
 
 \paragraph{\jqm}
-TODO
+Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
+Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
+Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een fallback geschreven die de data bijhoudt als \js{}-variabelen.
+Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
+Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
+
+Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
+Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\st}
 % U10.1 Bewaar login gegevens
@@ -947,34 +982,14 @@ De tool zal automatisch een manifest bestand aanmaken die alle vereiste bestande
 TODO
 
 \paragraph{\lungo}
-TODO
+Het raamwerk biedt zelf functies aan om data op te slaan.
+Intern zal het gebruik maken van \code{localStorage}, wat gespecificeerd is in HTML5.
+Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een fallback voorzien.
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u10.csv}
-\caption{Scores voor U10: Offline}
-\label{tabel:evaluatie-gebruik-u10}
-\end{table}
+Het offline beschikbaar maken van de applicatie wordt vanuit \lungo{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
+Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
+%%%%%%%%%%%%%
 \subsection{U11: Laadscherm en dialoogvenster} 
 
 \paragraph{\jqm}
@@ -1298,11 +1313,7 @@ TODO
 % Het sorteren van data werd geïmplementeerd door eerst in JavaScript een vergelijkingsfunctie te schrijven.
 % Daarna wordt deze functie meegegeven aan de sorteerfunctie die ook in JavaScript aanwezig is.
 % Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
-% 
-% \subsubsection{Offline} 
-% TODO
-% 
-
+%
 % \subsubsection{Koptekst en voettekst}
 % 
 % \paragraph{jQuery Mobile}

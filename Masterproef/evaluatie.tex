@@ -68,7 +68,33 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
-%Gebruik wordt opgedeeld per uitdaging.
+Het gebruik van de vier raamwerken wordt samengevat in tabel \ref{tabel:evaluatie-gebruik}.
+Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig worden besproken per raamwerk.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik.csv}
+\caption{Samenvattende tabel voor gebruik}
+\label{tabel:evaluatie-gebruik}
+\end{table}
+
+%%%%%%%%%%%%%
 
 \subsection{U1: Formulieren}
 In tabel \ref{tabel:evaluatie-gebruik-u1} worden de resultaten getoond van de vijf deeluitdaging van U1: Formulieren.
@@ -97,7 +123,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u1.csv}
-\caption{Scores voor U1:  Formulieren}
+\caption{Gebruik voor U1: Formulieren}
 \label{tabel:evaluatie-gebruik-u1}
 \end{table}
 
@@ -215,10 +241,50 @@ De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden o
 
 Het legen van een formulier gebeurt in Lungo door de \code{reset}-functie in \js{} op te roepen op dat formulier.
 
+%%%%%%%%%%%%%
+
 \subsection{U2: Invullen van formulier}
+In tabel \ref{tabel:evaluatie-gebruik-u2} worden de resultaten getoond van de twee deeluitdaging van U2: Invullen van formulier.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik/u2.csv}
+\caption{Gebruik voor U2: Invullen van formulier}
+\label{tabel:evaluatie-gebruik-u2}
+\end{table}
 
 \paragraph{\jqm}
-TODO
+Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
+Dit gebeurt typisch voor tekstvelden volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
+Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
+Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
+Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
+Ook hier moet eerst de waarde worden gezocht, waarna aan de gevonden waarde het \code{checked}-attribuut wordt toegevoegd.
+Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd, wat betekent dat dit dus voor iedere formulierveld dient te gebeuren.
+
+Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
+Dit geld voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} wordt gebruikt.
+Voor \code{select}-items moeten de andere niet-benodigde lijstitems verwijderd worden, want deze kunnen nog steeds aangeklikt worden.
 
 \paragraph{\st}
 Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
@@ -265,33 +331,17 @@ Alle invoer types buiten radio- en selectknoppen gebruiken hiervoor het \code{re
 Radio- en selectknoppen worden onbeschikbaar met het \code{disabled} sleutelwoord.
 
 \paragraph{\lungo}
-TODO
+Velden vullen met data dient handmatig te gebeuren door eerst het formulierveld op te zoeken en daarna de waarde te zetten.
+Dit gebeurt typisch volgens de volgende code: \code{\$\$("\#form-veld").val("waarde")}.
+Deze functie kan ook gebruikt worden voor \code{select}-types.
+Geoptimaliseerde mobiele lay-out voor \code{radio}-types is niet aanwezig in \lungo.
+Een opmerking dient wel gemaakt te worden dat de waarde altijd een \code{string} moet zijn.
+Dit betekent dus voor getallen dat deze altijd eerst moeten worden omgevormd met de \js{}-functie \code{toString()}. 
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u2.csv}
-\caption{U2: Invullen van formulier}
-\label{tabel:evaluatie-gebruik-u2}
-\end{table}
+Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
+Dit gaat voor alle types van velden, behalve voor \code{select}-types.
+Daar worden de niet-benodigde lijstitems verwijderd en wordt de \code{select} zelf \code{disabled} gemaakt.
+
 
 \subsection{U3: Formuliervalidatie}
 \label{sec:evaluatie-gebruik-u3}
@@ -1072,31 +1122,6 @@ TODO
 ]{tabellen/gebruik/u14.csv}
 \caption{Scores voor U14: Anatomie van pagina}
 \label{tabel:evaluatie-gebruik-u14}
-\end{table}
-
-\subsection{Overzicht}
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik.csv}
-\caption{Samenvattende tabel voor gebruikscriterium}
-\label{tabel:evaluatie-gebruik}
 \end{table}
 
 \section{Ondersteuning}

@@ -97,7 +97,7 @@ Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig wor
 %%%%%%%%%%%%%
 
 \subsection{U1: Formulieren}
-In tabel \ref{tabel:evaluatie-gebruik-u1} worden de resultaten getoond van de vijf deeluitdaging van U1: Formulieren.
+In tabel \ref{tabel:evaluatie-gebruik-u1} worden de resultaten getoond van de vijf deeluitdaging van U1:~Formulieren.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -244,7 +244,7 @@ Het legen van een formulier gebeurt in Lungo door de \code{reset}-functie in \js
 %%%%%%%%%%%%%
 
 \subsection{U2: Invullen van formulier}
-In tabel \ref{tabel:evaluatie-gebruik-u2} worden de resultaten getoond van de twee deeluitdaging van U2: Invullen van formulier.
+In tabel \ref{tabel:evaluatie-gebruik-u2} worden de resultaten getoond van de twee deeluitdaging van U2:~Invullen van formulier.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -342,38 +342,69 @@ Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{reado
 Dit gaat voor alle types van velden, behalve voor \code{select}-types.
 Daar worden de niet-benodigde lijstitems verwijderd en wordt de \code{select} zelf \code{disabled} gemaakt.
 
+%%%%%%%%%%%%%
 
 \subsection{U3: Formuliervalidatie}
 \label{sec:evaluatie-gebruik-u3}
 
+In tabel \ref{tabel:evaluatie-gebruik-u3} worden de resultaten getoond van de vier deeluitdaging van U3: Formuliervalidatie.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  ignore chars={\"},
+  verb string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik/u3.csv}
+\caption{Gebruik voor U3: Formuliervalidatie}
+\label{tabel:evaluatie-gebruik-u3}
+\end{table}
+
 \paragraph{\jqm}
-% Sommige formuliervelden waren verplicht in te vullen, terwijl andere niet. 
-% Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. 
-% Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. 
-% Daarnaast was het ook nodig om de velden te valideren op hun waarde. 
-% Validatie is echter niet standaard aanwezig in jQuery Mobile. 
-% Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
-% Deze plug-in loste ook het probleem met de verplichte velden op. 
-% Deze plug-in kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS klassen ofwel anderzijds door programmatie met JavaScript. 
-% Beide aanpakken werden getest doorheen de POC. 
-% 
-% De plug-in bevatte de volgende ingebakken validatieregels nodig in de POC: \code{required}, \code{number}, \code{email} en \code{date}.
-% Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
-% Zo'n afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
-% 
-% Bij fouten tegen validatie moest een dialoogvenster worden weergegeven met daarin een beschrijving van alle foute velden.
-% Aangezien de plug-in standaard onder het foute formulierveld een foutboodschap toont, diende de plug-in  te worden aangepast.
-% Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
-% 
-% Een specifiek mobiel probleem was bij het tonen van het dialoogvenster, waarbij de plug-in op de achtergrond de cursor op het eerste veld zette. 
-% Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
-% Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
-% 
-% Bij het sluiten van het dialoogvenster dienden de foute velden met een rode rand te worden gemarkeerd.
-% Aangezien de validatie plug-in de foute velden annoteert met de \code{error} CSS klasse, kon de rode rand in CSS worden geprogrammeerd. 
-% Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
-% Door de extra code die jQuery Mobile genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
-% Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
+Validatie is niet standaard aanwezig in jQuery Mobile. 
+Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required}-attribuut in HTML5. 
+Dit werd niet gedaan om twee redenen.
+Enerzijds is hiervoor geen ondersteuning voor mobiele browsers~\cite{Deveria2013}. 
+Anderzijds is het ook nodig om de velden te valideren op hun waarde.
+Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
+Deze lost beide problemen op.
+De plug-in zelf kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code ofwel anderzijds door programmatie met \js{}. 
+Beide aanpakken werden getest en slaagden. 
+
+De plug-in bevat de volgende ingebakken validatieregels die nodig waren: \code{required}, \code{number}, \code{email} en \code{date}.
+Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
+Zo een afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
+
+De plug-in toont standaard een foutboodschap onder het foute formulierveld.
+Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
+
+Een specifiek mobiel probleem was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
+Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
+Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
+
+De plug-in annoteert de foute velden met de CSS-klasse \code{error}.
+Hierdoor kon de rode rond in CSS worden geprogrammeerd. 
+Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
+Door de extra code die \jqm{} genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
+Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
 
 \paragraph{\st}
 Een model kan worden voorzien van validatieregels.
@@ -437,60 +468,19 @@ De volledige foutenboodschap moet vervolgens worden geconstrueerd door alle fout
 Hoe een dialoogvenster gemaakt wordt zal in U11.2 Toon dialoog worden besproken.
 
 \paragraph{\lungo}
-TODO
+%TODO Tim: moet ik ook uitleggen hoe ik het geprogrammeerd heb? score is toch 0..
+Validatie is niet aanwezig in Lungo en er kon ook geen plug-in voor QuoJS gevonden worden~\cite{Ameye2013}.
+Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met QuoJS.
+Aangezien deze manier niet direct een oplossing bracht, werd alle validatie manueel geprogrammeerd.
+%TODO Tim: Voor de quotering blijft het resultaat hetzelfde.
+Door de slechte mobiele ondersteuning werd er ook geen beroep gedaan op HTML5-valdiatie.
+Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute velden werd ook zelf geprogrammeerd.
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  ignore chars={\"},
-  verb string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u3.csv}
-\caption{Scores voor U3: Formuliervalidatie}
-\label{tabel:evaluatie-gebruik-u3}
-\end{table}
+%%%%%%%%%%%%%
 
 \subsection{U4: Handtekening}
-
-\paragraph{\jqm}
-% Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat jQuery Mobile dit niet standaard aanbiedt. 
-% Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
-% Door de lange tijd die werd besteed aan het aanpassen van layout, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
-% Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
-% De plug-in maakt gebruik van het HTML5 canvas element en de \code{.toDataURL()} methode.
-% Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
-
-\paragraph{\st}
-Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden op \exturl{market.sencha.com/extensions/signature-pad-field}.
-Een plug-in aan het raamwerk toevoegen kan door het \js-bestand in de touch/src/ux folder te plaatsen.
-Vervolgens moet de plug-in worden geladen bij het initialiseren van de applicatie.
-
-De plug-in maakt een nieuw xtype \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
-
-De plug-in maakt gebruikt van het HTML5-canvas en retourneert de handtekening als geëncodeerde base64 text.
-
-
-\paragraph{\kendo}
-TODO
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u4} worden de resultaten getoond van de deeluitdaging van U4: Handtekening.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -514,34 +504,41 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u4.csv}
-\caption{Scores voor U4: Handtekening}
+\caption{Gebruik voor U4: Handtekening}
 \label{tabel:evaluatie-gebruik-u4}
 \end{table}
 
-\subsection{U5: Toon PDF}
-
 \paragraph{\jqm}
-% Het is niet aangeraden om ruwe data, zoals een PDF, op te halen via AJAX. 
-% Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
-% Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft in de browser. 
-% Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
+Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat \jqm{} dit niet standaard aanbiedt. 
+Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
+Door de lange tijd die werd besteed aan het aanpassen van de lay-out, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
+Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
+De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{.toDataURL()} methode.
+Hierdoor kan de base64-string bekomen worden die nodig is om door te sturen naar de server.
+%TODO TIM: verplaatsen
+%Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
 
 \paragraph{\st}
-Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
-Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
-Deze \code{view} bestaat uit een paneel met een hoofdtekst.
-Het paneel toont één pagina van het PDF-bestand,  de hoofdtekst bevat de navigatie naar andere pagina's.
+Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden op \exturl{market.sencha.com/extensions/signature-pad-field}.
+Een plug-in aan het raamwerk toevoegen kan door het \js-bestand in de touch/src/ux folder te plaatsen.
+Vervolgens moet de plug-in worden geladen bij het initialiseren van de applicatie.
 
-Om de plug-in in de POC in te passen waren echter twee aanpassingen noodzakelijk.
-Het PDF-bestand moet via een POST verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
-Ook moest er een terugknop in de hoofdtekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
-Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
+De plug-in maakt een nieuw xtype \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
+
+De plug-in maakt gebruikt van het HTML5-canvas en retourneert de handtekening als geëncodeerde base64-tekst.
 
 \paragraph{\kendo}
 TODO
 
 \paragraph{\lungo}
-TODO
+Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook geen plug-in  worden gevonden.
+Er kan echter worden gebruik gemaakt van plug-ins die op andere \js{}-bibliotheken dan QuoJS steunen, maar de auteurs besloten om deze niet te beschouwen.
+Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applicatie.
+
+%%%%%%%%%%%%%
+\subsection{U5: Toon PDF}
+In tabel \ref{tabel:evaluatie-gebruik-u5} worden de resultaten getoond van de twee deeluitdagingen van U5:~Toon PDF.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -565,46 +562,41 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u5.csv}
-\caption{Scores voor U5: Toon PDF}
+\caption{Gebruik voor U5: Toon PDF}
 \label{tabel:evaluatie-gebruik-u5}
 \end{table}
 
-\subsection{U6: Toevoegen van afbeelding}
-
 \paragraph{\jqm}
-% Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. 
-% In versie 1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
-% Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. 
-% Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. 
-% Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. 
-% Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
-% Deze aanpak werkt correct op recente mobiele apparaten. 
-% De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a} waardoor het opladen van een bewijs niet werkt.
-% 
-% Het voorvertonen van het geüploade bestand hangt af van het mobiele besturingssysteem.
-% Zo wordt op iOS 6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
-% Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
-% Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
+AJAX is bedoeld om tekst op te halen, maar geen ruwe data zoals een PDF~\cite{Scott2009}. 
+Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
+Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft in de browser. 
+Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
 \paragraph{\st}
-Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/file-uploading-component-for-sencha-touch}.
-De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
-Het \js-bestand moet in de touch/src/ux folder worden geplaatst en de \code{Ext.ux.Fileup} klasse moet worden geïnitialiseerd.
-Het xtype \code{img} wordt dan beschikbaar voor \st{} componenten.
+Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
+Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
+Deze \code{view} bestaat uit een paneel met een hoofdtekst.
+Het paneel toont één pagina van het PDF-bestand,  de hoofdtekst bevat de navigatie naar andere pagina's.
 
-De plug-in voorziet twee modes voor het opladen van bestanden: lokale als base64 of extern naar een server.
-De eerste laat toe afbeeldingen in het DOM of \term{local storage} te laden.
-Dit laatste is een aspect van de POC.
-
-Nadat een bestand is opgeladen kunnen twee gebeurtenissen zich voordoen:  \code{loadsuccess} of \code{loadfailure}.
-Het is de taak van een \code{controller} om deze gebeurtenissen op te vangen en een bijhorende methode te definiëren.
-De succes functie krijgt de base64 text mee en kan een voorbeeld van de afbeelding laten weergeven.
+Om de plug-in in de POC in te passen waren echter twee aanpassingen noodzakelijk.
+Het PDF-bestand moet via een POST verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
+Ook moest er een terugknop in de hoofdtekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
+Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
 
 \paragraph{\kendo}
 TODO
 
 \paragraph{\lungo}
-TODO
+AJAX is bedoeld om tekst op te halen, maar geen ruwe data zoals een PDF~\cite{Scott2009}. 
+Hierdoor werd gebruik gemaakt van een omweg door een verborgen formulier te versturen die de PDF ophaalt.
+In dat verborgen formulier worden de nodige parameters ingevoerd en zal het op de achtergrond  worden verstuurd, net zoals een gebruiker dat zou doen.
+Daarna wordt het PDF-bestand gestuurd naar de gebruiker.
+Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
+
+%%%%%%%%%%%%%
+\subsection{U6: Toevoegen van afbeelding}
+In tabel \ref{tabel:evaluatie-gebruik-u6} worden de resultaten getoond van de drie deeluitdagingen van U6:~Toevoegen van afbeelding.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -628,43 +620,58 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u6.csv}
-\caption{Scores voor U6: Toevoegen van afbeelding}
+\caption{Gebruik voor U6: Toevoegen van afbeelding}
 \label{tabel:evaluatie-gebruik-u6}
 \end{table}
 
-\subsection{U7: Auto-aanvullen}
-
 \paragraph{\jqm}
+Het toevoegen van een afbeelding gebeurt door \code{file} als invoertype van het formulierveld te gebruiken. 
+In versie~1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
+Het omvormen van de afbeelding naar base64 werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5-specificaties zijn. 
+De aangeklikte afbeelding wordt gelezen door middel van de FileReaderAPI, waarna het tijdelijk als afbeelding wordt opgeslagen en daarna geïmporteerd wordt op het canvas. 
+Eenmaal geïmporteerd, kan de functie \code{.toDataURL()} opgeroepen worden op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
 
-% Hoewel versie 1.3 automatische aanvulling ter beschikking heeft~\cite{JQuery2013c}, werd tijdens de implementatie gebruik gemaakt van versie 1.2 die dit niet had. 
-% Daarom werd de plug-in van Andy Matthews gebruikt~\cite{Matthews2013}. 
-% Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken. 
-% Daarnaast dienden enkel vijf suggesties te worden getoond. 
-% Deze functionaliteit zat niet in de plug-in, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
+Het voorvertonen van het geüploade afbeelding hangt af van het mobiele besturingssysteem.
+Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
+Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
+Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
+
+%TODO Tim: verplaatsen naar ondersteuning
+% Deze aanpak werkt correct op recente mobiele apparaten. 
+% De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a} waardoor het opladen van een bewijs niet werkt.
 
 \paragraph{\st}
-Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
-Deze plug-in is niet op de Sencha Market terug te vinden.
-Door het \js-bestand toe te voegen wordt het xtype \code{autocompletefield} beschikbaar.
-Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
-Ook is het mogelijk het maximaal aantal suggesties vast te leggen.
+Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/file-uploading-component-for-sencha-touch}.
+De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
+Het \js-bestand moet in de touch/src/ux folder worden geplaatst en de \code{Ext.ux.Fileup} klasse moet worden geïnitialiseerd.
+Het xtype \code{img} wordt dan beschikbaar voor \st{} componenten.
 
-De \term{backend} server die bij de POC hoort geeft bij een bepaald sleutelwoord suggesties in een JSON-rij terug.
-De rij is voorzien van een sleutel maar alle elementen van de rij hebben geen sleutel.
-\st{} voorziet vier methoden om de resultaten van een \code{proxy} te parsen naar modelinstanties:
-\begin{description}
- \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
- \item [\code{XmlReader}] parst XML-tags naar model velden.
- \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
-\end{description}
-Geen van voorgaande methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
-Hierdoor kon geen klikbare dropdownmenu worden getoond.
+De plug-in voorziet twee modes voor het opladen van bestanden: lokale als base64 of extern naar een server.
+De eerste laat toe afbeeldingen in het DOM of \term{local storage} te laden.
+Dit laatste is een aspect van de POC.
+
+Nadat een bestand is opgeladen kunnen twee gebeurtenissen zich voordoen:  \code{loadsuccess} of \code{loadfailure}.
+Het is de taak van een \code{controller} om deze gebeurtenissen op te vangen en een bijhorende methode te definiëren.
+De succes functie krijgt de base64 text mee en kan een voorbeeld van de afbeelding laten weergeven.
 
 \paragraph{\kendo}
 TODO
 
 \paragraph{\lungo}
-TODO
+Een afbeelding kiezen gebeurt door het formulierveld met het type \code{file} toe te voegen.
+Het omvormen van de afbeelding naar base64 werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5-specificaties zijn. 
+De aangeklikte afbeelding wordt gelezen door middel van de FileReaderAPI, waarna het tijdelijk als afbeelding wordt opgeslagen en daarna geïmporteerd wordt op het canvas. 
+Eenmaal geïmporteerd, kan de functie \code{.toDataURL()} opgeroepen worden op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
+
+Het voorvertonen van het geüploade afbeelding hangt af van het mobiele besturingssysteem.
+Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
+Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
+Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
+
+%%%%%%%%%%%%%
+\subsection{U7: Auto-aanvullen}
+In tabel \ref{tabel:evaluatie-gebruik-u7} worden de resultaten getoond van de twee deeluitdagingen van U7:~Auto-aanvullen.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -688,54 +695,49 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u7.csv}
-\caption{Scores voor U7: Auto-aanvullen}
+\caption{Gebruik voor U7: Auto-aanvullen}
 \label{tabel:evaluatie-gebruik-u7}
 \end{table}
 
-\subsection{U8: AJAX}
-
 \paragraph{\jqm}
-
-% Het maken van oproepen via AJAX gebeurt via de jQuery bibliotheek waar jQuery Mobile op steunt. 
-% Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
-% Bij het succesvol uitvoeren van de oproep wordt de \code{succes} functie opgeroepen, bij faling de \code{error} functie waarna een relevante foutboodschap wordt getoond.
-% Het afmelden zonder antwoord, het aanmelden voor het bekomen van het token (tekst), het ophalen van de gebruikersgegevens (JSON), het ophalen van de uitgaveformulieren (XML) en het ophalen van de omwisselingskoersen (XML) ging zonder enig probleem.
-
-% In jQuery is er de functie \code{parseJSON} aanwezig, maar aangezien we in de AJAX oproep instellen dat we JSON verwachten, parst jQuery al automatisch het antwoord. 
-% Hierdoor hebben we \code{parseJSON} niet nodig en kunnen we direct omgaan met het antwoord.
-% 
-% Het is ook nodig om JSON te versturen als oproep naar de backend. 
-% Dit wordt gedaan vanuit JavaScript zonder een jQuery nodig te hebben. 
-% Eerst wordt een object met de nodige inhoud aangemaakt, waarop daarna de functie \code{JSON.stringify} opgeroepen wordt die het object in een string omzet.
-% Deze is daarna klaar om te worden verstuurd als data via een AJAX oproep met behulp van jQuery.
-
-% Net zoals bij JSON het geval was, was het ook niet nodig om expliciet de \code{parseXML} functie te gebruiken. 
-%Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
-%Waar je bij JSON direct aan de data kon, moet je bij XML de data ophalen net zoals je dat zou doen uit een HTML-pagina. 
-%Dit betekent dus met selectoren aan de hand van de jQuery bibliotheek.
+Indien er wordt gebruik gemaakt van versie~1.2 is een plug-in nodig om auto-aanvulling te bekomen.
+Hiervoor kan de plug-in van Andy Matthews worden gebruikt~\cite{Matthews2013}. 
+Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken.
+Sinds versie~1.3 voorziet \jqm{} deze functionaliteit zelf~\cite{JQuery2013c}.
+Er wordt aangehaakt op het \code{listviewbeforefilter}-\term{event} waarbij een eigen filterfunctie geschreven kan worden.
+De voorbeeldcode op de site kon integraal worden gebruikt. 
 
 \paragraph{\st}
-AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
-De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van jQuery.
-Een enige uitzondering is te vinden bij kruis-domein AJAX-verzoeken.
-Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de eigenschap \code{useDefaultXhrHeader} op \code{false} worden gezet.
-%TODO referentie cors + opzoeken options request
+Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
+Deze plug-in is niet op de Sencha Market terug te vinden.
+Door het \js-bestand toe te voegen wordt het xtype \code{autocompletefield} beschikbaar.
+Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
+Ook is het mogelijk het maximaal aantal suggesties vast te leggen.
 
-De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{stores}.
-Een \code{store} wordt voorzien van een \code{proxy}.  
-Deze kan data aan de klant of server zijde opslaan.  
-Een \code{proxy} voor opslag aan client zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
-Een \code{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
-Een \code{proxy} kan ook geconfigureerd worden met \code{readers} en \code{writers} om data van de server te lezen of naar de server te schrijven.
-
-Het verzenden van een JSON-\term{payload} moet via een expliciet AJAX-verzoek gebeuren.
-Data kan via \code{Ext.encode} naar JSON worden geëncodeerd en via de \code{jsonData} eigenschap aan het verzoek worden gekoppeld.
+De \term{backend} server die bij de POC hoort geeft bij een bepaald sleutelwoord suggesties in een JSON-rij terug.
+De rij is voorzien van een sleutel maar alle elementen van de rij hebben geen sleutel.
+\st{} voorziet vier methoden om de resultaten van een \code{proxy} te parsen naar modelinstanties:
+\begin{description}
+ \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
+ \item [\code{XmlReader}] parst XML-tags naar model velden.
+ \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
+\end{description}
+Geen van voorgaande methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
+Hierdoor kon geen klikbare dropdownmenu worden getoond.
 
 \paragraph{\kendo}
 TODO
 
 \paragraph{\lungo}
-TODO
+Standaard biedt \lungo{} geen auto-aanvullig aan, maar wel op zijn site van plug-ins~\cite{TapQuo2013b}.
+Daar werd de plug-in AutoComplete gebruikt.
+De voorbeeldcode maakt het gemakkelijk om onmiddellijk een werkend voorbeeld van de plug-in te hebben.
+Veel code kon dus gewoon worden overgenomen.
+
+%%%%%%%%%%%%%
+\subsection{U8: AJAX}
+In tabel \ref{tabel:evaluatie-gebruik-u8} worden de resultaten getoond van de vier deeluitdagingen van U8:~AJAX.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -759,14 +761,112 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u8.csv}
-\caption{Scores voor U8: AJAX}
+\caption{Gebruik voor U8: AJAX}
 \label{tabel:evaluatie-gebruik-u8}
 \end{table}
 
-\subsection{U9: Toestelspecifieke lay-out}
 
 \paragraph{\jqm}
+Het maken van oproepen via AJAX gebeurt door jQuery. 
+Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
+Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
+
+In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-oproep ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
+Hierdoor is de functie \code{parseJSON} niet nodig en kunnen direct worden omgaan met het antwoord.
+
+Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
+Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
+Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeuren aan de hand van selectoren.
+
+Het versturen van JSON is gelijkaardig met het versturen van andere data.
+Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
+Daarna zal in de AJAX-oproep moeten worden aangegeven  dat de inhoud JSON is.
+Dit gebeurt door \code{contentType: "application/json"} te schrijven.
+
+\paragraph{\st}
+AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
+De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van jQuery.
+Een enige uitzondering is te vinden bij kruis-domein AJAX-verzoeken.
+Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de eigenschap \code{useDefaultXhrHeader} op \code{false} worden gezet.
+%TODO referentie cors + opzoeken options request
+
+De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{stores}.
+Een \code{store} wordt voorzien van een \code{proxy}.  
+Deze kan data aan de klant of server zijde opslaan.  
+Een \code{proxy} voor opslag aan client zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
+Een \code{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
+Een \code{proxy} kan ook geconfigureerd worden met \code{readers} en \code{writers} om data van de server te lezen of naar de server te schrijven.
+
+Het verzenden van een JSON-\term{payload} moet via een expliciet AJAX-verzoek gebeuren.
+Data kan via \code{Ext.encode} naar JSON worden geëncodeerd en via de \code{jsonData} eigenschap aan het verzoek worden gekoppeld.
+
+\paragraph{\kendo}
 TODO
+
+\paragraph{\lungo}
+Standaard biedt \lungo{} functies aan voor het ophalen en versturen van data via AJAX.
+Deze functies zullen intern de functies van QuoJS oproepen.
+De URL, de data, de callback en het type dienen hierbij te worden opgegeven.
+De laatstgenoemde kan \code{text}, \code{json}, \code{xml} of \code{html} zijn.
+Met \code{text}, \code{json} kan onmiddellijk worden omgegeven.
+Voor \code{xml} dient er gebruik te worden gemaakt van de selectoren in QuoJS om de gevraagde data op te zoeken.
+
+Bij het versturen van JSON-data konden de functies van \lungo{} zelf niet worden gebruikt.
+Deze hadden te weinig opties om aan te geven dat de verstuurde data JSON was.
+Hierdoor werden de functies van QuoJS gebruikt, die meer opties hadden.
+Toch bleef er een probleem bij het versturen van JSON-data.
+Na lang zoekwerk hoe QuoJS met deze oproep omging, bleek uiteindelijk dat de bibliotheek altijd de parameters wilde serialiseren.
+Dit is uiteraard niet nodig als ruwe data, zoals JSON, wordt meegegeven.
+Aangezien dit een fout was in de bibliotheek werd, om het probleem zo snel mogelijk te verhelpen, het \js-bestand zelf aangepast.
+
+%%%%%%%%%%%%%
+\subsection{U9: Toestelspecifieke lay-out}
+\label{sec:evaluatie-gebruik-u9}
+In tabel \ref{tabel:evaluatie-gebruik-u9} worden de resultaten getoond van de drie deeluitdagingen van U9:~Toestelspecifieke lay-out.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik/u9.csv}
+\caption{Gebruik voor U9: Toestelspecifieke lay-out}
+\label{tabel:evaluatie-gebruik-u9}
+\end{table}
+
+\paragraph{\jqm}
+Het raamwerk biedt zelf geen functies aan om te het herkennen of het toestel een smartphone of tablet is.
+In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
+Eerst werd gezocht naar plug-ins aan de hand van een blogpost~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
+Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
+Zo was de eerste destructief ten opzichte van het raamwerk. 
+Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als men wil updaten naar een nieuwe versie. 
+De tweede plug-in werkte enkel tot versie 1.0.1 van \jqm{}. 
+De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
+
+Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 media queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
+Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
+Daarnaast gebruikte men al op de documentatiesite van \jqm{}~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
+De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiestie uit de documentatiesite van \jqm{}~1.2.
+
+Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met een tablet gebruikt.
 
 \paragraph{\st}
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
@@ -796,7 +896,18 @@ Om naar het menu terug te keren moet een extra knop in de hoofdtekst worden toeg
 TODO
 
 \paragraph{\lungo}
-TODO
+Het raamwerk zelf biedt de functie \code{Lungo.Core.isMobile()} aan om te weten of het huidige apparaat een mobiel apparaat is.
+QuoJS biedt daarnaast ook nog \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} en \code{screen} aan.
+Deze laatste geeft de breedte en hoogte terug.
+Dit betekent dat de ontwikkelaar nog altijd zelf instaat voor de bepaling of het een smartphone of tablet is.
+Als oplossing werd gebruik gemaakt van CSS3 media queries.
+Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met een tablet gebruikt.
+
+
+%%%%%%%%%%%%%
+\subsection{U10: Offline}
+In tabel \ref{tabel:evaluatie-gebruik-u10} worden de resultaten getoond van de drie deeluitdagingen van U10:~Offline.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -819,15 +930,20 @@ TODO
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u9.csv}
-\caption{Scores voor U9: Toestelspecifieke lay-out}
-\label{tabel:evaluatie-gebruik-u9}
+]{tabellen/gebruik/u10.csv}
+\caption{Gebruik voor U10: Offline}
+\label{tabel:evaluatie-gebruik-u10}
 \end{table}
 
-\subsection{U10: Offline}
-
 \paragraph{\jqm}
-TODO
+Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
+Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
+Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een fallback geschreven die de data bijhoudt als \js{}-variabelen.
+Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
+Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
+
+Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
+Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\st}
 % U10.1 Bewaar login gegevens
@@ -867,66 +983,17 @@ De tool zal automatisch een manifest bestand aanmaken die alle vereiste bestande
 TODO
 
 \paragraph{\lungo}
-TODO
+Het raamwerk biedt zelf functies aan om data op te slaan.
+Intern zal het gebruik maken van \code{localStorage}, wat gespecificeerd is in HTML5.
+Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een fallback voorzien.
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u10.csv}
-\caption{Scores voor U10: Offline}
-\label{tabel:evaluatie-gebruik-u10}
-\end{table}
+Het offline beschikbaar maken van de applicatie wordt vanuit \lungo{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
+Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
+%%%%%%%%%%%%%
 \subsection{U11: Laadscherm en dialoogvenster} 
-
-\paragraph{\jqm}
-
-% Het standaard laadscherm is enkel een \term{spinner} die niet opvallend aanwezig is en ook zonder een tekst eronder ronddraait.
-% Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor en staat er ook een tekst onder.
-
-% Eerst werd gebruik gemaakt van DateBox \cite{Sage2013} als plug-in om op een gemakkelijke manier een dialoogvenster te tonen.
-% Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in jQuery Mobile aanwezig.
-% Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
-% Door zelf de dialoogvenster met jQuery Mobile aan te maken, kon de layout minimier aangepast worden.
-
-\paragraph{\st}
-Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{view} te plaatsen.
-Een object van dit xtype kan een bericht bevatten wat de laadtekst voorstelt.
-Het toten van een masker kan door de \code{setMasked} methode op een \code{view} op te roepen.
-Een courante aanpak is te werken met de \term{singleton} klasse \code{Ext.Viewport} die de huidige zichtbare \code{view} voorsteld.
-Hierop de \code{setMasked} methode oproepen verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
-
-De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialogen weer te geven.
-\st{} biedt drie standaarden van dialogen aan: \code{alert}, \code{promt} en \code{confirm}.
-De eerste laat de gebruiker een bericht zien,  de tweede vraagt de gebruiker om invoer en de laatste vraagt bevestiging aan de gebruiker.
-Deze drie standaarden zijn als methode in \code{Ext.Msg} beschikbaar.
-Parameters van de methoden kunnen de titel, tekst en functie van de knoppen bepalen.
-Een meer generieke aanpak is het oproepen van de \code{show} methode van \code{Ext.Msg}.
-Intern roepen de standaard dialogen deze methode ook op.
-
-\paragraph{\kendo}
-TODO
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u11} worden de resultaten getoond van de twee deeluitdagingen van U11:~Laadscherm en dialoogvenster.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -950,34 +1017,101 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u11.csv}
-\caption{Scores voor U11: Laadscherm en dialoogvenster}
+\caption{Gebruik voor U11: Laadscherm en dialoogvenster}
 \label{tabel:evaluatie-gebruik-u11}
 \end{table}
 
-\subsection{U12: Dataconversie}
-
 \paragraph{\jqm}
-TODO
+Het standaard laadscherm is enkel een \term{spinner} die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
+Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook een tekst worden ondergezet.
+
+Om gemakkelijk dialoogvensters te tonen, werd eerst gebruik gemaakt van DateBox~\cite{Sage2013} als plug-in.
+Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in \jqm{} aanwezig.
+Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
+%TODO Tim: wat bedoelde ik hiermee?
+%Door zelf het dialoogvenster met \jqm{} aan te maken, kon de layout minimier aangepast worden.
 
 \paragraph{\st}
-%TODO score? verplaatsten met lijsten
-De omzetting van \code{identifiers} en munteenheden vindt plaats in de overzichtslijsten.  
-Lijsten kunnen voorzien worden van een sjabloon om de elementen in de lijst op te maken.
-Hierop wordt verder ingegaan in de volgende uitdaging.
-In de lijst van uitgaven moet elke uitgave getoond worden met het bedrag in euro.
-In het sjabloon voor deze lijst kan een \js-methode worden geplaatst die het bedrag van de uitgave eerst naar euro zal omzetten.
-De progammeur heeft toegang tot alle eigenschappen van een model waarvan modelinstanties de lijstelementen zullen bepalen.
-De methode die de munteenheid tot euro omvormt, kan dus ook deze eigenschappen gebruiken.
-De methode moet echter wel zelf worden geschreven.
-Op een analoge manier verloopt de conversie van \code{identifier} naar tekstuele vorm.
+Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{view} te plaatsen.
+Een object van dit xtype kan een bericht bevatten wat de laadtekst voorstelt.
+Het toten van een masker kan door de \code{setMasked} methode op een \code{view} op te roepen.
+Een courante aanpak is te werken met de \term{singleton} klasse \code{Ext.Viewport} die de huidige zichtbare \code{view} voorsteld.
+Hierop de \code{setMasked} methode oproepen verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
 
-%TODO alternatief data geconverteerd opslagen en bij versturen/tonen als detailexpense terug omvormen.
+De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialogen weer te geven.
+\st{} biedt drie standaarden van dialogen aan: \code{alert}, \code{promt} en \code{confirm}.
+De eerste laat de gebruiker een bericht zien,  de tweede vraagt de gebruiker om invoer en de laatste vraagt bevestiging aan de gebruiker.
+Deze drie standaarden zijn als methode in \code{Ext.Msg} beschikbaar.
+Parameters van de methoden kunnen de titel, tekst en functie van de knoppen bepalen.
+Een meer generieke aanpak is het oproepen van de \code{show} methode van \code{Ext.Msg}.
+Intern roepen de standaard dialogen deze methode ook op.
 
 \paragraph{\kendo}
 TODO
 
 \paragraph{\lungo}
-TODO
+Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt aangeboden door het raamwerk, namelijk: \code{Lungo.Notification.show()}.
+Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
+Om een dialoogvenster te tonen, geeft men de volgende parameters mee: titel, omschrijving, tijd op het scherm en de \term{callback} functie.
+Indien er beslist wordt om geen tijd op te geven, kan het venster worden gesloten met \code{Lungo.Notification.hide()}.
+Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
+Deze zullen respectievelijk een groene en rode kleur hebben.
+
+%\subsection{U12: Dataconversie}
+%
+%\paragraph{\jqm}
+%TODO
+%
+%\paragraph{\st}
+%%TODO score? verplaatsten met lijsten
+%De omzetting van \code{identifiers} en munteenheden vindt plaats in de overzichtslijsten.  
+%Lijsten kunnen voorzien worden van een sjabloon om de elementen in de lijst op te maken.
+%Hierop wordt verder ingegaan in de volgende uitdaging.
+%In de lijst van uitgaven moet elke uitgave getoond worden met het bedrag in euro.
+%In het sjabloon voor deze lijst kan een \js-methode worden geplaatst die het bedrag van de uitgave eerst naar euro zal omzetten.
+%De progammeur heeft toegang tot alle eigenschappen van een model waarvan modelinstanties de lijstelementen zullen bepalen.
+%De methode die de munteenheid tot euro omvormt, kan dus ook deze eigenschappen gebruiken.
+%De methode moet echter wel zelf worden geschreven.
+%Op een analoge manier verloopt de conversie van \code{identifier} naar tekstuele vorm.
+%
+%%TODO alternatief data geconverteerd opslagen en bij versturen/tonen als detailexpense terug omvormen.
+%
+%\paragraph{\kendo}
+%TODO
+%
+%\paragraph{\lungo}
+%TODO
+%
+%\begin{table}[H]
+%\centering
+%\pgfplotstabletypeset[
+%  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+%  end table=\end{tabular},
+%  skip coltypes=true,
+%  col sep=comma,
+%  string type,
+%  header=true,
+%  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+%  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+%  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+%  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+%  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+%  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+%  every head row/.style={
+%    before row=\toprule,
+%    after row=\midrule},
+%  every last row/.style={
+%  	before row=\midrule,
+%    after row=\bottomrule}
+%]{tabellen/gebruik/u12.csv}
+%\caption{Scores voor U12: Dataconversie}
+%\label{tabel:evaluatie-gebruik-u12}
+%\end{table}
+
+%%%%%%%%%%%%%
+\subsection{U13: Lijsten}
+In tabel \ref{tabel:evaluatie-gebruik-u13} worden de resultaten getoond van de drie deeluitdagingen van U13:~Lijsten.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -1000,15 +1134,27 @@ TODO
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u12.csv}
-\caption{Scores voor U12: Dataconversie}
-\label{tabel:evaluatie-gebruik-u12}
+]{tabellen/gebruik/u13.csv}
+\caption{Gebruik voor U13: Lijsten}
+\label{tabel:evaluatie-gebruik-u13}
 \end{table}
 
-\subsection{U13: Lijsten}
-
 \paragraph{\jqm}
-% Het aanmaken van lijsten gebeurt met de \term{listview} widget.
+Het laden van data in een lijst dient zelf geprogrammeerd te worden.
+Hiervoor maakt men gebruik van de \code{.each()}-functie van jQuery om ieder data-item te overlopen.
+Per item moet een \code{append} gebeuren van een lijstitem op de lijst.
+In dit item wordt de template van de lijst geschreven.
+Na alle elementen te hebben overlopen, moet de lijst ververst worden zodat \jqm{} de correcte lay-out toepast op de volledige lijst
+
+Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
+Er kunnen hiervoor twee manieren gekozen worden.
+Enerzijds kan worden gebruik gemaakt van de \code{<a>}-tags in HTML.
+Anderzijds kan ieder lijstitem een \code{id} krijgen, waarna een \code{click}-\term{event}  wordt gebonden aan al deze elementen.
+Op basis van de \code{id} kan de uit te voeren actie bepaald worden.
+
+Het sorteren van data werd geïmplementeerd door eerst in \js{} een vergelijkingsfunctie te schrijven.
+Daarna wordt deze functie meegegeven aan de sorteerfunctie die ook in \js{} aanwezig is.
+Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
 
 \paragraph{\st}
 Zoals besproken in de vorige uitdaging kan een lijst voorzien worden van een sjabloon.
@@ -1044,59 +1190,25 @@ Een \code{store} sorteren kan ook expliciet door de \code{sort} methode op de \c
 TODO
 
 \paragraph{\lungo}
-TODO
+Het laden van data in een lijst dient zelf geprogrammeerd te worden.
+Hiervoor wordt gebruik gemaakt van de functie \code{\$\$.each} van QuoJS om ieder element van de array te overlopen.
+Per element gebeurt een \code{append} op de lijst waar de data dient geladen te worden.
+Het toegevoegde lijstitem bepaalt de template van de lijst.
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u13.csv}
-\caption{Scores voor U13: Lijsten}
-\label{tabel:evaluatie-gebruik-u13}
-\end{table}
+Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
+Er kunnen hiervoor twee manieren gekozen worden (zie ook \jqm{}).
+Enerzijds kan worden gebruik gemaakt van de \code{<a>}-tags in HTML.
+Anderzijds kan ieder lijstitem een \code{id} krijgen, waarna een \code{click}-\term{event}  wordt gebonden aan al deze elementen.
+Op basis van de \code{id} kan de uit te voeren actie bepaald worden.
 
+Het sorteren van data gebeurt door de aangeboden functies van het raamwerk zelf.
+De functie \code{Lungo.Core.orderByProperty} maakt het mogelijk om te sorteren volgens een bepaalde eigenschap, zowel oplopend als aflopend.
+
+
+%%%%%%%%%%%%%
 \subsection{U14: Anatomie van pagina}
-
-\paragraph{\jqm}
-TODO
-
-\paragraph{\st}
-TODO
-
-\paragraph{\kendo}
-Het opbouwen van een \code{view} in \st{} gebeurt hiërarchisch met containers.
-Een component die aan een container kan worden toegevoegd is de \code{toolbar}.
-Een \code{toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
-Dit kan dan dienstdoen als hoofdtekst en voettekst.
-Een cascade van hoofdteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
-Een \code{toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
-Knoppen aan een \code{toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
-
-Het toevoegen van een tabbar verloopt analoog door een \code{tabpanel} toe te voegen.
-De \code{items} eigenschap bevat dan een lijst van \code{views} met een titel waarbij de \code{view} zichtbaar wordt als op de titel wordt gedrukt.
-
-Knoppen van kleur veranderen kan door de \code{style} van een knop te zetten.
-Deze eigenschap laat toe om CSS-eigenschappen als tekst of object aan de knop toe te voegen.
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u14} worden de resultaten getoond van de drie deeluitdagingen van U14:~Anatomie van pagina.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -1120,9 +1232,54 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u14.csv}
-\caption{Scores voor U14: Anatomie van pagina}
+\caption{Gebruik voor U14: Anatomie van pagina}
 \label{tabel:evaluatie-gebruik-u14}
 \end{table}
+
+\paragraph{\jqm}
+Het toevoegen van een kop- en voettekst gebeurt door gebruik te maken van \code{data-role="header"} en \code{data-role="footer"}. 
+Wel moest dezelfde code op ieder scherm worden herhaald. 
+Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. 
+Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. 
+Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die \jqm{}~1.3 zelf aanbiedt. 
+De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
+
+Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
+De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
+Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-u9}).
+
+Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
+Daarom werd gekozen voor \code{fieldset} met twee opties.
+
+De kleur van de knoppen aanpassen kan op twee manieren. 
+Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. 
+Deze laatste manier werd gebruikt om de knoppen groen te maken. 
+Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
+Door daarna de knop te annoteren met het \code{data-theme}-attribuut activeert men het betreffende thema. 
+Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's was en men die direct kan gebruiken.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+Het opbouwen van een \code{view} in \st{} gebeurt hiërarchisch met containers.
+Een component die aan een container kan worden toegevoegd is de \code{toolbar}.
+Een \code{toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
+Dit kan dan dienstdoen als hoofdtekst en voettekst.
+Een cascade van hoofdteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
+Een \code{toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
+Knoppen aan een \code{toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
+
+Het toevoegen van een tabbar verloopt analoog door een \code{tabpanel} toe te voegen.
+De \code{items} eigenschap bevat dan een lijst van \code{views} met een titel waarbij de \code{view} zichtbaar wordt als op de titel wordt gedrukt.
+
+Knoppen van kleur veranderen kan door de \code{style} van een knop te zetten.
+Deze eigenschap laat toe om CSS-eigenschappen als tekst of object aan de knop toe te voegen.
+
+\paragraph{\lungo}
+TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Ondersteuning}
 \label{sec:evaluatie-ondersteuning}
@@ -1150,6 +1307,8 @@ TODO
 \label{tabel:evaluatie-ondersteuning}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Performantie}
 \label{sec:evaluatie-performantie}
 
@@ -1175,25 +1334,18 @@ TODO
 \label{tabel:evaluatie-performantie}
 \end{table}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % TODO Tim: opruimen hieronder
-% \subsubsection{Tabbalk}
-% 
-% \paragraph{jQuery Mobile} 
-% Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
-% Daarom werd gekozen voor \code{fieldset} met twee opties.
-% 
+%
 % \subsubsection{Inlogscherm indien niet aangemeld}
 % 
-% \paragraph{jQuery Mobile} 
 % Indien men een applicatie maakt met meerdere schermen op eenzelfde pagina, laadt jQuery Mobile altijd het eerste scherm in de code in.
 % Het startscherm werd als eerste scherm gekozen.
 % Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
 % 
 % \subsubsection{Detail van toegevoegde uitgave}
 % 
-% \paragraph{jQuery Mobile} 
 % Na het toevoegen van een uitgave, is het mogelijk om deze opnieuw te bekijken (maar niet aan te passen).
 % Hiervoor wordt hetzelfde formulier (dat om een uitgave toe te voegen wordt gebruikt) gekopieerd, waarna alle elementen op enkel lezen worden gezet.
 % Dit was geen probleem voor velden van het type \code{input} en \code{textarea}. 
@@ -1208,65 +1360,5 @@ TODO
 % 
 % \subsubsection{Omvormen van valuta}
 % 
-% \paragraph{jQuery Mobile} 
 % De omvorming bij een buitenlandse uitgave dient automatisch te gebeuren bij het ingeven van bedrag en munteenheid.
 % Hiervoor wordt aangehaakt op het veranderingsevenement \code{.change} dat jQuery aanbiedt, waarna na omvorming het bedrag direct getoond wordt aan de gebruiker.
-% 
-% \subsubsection{Sorteren}
-% 
-% \paragraph{jQuery Mobile} 
-% Het sorteren van data werd geïmplementeerd door eerst in JavaScript een vergelijkingsfunctie te schrijven.
-% Daarna wordt deze functie meegegeven aan de sorteerfunctie die ook in JavaScript aanwezig is.
-% Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
-% 
-% \subsubsection{Offline} 
-% TODO
-% 
-% %%%%%%%
-% 
-% \subsubsection{Tablet en smartphone}
-% 
-% \paragraph{jQuery Mobile} 
-% In jQuery Mobile is er standaard geen splitview aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
-% Eerst werd hiervoor gezocht naar plug-ins aan de hand van~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
-% Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
-% Zo was de eerste destructief ten opzichte van het raamwerk. 
-% Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als men wil updaten naar een nieuwe versie. 
-% De tweede plug-in werkte enkel tot versie 1.0.1 van jQuery Mobile. 
-% De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
-% 
-% Uiteindelijk werd van een plug-in afgestapt door \cite{Hadlock2012} waarbij werd aangetoond hoe men via CSS3 media queries hetzelfde kan bereiken. 
-% Daarnaast gebruikt de documentatie van jQuery Mobile~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
-% De uiteindelijke oplossing voor het probleem kwam uit te combinatie van deze twee voorgaande oplossingen.
-% Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
-% 
-% Navigatie op een smartphone gebeurt door te klikken op de extra titel onder de koptekst. 
-% Hierdoor ga je naar een smartphone vriendelijk menu om naar andere stappen te gaan.
-% 
-% \subsubsection{Koptekst en voettekst}
-% 
-% \paragraph{jQuery Mobile}
-% Het toevoegen van een koptekst en voettekst ging zonder enig probleem door gebruik te maken van \code{data-role="header"} en \code{data-role="footer"}. 
-% Wel moest dezelfde code op ieder scherm worden herhaald. 
-% Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. 
-% Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. 
-% Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die jQuery Mobile aanbiedt. 
-% Deze voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
-% 
-% Bij het toevoegen van een uitgave dient er een extra titel onder de koptekst te komen. 
-% Eerst werd geprobeerd om bovenaan een lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
-% De uiteindelijke oplossing kwam vanuit de documentatie \cite{JQuery2013b} om dit met behulp van de \code{ui-bar} CSS klasse te implementeren. 
-% Deze extra titel wordt ook gebruikt om op de smartphone naar de speciale smartphone navigatie te gaan (zie ook vorige sectie).
-% 
-% \subsubsection{Knoppen}
-% 
-% \paragraph{jQuery Mobile} 
-% De kleur van de knoppen aanpassen kan op twee manieren. 
-% Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. 
-% Deze laatste manier werd gebruikt om de knoppen groen te maken. 
-% Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
-% Door daarna de knop te annoteren met het \code{data-theme} attribuut activeert men het betreffende thema. 
-% Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's was en men die direct kan gebruiken.
-% 
-% Knoppen toevoegen aan de koptekst gaat ook op een zeer eenvoudige manier.
-% % TODO: verder schrijven

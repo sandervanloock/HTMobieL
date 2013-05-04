@@ -1,6 +1,6 @@
 Uitdaging,Challenge,jQM,ST,Lungo,Kendo
-U8.1 Haal tekst zonder opmaak op,C8.1 Fetch plain text,2,2,0,0
-U8.2 Haal JSON-data op en parse,C8.2 Fetch and parse JSON,2,2,0,0
-U8.3 Zend JSON-data,C8.3 Send JSON payload,2,2,0,0
-U8.4 Haal XML-data op en parse,C8.4 Fetch and parse XML,2,2,0,0
-Totaal,Total,8,8,0,0
+U8.1 Haal tekst zonder opmaak op,C8.1 Fetch plain text,2,2,2,2
+U8.2 Haal JSON-data op en parse,C8.2 Fetch and parse JSON,2,2,2,2
+U8.3 Zend JSON-data,C8.3 Send JSON payload,2,2,0,2
+U8.4 Haal XML-data op en parse,C8.4 Fetch and parse XML,2,2,2,2
+Totaal,Total,8,8,6,8

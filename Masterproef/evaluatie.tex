@@ -736,49 +736,8 @@ Veel code kon dus gewoon worden overgenomen.
 
 %%%%%%%%%%%%%
 \subsection{U8: AJAX}
-
-\paragraph{\jqm}
-
-% Het maken van oproepen via AJAX gebeurt via de jQuery bibliotheek waar jQuery Mobile op steunt. 
-% Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
-% Bij het succesvol uitvoeren van de oproep wordt de \code{succes} functie opgeroepen, bij faling de \code{error} functie waarna een relevante foutboodschap wordt getoond.
-% Het afmelden zonder antwoord, het aanmelden voor het bekomen van het token (tekst), het ophalen van de gebruikersgegevens (JSON), het ophalen van de uitgaveformulieren (XML) en het ophalen van de omwisselingskoersen (XML) ging zonder enig probleem.
-
-% In jQuery is er de functie \code{parseJSON} aanwezig, maar aangezien we in de AJAX oproep instellen dat we JSON verwachten, parst jQuery al automatisch het antwoord. 
-% Hierdoor hebben we \code{parseJSON} niet nodig en kunnen we direct omgaan met het antwoord.
-% 
-% Het is ook nodig om JSON te versturen als oproep naar de backend. 
-% Dit wordt gedaan vanuit JavaScript zonder een jQuery nodig te hebben. 
-% Eerst wordt een object met de nodige inhoud aangemaakt, waarop daarna de functie \code{JSON.stringify} opgeroepen wordt die het object in een string omzet.
-% Deze is daarna klaar om te worden verstuurd als data via een AJAX oproep met behulp van jQuery.
-
-% Net zoals bij JSON het geval was, was het ook niet nodig om expliciet de \code{parseXML} functie te gebruiken. 
-%Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
-%Waar je bij JSON direct aan de data kon, moet je bij XML de data ophalen net zoals je dat zou doen uit een HTML-pagina. 
-%Dit betekent dus met selectoren aan de hand van de jQuery bibliotheek.
-
-\paragraph{\st}
-AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
-De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van jQuery.
-Een enige uitzondering is te vinden bij kruis-domein AJAX-verzoeken.
-Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de eigenschap \code{useDefaultXhrHeader} op \code{false} worden gezet.
-%TODO referentie cors + opzoeken options request
-
-De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{stores}.
-Een \code{store} wordt voorzien van een \code{proxy}.  
-Deze kan data aan de klant of server zijde opslaan.  
-Een \code{proxy} voor opslag aan client zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
-Een \code{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
-Een \code{proxy} kan ook geconfigureerd worden met \code{readers} en \code{writers} om data van de server te lezen of naar de server te schrijven.
-
-Het verzenden van een JSON-\term{payload} moet via een expliciet AJAX-verzoek gebeuren.
-Data kan via \code{Ext.encode} naar JSON worden geëncodeerd en via de \code{jsonData} eigenschap aan het verzoek worden gekoppeld.
-
-\paragraph{\kendo}
-TODO
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u8} worden de resultaten getoond van de vier deeluitdagingen van U8:~AJAX.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -806,6 +765,61 @@ TODO
 \label{tabel:evaluatie-gebruik-u8}
 \end{table}
 
+
+\paragraph{\jqm}
+Het maken van oproepen via AJAX gebeurt door jQuery. 
+Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
+Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
+
+In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-oproep ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
+Hierdoor is de functie \code{parseJSON} niet nodig en kunnen direct worden omgaan met het antwoord.
+
+Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
+Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
+Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeuren aan de hand van selectoren.
+
+Het versturen van JSON is gelijkaardig met het versturen van andere data.
+Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
+Daarna zal in de AJAX-oproep moeten worden aangegeven  dat de inhoud JSON is.
+Dit gebeurt door \code{contentType: "application/json"} te schrijven.
+
+\paragraph{\st}
+AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
+De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van jQuery.
+Een enige uitzondering is te vinden bij kruis-domein AJAX-verzoeken.
+Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de eigenschap \code{useDefaultXhrHeader} op \code{false} worden gezet.
+%TODO referentie cors + opzoeken options request
+
+De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{stores}.
+Een \code{store} wordt voorzien van een \code{proxy}.  
+Deze kan data aan de klant of server zijde opslaan.  
+Een \code{proxy} voor opslag aan client zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
+Een \code{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
+Een \code{proxy} kan ook geconfigureerd worden met \code{readers} en \code{writers} om data van de server te lezen of naar de server te schrijven.
+
+Het verzenden van een JSON-\term{payload} moet via een expliciet AJAX-verzoek gebeuren.
+Data kan via \code{Ext.encode} naar JSON worden geëncodeerd en via de \code{jsonData} eigenschap aan het verzoek worden gekoppeld.
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Standaard biedt \lungo{} functies aan voor het ophalen en versturen van data via AJAX.
+Deze functies zullen intern de functies van QuoJS oproepen.
+De URL, de data, de callback en het type dienen hierbij te worden opgegeven.
+De laatstgenoemde kan \code{text}, \code{json}, \code{xml} of \code{html} zijn.
+Met \code{text}, \code{json} kan onmiddellijk worden omgegeven.
+Voor \code{xml} dient er gebruik te worden gemaakt van de selectoren in QuoJS om de gevraagde data op te zoeken.
+
+Bij het versturen van JSON-data konden de functies van \lungo{} zelf niet worden gebruikt.
+Deze hadden te weinig opties om aan te geven dat de verstuurde data JSON was.
+Hierdoor werden de functies van QuoJS gebruikt, die meer opties hadden.
+Toch bleef er een probleem bij het versturen van JSON-data.
+Na lang zoekwerk hoe QuoJS met deze oproep omging, bleek uiteindelijk dat de bibliotheek altijd de parameters wilde serialiseren.
+Dit is uiteraard niet nodig als ruwe data, zoals JSON, wordt meegegeven.
+Aangezien dit een fout was in de bibliotheek werd, om het probleem zo snel mogelijk te verhelpen, het \js-bestand zelf aangepast.
+
+%%%%%%%%%%%%%
 \subsection{U9: Toestelspecifieke lay-out}
 
 \paragraph{\jqm}

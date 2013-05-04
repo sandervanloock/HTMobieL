@@ -74,6 +74,9 @@ Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig wor
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
@@ -275,7 +278,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
 Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
-Dit gebeurt typisch voor tekstvelden volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
+Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
 Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
 Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
 Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
@@ -659,7 +662,7 @@ De succes functie krijgt de base64 text mee en kan een voorbeeld van de afbeeldi
 \paragraph{\kendo}
 \kendo{} Web biedt een widget aan die het opladen van bestanden toelaat.
 Deze widget kan in twee modes worden gebruikt: syncroon of asynchroon.
-Een HTML-invoerelement met \code{id} moet worden toegevoegd en geïnitialiseerd met \code{\$("#id").kendoUpload()}.
+Een HTML-invoerelement met \code{id} moet worden toegevoegd en geïnitialiseerd met \code{\$("\#id").kendoUpload()}.
 In synchrone wordt het formulier met het oplaadelement verzonden naar de \term{backend} als een uitgave wordt toegevoegd.
 In asynchrone mode gebeurt het opladen meteen na het selecteren van de afbeelding.
 Deze methode voor het opladen van bestanden steunt op de HTML5 File API.
@@ -744,7 +747,7 @@ Hierdoor kon geen klikbare dropdownmenu worden getoond.
 
 \paragraph{\kendo}
 Het automatisch aanvullen van een formulierelement wordt als widget door \kendo{} Web aangeboden.
-Een HTML-invoerelement met id met worden aangemaakt en geinitialiseerd met \code{\$("#id").kendoAutoComplete()}.
+Een HTML-invoerelement met id met worden aangemaakt en geinitialiseerd met \code{\$("\#id").kendoAutoComplete()}.
 Elementen die automatisch aanvullen kunnen zowel van een lokale als externe bron worden aangeleverd.
 Externe suggesties moeten via een \code{dataSource} worden ingeladen.
 Een \code{DataSource} ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
@@ -902,7 +905,7 @@ De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen
 Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 media queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
 Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
 Daarnaast gebruikte men al op de documentatiesite van \jqm{}~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
-De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiestie uit de documentatiesite van \jqm{}~1.2.
+De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiesite van \jqm{}~1.2.
 
 Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met een tablet gebruikt.
 
@@ -1010,6 +1013,11 @@ Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zel
 Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
 Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
 
+
+Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code in inlaadt.
+Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
+Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gebruikersgegevens werden bewaard.
+
 Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
 Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
@@ -1092,6 +1100,14 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Het standaard laadscherm is enkel een \term{spinner} die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
 Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook een tekst worden ondergezet.
 
+De laadschermen werden in combinatie met de AJAX-oproepen gebruikt.
+Bij de AJAX-oproep wordt de functie \code{beforeSend} voor de oproep opgeroepen en de functie \code{complete} na de oproep.
+Dit zijn dus de ideale plaatsen om respectievelijk de laadschermen te tonen en te verbergen.
+Indien men AJAX-oproepen in een ketting gaat plaatsen, lukt deze aanpak niet meer.
+De \code{complete}-functie van de eerste AJAX-oproep zal pas opgeroepen worden als de laatste AJAX-oproep klaar is.
+Hierdoor zal gedurende de ketting van AJAX-oproepen, alleen het eerste laadscherm zichtbaar zijn en zullen de andere nooit worden getoond.
+Een oplossing hiervoor is om het verbergen van het laadscherm uit de \code{complete}-oproep te halen en deze in zowel in de \code{succes}-functie als de \code{error}-functie te plaatsen.
+
 Om gemakkelijk dialoogvensters te tonen, werd eerst gebruik gemaakt van DateBox~\cite{Sage2013} als plug-in.
 Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in \jqm{} aanwezig.
 Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
@@ -1122,7 +1138,7 @@ Hierop kunnen de \code{showLoading} en \code{hideLoading} methoden worden opgero
 Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd (niet te verwarren met het \code{viewModel} van de MVVM-architectuur).
 Het attribuut \code{data-role} moet \code{modelview} als waarde hebben om een HTML-fragment als dialoogvenster te definiëren.
 Dit fragment kan hoofd- en/of voetteksten bevatten.
-Het is mogelijk het \code{ModelView} in \js{} te selecteren met \code{\$("#id").data("kendoMobileModalView")}.
+Het is mogelijk het \code{ModelView} in \js{} te selecteren met \code{\$("\#id").data("kendoMobileModalView")}.
 %todo waarbij id voor de id van het modelview staat?
 Openen van het venster kan in \js{} met de \code{open} methode of in HTML door te linken naar het \code{modelview} en het \code{data-rel} attribuut aan \code{modelview} gelijk te stellen.
 
@@ -1130,6 +1146,16 @@ Openen van het venster kan in \js{} met de \code{open} methode of in HTML door t
 \paragraph{\lungo}
 Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt aangeboden door het raamwerk, namelijk: \code{Lungo.Notification.show()}.
 Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
+
+Het laadscherm wordt in samenwerking met de AJAX-oproepen gebruikt.
+Net voor de AJAX-oproep zal het laadscherm worden getoond en in de \term{callback} van de AJAX-oproep zal het worden verborgen.
+Er treedt zich echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-oproepen.
+Volgens de documentatie verbergt de functie \code{Lungo.Notification.hide()} het huidige laadscherm of dialoogvenster. 
+Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt verborgen.
+Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet wordt getoond.
+Een oplossing hiervoor is om bij een ketting van vensters, nooit de vensters tussenin te sluiten.
+Wanneer zowel een laadscherm als dialoogvenster worden geopend, zal enkel dat laatste getoond worden.
+
 Om een dialoogvenster te tonen, geeft men de volgende parameters mee: titel, omschrijving, tijd op het scherm en de \term{callback} functie.
 Indien er beslist wordt om geen tijd op te geven, kan het venster worden gesloten met \code{Lungo.Notification.hide()}.
 Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
@@ -1138,7 +1164,8 @@ Deze zullen respectievelijk een groene en rode kleur hebben.
 %\subsection{U12: Dataconversie}
 %
 %\paragraph{\jqm}
-%TODO
+%De omvorming bij een buitenlandse uitgave dient automatisch te gebeuren bij het ingeven van bedrag en munteenheid.
+%Hiervoor wordt aangehaakt op het veranderingsevenement \code{.change} dat jQuery aanbiedt, waarna na omvorming het bedrag direct getoond wordt aan de gebruiker.
 %
 %\paragraph{\st}
 %%TODO score? verplaatsten met lijsten
@@ -1340,7 +1367,7 @@ Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijh
 Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die \jqm{}~1.3 zelf aanbiedt. 
 De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
 
-Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
+Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
 De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
 Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-u9}).
 
@@ -1352,7 +1379,7 @@ Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2
 Deze laatste manier werd gebruikt om de knoppen groen te maken. 
 Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
 Door daarna de knop te annoteren met het \code{data-theme}-attribuut activeert men het betreffende thema. 
-Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's was en men die direct kan gebruiken.
+Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's (\term{swatch} \code{b}) was en men die direct kan gebruiken.
 
 \paragraph{\st}
 Het opbouwen van een \code{view} in \st{} gebeurt hiërarchisch met containers.
@@ -1380,7 +1407,7 @@ Een hoofdtekst kan een \code{navbar} hebben waarin knoppen kunnen worden gedefin
 Een tabbar moet met een \code{buttongroup} worden gemaakt.
 Dit is een lijst van knopppen.
 Na deze lijst moeten de bijhorende \code{views} worden geschreven.
-Het initialiseren van de lijst van knoppen moet via \code{\$("#id").kendoMobileButtonGroup()}.
+Het initialiseren van de lijst van knoppen moet via \code{\$("\#id").kendoMobileButtonGroup()}.
 Het bijhorende \js-object bevat een \code{select} gebeurtenis die zich afspeeld wanneer een knop is geslecteerd.
 Aan deze gebeurtenis moet een functie worden gekoppeld die alle \code{views} verbergt behalve diegene die hoort bij de geselecteerde knop.
 Deze operaties steunen op de CSS-manipulatie zoals aangeboden door jQuery.
@@ -1388,10 +1415,17 @@ Deze operaties steunen op de CSS-manipulatie zoals aangeboden door jQuery.
 De kleur van een knop wijzigen moet met CSS gebeuren.
 Omdat knoppen met HTML-tags worden aangemaakt kan de CSS-klasse rechtstreeks aan de tags worden toegevoegd.
 
-
-
 \paragraph{\lungo}
-TODO
+Het tonen van kop- en voettekst gebeurt door de verschillende schermen van de applicatie te omvatten door \code{<article>}-tags en daarbinnen de \code{<header>}- en \code{<footer>}-tag te gebruiken.
+Deze drie tags zijn nieuw in HTML5.
+In de voettekst kunnen door CSS-regels de twee logo's links en rechts uitgelijnd worden.
+De onderkoptekst werd met een omweg bekomen door een lijst te maken met slechts één lijstitem.
+
+Het maken van een tabbar is standaard aanwezig in \lungo{}.
+Deze wordt bekomen door een \code{<nav>}-tag te annoteren met de \code{groupbar}-klasse.
+In de \code{<nav>}-tag worden de links naar de verschillende tabbladen gemaakt door middel van \code{<a>}-tags.
+
+Het veranderen van de kleur van knoppen gebeurt in CSS waarbij de achtergrondkleur van de knop eenvoudig kan worden aangepast.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

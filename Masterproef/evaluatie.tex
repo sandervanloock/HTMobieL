@@ -97,7 +97,7 @@ Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig wor
 %%%%%%%%%%%%%
 
 \subsection{U1: Formulieren}
-In tabel \ref{tabel:evaluatie-gebruik-u1} worden de resultaten getoond van de vijf deeluitdaging van U1: Formulieren.
+In tabel \ref{tabel:evaluatie-gebruik-u1} worden de resultaten getoond van de vijf deeluitdaging van U1:~Formulieren.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -244,7 +244,7 @@ Het legen van een formulier gebeurt in Lungo door de \code{reset}-functie in \js
 %%%%%%%%%%%%%
 
 \subsection{U2: Invullen van formulier}
-In tabel \ref{tabel:evaluatie-gebruik-u2} worden de resultaten getoond van de twee deeluitdaging van U2: Invullen van formulier.
+In tabel \ref{tabel:evaluatie-gebruik-u2} worden de resultaten getoond van de twee deeluitdaging van U2:~Invullen van formulier.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -537,7 +537,7 @@ Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applic
 
 %%%%%%%%%%%%%
 \subsection{U5: Toon PDF}
-In tabel \ref{tabel:evaluatie-gebruik-u5} worden de resultaten getoond van de twee deeluitdagingen van U5: Toon PDF.
+In tabel \ref{tabel:evaluatie-gebruik-u5} worden de resultaten getoond van de twee deeluitdagingen van U5:~Toon PDF.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -595,41 +595,8 @@ Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correc
 
 %%%%%%%%%%%%%
 \subsection{U6: Toevoegen van afbeelding}
-
-\paragraph{\jqm}
-% Het opladen van een bestand kan gebeuren door \code{file} als invoertype van het formulierveld te gebruiken. 
-% In versie 1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
-% Voor het kan worden doorgestuurd naar de backend, moet het bewijs eerst lokaal worden omgevormd naar base64. 
-% Dit werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5 specificaties zijn. 
-% Het aangeklikte bestand wordt gelezen door middel van de FileReaderAPI, waarna het als afbeelding wordt opgeslagen en geïmporteerd wordt op het canvas. 
-% Eenmaal geïmporteerd, kan men de \code{.toDataURL()} oproepen op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
-% Deze aanpak werkt correct op recente mobiele apparaten. 
-% De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a} waardoor het opladen van een bewijs niet werkt.
-% 
-% Het voorvertonen van het geüploade bestand hangt af van het mobiele besturingssysteem.
-% Zo wordt op iOS 6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
-% Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
-% Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
-
-\paragraph{\st}
-Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/file-uploading-component-for-sencha-touch}.
-De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
-Het \js-bestand moet in de touch/src/ux folder worden geplaatst en de \code{Ext.ux.Fileup} klasse moet worden geïnitialiseerd.
-Het xtype \code{img} wordt dan beschikbaar voor \st{} componenten.
-
-De plug-in voorziet twee modes voor het opladen van bestanden: lokale als base64 of extern naar een server.
-De eerste laat toe afbeeldingen in het DOM of \term{local storage} te laden.
-Dit laatste is een aspect van de POC.
-
-Nadat een bestand is opgeladen kunnen twee gebeurtenissen zich voordoen:  \code{loadsuccess} of \code{loadfailure}.
-Het is de taak van een \code{controller} om deze gebeurtenissen op te vangen en een bijhorende methode te definiëren.
-De succes functie krijgt de base64 text mee en kan een voorbeeld van de afbeelding laten weergeven.
-
-\paragraph{\kendo}
-TODO
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u6} worden de resultaten getoond van de drie deeluitdagingen van U6:~Toevoegen van afbeelding.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -653,43 +620,58 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u6.csv}
-\caption{Scores voor U6: Toevoegen van afbeelding}
+\caption{Gebruik voor U6: Toevoegen van afbeelding}
 \label{tabel:evaluatie-gebruik-u6}
 \end{table}
 
-\subsection{U7: Auto-aanvullen}
-
 \paragraph{\jqm}
+Het toevoegen van een afbeelding gebeurt door \code{file} als invoertype van het formulierveld te gebruiken. 
+In versie~1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
+Het omvormen van de afbeelding naar base64 werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5-specificaties zijn. 
+De aangeklikte afbeelding wordt gelezen door middel van de FileReaderAPI, waarna het tijdelijk als afbeelding wordt opgeslagen en daarna geïmporteerd wordt op het canvas. 
+Eenmaal geïmporteerd, kan de functie \code{.toDataURL()} opgeroepen worden op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
 
-% Hoewel versie 1.3 automatische aanvulling ter beschikking heeft~\cite{JQuery2013c}, werd tijdens de implementatie gebruik gemaakt van versie 1.2 die dit niet had. 
-% Daarom werd de plug-in van Andy Matthews gebruikt~\cite{Matthews2013}. 
-% Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken. 
-% Daarnaast dienden enkel vijf suggesties te worden getoond. 
-% Deze functionaliteit zat niet in de plug-in, maar werd geïmplementeerd met de JavaScript \code{slice} functie.
+Het voorvertonen van het geüploade afbeelding hangt af van het mobiele besturingssysteem.
+Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
+Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
+Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
+
+%TODO Tim: verplaatsen naar ondersteuning
+% Deze aanpak werkt correct op recente mobiele apparaten. 
+% De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a} waardoor het opladen van een bewijs niet werkt.
 
 \paragraph{\st}
-Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
-Deze plug-in is niet op de Sencha Market terug te vinden.
-Door het \js-bestand toe te voegen wordt het xtype \code{autocompletefield} beschikbaar.
-Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
-Ook is het mogelijk het maximaal aantal suggesties vast te leggen.
+Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/file-uploading-component-for-sencha-touch}.
+De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
+Het \js-bestand moet in de touch/src/ux folder worden geplaatst en de \code{Ext.ux.Fileup} klasse moet worden geïnitialiseerd.
+Het xtype \code{img} wordt dan beschikbaar voor \st{} componenten.
 
-De \term{backend} server die bij de POC hoort geeft bij een bepaald sleutelwoord suggesties in een JSON-rij terug.
-De rij is voorzien van een sleutel maar alle elementen van de rij hebben geen sleutel.
-\st{} voorziet vier methoden om de resultaten van een \code{proxy} te parsen naar modelinstanties:
-\begin{description}
- \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
- \item [\code{XmlReader}] parst XML-tags naar model velden.
- \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
-\end{description}
-Geen van voorgaande methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
-Hierdoor kon geen klikbare dropdownmenu worden getoond.
+De plug-in voorziet twee modes voor het opladen van bestanden: lokale als base64 of extern naar een server.
+De eerste laat toe afbeeldingen in het DOM of \term{local storage} te laden.
+Dit laatste is een aspect van de POC.
+
+Nadat een bestand is opgeladen kunnen twee gebeurtenissen zich voordoen:  \code{loadsuccess} of \code{loadfailure}.
+Het is de taak van een \code{controller} om deze gebeurtenissen op te vangen en een bijhorende methode te definiëren.
+De succes functie krijgt de base64 text mee en kan een voorbeeld van de afbeelding laten weergeven.
 
 \paragraph{\kendo}
 TODO
 
 \paragraph{\lungo}
-TODO
+Een afbeelding kiezen gebeurt door het formulierveld met het type \code{file} toe te voegen.
+Het omvormen van de afbeelding naar base64 werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5-specificaties zijn. 
+De aangeklikte afbeelding wordt gelezen door middel van de FileReaderAPI, waarna het tijdelijk als afbeelding wordt opgeslagen en daarna geïmporteerd wordt op het canvas. 
+Eenmaal geïmporteerd, kan de functie \code{.toDataURL()} opgeroepen worden op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
+
+Het voorvertonen van het geüploade afbeelding hangt af van het mobiele besturingssysteem.
+Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
+Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
+Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
+
+%%%%%%%%%%%%%
+\subsection{U7: Auto-aanvullen}
+In tabel \ref{tabel:evaluatie-gebruik-u7} worden de resultaten getoond van de twee deeluitdagingen van U7:~Auto-aanvullen.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -713,10 +695,46 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u7.csv}
-\caption{Scores voor U7: Auto-aanvullen}
+\caption{Gebruik voor U7: Auto-aanvullen}
 \label{tabel:evaluatie-gebruik-u7}
 \end{table}
 
+\paragraph{\jqm}
+Indien er wordt gebruik gemaakt van versie~1.2 is een plug-in nodig om auto-aanvulling te bekomen.
+Hiervoor kan de plug-in van Andy Matthews worden gebruikt~\cite{Matthews2013}. 
+Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken.
+Sinds versie~1.3 voorziet \jqm{} deze functionaliteit zelf~\cite{JQuery2013c}.
+Er wordt aangehaakt op het \code{listviewbeforefilter}-\term{event} waarbij een eigen filterfunctie geschreven kan worden.
+De voorbeeldcode op de site kon integraal worden gebruikt. 
+
+\paragraph{\st}
+Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
+Deze plug-in is niet op de Sencha Market terug te vinden.
+Door het \js-bestand toe te voegen wordt het xtype \code{autocompletefield} beschikbaar.
+Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
+Ook is het mogelijk het maximaal aantal suggesties vast te leggen.
+
+De \term{backend} server die bij de POC hoort geeft bij een bepaald sleutelwoord suggesties in een JSON-rij terug.
+De rij is voorzien van een sleutel maar alle elementen van de rij hebben geen sleutel.
+\st{} voorziet vier methoden om de resultaten van een \code{proxy} te parsen naar modelinstanties:
+\begin{description}
+ \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
+ \item [\code{XmlReader}] parst XML-tags naar model velden.
+ \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
+\end{description}
+Geen van voorgaande methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
+Hierdoor kon geen klikbare dropdownmenu worden getoond.
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Standaard biedt \lungo{} geen auto-aanvullig aan, maar wel op zijn site van plug-ins~\cite{TapQuo2013b}.
+Daar werd de plug-in AutoComplete gebruikt.
+De voorbeeldcode maakt het gemakkelijk om onmiddellijk een werkend voorbeeld van de plug-in te hebben.
+Veel code kon dus gewoon worden overgenomen.
+
+%%%%%%%%%%%%%
 \subsection{U8: AJAX}
 
 \paragraph{\jqm}

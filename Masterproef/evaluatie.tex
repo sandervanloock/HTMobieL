@@ -342,38 +342,69 @@ Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{reado
 Dit gaat voor alle types van velden, behalve voor \code{select}-types.
 Daar worden de niet-benodigde lijstitems verwijderd en wordt de \code{select} zelf \code{disabled} gemaakt.
 
+%%%%%%%%%%%%%
 
 \subsection{U3: Formuliervalidatie}
 \label{sec:evaluatie-gebruik-u3}
 
+In tabel \ref{tabel:evaluatie-gebruik-u3} worden de resultaten getoond van de vier deeluitdaging van U3: Formuliervalidatie.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  ignore chars={\"},
+  verb string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik/u3.csv}
+\caption{Gebruik voor U3: Formuliervalidatie}
+\label{tabel:evaluatie-gebruik-u3}
+\end{table}
+
 \paragraph{\jqm}
-% Sommige formuliervelden waren verplicht in te vullen, terwijl andere niet. 
-% Hiervoor werd eerst gedacht om het \code{required} attribuut in HTML5 te gebruiken. 
-% Het probleem is echter dat er geen ondersteuning is voor mobiele browsers~\cite{Deveria2013}. 
-% Daarnaast was het ook nodig om de velden te valideren op hun waarde. 
-% Validatie is echter niet standaard aanwezig in jQuery Mobile. 
-% Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
-% Deze plug-in loste ook het probleem met de verplichte velden op. 
-% Deze plug-in kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS klassen ofwel anderzijds door programmatie met JavaScript. 
-% Beide aanpakken werden getest doorheen de POC. 
-% 
-% De plug-in bevatte de volgende ingebakken validatieregels nodig in de POC: \code{required}, \code{number}, \code{email} en \code{date}.
-% Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
-% Zo'n afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
-% 
-% Bij fouten tegen validatie moest een dialoogvenster worden weergegeven met daarin een beschrijving van alle foute velden.
-% Aangezien de plug-in standaard onder het foute formulierveld een foutboodschap toont, diende de plug-in  te worden aangepast.
-% Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
-% 
-% Een specifiek mobiel probleem was bij het tonen van het dialoogvenster, waarbij de plug-in op de achtergrond de cursor op het eerste veld zette. 
-% Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
-% Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
-% 
-% Bij het sluiten van het dialoogvenster dienden de foute velden met een rode rand te worden gemarkeerd.
-% Aangezien de validatie plug-in de foute velden annoteert met de \code{error} CSS klasse, kon de rode rand in CSS worden geprogrammeerd. 
-% Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
-% Door de extra code die jQuery Mobile genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
-% Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
+Validatie is niet standaard aanwezig in jQuery Mobile. 
+Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required}-attribuut in HTML5. 
+Dit werd niet gedaan om twee redenen.
+Enerzijds is hiervoor geen ondersteuning voor mobiele browsers~\cite{Deveria2013}. 
+Anderzijds is het ook nodig om de velden te valideren op hun waarde.
+Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
+Deze lost beide problemen op.
+De plug-in zelf kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code ofwel anderzijds door programmatie met \js{}. 
+Beide aanpakken werden getest en slaagden. 
+
+De plug-in bevat de volgende ingebakken validatieregels die nodig waren: \code{required}, \code{number}, \code{email} en \code{date}.
+Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
+Zo een afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
+
+De plug-in toont standaard een foutboodschap onder het foute formulierveld.
+Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
+
+Een specifiek mobiel probleem was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
+Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
+Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
+
+De plug-in annoteert de foute velden met de CSS-klasse \code{error}.
+Hierdoor kon de rode rond in CSS worden geprogrammeerd. 
+Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
+Door de extra code die \jqm{} genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
+Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
 
 \paragraph{\st}
 Een model kan worden voorzien van validatieregels.
@@ -437,60 +468,19 @@ De volledige foutenboodschap moet vervolgens worden geconstrueerd door alle fout
 Hoe een dialoogvenster gemaakt wordt zal in U11.2 Toon dialoog worden besproken.
 
 \paragraph{\lungo}
-TODO
+%TODO Tim: moet ik ook uitleggen hoe ik het geprogrammeerd heb? score is toch 0..
+Validatie is niet aanwezig in Lungo en er kon ook geen plug-in voor QuoJS gevonden worden~\cite{Ameye2013}.
+Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met QuoJS.
+Aangezien deze manier niet direct een oplossing bracht, werd alle validatie manueel geprogrammeerd.
+%TODO Tim: Voor de quotering blijft het resultaat hetzelfde.
+Door de slechte mobiele ondersteuning werd er ook geen beroep gedaan op HTML5-valdiatie.
+Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute velden werd ook zelf geprogrammeerd.
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  ignore chars={\"},
-  verb string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u3.csv}
-\caption{Scores voor U3: Formuliervalidatie}
-\label{tabel:evaluatie-gebruik-u3}
-\end{table}
+%%%%%%%%%%%%%
 
 \subsection{U4: Handtekening}
-
-\paragraph{\jqm}
-% Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat jQuery Mobile dit niet standaard aanbiedt. 
-% Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
-% Door de lange tijd die werd besteed aan het aanpassen van layout, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
-% Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
-% De plug-in maakt gebruik van het HTML5 canvas element en de \code{.toDataURL()} methode.
-% Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
-
-\paragraph{\st}
-Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden op \exturl{market.sencha.com/extensions/signature-pad-field}.
-Een plug-in aan het raamwerk toevoegen kan door het \js-bestand in de touch/src/ux folder te plaatsen.
-Vervolgens moet de plug-in worden geladen bij het initialiseren van de applicatie.
-
-De plug-in maakt een nieuw xtype \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
-
-De plug-in maakt gebruikt van het HTML5-canvas en retourneert de handtekening als geëncodeerde base64 text.
-
-
-\paragraph{\kendo}
-TODO
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u4} worden de resultaten getoond van de deeluitdaging van U4: Handtekening.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -514,9 +504,36 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u4.csv}
-\caption{Scores voor U4: Handtekening}
+\caption{Gebruik voor U4: Handtekening}
 \label{tabel:evaluatie-gebruik-u4}
 \end{table}
+
+\paragraph{\jqm}
+Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat \jqm{} dit niet standaard aanbiedt. 
+Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
+Door de lange tijd die werd besteed aan het aanpassen van de lay-out, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
+Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
+De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{.toDataURL()} methode.
+Hierdoor kan de base64-string bekomen worden die nodig is om door te sturen naar de server.
+%TODO TIM: verplaatsen
+%Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
+
+\paragraph{\st}
+Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden op \exturl{market.sencha.com/extensions/signature-pad-field}.
+Een plug-in aan het raamwerk toevoegen kan door het \js-bestand in de touch/src/ux folder te plaatsen.
+Vervolgens moet de plug-in worden geladen bij het initialiseren van de applicatie.
+
+De plug-in maakt een nieuw xtype \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
+
+De plug-in maakt gebruikt van het HTML5-canvas en retourneert de handtekening als geëncodeerde base64-tekst.
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook geen plug-in  worden gevonden.
+Er kan echter worden gebruik gemaakt van plug-ins die op andere \js{}-bibliotheken dan QuoJS steunen, maar de auteurs besloten om deze niet te beschouwen.
+Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applicatie.
 
 \subsection{U5: Toon PDF}
 

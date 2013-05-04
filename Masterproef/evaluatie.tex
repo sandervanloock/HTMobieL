@@ -821,6 +821,7 @@ Aangezien dit een fout was in de bibliotheek werd, om het probleem zo snel mogel
 
 %%%%%%%%%%%%%
 \subsection{U9: Toestelspecifieke lay-out}
+\label{sec:evaluatie-gebruik-u9}
 In tabel \ref{tabel:evaluatie-gebruik-u9} worden de resultaten getoond van de drie deeluitdagingen van U9:~Toestelspecifieke lay-out.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
@@ -1206,30 +1207,8 @@ De functie \code{Lungo.Core.orderByProperty} maakt het mogelijk om te sorteren v
 
 %%%%%%%%%%%%%
 \subsection{U14: Anatomie van pagina}
-
-\paragraph{\jqm}
-TODO
-
-\paragraph{\st}
-TODO
-
-\paragraph{\kendo}
-Het opbouwen van een \code{view} in \st{} gebeurt hiërarchisch met containers.
-Een component die aan een container kan worden toegevoegd is de \code{toolbar}.
-Een \code{toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
-Dit kan dan dienstdoen als hoofdtekst en voettekst.
-Een cascade van hoofdteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
-Een \code{toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
-Knoppen aan een \code{toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
-
-Het toevoegen van een tabbar verloopt analoog door een \code{tabpanel} toe te voegen.
-De \code{items} eigenschap bevat dan een lijst van \code{views} met een titel waarbij de \code{view} zichtbaar wordt als op de titel wordt gedrukt.
-
-Knoppen van kleur veranderen kan door de \code{style} van een knop te zetten.
-Deze eigenschap laat toe om CSS-eigenschappen als tekst of object aan de knop toe te voegen.
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u14} worden de resultaten getoond van de drie deeluitdagingen van U14:~Anatomie van pagina.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -1253,9 +1232,54 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u14.csv}
-\caption{Scores voor U14: Anatomie van pagina}
+\caption{Gebruik voor U14: Anatomie van pagina}
 \label{tabel:evaluatie-gebruik-u14}
 \end{table}
+
+\paragraph{\jqm}
+Het toevoegen van een kop- en voettekst gebeurt door gebruik te maken van \code{data-role="header"} en \code{data-role="footer"}. 
+Wel moest dezelfde code op ieder scherm worden herhaald. 
+Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. 
+Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. 
+Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die \jqm{}~1.3 zelf aanbiedt. 
+De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
+
+Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
+De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
+Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-u9}).
+
+Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
+Daarom werd gekozen voor \code{fieldset} met twee opties.
+
+De kleur van de knoppen aanpassen kan op twee manieren. 
+Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. 
+Deze laatste manier werd gebruikt om de knoppen groen te maken. 
+Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
+Door daarna de knop te annoteren met het \code{data-theme}-attribuut activeert men het betreffende thema. 
+Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's was en men die direct kan gebruiken.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+Het opbouwen van een \code{view} in \st{} gebeurt hiërarchisch met containers.
+Een component die aan een container kan worden toegevoegd is de \code{toolbar}.
+Een \code{toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
+Dit kan dan dienstdoen als hoofdtekst en voettekst.
+Een cascade van hoofdteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
+Een \code{toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
+Knoppen aan een \code{toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
+
+Het toevoegen van een tabbar verloopt analoog door een \code{tabpanel} toe te voegen.
+De \code{items} eigenschap bevat dan een lijst van \code{views} met een titel waarbij de \code{view} zichtbaar wordt als op de titel wordt gedrukt.
+
+Knoppen van kleur veranderen kan door de \code{style} van een knop te zetten.
+Deze eigenschap laat toe om CSS-eigenschappen als tekst of object aan de knop toe te voegen.
+
+\paragraph{\lungo}
+TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Ondersteuning}
 \label{sec:evaluatie-ondersteuning}
@@ -1283,6 +1307,8 @@ TODO
 \label{tabel:evaluatie-ondersteuning}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Performantie}
 \label{sec:evaluatie-performantie}
 
@@ -1308,25 +1334,18 @@ TODO
 \label{tabel:evaluatie-performantie}
 \end{table}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % TODO Tim: opruimen hieronder
-% \subsubsection{Tabbalk}
-% 
-% \paragraph{jQuery Mobile} 
-% Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
-% Daarom werd gekozen voor \code{fieldset} met twee opties.
-% 
+%
 % \subsubsection{Inlogscherm indien niet aangemeld}
 % 
-% \paragraph{jQuery Mobile} 
 % Indien men een applicatie maakt met meerdere schermen op eenzelfde pagina, laadt jQuery Mobile altijd het eerste scherm in de code in.
 % Het startscherm werd als eerste scherm gekozen.
 % Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
 % 
 % \subsubsection{Detail van toegevoegde uitgave}
 % 
-% \paragraph{jQuery Mobile} 
 % Na het toevoegen van een uitgave, is het mogelijk om deze opnieuw te bekijken (maar niet aan te passen).
 % Hiervoor wordt hetzelfde formulier (dat om een uitgave toe te voegen wordt gebruikt) gekopieerd, waarna alle elementen op enkel lezen worden gezet.
 % Dit was geen probleem voor velden van het type \code{input} en \code{textarea}. 
@@ -1341,34 +1360,5 @@ TODO
 % 
 % \subsubsection{Omvormen van valuta}
 % 
-% \paragraph{jQuery Mobile} 
 % De omvorming bij een buitenlandse uitgave dient automatisch te gebeuren bij het ingeven van bedrag en munteenheid.
 % Hiervoor wordt aangehaakt op het veranderingsevenement \code{.change} dat jQuery aanbiedt, waarna na omvorming het bedrag direct getoond wordt aan de gebruiker.
-% 
-% \subsubsection{Koptekst en voettekst}
-% 
-% \paragraph{jQuery Mobile}
-% Het toevoegen van een koptekst en voettekst ging zonder enig probleem door gebruik te maken van \code{data-role="header"} en \code{data-role="footer"}. 
-% Wel moest dezelfde code op ieder scherm worden herhaald. 
-% Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. 
-% Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. 
-% Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die jQuery Mobile aanbiedt. 
-% Deze voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
-% 
-% Bij het toevoegen van een uitgave dient er een extra titel onder de koptekst te komen. 
-% Eerst werd geprobeerd om bovenaan een lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
-% De uiteindelijke oplossing kwam vanuit de documentatie \cite{JQuery2013b} om dit met behulp van de \code{ui-bar} CSS klasse te implementeren. 
-% Deze extra titel wordt ook gebruikt om op de smartphone naar de speciale smartphone navigatie te gaan (zie ook vorige sectie).
-% 
-% \subsubsection{Knoppen}
-% 
-% \paragraph{jQuery Mobile} 
-% De kleur van de knoppen aanpassen kan op twee manieren. 
-% Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. 
-% Deze laatste manier werd gebruikt om de knoppen groen te maken. 
-% Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
-% Door daarna de knop te annoteren met het \code{data-theme} attribuut activeert men het betreffende thema. 
-% Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's was en men die direct kan gebruiken.
-% 
-% Knoppen toevoegen aan de koptekst gaat ook op een zeer eenvoudige manier.
-% % TODO: verder schrijven

@@ -1033,6 +1033,14 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Het standaard laadscherm is enkel een \term{spinner} die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
 Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook een tekst worden ondergezet.
 
+De laadschermen werden in combinatie met de AJAX-oproepen gebruikt.
+Bij de AJAX-oproep wordt de functie \code{beforeSend} voor de oproep opgeroepen en de functie \code{complete} na de oproep.
+Dit zijn dus de ideale plaatsen om respectievelijk de laadschermen te tonen en te verbergen.
+Indien men AJAX-oproepen in een ketting gaat plaatsen, lukt deze aanpak niet meer.
+De \code{complete}-functie van de eerste AJAX-oproep zal pas opgeroepen worden als de laatste AJAX-oproep klaar is.
+Hierdoor zal gedurende de ketting van AJAX-oproepen, alleen het eerste laadscherm zichtbaar zijn en zullen de andere nooit worden getoond.
+Een oplossing hiervoor is om het verbergen van het laadscherm uit de \code{complete}-oproep te halen en deze in zowel in de \code{succes}-functie als de \code{error}-functie te plaatsen.
+
 Om gemakkelijk dialoogvensters te tonen, werd eerst gebruik gemaakt van DateBox~\cite{Sage2013} als plug-in.
 Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in \jqm{} aanwezig.
 Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.

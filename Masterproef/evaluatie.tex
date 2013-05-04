@@ -278,7 +278,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
 Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
-Dit gebeurt typisch voor tekstvelden volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
+Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
 Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
 Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
 Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
@@ -945,6 +945,11 @@ Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zel
 Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
 Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
 
+
+Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code in inlaadt.
+Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
+Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gebruikersgegevens werden bewaard.
+
 Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
 Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
@@ -1063,7 +1068,8 @@ Deze zullen respectievelijk een groene en rode kleur hebben.
 %\subsection{U12: Dataconversie}
 %
 %\paragraph{\jqm}
-%TODO
+%De omvorming bij een buitenlandse uitgave dient automatisch te gebeuren bij het ingeven van bedrag en munteenheid.
+%Hiervoor wordt aangehaakt op het veranderingsevenement \code{.change} dat jQuery aanbiedt, waarna na omvorming het bedrag direct getoond wordt aan de gebruiker.
 %
 %\paragraph{\st}
 %%TODO score? verplaatsten met lijsten
@@ -1345,32 +1351,3 @@ Het veranderen van de kleur van knoppen gebeurt in CSS waarbij de achtergrondkle
 \caption{Samenvattende tabel voor performantiecriterium}
 \label{tabel:evaluatie-performantie}
 \end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% TODO Tim: opruimen hieronder
-%
-% \subsubsection{Inlogscherm indien niet aangemeld}
-% 
-% Indien men een applicatie maakt met meerdere schermen op eenzelfde pagina, laadt jQuery Mobile altijd het eerste scherm in de code in.
-% Het startscherm werd als eerste scherm gekozen.
-% Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
-% 
-% \subsubsection{Detail van toegevoegde uitgave}
-% 
-% Na het toevoegen van een uitgave, is het mogelijk om deze opnieuw te bekijken (maar niet aan te passen).
-% Hiervoor wordt hetzelfde formulier (dat om een uitgave toe te voegen wordt gebruikt) gekopieerd, waarna alle elementen op enkel lezen worden gezet.
-% Dit was geen probleem voor velden van het type \code{input} en \code{textarea}. 
-% Dit kon echter niet  bij \code{fieldset}. 
-% Daar moesten via \code{disabled} de andere opties onmogelijk worden gemaakt.
-% Eenzelfde probleem gold voor het \code{select} formuliertype bij een buitenlandse uitgave.
-% Daar werd enkel de geselecteerde optie in het lijstje getoond en alle andere opties eruit verwijderd.
-% 
-% Het invullen van het formulier zelf werd bekomen door de \code{id}'s van de velden op te vragen en hun waarde in te stellen volgens de JSON voorstelling van die uitgave. 
-% Er is met andere woorden geen automatische mapping van de JSON data naar de formuliervelden. 
-% 
-% 
-% \subsubsection{Omvormen van valuta}
-% 
-% De omvorming bij een buitenlandse uitgave dient automatisch te gebeuren bij het ingeven van bedrag en munteenheid.
-% Hiervoor wordt aangehaakt op het veranderingsevenement \code{.change} dat jQuery aanbiedt, waarna na omvorming het bedrag direct getoond wordt aan de gebruiker.

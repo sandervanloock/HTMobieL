@@ -991,37 +991,8 @@ Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijs
 
 %%%%%%%%%%%%%
 \subsection{U11: Laadscherm en dialoogvenster} 
-
-\paragraph{\jqm}
-
-% Het standaard laadscherm is enkel een \term{spinner} die niet opvallend aanwezig is en ook zonder een tekst eronder ronddraait.
-% Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor en staat er ook een tekst onder.
-
-% Eerst werd gebruik gemaakt van DateBox \cite{Sage2013} als plug-in om op een gemakkelijke manier een dialoogvenster te tonen.
-% Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in jQuery Mobile aanwezig.
-% Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
-% Door zelf de dialoogvenster met jQuery Mobile aan te maken, kon de layout minimier aangepast worden.
-
-\paragraph{\st}
-Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{view} te plaatsen.
-Een object van dit xtype kan een bericht bevatten wat de laadtekst voorstelt.
-Het toten van een masker kan door de \code{setMasked} methode op een \code{view} op te roepen.
-Een courante aanpak is te werken met de \term{singleton} klasse \code{Ext.Viewport} die de huidige zichtbare \code{view} voorsteld.
-Hierop de \code{setMasked} methode oproepen verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
-
-De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialogen weer te geven.
-\st{} biedt drie standaarden van dialogen aan: \code{alert}, \code{promt} en \code{confirm}.
-De eerste laat de gebruiker een bericht zien,  de tweede vraagt de gebruiker om invoer en de laatste vraagt bevestiging aan de gebruiker.
-Deze drie standaarden zijn als methode in \code{Ext.Msg} beschikbaar.
-Parameters van de methoden kunnen de titel, tekst en functie van de knoppen bepalen.
-Een meer generieke aanpak is het oproepen van de \code{show} methode van \code{Ext.Msg}.
-Intern roepen de standaard dialogen deze methode ook op.
-
-\paragraph{\kendo}
-TODO
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u11} worden de resultaten getoond van de twee deeluitdagingen van U11:~Laadscherm en dialoogvenster.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -1045,34 +1016,101 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u11.csv}
-\caption{Scores voor U11: Laadscherm en dialoogvenster}
+\caption{Gebruik voor U11: Laadscherm en dialoogvenster}
 \label{tabel:evaluatie-gebruik-u11}
 \end{table}
 
-\subsection{U12: Dataconversie}
-
 \paragraph{\jqm}
-TODO
+Het standaard laadscherm is enkel een \term{spinner} die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
+Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook een tekst worden ondergezet.
+
+Om gemakkelijk dialoogvensters te tonen, werd eerst gebruik gemaakt van DateBox~\cite{Sage2013} als plug-in.
+Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in \jqm{} aanwezig.
+Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
+%TODO Tim: wat bedoelde ik hiermee?
+%Door zelf het dialoogvenster met \jqm{} aan te maken, kon de layout minimier aangepast worden.
 
 \paragraph{\st}
-%TODO score? verplaatsten met lijsten
-De omzetting van \code{identifiers} en munteenheden vindt plaats in de overzichtslijsten.  
-Lijsten kunnen voorzien worden van een sjabloon om de elementen in de lijst op te maken.
-Hierop wordt verder ingegaan in de volgende uitdaging.
-In de lijst van uitgaven moet elke uitgave getoond worden met het bedrag in euro.
-In het sjabloon voor deze lijst kan een \js-methode worden geplaatst die het bedrag van de uitgave eerst naar euro zal omzetten.
-De progammeur heeft toegang tot alle eigenschappen van een model waarvan modelinstanties de lijstelementen zullen bepalen.
-De methode die de munteenheid tot euro omvormt, kan dus ook deze eigenschappen gebruiken.
-De methode moet echter wel zelf worden geschreven.
-Op een analoge manier verloopt de conversie van \code{identifier} naar tekstuele vorm.
+Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{view} te plaatsen.
+Een object van dit xtype kan een bericht bevatten wat de laadtekst voorstelt.
+Het toten van een masker kan door de \code{setMasked} methode op een \code{view} op te roepen.
+Een courante aanpak is te werken met de \term{singleton} klasse \code{Ext.Viewport} die de huidige zichtbare \code{view} voorsteld.
+Hierop de \code{setMasked} methode oproepen verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
 
-%TODO alternatief data geconverteerd opslagen en bij versturen/tonen als detailexpense terug omvormen.
+De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialogen weer te geven.
+\st{} biedt drie standaarden van dialogen aan: \code{alert}, \code{promt} en \code{confirm}.
+De eerste laat de gebruiker een bericht zien,  de tweede vraagt de gebruiker om invoer en de laatste vraagt bevestiging aan de gebruiker.
+Deze drie standaarden zijn als methode in \code{Ext.Msg} beschikbaar.
+Parameters van de methoden kunnen de titel, tekst en functie van de knoppen bepalen.
+Een meer generieke aanpak is het oproepen van de \code{show} methode van \code{Ext.Msg}.
+Intern roepen de standaard dialogen deze methode ook op.
 
 \paragraph{\kendo}
 TODO
 
 \paragraph{\lungo}
-TODO
+Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt aangeboden door het raamwerk, namelijk: \code{Lungo.Notification.show()}.
+Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
+Om een dialoogvenster te tonen, geeft men de volgende parameters mee: titel, omschrijving, tijd op het scherm en de \term{callback} functie.
+Indien er beslist wordt om geen tijd op te geven, kan het venster worden gesloten met \code{Lungo.Notification.hide()}.
+Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
+Deze zullen respectievelijk een groene en rode kleur hebben.
+
+%\subsection{U12: Dataconversie}
+%
+%\paragraph{\jqm}
+%TODO
+%
+%\paragraph{\st}
+%%TODO score? verplaatsten met lijsten
+%De omzetting van \code{identifiers} en munteenheden vindt plaats in de overzichtslijsten.  
+%Lijsten kunnen voorzien worden van een sjabloon om de elementen in de lijst op te maken.
+%Hierop wordt verder ingegaan in de volgende uitdaging.
+%In de lijst van uitgaven moet elke uitgave getoond worden met het bedrag in euro.
+%In het sjabloon voor deze lijst kan een \js-methode worden geplaatst die het bedrag van de uitgave eerst naar euro zal omzetten.
+%De progammeur heeft toegang tot alle eigenschappen van een model waarvan modelinstanties de lijstelementen zullen bepalen.
+%De methode die de munteenheid tot euro omvormt, kan dus ook deze eigenschappen gebruiken.
+%De methode moet echter wel zelf worden geschreven.
+%Op een analoge manier verloopt de conversie van \code{identifier} naar tekstuele vorm.
+%
+%%TODO alternatief data geconverteerd opslagen en bij versturen/tonen als detailexpense terug omvormen.
+%
+%\paragraph{\kendo}
+%TODO
+%
+%\paragraph{\lungo}
+%TODO
+%
+%\begin{table}[H]
+%\centering
+%\pgfplotstabletypeset[
+%  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+%  end table=\end{tabular},
+%  skip coltypes=true,
+%  col sep=comma,
+%  string type,
+%  header=true,
+%  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+%  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+%  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+%  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+%  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+%  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+%  every head row/.style={
+%    before row=\toprule,
+%    after row=\midrule},
+%  every last row/.style={
+%  	before row=\midrule,
+%    after row=\bottomrule}
+%]{tabellen/gebruik/u12.csv}
+%\caption{Scores voor U12: Dataconversie}
+%\label{tabel:evaluatie-gebruik-u12}
+%\end{table}
+
+%%%%%%%%%%%%%
+\subsection{U13: Lijsten}
+In tabel \ref{tabel:evaluatie-gebruik-u13} worden de resultaten getoond van de drie deeluitdagingen van U13:~Lijsten.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -1095,15 +1133,27 @@ TODO
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u12.csv}
-\caption{Scores voor U12: Dataconversie}
-\label{tabel:evaluatie-gebruik-u12}
+]{tabellen/gebruik/u13.csv}
+\caption{Gebruik voor U13: Lijsten}
+\label{tabel:evaluatie-gebruik-u13}
 \end{table}
 
-\subsection{U13: Lijsten}
-
 \paragraph{\jqm}
-% Het aanmaken van lijsten gebeurt met de \term{listview} widget.
+Het laden van data in een lijst dient zelf geprogrammeerd te worden.
+Hiervoor maakt men gebruik van de \code{.each()}-functie van jQuery om ieder data-item te overlopen.
+Per item moet een \code{append} gebeuren van een lijstitem op de lijst.
+In dit item wordt de template van de lijst geschreven.
+Na alle elementen te hebben overlopen, moet de lijst ververst worden zodat \jqm{} de correcte lay-out toepast op de volledige lijst
+
+Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
+Er kunnen hiervoor twee manieren gekozen worden.
+Enerzijds kan worden gebruik gemaakt van de \code{<a>}-tags in HTML.
+Anderzijds kan ieder lijstitem een \code{id} krijgen, waarna een \code{click}-\term{event}  wordt gebonden aan al deze elementen.
+Op basis van de \code{id} kan de uit te voeren actie bepaald worden.
+
+Het sorteren van data werd geïmplementeerd door eerst in \js{} een vergelijkingsfunctie te schrijven.
+Daarna wordt deze functie meegegeven aan de sorteerfunctie die ook in \js{} aanwezig is.
+Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
 
 \paragraph{\st}
 Zoals besproken in de vorige uitdaging kan een lijst voorzien worden van een sjabloon.
@@ -1139,34 +1189,22 @@ Een \code{store} sorteren kan ook expliciet door de \code{sort} methode op de \c
 TODO
 
 \paragraph{\lungo}
-TODO
+Het laden van data in een lijst dient zelf geprogrammeerd te worden.
+Hiervoor wordt gebruik gemaakt van de functie \code{\$\$.each} van QuoJS om ieder element van de array te overlopen.
+Per element gebeurt een \code{append} op de lijst waar de data dient geladen te worden.
+Het toegevoegde lijstitem bepaalt de template van de lijst.
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u13.csv}
-\caption{Scores voor U13: Lijsten}
-\label{tabel:evaluatie-gebruik-u13}
-\end{table}
+Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
+Er kunnen hiervoor twee manieren gekozen worden (zie ook \jqm{}).
+Enerzijds kan worden gebruik gemaakt van de \code{<a>}-tags in HTML.
+Anderzijds kan ieder lijstitem een \code{id} krijgen, waarna een \code{click}-\term{event}  wordt gebonden aan al deze elementen.
+Op basis van de \code{id} kan de uit te voeren actie bepaald worden.
 
+Het sorteren van data gebeurt door de aangeboden functies van het raamwerk zelf.
+De functie \code{Lungo.Core.orderByProperty} maakt het mogelijk om te sorteren volgens een bepaalde eigenschap, zowel oplopend als aflopend.
+
+
+%%%%%%%%%%%%%
 \subsection{U14: Anatomie van pagina}
 
 \paragraph{\jqm}
@@ -1307,13 +1345,6 @@ TODO
 % De omvorming bij een buitenlandse uitgave dient automatisch te gebeuren bij het ingeven van bedrag en munteenheid.
 % Hiervoor wordt aangehaakt op het veranderingsevenement \code{.change} dat jQuery aanbiedt, waarna na omvorming het bedrag direct getoond wordt aan de gebruiker.
 % 
-% \subsubsection{Sorteren}
-% 
-% \paragraph{jQuery Mobile} 
-% Het sorteren van data werd geïmplementeerd door eerst in JavaScript een vergelijkingsfunctie te schrijven.
-% Daarna wordt deze functie meegegeven aan de sorteerfunctie die ook in JavaScript aanwezig is.
-% Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
-%
 % \subsubsection{Koptekst en voettekst}
 % 
 % \paragraph{jQuery Mobile}

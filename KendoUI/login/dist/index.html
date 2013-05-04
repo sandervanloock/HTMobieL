@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <title>Kendo UI Mobile</title>
+    <link rel="stylesheet" href="styles/1c5f0f85.app.css">
+</head>
+<body>
+<div data-role="view" data-title="Expense App" id="login">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+        </div>
+    </div>
+
+    <div id="login-form">
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <input type="text" id="login-username" placeholder="Username" value="tim.ameye@student.kuleuven.be" required="" validationmessage="Username: This field is required.">
+            </li>
+            <li>
+                <input type="password" id="login-password" placeholder="Password" value="test123" required="" validationmessage="Password: This field is required.">
+            </li>
+        </ul>
+        <div class="align-right">
+            <button id="login-button" data-role="button">Log in</button>
+        </div>
+    </div>
+</div>
+
+<div data-role="modalview" id="dialog" data-close="closeDialog">
+    <ul id="dialog-list" data-role="listview" data-style="inset">
+
+    </ul>
+    <a data-click="closeDialog" data-role="button" data-align="right">Close</a>
+</div>
+
+<div data-role="view" data-title="Expense App" id="home">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+        </div>
+    </div>
+
+    <ul data-role="listview" data-style="inset" id="home-list">
+    </ul>
+</div>
+
+<script src="scripts/dfbd4f97.app.js"></script>
+</body>
+</html>

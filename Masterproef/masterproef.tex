@@ -1,4 +1,4 @@
-\documentclass[master=cws,dutch,masteroption={vs,gs}]{kulemt}
+\documentclass[master=cws,dutch,masteroption={vs,gs},inputenc=utf8]{kulemt}
 \setup{title={Vergelijkende studie van raamwerken voor de ontwikkeling van mobiele HTML5-applicaties},
   author={Tim Ameye\and Sander Van Loock},
   promotor={Prof.\,dr.\,ir.\ E. Duval},
@@ -21,37 +21,29 @@
 % Kies de fonts voor de gewone tekst, bv. Latin Modern
 \setup{font=lm}
 
+% Hier kun je dan nog andere pakketten laden of eigen definities voorzien
 \usepackage{draftwatermark}
 \SetWatermarkColor[rgb]{0.90,0.90,0.90}
 
-% Hier kun je dan nog andere pakketten laden of eigen definities voorzien
-\usepackage[utf8]{inputenc}
+% Tenslotte wordt hyperref gebruikt voor pdf bestanden.
+% Dit mag verwijderd worden voor de af te drukken versie.
+\usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
+
 \usepackage{kulemtx}
 \headstyles{kulemtman}
 \kulemtmanToC
+
 \usepackage{pgfplotstable} %nodig voor CSV to Latex
 \usepackage{booktabs} % voor layout comparisontable
 \usepackage{float} %floating tabellen onderdrukken
 \usepackage{pdflscape} %tabel in landscape zetten
 \usepackage{enumitem}
 
-%TODO:  werkt niet -> nieuwe paragraaf niet indenteren maar wel lijn tussen laten.
-%\usepackage{parskip} 
-
-% engelse term die we niet vertalen naar het nederlands
-\newcommand{\term}[1]{\emph{#1}}	
-
-% code commande
-\newcommand{\code}[1]{\texttt{#1}}
-
-% Tenslotte wordt hyperref gebruikt voor pdf bestanden.
-% Dit mag verwijderd worden voor de af te drukken versie.
-\usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
-\usepackage{enumitem}
+\newcommand{\term}[1]{\emph{#1}} % engelse term die we niet vertalen naar het nederlands
+\newcommand{\code}[1]{\texttt{#1}} % code command
 
 % zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
 %\renewcommand{\url}[1]{\href{http://#1}{#1}}
-
 \newcommand{\exturl}[1]{\href{http://#1}{#1}}
 \renewcommand{\url}[1]{\href{#1}{#1}}
 
@@ -70,8 +62,11 @@
 \newcommand{\davinci}[0]{DaVinci}
 \newcommand{\jqt}[0]{jQT}
 \newcommand{\js}[0]{JavaScript}
-
 \newcommand{\challenge}[1]{\paragraph{#1}}
+
+
+%TODO:  werkt niet -> nieuwe paragraaf niet indenteren maar wel lijn tussen laten.
+%\usepackage{parskip} 
 
 %%%%%%%
 % Om wat tekst te genereren wordt hier het lipsum pakket gebruikt.
@@ -105,8 +100,7 @@
 \listoftables
 % Bij een beperkt aantal figuren en tabellen gebruik je liever het volgende:
 %\listoffiguresandtables
-% De lijst van symbolen is eveneens optioneel.
-% Deze lijst moet wel manueel aangemaakt worden, bv. als volgt:
+
 \chapter{Lijst van afkortingen}
 \section*{Afkortingen}
 \begin{flushleft}
@@ -140,18 +134,6 @@
      XML & eXtensible Markup Language
   \end{tabularx}
 \end{flushleft}
-%\section*{Symbolen}
-%\begin{flushleft}
-%  \renewcommand{\arraystretch}{1.1}
-%  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
-%    42    & ``The Answer to the Ultimate Question of Life, the Universe,
-%            and Everything'' volgens de \cite{h2g2} \\
-%    $c$   & Lichtsnelheid \\
-%    $E$   & Energie \\
-%    $m$   & Massa \\
-%    $\pi$ & Het getal pi \\
-%  \end{tabularx}
-%\end{flushleft}
 
 % Nu begint de eigenlijke tekst
 \mainmatter

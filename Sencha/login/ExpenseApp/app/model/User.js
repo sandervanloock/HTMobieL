@@ -1,24 +1,24 @@
 Ext.define('ExpenseApp.model.User', {
-    extend:'Ext.data.Model',
+    extend: 'Ext.data.Model',
 
-    config:{
-        fields:[
+    config: {
+        fields: [
             {
-                name:'username'
+                name: 'username'
             },
             {
-                name:'password'
+                name: 'password'
             }
         ],
 
-        validations:[
+        validations: [
             {
-                field:'username',
-                type:'presence'
+                field: 'username',
+                type: 'presence'
             },
             {
-                field:'password',
-                type:'presence'
+                field: 'password',
+                type: 'presence'
 
             }
         ]

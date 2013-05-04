@@ -68,37 +68,91 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
-%Gebruik wordt opgedeeld per uitdaging.
+Het gebruik van de vier raamwerken wordt samengevat in tabel \ref{tabel:evaluatie-gebruik}.
+Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig worden besproken per raamwerk.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik.csv}
+\caption{Samenvattende tabel voor gebruik}
+\label{tabel:evaluatie-gebruik}
+\end{table}
+
+%%%%%%%%%%%%%
 
 \subsection{U1: Formulieren}
+In tabel \ref{tabel:evaluatie-gebruik-u1} worden de resultaten getoond van de vijf deeluitdaging van U1: Formulieren.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  skip coltypes=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik/u1.csv}
+\caption{Gebruik voor U1: Formulieren}
+\label{tabel:evaluatie-gebruik-u1}
+\end{table}
+
 
 \paragraph{\jqm} 
-%Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder} attribuut in HTML5. 
-%Er dienden geen labels te worden gezet voor de velden. 
-%Deze labels zijn echter wel verplicht in jQuery Mobile, maar kunnen onzichtbaar worden gemaakt met de \code{ui-hide-label} CSS klasse~\cite{JQuery2013}. 
-%Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. 
-%Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. 
-%Dit kan met behulp van JavaScript via de \code{reset()}-functie op het formulier.
-% 
-%Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
+Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}-attribuut in HTML5. 
+Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
+Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. 
+Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. 
+Dit kan met behulp van \js{} via de \code{reset()}-functie op het formulier.
+ 
+Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
 %Deze zorgen ervoor dat op de mobiele apparaten aangepaste toetsenborden te voorschijn komen. 
-%Het \code{date} type werd echter niet gebruikt. 
-%Enerzijds was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013b}. 
-%Dit betekende onder andere dat Android 2.3 dit niet ondersteunde. 
-%Een ander probleem was het ontbreken van een \term{placeholder} in het veld op iOS 6 en Android 4.2. 
-%Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen, omdat er ook geen labels aanwezig moesten zijn. 
-%Daarnaast is een \code{placeholder} instellen onmogelijk voor een \code{date} type~\cite{Berjon2012}. 
-%Anderzijds moest het ook mogelijk zijn om de gebruiker maar een bepaald bereik van data op te leggen, wat met het \code{date} type onmogelijk is. 
-%Hierdoor werd gebruik gemaakt van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van jQuery Mobile. 
-%Het veld heeft dan het type \code{text}. 
-%Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
-%Dit wordt belet door ook nog eens een datum validatie te doen op dit tekstveld mocht de plug-in het al niet afgedwongen hebben.
-% 
-%Het was ook nodig om enkel de maand en jaar in te geven.  
-%Ook hier kon niet het \code{date} type gebruikt worden, omdat daar ook een dag voor nodig is. 
-%Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
-%De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
-%Deze functionaliteit had ook met de Mobiscroll plug-in kunnen worden verwezenlijkt.
+Het \code{date} type werd echter niet gebruikt om wille van twee redenen.
+Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013b}.
+Android~2.3 ondersteunt dit niet en de \term{placeholder}-tekst in het veld ontbrak op iOS~6 en Android~4.2.
+Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. 
+Zelf een \term{placeholder} instellen is onmogelijk voor een \code{date}-type~\cite{Berjon2012}. 
+Een tweede probleem was het opleggen van het bereik van datums, wat met het \code{date}-type onmogelijk is. 
+Beide problemen werden opgelost door gebruik te maken van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van \jqm{}. 
+Het veld heeft dan wel het type \code{text}.
+Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
+Dit wordt belet door ook nog eens een datumvalidatie (zie \ref{sec:evaluatie-gebruik-u3}) te doen op dit tekstveld mocht de plug-in het niet hebben afgedwongen.
+ 
+Het was ook nodig om enkel de maand en jaar in te geven als datum, dus zonder dag.
+Ook hier kon niet het \code{date}-type gebruikt worden, omdat daar ook een dag voor nodig is. 
+Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
+De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
+Deze functionaliteit kon ook met de plug-in van Mobiscroll worden verwezenlijkt.
 
 \paragraph{\st} 
 % Placeholders, text, email and number fields are supported by the framework and can be easily created.  
@@ -174,7 +228,24 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{formpanel} worden 
  
  
 \paragraph{\lungo} 
-TODO
+Het toevoegen van \term{placeholders} in de formuliervelden gebeurt met het HTML5-atttribuut \code{placeholder}.
+In \lungo{} zijn labels niet verplicht.
+Indien deze niet gewenst zijn, kunnen deze gewoon uit de HMTL5-code weggelaten worden.
+
+De types \code{text}, \code{number} en \code{email} voor formuliervelden worden verwezenlijkt door deze als type voor de \code{input}-tags mee te geven in het formulier.
+Gelijkaardig met de twee aangehaalde problemen voor \jqm{}, werd niet gekozen voor het \code{date}-type, maar een plug-in om de functionaliteit met datums op te lossen.
+De \code{date-picker} werd gebruikt van de plug-in pagina van Lungo zelf~\cite{TapQuo2013b}.
+Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \term{datepicker} te openen en de aangeklikte datum in het formulierveld te zetten.
+De plug-in laat echter niet toe om een bereik op te geven.
+De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
+
+Het legen van een formulier gebeurt in Lungo door de \code{reset}-functie in \js{} op te roepen op dat formulier.
+
+%%%%%%%%%%%%%
+
+\subsection{U2: Invullen van formulier}
+In tabel \ref{tabel:evaluatie-gebruik-u2} worden de resultaten getoond van de twee deeluitdaging van U2: Invullen van formulier.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -185,7 +256,6 @@ TODO
   col sep=comma,
   string type,
   header=true,
-  skip coltypes=true,
   columns={Uitdaging,jQM,ST,Kendo,Lungo},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
   columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
@@ -198,15 +268,23 @@ TODO
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u1.csv}
-\caption{Scores voor U1:  Formulieren}
-\label{tabel:evaluatie-gebruik-u1}
+]{tabellen/gebruik/u2.csv}
+\caption{Gebruik voor U2: Invullen van formulier}
+\label{tabel:evaluatie-gebruik-u2}
 \end{table}
 
-\subsection{U2: Invullen van formulier}
-
 \paragraph{\jqm}
-TODO
+Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
+Dit gebeurt typisch voor tekstvelden volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
+Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
+Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
+Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
+Ook hier moet eerst de waarde worden gezocht, waarna aan de gevonden waarde het \code{checked}-attribuut wordt toegevoegd.
+Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd, wat betekent dat dit dus voor iedere formulierveld dient te gebeuren.
+
+Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
+Dit geld voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} wordt gebruikt.
+Voor \code{select}-items moeten de andere niet-benodigde lijstitems verwijderd worden, want deze kunnen nog steeds aangeklikt worden.
 
 \paragraph{\st}
 Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
@@ -253,35 +331,20 @@ Alle invoer types buiten radio- en selectknoppen gebruiken hiervoor het \code{re
 Radio- en selectknoppen worden onbeschikbaar met het \code{disabled} sleutelwoord.
 
 \paragraph{\lungo}
-TODO
+Velden vullen met data dient handmatig te gebeuren door eerst het formulierveld op te zoeken en daarna de waarde te zetten.
+Dit gebeurt typisch volgens de volgende code: \code{\$\$("\#form-veld").val("waarde")}.
+Deze functie kan ook gebruikt worden voor \code{select}-types.
+Geoptimaliseerde mobiele lay-out voor \code{radio}-types is niet aanwezig in \lungo.
+Een opmerking dient wel gemaakt te worden dat de waarde altijd een \code{string} moet zijn.
+Dit betekent dus voor getallen dat deze altijd eerst moeten worden omgevormd met de \js{}-functie \code{toString()}. 
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u2.csv}
-\caption{U2: Invullen van formulier}
-\label{tabel:evaluatie-gebruik-u2}
-\end{table}
+Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
+Dit gaat voor alle types van velden, behalve voor \code{select}-types.
+Daar worden de niet-benodigde lijstitems verwijderd en wordt de \code{select} zelf \code{disabled} gemaakt.
+
 
 \subsection{U3: Formuliervalidatie}
+\label{sec:evaluatie-gebruik-u3}
 
 \paragraph{\jqm}
 % Sommige formuliervelden waren verplicht in te vullen, terwijl andere niet. 
@@ -1059,31 +1122,6 @@ TODO
 ]{tabellen/gebruik/u14.csv}
 \caption{Scores voor U14: Anatomie van pagina}
 \label{tabel:evaluatie-gebruik-u14}
-\end{table}
-
-\subsection{Overzicht}
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik.csv}
-\caption{Samenvattende tabel voor gebruikscriterium}
-\label{tabel:evaluatie-gebruik}
 \end{table}
 
 \section{Ondersteuning}

@@ -117,9 +117,7 @@
             <div class="form">
                 <form id="create1-info-form">
                     <fieldset>
-                        <label>Date</label>
-
-                        <div class="four columns">
+                        <div class="five columns">
                             <label class="select">
                                 <select class="custom" id="create1-info-month">
                                     <option value="1">January</option>
@@ -137,7 +135,7 @@
                                 </select>
                             </label>
                         </div>
-                        <div class="four columns">
+                        <div class="five columns">
                             <label class="select">
                                 <select class="custom" id="create1-info-year">
                                 </select>
@@ -145,21 +143,16 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <label for="create1-info-first-name">First Name</label>
-                        <input type="text" id="create1-info-first-name" readonly="readonly">
+                        <input type="text" id="create1-info-first-name" placeholder="First Name" readonly="readonly">
                     </fieldset>
                     <fieldset>
-                        <label for="create1-info-last-name">Last Name</label>
-                        <input type="text" id="create1-info-last-name" readonly="readonly">
+                        <input type="text" id="create1-info-last-name" placeholder="Last Name" readonly="readonly">
                     </fieldset>
                     <fieldset>
-                        <label for="create1-info-employee-number">Number</label>
-                        <input type="number" id="create1-info-employee-number">
+                        <input type="number" id="create1-info-employee-number" placeholder="Employee Number">
                     </fieldset>
                     <fieldset>
-                        <label>Unit</label>
-
-                        <div class="eight columns">
+                        <div class="ten columns">
                             <label class="select">
                                 <select class="custom" id="create1-info-units">
                                 </select>
@@ -167,8 +160,7 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <label for="create1-info-email">Email</label>
-                        <input type="email" id="create1-info-email">
+                        <input type="email" id="create1-info-email" placeholder="Email">
                     </fieldset>
                     <a id="create1-info-submit" class="button right" data-label="Next"></a>
                 </form>
@@ -250,17 +242,13 @@
             <form id="show-expense-form">
                 <div class="form">
                     <fieldset>
-                        <label for="show-expense-date">Date</label>
-                        <input type="text" id="show-expense-date" readonly="readonly">
+                        <input type="text" id="show-expense-date" placeholder="Date Of Expense" readonly="readonly">
                     </fieldset>
                     <fieldset>
-                        <label for="show-expense-project-code">Project Code</label>
-                        <input type="text" id="show-expense-project-code" readonly="readonly">
+                        <input type="text" id="show-expense-project-code" placeholder="Project Code" readonly="readonly">
                     </fieldset>
                     <fieldset>
-                        <label>Type</label>
-
-                        <div class="eight columns">
+                        <div class="ten columns">
                             <label class="select">
                                 <select class="custom" id="show-expense-type">
                                 </select>
@@ -268,13 +256,10 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <label for="show-expense-amount">Amount</label>
-                        <input type="text" id="show-expense-amount" readonly="readonly">
+                        <input type="text" id="show-expense-amount" placeholder="Amount" readonly="readonly">
                     </fieldset>
                     <fieldset>
-                        <label>Currency</label>
-
-                        <div class="eight columns">
+                        <div class="ten columns">
                             <label class="select">
                                 <select class="custom" id="show-expense-currency">
                                 </select>
@@ -282,15 +267,12 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <label for="show-expense-converted">Converted</label>
-                        <input type="text" id="show-expense-converted" readonly="readonly">
+                        <input type="text" id="show-expense-converted" placeholder="Converted" readonly="readonly">
                     </fieldset>
                     <fieldset>
-                        <label for="show-expense-remarks">Remarks</label>
-                        <textarea id="show-expense-remarks" readonly="readonly"></textarea>
+                        <textarea id="show-expense-remarks" placeholder="Remarks" readonly="readonly"></textarea>
                     </fieldset>
                     <fieldset>
-                        <label for="show-expense-evidence">Evidence</label>
                         <img src="" height="100" width="100" id="show-expense-evidence" alt="evidence">
                     </fieldset>
                     <a href="#create2" data-router="section" class="button right" data-label="Back"></a>
@@ -335,18 +317,14 @@
             <form id="create3-add-form">
                 <div class="form">
                     <fieldset data-icon="calendar">
-                        <label for="create3-add-date">Date</label>
-                        <input type="text" id="create3-add-date" onclick="showDatePicker()" readonly="readonly">
+                        <input type="text" id="create3-add-date" placeholder="Date Of Expense" onclick="showDatePicker()" readonly="readonly">
                     </fieldset>
                     <fieldset data-icon="search">
-                        <label for="create3-add-project-code">Project Code</label>
-                        <input type="text" id="create3-add-project-code">
+                        <input type="text" id="create3-add-project-code" placeholder="Project Code">
                     </fieldset>
                     <ul id="create3-add-results"></ul>
                     <fieldset>
-                        <label>Type</label>
-
-                        <div class="eight columns">
+                        <div class="ten columns">
                             <label class="select">
                                 <select class="custom" id="create3-add-type">
                                     <option value="1">Hotel</option>
@@ -357,13 +335,10 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <label for="create3-add-amount">Amount</label>
-                        <input type="number" id="create3-add-amount">
+                        <input type="number" id="create3-add-amount" placeholder="Amount">
                     </fieldset>
                     <fieldset>
-                        <label>Currency</label>
-
-                        <div class="eight columns">
+                        <div class="ten columns">
                             <label class="select">
                                 <select class="custom" id="create3-add-currency">
                                 </select>
@@ -371,15 +346,12 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <label for="create3-add-converted">Converted</label>
-                        <input type="text" id="create3-add-converted" readonly="readonly">
+                        <input type="text" id="create3-add-converted" placeholder="Converted" readonly="readonly">
                     </fieldset>
                     <fieldset>
-                        <label for="create3-add-remarks">Remarks</label>
-                        <textarea id="create3-add-remarks"></textarea>
+                        <textarea id="create3-add-remarks" placeholder="Remarks"></textarea>
                     </fieldset>
                     <fieldset>
-                        <label for="create3-add-evidence">Evidence</label>
                         <input type="file" id="create3-add-evidence">
                     </fieldset>
                     <a id="create3-add-button" class="button right" data-label="Add"></a>
@@ -420,17 +392,13 @@
             </div>
             <div class="form">
                 <fieldset>
-                    <label for="create4-sign-signature-code">Signature</label>
-                    <input type="text" id="create4-sign-signature-code">
+                    <input type="text" id="create4-sign-signature-code" placeholder="Signature">
                 </fieldset>
                 <fieldset>
-                    <label for="create4-sign-remarks">Remarks</label>
-                    <textarea id="create4-sign-remarks"></textarea>
+                    <textarea id="create4-sign-remarks" placeholder="Remarks"></textarea>
                 </fieldset>
                 <fieldset>
-                    <label for="create4-sign-notification">Status notification via Email</label>
-                    <br>
-                    <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
+                    Status notification via Email: <input id="create4-sign-notification" type="range" class="checkbox" min="0" max="1" value="1">
                 </fieldset>
                 <a id="create4-sign-button" class="button right" data-label="Send"></a>
             </div>
@@ -469,12 +437,10 @@
         <div class="wrapper">
             <div class="form">
                 <fieldset>
-                    <label for="login-screen-username">Username</label>
-                    <input type="text" id="login-screen-username" value="tim.ameye@student.kuleuven.be">
+                    <input type="text" id="login-screen-username" placeholder="Username" value="tim.ameye@student.kuleuven.be">
                 </fieldset>
                 <fieldset>
-                    <label for="login-screen-password">Password</label>
-                    <input type="password" id="login-screen-password" value="test123">
+                    <input type="password" id="login-screen-password" placeholder="Password" value="test123">
                 </fieldset>
                 <a id="login-screen-button" class="button right" data-label="Log in"></a>
             </div>

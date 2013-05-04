@@ -1068,6 +1068,16 @@ TODO
 \paragraph{\lungo}
 Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt aangeboden door het raamwerk, namelijk: \code{Lungo.Notification.show()}.
 Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
+
+Het laadscherm wordt in samenwerking met de AJAX-oproepen gebruikt.
+Net voor de AJAX-oproep zal het laadscherm worden getoond en in de \term{callback} van de AJAX-oproep zal het worden verborgen.
+Er treedt zich echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-oproepen.
+Volgens de documentatie verbergt de functie \code{Lungo.Notification.hide()} het huidige laadscherm of dialoogvenster. 
+Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt verborgen.
+Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet wordt getoond.
+Een oplossing hiervoor is om bij een ketting van vensters, nooit de vensters tussenin te sluiten.
+Wanneer zowel een laadscherm als dialoogvenster worden geopend, zal enkel dat laatste getoond worden.
+
 Om een dialoogvenster te tonen, geeft men de volgende parameters mee: titel, omschrijving, tijd op het scherm en de \term{callback} functie.
 Indien er beslist wordt om geen tijd op te geven, kan het venster worden gesloten met \code{Lungo.Notification.hide()}.
 Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.

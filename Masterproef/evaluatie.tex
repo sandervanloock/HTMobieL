@@ -74,6 +74,9 @@ Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig wor
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
   col sep=comma,
   string type,
   header=true,

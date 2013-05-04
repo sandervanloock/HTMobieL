@@ -535,30 +535,10 @@ Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook
 Er kan echter worden gebruik gemaakt van plug-ins die op andere \js{}-bibliotheken dan QuoJS steunen, maar de auteurs besloten om deze niet te beschouwen.
 Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applicatie.
 
+%%%%%%%%%%%%%
 \subsection{U5: Toon PDF}
-
-\paragraph{\jqm}
-% Het is niet aangeraden om ruwe data, zoals een PDF, op te halen via AJAX. 
-% Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
-% Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft in de browser. 
-% Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
-
-\paragraph{\st}
-Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
-Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
-Deze \code{view} bestaat uit een paneel met een hoofdtekst.
-Het paneel toont één pagina van het PDF-bestand,  de hoofdtekst bevat de navigatie naar andere pagina's.
-
-Om de plug-in in de POC in te passen waren echter twee aanpassingen noodzakelijk.
-Het PDF-bestand moet via een POST verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
-Ook moest er een terugknop in de hoofdtekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
-Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
-
-\paragraph{\kendo}
-TODO
-
-\paragraph{\lungo}
-TODO
+In tabel \ref{tabel:evaluatie-gebruik-u5} worden de resultaten getoond van de twee deeluitdagingen van U5: Toon PDF.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
@@ -582,10 +562,38 @@ TODO
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u5.csv}
-\caption{Scores voor U5: Toon PDF}
+\caption{Gebruik voor U5: Toon PDF}
 \label{tabel:evaluatie-gebruik-u5}
 \end{table}
 
+\paragraph{\jqm}
+AJAX is bedoeld om tekst op te halen, maar geen ruwe data zoals een PDF~\cite{Scott2009}. 
+Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
+Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de backend die dan een PDF teruggeeft in de browser. 
+Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
+
+\paragraph{\st}
+Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
+Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
+Deze \code{view} bestaat uit een paneel met een hoofdtekst.
+Het paneel toont één pagina van het PDF-bestand,  de hoofdtekst bevat de navigatie naar andere pagina's.
+
+Om de plug-in in de POC in te passen waren echter twee aanpassingen noodzakelijk.
+Het PDF-bestand moet via een POST verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
+Ook moest er een terugknop in de hoofdtekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
+Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+AJAX is bedoeld om tekst op te halen, maar geen ruwe data zoals een PDF~\cite{Scott2009}. 
+Hierdoor werd gebruik gemaakt van een omweg door een verborgen formulier te versturen die de PDF ophaalt.
+In dat verborgen formulier worden de nodige parameters ingevoerd en zal het op de achtergrond  worden verstuurd, net zoals een gebruiker dat zou doen.
+Daarna wordt het PDF-bestand gestuurd naar de gebruiker.
+Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
+
+%%%%%%%%%%%%%
 \subsection{U6: Toevoegen van afbeelding}
 
 \paragraph{\jqm}

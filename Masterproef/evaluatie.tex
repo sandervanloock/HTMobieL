@@ -761,7 +761,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/u8.csv}
-\caption{Scores voor U8: AJAX}
+\caption{Gebruik voor U8: AJAX}
 \label{tabel:evaluatie-gebruik-u8}
 \end{table}
 
@@ -821,9 +821,51 @@ Aangezien dit een fout was in de bibliotheek werd, om het probleem zo snel mogel
 
 %%%%%%%%%%%%%
 \subsection{U9: Toestelspecifieke lay-out}
+In tabel \ref{tabel:evaluatie-gebruik-u9} worden de resultaten getoond van de drie deeluitdagingen van U9:~Toestelspecifieke lay-out.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/gebruik/u9.csv}
+\caption{Gebruik voor U9: Toestelspecifieke lay-out}
+\label{tabel:evaluatie-gebruik-u9}
+\end{table}
 
 \paragraph{\jqm}
-TODO
+Het raamwerk biedt zelf geen functies aan om te het herkennen of het toestel een smartphone of tablet is.
+In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
+Eerst werd gezocht naar plug-ins aan de hand van een blogpost~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
+Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
+Zo was de eerste destructief ten opzichte van het raamwerk. 
+Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als men wil updaten naar een nieuwe versie. 
+De tweede plug-in werkte enkel tot versie 1.0.1 van \jqm{}. 
+De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
+
+Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 media queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
+Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
+Daarnaast gebruikte men al op de documentatiesite van \jqm{}~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
+De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiestie uit de documentatiesite van \jqm{}~1.2.
+
+Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met een tablet gebruikt.
 
 \paragraph{\st}
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
@@ -853,34 +895,15 @@ Om naar het menu terug te keren moet een extra knop in de hoofdtekst worden toeg
 TODO
 
 \paragraph{\lungo}
-TODO
+Het raamwerk zelf biedt de functie \code{Lungo.Core.isMobile()} aan om te weten of het huidige apparaat een mobiel apparaat is.
+QuoJS biedt daarnaast ook nog \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} en \code{screen} aan.
+Deze laatste geeft de breedte en hoogte terug.
+Dit betekent dat de ontwikkelaar nog altijd zelf instaat voor de bepaling of het een smartphone of tablet is.
+Als oplossing werd gebruik gemaakt van CSS3 media queries.
+Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met een tablet gebruikt.
 
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/u9.csv}
-\caption{Scores voor U9: Toestelspecifieke lay-out}
-\label{tabel:evaluatie-gebruik-u9}
-\end{table}
 
+%%%%%%%%%%%%%
 \subsection{U10: Offline}
 
 \paragraph{\jqm}
@@ -1279,27 +1302,7 @@ TODO
 % \subsubsection{Offline} 
 % TODO
 % 
-% %%%%%%%
-% 
-% \subsubsection{Tablet en smartphone}
-% 
-% \paragraph{jQuery Mobile} 
-% In jQuery Mobile is er standaard geen splitview aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
-% Eerst werd hiervoor gezocht naar plug-ins aan de hand van~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
-% Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
-% Zo was de eerste destructief ten opzichte van het raamwerk. 
-% Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als men wil updaten naar een nieuwe versie. 
-% De tweede plug-in werkte enkel tot versie 1.0.1 van jQuery Mobile. 
-% De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
-% 
-% Uiteindelijk werd van een plug-in afgestapt door \cite{Hadlock2012} waarbij werd aangetoond hoe men via CSS3 media queries hetzelfde kan bereiken. 
-% Daarnaast gebruikt de documentatie van jQuery Mobile~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
-% De uiteindelijke oplossing voor het probleem kwam uit te combinatie van deze twee voorgaande oplossingen.
-% Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
-% 
-% Navigatie op een smartphone gebeurt door te klikken op de extra titel onder de koptekst. 
-% Hierdoor ga je naar een smartphone vriendelijk menu om naar andere stappen te gaan.
-% 
+
 % \subsubsection{Koptekst en voettekst}
 % 
 % \paragraph{jQuery Mobile}

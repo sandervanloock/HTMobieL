@@ -278,7 +278,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
 Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
-Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
+Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("form-veld").val("waarde")}.
 Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
 Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
 Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
@@ -1022,7 +1022,6 @@ Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet on
 Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\st}
-% U10.1 Bewaar login gegevens
 Zoals besproken bij U8: AJAX kan een \code{store} voozien worden van een \code{proxy} die data opslaat aan klantzijde.
 Deze \code{store} maakt gebruik van de HTML5-localStorage API.
 Om inlog gegevens en onverzonden onkosten lokaal te bewaren moeten twee \code{stores} met deze \code{proxy} worden gedefinieerd.
@@ -1055,7 +1054,27 @@ Om de applicatie offline beschikbaar te maken moet de applicatie gebouwd worden 
 De tool zal automatisch een manifest bestand aanmaken die alle vereiste bestanden bevat.
 
 \paragraph{\kendo}
-TODO
+%user opslaan => jqm (check bij employeedatasource)
+Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
+Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
+Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
+
+Na het aanmelden zullen alle gegevens van de werknemer geserialiseerd worden opgeslagen.
+Deze gegevens zitten in een \code{OservableObject} en kunnen met de \code{toJSON} methode als JSON-object worden verkregen.
+Het serialiseren zelf kan via de \code{JSON.stringify} methode.
+Wanneer het aanmeldscherm wordt getoond zal gecontroleerd worden of er gegevens van een werknemer lokaal beschikbaar zijn.
+Indien dit het geval is, wordt automatisch naar naar het startscherm genavigeerd.
+
+Wanneer een uitgave wordt toegevoegd zal deze aan een \code{DataSource} en in de \code{localStorage} worden toegevoegd.
+De controle op reeds bestaande uitgaven zoekt naar reeds bestaande uitgaven in de \code{localStorage}.
+Nadat een uitgaveformulier is verzonden worden de uitgaven uit de \code{localStorage} verwijderd.
+
+    
+%expense opslaan => add Expense toevoegen aan localstorage
+
+Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} zelf niet ondersteund.
+De HTML5 Application Cache kan zelf worden aangemaakt.
+Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\lungo}
 Het raamwerk biedt zelf functies aan om data op te slaan.

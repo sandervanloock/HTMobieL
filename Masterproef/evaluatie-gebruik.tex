@@ -210,7 +210,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
 Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
-Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("form-veld").val("waarde")}.
+Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
 Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
 Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
 Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
@@ -740,7 +740,7 @@ Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeur
 Het versturen van JSON is gelijkaardig met het versturen van andere data.
 Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
 Daarna zal in de AJAX-oproep moeten worden aangegeven  dat de inhoud JSON is.
-Dit gebeurt door \code{contentType: "application/json"} te schrijven.
+Dit gebeurt door \code{contentType:"{}application/json"} te schrijven.
 
 \paragraph{\st}
 AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.

@@ -1,6 +1,9 @@
 {
-    "name": "ExpenseApp",
-    "version": "1.0.0",
-    "dependencies": {},
-    "devDependencies": {}
+  "name": "yeoman",
+  "version": "0.0.0",
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.9.1"
+  },
+  "devDependencies": {}
 }

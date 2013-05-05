@@ -68,47 +68,6 @@ var EA = {
     },
 
     /*************************************************
-     * Project codes
-     *************************************************/
-
-    projectCodeSuggestions:[],
-
-    getProjectCodeSuggestions:function () {
-        if (Modernizr.localstorage) {
-            return JSON.parse(localStorage.projectCodes);
-        } else {
-            return this.projectCodeSuggestions;
-        }
-    },
-
-    setProjectCodeSuggestions:function (suggestions) {
-        if (Modernizr.localstorage) {
-            localStorage.projectCodes = JSON.stringify(suggestions);
-        } else {
-            this.projectCodeSuggestions = suggestions;
-        }
-    },
-
-    /*************************************************
-     * Currencies
-     *************************************************/
-    setCurrencies:function (currencies) {
-        if (Modernizr.localstorage) {
-            localStorage.currencies = JSON.stringify(currencies);
-        } else {
-            this.currencies = currencies;
-        }
-    },
-
-    getCurrencies:function () {
-        if (Modernizr.localstorage) {
-            return JSON.parse(localStorage.currencies);
-        } else {
-            return this.currencies;
-        }
-    },
-
-    /*************************************************
      * Expense form
      *************************************************/
     getExpenseForm:function () {

@@ -41,6 +41,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/*.html',
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
+                    '{.tmp,<%= yeoman.app %>}/scripts/Default{,*/}*.{png,gif}',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ],
                 tasks: ['livereload']
@@ -179,9 +180,7 @@ module.exports = function (grunt) {
                 files: {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                        '<%= yeoman.dist %>/styles/fonts/*'
+                        '<%= yeoman.dist %>/styles/{,*/}*.css'
                     ]
                 }
             }
@@ -223,16 +222,6 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        cssmin: {
-            dist: {
-                files: {
-                    '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%= yeoman.app %>/styles/{,*/}*.css'
-                    ]
-                }
-            }
-        },
         htmlmin: {
             dist: {
                 options: {
@@ -256,6 +245,22 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        manifest: {
+            generate: {
+                options: {
+                    basePath: '<%= yeoman.dist %>',
+                    verbose: false,
+                    timestamp: true
+                },
+                src: [
+                    'scripts/*.js',
+                    'styles/*.css',
+										'styles/Default/*',
+                    'images/*'
+                ],
+                dest: '<%= yeoman.dist %>/ea.appcache'
+            }
+        },
         // Put files not handled in other tasks here
         copy: {
             dist: {
@@ -269,9 +274,9 @@ module.exports = function (grunt) {
                             '*.{ico,txt}',
                             '.htaccess',
                             '*.appcache',
-                            'images/{,*/}*.{webp,gif}',
+                            'images/{,*/}*.{webp,gif,ico,jpg,png,ttf,woff}',
                             'styles/fonts/*',
-                            'styles/images/*'
+                            'styles/Default/*.{png,gif}',
                         ]
                     }
                 ]
@@ -324,14 +329,18 @@ module.exports = function (grunt) {
         'clean:dist',
         'useminPrepare',
         'concurrent:dist',
-        'cssmin',
         'concat',
         'uglify',
         'copy',
+        'cssmin',
+        'rev',
+        'manifest',
         'usemin'
     ]);
 
     grunt.registerTask('default', [
+//        'jshint',
+//        'test',
         'build'
     ]);
 };

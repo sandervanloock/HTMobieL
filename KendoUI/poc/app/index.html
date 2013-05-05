@@ -27,7 +27,7 @@
             <li><input type="text" id="login-username" placeholder="Username" value="sander.vanloock1@student.kuleuven.be" required validationMessage="A username must be present"/></li>
             <li><input type="password" id="login-password" placeholder="Password" value="test123" required validationMessage="A password must be present"/></li>
         </ul>
-        <a data-click="login" id="login-button" data-role="button">Login</a>
+        <a data-click="login" id="login-button" data-role="button" style="background:green;">Login</a>
     </form>
 </div>
 
@@ -337,7 +337,7 @@
         if(isPhone) {
             $("#side-root li").children().removeAttr("data-target");
             $('#main-pane h1').each(function(){
-                $(this).html('<a href="#side-root" data-role="vie">'+$(this).html()+'</a>');
+                $(this).html('<a href="#side-root" data-role="view">'+$(this).html()+'</a>');
             });
             $("body").append($("#menu").html()+$("#main-pane").html());
             $("#newExpense").remove();

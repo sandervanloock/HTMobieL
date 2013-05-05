@@ -23,6 +23,9 @@ Ext.define("ExpenseApp.controller.Login", {
         var user = Ext.create("ExpenseApp.model.User", form.getValues());
         var errors = user.validate();
 
+        Ext.getCmp("username").removeCls('red-border');
+        Ext.getCmp("password").removeCls('red-border');
+
         if (errors.isValid()) {
             Ext.Ajax.request({
                 url: 'http://kulcapexpenseapp.appspot.com/resources/userService/login',
@@ -43,11 +46,10 @@ Ext.define("ExpenseApp.controller.Login", {
         } else {
             var data = "";
             errors.each(function (item, index, length) {
-                console.log(item);
                 data += item.getField() + ' ' + item.getMessage() + "</br>";
+                Ext.getCmp(item.getField()).addCls('red-border');
             });
             Ext.Msg.alert("Validation Failed", data);
         }
     }
-
 });

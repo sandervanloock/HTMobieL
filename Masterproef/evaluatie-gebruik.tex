@@ -1,71 +1,3 @@
-\chapter{Evaluatie}
-\label{chap:evaluatie}
-
-In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijkingscriteria uit hoofdstuk \ref{chap:vergelijking}, namelijk gemeenschap~(\ref{sec:evaluatie-gemeenschap}), productiviteit~(\ref{sec:evaluatie-productiviteit}), gebruik~(\ref{sec:evaluatie-gebruik}), ondersteuning~(\ref{sec:evaluatie-ondersteuning}) en performantie~(\ref{sec:evaluatie-performantie}). 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Gemeenschap}
-\label{sec:evaluatie-gemeenschap}
-
-% jQM
-% Met 7.400 volgers op GitHub~\cite{GitHub2012} en 11.200 volgers op Twitter~\cite{Twitter2012} komt de grote kracht van jQuery Mobile van zijn community . Dit heeft grotendeels te maken met het feit dat jQuery Mobile geniet van het succes van jQuery, dat ook zeer populair is~\cite{Hales2012}.
-%TODO Sander: dit komt in de vergelijkingscriteria
-
-% ST
-% We kunnen vaststellen dat Sencha over een grote community beschikt.  Met meer dan 2 miljoen ontwikkelaars wereldwijd is Sencha de grootste provider van een open-source web applicatie~\cite{Inc.}.  
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Gemeenschap,jQM,ST,Kendo,Lungo},
-  columns/Gemeenschap/.style={column name=\textbf{Gemeenschap}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
-  columns/ST/.style={column name=\textbf{\st}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-    after row=\bottomrule}
-]{tabellen/gemeenschap.csv}
-\caption{Samenvattende tabel voor gemeenschapscriterium}
-\label{tabel:evaluatie-gemeenschap}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Productiviteit}
-\label{sec:evaluatie-productiviteit}
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Productiviteit,jQM,ST,Kendo,Lungo},
-  columns/Productiviteit/.style={column name=\textbf{Productiviteit}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
-  columns/ST/.style={column name=\textbf{\st}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-    after row=\bottomrule}
-]{tabellen/productiviteit.csv}
-\caption{Samenvattende tabel voor productiviteitscriterium}
-\label{tabel:evaluatie-productiviteit}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
 Het gebruik van de vier raamwerken wordt samengevat in tabel \ref{tabel:evaluatie-gebruik}.
@@ -278,7 +210,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
 Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
-Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("form-veld").val("waarde")}.
+Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
 Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
 Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
 Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
@@ -808,7 +740,7 @@ Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeur
 Het versturen van JSON is gelijkaardig met het versturen van andere data.
 Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
 Daarna zal in de AJAX-oproep moeten worden aangegeven  dat de inhoud JSON is.
-Dit gebeurt door \code{contentType: "application/json"} te schrijven.
+Dit gebeurt door \code{contentType:"{}application/json"} te schrijven.
 
 \paragraph{\st}
 AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
@@ -1445,87 +1377,3 @@ Deze wordt bekomen door een \code{<nav>}-tag te annoteren met de \code{groupbar}
 In de \code{<nav>}-tag worden de links naar de verschillende tabbladen gemaakt door middel van \code{<a>}-tags.
 
 Het veranderen van de kleur van knoppen gebeurt in CSS waarbij de achtergrondkleur van de knop eenvoudig kan worden aangepast.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Ondersteuning}
-\label{sec:evaluatie-ondersteuning}
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Apparaat,jQM,ST,Kendo,Lungo},
-  columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\toprule,
- 	after row=\bottomrule}
-]{tabellen/ondersteuning.csv}
-\caption{Samenvattende tabel voor ondersteuningscriterium}
-\label{tabel:evaluatie-ondersteuning}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Performantie}
-\label{sec:evaluatie-performantie}
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Performantie,jQM,ST,Kendo,Lungo},
-  columns/Performantie/.style={column name=\textbf{Performantie}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
-  columns/ST/.style={column name=\textbf{\st}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-    after row=\bottomrule}
-]{tabellen/performantie.csv}
-\caption{Samenvattende tabel voor performantiecriterium}
-\label{tabel:evaluatie-performantie}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% TODO Tim: opruimen hieronder
-%
-% \subsubsection{Inlogscherm indien niet aangemeld}
-% 
-% Indien men een applicatie maakt met meerdere schermen op eenzelfde pagina, laadt jQuery Mobile altijd het eerste scherm in de code in.
-% Het startscherm werd als eerste scherm gekozen.
-% Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
-% 
-% \subsubsection{Detail van toegevoegde uitgave}
-% 
-% Na het toevoegen van een uitgave, is het mogelijk om deze opnieuw te bekijken (maar niet aan te passen).
-% Hiervoor wordt hetzelfde formulier (dat om een uitgave toe te voegen wordt gebruikt) gekopieerd, waarna alle elementen op enkel lezen worden gezet.
-% Dit was geen probleem voor velden van het type \code{input} en \code{textarea}. 
-% Dit kon echter niet  bij \code{fieldset}. 
-% Daar moesten via \code{disabled} de andere opties onmogelijk worden gemaakt.
-% Eenzelfde probleem gold voor het \code{select} formuliertype bij een buitenlandse uitgave.
-% Daar werd enkel de geselecteerde optie in het lijstje getoond en alle andere opties eruit verwijderd.
-% 
-% Het invullen van het formulier zelf werd bekomen door de \code{id}'s van de velden op te vragen en hun waarde in te stellen volgens de JSON voorstelling van die uitgave. 
-% Er is met andere woorden geen automatische mapping van de JSON data naar de formuliervelden. 
-% 
-% 
-% \subsubsection{Omvormen van valuta}
-% 
-% De omvorming bij een buitenlandse uitgave dient automatisch te gebeuren bij het ingeven van bedrag en munteenheid.
-% Hiervoor wordt aangehaakt op het veranderingsevenement \code{.change} dat jQuery aanbiedt, waarna na omvorming het bedrag direct getoond wordt aan de gebruiker.

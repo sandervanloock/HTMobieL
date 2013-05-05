@@ -1,0 +1,95 @@
+\section{Performantie}
+\label{sec:evaluatie-performantie}
+
+%%%%%%%%%%%%
+
+\subsection{Downloadsnelheid POC}
+De performantie voor het downloaden van de POC voor de vier raamwerken wordt samengevat per apparaat in tabel~\ref{tabel:evaluatie-performantie-poc-download}. 
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Apparaat,jQM,ST,Kendo,Lungo},
+  columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\toprule,
+    after row=\bottomrule}
+]{tabellen/performantie/poc-download-tijd.csv}
+\caption{Downloadsnelheid POC}
+\label{tabel:evaluatie-performantie-poc-download}
+\end{table}
+
+%%%%%%%%%%%%
+
+\subsection{Downloadsnelheid loginscherm}
+De performantie voor het downloaden van het loginscherm POC voor de vier raamwerken wordt samengevat per apparaat in tabel~\ref{tabel:evaluatie-performantie-login-download}. 
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Apparaat,jQM,ST,Kendo,Lungo},
+  columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\toprule,
+    after row=\bottomrule}
+]{tabellen/performantie/login-download-tijd.csv}
+\caption{Downloadsnelheid loginscherm}
+\label{tabel:evaluatie-performantie-login-download}
+\end{table}
+
+%%%%%%%%%%%%
+
+\subsection{Uitvoersnelheid loginscherm}
+De performantie voor het uitvoeren van het loginscherm POC voor de vier raamwerken wordt samengevat per apparaat in tabel~\ref{tabel:evaluatie-performantie-login-js}. 
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Apparaat,jQM,ST,Kendo,Lungo},
+  columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\toprule,
+    after row=\bottomrule}
+]{tabellen/performantie/login-js-tijd.csv}
+\caption{Uitvoersnelheid loginscherm}
+\label{tabel:evaluatie-performantie-login-js}
+\end{table}

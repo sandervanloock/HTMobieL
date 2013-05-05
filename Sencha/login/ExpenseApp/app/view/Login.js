@@ -33,12 +33,14 @@ Ext.define('ExpenseApp.view.Login', {
                             {
                                 xtype: 'textfield',
                                 name: 'username',
+                                id: 'username',
                                 placeHolder: 'Username',
                                 value: 'tim.ameye@student.kuleuven.be'
                             },
                             {
                                 xtype: 'passwordfield',
                                 name: 'password',
+                                id: 'password',
                                 placeHolder: 'Password',
                                 value: 'test123'
                             }

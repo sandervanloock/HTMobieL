@@ -1,0 +1,282 @@
+\section{Ondersteuning}
+\label{sec:evaluatie-ondersteuning}
+De ondersteuning van de vier raamwerken wordt samengevat per uitdaging in tabel~\ref{tabel:evaluatie-ondersteuning-u}. 
+Voor een gedetailleerd overzicht wordt verwezen naar appendix~\ref{app:ondersteuning}.
+In de secties \ref{sec:evaluatie-ondersteuning-u1} tot \ref{sec:evaluatie-ondersteuning-u10} zal iedere uitdaging per raamwerk uitvoerig worden besproken.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging,jQM(abs),ST(abs),Kendo(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\toprule,
+ 	after row=\bottomrule}
+]{tabellen/ondersteuning-u.csv}
+\caption{Samenvattende tabel voor ondersteuningscriterium per uitdaging.}
+\label{tabel:evaluatie-ondersteuning-u}
+\end{table}
+
+Een ander zicht op diezelfde data wordt bekomen door de ondersteuning van de vier raamwerken samen te vatten per apparaat.
+Deze weergave wordt getoond in tabel~\ref{tabel:evaluatie-ondersteuning-a}.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Apparaat,jQM(abs),ST(abs),Kendo(abs),Lungo(abs)},
+  columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},  
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\toprule,
+ 	after row=\bottomrule}
+]{tabellen/ondersteuning-a.csv}
+\caption{Samenvattende tabel voor ondersteuningscriterium per apparaat.}
+\label{tabel:evaluatie-ondersteuning-a}
+\end{table}
+
+%%%%%%%%%%%%%
+\subsection{U1: Formulieren}
+\label{sec:evaluatie-ondersteuning-u1}
+
+In tabel \ref{tabel:evaluatie-ondersteuning-u1} worden de resultaten getoond van de vijf deeluitdagingen van U1:~Formulieren.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  skip coltypes=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/ondersteuning/u1.csv}
+\caption{Ondersteuning voor U1: Formulieren}
+\label{tabel:evaluatie-ondersteuning-u1}
+\end{table}
+
+\paragraph{\jqm}
+Op iedere deeluitdaging behaalt \jqm{} de maximumscore.
+Het scrollen in de \term{datepicker} werkte echter niet vloeiend op de \htc{} en \gtab{}, maar de functionaliteit werkte wel.
+Op de \ipadi{} werd opgemerkt dat door de lokale instellingen, een scheidingsteken voor de duizendtallen werd gebruikt voor het getal in het nummerveld.
+Als laatste bleken er verschillende implementaties van de \js{}-functie \code{new Date(dateString)} doorheen de apparaten.
+Als \code{dateString} werd het patroon \code{jaar/maand/dag} uiteindelijk gebruikt, want het patroon \code{jaar-maand-dag} gaf op de \htc{} en \gtab{} anders problemen.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+De slechtste ondersteuning was op de \htc{} en \gtab{}.
+Met deze toestellen kon zeer moeilijk op de velden worden geklikt.
+Soms lukte dit, soms lukte dit niet.
+Daarenboven kwam er geen aangepast toetsenbord voor een formulierveld van het type e-mail.
+De aangepaste \term{datepicker} werkte op ieder toestel, wat in schril contrast staat met de schakelaar die op geen enkel toestel correct werkte.
+Deze laatste deed verschillende acties naargelang geklikt of gesleept werd op de schakelaar.
+
+%%%%%%%%%%%%%
+\subsection{U3: Formuliervalidatie}
+\label{sec:evaluatie-ondersteuning-u3}
+
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\paragraph{\jqm}
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+
+%%%%%%%%%%%%%
+\subsection{U4: Handtekening}
+\label{sec:evaluatie-ondersteuning-u4}
+
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\paragraph{\jqm}
+De handtekening kon op ieder apparaat worden getekend, behalve op de \gs{}.
+Daar werd tijdens het tekenen van de handtekening, de handtekening dubbel op het scherm getekend.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Doordat geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
+
+%%%%%%%%%%%%%
+\subsection{U5: Toon PDF}
+\label{sec:evaluatie-ondersteuning-u5}
+
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\paragraph{\jqm}
+Drie van de vier apparaten hadden problemen met het tonen van de PDF.
+Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \gs{} gaf het besturingssysteem de boodschap 'Download unsuccessful' terug.
+Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+
+%%%%%%%%%%%%%
+\subsection{U6: Toevoegen van afbeelding}
+\label{sec:evaluatie-ondersteuning-u6}
+
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\paragraph{\jqm}
+Op vier apparaten kon een afbeelding met succes worden toegevoegd.
+Daarentegen hadden de \htc{} en \gtab{} geen ondersteuning voor de FileReaderAPI, op de \gs{} bleef de applicatie hangen en als laatste bood de \ipadi{} geen ondersteuning voor het formulierveld van het type \code{file}.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+
+%%%%%%%%%%%%%
+\subsection{U7: Auto-aanvullen}
+\label{sec:evaluatie-ondersteuning-u7}
+
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\paragraph{\jqm}
+Ieder toestel ondersteunde de auto-aanvulling.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Zeven van de acht toestellen ondersteunden auto-aanvulling.
+De \htc{} toonde echter de suggesties dubbel op het scherm aan de gebruiker.
+
+%%%%%%%%%%%%%
+\subsection{U9: Toestelspecifieke lay-out}
+\label{sec:evaluatie-ondersteuning-u9}
+
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\paragraph{\jqm}
+Zeven van de acht toestellen werden met succes herkend als smartphone of tablet.
+Echter door de lage resolutie van de \gtab{}, werd staand de tablet als smartphone herkend.
+Als de tablet liggend werd geplaatst, dan werd deze pas als tablet herkend.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+
+%%%%%%%%%%%%%
+\subsection{U10: Offline}
+\label{sec:evaluatie-ondersteuning-u10}
+
+In tabel \ref{tabel:evaluatie-ondersteuning-u10} worden de resultaten getoond van de twee deeluitdagingen van U10:~Offline.
+Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  skip coltypes=true,
+  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/ondersteuning/u10.csv}
+\caption{Ondersteuning voor U10: Offline}
+\label{tabel:evaluatie-ondersteuning-u10}
+\end{table}
+
+\paragraph{\jqm}
+Alle acht apparaten ondersteunen zowel \code{localStorage} als Application Cache, wat beide HTML5-specificaties zijn.
+
+\paragraph{\st}
+TODO
+
+\paragraph{\kendo}
+TODO
+
+\paragraph{\lungo}
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.

@@ -1,24 +1,50 @@
 \section{Productiviteit}
 \label{sec:evaluatie-productiviteit}
+De productiviteit van de vier raamwerken wordt samengevat in tabel~\ref{tabel:evaluatie-productiviteit}. 
+Daarna zullen de geïmplementeerde POC's~(zie \ref{sec:evaluatie-productiviteit-poc}) en loginschermen~(zie \ref{sec:evaluatie-productiviteit-login}) per raamwerk uitvoerig worden besproken.
 
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
   columns={Productiviteit,jQM,ST,Kendo,Lungo},
   columns/Productiviteit/.style={column name=\textbf{Productiviteit}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
-  columns/ST/.style={column name=\textbf{\st}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
+  	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/productiviteit.csv}
 \caption{Samenvattende tabel voor productiviteitscriterium}
 \label{tabel:evaluatie-productiviteit}
 \end{table}
+
+%%%%%%%%%%%%%%%%%
+
+\subsection{POC}
+\label{sec:evaluatie-productiviteit-poc}
+
+\paragraph{\jqm}
+\paragraph{\st}
+\paragraph{\kendo}
+\paragraph{\lungo}
+
+%%%%%%%%%%%%%%%%%
+
+\subsection{Loginscherm}
+\label{sec:evaluatie-productiviteit-login}
+
+\paragraph{\jqm}
+\paragraph{\st}
+\paragraph{\kendo}
+\paragraph{\lungo}

@@ -42,10 +42,6 @@ $('#login-button').click(function(event) {
         },
 
         submitHandler: function(form) {
-            $.mobile.loading("show", {
-                text:"Logging in",
-                textVisible:true
-            });
             $.ajax({
                 url: "http://kulcapexpenseapp.appspot.com/resources/userService/login",
                 type: "POST",
@@ -54,12 +50,16 @@ $('#login-button').click(function(event) {
                     email: $("#username").val(),
                     password: $("#password").val()
                 },
-                success: function(data, textStatus, jqXHR){
-                    //alert(data);
-                    $.mobile.navigate("#list-page");
-                },
-                complete: function(){
-                    $.mobile.loading("hide");
+                success: function(data){
+                    console.log(data);
+                    if(data!=undefined){
+                        start = new Date();
+                        $.mobile.navigate("#list-page");
+                    }
+                    else{
+                        $("#error-validation-items").html("Login could not be found");
+                        $.mobile.changePage("#error-validation");
+                    }
                 }
             });
         }
@@ -69,12 +69,12 @@ $('#login-button').click(function(event) {
 var start, stop, nbButtons=100;
 
 
-$( '#list-page' ).on( 'pageinit',function(event){
-    start = new Date();
+$( '#list-page' ).on( 'pageshow',function(event){
     for (var i=0; i<nbButtons; i++){
         var temp = i+1;
-        $('#list').append('<li><a href="#"><img src="images/music_icon.jpg" alt="Music">' + temp + ': Titel: Artist</li>').listview('refresh');
+        $('#list').append('<li><a href="#"><img src="images/music_icon.jpg" alt="Music">' + temp + ': Titel: Artist</li>');
     }
+    $('#list').listview('refresh');
     stop = new Date() - start;
     alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
 });

@@ -1,10 +1,10 @@
-Uitdaging,Challenge,jQM,ST,Lungo,Kendo
-U1: Formulieren,C1: Forms,0,0,0,0
-U3: Formuliervalidatie,C3: From validation,0,0,0,0
-U4: Handtekening,C4: Signature,0,0,0,0
-U5: Toon PDF,C5: Show PDF,0,0,0,0
-U6: Toevoegen van afbeelding,C6: Attach image,0,0,0,0
-U7: Auto-aanvullen,C7: Autocomplete,0,0,0,0
-U9: Toestelspecifieke lay-out,C9: Device-specific layout ,0,0,0,0
-U10: Offline,C10: Offline,0,0,0,0
-Totaal,Total,0,0,0,0
+Uitdaging,Challenge,jQM(abs),jQM(max),jQM(rel),ST(abs),ST(max),ST(rel),Lungo(abs),Lungo(max),Lungo(rel),Kendo(abs),Kendo(max),Kendo(rel)
+U1: Formulieren,C1: Forms,32,32,1.00,25,32,0.78,14,24,0.58,27,32,0.84
+U3: Formuliervalidatie,C3: From validation,8,8,1.00,8,8,1.00,8,8,1.00,6,8,0.75
+U4: Handtekening,C4: Signature,7,8,0.88,8,8,1.00,0,0,#DIV/0!,7,8,0.88
+U5: Toon PDF,C5: Show PDF,5,8,0.63,0,0,#DIV/0!,5,8,0.63,5,8,0.63
+U6: Toevoegen van afbeelding,C6: Attach image,4,8,0.50,5,8,0.63,4,8,0.50,5,8,0.63
+U7: Auto-aanvullen,C7: Autocomplete,8,8,1.00,0,0,#DIV/0!,7,8,0.88,5,8,0.63
+U9: Toestelspecifieke lay-out,C9: Device-specific layout ,7,8,0.88,7,8,0.88,7,8,0.88,8,8,1.00
+U10: Offline,C10: Offline,16,16,1.00,15,16,0.94,16,16,1.00,14,16,0.88
+Totaal,Total,87,96,0.91,68,80,0.85,61,80,0.76,77,96,0.80

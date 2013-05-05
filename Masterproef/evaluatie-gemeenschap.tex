@@ -8,31 +8,43 @@ In dit hoofdstuk wordt de vergelijking uitgevoerd op basis van de vijf vergelijk
 \section{Gemeenschap}
 \label{sec:evaluatie-gemeenschap}
 
-% jQM
-% Met 7.400 volgers op GitHub~\cite{GitHub2012} en 11.200 volgers op Twitter~\cite{Twitter2012} komt de grote kracht van jQuery Mobile van zijn community . Dit heeft grotendeels te maken met het feit dat jQuery Mobile geniet van het succes van jQuery, dat ook zeer populair is~\cite{Hales2012}.
-%TODO Sander: dit komt in de vergelijkingscriteria
-
-% ST
-% We kunnen vaststellen dat Sencha over een grote community beschikt.  Met meer dan 2 miljoen ontwikkelaars wereldwijd is Sencha de grootste provider van een open-source web applicatie~\cite{Inc.}.  
+De gemeenschap van de vier raamwerken wordt samengevat in tabel~\ref{tabel:evaluatie-gemeenschap}. 
+Daarna zal per raamwerk de gemeenschap worden besproken.
 
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
   columns={Gemeenschap,jQM,ST,Kendo,Lungo},
   columns/Gemeenschap/.style={column name=\textbf{Gemeenschap}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqm}, column type={c}},
-  columns/ST/.style={column name=\textbf{\st}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendo}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungo}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
+  	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gemeenschap.csv}
 \caption{Samenvattende tabel voor gemeenschapscriterium}
 \label{tabel:evaluatie-gemeenschap}
 \end{table}
+
+\paragraph{\jqm}
+% Met 7.400 volgers op GitHub~\cite{GitHub2012} en 11.200 volgers op Twitter~\cite{Twitter2012} komt de grote kracht van jQuery Mobile van zijn community . Dit heeft grotendeels te maken met het feit dat jQuery Mobile geniet van het succes van jQuery, dat ook zeer populair is~\cite{Hales2012}.
+%TODO Sander: dit komt in de vergelijkingscriteria
+
+\paragraph{\st}
+% We kunnen vaststellen dat Sencha over een grote community beschikt.  Met meer dan 2 miljoen ontwikkelaars wereldwijd is Sencha de grootste provider van een open-source web applicatie~\cite{Inc.}.  
+
+\paragraph{\kendo}
+
+\paragraph{\lungo}
+

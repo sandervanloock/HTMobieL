@@ -1,9 +1,6 @@
 var start, stop, nbButtons=100;
 
 $$("#login-button").tap(function(){
-    //TODO show loading
-
-    /*TODO validation*/
 
     var url = "http://kulcapexpenseapp.appspot.com/resources/userService/login";
     var data = {
@@ -15,12 +12,12 @@ $$("#login-button").tap(function(){
         if(result != undefined && result != ""){
             $$("#username").parent().removeClass("red-border");
             $$("#password").parent().removeClass("red-border");
-            Lungo.Router.section("list-section");
             start=new Date();
             for(var i=0;i<nbButtons;i++){
                 var temp  = i+1;
                 $$("#listview").append('<li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg"><strong>'+temp+': Titel: Artist</strong></a></li>');
             }
+            Lungo.Router.section("list-section");
             stop=new Date()-start;
             Lungo.Notification.html("Rendertime for list with size " + nbButtons + ": " +stop + " ms", "Close");
         }else{

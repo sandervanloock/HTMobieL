@@ -95,7 +95,10 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
 Op iedere deeluitdaging behaalt \jqm{} de maximumscore.
-De plug-in voor de \term{datepicker} werkte echter niet vloeiend op de \htc{} en \gtab{}.
+Het scrollen in de \term{datepicker} werkte echter niet vloeiend op de \htc{} en \gtab{}, maar de functionaliteit werkte wel.
+Op de \ipadi{} werd opgemerkt dat door de lokale instellingen, een scheidingsteken voor de duizendtallen werd gebruikt voor het getal in het nummerveld.
+Als laatste bleken er verschillende implementaties van de \js{}-functie \code{new Date(dateString)} doorheen de apparaten.
+Als \code{dateString} werd het patroon \code{jaar/maand/dag} uiteindelijk gebruikt, want het patroon \code{jaar-maand-dag} gaf op de \htc{} en \gtab{} anders problemen.
 
 \paragraph{\st}
 

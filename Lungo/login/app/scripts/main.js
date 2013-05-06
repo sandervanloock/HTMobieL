@@ -19,7 +19,7 @@ $$("#login-button").tap(function(){
             }
             Lungo.Router.section("list-section");
             stop=new Date()-start;
-            Lungo.Notification.html("Rendertime for list with size " + nbButtons + ": " +stop + " ms", "Close");
+            alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
         }else{
             Lungo.Notification.error(
                 "Error",

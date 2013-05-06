@@ -41,10 +41,15 @@
         </div>
     </div>
 
-    <ul data-role="listview" data-style="inset" id="home-list">
+    <ul data-template="song-template" data-role="listview" data-bind="source: songs" data-style="inset" id="home-list">
     </ul>
 </div>
 
-<script src="scripts/dfbd4f97.app.js"></script>
+<script id="song-template" type="text/x-kendo-template">
+    <h2>#=id#: Title: Artist</h2><img src="images/boston.jpg"><a data-role="detailbutton"
+                                                                   data-style="detaildisclose"></a>
+</script>
+
+<script src="scripts/447ac86e.app.js"></script>
 </body>
 </html>

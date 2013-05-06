@@ -1,4 +1,3 @@
-
 Ext.define('Expense.store.CurrencyStore', {
     extend: 'Ext.data.Store',
     alias: 'store.currencystore',

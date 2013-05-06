@@ -4,11 +4,11 @@ Ext.define('Expense.controller.CurrencyController', {
 
     config: {
         refs: {
-			abroadExpense: 'abroadexpense'
+			home: 'home'
         },
         control: {
-           '#abroadexpense':{
-        	   initialize: 'loadCurrencies'
+           '#home':{
+        	   show: 'loadCurrencies'
            }
         }
     },

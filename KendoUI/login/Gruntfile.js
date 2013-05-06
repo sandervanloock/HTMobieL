@@ -339,7 +339,7 @@ module.exports = function (grunt) {
         'copy',
         'cssmin',
         'rev',
-//        'manifest',
+        'manifest',
         'usemin'
     ]);
 

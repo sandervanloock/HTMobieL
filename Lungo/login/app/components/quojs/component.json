@@ -1,0 +1,28 @@
+{
+  "name": "quojs",
+  "description": "Micro #JavaScript Library for Mobile Devices",
+  "version": "2.3.4",
+  "homepage": "http://quojs.tapquo.com",
+  "author": {
+    "name": "Javi Jimenez Villar",
+    "url": "@soyjavi"
+  },
+  "main": [
+    "quo.js"
+  ],
+  "keywords": [
+    "mobile"
+  ],
+  "license": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "gitHead": "c127adc2dd011179c6ae34c3352a90bffbaa2e81",
+  "_id": "QuoJS@2.3.4",
+  "readme": "ERROR: No README.md file found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/soyjavi/package-quojs.git"
+  }
+}

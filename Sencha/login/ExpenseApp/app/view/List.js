@@ -2,7 +2,7 @@ var start;
 var stop;
 
 Ext.define('ExpenseApp.view.List', {
-    extend: 'Ext.List',
+    extend: 'Ext.dataview.List',
 
     requires: [
         'Ext.TitleBar',
@@ -23,6 +23,7 @@ Ext.define('ExpenseApp.view.List', {
         ],
         listeners: {
             initialize: function () {
+                console.log("initialize");
                 //initialize: function () {
                 //this.callParent(arguments);
                 start = new Date();
@@ -32,14 +33,11 @@ Ext.define('ExpenseApp.view.List', {
                 }
             },
             painted: function () {
+                console.log("painted");
                 stop = new Date();
-                Ext.Msg.alert("Timer", stop - start);
+                alert("Timer", stop - start);
             }
         }
 
     }
-
-
-
-
 });

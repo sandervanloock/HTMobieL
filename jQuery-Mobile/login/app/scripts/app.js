@@ -59,8 +59,7 @@ $('#login-button').click(function(event) {
                             $('#list').append('<li><a href="#"><img src="images/music_icon.jpg" alt="Music">' + temp + ': Titel: Artist</li>');
                         }
                         $.mobile.navigate("#list-page");
-                        stop = new Date() - start;
-                        alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
+
                     }
                     else{
                         $("#error-validation-items").html("Login could not be found");
@@ -76,6 +75,6 @@ var start, stop, nbButtons=1000;
 
 
 $( '#list-page' ).on( 'pageshow',function(event){
-
-
+    stop = new Date() - start;
+    alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
 });

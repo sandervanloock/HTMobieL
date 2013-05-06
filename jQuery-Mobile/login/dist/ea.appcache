@@ -1,9 +1,9 @@
 CACHE MANIFEST
-# Time: Mon May 06 2013 15:08:25 GMT+0200 (CEST)
+# Time: Mon May 06 2013 17:41:19 GMT+0200 (CEST)
 
 CACHE:
+scripts/133ab83e.app.js
 scripts/c61acd47.vendor.js
-scripts/e6ee5b43.app.js
 styles/51865353.app.css
 styles/images/ajax-loader.gif
 styles/images/icons-18-black.png

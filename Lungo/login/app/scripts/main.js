@@ -1,4 +1,4 @@
-var start, stop, nbButtons=100;
+var start, stop, nbButtons=1000;
 
 $$("#login-button").tap(function(){
 

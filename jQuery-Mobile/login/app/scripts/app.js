@@ -54,7 +54,13 @@ $('#login-button').click(function(event) {
                     console.log(data);
                     if(data!=undefined){
                         start = new Date();
+                        for (var i=0; i<nbButtons; i++){
+                            var temp = i+1;
+                            $('#list').append('<li><a href="#"><img src="images/music_icon.jpg" alt="Music">' + temp + ': Titel: Artist</li>');
+                        }
                         $.mobile.navigate("#list-page");
+                        stop = new Date() - start;
+                        alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
                     }
                     else{
                         $("#error-validation-items").html("Login could not be found");
@@ -66,15 +72,10 @@ $('#login-button').click(function(event) {
     });
 });
 
-var start, stop, nbButtons=100;
+var start, stop, nbButtons=1000;
 
 
 $( '#list-page' ).on( 'pageshow',function(event){
-    for (var i=0; i<nbButtons; i++){
-        var temp = i+1;
-        $('#list').append('<li><a href="#"><img src="images/music_icon.jpg" alt="Music">' + temp + ': Titel: Artist</li>');
-    }
-    $('#list').listview('refresh');
-    stop = new Date() - start;
-    alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
+
+
 });

@@ -45,9 +45,14 @@ $("#login-button").click(function () {
                 } else {
                     // http://www.kendoui.com/forums/mobile/application/programmatic-navigation.aspx
                     var start = new Date();
+                    var data = [];
                     for (var i = 0; i < 1000; i++) {
-                        $('#home-list').append("<li><h2>" + i + ': Title: Artist</h2><img src="images/boston.jpg"><a data-role="detailbutton" data-style="detaildisclose"></a></li>')
+                        data.push({id: i});
                     }
+                    var viewModel = kendo.observable({
+                        songs: data
+                    });
+                    kendo.bind($("#home-list"), viewModel);
                     app.navigate("#home");
                     var stop = new Date();
                     $dialogList.empty();

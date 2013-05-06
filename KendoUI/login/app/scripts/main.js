@@ -55,9 +55,7 @@ $("#login-button").click(function () {
                     kendo.bind($("#home-list"), viewModel);
                     app.navigate("#home");
                     var stop = new Date();
-                    $dialogList.empty();
-                    $dialogList.append("<li>" + (stop - start) + " ms</li>");
-                    $dialog.kendoMobileModalView("open");
+                    alert(stop - start);
                 }
             }
         });

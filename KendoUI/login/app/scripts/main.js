@@ -44,9 +44,8 @@ $("#login-button").click(function () {
                     $dialog.kendoMobileModalView("open");
                 } else {
                     // http://www.kendoui.com/forums/mobile/application/programmatic-navigation.aspx
-                    var start = new Date();
                     var data = [];
-                    for (var i = 0; i < 1000; i++) {
+                    for (var i = 0; i < 850; i++) {
                         data.push({id: i});
                     }
                     var viewModel = kendo.observable({
@@ -54,8 +53,6 @@ $("#login-button").click(function () {
                     });
                     kendo.bind($("#home-list"), viewModel);
                     app.navigate("#home");
-                    var stop = new Date();
-                    alert(stop - start);
                 }
             }
         });

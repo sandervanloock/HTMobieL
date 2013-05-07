@@ -101,10 +101,31 @@ Als laatste bleken er verschillende implementaties van de \js{}-functie \code{ne
 Als \code{dateString} werd het patroon \code{jaar/maand/dag} uiteindelijk gebruikt, want het patroon \code{jaar-maand-dag} gaf op de \htc{} en \gtab{} anders problemen.
 
 \paragraph{\st}
-TODO
+Alle smartphones en de \gtab{} vertoonden een probleem bij de labels van de optieknoppen.
+Deze zijn nodig om het type van uitgave te selecteren bij het aanmaken van een nieuwe uitgave.
+Alle labels buiten \term{Hotel} en \term{Restaurant} zijn te lang om in de voorziene ruimte weer te geven.
+\st{} kort deze af met ellipses waardoor niet de volledige naam leesbaar is.
+Dit kan tot verwarring leiden.
+In \term{landscape} mode worden sommige labels wel zichtbaar %
+%TODO afgekorte titel oplossing met css extentie?
+De tweede onderuitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
+%TODO sander: referentie?
+De laatste twee onderuitdagingen halen de maximumscore.
+
 
 \paragraph{\kendo}
-TODO
+Alle Android toestellen toonden een wit kader bij \term{read-only} widgets.
+Deze zijn te zien wanneer het overzicht van een ingevoerde uitgave wordt opgevraagd.
+Dit ondankt de invoervelden standaard HTML-invoer zijn.
+Het raamwerk moet de waarden van de widgets in de \term{read-only} invoerelementen invullen.
+Deze functionaliteit werkt enkel op iOS toestellen.
+De tweede onderuitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
+%TODO sander: referentie?
+Het openen van \term{data-picker} bij \kendo{} vindt plaats als de gebruiker op het icoontje in het invoerveld klikt.
+Indien op de datum wordt geklikt zal de gebruiker de datum tektueel aanpassen.  
+Hiervoor moet het correcte formaat worden gebruikt!
+Nog een opmerking,  op alle toestellen wordt automatisch een virtueel toetsenbord weergegeven ondankt de invoer uit de \term{date-picker} moet worden gekozen.
+%TODO nul geven?
 
 \paragraph{\lungo}
 De slechtste ondersteuning was op de \htc{} en \gtab{}.
@@ -125,10 +146,10 @@ Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 \paragraph{\st}
-TODO
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 \paragraph{\kendo}
-TODO
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 \paragraph{\lungo}
 Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
@@ -145,10 +166,10 @@ De handtekening kon op ieder apparaat worden getekend, behalve op de \gs{}.
 Daar werd tijdens het tekenen van de handtekening, de handtekening dubbel op het scherm getekend.
 
 \paragraph{\st}
-TODO
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 \paragraph{\kendo}
-TODO
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
 
 \paragraph{\lungo}
 Doordat geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
@@ -166,10 +187,17 @@ Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \
 Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
 
 \paragraph{\st}
-TODO
+De plug-in waarmee PDF-bestanden getoond worden, maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla. %TODO referentie
+PDF.JS is geïmplementeerd met \js{} en HTML5.
+Het \code{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
+Vanaf Android 3.0 wordt dit laatste slechts ondersteund.
+Deze uitdaging lukt dus niet op de \htc{} en \gtab{}.
+Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie van \st{} die niet gebouwd was met Sencha Cmd.
+Dit omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in werd aangesproken.
+%TODO verder uitwerken?
 
 \paragraph{\kendo}
-TODO
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
 
 \paragraph{\lungo}
 Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
@@ -186,10 +214,18 @@ Op vier apparaten kon een afbeelding met succes worden toegevoegd.
 Daarentegen hadden de \htc{} en \gtab{} geen ondersteuning voor de FileReaderAPI, op de \gs{} bleef de applicatie hangen en als laatste bood de \ipadi{} geen ondersteuning voor het formulierveld van het type \code{file}.
 
 \paragraph{\st}
-TODO
+Oudere Android types bieden geen ondersteuning voor de FileReaderAPI.
+Hierdoor was het opladen van een afbeelding niet mogelijk bij de \htc{} en \gtab{}.
+De \ipadi{} brengt geeft geen dialoogvenster naar boven nadat op de knop werd gedrukt omdat \code{file} niet als formulierveld wordt ondersteund.
+%TODO referentie?
+Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
+Dit komt omdat de grootte van de fotos de limiet van de \code{local storage} overschreiden.
+%TODO exacte limiet refereren?
+Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
 
 \paragraph{\kendo}
-TODO
+De FileReader API en \code{file} als type van het formulierveld waren de vereisten voor deze uitdaging.
+Hierdoor werd de implementatie voor \htc{},  \gtab{} en \ipadi{} niet ondersteund.
 
 \paragraph{\lungo}
 Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
@@ -205,10 +241,11 @@ Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Ieder toestel ondersteunde de auto-aanvulling.
 
 \paragraph{\st}
-TODO
+Deze uitdaging kon niet worden ondersteund omdat het raamwerk geen implementatie toeliet
 
 \paragraph{\kendo}
-TODO
+Deze uitdaging behaalde op elk toestel de maximum score.
+%TODO check gt en htc!!
 
 \paragraph{\lungo}
 Zeven van de acht toestellen ondersteunden auto-aanvulling.
@@ -227,10 +264,13 @@ Echter door de lage resolutie van de \gtab{}, werd staand de tablet als smartpho
 Als de tablet liggend werd geplaatst, dan werd deze pas als tablet herkend.
 
 \paragraph{\st}
-TODO
+Alle toestellen buiten de \gtab{} werden door het \st{} raamwerk herkend.
+Het genereren van de toestelspecifieke lay-out werd op elk toestel wel ondersteund.
 
 \paragraph{\kendo}
-TODO
+Net zoals bij \jqm{} werd de \gtab{} enkel als tablet herkend als de applicatie liggend werd geladen.
+De toestelspecifieke lay-out werd correct weergegeven.
+Ook werd het besturingssysteem herkend en werd de \term{native look-and-feel} nagebootst.
 
 \paragraph{\lungo}
 Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
@@ -273,10 +313,10 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Alle acht apparaten ondersteunen zowel \code{localStorage} als Application Cache, wat beide HTML5-specificaties zijn.
 
 \paragraph{\st}
-TODO
+Deze uitdaging behaalde bij alle toestellen de maximum score.
 
 \paragraph{\kendo}
-TODO
+Deze uitdaging behaalde bij alle toestellen de maximum score.
 
 \paragraph{\lungo}
 Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.

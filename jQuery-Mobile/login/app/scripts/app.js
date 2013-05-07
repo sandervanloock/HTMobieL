@@ -51,9 +51,7 @@ $('#login-button').click(function(event) {
                     password: $("#password").val()
                 },
                 success: function(data){
-                    console.log(data);
                     if(data!=undefined){
-                        start = new Date();
                         for (var i=0; i<nbButtons; i++){
                             var temp = i+1;
                             $('#list').append('<li><a href="#"><img src="images/music_icon.jpg" alt="Music">' + temp + ': Titel: Artist</li>');
@@ -71,10 +69,4 @@ $('#login-button').click(function(event) {
     });
 });
 
-var start, stop, nbButtons=10000;
-
-
-$( '#list-page' ).on( 'pageshow',function(event){
-    stop = new Date() - start;
-    alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
-});
+var start, stop, nbButtons=850;

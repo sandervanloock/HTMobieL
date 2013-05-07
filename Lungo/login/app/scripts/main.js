@@ -1,4 +1,4 @@
-var start, stop, nbButtons=10000;
+var start, stop, nbButtons=850;
 
 $$("#login-button").tap(function(){
 
@@ -12,7 +12,6 @@ $$("#login-button").tap(function(){
         if(result != undefined && result != ""){
             $$("#username").parent().removeClass("red-border");
             $$("#password").parent().removeClass("red-border");
-            start=new Date();
             for(var i=0;i<nbButtons;i++){
                 var temp  = i+1;
                 $$("#listview").append('<li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg"><strong>'+temp+': Titel: Artist</strong></a></li>');
@@ -55,9 +54,4 @@ $$("#login-button").tap(function(){
 
 
 
-});
-
-Lungo.dom("#list-section").on("load",function(){
-    stop=new Date()-start;
-    alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
 });

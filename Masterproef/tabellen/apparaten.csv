@@ -1,9 +1,9 @@
-Apparaat,Model,Serial,Soort,BS,Kernel,Browser,Browerversie,Marktwaarde
- HTCDesireZ,HTC Sense version 2.1,SH0AVRT00593, Smartphone,Android 2.3.3,2.6.35.10-g7b95729,Android browser,WebKit/533.1,
-GalaxyTab,GT-P1000,R5VZA91193L,Tablet,Android 2.3.6,2.3.35.7 Overcome-v4.0.0#40,Android browser,,
-GalaxyS,GT-I9000,3333EE5FC7FC00EC,Smartphone,Android 4.1.2,3.0.21-g35847d6,Android browser,,
-Nexus 7,ME370T,015d2a50182ff80d,Tablet,Android 4.2.2,3.1.10-g05b777c,Chrome,18.0.1025469,
-iPad1 WiFi,MB294C,V502625VZ3A,Tablet,iOS 5.1.1,9B206,Mobile Safari,,
-iPad3 4G WiFi,MC706NF/A,DLXHFBGQDJ8R,Tablet,iOS 6.1.3,10B329,Mobile Safari,,
-iPhone 3GS,MC133NF,86931ZNP3NR,Smartphone,iOS 6.0.1,10A523,Mobile Safari,,
-iPhone 4S,MD242NF/A,DNPGX017DTD7,Smartphone,iOS 6.1.3,10B329,Mobile Safari,,
+Apparaat,Model,Serial,Soort,BS,Kernel,Browser,Browerversie
+\htc{},HTC Sense version 2.1,SH0AVRT00593, Smartphone,Android 2.3.3,2.6.35.10-g7b95729,Android browser,WebKit/533.1
+\gtab{},GT-P1000,R5VZA91193L,Tablet,Android 2.3.6,2.3.35.7 Overcome-v4.0.0#40,Android browser,
+\gs{},GT-I9000,3333EE5FC7FC00EC,Smartphone,Android 4.1.2,3.0.21-g35847d6,Android browser,
+\nexus{},ME370T,015d2a50182ff80d,Tablet,Android 4.2.2,3.1.10-g05b777c,Chrome,18.0.1025469
+\ipadi{},MB294C,V502625VZ3A,Tablet,iOS 5.1.1,9B206,Mobile Safari,
+\ipadiii{},MC706NF/A,DLXHFBGQDJ8R,Tablet,iOS 6.1.3,10B329,Mobile Safari,
+\iphoneiii{},MC133NF,86931ZNP3NR,Smartphone,iOS 6.0.1,10A523,Mobile Safari,
+\iphoneiv{},MD242NF/A,DNPGX017DTD7,Smartphone,iOS 6.1.3,10B329,Mobile Safari,

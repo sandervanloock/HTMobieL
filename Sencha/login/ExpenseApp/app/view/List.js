@@ -23,19 +23,10 @@ Ext.define('ExpenseApp.view.List', {
         ],
         listeners: {
             initialize: function () {
-                console.log("initialize");
-                //initialize: function () {
-                //this.callParent(arguments);
-                start = new Date();
                 var store = Ext.getStore('Songs');
-                for (var i = 1; i <= 1000; i++) {
+                for (var i = 1; i <= 850; i++) {
                     store.add({id: i});
                 }
-            },
-            painted: function () {
-                console.log("painted");
-                stop = new Date();
-                alert("Timer", stop - start);
             }
         }
 

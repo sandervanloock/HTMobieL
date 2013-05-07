@@ -1,4 +1,4 @@
-var start, stop, nbButtons=1000;
+var start, stop, nbButtons=10000;
 
 $$("#login-button").tap(function(){
 
@@ -18,8 +18,6 @@ $$("#login-button").tap(function(){
                 $$("#listview").append('<li class="arrow thumb"><a href="#"><img src="images/music_icon.jpg"><strong>'+temp+': Titel: Artist</strong></a></li>');
             }
             Lungo.Router.section("list-section");
-            stop=new Date()-start;
-            alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
         }else{
             Lungo.Notification.error(
                 "Error",
@@ -57,4 +55,9 @@ $$("#login-button").tap(function(){
 
 
 
+});
+
+Lungo.dom("#list-section").on("load",function(){
+    stop=new Date()-start;
+    alert("Rendertime for list with size " + nbButtons + ": " +stop + " ms");
 });

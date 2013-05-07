@@ -71,7 +71,7 @@ $('#login-button').click(function(event) {
     });
 });
 
-var start, stop, nbButtons=1000;
+var start, stop, nbButtons=10000;
 
 
 $( '#list-page' ).on( 'pageshow',function(event){

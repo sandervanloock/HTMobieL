@@ -12,7 +12,7 @@ Ext.define('ExpenseApp.view.List', {
     config: {
         fullscreen: true,
         store: 'Songs',
-        itemTpl: '<img src="resources/images/boston.jpg" width="25" heigh="25"><span>{id}: Title - Artist</span>',
+        itemTpl: '<div class="listelement"><img src="resources/images/boston.jpg">{id}: Title - Artist</div>',
         onItemDisclosure: true,
         items: [
             {

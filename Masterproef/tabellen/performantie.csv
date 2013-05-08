@@ -1,6 +1,6 @@
-Performantie,jQM,ST,Kendo,Lungo
-POC,,,,
-AJAX,,,,
-UI,,,,
-Loginscherm,,,,
-Score,,,,
+Tijd,jQM,ST,Lungo,Kendo
+POC,44.47,103.99,34.05,58.90
+POC gecached,1.82,59.01,2.59,5.24
+Loginscherm,31.63,35.82,14.30,33.82
+Loginscherm gecached,2.43,18.75,3.19,4.40
+Totaal,80.35,217.56,54.14,102.36

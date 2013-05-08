@@ -1,0 +1,9 @@
+Uitdaging,Challenge,Max,jQM(abs),jQM(rel),ST(abs),ST(rel),Lungo(abs),Lungo(rel),Kendo(abs),Kendo(rel)
+U4.1 Maak formulieren met placeholders zonder labels,C4.1 Create forms with placeholders without labels,2,2,1.00,2,1.00,2,1.00,2,1.00
+U4.2 Gebruik tekst/nummer/e-mail als formuliertypes,C4.2 Use the text/number/email as form types,2,2,1.00,2,1.00,2,1.00,2,1.00
+U4.3 Optieveld,C4.3 Option field,2,2,1.00,2,1.00,0,0.00,2,1.00
+U4.4 Aangepaste datepicker met bereik van data,C4.4 Custom datepicker with data range,2,1,0.50,0,0.00,0,0.00,2,1.00
+U4.5 Aangepaste datepicker met enkel maand- en jaarveld,C4.5 Custom datepicker only with month and year,2,0,0.00,0,0.00,0,0.00,2,1.00
+U4.6 Schakelaar,C4.6 Flip switch,2,2,1.00,2,1.00,2,1.00,2,1.00
+U4.7 Wissen van een formulier,C4.7 Clearing the form,2,0,0.00,0,0.00,0,0.00,2,1.00
+Totaal,Total,14,9,0.64,8,0.57,6,0.43,14,1.00

@@ -12,7 +12,7 @@ Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig wor
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM(rel),ST(rel),Kendo(rel),Lungo(rel)},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
   columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
   columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
@@ -30,8 +30,11 @@ Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig wor
 \end{table}
 
 %%%%%%%%%%%%%
+
 \subsection{\uit{anatomie}}
-In tabel \ref{tabel:evaluatie-gebruik-u14} worden de resultaten getoond van de drie deeluitdagingen van U14:~Anatomie van pagina.
+\label{sec:evaluatie-gebruik-anatomie}
+
+In tabel \ref{tabel:evaluatie-gebruik-anatomie} worden de resultaten getoond van de drie deeluitdagingen van \uit{anatomie}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -43,21 +46,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u14.csv}
-\caption{Gebruik voor U14: Anatomie van pagina}
-\label{tabel:evaluatie-gebruik-u14}
+]{tabellen/gebruik/anatomie.csv}
+\caption{Gebruik voor \uit{anatomie}}
+\label{tabel:evaluatie-gebruik-anatomie}
 \end{table}
 
 \paragraph{\jqm}
@@ -130,9 +133,11 @@ In de \code{<nav>}-tag worden de links naar de verschillende tabbladen gemaakt d
 Het veranderen van de kleur van knoppen gebeurt in CSS waarbij de achtergrondkleur van de knop eenvoudig kan worden aangepast.
 
 %%%%%%%%%%%%%
+
 \subsection{\uit{toestel}}
-\label{sec:evaluatie-gebruik-u9}
-In tabel \ref{tabel:evaluatie-gebruik-u9} worden de resultaten getoond van de drie deeluitdagingen van U9:~Toestelspecifieke lay-out.
+\label{sec:evaluatie-gebruik-toestel}
+
+In tabel \ref{tabel:evaluatie-gebruik-toestel} worden de resultaten getoond van de drie deeluitdagingen van \uit{toestel}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -144,21 +149,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u9.csv}
-\caption{Gebruik voor U9: Toestelspecifieke lay-out}
-\label{tabel:evaluatie-gebruik-u9}
+]{tabellen/gebruik/toestel.csv}
+\caption{Gebruik voor \uit{toestel}}
+\label{tabel:evaluatie-gebruik-toestel}
 \end{table}
 
 \paragraph{\jqm}
@@ -243,7 +248,9 @@ Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met 
 %%%%%%%%%%%%%
 
 \subsection{\uit{laadscherm}} 
-In tabel \ref{tabel:evaluatie-gebruik-u11} worden de resultaten getoond van de twee deeluitdagingen van U11:~Laadscherm en dialoogvenster.
+\label{sec:evaluatie-gebruik-laadscherm}
+
+In tabel \ref{tabel:evaluatie-gebruik-laadscherm} worden de resultaten getoond van de twee deeluitdagingen van \uit{laadscherm}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -255,21 +262,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u11.csv}
-\caption{Gebruik voor U11: Laadscherm en dialoogvenster}
-\label{tabel:evaluatie-gebruik-u11}
+]{tabellen/gebruik/laadscherm.csv}
+\caption{Gebruik voor \uit{laadscherm}}
+\label{tabel:evaluatie-gebruik-laadscherm}
 \end{table}
 
 \paragraph{\jqm}
@@ -341,7 +348,9 @@ Deze zullen respectievelijk een groene en rode kleur hebben.
 %%%%%%%%%%%%%
 
 \subsection{\uit{formulieren}}
-In tabel \ref{tabel:evaluatie-gebruik-u1} worden de resultaten getoond van de vijf deeluitdaging van U1:~Formulieren.
+\label{sec:evaluatie-gebruik-formulieren}
+
+In tabel \ref{tabel:evaluatie-gebruik-formulieren} worden de resultaten getoond van de zeven deeluitdaging van \uit{formulieren}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -354,21 +363,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   string type,
   header=true,
   skip coltypes=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u1.csv}
-\caption{Gebruik voor U1: Formulieren}
-\label{tabel:evaluatie-gebruik-u1}
+]{tabellen/gebruik/formulieren.csv}
+\caption{Gebruik voor \uit{formulieren}}
+\label{tabel:evaluatie-gebruik-formulieren}
 \end{table}
 
 
@@ -488,7 +497,9 @@ Het legen van een formulier gebeurt in Lungo door de \code{reset}-functie in \js
 %%%%%%%%%%%%%
 
 \subsection{\uit{vullen}}
-In tabel \ref{tabel:evaluatie-gebruik-u2} worden de resultaten getoond van de twee deeluitdaging van U2:~Invullen van formulier.
+\label{sec:evaluatie-gebruik-vullen}
+
+In tabel \ref{tabel:evaluatie-gebruik-vullen} worden de resultaten getoond van de twee deeluitdaging van \uit{vullen}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -500,21 +511,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u2.csv}
-\caption{Gebruik voor U2: Invullen van formulier}
-\label{tabel:evaluatie-gebruik-u2}
+]{tabellen/gebruik/vullen.csv}
+\caption{Gebruik voor \uit{vullen}}
+\label{tabel:evaluatie-gebruik-vullen}
 \end{table}
 
 \paragraph{\jqm}
@@ -589,7 +600,9 @@ Daar worden de niet-benodigde lijstitems verwijderd en wordt de \code{select} ze
 %%%%%%%%%%%%%
 
 \subsection{\uit{autoaanvullen}}
-In tabel \ref{tabel:evaluatie-gebruik-u7} worden de resultaten getoond van de twee deeluitdagingen van U7:~Auto-aanvullen.
+\label{sec:evaluatie-gebruik-autoaanvullen}
+
+In tabel \ref{tabel:evaluatie-gebruik-autoaanvullen} worden de resultaten getoond van de twee deeluitdagingen van \uit{autoaanvullen}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -601,21 +614,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u7.csv}
-\caption{Gebruik voor U7: Auto-aanvullen}
-\label{tabel:evaluatie-gebruik-u7}
+]{tabellen/gebruik/autoaanvullen.csv}
+\caption{Gebruik voor \uit{autoaanvullen}}
+\label{tabel:evaluatie-gebruik-autoaanvullen}
 \end{table}
 
 \paragraph{\jqm}
@@ -663,7 +676,9 @@ Veel code kon dus gewoon worden overgenomen.
 %%%%%%%%%%%%%
 
 \subsection{\uit{afbeelding}}
-In tabel \ref{tabel:evaluatie-gebruik-u6} worden de resultaten getoond van de drie deeluitdagingen van U6:~Toevoegen van afbeelding.
+\label{sec:evaluatie-gebruik-afbeelding}
+
+In tabel \ref{tabel:evaluatie-gebruik-afbeelding} worden de resultaten getoond van de drie deeluitdagingen van \uit{afbeelding}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -675,21 +690,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u6.csv}
-\caption{Gebruik voor U6: Toevoegen van afbeelding}
-\label{tabel:evaluatie-gebruik-u6}
+]{tabellen/gebruik/afbeelding.csv}
+\caption{Gebruik voor \uit{afbeelding}}
+\label{tabel:evaluatie-gebruik-afbeelding}
 \end{table}
 
 \paragraph{\jqm}
@@ -752,9 +767,9 @@ Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
 %%%%%%%%%%%%%
 
 \subsection{\uit{validatie}}
-\label{sec:evaluatie-gebruik-u3}
+\label{sec:evaluatie-gebruik-validatie}
 
-In tabel \ref{tabel:evaluatie-gebruik-u3} worden de resultaten getoond van de vier deeluitdaging van U3: Formuliervalidatie.
+In tabel \ref{tabel:evaluatie-gebruik-validatie} worden de resultaten getoond van de vier deeluitdaging van \uit{validatie}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 
@@ -768,21 +783,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   ignore chars={\"},
   verb string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u3.csv}
-\caption{Gebruik voor U3: Formuliervalidatie}
-\label{tabel:evaluatie-gebruik-u3}
+]{tabellen/gebruik/validatie.csv}
+\caption{Gebruik voor \uit{validatie}}
+\label{tabel:evaluatie-gebruik-validatie}
 \end{table}
 
 \paragraph{\jqm}
@@ -886,7 +901,9 @@ Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute 
 %%%%%%%%%%%%%
 
 \subsection{\uit{handtekening}}
-In tabel \ref{tabel:evaluatie-gebruik-u4} worden de resultaten getoond van de deeluitdaging van U4: Handtekening.
+\label{sec:evaluatie-gebruik-handtekening}
+
+In tabel \ref{tabel:evaluatie-gebruik-handtekening} worden de resultaten getoond van de deeluitdaging van \uit{handtekening}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -898,21 +915,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u4.csv}
-\caption{Gebruik voor U4: Handtekening}
-\label{tabel:evaluatie-gebruik-u4}
+]{tabellen/gebruik/handtekening.csv}
+\caption{Gebruik voor \uit{handtekening}}
+\label{tabel:evaluatie-gebruik-handtekening}
 \end{table}
 
 \paragraph{\jqm}
@@ -945,8 +962,11 @@ Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applic
 
 
 %%%%%%%%%%%%%
+
 \subsection{\uit{ajax}}
-In tabel \ref{tabel:evaluatie-gebruik-u8} worden de resultaten getoond van de vier deeluitdagingen van U8:~AJAX.
+\label{sec:evaluatie-gebruik-ajax}
+
+In tabel \ref{tabel:evaluatie-gebruik-ajax} worden de resultaten getoond van de vier deeluitdagingen van \uit{ajax}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -958,21 +978,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u8.csv}
-\caption{Gebruik voor U8: AJAX}
-\label{tabel:evaluatie-gebruik-u8}
+]{tabellen/gebruik/ajax.csv}
+\caption{Gebruik voor \uit{ajax}}
+\label{tabel:evaluatie-gebruik-ajax}
 \end{table}
 
 
@@ -1044,8 +1064,11 @@ Dit is uiteraard niet nodig als ruwe data, zoals JSON, wordt meegegeven.
 Aangezien dit een fout was in de bibliotheek werd, om het probleem zo snel mogelijk te verhelpen, het \js-bestand zelf aangepast.
 
 %%%%%%%%%%%%%
+
 \subsection{\uit{lijsten}}
-In tabel \ref{tabel:evaluatie-gebruik-u13} worden de resultaten getoond van de drie deeluitdagingen van U13:~Lijsten.
+\label{sec:evaluatie-gebruik-lijsten}
+
+In tabel \ref{tabel:evaluatie-gebruik-lijsten} worden de resultaten getoond van de drie deeluitdagingen van \uit{lijsten}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -1057,21 +1080,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u13.csv}
-\caption{Gebruik voor U13: Lijsten}
-\label{tabel:evaluatie-gebruik-u13}
+]{tabellen/gebruik/lijsten.csv}
+\caption{Gebruik voor \uit{lijsten}}
+\label{tabel:evaluatie-gebruik-lijsten}
 \end{table}
 
 \paragraph{\jqm}
@@ -1159,8 +1182,11 @@ De functie \code{Lungo.Core.orderByProperty} maakt het mogelijk om te sorteren v
 
 
 %%%%%%%%%%%%%
+
 \subsection{\uit{pdf}}
-In tabel \ref{tabel:evaluatie-gebruik-u5} worden de resultaten getoond van de twee deeluitdagingen van U5:~Toon PDF.
+\label{sec:evaluatie-gebruik-pdf}
+
+In tabel \ref{tabel:evaluatie-gebruik-pdf} worden de resultaten getoond van de twee deeluitdagingen van \uit{pdf}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -1172,21 +1198,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u5.csv}
-\caption{Gebruik voor U5: Toon PDF}
-\label{tabel:evaluatie-gebruik-u5}
+]{tabellen/gebruik/pdf.csv}
+\caption{Gebruik voor \uit{pdf}}
+\label{tabel:evaluatie-gebruik-pdf}
 \end{table}
 
 \paragraph{\jqm}
@@ -1217,10 +1243,12 @@ In dat verborgen formulier worden de nodige parameters ingevoerd en zal het op d
 Daarna wordt het PDF-bestand gestuurd naar de gebruiker.
 Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
-
 %%%%%%%%%%%%%
+
 \subsection{\uit{offline}}
-In tabel \ref{tabel:evaluatie-gebruik-u10} worden de resultaten getoond van de drie deeluitdagingen van U10:~Offline.
+\label{sec:evaluatie-gebruik-offline}
+
+In tabel \ref{tabel:evaluatie-gebruik-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -1232,21 +1260,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/gebruik/u10.csv}
-\caption{Gebruik voor U10: Offline}
-\label{tabel:evaluatie-gebruik-u10}
+]{tabellen/gebruik/offline.csv}
+\caption{Gebruik voor \uit{offline}}
+\label{tabel:evaluatie-gebruik-offline}
 \end{table}
 
 \paragraph{\jqm}

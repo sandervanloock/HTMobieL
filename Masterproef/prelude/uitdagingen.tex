@@ -1,63 +1,36 @@
-\newcommand*{\uit}[1]{\dothis{nl}{#1}}
+\newcommand*{\uit}[1]{\switch{#1}}
 \newcommand*{\chal}[1]{\dothis{en}{#1}}
 
+\usepackage{pdftexcmds}
 \makeatletter
-
-\newcommand*{\dothis}[2]{%
-	\stringcases{#1}{
-		{nl}{
-			\stringcases{#2}{
-				{anatomie}{U1:~Anatomie van pagina}
-				{toestel}{U2:~Toestelspecifieke lay-out}
-				{laadscherm}{U3:~Laadscherm en dialoogvenster}
-				{formulieren}{U4:~Formulieren}
-				{vullen}{U5:~Automatisch invullen van formulier}
-				{autoaanvullen}{U6:~Auto-aanvullen}
-				{afbeelding}{U7:~Toevoegen van afbeelding}
-				{validatie}{U8:~Formuliervalidatie}
-				{handtekening}{U9:~Handtekening}
-				{ajax}{U10:~AJAX}
-				{lijsten}{U11:~Lijsten}
-				{pdf}{U12:~Toon PDF}
-				{offline}{U13:~Offline}
-			}
-			{[error uitdaging]}
-		}
-		{en}{
-			\stringcases{#2}{
-				{anatomie}{C1:~Anatomy of page}
-				{toestel}{C2:~Device-specific layout}
-				{laadscherm}{C3:~Load screen and dialog}
-				{formulieren}{C4:~Forms}
-				{vullen}{C5:~Automatic form filling}
-				{autoaanvullen}{C6:~Autocomplete}
-				{afbeelding}{C7:~Attach image}
-				{validatie}{C8:~From validation}
-				{handtekening}{C9:~Signature}
-				{ajax}{C10:~AJAX}
-				{lijsten}{C11:~Lists}
-				{pdf}{C12:~Show PDF}
-				{offline}{C13:~Offline}
-			}
-			{[error challenge]}
-		}
-	}
-    {[error language]}
-}
-
-\newcommand{\stringcases}[3]{
-  \romannumeral
-    \str@case{#1}#2{#1}{#3}\q@stop
-}
-\newcommand{\str@case}[3]{
-  \ifnum\pdf@strcmp{\unexpanded{#1}}{\unexpanded{#2}}=\z@
-    \expandafter\@firstoftwo
+\newcommand{\switch}[1]{
+  \ifnum\pdf@strcmp{#1}{anatomie}=0
+    U1:~Anatomie van pagina%
+  \else\ifnum\pdf@strcmp{#1}{toestel}=0
+    U2:~Toestelspecifieke lay-out%
+  \else\ifnum\pdf@strcmp{#1}{laadscherm}=0
+    U3:~Laadscherm en dialoogvenster%
+  \else\ifnum\pdf@strcmp{#1}{formulieren}=0
+    U4:~Formulieren%
+  \else\ifnum\pdf@strcmp{#1}{vullen}=0
+    U5:~Automatisch invullen van formulier%
+  \else\ifnum\pdf@strcmp{#1}{autoaanvullen}=0
+    U6:~Auto-aanvullen%
+  \else\ifnum\pdf@strcmp{#1}{afbeelding}=0
+    U7:~Toevoegen van afbeelding%
+  \else\ifnum\pdf@strcmp{#1}{validatie}=0
+    U8:~Formuliervalidatie%
+  \else\ifnum\pdf@strcmp{#1}{handtekening}=0
+    U9:~Handtekening%
+  \else\ifnum\pdf@strcmp{#1}{ajax}=0
+    U10:~AJAX%
+  \else\ifnum\pdf@strcmp{#1}{lijsten}=0
+    U11:~Lijsten%
+  \else\ifnum\pdf@strcmp{#1}{pdf}=0
+    U12:~Toon PDF%
+  \else\ifnum\pdf@strcmp{#1}{offline}=0
+    U13:~Offline%
   \else
-    \expandafter\@secondoftwo
-  \fi
-    {\str@case@end{#3}}
-    {\str@case{#1}}
-}
-\newcommand{\str@case@end}{}
-\long\def\str@case@end#1#2\q@stop{\z@#1}
+    [?]%
+  \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
 \makeatother

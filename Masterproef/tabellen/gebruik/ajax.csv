@@ -1,0 +1,6 @@
+Uitdaging,Challenge,Max,jQM(abs),jQM(rel),ST(abs),ST(rel),Lungo(abs),Lungo(rel),Kendo(abs),Kendo(rel)
+U10.1 Haal tekst zonder opmaak op,C10.1 Fetch plain text,2,2,1.00,2,1.00,2,1.00,2,1.00
+U10.2 Haal JSON-data op en parse,C10.2 Fetch and parse JSON,2,2,1.00,2,1.00,2,1.00,2,1.00
+U10.3 Zend JSON-data,C10.3 Send JSON payload,2,2,1.00,2,1.00,0,0.00,2,1.00
+U10.4 Haal XML-data op en parse,C10.4 Fetch and parse XML,2,2,1.00,2,1.00,2,1.00,2,1.00
+Totaal,Total,8,8,1.00,8,1.00,6,0.75,8,1.00

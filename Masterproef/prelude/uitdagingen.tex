@@ -1,0 +1,63 @@
+\newcommand*{\uit}[1]{\dothis{nl}{#1}}
+\newcommand*{\chal}[1]{\dothis{en}{#1}}
+
+\makeatletter
+
+\newcommand*{\dothis}[2]{%
+	\stringcases{#1}{
+		{nl}{
+			\stringcases{#2}{
+				{anatomie}{U1:~Anatomie van pagina}
+				{toestel}{U2:~Toestelspecifieke lay-out}
+				{laadscherm}{U3:~Laadscherm en dialoogvenster}
+				{formulieren}{U4:~Formulieren}
+				{vullen}{U5:~Automatisch invullen van formulier}
+				{autoaanvullen}{U6:~Auto-aanvullen}
+				{afbeelding}{U7:~Toevoegen van afbeelding}
+				{validatie}{U8:~Formuliervalidatie}
+				{handtekening}{U9:~Handtekening}
+				{ajax}{U10:~AJAX}
+				{lijsten}{U11:~Lijsten}
+				{pdf}{U12:~Toon PDF}
+				{offline}{U13:~Offline}
+			}
+			{[error uitdaging]}
+		}
+		{en}{
+			\stringcases{#2}{
+				{anatomie}{C1:~Anatomy of page}
+				{toestel}{C2:~Device-specific layout}
+				{laadscherm}{C3:~Load screen and dialog}
+				{formulieren}{C4:~Forms}
+				{vullen}{C5:~Automatic form filling}
+				{autoaanvullen}{C6:~Autocomplete}
+				{afbeelding}{C7:~Attach image}
+				{validatie}{C8:~From validation}
+				{handtekening}{C9:~Signature}
+				{ajax}{C10:~AJAX}
+				{lijsten}{C11:~Lists}
+				{pdf}{C12:~Show PDF}
+				{offline}{C13:~Offline}
+			}
+			{[error challenge]}
+		}
+	}
+    {[error language]}
+}
+
+\newcommand{\stringcases}[3]{
+  \romannumeral
+    \str@case{#1}#2{#1}{#3}\q@stop
+}
+\newcommand{\str@case}[3]{
+  \ifnum\pdf@strcmp{\unexpanded{#1}}{\unexpanded{#2}}=\z@
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+    {\str@case@end{#3}}
+    {\str@case{#1}}
+}
+\newcommand{\str@case@end}{}
+\long\def\str@case@end#1#2\q@stop{\z@#1}
+\makeatother

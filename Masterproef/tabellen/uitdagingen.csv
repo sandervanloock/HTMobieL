@@ -1,0 +1,52 @@
+Uitdaging,Challenge
+\uit{anatomie},\chal{anatomie}
+U1.1 Toon kop-/voettekst en onderkoptekst met titels en knoppen,C1.1 Show header/footer and sub header with titles and buttons
+U1.2 Tabbar met functionaliteit,C1.2 Tabbar
+U1.3 Aanpasbaarheid van kleur van knoppen,C1.3 Customisation of button color
+\uit{toestel},\chal{toestel}
+U2.1 Herkennen van smartphone en tablet,C2.1 Recognising smartphone or tablet
+U2.2 Toon het linker menu op een tablet,C2.2 Show left sided menu on tablet 
+U2.3 Schakel menu in bij smartphone,C2.3 Enabling smartphone menu
+\uit{laadscherm},\chal{laadscherm}
+U3.1 Toon laadscherm,C3.1 Show load screen
+U3.2 Toon dialoogvenster,C3.2 Show dialog box
+\uit{formulieren},\chal{formulieren}
+U4.1 Maak formulieren met placeholders zonder labels,C4.1 Create forms with placeholders without labels
+U4.2 Gebruik tekst/nummer/e-mail als formuliertypes,C4.2 Use the text/number/email as form types
+U4.3 Optieveld,C4.3 Option field
+U4.4 Aangepaste datepicker met bereik van data,C4.4 Custom datepicker with data range
+U4.5 Aangepaste datepicker met enkel maand- en jaarveld,C4.5 Custom datepicker only with month and year
+U4.6 Schakelaar,C4.6 Flip switch
+U4.7 Wissen van een formulier,C4.7 Clearing the form
+\uit{vullen},\chal{vullen}
+U5.1 Vul formulierelementen met object,C5.1 Filling in the form elements with object
+U5.2 Maak elementen van het formulier read-only,C5.2 Make the form elements read-only
+\uit{autoaanvullen},\chal{autoaanvullen}
+U6.1 Haal suggesties op gebaseerd op gebruikersinvoer,C6.1 Fetch suggestions based on input
+U6.2 Toon suggesties in klikbaar dropdownmenu,C6.2 Show suggestions in clickable drop down
+\uit{afbeelding},\chal{afbeelding}
+U7.1 Kies een afbeelding,C7.1 Choose image
+U7.2 Converteer de afbeelding naar base64,C7.2 Convert image to base64
+U7.3 Voorbeeld van de afbeelding,C7.3 Preview image
+\uit{validatie},\chal{validatie}
+U8.1 Validatieregels voor verplichte nummer- en e-mailvelden,C8.1 Validation rules for a required number and email field 
+U8.2 Validatieregels voor eigen condities,C8.2 Validation depends on custom conditions 
+U8.3 Venster voor foutenboodschappen van ongeldige velden,C8.3 Error dialog with invalid fields and explanation
+U8.4 Rode randen plaatsen rond ongeldige velden,C8.4 Red borders around invalid fields 
+\uit{handtekening},\chal{handtekening}
+U9.1 Teken een handtekening met vinger of pen,C9.1 Draw a signature with finger or pen 
+\uit{ajax},\chal{ajax}
+U10.1 Haal tekst zonder opmaak op,C10.1 Fetch plain text
+U10.2 Haal JSON-data op en parse,C10.2 Fetch and parse JSON
+U10.3 Zend JSON-data,C10.3 Send JSON payload
+U10.4 Haal XML-data op en parse,C10.4 Fetch and parse XML
+\uit{lijsten},\chal{lijsten}
+U11.1 Laad data in lijst en stijl de elementen met een template,C11.1 Load data into list and styling list items
+U11.2 Klikbare lijstelementen met actie of link naar het record van het element,C11.2 Clickable items with custom action or linking to record of item
+U11.3 Sorteren van data,C11.3 Sorting data
+\uit{pdf},\chal{pdf}
+U12.1 Vraag een PDF-bestand op met POST-parameters,C12.1 Requesting a PDF with POST parameters 
+U12.2 Toon het PDF-bestand,C12.2 Show the PDF
+\uit{offline},\chal{offline}
+U13.1 Bewaar data,C13.1 Saving data
+U13.2 Maak de applicatie offline beschikbaar,C13.2 Making app offline

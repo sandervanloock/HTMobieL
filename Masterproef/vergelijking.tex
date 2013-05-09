@@ -99,7 +99,7 @@ Een tabel zal voorzien worden met in de kolommen het aantal volgers op Twitter, 
 Ook de evolutie van deze data zal worden bekeken na een termijn van één maand.
 Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal ook voor elk raamwerk worden toegevoegd.
 
-De som van Twitter volgers ($T_r$), GitHub sterren ($S_r$), GitHub forkers ($F_r$), Stackoverflow vragen ($SO_r$) en Facebook \term{likes} ($FB_r$) vormt de score voor het gemeenschapscriteria:
+De som van Twitter volgers ($T_r$), GitHub sterren ($S_r$), GitHub forkers ($F_r$), Stackoverflow vragen ($SO_r$) en Facebook vind-ik-leuks ($FB_r$) vormt de score voor het gemeenschapscriteria:
 \begin{equation}
   GM_r=T_r+S_r+F_r+SO_r+FB_r
   \label{eq:gemeenschap}
@@ -108,7 +108,8 @@ met $r$ de verschillende raamwerken.
 
 \paragraph{Motivatie}
 TODO
-
+% van bewust dat dubbel tellen,  is maar een indicatie wat betreft community
+% van bewust dat stackoverflow zowel slecht als goed kan zijn.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -187,8 +188,8 @@ Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $U_{r,i}$ van raa
     \textbf{Score} & \textbf{Beoordelingscriteria}\\
     \midrule
     $U_{r,i} = 2$ & Ondersteund door het raamwerk\\
-    $U_{r,i} = 1$ & Een plug-in is nodig\\
-    $U_{r,i} = 0$ & Eigen implementatie of hack\\
+    $U_{r,i} = 1$ & Een plug-in is nodig of nieuwe kenmerken van HTML5\\ %TODO verder uitleggen (CSS3 valt onder nieuwe kenmerken van koepel html5)
+    $U_{r,i} = 0$ & Eigen implementatie of hack of niet geïmplementeerd\\ %niet implementeren is niet verder tijd ingestoken (alles is implementeerbaar)
     \bottomrule
   \end{tabular}
   \caption{Beoordeling uitdagingen gebruikscriterium}
@@ -300,6 +301,8 @@ Als laatste zullen de loginschermen die in sectie \ref{sec:vergelijking-producti
 %TODO ook meten logintijd + gecachte versie
 De redenen waarom deze geïsoleerde applicatie wordt gebruiken is omdat ervan kan worden uitgegaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
 Dit is in tegenstelling tot dit scherm, waarbij exact het aantal lijnen code en bijhorende performantie kan worden vergeleken.
+
+%TODO bespreken downloadtijd, LOC, GPS en 
 
 De formule voor het performantiecriterium wordt dan: 
 

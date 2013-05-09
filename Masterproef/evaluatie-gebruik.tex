@@ -73,7 +73,8 @@ De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebrui
 
 Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
 De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
-Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-u9}).
+Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
+%TODO Sander: ik heb referentie gefixt op vorige lijn; OK?
 
 Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
 Daarom werd gekozen voor \code{fieldset} met twee opties.
@@ -399,7 +400,7 @@ Een tweede probleem was het opleggen van het bereik van datums, wat met het \cod
 Beide problemen werden opgelost door gebruik te maken van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van \jqm{}. 
 Het veld heeft dan wel het type \code{text}.
 Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
-Dit wordt belet door ook nog eens een datumvalidatie (zie \ref{sec:evaluatie-gebruik-u3}) te doen op dit tekstveld mocht de plug-in het niet hebben afgedwongen.
+Dit wordt belet door ook nog eens een datumvalidatie (zie \ref{sec:evaluatie-gebruik-validatie}) te doen op dit tekstveld mocht de plug-in het niet hebben afgedwongen.
  
 Het was ook nodig om enkel de maand en jaar in te geven als datum, dus zonder dag.
 Ook hier kon niet het \code{date}-type gebruikt worden, omdat daar ook een dag voor nodig is. 

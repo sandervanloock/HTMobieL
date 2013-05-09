@@ -1,0 +1,10 @@
+Apparaat,Device,POC (s),POC Cached (ms),Login (s),Login Cached (ms)
+\htc{},\htc{},1.26E+01,9.19E+03,4.38E+00,2.83E+03
+\gtab{},\gtab{},1.06E+01,8.40E+03,3.96E+00,2.54E+03
+\gs{},\gs{},3.14E+01,2.11E+04,1.04E+01,6.41E+03
+\nexus{},\nexus{},8.20E+00,4.25E+03,3.69E+00,1.82E+03
+\ipadi{},\ipadi{},1.09E+01,4.45E+03,3.26E+00,1.45E+03
+\ipadiii{},\ipadiii{},5.82E+00,2.28E+03,2.20E+00,7.15E+02
+\iphoneiii{},\iphoneiii{},1.65E+01,6.62E+03,5.14E+00,1.98E+03
+\iphoneiv{},\iphoneiv{},7.94E+00,2.73E+03,2.74E+00,1.02E+03
+Totaal,Total,103.99,"59,006.67",35.82,"18,749.00"

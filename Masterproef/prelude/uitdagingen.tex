@@ -28,7 +28,7 @@
 	\else\ifnum\pdf@strcmp{#1}{autoaanvullen}=0
     	U6:~Auto-aanvullen%
 	\else\ifnum\pdf@strcmp{#1}{afbeelding}=0
-    	U7:~Toevoegen van afbeelding%
+    	U7:~Toevoegen en verwerken van afbeelding%
 	\else\ifnum\pdf@strcmp{#1}{validatie}=0
     	U8:~Formuliervalidatie%
 	\else\ifnum\pdf@strcmp{#1}{handtekening}=0
@@ -55,7 +55,7 @@
   	\fi\fi
 }
 
-\newcommand{\chal}[2]{
+\newcommand{\chal}[1]{
 	\ifnum\pdf@strcmp{#1}{anatomie}=0
 		C1:~Anatomy of page%
 	\else\ifnum\pdf@strcmp{#1}{toestel}=0
@@ -83,7 +83,7 @@
 	\else\ifnum\pdf@strcmp{#1}{autoaanvullen}=0
 		C6:~Autocomplete%
 	\else\ifnum\pdf@strcmp{#1}{afbeelding}=0
-		C7:~Attach image%
+		C7:~Attach and process image%
 	\else\ifnum\pdf@strcmp{#1}{validatie}=0
 		C8:~From validation%
 	\else\ifnum\pdf@strcmp{#1}{handtekening}=0

@@ -249,28 +249,29 @@ met $r$ de verschillende raamwerken,  $c$ de verschillende contexten en $i$ de u
 %Een kanttekening bij dit criterium is of het raamwerk ondersteunt de webapplicatie om te vormen tot een \term{native} applicatie. 
 %Ook zal er gekeken worden of de \term{native look-and-feel} per platform door het raamwerk kan worden benaderd.
 
-%TODO Tim: andere kolommen includen
-% \begin{table}[H]
-% \centering
-% \pgfplotstabletypeset[
-%   begin table=\begin{tabular}{l l},
-%   end table=\end{tabular},
-%   col sep=comma,
-%   header=true,
-%   string type,
-%   skip coltypes=true,
-%   columns={Apparaat,Soort},
-%   columns/Apparaat/.style={column name=\textbf{Apparaat}},  
-%   columns/Soort/.style={column name=\textbf{Soort}},
-%   every head row/.style={
-%     before row=\toprule,
-%     after row=\midrule},
-%   every last row/.style={
-%     after row=\bottomrule}
-% ]{tabellen/apparaten.csv}
-% \caption{Beschikbare apparaten met hun besturingssysteem, browser en gewicht.}
-% \label{tabel:toestellen-hci}
-% \end{table}
+ \begin{table}[H]
+ \centering
+ \pgfplotstabletypeset[
+   begin table=\begin{tabular}{l l l l},
+   end table=\end{tabular},
+   col sep=comma,
+   header=true,
+   string type,
+   skip coltypes=true,
+   columns={Apparaat,Soort,BS,Browser},
+   columns/Apparaat/.style={column name=\textbf{Apparaat}},  
+   columns/Soort/.style={column name=\textbf{Soort}},
+   columns/BS/.style={column name=\textbf{BS}},
+   columns/Browser/.style={column name=\textbf{Browser}},
+   every head row/.style={
+     before row=\toprule,
+     after row=\midrule},
+   every last row/.style={
+     after row=\bottomrule}
+ ]{tabellen/apparaten.csv}
+ \caption{Beschikbare apparaten met hun besturingssysteem~(BS) en browser.}
+ \label{tabel:toestellen-hci}
+ \end{table}
 
 
 

@@ -3,6 +3,37 @@
 % De productiviteit van de vier raamwerken wordt samengevat in tabel~\ref{tabel:evaluatie-productiviteit}. 
 % Daarna zullen de geïmplementeerde POC's~(zie \ref{sec:evaluatie-productiviteit-poc}) en loginschermen~(zie \ref{sec:evaluatie-productiviteit-login}) per raamwerk uitvoerig worden besproken.
 
+% tools:
+% -overal PHPstorm
+% -ST: architect (20 dagen om de views te maken), sencha cmd (initialiseren, files toevoegen en builden met manifest)
+
+% leercurve: 
+% -ST lag hoger door MVC en pure JS (zie loginscherm steekt er met 7 uur met de kop bovenuit)
+% -jQM en Kendo hadden boiler plate code, ST had tool project te maken maar dan… allemaal files en folders, je weet zo niet direct waar gestart, vanaf je iets verkeerd veranderd wordt er niets meer gerenderd. 
+% gestart met jQM en ST, waardoor productiviteit van de andere 2 hoger ligt (incl problemen met backend, zeker 20u)
+% -Lungo had geen boilerplate code, naar eerste example de broncode kopiëren. quojs zeer gelijkaardig aan jquery syntax. door de opgedane kennis van jquery verlaagt het de curve sterk, anders is het praktisch ondoenbaar (documentatie quojs is 1 bladzijde met code en kernwoorden)
+
+% documentatie: 
+% -ST: demo (Kitchen snik app), zoekfunctie is goed (met autocomplete), maar wel veel meer documentatie dan de andere, waardoor zonder zoekfunctionaliteit moeilijk is
+% -Kendo: interactief te leren, heel overzichtelijk, veel demo's (music store), issues op fora met fiddle verklaard, onoverzichtelijke zoekfunctie
+% -jQM: 1.2 geen zoekfunctie, geen echte code, je moet kijken naar de broncode, documentatie zelf is geschreven met het framework. vanaf 1.3 wel zoekfunctie en codevoorbeelden
+% -Lungo: prototype heel goed, maar dan de rest zeer zeer beknopt. geen zoekfunctie. soms zijn is de voorbeeldcode niet correct. 
+
+% debugging:
+% - ST: beige auteurs, dezelfde aanpak, alles in commentaar zetten tot iets werkende en dan beetje bij beetje uit commentaar halen
+% - ST: debug voor extra info (niet hetzelfde als jqm.min en jqm)
+% - altijd debuggen in chrome met console, vanaf het daar volledig werkt, pas debuggen op de devices zelf: chrome: connecteren via usb debugging, safari via xcode
+
+% boeken
+% jQM & ST: genoeg literatuur
+% Kendo & Lungo: onbestaand
+
+% vragen:
+% - ST, jQM, Kendo vaak antwoord op stack overflow (zie populariteit)
+% - Lungo: je bent op jezelf gewezen
+
+% Uit de cijfers blijft Lungo  meest productief, maar door de voorgaande kennis van jquery, POC en backend + het feit dat er bepaalde dingen niet geïmplementeerd konden worden in lungo, moet dit met een korreltje zout worden genomen (het loginscherm is hiervan een indicatie)
+
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -12,7 +43,7 @@
   col sep=comma,
   string type,
   header=true,
-  columns={Productiviteit,jQM,ST,Kendo,Lungo},
+  columns={Productiviteit,ST,Kendo,jQM,Lungo},
   columns/Productiviteit/.style={column name=\textbf{Productiviteit}, column type={l}},  
   columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
   columns/ST/.style={column name=\textbf{\sta}, column type={c}},

@@ -123,6 +123,7 @@ Sander Van Loock zal dan de POC in \st{} en \kendo{} maken en de loginschermen i
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
 De implementatie van het loginscherm is een extra test.
 Dit scherm bevat GI-elementen, validaties en \term{backend} integratie en kan dit dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
+%TODO login uitgebreidt met lijst van 850 elementen => 850 liedjes 
 Het zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raamwerk,  één specifiek scherm kan opgeleverd worden.
 
 De tijd die ieder nodig heeft om dit scherm te bouwen, geeft ook een indicatie van de nodige leertijd.
@@ -199,6 +200,8 @@ Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $U_{r,i}$ van raa
 \end{equation}
 met $r$ de verschillende raamwerken en $i$ de uitdagingen.
 %TODO duidelijk verklaren dat 1 staat voor een plug-in,  geen CSS3 of HTML5 features
+%TODO relatieve score gebruik
+
 \paragraph{Motivatie}
 TODO
 %TODO Tim: uitleggen waarom we er 3 gekozen hebben en bv. niet de 4 van mij… 'omdat we raamwerken testen en niet pure HTML5/CSS3'
@@ -216,61 +219,58 @@ Alle uitdagingen die gebruikt zijn om het gebruikscriterium te testen komen ook 
 In elke context zullen de $14$ uitdagingen van de vorige sectie worden getest.
 De correcte weergave en uitvoering van alle subuitdaging binnen een context bepaalt de score voor die context.
 Deze score kan enkel $0$ of $1$ zijn om wille van respectievelijk een probleem of correcte uitvoering van de subuitdaging.
-Per context zal ook de marktwaarde van het toestel in rekening worden gebracht om de meest gebruikte toestellen te bevoordelen.
-De marktwaarde is afhankelijk van het besturingssysteem,  de versie van het besturingssysteem en de gebruikte mobiele browser.
-Voor de marktwaarden wordt naar tabellen \ref{tabel:marktaandeel-ios-android} en \ref{tabel:marktaandeel-browsers} verwezen.
-De formule voor de marktwaarde van een bepaalde context ziet er als volgt uit:
-%TODO Sander: ook gewicht van device?
-\begin{equation}
-  G_c = G(BS_c)*G(BS_{c,v})*G(Browser_c)
- \label{eq:marktwaarde}
-\end{equation}
-met $G$ de functie die de marktwaarde teruggeeft.  
-De marktwaarde voor Android en iOS ($G(BS_c)$) werd vermeld in sectie \ref{sec:mobiele-besturingssystemen}.
-De relatieve marktwaarde van de versie van dat besturingssysteem ($G(BS_{c,v})$) kan gevonden worden in tabel \ref{tabel:marktaandeel-ios-android}.
-De marktwaarde van mobiele webbrowsers ($G(Browser_c)$) kan gevonden worden in tabel \ref{tabel:marktaandeel-browsers}.
-
-In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
+% Per context zal ook de marktwaarde van het toestel in rekening worden gebracht om de meest gebruikte toestellen te bevoordelen.
+% De marktwaarde is afhankelijk van het besturingssysteem,  de versie van het besturingssysteem en de gebruikte mobiele browser.
+% Voor de marktwaarden wordt naar tabellen \ref{tabel:marktaandeel-ios-android} en \ref{tabel:marktaandeel-browsers} verwezen.
+% De formule voor de marktwaarde van een bepaalde context ziet er als volgt uit:
+% %TODO Sander: ook gewicht van device?
+% \begin{equation}
+%   G_c = G(BS_c)*G(BS_{c,v})*G(Browser_c)
+%  \label{eq:marktwaarde}
+% \end{equation}
+% met $G$ de functie die de marktwaarde teruggeeft.  
+% De marktwaarde voor Android en iOS ($G(BS_c)$) werd vermeld in sectie \ref{sec:mobiele-besturingssystemen}.
+% De relatieve marktwaarde van de versie van dat besturingssysteem ($G(BS_{c,v})$) kan gevonden worden in tabel \ref{tabel:marktaandeel-ios-android}.
+% De marktwaarde van mobiele webbrowsers ($G(Browser_c)$) kan gevonden worden in tabel \ref{tabel:marktaandeel-browsers}.
+% 
+% In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
 
 De gewogen som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
 \begin{equation}
-  O_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{13}U_{r,i}*G_c\right)}
+  O_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{13}U_{r,i}\right)}
   \label{eq:ondersteuning}
 \end{equation}
 met $r$ de verschillende raamwerken,  $c$ de verschillende contexten en $i$ de uitdagingen. 
 
-% We zullen een scenario uitwerken waarbij we het gebruik van de POC doorlopen. 
-% Dit scenario zullen we op een reeks van verschillende mobiele apparaten herhalen~\cite{Sarrafi2012a}. 
-% Bij het mislukken van een stap in het scenario, zal een punt worden afgetrokken. 
-% Hierdoor kunnen we een score bekomen hoe goed de applicatie, geïmplementeerd in een bepaald raamwerk, scoort op een bepaald apparaat. 
-%De gebruikte apparaten araten aan het departement HCI.
+%TODO relatieve score ondersteuning: quoteer enkel wat supported is
+
 
 %TODO Onderstaande wordt verplaatst naar hoofdstuk raamwerken
 %Een kanttekening bij dit criterium is of het raamwerk ondersteunt de webapplicatie om te vormen tot een \term{native} applicatie. 
 %Ook zal er gekeken worden of de \term{native look-and-feel} per platform door het raamwerk kan worden benaderd.
 
 %TODO Tim: andere kolommen includen
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{l l},
-  end table=\end{tabular},
-  col sep=comma,
-  header=true,
-  string type,
-  skip coltypes=true,
-  columns={Apparaat,Soort},
-  columns/Apparaat/.style={column name=\textbf{Apparaat}},  
-  columns/Soort/.style={column name=\textbf{Soort}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-    after row=\bottomrule}
-]{tabellen/apparaten.csv}
-\caption{Beschikbare apparaten met hun besturingssysteem, browser en gewicht.}
-\label{tabel:toestellen-hci}
-\end{table}
+% \begin{table}[H]
+% \centering
+% \pgfplotstabletypeset[
+%   begin table=\begin{tabular}{l l},
+%   end table=\end{tabular},
+%   col sep=comma,
+%   header=true,
+%   string type,
+%   skip coltypes=true,
+%   columns={Apparaat,Soort},
+%   columns/Apparaat/.style={column name=\textbf{Apparaat}},  
+%   columns/Soort/.style={column name=\textbf{Soort}},
+%   every head row/.style={
+%     before row=\toprule,
+%     after row=\midrule},
+%   every last row/.style={
+%     after row=\bottomrule}
+% ]{tabellen/apparaten.csv}
+% \caption{Beschikbare apparaten met hun besturingssysteem, browser en gewicht.}
+% \label{tabel:toestellen-hci}
+% \end{table}
 
 
 
@@ -283,28 +283,37 @@ TODO
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
 Dit criterium zal de laattijden van het raamwerk in rekening brengen.
-De tijd die nodig is om één of meerder pagina's te laden zal bepaald worden met Google Page Speed~\cite{Morgan2011}. 
-Hiervoor zullen verschillende testen worden uitgevoerd. 
+
 Ten eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($r_{r,POC}$). 
-Daarnaast zullen geïsoleerde testen met het verzenden van een AJAX-request uitgevoerd worden ($r_{r,AJAX}$).
-Daar wordt het effect van het versturen van een OPTION-\term{request} bekeken wanneer een verzoek naar een ander domeinen wordt gestuurd.
+%TODO De tijden voor het laden van de volledige POC zullen gemeten worden met pcapperf..
+
 %TODO exacte info tests + extra info CORS zoeken
 
 %Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend.
-Verder zijn er ook geïsoleerde testen met GI-elementen. 
-Hier zal een \term{dummy} pagina voorzien worden 1000 knoppen van het raamwerk en bepaalt Google Page Speed de laadtijd ($r_{r,GI}$). 
+% Verder zijn er ook geïsoleerde testen met GI-elementen. 
+% Hier zal een \term{dummy} pagina voorzien worden 1000 knoppen van het raamwerk en bepaalt Google Page Speed de laadtijd ($r_{r,GI}$). 
 %TODO exacte UI tests hier uitleggen
 Als laatste zullen de loginschermen die in sectie \ref{sec:vergelijking-productiviteit} werden geïntroduceerd, worden gebruikt ($t_{r,login}$). 
+%TODO ook meten logintijd + gecachte versie
 De redenen waarom deze geïsoleerde applicatie wordt gebruiken is omdat ervan kan worden uitgegaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
 Dit is in tegenstelling tot dit scherm, waarbij exact het aantal lijnen code en bijhorende performantie kan worden vergeleken.
 
 De formule voor het performantiecriterium wordt dan: 
 
 \begin{equation}
-  PE_r=r_{r,POC}+r_{r,AJAX}+r_{r,GI}+r_{r,login} 
+  PE_r=r_{r,POC}+r_{r,POC_cache}+r_{r,login}+r_{r,login_cache} 
   \label{eq:performantie}
 \end{equation}
 met $r$ de verschillende raamwerken.
+
+%TODO enkele zaken die bekeken zullen worden ter verklaring van de score:
+% De tijd die nodig is om één of meerder pagina's te laden zal bepaald worden met Google Page Speed~\cite{Morgan2011}. 
+% Hiervoor zullen verschillende testen worden uitgevoerd. 
+% Gebruikerservaring adhv scrollen door lange lijst (relatieve score)
+%TODO tabel scores
+%TODO AJAX
+%Daarnaast zullen geïsoleerde testen met het verzenden van een AJAX-request uitgevoerd worden ($r_{r,AJAX}$).
+% Daar wordt het effect van het versturen van een OPTION-\term{request} bekeken wanneer een verzoek naar een ander domeinen wordt gestuurd.
 
 \paragraph{Motivatie}
 TODO

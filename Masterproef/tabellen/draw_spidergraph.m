@@ -1,16 +1,17 @@
 function [] = htmobiel()
 
-gemeenschap = csvread('gemeenschap.csv',6,2);
-prod = csvread('productiviteit.csv',3,2).^-1;
-gebruik = csvread('gebruik.csv',14,2);
-ond = csvread('ondersteuning.csv',9,2);
-perf = csvread('performantie.csv',5,1).^-1;
+gemeenschap = csvread('gemeenschap.csv',6,2)
+prod = csvread('productiviteit.csv',3,2).^-1
+gebruik = csvread('gebruik-matlab.csv',14,2)
+ond = csvread('ondersteuning.csv',9,2)
+perf = csvread('performantie.csv',5,1).^-1
 
 maxima = [max(gemeenschap),max(prod),max(gebruik),max(ond),max(perf)]';
 minima = [min(gemeenschap),min(prod),min(gebruik),min(ond),min(perf)]';
 diff = maxima-minima;
 format long
-M = cat(1,(gemeenschap-repmat(minima(1),1,4))./diff(1), prod./maxima(2),gebruik./maxima(3),ond./maxima(4),perf./maxima(5));
+%M = cat(1,(gemeenschap-repmat(minima(1),1,4))./diff(1), prod./maxima(2),gebruik./maxima(3),ond./maxima(4),perf./maxima(5));
+M = cat(1,gemeenschap./maxima(1),prod./maxima(2),gebruik./maxima(3),ond./maxima(4),perf./maxima(5));
 %jqm,st,lungo,kendo => st,kendo,jqm,lungo
 %swap kolom i met j:  A = A(:,[1:i-1,j,i+1:j-1,i,j+1:end])
 %swap jqm(1) en st(2) => st,jqm,lungo,kendo

@@ -150,92 +150,28 @@ TODO
 Men kan ervan uitgaat dat de POC alle relevante kenmerken bevat om de raamwerken zoveel mogelijk uit te buiten. 
 Deze POC kan onderverdeeld worden in verschillende deelproblemen.
 Deze deelproblemen worden als uitdaging aan het raamwerk voorgelegd.
-Alle uitdagingen en sub uitdagingen zijn hieronder te vinden.
+Alle uitdagingen en deeluitdagingen zijn hieronder te vinden.
 
-%TODO Tim: mooie oplossing hiervoor vinden, vragen aan Gonzalo? Sander: in appendix steken?
-\begin{enumerate}[label*=U \arabic*.]
-\item \label{challenge:formulieren}Formulieren
-\begin{enumerate}[label*=\arabic*]
-\item Maak formulieren met placeholders,  maar zonder labels
-\item Gebruik tekst, numer en email als formulier types
-\item Aangepaste \term{datepicker} met bereik van data
-\item Aangepaste \term{datepicker} met enkel maand- en jaarveld
-\item Wissen van een formulier
-\end{enumerate}
-\item \label{challenge:invullen}Invullen van een formulier
-\begin{enumerate}[label*=\arabic*]
-\item Vul formulierelementen met data
-\item Maak elementen van het formulier \term{read-only}
-\end{enumerate}
-\item \label{challenge:validatie}Formulier validatie
-\begin{enumerate}[label*=\arabic*]
-\item Validatie regels voor verplichte,numer en email velden
-\item Validatie regels voor eigen condities
-\item Venster voor foutenboodschappen van ongeldige velden
-\item Rode randen plaatsen rond ongeldige velden
-\end{enumerate}
-\item \label{challenge:handtekening}Handtekening
-\begin{enumerate}[label*=\arabic*]
-\item Teken een handtekening met vinger of pen
-\end{enumerate}
-\item \label{challenge:pdf}Toon PDF-bestand
-\begin{enumerate}[label*=\arabic*]
-\item Vraag een PDF-bestand op met POST parameters
-\item Toon het PDF-bestand
-\end{enumerate}
-\item \label{challenge:afbeelding}Toevoegen van een afbeelding
-\begin{enumerate}[label*=\arabic*]
-\item Kies een afbeelding
-\item Converteer de afbeelding met base64
-\item Voorbeeld van de afbeelding
-\end{enumerate}
-\item \label{challenge:autoaanvullen}Autoaanvullen
-\begin{enumerate}[label*=\arabic*]
-\item Haal suggesties op gebaseerd op gebruikersinvoer
-\item Toon suggesties in klikbare dropdownmenu
-\end{enumerate}
-\item \label{challenge:ajax}AJAX: tekst, JSON en XML
-\begin{enumerate}[label*=\arabic*]
-\item Haal tekst zonder opmaak op
-\item Haal JSON data op en parse
-\item Zend JSON data
-\item Haal XML data op en parse
-\end{enumerate}
-\item \label{challenge:toestel}Toestel specifieke lay-out
-\begin{enumerate}[label*=\arabic*]
-\item Herkennen van smartphone en tablet
-\item Toon het linker menu op een tablet
-\item Schakel menu in bij smartphone
-\end{enumerate}
-\item \label{challenge:offline}Offline
-\begin{enumerate}[label*=\arabic*]
-\item Bewaar login gegevens
-\item Bewaar niet verzonden onkosten
-\item Maak de applicatie offline beschikbaar
-\end{enumerate}
-\item \label{challenge:laadscherm}Laadscherm en dialoog
-\begin{enumerate}[label*=\arabic*]
-\item Toon laadscherm
-\item Toon dialoog
-\end{enumerate}
-\item \label{challenge:conversie}Data conversie
-\begin{enumerate}[label*=\arabic*]
-\item Conversie van munteenheid
-\item Conversie van ids naar tekst	
-\end{enumerate}
-\item \label{challenge:lijsten}Lijsten
-\begin{enumerate}[label*=\arabic*]
-\item Laad data in lijst en stijl de elementen met een template
-\item Klikbare lijst elementen met actie of link naar het record van het element
-\item Sorting data
-\end{enumerate}
-\item \label{challenge:anatomie}Anatomie van een pagina
-\begin{enumerate}[label*=\arabic*]
- \item Toon header,  footer en onderliggende header met titels en knoppen
- \item Tabbar
- \item Aanpasbaarheid van kleur van knoppen
- \end{enumerate}
-\end{enumerate} 
+%\begin{table}[H]
+%\centering
+\pgfplotstabletypeset[
+  begin table=\begin{longtable}{p{12cm}},
+  end table=\end{longtable},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Uitdaging},
+  columns/Uitdaging/.style={column name=\textbf{Uitdagingen}, column type={l}},  
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+    after row=\bottomrule}
+]{tabellen/uitdagingen.csv}
+%\caption{Uitdagingen}
+%\label{tabel:uitdagingen}
+%\end{table}
 
 De wijze waarop het raamwerk de uitdaging aangaat zal tot een score voor de uitdaging leiden.
 In totaal zijn er drie gevallen.

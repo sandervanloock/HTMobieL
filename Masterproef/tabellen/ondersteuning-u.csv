@@ -1,10 +1,10 @@
 Uitdaging,Challenge,jQM(abs),jQM(max),jQM(rel),ST(abs),ST(max),ST(rel),Lungo(abs),Lungo(max),Lungo(rel),Kendo(abs),Kendo(max),Kendo(rel)
 \uit{toestel},\chal{toestel},7,8,0.88,7,8,0.88,7,8,0.88,8,8,1.00
-\uit{formulieren},\chal{formulieren},38,40,0.95,28,40,0.70,30,32,0.94,34,40,0.85
+\uit{formulieren},\chal{formulieren},38,40,0.95,28,40,0.70,22,32,0.69,34,40,0.85
 \uit{autoaanvullen},\chal{autoaanvullen},8,8,1.00,,,,7,8,0.88,8,8,1.00
 \uit{afbeelding},\chal{afbeelding},5,8,0.63,5,8,0.63,5,8,0.63,5,8,0.63
 \uit{validatie},\chal{validatie},8,8,1.00,8,8,1.00,8,8,1.00,8,8,1.00
 \uit{handtekening},\chal{handtekening},8,8,1.00,8,8,1.00,,,,7,8,0.88
 \uit{pdf},\chal{pdf},5,8,0.63,7,8,0.88,5,8,0.63,5,8,0.63
 \uit{offline},\chal{offline},16,16,1.00,16,16,1.00,16,16,1.00,16,16,1.00
-Totaal,Total,88,96,0.92,72,88,0.82,71,80,0.89,83,96,0.86
+Totaal,Total,95,104,0.91,79,96,0.82,70,88,0.80,91,104,0.88

@@ -2,7 +2,7 @@
 \label{sec:evaluatie-ondersteuning}
 De ondersteuning van de vier raamwerken wordt samengevat per uitdaging in tabel~\ref{tabel:evaluatie-ondersteuning-u}. 
 Voor een gedetailleerd overzicht wordt verwezen naar appendix~\ref{app:ondersteuning}.
-In de secties \ref{sec:evaluatie-ondersteuning-u1} tot \ref{sec:evaluatie-ondersteuning-u10} zal iedere uitdaging per raamwerk uitvoerig worden besproken.
+In de secties \ref{sec:evaluatie-ondersteuning-toestel} tot \ref{sec:evaluatie-ondersteuning-offline} zal iedere uitdaging per raamwerk uitvoerig worden besproken.
 
 \begin{table}[H]
 \centering
@@ -13,12 +13,12 @@ In de secties \ref{sec:evaluatie-ondersteuning-u1} tot \ref{sec:evaluatie-onders
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,jQM(abs),ST(abs),Kendo(abs),Lungo(abs)},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -42,12 +42,12 @@ Deze weergave wordt getoond in tabel~\ref{tabel:evaluatie-ondersteuning-a}.
   col sep=comma,
   string type,
   header=true,
-  columns={Apparaat,jQM(abs),ST(abs),Kendo(abs),Lungo(abs)},
+  columns={Apparaat,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},  
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -60,10 +60,34 @@ Deze weergave wordt getoond in tabel~\ref{tabel:evaluatie-ondersteuning-a}.
 \end{table}
 
 %%%%%%%%%%%%%
-\subsection{U1: Formulieren}
-\label{sec:evaluatie-ondersteuning-u1}
+\subsection{\uit{toestel}}
+\label{sec:evaluatie-ondersteuning-toestel}
 
-In tabel \ref{tabel:evaluatie-ondersteuning-u1} worden de resultaten getoond van de vijf deeluitdagingen van U1:~Formulieren.
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\paragraph{\jqm}
+Zeven van de acht toestellen werden met succes herkend als smartphone of tablet.
+Echter door de lage resolutie van de \gtab{}, werd staand de tablet als smartphone herkend.
+Als de tablet liggend werd geplaatst, dan werd deze pas als tablet herkend.
+
+\paragraph{\st}
+Alle toestellen buiten de \gtab{} werden door het \st{} raamwerk herkend.
+Het genereren van de toestelspecifieke lay-out werd op elk toestel wel ondersteund.
+
+\paragraph{\kendo}
+Net zoals bij \jqm{} werd de \gtab{} enkel als tablet herkend als de applicatie liggend werd geladen.
+De toestelspecifieke lay-out werd correct weergegeven.
+Ook werd het besturingssysteem herkend en werd de \term{native look-and-feel} nagebootst.
+
+\paragraph{\lungo}
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+
+%%%%%%%%%%%%%
+\subsection{\uit{formulieren}}
+\label{sec:evaluatie-ondersteuning-formulieren}
+
+In tabel \ref{tabel:evaluatie-ondersteuning-formulieren} worden de resultaten getoond van de vijf deeluitdagingen van \uit{formulieren}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -76,21 +100,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   string type,
   header=true,
   skip coltypes=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/ondersteuning/u1.csv}
-\caption{Ondersteuning voor U1: Formulieren}
-\label{tabel:evaluatie-ondersteuning-u1}
+]{tabellen/ondersteuning/formulieren.csv}
+\caption{Ondersteuning voor \uit{formulieren}}
+\label{tabel:evaluatie-ondersteuning-formulieren}
 \end{table}
 
 \paragraph{\jqm}
@@ -136,75 +160,29 @@ De aangepaste \term{datepicker} werkte op ieder toestel, wat in schril contrast 
 Deze laatste deed verschillende acties naargelang geklikt of gesleept werd op de schakelaar.
 
 %%%%%%%%%%%%%
-\subsection{U3: Formuliervalidatie}
-\label{sec:evaluatie-ondersteuning-u3}
+\subsection{\uit{autoaanvullen}}
+\label{sec:evaluatie-ondersteuning-autoaanvullen}
 
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+Ieder toestel ondersteunde de auto-aanvulling.
 
 \paragraph{\st}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+Deze uitdaging kon niet worden ondersteund omdat het raamwerk geen implementatie toeliet
 
 \paragraph{\kendo}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+Deze uitdaging behaalde op elk toestel de maximum score.
+%TODO check gt en htc!!
 
 \paragraph{\lungo}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+Zeven van de acht toestellen ondersteunden auto-aanvulling.
+De \htc{} toonde echter de suggesties dubbel op het scherm aan de gebruiker.
 
 %%%%%%%%%%%%%
-\subsection{U4: Handtekening}
-\label{sec:evaluatie-ondersteuning-u4}
-
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\paragraph{\jqm}
-De handtekening kon op ieder apparaat worden getekend, behalve op de \gs{}.
-Daar werd tijdens het tekenen van de handtekening, de handtekening dubbel op het scherm getekend.
-
-\paragraph{\st}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
-
-\paragraph{\kendo}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
-
-\paragraph{\lungo}
-Doordat geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
-
-%%%%%%%%%%%%%
-\subsection{U5: Toon PDF}
-\label{sec:evaluatie-ondersteuning-u5}
-
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\paragraph{\jqm}
-Drie van de vier apparaten hadden problemen met het tonen van de PDF.
-Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \gs{} gaf het besturingssysteem de boodschap 'Download unsuccessful' terug.
-Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
-
-\paragraph{\st}
-De plug-in waarmee PDF-bestanden getoond worden, maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla. %TODO referentie
-PDF.JS is geïmplementeerd met \js{} en HTML5.
-Het \code{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
-Vanaf Android 3.0 wordt dit laatste slechts ondersteund.
-Deze uitdaging lukt dus niet op de \htc{} en \gtab{}.
-Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie van \st{} die niet gebouwd was met Sencha Cmd.
-Dit omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in werd aangesproken.
-%TODO verder uitwerken?
-
-\paragraph{\kendo}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
-
-\paragraph{\lungo}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
-
-%%%%%%%%%%%%%
-\subsection{U6: Toevoegen van afbeelding}
-\label{sec:evaluatie-ondersteuning-u6}
+\subsection{\uit{afbeelding}}
+\label{sec:evaluatie-ondersteuning-afbeelding}
 
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
@@ -231,55 +209,78 @@ Hierdoor werd de implementatie voor \htc{},  \gtab{} en \ipadi{} niet ondersteun
 Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
 
 %%%%%%%%%%%%%
-\subsection{U7: Auto-aanvullen}
-\label{sec:evaluatie-ondersteuning-u7}
+\subsection{\uit{validatie}}
+\label{sec:evaluatie-ondersteuning-validatie}
 
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
-Ieder toestel ondersteunde de auto-aanvulling.
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 \paragraph{\st}
-Deze uitdaging kon niet worden ondersteund omdat het raamwerk geen implementatie toeliet
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 \paragraph{\kendo}
-Deze uitdaging behaalde op elk toestel de maximum score.
-%TODO check gt en htc!!
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 \paragraph{\lungo}
-Zeven van de acht toestellen ondersteunden auto-aanvulling.
-De \htc{} toonde echter de suggesties dubbel op het scherm aan de gebruiker.
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 %%%%%%%%%%%%%
-\subsection{U9: Toestelspecifieke lay-out}
-\label{sec:evaluatie-ondersteuning-u9}
+\subsection{\uit{handtekening}}
+\label{sec:evaluatie-ondersteuning-handtekening}
 
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\jqm}
-Zeven van de acht toestellen werden met succes herkend als smartphone of tablet.
-Echter door de lage resolutie van de \gtab{}, werd staand de tablet als smartphone herkend.
-Als de tablet liggend werd geplaatst, dan werd deze pas als tablet herkend.
+De handtekening kon op ieder apparaat worden getekend, behalve op de \gs{}.
+Daar werd tijdens het tekenen van de handtekening, de handtekening dubbel op het scherm getekend.
 
 \paragraph{\st}
-Alle toestellen buiten de \gtab{} werden door het \st{} raamwerk herkend.
-Het genereren van de toestelspecifieke lay-out werd op elk toestel wel ondersteund.
+Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
 \paragraph{\kendo}
-Net zoals bij \jqm{} werd de \gtab{} enkel als tablet herkend als de applicatie liggend werd geladen.
-De toestelspecifieke lay-out werd correct weergegeven.
-Ook werd het besturingssysteem herkend en werd de \term{native look-and-feel} nagebootst.
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+
+\paragraph{\lungo}
+Doordat geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
+
+%%%%%%%%%%%%%
+\subsection{\uit{pdf}}
+\label{sec:evaluatie-ondersteuning-pdf}
+
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+\paragraph{\jqm}
+Drie van de vier apparaten hadden problemen met het tonen van de PDF.
+Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \gs{} gaf het besturingssysteem de boodschap 'Download unsuccessful' terug.
+Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
+
+\paragraph{\st}
+De plug-in waarmee PDF-bestanden getoond worden, maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla. %TODO referentie
+PDF.JS is geïmplementeerd met \js{} en HTML5.
+Het \code{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
+Vanaf Android 3.0 wordt dit laatste slechts ondersteund.
+Deze uitdaging lukt dus niet op de \htc{} en \gtab{}.
+Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie van \st{} die niet gebouwd was met Sencha Cmd.
+Dit omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in werd aangesproken.
+%TODO verder uitwerken?
+
+\paragraph{\kendo}
+Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
 
 \paragraph{\lungo}
 Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
 
-%%%%%%%%%%%%%
-\subsection{U10: Offline}
-\label{sec:evaluatie-ondersteuning-u10}
 
-In tabel \ref{tabel:evaluatie-ondersteuning-u10} worden de resultaten getoond van de twee deeluitdagingen van U10:~Offline.
+%%%%%%%%%%%%%
+\subsection{\uit{offline}}
+\label{sec:evaluatie-ondersteuning-offline}
+
+In tabel \ref{tabel:evaluatie-ondersteuning-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
@@ -292,21 +293,21 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   string type,
   header=true,
   skip coltypes=true,
-  columns={Uitdaging,jQM,ST,Kendo,Lungo},
+  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
   columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/ondersteuning/u10.csv}
-\caption{Ondersteuning voor U10: Offline}
-\label{tabel:evaluatie-ondersteuning-u10}
+]{tabellen/ondersteuning/offline.csv}
+\caption{Ondersteuning voor \uit{offline}}
+\label{tabel:evaluatie-ondersteuning-offline}
 \end{table}
 
 \paragraph{\jqm}

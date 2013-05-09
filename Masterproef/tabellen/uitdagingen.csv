@@ -11,13 +11,13 @@ U2.3 Schakel menu in bij smartphone,C2.3 Enabling smartphone menu
 U3.1 Toon laadscherm,C3.1 Show load screen
 U3.2 Toon dialoogvenster,C3.2 Show dialog box
 \uit{formulieren},\chal{formulieren}
-U4.1 Maak formulieren met placeholders zonder labels,C4.1 Create forms with placeholders without labels
-U4.2 Gebruik tekst/nummer/e-mail als formuliertypes,C4.2 Use the text/number/email as form types
-U4.3 Optieveld,C4.3 Option field
-U4.4 Aangepaste datepicker met bereik van data,C4.4 Custom datepicker with data range
-U4.5 Aangepaste datepicker met enkel maand- en jaarveld,C4.5 Custom datepicker only with month and year
-U4.6 Schakelaar,C4.6 Flip switch
-U4.7 Wissen van een formulier,C4.7 Clearing the form
+\uit{formulieren-placeholders},\chal{formulieren-placeholders}
+\uit{formulieren-types},\chal{formulieren-types}
+\uit{formulieren-optieveld},\chal{formulieren-optieveld}
+\uit{formulieren-datepicker},\chal{formulieren-datepicker}
+\uit{formulieren-monthpicker},\chal{formulieren-monthpicker}
+\uit{formulieren-schakelaar},\chal{formulieren-schakelaar}
+\uit{formulieren-wissen},\chal{formulieren-wissen}
 \uit{vullen},\chal{vullen}
 U5.1 Vul formulierelementen met object,C5.1 Filling in the form elements with object
 U5.2 Maak elementen van het formulier read-only,C5.2 Make the form elements read-only
@@ -48,5 +48,5 @@ U11.3 Sorteren van data,C11.3 Sorting data
 U12.1 Vraag een PDF-bestand op met POST-parameters,C12.1 Requesting a PDF with POST parameters 
 U12.2 Toon het PDF-bestand,C12.2 Show the PDF
 \uit{offline},\chal{offline}
-U13.1 Bewaar data,C13.1 Saving data
-U13.2 Maak de applicatie offline beschikbaar,C13.2 Making app offline
+\uit{offline-data},\chal{offline-data}
+\uit{offline-app},\chal{offline-app}

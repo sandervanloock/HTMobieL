@@ -12,6 +12,20 @@
     U3:~Laadscherm en dialoogvenster%
   \else\ifnum\pdf@strcmp{#1}{formulieren}=0
     U4:~Formulieren%
+  \else\ifnum\pdf@strcmp{#1}{formulieren-placeholders}=0
+    U4.1:~Maak formulieren met placeholders zonder labels%
+  \else\ifnum\pdf@strcmp{#1}{formulieren-types}=0
+    U4.2:~Gebruik tekst/nummer/e-mail als formuliertypes%
+  \else\ifnum\pdf@strcmp{#1}{formulieren-optieveld}=0
+    U4.3:~Optieveld%
+  \else\ifnum\pdf@strcmp{#1}{formulieren-datepicker}=0
+    U4.4:~Aangepaste datepicker met bereik van data%
+  \else\ifnum\pdf@strcmp{#1}{formulieren-monthpicker}=0
+	U4.5:~Aangepaste datepicker met enkel maand- en jaarveld%
+  \else\ifnum\pdf@strcmp{#1}{formulieren-schakelaar}=0
+	U4.6:~Schakelaar%
+  \else\ifnum\pdf@strcmp{#1}{formulieren-wissen}=0
+	U4.7:~Wissen van een formulier%
   \else\ifnum\pdf@strcmp{#1}{vullen}=0
     U5:~Automatisch invullen van formulier%
   \else\ifnum\pdf@strcmp{#1}{autoaanvullen}=0
@@ -29,8 +43,20 @@
   \else\ifnum\pdf@strcmp{#1}{pdf}=0
     U12:~Toon PDF%
   \else\ifnum\pdf@strcmp{#1}{offline}=0
-    U13:~Offline%
+  	U13:~Offline%
+  \else\ifnum\pdf@strcmp{#1}{offline-data}=0
+  	U13.1:~Bewaar data%
+  \else\ifnum\pdf@strcmp{#1}{offline-app}=0
+  	U10.3:~Maak de applicatie offline beschikbaar%
   \else
     [?]%
-  \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
+  \fi\fi\fi\fi\fi
+  \fi\fi\fi\fi\fi
+  \fi\fi\fi\fi\fi
+  \fi\fi\fi\fi\fi
+  \fi\fi
+}
 \makeatother
+
+
+

@@ -1,6 +1,6 @@
 function [] = htmobiel()
 
-gemeenschap = csvread('gemeenschap.csv',6,2)
+gemeenschap = csvread('populariteit.csv',6,2)
 prod = csvread('productiviteit.csv',3,2).^-1
 gebruik = csvread('gebruik-matlab.csv',14,2)
 ond = csvread('ondersteuning.csv',9,2)
@@ -20,8 +20,13 @@ M = M(:,[1:1-1,2,1+1:2-1,1,2+1:end]);
 M = M(:,[1:2-1,4,2+1:4-1,2,4+1:end]);
 %swap lungo(3) en jqm(4)
 M = M(:,[1:3-1,4,3+1:4-1,3,4+1:end])
+%volgorde aanpassen:  Populariteit > Gebruik > Ondersteuning >
+%Productiviteit > performantie
+M([2 3],:) = M([3 2],:);
+M([2 5],:) = M([5 2],:);
+
 figure; clf; set(gcf,'color','w'); s = zeros(1,4);
 s(1) = subplot(1,1,1);
-plot = spider(M,'Spiderweb HTML5 raamwerken',[],{'Gemeenschap' ''; 'Productiviteit' ''; 'Gebruik' '';'Ondersteuning' '';'Performantie' ''},{'Sencha Touch' 'Kendo UI' 'jQuery Mobile' 'Lungo' },s(1));
+plot = spider(M,'',[],{'Populariteit' ''; 'Performantie' ''; 'Productiviteit' '';'Ondersteuning' '';'Gebruik' ''},{'Sencha Touch' 'Kendo UI' 'jQuery Mobile' 'Lungo' },s(1));
 saveas(plot,'../figuren/spidergraph.pdf');
 system('pdfcrop ../figuren/spidergraph.pdf ../figuren/spidergraph.pdf');

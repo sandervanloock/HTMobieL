@@ -64,7 +64,7 @@ end
 
 % title
 if ~exist('tle','var') || isempty(tle) || ~ischar(tle)
-	tle = 'Spider Plot';
+	tle = '';
 end
 
 % check for maximum range
@@ -271,10 +271,10 @@ if len == 1
 else
 	% initial color posibilities (no white)
 	% default color scale
-	col = [	0 71/255 129/255 %jqm = blauw
-			1 64/255 38/255 %st=rood
+	col = [	1 64/255 38/255 %st=rood
+            85/255 156/255 57/255 %kendo=groen
+            0 71/255 129/255 %jqm = blauw
 			1 209/255 81/255 %lungo=geel
-			85/255 156/255 57/255 %kendo=groen
             ];
 
 	% reduce if fewer than 6 items are needed (no interpolation needed)

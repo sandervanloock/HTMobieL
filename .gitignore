@@ -15,6 +15,14 @@ Sencha/login/touch-2.1.1/
 *.out
 *.synctex.gz
 *.toc
+*.tex~
+*.tex.backup
+*.bib~
+*.sh~
+*.html~
+.htaccess
+.svn
+.gitignore~
 
 # Compiled source #
 ###################
@@ -57,9 +65,14 @@ Thumbs.db
 *.blg
 
 *.bbl
+*.csv~
+*.py~
 
 *.supported
 
 Artikel/artikel.pdf
 
 Masterproef/masterproef.pdf
+
+Sencha/archive
+Sencha/resources/sass/.sass-cache

@@ -1,4 +1,3 @@
-%TODO passieve en actieve criteria verwerken!
 %TODO criteria bekijken
 
 \chapter{Vergelijkingscriteria}
@@ -7,6 +6,7 @@
 Dit hoofdstuk bekijkt hoe de mobiele HTML5 raamwerken zullen worden vergeleken.
 Hoofdzakelijk zal dit gebeuren aan de hand van een \term{proof of concept}~(POC).
 Deze wordt geïntroduceerd in sectie \ref{sec:vergelijking-poc} en zal hoofdzakelijk de gekozen vergelijkingscriteria in sectie \ref{sec:vergelijking-criteria} drijven.
+De criteria die worden voorgesteld, zullen voortaan actieve criteria worden genoemd.
 
 
 \section{POC}
@@ -75,29 +75,30 @@ Deze bevat een overzicht van de onkosten met bijhorende bewijsstukken, alsook de
 \section{Criteria}
 \label{sec:vergelijking-criteria}
 
-In deze sectie zullen de criteria toelicht worden die zullen worden toegepast om de raamwerken te vergelijken.
+In deze sectie zullen de actieve criteria toelicht worden die zullen worden toegepast om de raamwerken te vergelijken.
 In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die in de literatuur worden toegepast.
 Elementen van deze technieken zullen terugkomen in onze methode om de raamwerken te evalueren.
+Sectie \ref{sec:raamwerken-tabel} bevatte de passieve vergelijkingscriteria die raamwerken vergeleken met informatie van het raamwerk zelf.
 
-%TODO passieve criteria, actieve criteria? De eerste zijn die van vorig hoofdstuk,  de laatste die nu volgen...
-%Tim: dit moet zeker duidelijk naar voor komen, want dat is nogal belangrijk
-
-Vijf grote criteria zullen worden gebruikt: gemeenschap (\ref{sec:vergelijking-gemeenschap}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
+Vijf grote criteria zullen worden gebruikt: populariteit (\ref{sec:vergelijking-populariteit}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
 Elk raamwerk krijgt voor elk criterium een score. 
-Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-criteria}).
-%TODO Dit is een grafiek waar elke score in de overeenkomstige as met relatieve schaal wordt geplot.
+Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-spinnenweb}).
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
 De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuningscriterium drijven.  
-Dit komt omdat de auteurs ervan uitgaan dat de POC voldoende verschillende functionaliteit bevat om een goeie vergelijking te kunnen maken.
+%TODO capgemini ipv de autheurs, ok tim?
+Dit komt omdat Capgemini de POC zo heeft opgesteld dat het verschillende functionaliteit bevat om een volledige vergelijking te kunnen maken.
 De score van performantie zal deels bepaald worden door de laadtijden van de POC.
 
-\subsection{Gemeenschap}
-\label{sec:vergelijking-gemeenschap}
-De gemeenschap en populariteit van een raamwerk is in cijfers uit te drukken door gebruik te maken van sociale netwerken. 
-Een tabel zal voorzien worden met in de kolommen het aantal volgers op Twitter, sterren en forkers van GitHub,  vragen op Stackoverflow en aantal \term{likes} van Facebook en de raamwerken in de rijen~\cite{Sarrafi2012a,Ayuso2012}. 
-%TODO github nul geven als het niet beschikbaar is => verantwoorden dat het open source is
-Ook de evolutie van deze data zal worden bekeken na een termijn van één maand.
-Een grafiek van Google Trends, die het zoekvolume op Google uitzet per tijd, zal ook voor elk raamwerk worden toegevoegd.
+\subsection{Populariteit}
+\label{sec:vergelijking-populariteit}
+De populariteit van een raamwerk is in cijfers uit te drukken door gebruik te maken van sociale netwerken. 
+Een tabel zal voorzien worden met in de kolommen het aantal volgers op Twitter, sterren en forkers van GitHub,  vragen op Stackoverflow en aantal vind-ik-leuks van Facebook en de raamwerken in de rijen~\cite{Sarrafi2012a,Ayuso2012}. 
+
+GitHub kan worden gezien als exacte weergave van de actieve gemeenschap rond het raamwerk. %TODO referentie?
+Zowel \st{} als \kendo{} echter, zijn niet op GitHub terug te vinden.
+Hierdoor zal de score voor sterren en forkers van GitHub voor beide raamwerken gelijk zijn aan nul.
+Een alternatief hield de interpolatie van de GitHub data van de overige raamwerken in.
+Omdat deze aanpak het raamwerk onterecht zou bevoordelen, is hier niet voor gekozen.
 
 De som van Twitter volgers ($T_r$), GitHub sterren ($S_r$), GitHub forkers ($F_r$), Stackoverflow vragen ($SO_r$) en Facebook vind-ik-leuks ($FB_r$) vormt de score voor het gemeenschapscriteria:
 \begin{equation}
@@ -106,10 +107,25 @@ De som van Twitter volgers ($T_r$), GitHub sterren ($S_r$), GitHub forkers ($F_r
 \end{equation}
 met $r$ de verschillende raamwerken.
 
+De uitkomsten van dit criterium zullen vergeleken worden met data geleverd door Google Trends. %TODO referentie
+Deze applicatie toont de evolutie van zoektermen op Google
+Voor elk raamwerk zal het volume zoekopdrachten naar het raamwerk in functie van de tijd worden uitgezet.
+%TODO bekijken evolutie van data in de tijd?
+
 \paragraph{Motivatie}
-TODO
-% van bewust dat dubbel tellen,  is maar een indicatie wat betreft community
-% van bewust dat stackoverflow zowel slecht als goed kan zijn.
+
+Er bestaat geen exacte formule om populariteit uit te drukken.
+De formule die werd gekozen om de score voor dit criterium te quoteren is onderheven aan subjectiviteit.
+Twee opmerkingen moeten hierbij worden gemaakt.
+Enerzijds zijn de auteurs zich ervan bewust dat de doorsnede tussen sociale netwerken niet leeg is.
+Zo kan éénzelfde persoon zowel een volger op Twitter zijn als fan op Facebook.
+Verschillende individuen zullen dus dubbel geteld worden in de totale score voor populariteit van het raamwerk.
+De score zal dus slechts een indicatie geven over de popularieit,  het is geen exacte weergave.
+Ten tweede zijn de auteurs er zicht van bewust dat de inclusie van Stackoverflow op twee manieren kan worden bekeken.
+Enerzijds kunnen veel vragen over één onderwerp op Stackoverflow duiden op veel vraagtekens over dit onderwerp.
+Anderzijds kan dit een maat zijn voor de populariteit van dit onderwerp.
+De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste en het dus valied is Stackoverflow in de formule op te nemen.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -118,25 +134,36 @@ TODO
 De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwerk vertrouwd te raken.
 De auteurs zullen het raamwerk testen met een implementatie van de POC.
 Er kan verondersteld worden dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
-Elk zullen ze de POC in twee verschillende raamwerken maken,  daarnaast ook een extra loginscherm in twee andere raamwerken.
-Tim Ameye maakt de POC in \jqm{} en \lungo{} en het loginscherm in \st{} en \kendo{}.
-Sander Van Loock zal dan de POC in \st{} en \kendo{} maken en de loginschermen in \jqm{} en \lungo{}.
+Elk zullen ze de POC in twee verschillende raamwerken maken,  daarnaast ook een extra login applicatie in twee andere raamwerken.
+Tim Ameye maakt de POC in \jqm{} en \lungo{} en de login applicatie in \st{} en \kendo{}.
+Sander Van Loock zal dan de POC in \st{} en \kendo{} maken en de login applicaties in \jqm{} en \lungo{}.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
-De implementatie van het loginscherm is een extra test.
-Dit scherm bevat GI-elementen, validaties en \term{backend} integratie en kan dit dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
-%TODO login uitgebreidt met lijst van 850 elementen => 850 liedjes 
-%http://answers.yahoo.com/question/index?qid=20110315195858AAAsqHA
-Het zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raamwerk,  één specifiek scherm kan opgeleverd worden.
+De implementatie van de login applicatie is een extra test.
+Deze applicatie bevat GI-elementen, validaties,  \term{backend} integratie en lijsten.
+Deze test kan dit dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
+Na het aanmelden met deze applicatie zal de gebruiker een lijst van $850$ elementen te zien krijgen.
+Deze lijst is voornamelijk bedoeld om de performantie te testen (zie sectie \ref{sec:vergelijking-performantie}).
+De elementen in de lijst zullen voorzien worden van een afbeelding en tekst.
+Het aantal elementen in de lijst - $850$ - is een schatting van het aantal liedjes die Elvis Presley ooit heeft opgenomen. %TODO referentie
+Deze keuze werd gemaakt met het oog op potentiele muziek applicaties die alle nummers van een artiest ook in lijsten samenbrengt.
+Elvis Presley is de artiest die het meeste opgenomen nummers achter zijn naam heeft staan en kan dus als bovengrens voor dit soort applicaties worden beschouwd.
+De implementatie van deze applicatie zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raamwerk,  één eenvoudige applicatie opgeleverd kan worden.
+De tijd die ieder nodig heeft om deze applicatie te bouwen, geeft dus een indicatie van de nodige leertijd.
 
-De tijd die ieder nodig heeft om dit scherm te bouwen, geeft ook een indicatie van de nodige leertijd.
 
-
-De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en het loginscherm ($t_{r,login}$) vormt de score voor de productiviteit:
+De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en de login applicatie ($t_{r,login}$) vormt de score voor de productiviteit:
 \begin{equation}
   PR_r = {t_{r,POC} + t_{r,login}}
   \label{eq:productiviteit}
 \end{equation}
 waar $r$ de verschillende raamwerken voorstellen.
+
+De uitkomsten van dit criterium zullen gestaafd worden met zes argumenten.
+Eerst zullen het aantal tools bekeken worden die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
+Ook zullen de factoren die de leercurve bepalen, worden geschat.
+Vervolgens zal de kwaliteit en quantiteit van de documentatie van elk raamwerk worden bekekenen.
+De mogelijkheden voor debuggen bepalen ook de productiviteit en zullen bekeken worden.
+Tot slot zal gekeken worden naar de aanwezige literatuur van het raamwerk en waar ontwikkelaars met vragen terecht kunnen.
 
 \paragraph{Motivatie}
 TODO
@@ -329,7 +356,7 @@ TODO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Spinnenweb}
-\label{sec:spinnenweb}
+\label{sec:vergelijking-spinnenweb}
 
 TODO
 

@@ -44,21 +44,32 @@ In wat volgt zullen metrieken worden besproken die de score van de performantie 
 De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklaring}.
 
 \paragraph{Google Page Speed}
-en eerste extra test is Google Page Speed~\cite{Morgan2011}. 
-Deze tool kan de code van een webapplicatie analyseren en testen op performantie specifiek voor mobiele apparaten.
-Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.
-% ST scoort het beste volgens google page speed, maar dat heeft dus te maken met die microlader, daarna volgt lungo, Kendo en jQM die de regels minder strikt, maar uiteindelijk toch sneller presteren
+De score op 100 die Google Page Speed~\cite{Morgan2011} aan de applicatie toekent kan in tabel~\ref{tabel:performantie-verklaring} worden teruggevonden voor zowel de POC als de loginapplicatie.
+\st{} scoort het best ($96$),  gevolgd door \lungo{} ($88$),  \jqm{}($71$) en \kendo{}($66$).
+Dezelfde trend kan bij de loginapplicatie teruggevonden worden.
+Het enige verschil is dat bij de POC van \kendo{} de afbeeldingen niet optimaal gecomprimeerd zijn.
+Bij de loginapplicatie van \kendo{} is dit wel gebeurd.
+Door deze uitbreiding krijgt de loginapplicatie van \kendo{} en beter score dan \jqm{}.
+
+Er kan geconcludeerd worden dat Sencha Cmd de applicatie optimaal weet te bouwen.
+Hoewel \st{} de meeste tijd vraagt om te laden, zal het na het laden sneller werken.
+Dit wordt bevestigd in de test over gebruikservaring.
 
 \paragraph{Gebruikservaring}
 Een andere test om de score te toetsen kijkt naar de gebruikservaring.
-Hiervoor werd de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
-De auteurs zullen de ervaring bij het scrollen van de lijst vergelijken op de acht apparaten.
-De ervaringen per apparaat zullen vervolgens relatief ten opzichte van elkaar beoordeeld worden.
+Hiervoor werd door de lijst van $850$ elementen gescrold, die getoond wordt na aanmelden op de loginapplicatie.
+De test werd uitgevoerd op de acht apparaten van tabel~\ref{tabel:toestellen-hci}.
+De totaalscores voor alle devices is in tabel~\ref{tabel:performantie-verklaring} terug te vinden.
+\st{} behaalde de maximale score.
+Dit wil zeggen dat op alle toestellen het scollen door de lijst van \st{} het vlotst ging.
+\jqm{} werd zes keer als tweede beste beoordeeld. 
+Op de \htc{} liep \kendo{} vlotter,  op de \ipadi{} was \lungo{} nummer twee.
+De lijst genereren met \kendo{} op iOS toestellen was onmogelijk omdat de applicatie de browser liet crashen.
+Op Android toestellen kon de \kendo{} lijst echter wel worden getoond.
+Dit wil zeggen dat de overhead die \kendo{} genereerd, het maximale toegelaten geheugen van het iOS besturingssysteem overschrijdt.
+De score van \kendo{} is dus slechts voor vier apparaten.
 
-% ST was de beste experience, op zowel oude als nieuwe toestellen
-% dan volgt jquery mobile, dan lungo en dan kendo
-% kendo crashes 
-% link naar nelson http://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
+%TODO figuur van 4 lijsten
 
 \paragraph{Downloadgrootte en HTML-code}
 De HAR-bestanden die werden gebruikt om de laadtijd op te meten bevatten ook de grootte van de pakketten die moeten worden opgehaald.
@@ -66,14 +77,18 @@ Omdat pakketten verloren gaan zullen ontvangen bestanden incompleet zijn en moet
 Hierdoor zal het aantal ontvangen bytes variëren van meting tot meting.
 De performantietesten werden op acht toestellen uitgevoerd en elke test werd drie keer uitgevoerd.
 Het gemiddelde van alle downloadgroottes bepaalt de grootte zoals deze kan worden teruggevonden in tabel~\ref{tabel:performantie-verklaring}.
-Bij de POC moet \st{} de meeste data ophalen ($1126.4kB$),  gevolgd door \kendo{} ($194.65kB$), \lungo{} ($249.08kB$) en \jqm{} ($194.65kB$).
+Bij de POC moet \st{} de meeste data ophalen ($1126.4$kB),  gevolgd door \kendo{} ($194.65kB$kB), \lungo{} ($249.08$kB) en \jqm{} ($194.65$kB).
 Opmerkelijk is dat \lungo{} meer data moet ophalen maar toch een snellere laadtijd behaald.
+Ook het verschil in downloadgrootte tussen de POC en loginapplicatie is opmerkelijk.
+Bij \jqm{} kan slechts een daling van $4.74\%$ worden waargenomen.
+\st{} en \lungo{} waren gelijkaardig en de downloadgrootte daalde respectievelijk met $78.02\%$ en $76.01\%$.
+De reductie in data bij \kendo{} was $45.30\%$.
 
-% Sander + LOC uitrekenen
-% jQM login<->POC: geen, de beste factor
-% ST: immens verschil
-% Lungo: zelfde factor als ST
-% Kendo de tweede beste factor
+Bij alle applicaties werd de \js{}- en CSS-code verkleind en samengevoegd.
+De HTML-code werd niet gewijzigd.
+Tabel~\ref{tabel:performantie-verklaring} bevat het aantal lijnen HTML-code dat moest worden opgehaald.
+Hieruit is duidelijk te zien welke raamwerken opmaakgedreven zijn.
+%TODO Sander: moet hier nog meer vermeld worden?
 
 \begin{table}[H]
 \centering
@@ -101,12 +116,6 @@ Opmerkelijk is dat \lungo{} meer data moet ophalen maar toch een snellere laadti
 \label{tabel:performantie-verklaring}
 \end{table}
 
-% TODO Tim: tabel maken voor de dingen hieronder
-% deze dingen uitdiepen hieronder
-% page speed
-% LOC
-% download grootte (POC/login, 1 getal per framework, gemiddelde per device)
-% subjectieve experience lijsten
 
 \subsection{\st}
 \label{sec:performantie-st}
@@ -116,11 +125,11 @@ Opmerkelijk is dat \lungo{} meer data moet ophalen maar toch een snellere laadti
 %TODO AJAX
 %Daarnaast zullen geïsoleerde testen met het verzenden van een AJAX-request uitgevoerd worden ($r_{r,AJAX}$).
 % Daar wordt het effect van het versturen van een OPTION-\term{request} bekeken wanneer een verzoek naar een ander domeinen wordt gestuurd.
-
+% ST scoort het beste volgens google page speed, maar dat heeft dus te maken met die microlader, daarna volgt lungo, Kendo en jQM die de regels minder strikt, maar uiteindelijk toch sneller presteren
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{figuren/performance-st.pdf}
+  \includegraphics[width=\textwidth]{figuren/performance-st.pdf}
   \caption{Gemiddelde downloadtijden van \st{} voor POC,  POC uit cache,  Login en Login uit cache voor elk apparaat.}
   \label{fig:performantie-st}
 \end{figure}
@@ -129,7 +138,7 @@ Opmerkelijk is dat \lungo{} meer data moet ophalen maar toch een snellere laadti
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{figuren/performance-kendo.pdf}
+  \includegraphics[width=\textwidth]{figuren/performance-kendo.pdf}
   \caption{Gemiddelde downloadtijden van \kendo{} voor POC,  POC uit cache,  login en login uit cache voor elk apparaat.}
   \label{fig:performantie-kendo}
 \end{figure}
@@ -158,7 +167,7 @@ Een opmerkelijke waarneming is dat het langer duurt om de gecachete versie van h
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{figuren/performance-lungo.pdf}
+  \includegraphics[width=\textwidth]{figuren/performance-lungo.pdf}
   \caption{Gemiddelde downloadtijd van \lungo{} voor POC,  POC uit cache,  Login en Login uit cache voor elk apparaat.}
   \label{fig:performantie-lungo}
 \end{figure}

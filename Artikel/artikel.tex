@@ -56,6 +56,10 @@
 
 \newcommand{\challenge}[1]{\paragraph{#1}}
 
+\include{prelude/namen}
+\include{prelude/apparaten}
+\include{prelude/uitdagingen}
+
 %%%%%%%%%%%%%% CUSTOM END %%%%%%%%%%%%%%
 
 % Following comment is from ijcai97-submit.tex:
@@ -90,9 +94,12 @@ One solution is to build mobile HTML5 applications.
 They run inside the browser and run on every device.
 To speed up development, different frameworks exist that help in functionality and building a user interface.
 Because of the variety of existing frameworks, a thoroughly comparison is needed to know which framework suits the job best.
-This paper compares jQuery Mobile and Sencha Touch by using community and usage as criteria.
+This paper compares jQuery Mobile and \st{} by using community and usage as criteria.
 %This paper compares jQuery Mobile and Sencha Touch by using community, productivity, usage, support and performance as criteria.
 \end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction} % (1 blz)
 \label{sec:introduction}
@@ -244,43 +251,11 @@ JavaScript started in 1995 and is now mostly used to do DOM (Document Object Mod
 The DOM is an API (Application Programming Interface) for HTML documents~\cite{Hegaret2004}.
 Because of the differences in implementation, JavaScript libraries like jQuery are used to ease implementation.
 
-\section{Comparison criteria and related work}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Comparison criteria} %Sander 0.75 pg
 \label{sec:comparisoncriteria}
-
-Many in-depth comparisons of mobile HTML5 frameworks already exist today.  
-However, none of them are scientifically published or use a large proof of concept (POC) to validate their comparison.  
-The idea of using a small-scale POC is not new.  
-\cite{Oeflman2011} and~\cite{Kosmaczewski2012},  for example,  use a small geosocial game and todo list application respectively to compare mobile HTML5 frameworks.
-Blog posts like~\cite{Sarrafi2012a,Ayuso2012,Rozynski2011} all have their own criteria and methodologies to assess different mobile frameworks.  
-The overall application of the criteria changes from use case to use case.  
-\cite{Rozynski2011} presents the chosen criteria and discusses them for each framework.  
-\cite{Ayuso2012} presents 17 criteria but all of them are discussed at once per framework.  
-Thereafter,  advantages and disadvantages are subtracted and proposed to the reader.  
-Finally, \cite{Sarrafi2012a} presents their chosen criteria together with a scorecard and an explanation of scores per criterion.  
-Each framework gets evaluated based on the scores for each criterion.
-
-All these blog posts compare mobile and hybrid frameworks.  
-Other websites like~\cite{Bristowe2012,Burris} only focus on two mobile HTML5 frameworks in contrast to ~\cite{Falk2011} who tries to compare as much as frameworks as possible in a large tabular form.
-
-% \begin{table}[h!]
-% \centering
-% \begin{tabular}{lcc}
-%   & \textbf{Hybrid} & \textbf{Mobile}\\
-%   \hline \hline
-% \cite{Sarrafi2012a} & 0 & 4\\
-% \cite{Rozynski2011} & 2 & 3\\
-% \cite{Ayuso2012}* & 1** & 6\\
-% \hline
-% \multicolumn{3}{l}{*is still under development} \\
-% \multicolumn{3}{l}{**a combination of Bootstrap of jQuery and Angular JS} \\
-% \end{tabular}
-% \caption{How many frameworks of which type are compared}
-% \label{table:references_frameworks}
-% \end{table}
-
-As mentioned earlier,  we will compare two mobile HTML5 frameworks based upon a large-scale POC.  
-This POC encompasses an application to let employees attach, sign and submit expenses to their employer via tablet or smartphone.
-Afterwards, the employee can view the uploaded expenses and download them as PDF.
 
 Our comparison strategy tries to combine the above elements.  
 We derived five important criteria:  community,  productivity,  usage,  support and performance. 
@@ -335,51 +310,15 @@ We will test the time to load and render the full POCs and isolated screens with
 Also,  isolated tests will record the loading time of dummy pages with 1000 buttons.  
 The summation of render times will give the score for the frameworks performance.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Frameworks} % (1 blz per framework + tabel)
 \label{sec:frameworks}
-This section introduces the explored mobile HTML5 frameworks: jQuery Mobile (jQM) and Sencha Touch (ST).
+This section introduces the explored mobile HTML5 frameworks: jQuery Mobile (jQM) and \st{} (\sta{}).
 
-\subsection{jQuery Mobile} % (1 blz Tim)
-\label{sec:jqm}
-
-jQM is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
-In November 2011 version~1.0 was released~\cite{Parker2011} and one year later in October, version~1.2 was released~\cite{Parker2012}. 
-As at the time of writing, jQM released version~1.3 \cite{Parker2013a}.
-The framework is controlled by the jQuery Project that also manages jQuery Core. 
-The latter is a JavaScript library where jQM is dependent on~\cite{JQuery2012}. 
-jQM is among other things sponsored by Adobe, Nokia, BlackBerry and Mozilla~\cite{JQuery2012a}.
-
-\paragraph{Licence}
-As of September 2012 it is only possible to use jQM under the Massachusetts Institute of Technology~(MIT) licence~\cite{Dmethvin2012}. 
-This means that the code is released as open source and can also be used in proprietary projects~\cite{PhilDutson2012}.
-
-\paragraph{Documentation}
-One can find the documentation of jQM on \exturl{www.jquerymobile.com/demos/1.2.0}. On the one hand it contains an overview of all possible UI components. 
-By checking the source code, you can find out what code to write to get the same result. 
-On the other hand it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
-
-\paragraph{Code and development}
-jQM is a mark-up driven UI framework and thus provides mainly UI components. 
-jQM provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
-One can obtain these components by writing HTML5 with jQM specific \code{data-}* attributes. 
-When running the application, jQM will add the extra necessary code to correctly show these components by doing progressive enhancement.
-
-There are three ways of writing a HTML5 application in jQM~\cite{Broulik2012}. 
-The first one is to write the full application on one single web page.
-The advantage is that there are initially less requests to the server.
-The second option is to write a web page for each screen. 
-The advantage here is that the first viewed screen is downloaded more quickly. 
-However, with each transition, the next screen has to be fetched which can delay navigation.
-This is done with AJAX by default in jQM.
-Lastly, you can mix the two above to find an optimum by putting the most likely viewed screens on one web page and the less likely viewed on separated pages.  
-
-\paragraph{Browser support}
-\label{sec:jqm-browser-support}
-jQM divides browsers into three grades: A, B and C. 
-An A graded browsers supports everything of the jQM framework, where a C graded browsers only provides basic HTML experience (so for example no CSS3 transitions)~\cite{JQuery2012d}.
-
-\subsection{Sencha Touch} % (1 blz Sander)
-\label{sec:sencha_touch}
+\subsection{\st} % (0.5 blz Sander)
+\label{sec:frameworks-sencha-touch}
 
 ST is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
 Ext JS is a JavaScript framework for the development of HTML5 applications.  
@@ -427,18 +366,89 @@ The framework offers the programmer methods to ask for the current context where
 Properties like \code{Ext.env.Browser} and \code{Ext.env.OS} or methods like \code{Ext.Viewport.getOrientation} and \code{Ext.feature.has} can determine this context~\cite{JohnEClark2012}.  
 The latter has the same functionality as Modernizer~\cite{Modernizr2012}.  
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\kendo} % (0.5 blz Sander)
+\label{sec:frameworks-kendo}
+
+\paragraph{Documentation}
+
+\paragraph{Licenses}
+
+\paragraph{Code and development}
+
+\paragraph{Browser support}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{jQuery Mobile} % (0.5 blz Tim)
+\label{sec:jqm}
+
+jQM is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
+In November 2011 version~1.0 was released~\cite{Parker2011} and one year later in October, version~1.2 was released~\cite{Parker2012}. 
+As at the time of writing, jQM released version~1.3 \cite{Parker2013a}.
+The framework is controlled by the jQuery Project that also manages jQuery Core. 
+The latter is a JavaScript library where jQM is dependent on~\cite{JQuery2012}. 
+jQM is among other things sponsored by Adobe, Nokia, BlackBerry and Mozilla~\cite{JQuery2012a}.
+
+\paragraph{Licence}
+As of September 2012 it is only possible to use jQM under the Massachusetts Institute of Technology~(MIT) licence~\cite{Dmethvin2012}. 
+This means that the code is released as open source and can also be used in proprietary projects~\cite{PhilDutson2012}.
+
+\paragraph{Documentation}
+One can find the documentation of jQM on \exturl{www.jquerymobile.com/demos/1.2.0}. On the one hand it contains an overview of all possible UI components. 
+By checking the source code, you can find out what code to write to get the same result. 
+On the other hand it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
+
+\paragraph{Code and development}
+jQM is a mark-up driven UI framework and thus provides mainly UI components. 
+jQM provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
+One can obtain these components by writing HTML5 with jQM specific \code{data-}* attributes. 
+When running the application, jQM will add the extra necessary code to correctly show these components by doing progressive enhancement.
+
+There are three ways of writing a HTML5 application in jQM~\cite{Broulik2012}. 
+The first one is to write the full application on one single web page.
+The advantage is that there are initially less requests to the server.
+The second option is to write a web page for each screen. 
+The advantage here is that the first viewed screen is downloaded more quickly. 
+However, with each transition, the next screen has to be fetched which can delay navigation.
+This is done with AJAX by default in jQM.
+Lastly, you can mix the two above to find an optimum by putting the most likely viewed screens on one web page and the less likely viewed on separated pages.  
+
+\paragraph{Browser support}
+\label{sec:jqm-browser-support}
+jQM divides browsers into three grades: A, B and C. 
+An A graded browsers supports everything of the jQM framework, where a C graded browsers only provides basic HTML experience (so for example no CSS3 transitions)~\cite{JQuery2012d}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\lungo} % (0.5 blz Tim)
+\label{sec:frameworks-lungo}
+
+\paragraph{Documentation}
+
+\paragraph{Licenses}
+
+\paragraph{Code and development}
+
+\paragraph{Browser support}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Evaluation}
 This section evaluates the mobile HTML5 frameworks by two criteria: community and usage.
 
-\subsection{Community} % (0,5 blz)
-\label{sec:community}
+\subsection{Popularity} % (0,5 blz)
+\label{sec:evaluation-popularity}
 
 The activity around frameworks in social media has to be considered with a lot of care.  
 If,  for example,  a framework has a lot of questions on Stack Overflow,  one could conclude the framework has a lot of ambiguity.  
 Someone else could argue  the framework has a large active Internet community build around it.  
 Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
 
-As depicted in the comparison table in appendix \ref{app:comparison_table},  jQM has a much larger social community.  
+As depicted in the comparison table XXXXXX,  jQM has a much larger social community.  
 An explanation could be explained by the large success of jQuery,  a popular JavaScript library~\cite{Hales2012}.
 
 The fact that ST had the first stable 1.0 release in mobile UI frameworks~\cite{Oeflman2011},  is not reflected in the community numbers.  
@@ -447,181 +457,105 @@ ST itself embraces about one quarter of this number.
 
 ST is not available on GitHub,  that is why no data is given.
 
+\begin{table}
+\centering
+\resizebox{8cm}{!} {
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Popularity,ST,Kendo,jQM,Lungo},
+  columns/Popularity/.style={column name=\textbf{Popularity}, column type={l}},  
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{../Masterproef/tabellen/populariteit.csv}
+}
+\caption{Overview of popularity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
+\label{tabel:evaluatie-popularity}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Productivity} % Sander 0,5 blz
+\label{sec:evaluation-productivity}
+
+\begin{table}
+\centering
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Productivity,ST,Kendo,jQM,Lungo},
+  columns/Productivity/.style={column name=\textbf{Productivity}, column type={l}},  
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{../Masterproef/tabellen/productiviteit.csv}
+\caption{Overview of productivity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
+\label{tabel:evaluatie-productiviteit}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Usage}
 \label{sec:poc}
 In this section we evaluate the usage by stating challenges.
 Each challenge consists of subchallenges that are explained first.
 Afterwards the framework is graded on each of these challenges and commented why that score was given.
-The total score per challenge can be found in appendix \ref{app:comparison_table}.
+The total score per challenge can be found in XXXXXX.
 
-\challenge{Forms (C1,C2,C3,C4,C5)}
-Create forms with placeholders, but without labels (C1).
-Use the text, number and email as form types (C2).
-Custom datepicker with data range (C3).
-Custom datepicker only with month and year (C4).
-Clearing the form (C5).
+\begin{table}
+\centering
+\resizebox{8cm}{!} {
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Challenge,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Challenge/.style={column name=\textbf{Challenge}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{../Masterproef/tabellen/gebruik.csv}
+}
+\caption{Overview of usage for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
+\label{tabel:evaluatie-usage}
+\end{table}
 
-\framework{jQM}{2,2,1,1,0}
-Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
-Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
-The types of form elements used were text, number and email.
-The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
-Not only the lack of support, but also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
-The need for a custom datepicker with only a month and year needed to be hardcoded.
-Clearing the form after it was send, has to be programmed manually.
+\chal{toestel}
+\begin{itemize}
+  \item Recognising smartphone or tablet (C1).
+  \item Show left sided menu on tablet (C2).
+  \item Enabling smartphone menu (C3).
+\end{itemize}
 
-\framework{ST}{2,2,0,0,0}
-Placeholders, text, email and number fields are supported by the framework and can be easily created.  
-Labels can be avoided by not defining them.  
-Creating custom datepickers is not supported.  
-It is impossible to ignore the days field and only years can be delimited.  
-Clearing the form after it was send, has to be programmed manually.
+\framework{\sta{}}{}
 
-\challenge{Form filling (C1,C2)}
-Filling in the form elements with data (C1).
-Make the form elements read-only (C2).
-%Back button to go back to the list (C3). %TODO niet van toepassing
-
-\framework{jQM}{0,0}
-There is no automatic mapping between the data and the form.
-Setting the form elements read-only can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
-With a fieldset, the \code{disabled} attribute made is read-only.
-Lastly with a select menu, the other options were deleted from the menu.
-%Adding a back button was no problem.
-
-\framework{ST}{2,2}
-%To show the list of clickable expenses,  ST provides a navigation view.  
-%This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
-The controller can fill an empty form with a model instance.
-Field names that correspond to the object's properties are linked and filled in.
-Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.  
-Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
-%A back button is automatically created to return to the overview list.
-
-\challenge{Form validation (C1,C2,C3,C4)}
-Validation rules for a required, number and email field (C1).
-Validation depends on custom conditions (C2).
-Error dialog with invalid fields and explanation (C3).
-Red borders around invalid fields (C4).
-
-\framework{jQM}{1,1,0,0}
-Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
-This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date} and custom validation conditions.
-The plugin shows errors below the corresponding field, so customisation of the plugin was needed to show them in a dialog.
-To give the invalid fields a red border, CSS was used directly for \code{input} and \code{textarea}.
-Because of the progressive enhancement for \code{select} and \code{fieldset}, a bit of DOM traversal was needed.
-
-\framework{ST}{2,1,2,0}
-Required fields and email validation can be assigned to a model.  
-To add custom validation rules or messages,  the \code{validate} method of \code{Ext.data.Model} needs to be overridden.  
-This method accepts a model instance and returns the possible validation errors.  
-The errors must be iterated to concatenate the validation messages.
-The red borders are created by adding a custom CSS class to the form element.
-
-\challenge{Signature (C1)}
-Draw a signature with finger or pen (C1).
-
-\framework{jQM}{1}
-At first, Signature Pad~\cite{Bradley2013} was used as plugin.
-Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
-Two advantage over the former were the automatic scaling to 100\% width and the basic layout.
-However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.
-
-\framework{ST}{1}
-Drawing a signature is handled by a plugin~\cite{SimFla2011}.  
-Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
-This plugin could be used as-is by using the newly \code{signaturefield} component.  
-
-\challenge{Show PDF (C1,C2)}
-Requesting a PDF with POST parameters (C1).
-Show the PDF (C2).
-
-\framework{jQM}{1,1}
-To download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
-When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
-The mobile device opens the corresponding native PDF viewer to show the PDF.
-
-\framework{ST}{1,1}
-A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
-Some modifications were necessary to made it compliant with the POC.  
-The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
-The plugin automatically creates views for every PDF page.  
-
-\challenge{Attach image (C1,C2,C3)}
-Choose image (C1).
-Convert image to base64 (C2).
-Preview image (C3).
-
-\framework{jQM}{2,0,0}
-A form element of type \code{file} is used to let the user attach an image.
-Depending on the mobile device, the options are to attach a local image or to take one with the camera.
-The attached image is read by the FileReaderAPI, converted to an image and imported on the canvas.
-The base64 encoding can be retrieved by calling the \code{.toDataURL()} on the latter and is stored in session storage.
-However the FileReaderAPI is not supported on Android~2.3 and lower or iOS less than 6.0~\cite{Deveria2013a}.
-Another limitation is the file size that can be imported on a canvas on iOS devices which is depend on the RAM size~\cite{Apple2012}.
-The final limitation is the size of the encoded evidence in base64, which can exceeded the limit for session storage, that is depend on the mobile browser~\cite{Gonzalez2012}.
-
-\framework{ST}{1,1,1}
-A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
-This button enables users to select an image and passes it to a PHP file.  
-This file uploads the image and converts it to base64.
-A requirement is that your server is able to run that PHP file.    
-A ST image can be created based on this base64 string.
-
-\challenge{Autocomplete (C1,C2)}
-Fetch suggestions based on input (C1).
-Show suggestions in clickable drop down (C2).
-
-\framework{jQM}{1,1}
-As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
-Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
-To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provid this.
-
-\framework{ST}{1,0}
-A plugin can be found at~\cite{Mysamplecode2012} to create an autocomplete field.  
-A request to the backend with a keyword returns a JSON array named \code{data}.  
-ST can parse this array in two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  
-The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  
-Both strategies cannot be used to parse the array and create separate model instances for each array item.  
-This implies that no clickable drop-down could be implemented.
-
-
-\challenge{AJAX: text, JSON \& XML (C1,C2,C3,C4)}
-Fetch plain text (C1).
-Fetch and parse JSON (C2).
-Send JSON payload (C3).
-Fetch and parse XML (C4).
-
-\framework{jQM}{2,2,2,2}
-AJAX requests are made via the jQuery library where jQM is dependent on.
-Handling plain data and JSON as response is straightforward and the data can be used directly.
-When using XML, the data has to be traversed like with HTML, this means by using selectors.
-Sending JSON can be achieved by converting the instance into a string object using the vanilla JavaScript function \code{JSON.stringify} and add it as data to the jQuery AJAX request.
-
-\framework{ST}{2,2,2,2}
-AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
-The plain text of the AJAX response can be used in the callback.   
-Stores can be configured with a model to define the structure of the recorded objects.  
-A proxy configures readers and writers that define where the data can be read or written.  
-This can be locally at the client side or via a remote server.  
-Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
-Sending JSON payload must be done via an AJAX request where the \code{jsonData} is encoded via \code{Ext.encode}.
-
-\challenge{Device-specific layout (C1,C2,C3)}
-Recognising smartphone or tablet (C1).
-Show left sided menu on tablet (C2).
-Enabling smartphone menu (C3).
-
-\framework{jQM}{0,1,1}
-No functionality is provided by the framework, so a search for plugins was started with~\cite{Deering2012} which led to: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} and Multiview~\cite{Franck2012}. 
-All these had shortcomings. 
-The first changed the jQM library code, the second used jQM~1.0.1 and the last had problems with adapting to different browser sizes.
-\cite{Hadlock2012} showed the use of CSS3 media queries to accomplish the split screen without a plugin.
-The documentation of jQM~1.2 also used a similar approach~~\cite{JQuery2012b}.
-This approach is also encouraged in the documentation of jQM~1.3~\cite{JQuery2013e}.
-The smartphone menu can be accessed on both tablet and smartphone devices when clicking on the sub header.
-
-\framework{ST}{2,2,0}
 Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
 If this method returns false,  we assume to be in tablet mode.    
 The main screen of the POC requires a splitted view in tablet mode.  
@@ -632,88 +566,495 @@ The \code{flex} property defines the ratio of the sizes of both resulting compon
 In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
 Making the sub header clickable is not possible  
 
+\framework{\kendoa{}}{}
+TODO
 
-\section{Future work} %(0,5 blz)
+\framework{\jqma{}}{}
+
+No functionality is provided by the framework, so a search for plugins was started with~\cite{Deering2012} which led to: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} and Multiview~\cite{Franck2012}. 
+All these had shortcomings. 
+The first changed the jQM library code, the second used jQM~1.0.1 and the last had problems with adapting to different browser sizes.
+\cite{Hadlock2012} showed the use of CSS3 media queries to accomplish the split screen without a plugin.
+The documentation of jQM~1.2 also used a similar approach~~\cite{JQuery2012b}.
+This approach is also encouraged in the documentation of jQM~1.3~\cite{JQuery2013e}.
+The smartphone menu can be accessed on both tablet and smartphone devices when clicking on the sub header.
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{formulieren}
+
+\begin{itemize}
+ \item Create forms with placeholders, but without labels (C1).
+ \item Use the text, number and email as form types (C2).
+ \item Custom datepicker with data range (C3).
+ \item Custom datepicker only with month and year (C4).
+ \item Clearing the form (C5).
+\end{itemize}
+
+
+\framework{\sta{}}{}
+
+Placeholders, text, email and number fields are supported by the framework and can be easily created.  
+Labels can be avoided by not defining them.  
+Creating custom datepickers is not supported.  
+It is impossible to ignore the days field and only years can be delimited.  
+Clearing the form after it was send, has to be programmed manually.
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+
+Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
+Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
+The types of form elements used were text, number and email.
+The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
+Not only the lack of support, but also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
+The need for a custom datepicker with only a month and year needed to be hardcoded.
+Clearing the form after it was send, has to be programmed manually.
+
+\framework{\lungoa{}}{}
+TODO
+
+
+\chal{vullen}
+\begin{itemize}
+  \item Filling in the form elements with data (C1).
+  \item Make the form elements read-only (C2).
+\end{itemize}
+%Back button to go back to the list (C3). %TODO niet van toepassing
+
+\framework{\sta{}}{}
+
+%To show the list of clickable expenses,  ST provides a navigation view.  
+%This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
+The controller can fill an empty form with a model instance.
+Field names that correspond to the object's properties are linked and filled in.
+Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.  
+Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
+%A back button is automatically created to return to the overview list.
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+
+There is no automatic mapping between the data and the form.
+Setting the form elements read-only can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
+With a fieldset, the \code{disabled} attribute made is read-only.
+Lastly with a select menu, the other options were deleted from the menu.
+%Adding a back button was no problem.
+
+\framework{\lungoa{}}{}
+TODO
+
+% \chal{autoaanvullen}
+% Fetch suggestions based on input (C1).
+% Show suggestions in clickable drop down (C2).
+% 
+% \framework{jQM}{1,1}
+% As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
+% Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
+% To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provid this.
+% 
+% \framework{ST}{1,0}
+% A plugin can be found at~\cite{Mysamplecode2012} to create an autocomplete field.  
+% A request to the backend with a keyword returns a JSON array named \code{data}.  
+% ST can parse this array in two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  
+% The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  
+% Both strategies cannot be used to parse the array and create separate model instances for each array item.  
+% This implies that no clickable drop-down could be implemented.
+% 
+
+\chal{afbeelding}
+\begin{itemize}
+  \item Choose image (C1).
+  \item Convert image to base64 (C2).
+  \item Preview image (C3).
+\end{itemize}
+
+\framework{\sta{}}{}
+
+A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
+This button enables users to select an image and passes it to a PHP file.  
+This file uploads the image and converts it to base64.
+A requirement is that your server is able to run that PHP file.    
+A ST image can be created based on this base64 string.
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+
+A form element of type \code{file} is used to let the user attach an image.
+Depending on the mobile device, the options are to attach a local image or to take one with the camera.
+The attached image is read by the FileReaderAPI, converted to an image and imported on the canvas.
+The base64 encoding can be retrieved by calling the \code{.toDataURL()} on the latter and is stored in session storage.
+However the FileReaderAPI is not supported on Android~2.3 and lower or iOS less than 6.0~\cite{Deveria2013a}.
+Another limitation is the file size that can be imported on a canvas on iOS devices which is depend on the RAM size~\cite{Apple2012}.
+The final limitation is the size of the encoded evidence in base64, which can exceeded the limit for session storage, that is depend on the mobile browser~\cite{Gonzalez2012}.
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{validatie}
+\begin{itemize}
+ \item Validation rules for a required, number and email field (C1).
+ \item Validation depends on custom conditions (C2).
+ \item Error dialog with invalid fields and explanation (C3).
+ \item Red borders around invalid fields (C4).
+\end{itemize}
+
+\framework{\sta{}}{}
+
+Required fields and email validation can be assigned to a model.  
+To add custom validation rules or messages,  the \code{validate} method of \code{Ext.data.Model} needs to be overridden.  
+This method accepts a model instance and returns the possible validation errors.  
+The errors must be iterated to concatenate the validation messages.
+The red borders are created by adding a custom CSS class to the form element.
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+
+Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
+This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date} and custom validation conditions.
+The plugin shows errors below the corresponding field, so customisation of the plugin was needed to show them in a dialog.
+To give the invalid fields a red border, CSS was used directly for \code{input} and \code{textarea}.
+Because of the progressive enhancement for \code{select} and \code{fieldset}, a bit of DOM traversal was needed.
+
+\framework{\lungoa{}}{}
+TODO
+
+% \chal{handtekening}
+% Draw a signature with finger or pen (C1).
+% 
+% \framework{jQM}{1}
+% At first, Signature Pad~\cite{Bradley2013} was used as plugin.
+% Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
+% Two advantage over the former were the automatic scaling to 100\% width and the basic layout.
+% However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.
+% 
+% \framework{ST}{1}
+% Drawing a signature is handled by a plugin~\cite{SimFla2011}.  
+% Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
+% This plugin could be used as-is by using the newly \code{signaturefield} component.  
+
+\chal{ajax}
+\begin{itemize}
+  \item Fetch plain text (C1).
+  \item Fetch and parse JSON (C2).
+  \item Send JSON payload (C3).
+  \item Fetch and parse XML (C4).
+\end{itemize}
+
+\framework{\sta{}}{}
+
+AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
+The plain text of the AJAX response can be used in the callback.   
+Stores can be configured with a model to define the structure of the recorded objects.  
+A proxy configures readers and writers that define where the data can be read or written.  
+This can be locally at the client side or via a remote server.  
+Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
+Sending JSON payload must be done via an AJAX request where the \code{jsonData} is encoded via \code{Ext.encode}.
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+
+AJAX requests are made via the jQuery library where jQM is dependent on.
+Handling plain data and JSON as response is straightforward and the data can be used directly.
+When using XML, the data has to be traversed like with HTML, this means by using selectors.
+Sending JSON can be achieved by converting the instance into a string object using the vanilla JavaScript function \code{JSON.stringify} and add it as data to the jQuery AJAX request.
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{pdf}
+\begin{itemize}
+ \item Requesting a PDF with POST parameters (C1).
+ \item Show the PDF (C2).
+\end{itemize}
+
+\framework{\sta{}}{}
+
+A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
+Some modifications were necessary to made it compliant with the POC.  
+The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
+The plugin automatically creates views for every PDF page.  
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+
+To download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
+When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
+The mobile device opens the corresponding native PDF viewer to show the PDF.
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{lijsten}
+
+\framework{\sta{}}{}
+TODO
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+TODO
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{offline}
+
+\framework{\sta{}}{}
+TODO
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+TODO
+
+\framework{\lungoa{}}{}
+TODO
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Support} % 2 blz
+\label{sec:evaluation-support}
+
+\begin{table}
+\centering
+\resizebox{8cm}{!} {
+\pgfplotstabletypeset[
+	column type=l,
+	every head row/.style={
+		before row={%
+			\toprule
+			\textbf{Challenge}
+			& \multicolumn{2}{c}{\textbf{\sta}}
+			& \multicolumn{2}{c}{\textbf{\kendoa}} 
+			& \multicolumn{2}{c}{\textbf{\jqma}}
+			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
+			\cmidrule(r){2-3}
+			\cmidrule(r){4-5}
+			\cmidrule(r){6-7}
+			\cmidrule(r){8-9}
+		},
+		after row=\midrule,
+		},
+  	every last row/.style={
+  		before row=\toprule,
+ 		after row=\bottomrule},
+	columns={Challenge,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
+	begin table=\begin{tabular}{lcccccccc},
+	end table=\end{tabular},
+	header=true,
+	skip coltypes=true,
+	columns/Challenge/.style ={column name=},
+	columns/ST(abs)/.style ={column name=Score},
+	columns/ST(max)/.style={column name=Max},
+	columns/Kendo(abs)/.style ={column name=Score},
+	columns/Kendo(max)/.style={column name=Max},
+	columns/jQM(abs)/.style ={column name=Score},
+	columns/jQM(max)/.style={column name=Max},
+	columns/Lungo(abs)/.style ={column name=Score},
+	columns/Lungo(max)/.style={column name=Max},
+	col sep=comma,
+	string type,
+]{../Masterproef/tabellen/ondersteuning-u.csv}
+}
+\caption{Overview of support per challenge.}
+\label{tabel:evaluatie-ondersteuning-u}
+\end{table}
+
+\chal{toestel}
+
+\framework{\sta{}}{}
+TODO
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+TODO
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{formulieren}
+
+\framework{\sta{}}{}
+TODO
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+TODO
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{autoaanvullen}
+
+\framework{\sta{}}{}
+TODO
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+TODO
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{afbeelding}
+
+\framework{\sta{}}{}
+TODO
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+TODO
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{handtekening}
+
+\framework{\sta{}}{}
+TODO
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+TODO
+
+\framework{\lungoa{}}{}
+TODO
+
+\chal{pdf}
+
+\framework{\sta{}}{}
+TODO
+
+\framework{\kendoa{}}{}
+TODO
+
+\framework{\jqma{}}{}
+TODO
+
+\framework{\lungoa{}}{}
+TODO
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Performance} % 1 blz
+\label{sec:evaluation-performance}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{../Masterproef/figuren/performance.pdf}
+  \caption{Average download time for POC,  POC from cache,  login and login from cache for each framework (less is better).}
+  \label{fig:performance}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Comparison overview} % ? blz
+\label{sec:evaluation-overview}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{../Masterproef/figuren/spidergraph.pdf}
+  \caption{Comparison overview with the five comparisioncriteria for \st{},  \kendo{},  \jqm{} en \lungo{}.}
+  \label{fig:spidergraph}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Related Work} % Sander 0.25 pg
+\label{sec:related-work}
+
+Many in-depth comparisons of mobile HTML5 frameworks already exist today.  
+However, none of them are scientifically published or use a large proof of concept (POC) to validate their comparison.  
+The idea of using a small-scale POC is not new.  
+\cite{Oeflman2011} and~\cite{Kosmaczewski2012},  for example,  use a small geosocial game and todo list application respectively to compare mobile HTML5 frameworks.
+Blog posts like~\cite{Sarrafi2012a,Ayuso2012,Rozynski2011} all have their own criteria and methodologies to assess different mobile frameworks.  
+The overall application of the criteria changes from use case to use case.  
+\cite{Rozynski2011} presents the chosen criteria and discusses them for each framework.  
+\cite{Ayuso2012} presents 17 criteria but all of them are discussed at once per framework.  
+Thereafter,  advantages and disadvantages are subtracted and proposed to the reader.  
+Finally, \cite{Sarrafi2012a} presents their chosen criteria together with a scorecard and an explanation of scores per criterion.  
+Each framework gets evaluated based on the scores for each criterion.
+
+All these blog posts compare mobile and hybrid frameworks.  
+Other websites like~\cite{Bristowe2012,Burris} only focus on two mobile HTML5 frameworks in contrast to ~\cite{Falk2011} who tries to compare as much as frameworks as possible in a large tabular form.
+
+% \begin{table}[h!]
+% \centering
+% \begin{tabular}{lcc}
+%   & \textbf{Hybrid} & \textbf{Mobile}\\
+%   \hline \hline
+% \cite{Sarrafi2012a} & 0 & 4\\
+% \cite{Rozynski2011} & 2 & 3\\
+% \cite{Ayuso2012}* & 1** & 6\\
+% \hline
+% \multicolumn{3}{l}{*is still under development} \\
+% \multicolumn{3}{l}{**a combination of Bootstrap of jQuery and Angular JS} \\
+% \end{tabular}
+% \caption{How many frameworks of which type are compared}
+% \label{table:references_frameworks}
+% \end{table}
+
+As mentioned earlier,  we will compare two mobile HTML5 frameworks based upon a large-scale POC.  
+This POC encompasses an application to let employees attach, sign and submit expenses to their employer via tablet or smartphone.
+Afterwards, the employee can view the uploaded expenses and download them as PDF.
+
+\section{Future work} % ? blz)
 \label{sec:future_work}
 We have to choose the next two mobile HTML5 frameworks, implement the POC and evaluate the framework.
 We also have to evaluate the following three criteria: productivity, support and performance. 
 Finally, we want to expand the usage criterion with the following challenges:
 
-\challenge{Offline (C1,C2,C3)}
-Saving credentials (C1).
-Saving unsent expenses (C2).
-Making app offline (C3).
 
-\challenge{Load screen and dialog (C1,C2)}
-Show load screen (C1).
-Show dialog (C2).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\challenge{Data conversion (C1,C2)}
-Currency conversion (C1).
-Id to string (C2).
-
-\challenge{List (C1,C2,C3)}
-Load data into list and styling list items (C1).
-Clickable items with custom action or linking to record of item (C2).
-Sorting data (C3).
-
-\challenge{Anatomy of page (C1,C2,C3)}
- Show header, footer and sub header with titles and buttons (C1).
- Tabbar (C2).
- Button color customisation (C3).
-\setspace{}
-
-%\section{Conclusion} %(0,5 blz)
-%\label{sec:conclusion}
-
-\appendix
-\section{Comparison table}
-\label{app:comparison_table}
-%CSV to latex tutorial in blogpost: http://texblog.org/2012/05/30/generate-latex-tables-from-csv-files-excel/
-%Manual: http://pgfplots.sourceforge.net/pgfplotstable.pdf
-
-\begin{center}
-
-\pgfplotstableset{
-  begin table/.add={}{[t]
-  %\label{table:comparisioncriteria}
-  %\caption{The caption}%
-  },
-}
-
-\pgfplotstabletypeset[
-  col sep=semicolon,
-  string type,
-  header=true,
-  columns={Criteria,jQM,ST},
-  columns/Criteria/.style={column name=\textbf{Criteria}, column type={l}},
-  columns/jQM/.style={column name=\textbf{jQM}, column type={c}},
-  columns/ST/.style={column name=\textbf{ST}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-    after row=\bottomrule}
-]{comparisontable.csv}
-
-%% The file named.bst is a bibliography style file for BibTeX 0.99c
-%\bibliographystyle{named}
+\section{Conclusion} % 0,5 blz
+\label{sec:conclusion}
 
 
-% Define a new 'leo' style for the package that will use a smaller font.
-\makeatletter
-\def\url@leostyle{%
-  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
-\makeatother
-%% Now actually use the newly defined style.
-\urlstyle{leo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % Define a new 'leo' style for the package that will use a smaller font.
+% \makeatletter
+% \def\url@leostyle{%
+%   \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+% \makeatother
+% %% Now actually use the newly defined style.
+% \urlstyle{leo}
 
 %\bibliographystyle{named}
 \bibliographystyle{abbrv}
 \bibliography{../Referenties/literatuurstudie-en,../Referenties/vergelijking-en,../Referenties/evaluatie-en}
 
-
-
-
-\end{center}
 \end{document}

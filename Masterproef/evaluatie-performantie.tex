@@ -40,6 +40,31 @@ De browser neemt hiervoor de taak op zich door bij het laden een indicator te to
 
 %TODO: moet Jakob niet worden verplaatst naar het vergelijkingshoofdstuk? 
 
+In wat volgt zullen metrieken worden besproken die de score van de performantie zullen duiden.
+De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklaring}.
+
+\paragraph{Google Page Speed}
+en eerste extra test is Google Page Speed~\cite{Morgan2011}. 
+Deze tool kan de code van een webapplicatie analyseren en testen op performantie specifiek voor mobiele apparaten.
+Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.
+
+\paragraph{Gebruikservaring}
+Een andere test om de score te toetsen kijkt naar de gebruikservaring.
+Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
+De auteurs zullen de ervaring bij het scrollen van de lijst vergelijken op de acht apparaten.
+De ervaringen per apparaat zullen vervolgens relatief ten opzichte van elkaar beoordeeld worden.
+
+\paragraph{Downloadgrootte en HTML-code}
+De HAR-bestanden die werden gebruikt om de laadtijd op te meten bevatten ook de grootte van de pakketten die moeten worden opgehaald.
+Omdat pakketten verloren gaan zullen ontvangen bestanden incompleet zijn en moeten ze worden herverzonden. %TODO Sander: klopt dat?
+Hierdoor zal het aantal ontvangen bytes variëren van meting tot meting.
+De performantietesten werden op acht toestellen uitgevoerd en elke test werd drie keer uitgevoerd.
+Het gemiddelde van alle downloadgroottes bepaalt de grootte zoals deze kan worden teruggevonden in tabel~\ref{tabel:performantie-verklaring}.
+Bij de POC moet \st{} de meeste data ophalen ($1126.4kB$),  gevolgd door \kendo{} ($194.65kB$), \lungo{} ($249.08kB$) en \jqm{} ($194.65kB$).
+Opmerkelijk is dat \lungo{} meer data moet ophalen maar toch een snellere laadtijd behaald.
+
+
+
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -52,9 +77,9 @@ De browser neemt hiervoor de taak op zich door bij het laden een indicator te to
   columns={Performantie Metrieken,jQM,ST,Kendo,Lungo},
   columns/Performantie/.style={column name=\textbf{Performantie Metrieken}, column type={l}},  
   columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
   columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
   columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},

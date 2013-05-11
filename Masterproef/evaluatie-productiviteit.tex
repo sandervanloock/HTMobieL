@@ -7,137 +7,6 @@ In deze sectie zal de productiviteit van de vier raamwerken worden onderzocht.
 Voor de score van productiviteit wordt naar formule \ref{eq:productiviteit} verwezen.
 Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde scores.
 
-\lungo{} is de afgetekende winnaar,  gevold door \kendo{} en \jqm{}. 
-\st{} blijkt het minst productief te zijn.
-
-De belangrijkste factor waarom \lungo{} en \kendo{} beter scoren is omdat beide raamwerken als tweede werden behandeld.
-De POC werd eerst in \jqm{} en \st{} geïmplementeerd.
-Hierdoor waren de programmeurs beter vertrouwd met de POC en HTML5-raamwerken in het algemeen.
-Bij de eerste implementatie kwamen er ook problemen met de \term{backend} naar boven.
-Deze waren bij de tweede implementatie reeds opgelost.
-Een schatting van de tijd die aan de \term{backend} werd besteed, situeert zich tussen $10$ en $25$ uur. %TODO Sander: dit vermelden?
-De vertrouwdheid met HTML5-raamwerken weerspiegeld zich vooral tussen \jqm{} en \lungo{}.
-Hoewel ze beide op een verschillende kernbibliotheek steunen - respectievelijk jQuery en QuoJS - zijn de gelijkenissen tussen deze twee raamwerken niet te ontkennen.
-De productiviteit van \lungo{} daalde met $71\%$ ten opzichte van \jqm{}.
-Belangrijk is ook dat niet de volledige POC met \lungo{} kon ontwikkeld worden.
-Hierop zal in sectie \ref{sec:evaluatie-gebruik} verder worden ingegaan.
-De verschillen tussen \st{} en \kendo{} zijn groter want ze bieden een ander type - respectievelijk \js-gedreven en zowel \js- als opmaakgedreven - en hanteren een andere architectuur - respectievelijk MVC en MVVM.
-De productiviteit van \kendo{} daalde met $44\%$ ten opzichte van \st{}.
-
-
-De werkuren van de loginapplicatie bevestigen voorgaande resulaten niet.
-Alle functionaliteit van de loginapplictie kon met de vier raamwerken worden gebouwd.
-
-Uit deze werkuren blijkt \jqm{} productiever dan \lungo{}. 
-De volgorde van \kendo{} en \st{} blijft echter wel behouden.
-De relatieve verschillen tussen \jqm{} en \lungo{} en tussen \st{} en \kendo{} zijn ook verkleind.  
-Respectievelijk een stijging van $11.7\%$ en een daling met $31.8\%$.
-Toch is er een trend vast te stellen:  opmaakgedreven raamwerken blijken productiever dan \js-gedreven raamwerken.
-
-In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit kunnen verklaren.
-
-\subsection{Tools}
-Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op Sencha Architect om het ontwikkelingsproces te vergemakkelijken.
-Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop} commando's.  
-Deze tool kan 30 dagen gratis gebruikt worden of kan worden aangekocht voor $\$399$.
-Bij de ontwikkeling van de POC werd Sencha Architect versie 2.1 gebruikt voor een tijdsduur van $21$ dagen.
-Het grootste voordeel van Sencha Architect kon bij de ontwikkeling van \code{Views} worden gevonden.
-De \code{Views} kunnen specifiek voor mobiele schermen worden geoptimaliseerd.
-Dit zowel voor staande als liggende apparaten.
-Na $21$ dagen werd  de PHPstorm als IDE gebruikt bij de ontwikkeling van \st{}.
-Dezelfde IDE werd ook gebruikt bij de ontwikkeling met andere raamwerken.
-
-\subsection{Boilerplate code}
-Het initialiseren van een nieuwe applicatie van het raamwerk beinvloed ook sterk de productiviteit.
-\st{} biedt hiervoor weeral een tool,  Sencha Cmd,  die deze functionaliteit mogelijk maakt~\cite{Sencha2012}.
-Deze tool kan de initiële applicaties opzetten,  bestanden toevoegen en de applicatie bouwen en uitrollen.
-Ondanks dat de initialisatie van een nieuwe project kan worden geautomatiseerd, zijn de bekomen bestanden van het project niet zo duidelijk.
-Een nieuwe \code{Controller},  \code{Store},  \code{Model} of \code{View} genereren kan automatisch met Sencha Cmd of manueel.
-Bij de manuele aanpak moet het nieuwe \js-bestand in de juiste folder worden ondergebracht.
-\st{} legt een strenge structuur van folders op en de applicatie zal enkel werken als aan deze structuur wordt vastgehouden.
-De ervaringen van de auteurs met \st{} zegt dat deze structuur tot veel verwarring leidt.
-
-\jqm{} en \kendo{} beschrijven boilerplate code bij hun documentatie~\cite{JQuery2012b,Telerikd}.
-Ook is bij de documentatie van beide raamwerken een expliciete sectie aanwezig die de programmeur helpt om een applicatie op te zetten.
-Bij \lungo{} is dit niet het geval.  
-Om een \lungo{} applicatie op te zetten moest naar de broncode van de voorbeelden op de documentatie gekenen worden.
-% leercurve: 
-% -ST lag hoger door MVC en pure JS (zie loginscherm steekt er met 7 uur met de kop bovenuit)
-% -jQM en Kendo hadden boiler plate code, ST had tool project te maken maar dan… allemaal files en folders, je weet zo niet direct waar gestart, vanaf je iets verkeerd veranderd wordt er niets meer gerenderd. 
-% gestart met jQM en ST, waardoor productiviteit van de andere 2 hoger ligt (incl problemen met backend, zeker 20u)
-% -Lungo had geen boilerplate code, naar eerste example de broncode kopiëren. quojs zeer gelijkaardig aan jquery syntax. door de opgedane kennis van jquery verlaagt het de curve sterk, anders is het praktisch ondoenbaar (documentatie quojs is 1 bladzijde met code en kernwoorden)
-
-\subsection{Documentatie}
-Ook de kwaliteit en kwantiteit van de documentatie kan de scores van de productiviteit verklaren.
-De \st{} documentatie is het grootst in vergelijking met de andere raamwerken.
-De grootte van de documentatie maakt het moeilijk om zelf onduidelijkheden gericht te zoeken.
-De zoekfunctie met auto-aanvulling is noodzakelijk om de juiste documentatie terug te vinden.
-De documentatie van \kendo{} is overzichtelijker en nog steeds volledig.
-De combinatie van de secties API en Getting Started waren de voornaamste drijfveer.
-Ook worden alle kenmerken die het raamwerk aanbiedt met demo's en codevoorbeelden getoond.
-De zoekfunctie van de documentatie is niet optimaal en hierdoor ook maar weinig gebruikt.
-\jqm{} wordt gedocumenteerd zonder zoekfunctie en codevoorbeelden.
-Hierdoor moet vaak naar de broncode worden gekeken om de code van een kenkerm te begrijpen.
-Een voordeel van de \jqm{} documentatie is dat de documentatie zelf met \jqm{} is gebouwd.
-Een belangrijke opmerking is dat de huidige versie van \jqm{} wel een zoekfunctie en codevoorbeelden in zijn documentatie heeft opgenomen.
-De documentatie van \lungo{} is zeer beknopt.
-Dezelfde opmerking kan worden gemaakt bij de documentatie van \quo.
-Alle kenmerken van \lungo{} worden met codevoorbeelden verduidelijkt.
-Sommige voorbeelden zijn echter incorrect.
-De documentatie is opgedeeld in Prototype en \js-API.
-De eerste was voornamelijk handig om de loginapplicatie te ontwikkelen. %TODO Sander:  geldt deze opmerking ook voor u Tim?
-
-% documentatie: 
-% -ST: demo (Kitchen snik app), zoekfunctie is goed (met autocomplete), maar wel veel meer documentatie dan de andere, waardoor zonder zoekfunctionaliteit moeilijk is
-% -Kendo: interactief te leren, heel overzichtelijk, veel demo's (music store),, onoverzichtelijke zoekfunctie
-% -jQM: 1.2 geen zoekfunctie, geen echte code, je moet kijken naar de broncode, documentatie zelf is geschreven met het framework. vanaf 1.3 wel zoekfunctie en codevoorbeelden
-% -Lungo: prototype heel goed, maar dan de rest zeer zeer beknopt. geen zoekfunctie. soms zijn is de voorbeeldcode niet correct. 
-
-\subsection{Debugging}
-Het zoeken naar bugs in de code verliep bij elk raamwerk gelijkaardig.
-De applicatie werd lokaal uitgerold en in de Web Inspector van Chrome gedebugd.
-Debuggen op de apparaten kon door deze te connecteren via USB met de computer.
-Android toestellen met een Chrome browser kunnen debugt worden met de Web Inspector.
-Debuggen op iOS toestellen kan op een MacBook met dezelfde Web Inspector maar in de Safari browser. %TODO Sander: wat met xcode?
-% debugging:
-% - ST: beige auteurs, dezelfde aanpak, alles in commentaar zetten tot iets werkende en dan beetje bij beetje uit commentaar halen
-% - ST: debug voor extra info (niet hetzelfde als jqm.min en jqm)
-% - altijd debuggen in chrome met console, vanaf het daar volledig werkt, pas debuggen op de devices zelf: chrome: connecteren via usb debugging, safari via xcode
-
-\subsection{Literatuur}
-Zowel \jqm{} als \st{} werden vaak in de literatuur aangehaald.
-Op Safari Books Online kunnen 13 boeken teruggevonden worden die volledig op \jqm{} zijn toegespitst.
-Het boek van Dutson in de Sam Teach Yourself serie werd gebruikt om met \jqm{} vertrouwd te geraken~\cite{PhilDutson2012}.
-Vier boeken over \st{} kunnen op Safari Books Online worden teruggevonden waarbij het werk van Clark werd gebruikt~\cite{JohnEClark2012}.
-\kendo{} komt slecht in een boek van voor~\cite{Bhandari2013},  \lungo{} helemaal niet.
-Het boek rond \kendo{} is slechts een proefdruk en wordt pas in augustus 2013 officieel geplubliceerd.
-Dit werk werd niet gebruikt.
-
-
-\subsection{Vragen}
-%TODO Sander: activiteit van de fora van de raamwerken bespreken?  Kendo:  issues op fora met fiddle verklaard
-Wanneer de programmeur met problemen van het raamwerk werd geconfronteerd, moest op het web naar oplossingen gezocht worden.
-In sectie \ref{sec:evaluatie-populariteit} werden reeds het aantal vragen van het raamwerk op Stack Overflow bekeken.
-Hoe groter dit aantal,  hoe groter de kans dat een probleem reeds op Stack Overflow is aangehaald.
-Bij \lungo{} is dit aantal minimaal en was de programmeur vaak aangewezen om zelf oplossingen van zijn problemen te zoeken.
-% vragen:
-% - ST, jQM, Kendo vaak antwoord op stack overflow (zie populariteit)
-% - Lungo: je bent op jezelf gewezen
-%Sander
-
-
-
-
-
-
-
-
-
-
-
-
-% Uit de cijfers blijft Lungo  meest productief, maar door de voorgaande kennis van jquery, POC en backend + het feit dat er bepaalde dingen niet geïmplementeerd konden worden in lungo, moet dit met een korreltje zout worden genomen (het loginscherm is hiervan een indicatie)
-
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -164,6 +33,143 @@ Bij \lungo{} is dit aantal minimaal en was de programmeur vaak aangewezen om zel
 \caption{Overzicht van productiviteit voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-productiviteit}
 \end{table}
+
+\lungo{} is de afgetekende winnaar,  gevold door \kendo{} en \jqm{}. 
+\st{} blijkt het minst productief te zijn.
+
+De belangrijkste factor waarom \lungo{} en \kendo{} beter scoren is omdat beide raamwerken als tweede werden behandeld.
+De POC werd eerst in \jqm{} en \st{} geïmplementeerd.
+Hierdoor waren de programmeurs beter vertrouwd met de POC en HTML5-raamwerken in het algemeen.
+Bij de eerste implementatie kwamen er ook problemen met de \term{backend} naar boven.
+Deze waren bij de tweede implementatie reeds opgelost.
+Een schatting van de tijd die aan de \term{backend} werd besteed, situeert zich tussen $10$ en $25$ uur. %TODO Sander: dit vermelden? Tim: zeker, maar ik vind die schatting wel te breed van interval
+De vertrouwdheid met HTML5-raamwerken weerspiegeld zich vooral tussen \jqm{} en \lungo{}.
+Hoewel ze beide op een verschillende \js{}-bibliotheek steunen - respectievelijk jQuery en QuoJS - zijn de gelijkenissen tussen deze twee raamwerken niet te ontkennen.
+%TODO Tim: het aantal uren daalt, maar de productiviteit stijgt wel hé ;-)
+De productiviteit van \lungo{} daalde met $71\%$ ten opzichte van \jqm{}.
+Belangrijk is ook dat niet de volledige POC met \lungo{} kon worden ontwikkeld.
+Hierop zal in sectie \ref{sec:evaluatie-gebruik} verder worden ingegaan.
+De verschillen tussen \st{} en \kendo{} zijn groter want ze bieden een ander type - respectievelijk \js-gedreven en zowel \js- als opmaakgedreven - en hanteren een andere architectuur - respectievelijk MVC en MVVM.
+De productiviteit van \kendo{} daalde met $44\%$ ten opzichte van \st{}.
+
+
+De werkuren van de loginapplicatie bevestigen voorgaande resulaten niet.
+Alle functionaliteit van de loginapplictie kon met de vier raamwerken worden gebouwd.
+Uit deze werkuren blijkt \jqm{} productiever dan \lungo{}. 
+De volgorde van \kendo{} en \st{} blijft echter wel behouden.
+De relatieve verschillen tussen \jqm{} en \lungo{} en tussen \st{} en \kendo{} zijn ook verkleind.  
+Respectievelijk een stijging van $11.7\%$ en een daling met $31.8\%$.
+Toch is er een trend vast te stellen:  opmaakgedreven raamwerken blijken productiever dan \js-gedreven raamwerken.
+
+In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit kunnen verklaren.
+
+\subsection{Tools}
+%TODO Tim: onderstaande zin is wat ongelukkig, natuurlijk kan ik geen jQM app maken met Sencha Architect ;-)
+Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op Sencha Architect om het ontwikkelingsproces te vergemakkelijken.
+%TODO Tim: misschien de ondersteuning voor welke OS'es
+Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop} commando's.  
+Deze tool kan 30 dagen gratis gebruikt worden of kan worden aangekocht voor $\$399$.
+Bij de ontwikkeling van de POC werd Sencha Architect versie 2.1 gebruikt voor een tijdsduur van $21$ dagen.
+Het grootste voordeel van Sencha Architect kon bij de ontwikkeling van \code{Views} worden gevonden.
+De \code{Views} kunnen specifiek voor mobiele schermen worden geoptimaliseerd.
+Dit zowel voor staande als liggende apparaten.
+Na $21$ dagen werd de PhpStorm als IDE gebruikt bij de ontwikkeling van \st{}.
+Dezelfde IDE werd ook gebruikt bij de ontwikkeling met andere raamwerken en biedt ondersteuning voor zowel Windows, Mac als Linux.
+Een voordeel bij het gebruik van deze IDE is onder andere de automatische codeaanvulling.
+Daarnaast toont de IDE hints voor het optimaliseren van \js{}-code die specifiek gebruikt maakt van de jQuery-bibliotheek.
+
+\subsection{Boilerplate code}
+Het initialiseren van een nieuwe applicatie van het raamwerk beïnvloed ook sterk de productiviteit.
+\st{} biedt hiervoor terug een tool,  Sencha Cmd,  die deze functionaliteit mogelijk maakt~\cite{Sencha2012}.
+Deze tool kan de initiële applicaties opzetten,  bestanden toevoegen en de applicatie bouwen en uitrollen.
+Ondanks dat de initialisatie van een nieuwe project kan worden geautomatiseerd, zijn de bekomen bestanden van het project niet zo duidelijk.
+Een nieuwe \code{Controller},  \code{Store},  \code{Model} of \code{View} genereren kan automatisch met Sencha Cmd of manueel.
+Bij de manuele aanpak moet het nieuwe \js-bestand in de juiste folder worden ondergebracht.
+\st{} legt een strenge structuur van folders op en de applicatie zal enkel werken als aan deze structuur wordt vastgehouden.
+De ervaringen van de auteurs met \st{} zegt dat deze structuur tot veel verwarring leidt.
+
+\jqm{} en \kendo{} beschrijven boilerplate code bij hun documentatie~\cite{JQuery2012b,Telerikd}.
+Ook is bij de documentatie van beide raamwerken een expliciete sectie aanwezig die de programmeur helpt om een applicatie op te zetten.
+Bij \lungo{} is dit niet het geval.  
+Om een \lungo{} applicatie op te zetten moest naar de broncode van de voorbeelden op de documentatie gekeken worden.
+% leercurve: 
+% -ST lag hoger door MVC en pure JS (zie loginscherm steekt er met 7 uur met de kop bovenuit)
+% -jQM en Kendo hadden boiler plate code, ST had tool project te maken maar dan… allemaal files en folders, je weet zo niet direct waar gestart, vanaf je iets verkeerd veranderd wordt er niets meer gerenderd. 
+% gestart met jQM en ST, waardoor productiviteit van de andere 2 hoger ligt (incl problemen met backend, zeker 20u)
+% -Lungo had geen boilerplate code, naar eerste example de broncode kopiëren. quojs zeer gelijkaardig aan jquery syntax. door de opgedane kennis van jquery verlaagt het de curve sterk, anders is het praktisch ondoenbaar (documentatie quojs is 1 bladzijde met code en kernwoorden)
+
+\subsection{Documentatie}
+Ook de kwaliteit en kwantiteit van de documentatie kunnen de scores van de productiviteit verklaren.
+De \st{} documentatie is het grootst in vergelijking met de andere raamwerken.
+De grootte van de documentatie maakt het moeilijk om zelf onduidelijkheden gericht te zoeken.
+De zoekfunctie met auto-aanvulling is noodzakelijk om de juiste documentatie terug te vinden.
+De documentatie van \kendo{} is overzichtelijker en nog steeds volledig.
+De combinatie van de secties API en Getting Started waren de voornaamste drijfveer.
+Ook worden alle kenmerken die het raamwerk aanbiedt met demo's en codevoorbeelden getoond.
+De zoekfunctie van de documentatie is niet optimaal en hierdoor ook maar weinig gebruikt.
+De documentatie van \jqm{}~1.2 bevat geen zoekfunctie en codevoorbeelden.
+Hierdoor moet naar de broncode worden gekeken om de code van een kenmerk te begrijpen.
+Een voordeel van de \jqm{} documentatie is dat de documentatie zelf met \jqm{} is gebouwd.
+Een belangrijke opmerking is dat de \jqm{}~1.3 wel een zoekfunctie en codevoorbeelden in zijn documentatie heeft opgenomen.
+De documentatie van \lungo{} is zeer beknopt.
+Dezelfde opmerking kan worden gemaakt bij de documentatie van \quo.
+Alle kenmerken van \lungo{} worden met codevoorbeelden verduidelijkt.
+Sommige voorbeelden zijn echter incorrect.
+De documentatie is opgedeeld in Prototype en \js-API.
+De eerste was voornamelijk handig om de loginapplicatie te ontwikkelen. %TODO Sander:  geldt deze opmerking ook voor u Tim?
+
+% documentatie: 
+% -ST: demo (Kitchen snik app), zoekfunctie is goed (met autocomplete), maar wel veel meer documentatie dan de andere, waardoor zonder zoekfunctionaliteit moeilijk is
+% -Kendo: interactief te leren, heel overzichtelijk, veel demo's (music store),, onoverzichtelijke zoekfunctie
+% -jQM: 1.2 geen zoekfunctie, geen echte code, je moet kijken naar de broncode, documentatie zelf is geschreven met het framework. vanaf 1.3 wel zoekfunctie en codevoorbeelden
+% -Lungo: prototype heel goed, maar dan de rest zeer zeer beknopt. geen zoekfunctie. soms zijn is de voorbeeldcode niet correct. 
+
+\subsection{Debugging}
+Het zoeken naar bugs in de code verliep bij elk raamwerk gelijkaardig.
+De applicatie werd lokaal uitgerold en in de Web Inspector van Chrome gedebugd.
+Debuggen op de apparaten kon door deze te connecteren via USB met de computer.
+Android toestellen met een Chrome browser kunnen debugt worden met de Web Inspector.
+Debuggen op iOS toestellen kan op een Mac met dezelfde Web Inspector maar in de Safari browser. %TODO Sander: wat met xcode?
+% debugging:
+% - ST: beige auteurs, dezelfde aanpak, alles in commentaar zetten tot iets werkende en dan beetje bij beetje uit commentaar halen
+% - ST: debug voor extra info (niet hetzelfde als jqm.min en jqm)
+% - altijd debuggen in chrome met console, vanaf het daar volledig werkt, pas debuggen op de devices zelf: chrome: connecteren via usb debugging, safari via xcode
+
+\subsection{Literatuur}
+Zowel \jqm{} als \st{} werden vaak in de literatuur aangehaald.
+Op Safari Books Online kunnen 13 boeken teruggevonden worden die volledig op \jqm{} zijn toegespitst.
+Het boek van Dutson in de Sam Teach Yourself serie werd gebruikt om met \jqm{} vertrouwd te geraken~\cite{PhilDutson2012}.
+%TODO: hadden wij dat ander ook niet doorgelezen van Pro jQM ouzo?
+Vier boeken over \st{} kunnen op Safari Books Online worden teruggevonden waarbij het werk van Clark werd gebruikt~\cite{JohnEClark2012}.
+\kendo{} komt slecht in een boek van voor~\cite{Bhandari2013},  \lungo{} helemaal niet.
+Het boek rond \kendo{} is slechts een proefdruk en wordt pas in augustus 2013 officieel geplubliceerd.
+Dit werk werd niet gebruikt.
+%TODO: Lungo heeft nog een literatuur
+
+
+\subsection{Vragen}
+%TODO Sander: activiteit van de fora van de raamwerken bespreken?  Kendo:  issues op fora met fiddle verklaard
+Wanneer de programmeur met problemen van het raamwerk werd geconfronteerd, moest op het web naar oplossingen gezocht worden.
+In sectie \ref{sec:evaluatie-populariteit} werden reeds het aantal vragen van het raamwerk op Stack Overflow bekeken.
+Hoe groter dit aantal,  hoe groter de kans dat een probleem reeds op Stack Overflow is aangehaald.
+Bij \lungo{} is dit aantal minimaal en was de programmeur vaak aangewezen om zelf oplossingen van zijn problemen te zoeken.
+% vragen:
+% - ST, jQM, Kendo vaak antwoord op stack overflow (zie populariteit)
+% - Lungo: je bent op jezelf gewezen
+%Sander
+
+
+
+
+
+
+
+
+
+
+
+
+% Uit de cijfers blijft Lungo  meest productief, maar door de voorgaande kennis van jquery, POC en backend + het feit dat er bepaalde dingen niet geïmplementeerd konden worden in lungo, moet dit met een korreltje zout worden genomen (het loginscherm is hiervan een indicatie)
 
 
 %%%%%%%%%%%%%%%%%

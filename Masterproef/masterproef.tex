@@ -37,6 +37,7 @@
 \usepackage{booktabs} % voor layout comparisontable
 \usepackage{float} %floating tabellen onderdrukken
 \usepackage{pdflscape} %tabel in landscape zetten
+\usepackage{rotating}
 \usepackage{enumitem}
 \usepackage{longtable} %tabel over meerdere pagina's
 \usepackage{graphicx} %breedte tabel
@@ -53,11 +54,10 @@
 \renewcommand{\url}[1]{\href{#1}{#1}}
 
 % veelgebruikte woorden, apparaten, uitdagingen
-
 \include{prelude/namen}
 \include{prelude/apparaten}
 \include{prelude/uitdagingen}
-\newcommand{\challenge}[1]{\paragraph{#1}}
+\newcommand{\score}[2]{(#1/#2)} % score bij ondersteuning
 
 
 %%%%%%%

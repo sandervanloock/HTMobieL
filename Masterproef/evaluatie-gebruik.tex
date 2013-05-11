@@ -189,7 +189,6 @@ Door daarna de knop te annoteren met het \code{data-theme}-attribuut activeert m
 Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's (\term{swatch} \code{b}) was en men die direct kan gebruiken.
 
 \paragraph{\lungo}
-%TODO tim: vermelden tabbar over volledige breedte, hack listitem, niet onder onderkoptekst
 Het tonen van kop- en voettekst gebeurt door de verschillende schermen van de applicatie te omvatten door \code{<article>}-tags en daarbinnen de \code{<header>}- en \code{<footer>}-tag te gebruiken.
 Deze drie tags zijn nieuw in HTML5.
 In de voettekst kunnen door CSS-regels de twee logo's links en rechts uitgelijnd worden.
@@ -198,6 +197,8 @@ De onderkoptekst werd met een omweg bekomen door een lijst te maken met slechts 
 Het maken van een tabbar is standaard aanwezig in \lungo{}.
 Deze wordt bekomen door een \code{<nav>}-tag te annoteren met de \code{groupbar}-klasse.
 In de \code{<nav>}-tag worden de links naar de verschillende tabbladen gemaakt door middel van \code{<a>}-tags.
+De tabbar wordt getoond over de volledige breedte en komt onmiddellijk onder de koptekst en dus boven de onderkoptekst.
+Dit in tegenstelling tot het gevraagde in de POC waar de tabbar onder de onderkoptekst diende te komen.
 
 Het veranderen van de kleur van knoppen gebeurt in CSS waarbij de achtergrondkleur van de knop eenvoudig kan worden aangepast.
 
@@ -304,6 +305,7 @@ Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3
 Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
 Daarnaast gebruikte men al op de documentatiesite van \jqm{}~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
 De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiesite van \jqm{}~1.2.
+Bij CSS3 media queries moet zelf een breekpunt (uitgedrukt in pixels) worden opgegeven wanneer dient geschakeld te worden tussen smartphonelay-out of tabletlay-out.
 
 Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt gebruikt.
 
@@ -624,7 +626,7 @@ Om deze in te vullen moet de \code{setGroupValue} van het veld worden aangesprok
 
 
 %TODO u13 lijsten en click invullen van formulier,  hier ook...
-De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{navigationview} en wordt in U13: Lijsten besproken.
+De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{navigationview} en wordt in \uit{lijsten}.
 
 Velden read-only maken kan door objecten te voozien van de \code{readOnly} eigenschap en de waarde op \code{true} te zetten.
 Bij \code{radiofields} en \code{checkboxfields} heet deze eigenschap \code{disabled}.
@@ -925,7 +927,7 @@ Deze zal het validatiebericht naast het invalide formulierelement plaatsen.
 Een venster tonen waarbij alle foutenboodschappen zijn samengevat is ook niet standaard aanwezig.
 De \code{errors} methode van een \code{validator} geeft een rij van foutenboodschappen terug.
 De volledige foutenboodschap moet vervolgens worden geconstrueerd door alle foutenboodschappen te concateneren.
-Hoe een dialoogvenster gemaakt wordt zal in U11.2 Toon dialoog worden besproken.
+Hoe een dialoogvenster gemaakt wordt zal in \uit{dialoog} worden besproken.
 
 \paragraph{\jqm}
 Validatie is niet standaard aanwezig in jQuery Mobile. 
@@ -956,10 +958,13 @@ Door de extra code die \jqm{} genereert rond deze velden, moest via de DOM de om
 Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
 
 \paragraph{\lungo}
-%TODO Tim: moet ik ook uitleggen hoe ik het geprogrammeerd heb? score is toch 0..
 Validatie is niet aanwezig in \lungo{} en er kon ook geen plug-in voor QuoJS gevonden worden~\cite{Ameye2013}.
 Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met QuoJS.
 Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \jqm{}), werd alle validatie manueel geprogrammeerd. 
+Bij wijze van voorbeeld werd enkel validatie op het loginscherm geprogrammeerd.
+Validatie op de rest van de formulieren doorheen de POC is volgens dezelfde werkwijze mogelijk, maar werd niet geïmplementeerd.
+Dit verandert namelijk niets aan de score.
+
 Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute velden werd ook zelf geprogrammeerd.
 Bij een foutief gevalideerd veld werd een CSS-klasse toegevoegd die zorgde voor een rode rand.
 
@@ -1175,7 +1180,7 @@ De functionaliteiten van \code{Ext.XTemplate} zijn:
 \end{itemize}
 Het formateren van een datum kan door de \code{date} methode van \code{Ext.util.Format} op te roepen in het sjabloon.
 
-Zoals reeds besproken bij uitdaging U2.1 Vul formulierelementen met data, kan een formulier worden ingevuld met een \code{navigationview}.
+Zoals reeds besproken bij \uit{vullen}, kan een formulier worden ingevuld met een \code{navigationview}.
 Deze \code{view} heeft een \code{push} en \code{pop} methode om een \code{view} op een \code{stack} te plaatsen of af te halen.
 Om een \code{view} te tonen die hoort bij een lijstelement wordt gebruik gemaakt van deze \code{navigationview} en de \code{push} methode.
 De lijst wordt in een \code{navigationview} ingesloten.
@@ -1342,7 +1347,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Zoals besproken bij U8: AJAX kan een \code{store} voozien worden van een \code{proxy} die data opslaat aan klantzijde.
+Zoals besproken bij \uit{ajax} kan een \code{store} voozien worden van een \code{proxy} die data opslaat aan klantzijde.
 Deze \code{store} maakt gebruik van de HTML5-localStorage API.
 Om inlog gegevens en onverzonden onkosten lokaal te bewaren moeten twee \code{stores} met deze \code{proxy} worden gedefinieerd.
 Een belangrijke opmerking is dat geen twee \code{proxies} aan een \code{store} kunnen worden toegevoegd.
@@ -1417,57 +1422,3 @@ Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een fal
 
 Het offline beschikbaar maken van de applicatie wordt vanuit \lungo{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
 Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
-
-
-%\subsection{U12: Dataconversie}
-%
-%\paragraph{\jqm}
-%De omvorming bij een buitenlandse uitgave dient automatisch te gebeuren bij het ingeven van bedrag en munteenheid.
-%Hiervoor wordt aangehaakt op het veranderingsevenement \code{.change} dat jQuery aanbiedt, waarna na omvorming het bedrag direct getoond wordt aan de gebruiker.
-%
-%\paragraph{\st}
-%%TODO score? verplaatsten met lijsten
-%De omzetting van \code{identifiers} en munteenheden vindt plaats in de overzichtslijsten.  
-%Lijsten kunnen voorzien worden van een sjabloon om de elementen in de lijst op te maken.
-%Hierop wordt verder ingegaan in de volgende uitdaging.
-%In de lijst van uitgaven moet elke uitgave getoond worden met het bedrag in euro.
-%In het sjabloon voor deze lijst kan een \js-methode worden geplaatst die het bedrag van de uitgave eerst naar euro zal omzetten.
-%De progammeur heeft toegang tot alle eigenschappen van een model waarvan modelinstanties de lijstelementen zullen bepalen.
-%De methode die de munteenheid tot euro omvormt, kan dus ook deze eigenschappen gebruiken.
-%De methode moet echter wel zelf worden geschreven.
-%Op een analoge manier verloopt de conversie van \code{identifier} naar tekstuele vorm.
-%
-%%TODO alternatief data geconverteerd opslagen en bij versturen/tonen als detailexpense terug omvormen.
-%
-%\paragraph{\kendo}
-%TODO
-%
-%\paragraph{\lungo}
-%TODO
-%
-%\begin{table}[H]
-%\centering
-%\pgfplotstabletypeset[
-%  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-%  end table=\end{tabular},
-%  skip coltypes=true,
-%  col sep=comma,
-%  string type,
-%  header=true,
-%  columns={Uitdaging,jQM,ST,Kendo,Lungo},
-%  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-%  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-%  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-%  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-%  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-%  every head row/.style={
-%    before row=\toprule,
-%    after row=\midrule},
-%  every last row/.style={
-%  	before row=\midrule,
-%    after row=\bottomrule}
-%]{tabellen/gebruik/u12.csv}
-%\caption{Scores voor U12: Dataconversie}
-%\label{tabel:evaluatie-gebruik-u12}
-%\end{table}
-

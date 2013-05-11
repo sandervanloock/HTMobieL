@@ -41,7 +41,7 @@ De term onkostenformulier is een groepering van meerdere onkosten met bijhorende
 Het aanmaken van een nieuw onkostenformulier verloopt in vier stappen.
 Indien de werknemer al eerder begonnen was met het aanmaken van een formulier, zal hij worden gevraagd of hij verder wil gaan met dat formulier of met een nieuw formulier wil starten.
 
-%Ik kreeg het gevoel dat de schrijfstijl veranderd.  Soms wordt er naar 'zijn', 'hij', ... verwezen,  dan weer is er de beschrijvende stijl met een verwijzing naar 'de werknemer`.. snapte? :) Tim: nee
+%TODO Ik kreeg het gevoel dat de schrijfstijl veranderd.  Soms wordt er naar 'zijn', 'hij', ... verwezen,  dan weer is er de beschrijvende stijl met een verwijzing naar 'de werknemer`.. snapte? :) Tim: nee
 
 \begin{enumerate}
 \item De eerste stap is het bekijken en/of aanpassen van de persoonlijke informatie van de werknemer.
@@ -85,8 +85,8 @@ Elk raamwerk krijgt voor elk criterium een score.
 Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-spinnenweb}).
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
 De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuningscriterium drijven.  
-%TODO capgemini ipv de autheurs, ok tim?
 Dit komt omdat Capgemini de POC zo heeft opgesteld dat het verschillende functionaliteit bevat om een volledige vergelijking te kunnen maken.
+
 De score van performantie zal deels bepaald worden door de laadtijden van de POC.
 
 \subsection{Populariteit}
@@ -134,6 +134,7 @@ De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste e
 De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwerk vertrouwd te raken.
 De auteurs zullen het raamwerk testen met een implementatie van de POC.
 Er kan verondersteld worden dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
+
 Elk zullen ze de POC in twee verschillende raamwerken maken,  daarnaast ook een extra login applicatie in twee andere raamwerken.
 Tim Ameye maakt de POC in \jqm{} en \lungo{} en de login applicatie in \st{} en \kendo{}.
 Sander Van Loock zal dan de POC in \st{} en \kendo{} maken en de login applicaties in \jqm{} en \lungo{}.
@@ -165,19 +166,36 @@ Vervolgens zal de kwaliteit en quantiteit van de documentatie van elk raamwerk w
 De mogelijkheden voor debuggen bepalen ook de productiviteit en zullen bekeken worden.
 Tot slot zal gekeken worden naar de aanwezige literatuur van het raamwerk en waar ontwikkelaars met vragen terecht kunnen.
 
+% \newcounter{assumpties}
+% \begin{enumerate}[\textbf{Item} i]
+%   \item \label{ass:poc} De POC bevat alle relevate kenmerken om het raamwerk te testen voor applicaties binnen een bedrijfscontext.
+%   \suspend{enumerate}
+% \end{enumerate}
+% 
+% \begin{enumerate}[{[\textbf{Item} i]}]
+%   \setcounter{assumpties}{\value{enumi}}
+%   \item \label{ass:achtergrond} Beide auteurs beschikken over een gemeenschappelijke technische achtergrond.
+% \end{enumerate}
+
 \paragraph{Motivatie}
-TODO
+
+Volgens assumptie XX bevat de POC alle belangrijke componenten om het raamwerk maximaal te testen.
+De tijd die nodig is om deze applicatie te bouwen, is dus zeker een geldige waarde om de productiviteit te bepalen.
+Assumptie XX laat toe om met twee verschillende personen dit criterium te testen.
+
+Omdat éénzelfde applicatie twee keer moet worden geïmplementeerd, wordt verwacht dat de tweede implementatie sneller zal verlopen.
+Dit probleem is onafwendbaar en zal bij de evalatie van de data aangehaald worden.
+
+De uren voor de implementatie van de loginapplicatie zal de score correcter maken.
+
+De leercurve van het raamwerk zit impliciet in de score voor de productiviteit vervat.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Gebruik}
 \label{sec:vergelijking-gebruik}
-% Om het verschil in gebruik van de raamwerken te onderzoeken, zullen we steunen op de logboeken die we hebben bijgehouden tijdens het implementeren van de POC. 
 
-% TODO Tim: ik zou onderstaande zin uit gebruik trekken, is ook relevant voor productiviteit en ondersteuning
-%Sander: evt. alle assumpties ook met equations weergeven.  Dan kunnen we er altijd naar verwijzen als we ze nodig hebben?? Tim: ok voor mij
-Men kan ervan uitgaat dat de POC alle relevante kenmerken bevat om de raamwerken zoveel mogelijk uit te buiten. 
 Deze POC kan onderverdeeld worden in verschillende deelproblemen.
 Deze deelproblemen worden als uitdaging aan het raamwerk voorgelegd.
 Alle uitdagingen en deeluitdagingen zijn hieronder te vinden.
@@ -203,11 +221,22 @@ Alle uitdagingen en deeluitdagingen zijn hieronder te vinden.
 %\label{tabel:uitdagingen}
 %\end{table}
 
+In totaal konden 13 uitdagingen en 38 onderuitdagingen uit de POC geëxtraheerd worden.
+
+
 De wijze waarop het raamwerk de uitdaging aangaat zal tot een score voor de uitdaging leiden.
-In totaal zijn er drie gevallen.
-De hoogste score wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. 
-Een lagere score betekent dat een plug-in werd gezocht. 
-Wanneer de code voor het overgrote deel zelf diende geschreven te worden of een hack noodzakelijk was, zal de laagste score worden toegekend.
+Er onderscheiden zich drie gevallen.
+De hoogste score ($2$) wordt toegekend wanneer bepaalde functionaliteit reeds aangeboden wordt door het raamwerk. 
+Een lagere score ($1$) betekent dat een plug-in werd gezocht.
+Omdat de raamwerken verderbouwen op HTML5, zal een kenmerk van HTML5 ook als plug-in beschouwd worden.
+Voor een oplijsting van de HTML5 kenmerken wordt naar sectie \ref{sec:html5-css3-js} verwezen.
+Wanneer de implementatie zelf diende geschreven te worden of een hack noodzakelijk was, zal de laagste score ($0$) worden toegekend.
+Ook is het mogelijk  dat de uitdaging helemaal niet werd geïmplementeerd.
+Dit is mogelijk wanneer het raamwerk de functionaliteit niet ondersteund,  geen plug-in werd gevonden en niet aan een eigen implementatie werd begonnen.
+Dit zal leiden tot een $0$ score.
+Wanneer CSS-code werd gebruikt om de uitdaging op te lossen zal de laagste score worden toegekend.
+Het gebruik van CSS3 wordt echter als kenmerk van HTML5 gezien en vervolgens met $1$ gequoteerd.
+
 Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $U_{r,i}$ van raamwerk $r$ en voor uitdaging $i$.
 \begin{table}[h]	
   \centering
@@ -216,69 +245,83 @@ Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $U_{r,i}$ van raa
     \textbf{Score} & \textbf{Beoordelingscriteria}\\
     \midrule
     $U_{r,i} = 2$ & Ondersteund door het raamwerk\\
-    $U_{r,i} = 1$ & Een plug-in is nodig of nieuwe kenmerken van HTML5\\ %TODO verder uitleggen (CSS3 valt onder nieuwe kenmerken van koepel html5)
-    $U_{r,i} = 0$ & Eigen implementatie of hack of niet geïmplementeerd\\ %niet implementeren is niet verder tijd ingestoken (alles is implementeerbaar)
+    $U_{r,i} = 1$ & Een plug-in is nodig of nieuwe kenmerken van HTML5\\
+    $U_{r,i} = 0$ & Eigen implementatie of hack of niet geïmplementeerd\\ 
     \bottomrule
   \end{tabular}
   \caption{Beoordeling uitdagingen gebruikscriterium}
   \label{tabel:scores-uitdagingen}
 \end{table}
 \begin{equation}
-  GB_r = \sum_{i=1}^{14}{\left(U_{r,i}\right)}
+  GB_r = \sum_{i=1}^{38}{\left(U_{r,i}\right)}
   \label{eq:gebruik}
 \end{equation}
 met $r$ de verschillende raamwerken en $i$ de uitdagingen.
-%TODO duidelijk verklaren dat 1 staat voor een plug-in,  geen CSS3 of HTML5 features
-%TODO relatieve score gebruik
+
+Omdat er $38$ onderuitdagingen zijn kan het raamwerk voor dit criterium maximaal $76$ behalen.
 
 \paragraph{Motivatie}
-TODO
-%TODO Tim: uitleggen waarom we er 3 gekozen hebben en bv. niet de 4 van mij… 'omdat we raamwerken testen en niet pure HTML5/CSS3'
+
+Alle interessante functionaliteit die in de POC werd gebruikt, zit in een uitdaging vervat.  
+Interessante functionaliteit slaat op functionaliteit die potentieel door het raamwerk kan worden ondersteund.
+De POC bevat bijvoorbeeld ook een omzetting van \term{identifiers} naar hun tekstuele vorm.
+Dit is geen interessante functionaliteit omdat het eigen is aan de POC zelf.
+De implementatie hiervan zal uitsluitend uit \term{native} \js{}-code bestaan.
+
+De potentiele score van een uitdaging is discreet en ligt tussen $0$ en $2$.
+%Deze score moet een objectief beeld geven over hoe het raamwerk de uitdaging aangaat.
+Er zijn dus slechts $3$ scores waaruit gekozen kan worden om de implementatie te beoordelen.
+De motivatie hiervoor is slechts de eenvoud.
+Een alternatief bestond uit $4$ scores waarbij HTML5 kenmerken een lagere score kregen in vergelijking met plug-ins.
+Omdat de raamwerken afhankelijk zijn van HTML5 werd hiervoor niet gekozen.
+%TODO beter uitleggen?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Ondersteuning}
 \label{sec:vergelijking-ondersteuning}
-Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen met hun verschillende besturingssystemen ondersteund.
+Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen en verschillende besturingssystemen ondersteund.
 % TODO Tim: duidelijker uitleggen hoe dat zit met browser en OS, nu veel te kort tussen haakjes aangehaald
 Enkel de standaard browser van het besturingssysteem (Android browser/Chrome en Safari) zal beschouwd worden.
-Een \term{context} is één bepaalde configuratie van toestel, besturingssysteem en browser.
-Alle uitdagingen die gebruikt zijn om het gebruikscriterium te testen komen ook hier van pas.
-In elke context zullen de $14$ uitdagingen van de vorige sectie worden getest.
-De correcte weergave en uitvoering van alle subuitdaging binnen een context bepaalt de score voor die context.
-Deze score kan enkel $0$ of $1$ zijn om wille van respectievelijk een probleem of correcte uitvoering van de subuitdaging.
-% Per context zal ook de marktwaarde van het toestel in rekening worden gebracht om de meest gebruikte toestellen te bevoordelen.
-% De marktwaarde is afhankelijk van het besturingssysteem,  de versie van het besturingssysteem en de gebruikte mobiele browser.
-% Voor de marktwaarden wordt naar tabellen \ref{tabel:marktaandeel-ios-android} en \ref{tabel:marktaandeel-browsers} verwezen.
-% De formule voor de marktwaarde van een bepaalde context ziet er als volgt uit:
-% %TODO Sander: ook gewicht van device?
-% \begin{equation}
-%   G_c = G(BS_c)*G(BS_{c,v})*G(Browser_c)
-%  \label{eq:marktwaarde}
-% \end{equation}
-% met $G$ de functie die de marktwaarde teruggeeft.  
-% De marktwaarde voor Android en iOS ($G(BS_c)$) werd vermeld in sectie \ref{sec:mobiele-besturingssystemen}.
-% De relatieve marktwaarde van de versie van dat besturingssysteem ($G(BS_{c,v})$) kan gevonden worden in tabel \ref{tabel:marktaandeel-ios-android}.
-% De marktwaarde van mobiele webbrowsers ($G(Browser_c)$) kan gevonden worden in tabel \ref{tabel:marktaandeel-browsers}.
-% 
-% In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
-
-De gewogen som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
-\begin{equation}
-  O_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{13}U_{r,i}\right)}
-  \label{eq:ondersteuning}
-\end{equation}
-met $r$ de verschillende raamwerken,  $c$ de verschillende contexten en $i$ de uitdagingen. 
-
-%TODO keuze van devices verklaren (phablet ?)
-
-%TODO relatieve score ondersteuning: quoteer enkel wat supported is
+Voor Android geldt dat vanaf versie 4.0 Chrome als standaard browser wordt gezien. %TODO referentie http://androidandme.com/2012/02/applications/goodbye-old-browser-chrome-to-become-the-standard-browser-on-android-4-0-and-above/
 
 
-%TODO Onderstaande wordt verplaatst naar hoofdstuk raamwerken
-%Een kanttekening bij dit criterium is of het raamwerk ondersteunt de webapplicatie om te vormen tot een \term{native} applicatie. 
-%Ook zal er gekeken worden of de \term{native look-and-feel} per platform door het raamwerk kan worden benaderd.
+Een context wordt gedefinieerd als één bepaalde configuratie van toestel, besturingssysteem en browser.
+In elke context zal de functionaliteit van de POC op ondersteuning worden getest met uitdagingen.
+Uitdagingen die gebruikt zijn om het gebruikscriterium te testen, kunnen hier worden hergebruikt.
+Aangezien sommige uitdagingen triviaal gelden voor elk apparaat zal er slechts een subset van deze uitdagingen getest worden.
+Triviale uitdagingen zijn uitdagingen waarbij de implementatie in elk raamwerk enkel uit \js bestaat.
+Deze uitdagingen zijn:
+\begin{itemize}
+ \item \uit{anatomie}
+ \item \uit{laadscherm}
+ \item \uit{vullen}
+ \item \uit{ajax}
+ \item \uit{lijsten}
+\end{itemize}
+Er resten dan nog $8$ uitdagingen.
+Voor dit criterium worden alle onderuitdagingen verwaarloosd behalve bij \uit{formulieren} en \uit{offline}.
+%De onderuitdagingen zijn te specifiek om op ondersteuning te testen.
+Een uitdaging zal enkel slagen als alle onderuitdagingen ondersteund worden.
+Zo kan bijvoorbeeld op een apparaat getest worden of auto-aanvullen werkt.
+Uitdaging \uit{autoaanvullen} bevat als onderuitdagingen het ophalen van suggesties en het tonen van een dropdownmenu.
+De werking van de uitdaging is een combinatie van beide en zal dus enkel slagen als beide worden ondersteund.
+De onderuitdagingen van \uit{formulieren} en \uit{offline} kunnen wel op ondersteuning worden getest.
+%TODO nog vermelden dat datepicker uitdagingen zijn samengenomen?
+
+
+Het is belangrijk dat het raamwerk en niet een eigen implementatie op ondersteuning wordt getest.
+Wanneer een uitdaging in het vorige criterium een $0$ behaalde, wil dit zeggen dat het raamwerk de uitdaging al niet ondersteunde.
+In dit geval moet er niet op ondersteuning getest worden.
+Hierdoor is het aantal uitdagingen of onderuitdagingen die getest worden afhankelijk van het raamwerk.
+
+
+Deze score van een uitdaging of onderuitdaging kan $1$ of $0$ zijn.
+Dit slaat op respectievelijk een vlekkeloze of problematieke uitvoering.
+De maximale score die het raamwerk per context kan behalen is $13$.
+In totaal zullen $8$ contexten worden gebruikt.
+Deze worden in tabel \ref{tabel:toestellen-hci} weergegeven.
 
  \begin{table}[H]
  \centering
@@ -305,9 +348,39 @@ met $r$ de verschillende raamwerken,  $c$ de verschillende contexten en $i$ de u
  \end{table}
 
 
+De som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
+\begin{equation}
+  O_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}U_{r,i}\right)}
+  \label{eq:ondersteuning}
+\end{equation}
+met $r$ de verschillende raamwerken,  $N$ het aantal geïmplementeerd uitdagingen en onderuitdagingen,  $c$ de verschillende contexten en $i$ de uitdagingen. 
+
+
+Indien het raamwerk een implementatie bevat voor alle uitdagingen en onderuitdagingen kan er per context maximaal $13$ gescoord worden.
+Indien alle $8$ contexten alle uitdagingen en onderuitdagingen correct weergeven zal de maximale score van $104$ behaald worden.
+
+% Per context zal ook de marktwaarde van het toestel in rekening worden gebracht om de meest gebruikte toestellen te bevoordelen.
+% De marktwaarde is afhankelijk van het besturingssysteem,  de versie van het besturingssysteem en de gebruikte mobiele browser.
+% Voor de marktwaarden wordt naar tabellen \ref{tabel:marktaandeel-ios-android} en \ref{tabel:marktaandeel-browsers} verwezen.
+% De formule voor de marktwaarde van een bepaalde context ziet er als volgt uit:
+% %TODO Sander: ook gewicht van device?
+% \begin{equation}
+%   G_c = G(BS_c)*G(BS_{c,v})*G(Browser_c)
+%  \label{eq:marktwaarde}
+% \end{equation}
+% met $G$ de functie die de marktwaarde teruggeeft.  
+% De marktwaarde voor Android en iOS ($G(BS_c)$) werd vermeld in sectie \ref{sec:mobiele-besturingssystemen}.
+% De relatieve marktwaarde van de versie van dat besturingssysteem ($G(BS_{c,v})$) kan gevonden worden in tabel \ref{tabel:marktaandeel-ios-android}.
+% De marktwaarde van mobiele webbrowsers ($G(Browser_c)$) kan gevonden worden in tabel \ref{tabel:marktaandeel-browsers}.
+% 
+% In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
 
 \paragraph{Motivatie}
-TODO
+De keuze van de $8$ contexten waarop ondersteuning wordt getest, is voornamelijk bepaald door het beschikbaarheid van de apparaten op het departement computerwetenschappen van de KU Leuven.
+Er werd een evenwichtige keuze gemaakt tussen besturingssysteem,  browser en type apparaat.
+Er werd gekozen voor $4$ Android en $4$ iOS apparaten.
+Bij de $4$ Android apparaten zijn er $2$ met een Android browser en $2$ met Chrome browser.
+Ook werd er gekozen voor $4$ smartphones en $4$ tablets.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -316,41 +389,45 @@ TODO
 \label{sec:vergelijking-performantie}
 Dit criterium zal de laattijden van het raamwerk in rekening brengen.
 
-Ten eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($r_{r,POC}$). 
-%TODO De tijden voor het laden van de volledige POC zullen gemeten worden met pcapperf..
+Hier onderscheiden zich vier gevallen.
+Ten eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($l_{r,c,POC}$). 
+Vervolgens zal de tijd worden opgemeten om de POC uit het cachegeheugen te laden ($l_{r,c,POC_{cache}}$).
+Dezelfde twee gevallen zullen ook voor de loginapplicatie die in sectie \ref{sec:vergelijking-productiviteit} werden geïntroduceerd, worden opgemeten ($l_{r,c,login}$ en $l_{r,c,login_{cache}}$).
+De redenen waarom deze applicatie wordt gebruikt, is omdat ervan kan worden uitgegaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
+Dit is in tegenstelling tot deze applicatie die gelijkaardig is in de vier raamwerken.
+De laadtijden kunnen vervolgens objectiever vergeleken worden en het aantal lijnen code kan verschillen verklaren.
 
-%TODO exacte info tests + extra info CORS zoeken
-
-%Verdergaand op het versturen van requests zullen we kijken hoe lang het duurt vooraleer een expense daadwerkelijk verzonden is naar de backend.
-% Verder zijn er ook geïsoleerde testen met GI-elementen. 
-% Hier zal een \term{dummy} pagina voorzien worden 1000 knoppen van het raamwerk en bepaalt Google Page Speed de laadtijd ($r_{r,GI}$). 
-%TODO exacte UI tests hier uitleggen
-Als laatste zullen de loginschermen die in sectie \ref{sec:vergelijking-productiviteit} werden geïntroduceerd, worden gebruikt ($t_{r,login}$). 
-%TODO ook meten logintijd + gecachte versie
-De redenen waarom deze geïsoleerde applicatie wordt gebruiken is omdat ervan kan worden uitgegaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
-Dit is in tegenstelling tot dit scherm, waarbij exact het aantal lijnen code en bijhorende performantie kan worden vergeleken.
-
-%TODO bespreken downloadtijd, LOC, GPS en 
+De laadtijden voor de vier gevallen zullen op acht verschillende apparaten worden opgemeten.
+Dit zijn dezelfde als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
 
 De formule voor het performantiecriterium wordt dan: 
 
 \begin{equation}
-  PE_r=r_{r,POC}+r_{r,POC_cache}+r_{r,login}+r_{r,login_cache} 
+  PE_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)} 
   \label{eq:performantie}
 \end{equation}
 met $r$ de verschillende raamwerken.
 
-%TODO enkele zaken die bekeken zullen worden ter verklaring van de score:
-% De tijd die nodig is om één of meerder pagina's te laden zal bepaald worden met Google Page Speed~\cite{Morgan2011}. 
-% Hiervoor zullen verschillende testen worden uitgevoerd. 
-% Gebruikerservaring adhv scrollen door lange lijst (relatieve score)
-%TODO tabel scores
-%TODO AJAX
-%Daarnaast zullen geïsoleerde testen met het verzenden van een AJAX-request uitgevoerd worden ($r_{r,AJAX}$).
-% Daar wordt het effect van het versturen van een OPTION-\term{request} bekeken wanneer een verzoek naar een ander domeinen wordt gestuurd.
+Het opmeten van laadtijden zal met PCAP Web Performance Analyzer gebeuren. %TODO referentie http://pcapperf.appspot.com/
+Deze tool kan HAR-bestanden (HTTP \term{Archive}) analyseren.
+Dit zijn bestanden die sporen van HTTP-trafiek bevatten.
+Om deze bestanden te verkrijgen moet een laptop als hotspot worden ingesteld en de apparaten connecteren op de hotspot.
+Wireshark of TCPdump kunnen op de hotspot HTTP-verkeer opmerken en bijhorende HAR-bestanden aanmaken.
+
+Elke meting zal drie keer worden uitgevoerd.
+Het gemiddelde van de drie metingen zal de uiteindelijke laadtijd bepalen.
+
+Om de scores van het performantiecriterium te staven zullen twee eigenschappen van de code bekeken worden:  de downloadgrootte en het aantal lijnen code.
+Ook zullen de resultaten gecontroleerd worden met twee andere testen.
+Een eerste extra test is Google Page Speed~\cite{Morgan2011}. 
+Deze tool kan de code van een webapplicatie analyseren en testen op performantie specifiek voor mobiele apparaten.
+Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.
+Een andere test om de score te toetsen kijkt naar de gebruikservaring.
+Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
+De auteurs zullen de ervaring bij het scrollen van de lijst vergelijken op de acht apparaten.
+De ervaringen per apparaat zullen vervolgens relatief ten opzichte van elkaar beoordeeld worden.
 
 \paragraph{Motivatie}
-TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -358,6 +435,18 @@ TODO
 \section{Spinnenweb}
 \label{sec:vergelijking-spinnenweb}
 
-TODO
-
-%Alle relatieve scores uitleggen
+\begin{equation}
+  GM_r=T_r+S_r+F_r+SO_r+FB_r
+\end{equation}
+\begin{equation}
+  PR_r = {t_{r,POC} + t_{r,login}}
+\end{equation}
+\begin{equation}
+  GB_r = \sum_{i=1}^{38}{\left(U_{r,i}\right)}
+\end{equation}
+\begin{equation}
+  O_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}U_{r,i}\right)}
+\end{equation}
+\begin{equation}
+  PE_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)} 
+\end{equation}

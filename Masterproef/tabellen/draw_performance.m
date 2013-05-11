@@ -23,7 +23,7 @@ for i=1:4
     X = get( get(plot(i),'Children'), 'XData');
     Y = get( get(plot(i),'Children'), 'YData');
     for j = 1:size(X,2)
-        text(X(3,j)/2+X(2,j)/2,Y(3,j)+.1,num2str(M(j,i),'%0.2f'),'Rotation',90);
+        text(X(3,j)/2+X(2,j)/2,Y(3,j)+.1,num2str(M(i,j),'%0.2f'),'Rotation',90);
     end
 end
 set(gca,'YLim',[0 max(M(:)+2)]);

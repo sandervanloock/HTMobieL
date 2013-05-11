@@ -47,12 +47,18 @@ De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklar
 en eerste extra test is Google Page Speed~\cite{Morgan2011}. 
 Deze tool kan de code van een webapplicatie analyseren en testen op performantie specifiek voor mobiele apparaten.
 Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.
+% ST scoort het beste volgens google page speed, maar dat heeft dus te maken met die microlader, daarna volgt lungo, Kendo en jQM die de regels minder strikt, maar uiteindelijk toch sneller presteren
 
 \paragraph{Gebruikservaring}
 Een andere test om de score te toetsen kijkt naar de gebruikservaring.
-Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
+Hiervoor werd de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
 De auteurs zullen de ervaring bij het scrollen van de lijst vergelijken op de acht apparaten.
 De ervaringen per apparaat zullen vervolgens relatief ten opzichte van elkaar beoordeeld worden.
+
+% ST was de beste experience, op zowel oude als nieuwe toestellen
+% dan volgt jquery mobile, dan lungo en dan kendo
+% kendo crashes 
+% link naar nelson http://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
 
 \paragraph{Downloadgrootte en HTML-code}
 De HAR-bestanden die werden gebruikt om de laadtijd op te meten bevatten ook de grootte van de pakketten die moeten worden opgehaald.
@@ -63,7 +69,11 @@ Het gemiddelde van alle downloadgroottes bepaalt de grootte zoals deze kan worde
 Bij de POC moet \st{} de meeste data ophalen ($1126.4kB$),  gevolgd door \kendo{} ($194.65kB$), \lungo{} ($249.08kB$) en \jqm{} ($194.65kB$).
 Opmerkelijk is dat \lungo{} meer data moet ophalen maar toch een snellere laadtijd behaald.
 
-
+% Sander + LOC uitrekenen
+% jQM login<->POC: geen, de beste factor
+% ST: immens verschil
+% Lungo: zelfde factor als ST
+% Kendo de tweede beste factor
 
 \begin{table}[H]
 \centering
@@ -97,21 +107,6 @@ Opmerkelijk is dat \lungo{} meer data moet ophalen maar toch een snellere laadti
 % LOC
 % download grootte (POC/login, 1 getal per framework, gemiddelde per device)
 % subjectieve experience lijsten
-% ST scoort het beste volgens google page speed, maar dat heeft dus te maken met die microlader, daarna volgt lungo, Kendo en jQM die de regels minder strikt, maar uiteindelijk toch sneller presteren
-
-% Sander + LOC uitrekenen
-% jQM login<->POC: geen, de beste factor
-% ST: immens verschil
-% Lungo: zelfde factor als ST
-% Kendo de tweede beste factor
-
-% ST was de beste experience, op zowel oude als nieuwe toestellen
-% dan volgt jquery mobile, dan lungo en dan kendo
-% kendo crashes 
-% link naar nelson http://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
-
-
-
 
 \subsection{\st}
 \label{sec:performantie-st}

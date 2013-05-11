@@ -1,7 +1,7 @@
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
-Het gebruik van de vier raamwerken wordt samengevat in tabel \ref{tabel:evaluatie-gebruik}.
-Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig worden besproken per raamwerk.
+Het gebruik van de vier raamwerken wordt samengevat voor de 13 uitdagingen in tabel \ref{tabel:evaluatie-gebruik}.
+Per sectie zal iedere uitdaging per raamwerk worden besproken.
 
 \begin{table}[H]
 \centering
@@ -132,28 +132,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \label{tabel:evaluatie-gebruik-anatomie}
 \end{table}
 
-\paragraph{\jqm}
-Het toevoegen van een kop- en voettekst gebeurt door gebruik te maken van \code{data-role="header"} en \code{data-role="footer"}. 
-Wel moest dezelfde code op ieder scherm worden herhaald. 
-Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. 
-Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. 
-Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die \jqm{}~1.3 zelf aanbiedt. 
-De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
-
-Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
-De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
-Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
-
-Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
-Daarom werd gekozen voor \code{fieldset} met twee opties.
-
-De kleur van de knoppen aanpassen kan op twee manieren. 
-Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. 
-Deze laatste manier werd gebruikt om de knoppen groen te maken. 
-Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
-Door daarna de knop te annoteren met het \code{data-theme}-attribuut activeert men het betreffende thema. 
-Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's (\term{swatch} \code{b}) was en men die direct kan gebruiken.
-
 \paragraph{\st}
 Het opbouwen van een \code{view} in \st{} gebeurt hiërarchisch met containers.
 Een component die aan een container kan worden toegevoegd is de \code{toolbar}.
@@ -187,6 +165,28 @@ Deze operaties steunen op de CSS-manipulatie zoals aangeboden door jQuery.
 
 De kleur van een knop wijzigen moet met CSS gebeuren.
 Omdat knoppen met HTML-tags worden aangemaakt kan de CSS-klasse rechtstreeks aan de tags worden toegevoegd.
+
+\paragraph{\jqm}
+Het toevoegen van een kop- en voettekst gebeurt door gebruik te maken van \code{data-role="header"} en \code{data-role="footer"}. 
+Wel moest dezelfde code op ieder scherm worden herhaald. 
+Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. 
+Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. 
+Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die \jqm{}~1.3 zelf aanbiedt. 
+De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
+
+Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
+De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
+Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
+
+Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
+Daarom werd gekozen voor \code{fieldset} met twee opties.
+
+De kleur van de knoppen aanpassen kan op twee manieren. 
+Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. 
+Deze laatste manier werd gebruikt om de knoppen groen te maken. 
+Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
+Door daarna de knop te annoteren met het \code{data-theme}-attribuut activeert men het betreffende thema. 
+Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's (\term{swatch} \code{b}) was en men die direct kan gebruiken.
 
 \paragraph{\lungo}
 %TODO tim: vermelden tabbar over volledige breedte, hack listitem, niet onder onderkoptekst
@@ -235,23 +235,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \caption{Gebruik van \uit{toestel} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-toestel}
 \end{table}
-
-\paragraph{\jqm}
-Het raamwerk biedt zelf geen functies aan om te het herkennen of het toestel een smartphone of tablet is.
-In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
-Eerst werd gezocht naar plug-ins aan de hand van een blogpost~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
-Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
-Zo was de eerste destructief ten opzichte van het raamwerk. 
-Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als men wil updaten naar een nieuwe versie. 
-De tweede plug-in werkte enkel tot versie 1.0.1 van \jqm{}. 
-De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
-
-Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 media queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
-Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
-Daarnaast gebruikte men al op de documentatiesite van \jqm{}~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
-De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiesite van \jqm{}~1.2.
-
-Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met een tablet gebruikt.
 
 \paragraph{\st}
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
@@ -307,13 +290,30 @@ Ten slotte moet de hoofdtekst linken naar het menu in de schermen voor het toevo
 %   \item [\code{zoomLevel}] geeft het huidige zoom niveau terug van de browser.
 % \end{description}
 
+\paragraph{\jqm}
+Het raamwerk biedt zelf geen functies aan om te het herkennen of het toestel een smartphone of tablet is.
+In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
+Eerst werd gezocht naar plug-ins aan de hand van een blogpost~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
+Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
+Zo was de eerste destructief ten opzichte van het raamwerk. 
+Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als men wil updaten naar een nieuwe versie. 
+De tweede plug-in werkte enkel tot versie 1.0.1 van \jqm{}. 
+De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
+
+Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 media queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
+Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
+Daarnaast gebruikte men al op de documentatiesite van \jqm{}~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
+De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiesite van \jqm{}~1.2.
+
+Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt gebruikt.
+
 \paragraph{\lungo}
 Het raamwerk zelf biedt de functie \code{Lungo.Core.isMobile()} aan om te weten of het huidige apparaat een mobiel apparaat is.
 QuoJS biedt daarnaast ook nog \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} en \code{screen} aan.
 Deze laatste geeft de breedte en hoogte terug.
 Dit betekent dat de ontwikkelaar nog altijd zelf instaat voor de bepaling of het een smartphone of tablet is.
-Als oplossing werd gebruik gemaakt van CSS3 media queries.
-Het smartphonemenu is altijd geactiveerd en kan ook gebruikt worden wanneer met een tablet gebruikt.
+Als oplossing werd gebruik gemaakt van CSS3 media queries, met dezelfde aanpak als \jqm{}.
+Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt gebruikt.
 
 %%%%%%%%%%%%%
 
@@ -350,24 +350,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \label{tabel:evaluatie-gebruik-laadscherm}
 \end{table}
 
-\paragraph{\jqm}
-Het standaard laadscherm is enkel een \term{spinner} die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
-Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook een tekst worden ondergezet.
-
-De laadschermen werden in combinatie met de AJAX-oproepen gebruikt.
-Bij de AJAX-oproep wordt de functie \code{beforeSend} voor de oproep opgeroepen en de functie \code{complete} na de oproep.
-Dit zijn dus de ideale plaatsen om respectievelijk de laadschermen te tonen en te verbergen.
-Indien men AJAX-oproepen in een ketting gaat plaatsen, lukt deze aanpak niet meer.
-De \code{complete}-functie van de eerste AJAX-oproep zal pas opgeroepen worden als de laatste AJAX-oproep klaar is.
-Hierdoor zal gedurende de ketting van AJAX-oproepen, alleen het eerste laadscherm zichtbaar zijn en zullen de andere nooit worden getoond.
-Een oplossing hiervoor is om het verbergen van het laadscherm uit de \code{complete}-oproep te halen en deze in zowel in de \code{succes}-functie als de \code{error}-functie te plaatsen.
-
-Om gemakkelijk dialoogvensters te tonen, werd eerst gebruik gemaakt van DateBox~\cite{Sage2013} als plug-in.
-Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in \jqm{} aanwezig.
-Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
-%TODO Tim: wat bedoelde ik hiermee?
-%Door zelf het dialoogvenster met \jqm{} aan te maken, kon de layout minimier aangepast worden.
-
 \paragraph{\st}
 Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{view} te plaatsen.
 Een object van dit xtype kan een bericht bevatten wat de laadtekst voorstelt.
@@ -396,6 +378,22 @@ Het is mogelijk het \code{ModelView} in \js{} te selecteren met \code{\$("\#id")
 %todo waarbij id voor de id van het modelview staat?
 Openen van het venster kan in \js{} met de \code{open} methode of in HTML door te linken naar het \code{modelview} en het \code{data-rel} attribuut aan \code{modelview} gelijk te stellen.
 
+\paragraph{\jqm}
+Het standaard laadscherm is enkel een \term{spinner} die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
+Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook een tekst worden ondergezet.
+
+De laadschermen werden in combinatie met de AJAX-oproepen gebruikt.
+Bij de AJAX-oproep wordt de functie \code{beforeSend} voor de oproep opgeroepen en de functie \code{complete} na de oproep.
+Dit zijn dus de ideale plaatsen om respectievelijk de laadschermen te tonen en te verbergen.
+Indien men AJAX-oproepen in een ketting gaat plaatsen, lukt deze aanpak niet meer.
+De \code{complete}-functie van de eerste AJAX-oproep zal pas opgeroepen worden als de laatste AJAX-oproep klaar is.
+Hierdoor zal gedurende de ketting van AJAX-oproepen, alleen het eerste laadscherm zichtbaar zijn en zullen de andere nooit worden getoond.
+Een oplossing hiervoor is om het verbergen van het laadscherm uit de \code{complete}-oproep te halen en deze in zowel in de \code{succes}-functie als de \code{error}-functie te plaatsen.
+
+Om gemakkelijk dialoogvensters te tonen, werd eerst gebruik gemaakt van DateBox~\cite{Sage2013} als plug-in.
+Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in \jqm{} aanwezig.
+Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
+Door zelf het dialoogvenster met \jqm{} aan te maken, kon de lay-out gemakkelijker worden aangepast.
 
 \paragraph{\lungo}
 Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt aangeboden door het raamwerk, namelijk: \code{Lungo.Notification.show()}.
@@ -418,6 +416,7 @@ Deze zullen respectievelijk een groene en rode kleur hebben.
 
 %%%%%%%%%%%%%
 
+%TODO: controleren of iedereen iets over dat optieveld en die schakelaar heeft geschreven
 \subsection{\uit{formulieren}}
 \label{sec:evaluatie-gebruik-formulieren}
 
@@ -450,33 +449,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \caption{Gebruik van \uit{formulieren} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-formulieren}
 \end{table}
-
-
-\paragraph{\jqm} 
-Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}-attribuut in HTML5. 
-Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
-Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. 
-Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. 
-Dit kan met behulp van \js{} via de \code{reset()}-functie op het formulier.
- 
-Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
-%Deze zorgen ervoor dat op de mobiele apparaten aangepaste toetsenborden te voorschijn komen. 
-Het \code{date} type werd echter niet gebruikt om wille van twee redenen.
-Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013b}.
-Android~2.3 ondersteunt dit niet en de \term{placeholder}-tekst in het veld ontbrak op iOS~6 en Android~4.2.
-Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. 
-Zelf een \term{placeholder} instellen is onmogelijk voor een \code{date}-type~\cite{Berjon2012}. 
-Een tweede probleem was het opleggen van het bereik van datums, wat met het \code{date}-type onmogelijk is. 
-Beide problemen werden opgelost door gebruik te maken van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van \jqm{}. 
-Het veld heeft dan wel het type \code{text}.
-Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
-Dit wordt belet door ook nog eens een datumvalidatie (zie \ref{sec:evaluatie-gebruik-validatie}) te doen op dit tekstveld mocht de plug-in het niet hebben afgedwongen.
- 
-Het was ook nodig om enkel de maand en jaar in te geven als datum, dus zonder dag.
-Ook hier kon niet het \code{date}-type gebruikt worden, omdat daar ook een dag voor nodig is. 
-Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
-De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
-Deze functionaliteit kon ook met de plug-in van Mobiscroll worden verwezenlijkt.
 
 \paragraph{\st} 
 % Placeholders, text, email and number fields are supported by the framework and can be easily created.  
@@ -550,6 +522,33 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{formpanel} worden 
  Wanneer een uitgave wordt verzonden, zal de huidige waarde van het \code{(view)model} in een \js-object worden opgeslagen en wordt het \code{(view)model} gereset.
  Door de dubbele binding tussen formulier en \code{(view)model} zal ook de inhoud van de formulierelementen worden gewist.
  
+\paragraph{\jqm} 
+Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}-attribuut in HTML5. 
+Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
+Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. 
+Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. 
+Dit kan met behulp van \js{} via de \code{reset()}-functie op het formulier.
+ 
+Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
+%Deze zorgen ervoor dat op de mobiele apparaten aangepaste toetsenborden te voorschijn komen. 
+Het \code{date} type werd echter niet gebruikt om wille van twee redenen.
+Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013b}.
+Android~2.3 ondersteunt dit niet en de \term{placeholder}-tekst in het veld ontbrak op iOS~6 en Android~4.2.
+Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. 
+Zelf een \term{placeholder} instellen is onmogelijk voor een \code{date}-type~\cite{Berjon2012}. 
+Een tweede probleem was het opleggen van het bereik van datums, wat met het \code{date}-type onmogelijk is. 
+Beide problemen werden opgelost door gebruik te maken van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van \jqm{}. 
+Het veld heeft dan wel het type \code{text}.
+Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
+Dit wordt belet door ook nog eens een datumvalidatie (zie \ref{sec:evaluatie-gebruik-validatie}) te doen op dit tekstveld mocht de plug-in het niet hebben afgedwongen.
+ 
+Het was ook nodig om enkel de maand en jaar in te geven als datum, dus zonder dag.
+Ook hier kon niet het \code{date}-type gebruikt worden, omdat daar ook een dag voor nodig is. 
+Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
+De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
+Deze functionaliteit kon ook met de plug-in van Mobiscroll worden verwezenlijkt.
+
+Als laatste werd zowel het optieveld als de schakelaar door \jqm{} zelf aangeboden en konden direct gebruikt worden. 
  
 \paragraph{\lungo} 
 Het toevoegen van \term{placeholders} in de formuliervelden gebeurt met het HTML5-atttribuut \code{placeholder}.
@@ -563,7 +562,9 @@ Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \t
 De plug-in laat echter niet toe om een bereik op te geven.
 De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
 
-Het legen van een formulier gebeurt in Lungo door de \code{reset}-functie in \js{} op te roepen op dat formulier.
+Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een \term{dropdown}menu. 
+Een schakelaar daarentegen werd dan weer wel aangeboden.
+Het legen van een formulier gebeurt in \lungo{} door de \code{reset}-functie in \js{} op te roepen op dat formulier.
 
 %%%%%%%%%%%%%
 
@@ -599,19 +600,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \caption{Gebruik van \uit{vullen} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-vullen}
 \end{table}
-
-\paragraph{\jqm}
-Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
-Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
-Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
-Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
-Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
-Ook hier moet eerst de waarde worden gezocht, waarna aan de gevonden waarde het \code{checked}-attribuut wordt toegevoegd.
-Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd, wat betekent dat dit dus voor iedere formulierveld dient te gebeuren.
-
-Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
-Dit geld voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} wordt gebruikt.
-Voor \code{select}-items moeten de andere niet-benodigde lijstitems verwijderd worden, want deze kunnen nog steeds aangeklikt worden.
 
 \paragraph{\st}
 Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
@@ -656,6 +644,19 @@ De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 Read-only velden moeten in het data-attribuut van het formulierelement worden gespecificeerd.
 Alle invoer types buiten radio- en selectknoppen gebruiken hiervoor het \code{readOnly} sleutelwoord.
 Radio- en selectknoppen worden onbeschikbaar met het \code{disabled} sleutelwoord.
+
+\paragraph{\jqm}
+Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
+Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
+Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
+Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
+Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
+Ook hier moet eerst de waarde worden gezocht, waarna aan de gevonden waarde het \code{checked}-attribuut wordt toegevoegd.
+Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd, wat betekent dat dit dus voor iedere formulierveld dient te gebeuren.
+
+Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
+Dit geld voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} wordt gebruikt.
+Voor \code{select}-items moeten de andere niet-benodigde lijstitems verwijderd worden, want deze kunnen nog steeds aangeklikt worden.
 
 \paragraph{\lungo}
 Velden vullen met data dient handmatig te gebeuren door eerst het formulierveld op te zoeken en daarna de waarde te zetten.
@@ -704,14 +705,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \label{tabel:evaluatie-gebruik-autoaanvullen}
 \end{table}
 
-\paragraph{\jqm}
-Indien er wordt gebruik gemaakt van versie~1.2 is een plug-in nodig om auto-aanvulling te bekomen.
-Hiervoor kan de plug-in van Andy Matthews worden gebruikt~\cite{Matthews2013}. 
-Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken.
-Sinds versie~1.3 voorziet \jqm{} deze functionaliteit zelf~\cite{JQuery2013c}.
-Er wordt aangehaakt op het \code{listviewbeforefilter}-\term{event} waarbij een eigen filterfunctie geschreven kan worden.
-De voorbeeldcode op de site kon integraal worden gebruikt. 
-
 \paragraph{\st}
 Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
 Deze plug-in is niet op de Sencha Market terug te vinden.
@@ -740,11 +733,20 @@ Deze moet geconfigureerd worden om suggesties van de \term{backend} op te halen.
 Buiten een \code{DataSource} kan het minimale aantal suggesties en een filter worden opgegeven.
 De filter bepaalt de methode om suggesties op te halen:  en kan \code{startswith}, \code{endswith} of \code{contains} zijn.
 
+\paragraph{\jqm}
+Indien er wordt gebruik gemaakt van versie~1.2 is een plug-in nodig om auto-aanvulling te bekomen.
+Hiervoor kan de plug-in van Andy Matthews worden gebruikt~\cite{Matthews2013}. 
+Dit is een zeer gemakkelijk te integreren plug-in die zowel met lokale data als data op afstand kan werken.
+Sinds versie~1.3 voorziet \jqm{} deze functionaliteit zelf~\cite{JQuery2013c}.
+Er wordt aangehaakt op het \code{listviewbeforefilter}-\term{event} waarbij een eigen filterfunctie geschreven kan worden.
+De voorbeeldcode op de site kon integraal worden gebruikt. 
+
 \paragraph{\lungo}
 Standaard biedt \lungo{} geen auto-aanvullig aan, maar wel op zijn site van plug-ins~\cite{TapQuo2013b}.
 Daar werd de plug-in AutoComplete gebruikt.
 De voorbeeldcode maakt het gemakkelijk om onmiddellijk een werkend voorbeeld van de plug-in te hebben.
-Veel code kon dus gewoon worden overgenomen.
+Veel code kon dus gewoon worden overgenomen om een werkende auto-aanvulling te bekomen.
+Er diende nog één extra CSS-regel te worden toegevoegd om de bollen voor de suggesties te verwijderen.
 
 %%%%%%%%%%%%%
 
@@ -781,22 +783,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \label{tabel:evaluatie-gebruik-afbeelding}
 \end{table}
 
-\paragraph{\jqm}
-Het toevoegen van een afbeelding gebeurt door \code{file} als invoertype van het formulierveld te gebruiken. 
-In versie~1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
-Het omvormen van de afbeelding naar base64 werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5-specificaties zijn. 
-De aangeklikte afbeelding wordt gelezen door middel van de FileReaderAPI, waarna het tijdelijk als afbeelding wordt opgeslagen en daarna geïmporteerd wordt op het canvas. 
-Eenmaal geïmporteerd, kan de functie \code{.toDataURL()} opgeroepen worden op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
-
-Het voorvertonen van het geüploade afbeelding hangt af van het mobiele besturingssysteem.
-Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
-Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
-Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
-
-%TODO Tim: verplaatsen naar ondersteuning
-% Deze aanpak werkt correct op recente mobiele apparaten. 
-% De FileReaderAPI wordt echter niet ondersteund op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a} waardoor het opladen van een bewijs niet werkt.
-
 \paragraph{\st}
 Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/file-uploading-component-for-sencha-touch}.
 De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
@@ -827,8 +813,9 @@ Wanneer een afbeelding succesvol is opgeladen, wordt de \code{success callback} 
 Het bestand wordt met een \code{FileReader} gelezen,  aan een \code{canvas} toegevoegd en naar base64 omgezet met de \code{toDataURL} methode.
 Deze werkwijze is aanloog aan de \jqm{} implementatie.
 
-\paragraph{\lungo}
-Een afbeelding kiezen gebeurt door het formulierveld met het type \code{file} toe te voegen.
+\paragraph{\jqm}
+Het toevoegen van een afbeelding gebeurt door \code{file} als invoertype van het formulierveld te gebruiken. 
+In versie~1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
 Het omvormen van de afbeelding naar base64 werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5-specificaties zijn. 
 De aangeklikte afbeelding wordt gelezen door middel van de FileReaderAPI, waarna het tijdelijk als afbeelding wordt opgeslagen en daarna geïmporteerd wordt op het canvas. 
 Eenmaal geïmporteerd, kan de functie \code{.toDataURL()} opgeroepen worden op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
@@ -837,6 +824,10 @@ Het voorvertonen van het geüploade afbeelding hangt af van het mobiele besturin
 Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
 Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
 Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
+
+\paragraph{\lungo}
+Een afbeelding kiezen gebeurt door het formulierveld met het type \code{file} toe te voegen.
+De methode om een afbeelding om te vormen naar base64 is volledig analoog met die van \jqm{}.
 
 %%%%%%%%%%%%%
 
@@ -873,34 +864,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \caption{Gebruik van \uit{validatie} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-validatie}
 \end{table}
-
-\paragraph{\jqm}
-Validatie is niet standaard aanwezig in jQuery Mobile. 
-Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required}-attribuut in HTML5. 
-Dit werd niet gedaan om twee redenen.
-Enerzijds is hiervoor geen ondersteuning voor mobiele browsers~\cite{Deveria2013}. 
-Anderzijds is het ook nodig om de velden te valideren op hun waarde.
-Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
-Deze lost beide problemen op.
-De plug-in zelf kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code ofwel anderzijds door programmatie met \js{}. 
-Beide aanpakken werden getest en slaagden. 
-
-De plug-in bevat de volgende ingebakken validatieregels die nodig waren: \code{required}, \code{number}, \code{email} en \code{date}.
-Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
-Zo een afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
-
-De plug-in toont standaard een foutboodschap onder het foute formulierveld.
-Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
-
-Een specifiek mobiel probleem was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
-Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
-Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
-
-De plug-in annoteert de foute velden met de CSS-klasse \code{error}.
-Hierdoor kon de rode rond in CSS worden geprogrammeerd. 
-Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
-Door de extra code die \jqm{} genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
-Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
 
 \paragraph{\st}
 Een model kan worden voorzien van validatieregels.
@@ -964,14 +927,41 @@ De \code{errors} methode van een \code{validator} geeft een rij van foutenboodsc
 De volledige foutenboodschap moet vervolgens worden geconstrueerd door alle foutenboodschappen te concateneren.
 Hoe een dialoogvenster gemaakt wordt zal in U11.2 Toon dialoog worden besproken.
 
+\paragraph{\jqm}
+Validatie is niet standaard aanwezig in jQuery Mobile. 
+Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required}-attribuut in HTML5. 
+Dit werd niet gedaan om twee redenen.
+Enerzijds is hiervoor geen ondersteuning voor mobiele browsers~\cite{Deveria2013}. 
+Anderzijds is het ook nodig om de velden te valideren op hun waarde.
+Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
+Deze lost beide problemen op.
+De plug-in zelf kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code ofwel anderzijds door programmatie met \js{}. 
+Beide aanpakken werden getest en slaagden. 
+
+De plug-in bevat de volgende ingebakken validatieregels die nodig waren: \code{required}, \code{number}, \code{email} en \code{date}.
+Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie aangevinkt was.
+Zo een afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
+
+De plug-in toont standaard een foutboodschap onder het foute formulierveld.
+Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
+
+Een specifiek mobiel probleem was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
+Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
+Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
+
+De plug-in annoteert de foute velden met de CSS-klasse \code{error}.
+Hierdoor kon de rode rond in CSS worden geprogrammeerd. 
+Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
+Door de extra code die \jqm{} genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
+Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
+
 \paragraph{\lungo}
 %TODO Tim: moet ik ook uitleggen hoe ik het geprogrammeerd heb? score is toch 0..
-Validatie is niet aanwezig in Lungo en er kon ook geen plug-in voor QuoJS gevonden worden~\cite{Ameye2013}.
+Validatie is niet aanwezig in \lungo{} en er kon ook geen plug-in voor QuoJS gevonden worden~\cite{Ameye2013}.
 Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met QuoJS.
-Aangezien deze manier niet direct een oplossing bracht, werd alle validatie manueel geprogrammeerd.
-%TODO Tim: Voor de quotering blijft het resultaat hetzelfde.
-Door de slechte mobiele ondersteuning werd er ook geen beroep gedaan op HTML5-valdiatie.
+Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \jqm{}), werd alle validatie manueel geprogrammeerd. 
 Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute velden werd ook zelf geprogrammeerd.
+Bij een foutief gevalideerd veld werd een CSS-klasse toegevoegd die zorgde voor een rode rand.
 
 %%%%%%%%%%%%%
 
@@ -1008,16 +998,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \label{tabel:evaluatie-gebruik-handtekening}
 \end{table}
 
-\paragraph{\jqm}
-Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat \jqm{} dit niet standaard aanbiedt. 
-Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
-Door de lange tijd die werd besteed aan het aanpassen van de lay-out, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
-Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
-De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{.toDataURL()} methode.
-Hierdoor kan de base64-string bekomen worden die nodig is om door te sturen naar de server.
-%TODO TIM: verplaatsen
-%Deze wordt echter niet ondersteund op Android versies 2.3 en lager~\cite{Systems2013} waardoor de functionaliteit op die toestellen niet werkt.
-
 \paragraph{\st}
 Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden op \exturl{market.sencha.com/extensions/signature-pad-field}.
 Een plug-in aan het raamwerk toevoegen kan door het \js-bestand in de touch/src/ux folder te plaatsen.
@@ -1031,8 +1011,16 @@ De plug-in maakt gebruikt van het HTML5-canvas en retourneert de handtekening al
 Aangezien \kendo{} steunt op de jQuery bibliotheek is \kendo{} ook perfect compatibel met jQuery plug-ins.
 Net zoals bij \jqm{} werd ook de jSignature handtekening van Willow Systems~\cite{Systems2013} geïmplementeerd.
 
+\paragraph{\jqm}
+Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat \jqm{} dit niet standaard aanbiedt. 
+Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
+Door de lange tijd die werd besteed aan het aanpassen van de lay-out, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
+Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
+De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{.toDataURL()} methode.
+Hierdoor kan de base64-string bekomen worden die nodig is om door te sturen naar de server.
+
 \paragraph{\lungo}
-Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook geen plug-in  worden gevonden.
+Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook geen plug-in worden gevonden.
 Er kan echter worden gebruik gemaakt van plug-ins die op andere \js{}-bibliotheken dan QuoJS steunen, maar de auteurs besloten om deze niet te beschouwen.
 Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applicatie.
 
@@ -1072,24 +1060,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \label{tabel:evaluatie-gebruik-ajax}
 \end{table}
 
-
-\paragraph{\jqm}
-Het maken van oproepen via AJAX gebeurt door jQuery. 
-Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
-Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
-
-In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-oproep ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
-Hierdoor is de functie \code{parseJSON} niet nodig en kunnen direct worden omgaan met het antwoord.
-
-Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
-Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
-Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeuren aan de hand van selectoren.
-
-Het versturen van JSON is gelijkaardig met het versturen van andere data.
-Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
-Daarna zal in de AJAX-oproep moeten worden aangegeven  dat de inhoud JSON is.
-Dit gebeurt door \code{contentType:"{}application/json"} te schrijven.
-
 \paragraph{\st}
 AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
 De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van jQuery.
@@ -1123,6 +1093,22 @@ De eigenschap moet dan aan het \code{viewModel} worden gelijkgesteld.
 Het tweede geval zal het aantal instanties van een \code{model} wijzigen als CRUD-operaties worden uitgevoerd.
 De eigenschap kan aan een reeds gedefinieerd \code{Model} worden gelijkgesteld of een model kan lokaal worden gedefinieerd.
 
+\paragraph{\jqm}
+Het maken van oproepen via AJAX gebeurt door jQuery. 
+Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
+Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
+
+In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-oproep ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
+Hierdoor is de functie \code{parseJSON} niet nodig en kunnen direct worden omgaan met het antwoord.
+
+Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
+Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
+Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeuren aan de hand van selectoren.
+
+Het versturen van JSON is gelijkaardig met het versturen van andere data.
+Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
+Daarna zal in de AJAX-oproep moeten worden aangegeven  dat de inhoud JSON is.
+Dit gebeurt door \code{contentType:"{}application/json"} te schrijven.
 
 \paragraph{\lungo}
 Standaard biedt \lungo{} functies aan voor het ophalen en versturen van data via AJAX.
@@ -1138,7 +1124,7 @@ Hierdoor werden de functies van QuoJS gebruikt, die meer opties hadden.
 Toch bleef er een probleem bij het versturen van JSON-data.
 Na lang zoekwerk hoe QuoJS met deze oproep omging, bleek uiteindelijk dat de bibliotheek altijd de parameters wilde serialiseren.
 Dit is uiteraard niet nodig als ruwe data, zoals JSON, wordt meegegeven.
-Aangezien dit een fout was in de bibliotheek werd, om het probleem zo snel mogelijk te verhelpen, het \js-bestand zelf aangepast.
+Aangezien dit een fout was in de bibliotheek zelf werd om het probleem zo snel mogelijk te verhelpen het \js-bestand zelf aangepast.
 
 %%%%%%%%%%%%%
 
@@ -1174,23 +1160,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \caption{Gebruik van \uit{lijsten} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-lijsten}
 \end{table}
-
-\paragraph{\jqm}
-Het laden van data in een lijst dient zelf geprogrammeerd te worden.
-Hiervoor maakt men gebruik van de \code{.each()}-functie van jQuery om ieder data-item te overlopen.
-Per item moet een \code{append} gebeuren van een lijstitem op de lijst.
-In dit item wordt de template van de lijst geschreven.
-Na alle elementen te hebben overlopen, moet de lijst ververst worden zodat \jqm{} de correcte lay-out toepast op de volledige lijst
-
-Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
-Er kunnen hiervoor twee manieren gekozen worden.
-Enerzijds kan worden gebruik gemaakt van de \code{<a>}-tags in HTML.
-Anderzijds kan ieder lijstitem een \code{id} krijgen, waarna een \code{click}-\term{event}  wordt gebonden aan al deze elementen.
-Op basis van de \code{id} kan de uit te voeren actie bepaald worden.
-
-Het sorteren van data werd geïmplementeerd door eerst in \js{} een vergelijkingsfunctie te schrijven.
-Daarna wordt deze functie meegegeven aan de sorteerfunctie die ook in \js{} aanwezig is.
-Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
 
 \paragraph{\st}
 Zoals besproken in de vorige uitdaging kan een lijst voorzien worden van een sjabloon.
@@ -1243,6 +1212,23 @@ Het \code{ObservableObject} is gekoppeld aan een formulier dat automatisch zal w
 Het sorteren van een lijst kan door de \code{DataSource} die aan de lijst is gekoppeld van een sorteereigenschap te voorzien.
 Deze sorteereigenschap bepaalt het veld waarop gesorteerd moet worden en eventueel een sorteerrichting.
 
+\paragraph{\jqm}
+Het laden van data in een lijst dient zelf geprogrammeerd te worden.
+Hiervoor maakt men gebruik van de \code{.each()}-functie van jQuery om ieder data-item te overlopen.
+Per item moet een \code{append} gebeuren van een lijstitem op de lijst.
+In dit item wordt de template van de lijst geschreven.
+Na alle elementen te hebben overlopen, moet de lijst ververst worden zodat \jqm{} de correcte lay-out toepast op de volledige lijst
+
+Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
+Er kunnen hiervoor twee manieren gekozen worden.
+Enerzijds kan worden gebruik gemaakt van de \code{<a>}-tags in HTML.
+Anderzijds kan ieder lijstitem een \code{id} krijgen, waarna een \code{click}-\term{event}  wordt gebonden aan al deze elementen.
+Op basis van de \code{id} kan de uit te voeren actie bepaald worden.
+
+Het sorteren van data werd geïmplementeerd door eerst in \js{} een vergelijkingsfunctie te schrijven.
+Daarna wordt deze functie meegegeven aan de sorteerfunctie die ook in \js{} aanwezig is.
+Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
+
 \paragraph{\lungo}
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
 Hiervoor wordt gebruik gemaakt van de functie \code{\$\$.each} van QuoJS om ieder element van de array te overlopen.
@@ -1294,12 +1280,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \label{tabel:evaluatie-gebruik-pdf}
 \end{table}
 
-\paragraph{\jqm}
-AJAX is bedoeld om tekst op te halen, maar geen ruwe data zoals een PDF~\cite{Scott2009}. 
-Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
-Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de \term{backend} die dan een PDF teruggeeft in de browser. 
-Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
-
 \paragraph{\st}
 Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
 Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
@@ -1312,14 +1292,18 @@ Ook moest er een terugknop in de hoofdtekst van het paneel worden aangebracht om
 Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
 
 \paragraph{\kendo}
-De implementatie voor het tonen van het PDF-bestand is analoog als de \jqm{} implementatie.
+De implementatie voor het tonen van het PDF-bestand is analoog als de implementatie met \jqm{}.
 %TODO terug aanhalen? Aan elk lijstelement in het overzicht van uitgavenformulieren wordt een functie gebonden.
 
-\paragraph{\lungo}
+\paragraph{\jqm}
 AJAX is bedoeld om tekst op te halen, maar geen ruwe data zoals een PDF~\cite{Scott2009}. 
-Hierdoor werd gebruik gemaakt van een omweg door een verborgen formulier te versturen die de PDF ophaalt.
-In dat verborgen formulier worden de nodige parameters ingevoerd en zal het op de achtergrond  worden verstuurd, net zoals een gebruiker dat zou doen.
-Daarna wordt het PDF-bestand gestuurd naar de gebruiker.
+Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
+Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de \term{backend} die dan een PDF teruggeeft in de browser. 
+Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
+
+\paragraph{\lungo}
+Om dezelfde reden als \jqm{} werd ook hier geen gebruik gemaakt van AJAX om de PDF op te vragen.
+Een verborgen formulier, net zoals dat voor \jqm{} het geval was, werd gebruikt om de PDF op te halen.
 Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
 %%%%%%%%%%%%%
@@ -1356,21 +1340,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \caption{Gebruik van \uit{offline} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-offline}
 \end{table}
-
-\paragraph{\jqm}
-Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
-Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
-Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een fallback geschreven die de data bijhoudt als \js{}-variabelen.
-Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
-Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
-
-
-Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code in inlaadt.
-Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
-Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gebruikersgegevens werden bewaard.
-
-Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
-Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\st}
 Zoals besproken bij U8: AJAX kan een \code{store} voozien worden van een \code{proxy} die data opslaat aan klantzijde.
@@ -1424,6 +1393,21 @@ Nadat een uitgaveformulier is verzonden worden de uitgaven uit de \code{localSto
 
 Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} zelf niet ondersteund.
 De HTML5 Application Cache kan zelf worden aangemaakt.
+Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
+
+\paragraph{\jqm}
+Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
+Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
+Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een fallback geschreven die de data bijhoudt als \js{}-variabelen.
+Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
+Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
+
+
+Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code in inlaadt.
+Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
+Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gebruikersgegevens werden bewaard.
+
+Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
 Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\lungo}

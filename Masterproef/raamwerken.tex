@@ -500,7 +500,6 @@ Hierdoor wordt in principe ieder apparaat ondersteunt door het raamwerk, maar za
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%TODO: verder uitschrijven, maar dat zal blijken uit mijn implementatie
 \section{\lungo}
 \label{sec:raamwerk-lungo}
 \lungo{} is een opmaakgedreven raamwerk waarbij versie~1.0 uitkwam in 2011~\cite{TapQuo2011}.
@@ -513,31 +512,36 @@ Op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
 Er is niets meer nodig dan kennis over HTML, CSS en \js{}.
-De GI-elementen worden geschreven in HTML en aangeduid aan de hand van CSS-klassen en \code{data-*}-attributen
+De GI-elementen worden geschreven in HTML en aangeduid aan de hand van zowel CSS-klassen en \code{data-*}-attributen.
+Functionele vereisten kunnen worden geschreven in \js{}.
 
 \paragraph{Tools}
 Er worden geen specifieke tools door TapQuo aangeboden om de ontwikkeling te versnellen.
 Wel kan er gebruik worden gemaakt van Twitter Bower die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren~\cite{Twitter2013}.
+Dit komt door de aanwezigheid van het bestand \code{component.json} op \gh{} dat Bower gebruikt.
 %TODO Tim: verplaatsen naar uitleg bij evaluatie
 %Dit is bij \jqm{} niet mogelijk doordat \jqm{} geen geldige component is van Bower.
 
 \paragraph{Documentatie}
-De documentatie begint op \exturl{lungo.tapquo.com/howto/prototype/} waar getoond wordt hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
-Vervolgens zijn er nog acht andere hoofdstukken die de aangeboden GI-elementen en API uitleggen.
+De documentatie staat op \exturl{lungo.tapquo.com/howto/prototype/} waar eerst getoond wordt hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
+Vervolgens zijn er nog acht andere pagina's die de aangeboden GI-elementen en API bondig uitleggen.
 Op de documentatiepagina's is altijd eerst de broncode te zien.
 Er kan dan boven de broncode op een knop geklikt worden, waarna een livevoorbeeld wordt getoond.
+De documentatie van de onderliggende \js{}-bibliotheek wordt gevonden op \exturl{quojs.tapquo.com}.
+Deze bestaat uit één pagina met een zeer summiere samenvatting van de API.
 
 \paragraph{Marktadoptatie}
-%TODO Tim: mail gestuurd
+Doordat geen informatie te vinden is op de site van \lungo{} werd een e-mail gestuurd met de vraag welke bedrijven \lungo{} gebruiken of in welke projecten van TapQuo zelf \lungo{} werd gebruikt.
+Jammer genoeg hebben de auteurs tot op het moment van schrijven geen antwoord ontvangen.
 
 \paragraph{Licenties}
 Het raamwerk wordt onder de GPLv3-licentie vrijgegeven.
-%TODO Sander: ik ben geen licentie expert,  wat is het verschil tussen gplv3 en commercieel?  Mss iets uitwerken?
-%Tim: zoals toen vrijdag verteld heb ik ook hiervoor een mail gestuurd
-Een commerciële versie is mogelijk.
+Daarnaast is een commerciële versie ook mogelijk.
+Voor duiding omtrent deze laatste genoemde werd contact opgenomen met TapQuo via e-mail.
+Jammer genoeg hebben de auteurs tot op het moment van schrijven geen antwoord ontvangen.
 
 \subsection{Code en ontwikkeling}
-Zoals gezegd wordt een \lungo{}-applicatie geprogrammeerd vanuit geannoteerde HTML-code door middel van CSS-klassen.
+Zoals gezegd wordt een \lungo{}-applicatie geprogrammeerd vanuit geannoteerde HTML-code door middel van CSS-klassen en \code{data-*}-attributen.
 Er wordt geen programmeerstijl zoals MVC afgedwongen.
 
 Om de verschillende schermen te scheiden wordt gebruik gemaakt van \code{<article>}- en \code{<section>}-tags die specifiek zijn voor HTML5.
@@ -545,7 +549,10 @@ Analoog wordt ook voor de kop- en voettekst de \code{<header>}- en \code{<footer
 %TODO Tim: verplaatsen naar evaluatie
 %Hierdoor is het duidelijk dat \lungo{} ten opzichte van \jqm{} volledig gebruik maakt van de nieuwste HTML5-tags.
 
-\lungo{} biedt de mogelijkheid om de verschillende schermen op afzonderlijke pagina's op te slaan en daarna asynchroon op te halen.
+Enerzijds kan de volledige applicatie op één webpagina worden geprogrammeerd.
+Daarnaast biedt \lungo{} ook de mogelijkheid om de verschillende schermen op afzonderlijke pagina's op te slaan.
+Hierbij dient enkel de code binnen de \code{<body>}-tag opgeslaan te worden.
+Daarna wordt bij de initialisatie van \lungo{} gedefinieerd welke afzonderlijke pagina's asynchroon dienen te worden opgehaald.
 %TODO Tim: verplaatsen naar evaluatie
 %In tegenstelling tot \jqm{} dient enkel wat binnen de \code{<body>}-tag staat, opgeslaan te worden.
 %Bij \jqm{} dient telkens ook de volledige \code{<head>}-tag op iedere pagina herhaald te worden.
@@ -562,29 +569,46 @@ Opmerkelijk is de directe ondersteuning door het raamwerk bij het naar beneden t
 \item \textbf{Core }
 Hier worden functies aangehaald die het raamwerk zelf intern gebruikt.
 Een voorbeeld hiervan is de \code{Lungo.Core.isMobile()}-functie die controleert of de applicatie in een mobiele omgeving wordt uitgevoerd.
+Een ander voorbeeld is de aanwezig van een sorteer- en zoekfunctie voor arrays.
 
 \item \textbf{Data }
 Zoals aangehaald in de inleiding biedt het raamwerk \term{wrappers} voor cache, opslag en SQL.
 De ontwikkelaar dient dus zelf geen \code{if-then-else}-constructies op te stellen of een bepaald kenmerk ondersteund wordt of niet, het raamwerk neemt dat voor zijn rekening.
+Indien het apparaat het kenmerk niet ondersteund, voorziet \lungo{} een \term{fallback}.
 
 \item \textbf{DOM }
 Het manipuleren van de DOM gebeurt door de \quo{}-bibliotheek.
-Hiervoor wordt gerefereerd naar de documentatie op \exturl{quojs.tapquo.com}.
+Hiervoor wordt gerefereerd naar de documentatie van QuoJS.
+Zelf biedt \lungo{} enkel ondersteuning voor \term{events} bij het laden en ontladen van pagina's binnen de applicatie.
 
 \item \textbf{Element }
-Toevoegen van een telbubbel, vooruitgangsbalk, laadbalk, automatisch herladen bij het naar beneden trekken van lijst en een fotocarousel zijn mogelijk vanuit \js{}. 
+Toevoegen van een telbubbel, vooruitgangsbalk, laadbalk, automatisch herladen bij het naar beneden trekken van lijst en een fotocarousel zijn programmeerbaar en manipuleerbaar via de \lungo{} API vanuit \js{}. 
 
 \item \textbf{Notification }
 Er worden standaard verschillende dialoogvensters aangeboden voor fout-, succes- en infomeldingen.
+Deze dialoogvensters zijn voorzien van een specifieke lay-out.
+Zo zal een fout- en succesboodschap respectievelijk een rode en groene achtergrondkleur hebben.
+Een ander type venster dat wordt aangeboden is een bevestigingsvenster waarbij een vraag wordt gesteld aan de gebruiker waar ja of nee op geantwoord kan worden.
+Het raamwerk voorziet voor beide acties de mogelijkheid om een eigen functie hieraan aan te haken.
  
 \item \textbf{Routing }
 Hier wordt uitgebreid ingegaan op de navigatie doorheen de applicatie vanuit \js{}.
+Het is mogelijk om binnen eenzelfde artikel tussen verschillende secties te navigeren alsook van artikel te veranderen.
+Daarnaast is het mogelijk om vanuit \js{} de zijnavigatie te tonen.
+Als laatste voorziet \lungo{} een terugkeerfunctionaliteit, vergelijkbaar met de functie \code{history.back()} uit \js{}.
 
 \item \textbf{Service }
-Versturen van HTTP-oproepen kan zonder meer vanuit het \lungo{}—raamwerk.
+Versturen van HTTP-oproepen kan zonder meer vanuit het \lungo{}.
+Zowel HTTP GET als HTTP POST zijn mogelijk.
+Het raamwerk kan omgaan met tekst, XML, JSON en HTML als antwoord.
+Er is ook een verkorte notatie indien het antwoord JSON is.
+Als laatste biedt \lungo{} de mogelijkheid om het antwoord van de HTTP-oproep te cachen, waarbij de maximale tijd moeten worden opgegeven.
+Indien de oproep nog eens gebeurt en de maximale tijd is niet verstreken, zal \lungo{} geen HTTP-oproep versturen, maar het opgeslagen antwoord gebruiken.
 
 \item \textbf{View }
 Hier worden \js{}-methoden aangeboden om het uitzicht binnen een \code{<article>} te bepalen.
+Zo kan de titel worden aangepast of van sectie binnen het artikel worden veranderd.
+Daarnaast wordt ook ingegaan op het tonen en verbergen van de zijnaviatie.
  
 \end{enumerate}
 
@@ -602,7 +626,9 @@ Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijve
 \paragraph{Programmeerbaarheid}
 \label{sec:lungo-programeerbaarheid}
 \lungo{} dwingt geen enkel ontwerppatroon af.
-Voor de echte functionaliteit wordt beroep gedaan op \js{} en meer bepaald op \quo{}. 
+Voor de echte functionaliteit wordt beroep gedaan op \js{}.
+Daarbij is de ontwikkelaar vrij hoe hij te werk gaat en kan gebruik maken van de \lungo{} API. 
+Voor aanpassingen die van toepassing zijn op DOM-manipulatie, is de ontwikkelaar aangewezen op QuoJS.
 Ook deze dwingt geen ontwerppatroon af.
 
 \paragraph{Ondersteuning browser}
@@ -612,7 +638,7 @@ Verder halen ze aan dat ze een zelfde ervaring willen hebben voor een gemaakte a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Tabel}
+\section{Overzicht}
 \label{sec:raamwerken-tabel}
 
 In tabel~\ref{tabel:raamwerken-tabel} wordt de vergelijking van de raamwerken getooond op basis van passieve vergelijkingscriteria.

@@ -1,4 +1,4 @@
 Uitdaging,Challenge,Max,jQM(abs),jQM(rel),ST(abs),ST(rel),Lungo(abs),Lungo(rel),Kendo(abs),Kendo(rel)
-U6.1 Haal suggesties op gebaseerd op gebruikersinvoer,C6.1 Fetch suggestions based on input,2,2,1.00,1,0.50,1,0.50,2,1.00
+U6.1 Zoek suggesties gebaseerd op gebruikersinvoer,C6.1 Search suggestions based on input,2,2,1.00,1,0.50,1,0.50,2,1.00
 U6.2 Toon suggesties in klikbaar dropdownmenu,C6.2 Show suggestions in clickable drop down,2,2,1.00,0,0.00,1,0.50,2,1.00
 Totaal,Total,4,4,1.00,1,0.25,2,0.50,4,1.00

@@ -6,18 +6,19 @@ Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig wor
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -25,7 +26,7 @@ Het wordt opgedeeld per uitdaging en vervolgens zal het per sectie uitvoerig wor
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik.csv}
-\caption{Samenvattende tabel voor gebruik}
+\caption{Overzicht van gebruik voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik}
 \end{table}
 
@@ -53,18 +54,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -72,7 +74,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/anatomie.csv}
-\caption{Gebruik voor \uit{anatomie}}
+\caption{Gebruik van \uit{anatomie} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-anatomie}
 \end{table}
 
@@ -156,18 +158,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -175,7 +178,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/toestel.csv}
-\caption{Gebruik voor \uit{toestel}}
+\caption{Gebruik van \uit{toestel} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-toestel}
 \end{table}
 
@@ -269,18 +272,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -288,7 +292,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/laadscherm.csv}
-\caption{Gebruik voor \uit{laadscherm}}
+\caption{Gebruik van \uit{laadscherm} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-laadscherm}
 \end{table}
 
@@ -369,19 +373,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  skip coltypes=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -389,7 +393,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/formulieren.csv}
-\caption{Gebruik voor \uit{formulieren}}
+\caption{Gebruik van \uit{formulieren} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-formulieren}
 \end{table}
 
@@ -518,18 +522,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -537,7 +542,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/vullen.csv}
-\caption{Gebruik voor \uit{vullen}}
+\caption{Gebruik van \uit{vullen} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-vullen}
 \end{table}
 
@@ -621,18 +626,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -640,7 +646,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/autoaanvullen.csv}
-\caption{Gebruik voor \uit{autoaanvullen}}
+\caption{Gebruik van \uit{autoaanvullen} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-autoaanvullen}
 \end{table}
 
@@ -697,18 +703,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -716,7 +723,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/afbeelding.csv}
-\caption{Gebruik voor \uit{afbeelding}}
+\caption{Gebruik van \uit{afbeelding} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-afbeelding}
 \end{table}
 
@@ -789,19 +796,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
-  ignore chars={\"},
-  verb string type,
+  string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -809,7 +816,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/validatie.csv}
-\caption{Gebruik voor \uit{validatie}}
+\caption{Gebruik van \uit{validatie} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-validatie}
 \end{table}
 
@@ -923,18 +930,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -942,7 +950,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/handtekening.csv}
-\caption{Gebruik voor \uit{handtekening}}
+\caption{Gebruik van \uit{handtekening} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-handtekening}
 \end{table}
 
@@ -986,18 +994,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -1005,7 +1014,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/ajax.csv}
-\caption{Gebruik voor \uit{ajax}}
+\caption{Gebruik van \uit{ajax} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-ajax}
 \end{table}
 
@@ -1088,18 +1097,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -1107,7 +1117,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/lijsten.csv}
-\caption{Gebruik voor \uit{lijsten}}
+\caption{Gebruik van \uit{lijsten} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-lijsten}
 \end{table}
 
@@ -1206,18 +1216,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -1225,7 +1236,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/pdf.csv}
-\caption{Gebruik voor \uit{pdf}}
+\caption{Gebruik van \uit{pdf} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-pdf}
 \end{table}
 
@@ -1268,18 +1279,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
   string type,
   header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
+  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
+  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
+  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},
@@ -1287,7 +1299,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/gebruik/offline.csv}
-\caption{Gebruik voor \uit{offline}}
+\caption{Gebruik van \uit{offline} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-gebruik-offline}
 \end{table}
 

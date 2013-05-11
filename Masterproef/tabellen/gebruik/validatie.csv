@@ -1,6 +1,6 @@
 Uitdaging,Challenge,Max,jQM(abs),jQM(rel),ST(abs),ST(rel),Lungo(abs),Lungo(rel),Kendo(abs),Kendo(rel)
 U8.1 Validatieregels voor verplichte nummer- en e-mailvelden,C8.1 Validation rules for a required number and email field ,2,1,0.50,2,1.00,0,0.00,2,1.00
-U8.2 Validatieregels voor eigen condities,C8.2 Validation depends on custom conditions ,2,1,0.50,1,0.50,0,0.00,2,1.00
-U8.3 Venster voor foutenboodschappen van ongeldige velden,C8.3 Error dialog with invalid fields and explanation,2,1,0.50,2,1.00,0,0.00,2,1.00
+U8.2 Validatieregels voor eigen condities,C8.2 Validation depends on custom conditions ,2,1,0.50,2,1.00,0,0.00,2,1.00
+U8.3 Foutenboodschappen ophalen van ongeldige velden,C8.3 Retrieve error messages of invalid fields,2,1,0.50,2,1.00,0,0.00,2,1.00
 U8.4 Rode randen plaatsen rond ongeldige velden,C8.4 Red borders around invalid fields ,2,0,0.00,0,0.00,0,0.00,0,0.00
-Totaal,Total,8,3,0.38,5,0.63,0,0.00,6,0.75
+Totaal,Total,8,3,0.38,6,0.75,0,0.00,6,0.75

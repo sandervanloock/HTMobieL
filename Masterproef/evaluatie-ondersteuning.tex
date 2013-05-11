@@ -4,31 +4,52 @@ De ondersteuning van de vier raamwerken wordt samengevat per uitdaging in tabel~
 Voor een gedetailleerd overzicht wordt verwezen naar appendix~\ref{app:ondersteuning}.
 In de secties \ref{sec:evaluatie-ondersteuning-toestel} tot \ref{sec:evaluatie-ondersteuning-offline} zal iedere uitdaging per raamwerk uitvoerig worden besproken.
 
+%\begin{landscape}
 \begin{table}[H]
 \centering
+\resizebox{14cm}{!} {
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\toprule,
- 	after row=\bottomrule}
+	column type=l,
+	every head row/.style={
+		before row={%
+			\toprule
+			\textbf{Uitdaging}
+			& \multicolumn{2}{c}{\textbf{\sta}}
+			& \multicolumn{2}{c}{\textbf{\kendoa}} 
+			& \multicolumn{2}{c}{\textbf{\jqma}}
+			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
+			\cmidrule(r){2-3}
+			\cmidrule(r){4-5}
+			\cmidrule(r){6-7}
+			\cmidrule(r){8-9}
+		},
+		after row=\midrule,
+		},
+  	every last row/.style={
+  		before row=\toprule,
+ 		after row=\bottomrule},
+	columns={Uitdaging,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
+	begin table=\begin{tabular}{lcccccccc},
+	end table=\end{tabular},
+	header=true,
+	skip coltypes=true,
+	columns/Uitdaging/.style ={column name=},
+	columns/ST(abs)/.style ={column name=Score},
+	columns/ST(max)/.style={column name=Max},
+	columns/Kendo(abs)/.style ={column name=Score},
+	columns/Kendo(max)/.style={column name=Max},
+	columns/jQM(abs)/.style ={column name=Score},
+	columns/jQM(max)/.style={column name=Max},
+	columns/Lungo(abs)/.style ={column name=Score},
+	columns/Lungo(max)/.style={column name=Max},
+	col sep=comma,
+	string type,
 ]{tabellen/ondersteuning-u.csv}
-\caption{Samenvattende tabel voor ondersteuningscriterium per uitdaging.}
+}
+\caption{Overzicht van ondersteuning per uitdaging.}
 \label{tabel:evaluatie-ondersteuning-u}
 \end{table}
+%\end{landscape}
 
 % Sander
 
@@ -52,26 +73,43 @@ Deze weergave wordt getoond in tabel~\ref{tabel:evaluatie-ondersteuning-a}.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Apparaat,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\toprule,
- 	after row=\bottomrule}
+	column type=l,
+	every head row/.style={
+		before row={%
+			\toprule
+			\textbf{Apparaat}
+			& \multicolumn{2}{c}{\textbf{\sta}}
+			& \multicolumn{2}{c}{\textbf{\kendoa}} 
+			& \multicolumn{2}{c}{\textbf{\jqma}}
+			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
+			\cmidrule(r){2-3}
+			\cmidrule(r){4-5}
+			\cmidrule(r){6-7}
+			\cmidrule(r){8-9}
+		},
+		after row=\midrule,
+		},
+  	every last row/.style={
+  		before row=\toprule,
+ 		after row=\bottomrule},
+columns={Apparaat,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
+	begin table=\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccccccc},
+	end table=\end{tabular*},
+	header=true,
+	skip coltypes=true,
+	columns/Apparaat/.style ={column name=},
+	columns/ST(abs)/.style ={column name=Score},
+	columns/ST(max)/.style={column name=Max},
+	columns/Kendo(abs)/.style ={column name=Score},
+	columns/Kendo(max)/.style={column name=Max},
+	columns/jQM(abs)/.style ={column name=Score},
+	columns/jQM(max)/.style={column name=Max},
+	columns/Lungo(abs)/.style ={column name=Score},
+	columns/Lungo(max)/.style={column name=Max},
+	col sep=comma,
+	string type,
 ]{tabellen/ondersteuning-a.csv}
-\caption{Samenvattende tabel voor ondersteuningscriterium per apparaat.}
+\caption{Overzicht van ondersteuning per apparaat.}
 \label{tabel:evaluatie-ondersteuning-a}
 \end{table}
 
@@ -109,28 +147,46 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
+\resizebox{14cm}{!} {
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  skip coltypes=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
+	column type=l,
+	every head row/.style={
+		before row={%
+			\toprule
+			\textbf{Uitdaging}
+			& \multicolumn{2}{c}{\textbf{\sta}}
+			& \multicolumn{2}{c}{\textbf{\kendoa}} 
+			& \multicolumn{2}{c}{\textbf{\jqma}}
+			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
+			\cmidrule(r){2-3}
+			\cmidrule(r){4-5}
+			\cmidrule(r){6-7}
+			\cmidrule(r){8-9}
+		},
+		after row=\midrule,
+		},
+  	every last row/.style={
+  		before row=\toprule,
+ 		after row=\bottomrule},
+	columns={Uitdaging,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
+	begin table=\begin{tabular}{lcccccccc},
+	end table=\end{tabular},
+	header=true,
+	skip coltypes=true,
+	columns/Uitdaging/.style ={column name=},
+	columns/ST(abs)/.style ={column name=Score},
+	columns/ST(max)/.style={column name=Max},
+	columns/Kendo(abs)/.style ={column name=Score},
+	columns/Kendo(max)/.style={column name=Max},
+	columns/jQM(abs)/.style ={column name=Score},
+	columns/jQM(max)/.style={column name=Max},
+	columns/Lungo(abs)/.style ={column name=Score},
+	columns/Lungo(max)/.style={column name=Max},
+	col sep=comma,
+	string type,
 ]{tabellen/ondersteuning/formulieren.csv}
-\caption{Ondersteuning voor \uit{formulieren}}
+}
+\caption{Ondersteuning van \uit{formulieren}}
 \label{tabel:evaluatie-ondersteuning-formulieren}
 \end{table}
 
@@ -302,28 +358,46 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}[H]
 \centering
+\resizebox{14cm}{!} {
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  skip coltypes=true,
-  columns={Uitdaging,ST(rel),Kendo(rel),jQM(rel),Lungo(rel)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},  
-  columns/jQM(rel)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(rel)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(rel)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(rel)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
+	column type=l,
+	every head row/.style={
+		before row={%
+			\toprule
+			\textbf{Uitdaging}
+			& \multicolumn{2}{c}{\textbf{\sta}}
+			& \multicolumn{2}{c}{\textbf{\kendoa}} 
+			& \multicolumn{2}{c}{\textbf{\jqma}}
+			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
+			\cmidrule(r){2-3}
+			\cmidrule(r){4-5}
+			\cmidrule(r){6-7}
+			\cmidrule(r){8-9}
+		},
+		after row=\midrule,
+		},
+  	every last row/.style={
+  		before row=\toprule,
+ 		after row=\bottomrule},
+	columns={Uitdaging,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
+	begin table=\begin{tabular}{lcccccccc},
+	end table=\end{tabular},
+	header=true,
+	skip coltypes=true,
+	columns/Uitdaging/.style ={column name=},
+	columns/ST(abs)/.style ={column name=Score},
+	columns/ST(max)/.style={column name=Max},
+	columns/Kendo(abs)/.style ={column name=Score},
+	columns/Kendo(max)/.style={column name=Max},
+	columns/jQM(abs)/.style ={column name=Score},
+	columns/jQM(max)/.style={column name=Max},
+	columns/Lungo(abs)/.style ={column name=Score},
+	columns/Lungo(max)/.style={column name=Max},
+	col sep=comma,
+	string type,
 ]{tabellen/ondersteuning/offline.csv}
-\caption{Ondersteuning voor \uit{offline}}
+}
+\caption{Ondersteuning van \uit{offline}}
 \label{tabel:evaluatie-ondersteuning-offline}
 \end{table}
 

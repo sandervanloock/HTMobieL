@@ -1,8 +1,65 @@
 \section{Ondersteuning}
 \label{sec:evaluatie-ondersteuning}
-De ondersteuning van de vier raamwerken wordt samengevat per uitdaging in tabel~\ref{tabel:evaluatie-ondersteuning-u}. 
-Voor een gedetailleerd overzicht wordt verwezen naar appendix~\ref{app:ondersteuning}.
+
+In deze sectie zal de ondersteuning van de raamwerken op mobiele apparaten worden onderzocht.
 In de secties \ref{sec:evaluatie-ondersteuning-toestel} tot \ref{sec:evaluatie-ondersteuning-offline} zal iedere uitdaging per raamwerk uitvoerig worden besproken.
+Voor de score van ondersteuning wordt naar formule \ref{eq:ondersteuning} verwezen.
+De scores van de vier raamwerken wordt samengevat per uitdaging in tabel~\ref{tabel:evaluatie-ondersteuning-u}.
+Voor een overzicht van de ondersteuning per apparaat wordt verwezen naar appendix~\ref{app:ondersteuning}.
+
+Zoals besproken in sectie \ref{sec:vergelijking-ondersteuning} wordt enkel het raamwerk en niet een eigen implementatie op ondersteuning getest.
+Daarom verschilt de maximale score voor ondersteuning per raamwerk.
+Welke uitdagingen door het raamwerk konden worden geïmplementeerd werd in het vorige criterium geduid.
+De maximale scores voor \st{},  \kendo{},  \jqm{} en \lungo{} zijn respectievelijk $96$, $104$, $104$ en $80$.
+De score voor ondersteuning is respectievelijk $84$, $91$, $95$ en $62$.
+Wanneer we de relatieve score per raamwerk bekijken heeft \st{} een score van $88\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo $78\%$.
+Er kan dus meteen geconcludeerd worden dat de vier raamwerken behoorlijk hoog scoren.
+Dit wil zeggen dat de keuze van een raamwerk onafhankelijk is van de ondersteuning.
+Dezelfde apparaten worden door de verschillende raamwerken ondersteund of niet.
+Dit komt doordat de raamwerken allemaal steunen op dezelfde onderliggende technolgie, namlelijk HTLM5.
+Hoewel de verschillen klein zijn kan gezegd worden dat \jqm{} de beste ondersteuning biedt,  gevolgd door een ex aquo van \st{} en \kendo{}.
+\lungo{} biedt de minste ondersteuning.
+
+Android 2.3 toestellen - \htc{} en \gtab{} - hebben het minste ondersteuning.
+Alle raamwerken buiten \lungo{} ondersteunen gemiddeld $68\%$ van de geïmplementeerde uitdagingen.
+\lungo{} scoort ondersteund slechts de helft van de geïmplementeerde uitdagingen.
+De grootste problemen werden bij formulieren waargenomen.
+Android 4 en iOS toestellen scoren gemiddeld $95\%$.
+De gemiddelde score bij alle Android toestellen is $79\%$ in tegenstelling tot een $95\%$ ondersteuning op iOS toestellen.
+Er moet opgemerkt worden dat enkel versie $5$ en $6$ van iOS werd getest.
+Van alle $8$ apparaten is de \iphoneiii{} het oudst (officiële voorstelling in juni 2009) gevolgd door de \gs{} (officiële voorstelling in maart 2010). %TODO referenties
+Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android toestellen dit minder vaak aanbieden ten opzichte van iOS toestellen. %TODO referentie
+De reden hiervoor is de grotere heterogeniteit tussen Android toestellen.
+
+Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline opslag op alle beschikbare apparaten.
+Formuliervalidatie is een kenmerk van HTML5 maar wordt op geen enkel beschikbaar mobiel besturingssysteem ondersteund~\cite{Deveria2013}.
+Dit wil zeggen dat alle raamwerken hiervoor een alternatief voorzien dat wel op alle toestellen werkt.
+Offline en opslag is één element van de acht technologieklassen (zie sectie \ref{sec:html5-css3-js}).
+Om de POC offline beschikbaar te maken is zowel de \code{manifest} als \code{localStorage} ondersteuning noodzakelijk.
+Beide kenmerken worden door alle beschikbare mobiele besturingssystemen ondersteund. %TODO referenties
+%http://caniuse.com/#feat=offline-apps
+%http://caniuse.com/#search=localstorage
+
+De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen.
+\kendo{}, \jqm{} en \lundo{} gebruiken dezelfde aanpak om deze uitdaging te implementeren.
+Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 ondersteund~\cite{Deveria2013a}.
+Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
+Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
+%TODO Sander: file input niet op ipad 1 vermelden?
+
+% De algemene score voor iedere raamwerk is rond de 90% of meer, dus eigenlijk moet je niet kijken naar de ondersteuning wanneer je een raamwerk kiest
+% jQM is de duidelijke winnaar over alle devices, gevolgd door een gedeelde tweede plaats van Kendo en ST, daarna door Lungo.
+% Op de HTC (android 2.3) haalt iedereen rond de 70, behalve lungo 55
+% Galaxytab bieden jQM en Kendo 70% support, terwijl ST en lungo maar rond de 55 beiden
+% Op de recenste devices scoren alle raamwerken ruim boven de 90%
+% Iedereen support 100% de offline
+% Support op iOS zit bij ieder raamwerk rond of boven de 90%, terwijl bij android dat bij ieder raamwerk maar boven de 70% ligt (een gemiddelde van 9 punten beter)
+% bij iOS altijd updaten tot de laatste versie (behalve ipad 1), zie maximale versies iOS op http://en.wikipedia.org/wiki/List_of_iOS_devices
+% Android: de hardware is zo divers, moeilijk te updaten, dus je blijft vast aan je 'oud' os en daardoor support HTML5 bla bal bal
+% Formuliervalidatie worden volledig ondersteund door raamwerk of plugin, in tegenstelling tot HTML5 formuliervalidatie op mobiele apparaten.
+% Toevoegen van afbeeldingen, maakt jQM/Kendo/Lungo expliciet gebruik van HTML5 en ST impliciet under the hood in the plugin
+% local storage en manifest is ook HTML5, maar wordt wel overal ondersteund
+
 
 %\begin{landscape}
 \begin{table}[H]
@@ -50,22 +107,6 @@ In de secties \ref{sec:evaluatie-ondersteuning-toestel} tot \ref{sec:evaluatie-o
 \label{tabel:evaluatie-ondersteuning-u}
 \end{table}
 %\end{landscape}
-
-% Sander
-
-%TODO
-% De algemene score voor iedere raamwerk is rond de 90% of meer, dus eigenlijk moet je niet kijken naar de ondersteuning wanneer je een raamwerk kiest
-% jQM is de duidelijke winnaar over alle devices, gevolgd door een gedeelde tweede plaats van Kendo en ST, daarna door Lungo.
-% Op de HTC (android 2.3) haalt iedereen rond de 70, behalve lungo 55
-% Galaxytab bieden jQM en Kendo 70% support, terwijl ST en lungo maar rond de 55 beiden
-% Op de recenste devices scoren alle raamwerken ruim boven de 90%
-% Iedereen support 100% de offline
-% Support op iOS zit bij ieder raamwerk rond of boven de 90%, terwijl bij android dat bij ieder raamwerk maar boven de 70% ligt (een gemiddelde van 9 punten beter)
-% bij iOS altijd updaten tot de laatste versie (behalve ipad 1), zie maximale versies iOS op http://en.wikipedia.org/wiki/List_of_iOS_devices
-% Android: de hardware is zo divers, moeilijk te updaten, dus je blijft vast aan je 'oud' os en daardoor support HTML5 bla bal bal
-% Formuliervalidatie worden volledig ondersteund door raamwerk of plugin, in tegenstelling tot HTML5 formuliervalidatie op mobiele apparaten.
-% Toevoegen van afbeeldingen, maakt jQM/Kendo/Lungo expliciet gebruik van HTML5 en ST impliciet under the hood in the plugin
-% local storage en manifest is ook HTML5, maar wordt wel overal ondersteund
 
 Een ander zicht op diezelfde data wordt bekomen door de ondersteuning van de vier raamwerken samen te vatten per apparaat.
 Deze weergave wordt getoond in tabel~\ref{tabel:evaluatie-ondersteuning-a}.

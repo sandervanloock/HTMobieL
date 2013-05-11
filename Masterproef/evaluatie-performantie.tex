@@ -3,21 +3,42 @@
 
 %%%%%%%%%%%%
 
-% Overzichtsgrafiek
+Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel niet gecachet als gecachet, voor de vier raamwerken getoond.
 
-% TODO: Tim
-% Volgens de POC is Lungo de winnaar, maar aangezien er niet alles is geïmplementeerd zou je kunnen denken dat daarom is, maar het duidelijkst is bij de loginschermen, alle 3 zijn quasi hetzelfde, behalve Lungo is een halvering van de tijd (dit omdat de geoptimaliseerde JS bibliotheek)
-% De tweede plaats gaat naar jQM, volgend door Kendo en als laatste ST
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figuren/performance.pdf}
+  \caption{Gemiddelde downloadtijd van POC,  POC uit cache,  login en login uit cache voor elk raamwerk (minder is beter).}
+  \label{fig:performantie}
+\end{figure}
 
-% jQM, Kendo, Lungo gebruiken enkel HTML5 application cache, maar ST gebruikt daarna nog iets speciaals, zie sectie ST 
-% Hierdoor wordt de grote laadtijd verklaard bij geachte versie van ST
-% jQM, Kendo, Lungo zijn gelijkaardig doordat deze gebruikt worden gebouwd en uitgerold met Yeoman 
+\lungo{} behaalt de eerste plaats.
+Als er gekeken wordt naar de POC heeft \lungo{} maar een derde van de tijd nodig ten opzichte van het traagste raamwerk, \st.
+\jqm{} en \kendo{} behalen respectievelijk een tweede en derde plaats.
+Aangezien niet alles werd geïmplementeerd in de POC voor \lungo{}, zou men kunnen stellen dat dat de reden is.
+Als er echter wordt gekeken naar de loginapplicatie waar alles wel vergelijkbaar is, dan blijft \lungo{} het snelste raamwerk.
+Het is zelfs meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
+Deze drie raamwerken behalen quasi dezelfde opstarttijd, maar ook hier is \st{} terug de traagste.
+
+Als naar de gecachte versie wordt gekeken voor zowel POC als loginapplicatie, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde.
+Daarentegen behaalt \st{} telkens een vele tragere tijd.
+Enerzijds komt dit doordat de drie eerstgenoemde raamwerken enkel gebruik maken van HTML5 Application Cache.
+\st{} gebruikt daarnaast ook nog een eigen mechanisme (zie \ref{sec:performantie-st}) waardoor de grotere laadtijd wordt verklaard.
+Anderzijds gebruiken de drie eerstgenoemde raamwerken Yeoman om de applicatie te bouwen.
+De webapplicaties gemaakt \st{} gebruiken daarentegen Sencha Cmd.
+
 %%%% De cache factor van ST is constant (gemiddeld 1,8)
 %%%% De andere raamwerken hebben een beduidend grotere cache factor 
 
-% Algemeen de snelheden gecached versus niet gedaagde
-% De eerste keer laden van webappplicaties duurt gemiddeld 3,3s (niet voor ST)
-% De gecachte versie openen duurt gemiddeld 400ms (niet voor ST), wat een aanvaardbare tijd is volgens http://www.nngroup.com/articles/response-times-3-important-limits/
+Indien \st{} buiten beschouwen wordt geladen, duurt het eerste keer laden van de POC gemiddeld 5,73 seconden. Het laden van de gecachete versie duurt slechts gemiddeld 400 milliseconden.
+De eerste keer laden van de loginapplicatie duurt gemiddeld 3,32 seconden.
+Indien deze werd gecachet, duurt dit nog slechts gemiddeld 420 milliseconden.
+Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993}.
+Hij stelt dat indien de tijden onder 1 seconde blijven, de gebruiker de vertraging waarneemt, maar het zijn gedachtengang niet belet.
+Tussen de 1 en 10 seconden dient er feedback over het laden te worden gegeven aan de gebruiker.
+De browser neemt hiervoor de taak op zich door bij het laden een indicator te tonen.
+
+%TODO: moet Jakob niet worden verplaatst naar het vergelijkingshoofdstuk? 
 
 % TODO Tim: tabel maken voor de dingen hieronder
 % deze dingen uitdiepen hieronder
@@ -38,15 +59,11 @@
 % kendo crashes 
 % link naar nelson http://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figuren/performance.pdf}
-  \caption{Gemiddelde downloadtijden voor POC,  POC uit cache,  login en login uit cache voor elk raamwerk.}
-  \label{fig:performantie}
-\end{figure}
+
 
 
 \subsection{\st}
+\label{sec:performantie-st}
 % individuele grafiek
 % http://www.sencha.com/blog/behind-sencha-command-and-the-build-process
 %TODO exacte info tests + extra info CORS zoeken

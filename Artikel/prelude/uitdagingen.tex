@@ -1,0 +1,112 @@
+\usepackage{pdftexcmds}
+\makeatletter
+\newcommand{\uit}[1]{
+	\ifnum\pdf@strcmp{#1}{anatomie}=0
+  		U1:~Anatomie van pagina%
+	\else\ifnum\pdf@strcmp{#1}{toestel}=0
+    	U2:~Toestelspecifieke lay-out%
+	\else\ifnum\pdf@strcmp{#1}{laadscherm}=0
+    	U3:~Laadscherm en dialoogvenster%
+	\else\ifnum\pdf@strcmp{#1}{formulieren}=0
+    	U4:~Formulieren%
+	\else\ifnum\pdf@strcmp{#1}{formulieren-placeholders}=0
+    	U4.1:~Maak formulieren met placeholders zonder labels%
+	\else\ifnum\pdf@strcmp{#1}{formulieren-types}=0
+    	U4.2:~Gebruik tekst/nummer/e-mail als formuliertypes%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-optieveld}=0
+    	U4.3:~Optieveld%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-datepicker}=0
+    	U4.4:~Aangepaste datepicker met bereik van data%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-monthpicker}=0
+		U4.5:~Aangepaste datepicker met enkel maand- en jaarveld%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-schakelaar}=0
+		U4.6:~Schakelaar%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-wissen}=0
+		U4.7:~Wissen van een formulier%
+	\else\ifnum\pdf@strcmp{#1}{vullen}=0
+    	U5:~Automatisch invullen van formulier%
+	\else\ifnum\pdf@strcmp{#1}{autoaanvullen}=0
+    	U6:~Auto-aanvullen%
+	\else\ifnum\pdf@strcmp{#1}{afbeelding}=0
+    	U7:~Toevoegen en verwerken van afbeelding%
+	\else\ifnum\pdf@strcmp{#1}{validatie}=0
+    	U8:~Formuliervalidatie%
+	\else\ifnum\pdf@strcmp{#1}{handtekening}=0
+    	U9:~Handtekening%
+	\else\ifnum\pdf@strcmp{#1}{ajax}=0
+    	U10:~AJAX%
+	\else\ifnum\pdf@strcmp{#1}{lijsten}=0
+    	U11:~Lijsten%
+	\else\ifnum\pdf@strcmp{#1}{pdf}=0
+    	U12:~Toon PDF%
+	\else\ifnum\pdf@strcmp{#1}{offline}=0
+  		U13:~Offline%
+	\else\ifnum\pdf@strcmp{#1}{offline-data}=0
+  		U13.1:~Bewaar data%
+	\else\ifnum\pdf@strcmp{#1}{offline-app}=0
+		U13.2:~Maak de applicatie offline beschikbaar%
+  	\else
+		[?]%
+		
+  	\fi\fi\fi\fi\fi
+  	\fi\fi\fi\fi\fi
+  	\fi\fi\fi\fi\fi
+  	\fi\fi\fi\fi\fi
+  	\fi\fi
+}
+
+\newcommand{\chal}[1]{
+	\ifnum\pdf@strcmp{#1}{anatomie}=0
+		C1:~Anatomy of page%
+	\else\ifnum\pdf@strcmp{#1}{toestel}=0
+		C2:~Device-specific layout%
+  	\else\ifnum\pdf@strcmp{#1}{laadscherm}=0
+		C3:~Load screen and dialog%
+	\else\ifnum\pdf@strcmp{#1}{formulieren}=0
+		C4:~Forms%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-placeholders}=0
+    	C4.1:~Create forms with placeholders without labels%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-types}=0
+    	C4.2:~Use the text/number/email as form types%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-optieveld}=0
+   	 	C4.3:~Option field%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-datepicker}=0
+    	C4.4:~Custom datepicker with data range%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-monthpicker}=0
+		C4.5:~Custom datepicker only with month and year%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-schakelaar}=0
+		C4.6:~Flip switch%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-wissen}=0
+		C4.7:~Clearing the form%
+  	\else\ifnum\pdf@strcmp{#1}{vullen}=0
+		C5:~Automatic form filling%
+	\else\ifnum\pdf@strcmp{#1}{autoaanvullen}=0
+		C6:~Autocomplete%
+	\else\ifnum\pdf@strcmp{#1}{afbeelding}=0
+		C7:~Attach and process image%
+	\else\ifnum\pdf@strcmp{#1}{validatie}=0
+		C8:~From validation%
+	\else\ifnum\pdf@strcmp{#1}{handtekening}=0
+		C9:~Signature%
+	\else\ifnum\pdf@strcmp{#1}{ajax}=0
+		C10:~AJAX%
+  	\else\ifnum\pdf@strcmp{#1}{lijsten}=0
+		C11:~Lists%
+  	\else\ifnum\pdf@strcmp{#1}{pdf}=0
+		C12:~Show PDF%
+  	\else\ifnum\pdf@strcmp{#1}{offline}=0
+		C13:~Offline%
+  	\else\ifnum\pdf@strcmp{#1}{offline-data}=0
+  		C13.1:~Saving data%
+  	\else\ifnum\pdf@strcmp{#1}{offline-app}=0
+  		C13.2:~Making app offline%
+	\else
+    	[?]%
+	
+  	\fi\fi\fi\fi\fi
+  	\fi\fi\fi\fi\fi
+  	\fi\fi\fi\fi\fi
+  	\fi\fi\fi\fi\fi
+  	\fi\fi
+}
+\makeatother

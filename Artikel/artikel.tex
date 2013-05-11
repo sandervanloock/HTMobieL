@@ -557,6 +557,37 @@ ST is not available on GitHub,  that is why no data is given.
 \subsection{Productivity} % Sander 0,5 blz
 \label{sec:evaluation-productivity}
 
+This section will investigate the productivity of the different frameworks based on the time to implement the POC and the login application.
+Table~\ref{tabel:evaluatie-productiviteit} contains the scores for this criterion.
+The data shows that \lungo{} is the obvious winner,  followed by \kendo{} en \jqm{}.
+\st{} appears to be the least productive.
+
+Two important factor need to be taken into account when analyzing this data.
+First,  the implementations of the POC and login application were first executed with \jqm{} and \st{}.
+The gained experience helped the developpers in the second implementation phase.
+Also,  problems with the backend were resolved in the first implementation phase.
+
+The imposed architecture with \st{} and \kendo{} increases the learning curve.
+Also, the fact that a framework is JavaScript driven complicates the implementation.
+This is why \st{} is the least productive.
+
+There are also other factor that influence the productivity.
+Firstly,  tools can speed up the production process.
+Sencha provides Sencha Architect,  a graphical environment to visualy build applications from the ground up.
+Version 2.1 of Sencha Architect was used to build the views but was not of much use to build more sophisticated functionality.
+Secondly,  boilarplate code can be used to initialize a new project.
+All frameworks beside \lungo{} describe such code in their documentation.
+\st{} even offers Sencha Cmd to automate this process.
+Also, the quality and quantity of the documentation influence the productivity.
+A well-engineered search functionality,  real-time code examples and structure classification is crucial for a good documentation.
+\kendo{} is the only framework that which documentation has all three components.  
+An other factor is the available literature.
+Safari Books Online contains $12$ books that specifically discuss \jqm{},  \lungo{} has no books at all.
+The final factor is the different places where a developper can go to ask questions.
+Stack Overflow or fora are examples of such places. %TODO fora?
+As presented in the previous criterion,  \jqm{} expells in the amount of Stack Overflow questions
+
+
 \begin{table}
 \centering
 \pgfplotstabletypeset[

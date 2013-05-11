@@ -103,7 +103,7 @@ Omdat deze aanpak het raamwerk onterecht zou bevoordelen, is hier niet voor geko
 De som van Twitter volgers ($T_r$), GitHub sterren ($S_r$), GitHub forkers ($F_r$), Stackoverflow vragen ($SO_r$) en Facebook vind-ik-leuks ($FB_r$) vormt de score voor het gemeenschapscriteria:
 \begin{equation}
   GM_r=T_r+S_r+F_r+SO_r+FB_r
-  \label{eq:gemeenschap}
+  \label{eq:populariteit}
 \end{equation}
 met $r$ de verschillende raamwerken.
 
@@ -406,7 +406,7 @@ De formule voor het performantiecriterium wordt dan:
   PE_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)} 
   \label{eq:performantie}
 \end{equation}
-met $r$ de verschillende raamwerken.
+met $c$ de verschillende contexten en $r$ de verschillende raamwerken.
 
 Het opmeten van laadtijden zal met PCAP Web Performance Analyzer gebeuren. %TODO referentie http://pcapperf.appspot.com/
 Deze tool kan HAR-bestanden (HTTP \term{Archive}) analyseren.

@@ -31,7 +31,7 @@ saveas(gca,'../figuren/performance.pdf');
 system('pdfcrop ../figuren/performance.pdf ../figuren/performance.pdf');
 
 apparaten = {'HTCDesireZ', 'GalaxyTab', 'GalaxyS', 'Nexus 7','iPad1 WiFi', 'iPad3 4G WiFi', 'iPhone 3GS', 'iPhone 4S'};
-
+mylegend = {'POC','POC uit cache','Login','Login uit cache'};
 
 %jquery mobile performance
 M = csvread('performantie/performantie-jqm.csv',1,2,[1,2,8,5]);
@@ -45,8 +45,9 @@ set(plot(2),'facecolor','red');
 set(plot(3),'facecolor','green');
 set(plot(4),'facecolor','blue');
 %applyhatch(gcf,'\/-|');
-ylabel('tijd (s)')
-%legend('POC','POC Cached','Loginscherm','Loginscherm Cached')
+ylabel('tijd (s)');
+set(gcf, 'PaperPositionMode', 'auto');
+legendflex([plot], mylegend, 'ref', gcf, 'anchor', {'n','n'}, 'buffer',[0 0], 'nrow',1, 'fontsize',8);
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', apparaten);
 rotateticklabel(gca,45);
 saveas(gca,'../figuren/performance-jquery.pdf');
@@ -64,9 +65,11 @@ set(plot(2),'facecolor','red');
 set(plot(3),'facecolor','green');
 set(plot(4),'facecolor','blue');
 ylabel('tijd (s)');
-%legend('POC','POC Cached','Loginscherm','Loginscherm Cached')
+set(gcf, 'PaperPositionMode', 'auto');
+legendflex([plot], mylegend, 'ref', gcf, 'anchor', {'n','n'}, 'buffer',[0 0], 'nrow',1, 'fontsize',8);
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', apparaten);
 rotateticklabel(gca,45);
+set(gcf, 'PaperPositionMode', 'auto');
 saveas(gca,'../figuren/performance-st.pdf');
 system('pdfcrop ../figuren/performance-st.pdf ../figuren/performance-st.pdf');
 
@@ -82,9 +85,11 @@ set(plot(2),'facecolor','red');
 set(plot(3),'facecolor','green');
 set(plot(4),'facecolor','blue');
 ylabel('tijd (s)');
-%legend('POC','POC Cached','Loginscherm','Loginscherm Cached')
+set(gcf, 'PaperPositionMode', 'auto');
+legendflex([plot], mylegend, 'ref', gcf, 'anchor', {'n','n'}, 'buffer',[0 0], 'nrow',1, 'fontsize',8);
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', apparaten);
 rotateticklabel(gca,45);
+set(gcf, 'PaperPositionMode', 'auto');
 saveas(gca,'../figuren/performance-kendo.pdf');
 system('pdfcrop ../figuren/performance-kendo.pdf ../figuren/performance-kendo.pdf');
 
@@ -100,8 +105,10 @@ set(plot(2),'facecolor','red');
 set(plot(3),'facecolor','green');
 set(plot(4),'facecolor','blue');
 ylabel('tijd (s)');
-%legend('POC','POC Cached','Loginscherm','Loginscherm Cached')
+set(gcf, 'PaperPositionMode', 'auto');
+legendflex([plot], mylegend, 'ref', gcf, 'anchor', {'n','n'}, 'buffer',[0 0], 'nrow',1, 'fontsize',8);
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', apparaten);
 rotateticklabel(gca,45);
+set(gcf, 'PaperPositionMode', 'auto');
 saveas(gca,'../figuren/performance-lungo.pdf');
 system('pdfcrop ../figuren/performance-lungo.pdf ../figuren/performance-lungo.pdf');

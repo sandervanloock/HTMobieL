@@ -19,6 +19,32 @@
 % De eerste keer laden van webappplicaties duurt gemiddeld 3,3s (niet voor ST)
 % De gecachte versie openen duurt gemiddeld 400ms (niet voor ST), wat een aanvaardbare tijd is volgens http://www.nngroup.com/articles/response-times-3-important-limits/
 
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Performantie Metrieken,jQM,ST,Kendo,Lungo},
+  columns/Performantie/.style={column name=\textbf{Performantie Metrieken}, column type={l}},  
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/performantie/performantie-verklaring.csv}
+\caption{Metrieken gebruikt bij de verklaring van performantiecriterium voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
+\label{tabel:performantie-verklaring}
+\end{table}
+
 % TODO Tim: tabel maken voor de dingen hieronder
 % deze dingen uitdiepen hieronder
 % page speed

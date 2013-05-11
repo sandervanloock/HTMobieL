@@ -257,27 +257,42 @@ Because of the differences in implementation, JavaScript libraries like jQuery a
 \section{Comparison criteria} %Sander 0.75 pg
 \label{sec:comparisoncriteria}
 
-Our comparison strategy tries to combine the above elements.  
-We derived five important criteria:  community,  productivity,  usage,  support and performance. 
-The POC will drive all but first criteria.   
-A methodology that results in a score for each criterion will be described below.  
-These scores will be plotted in a spider graph~\cite{Few2005}.   
-To be complete,  a full detailed table will be provided where the significant difference of the frameworks will be presented. 	
+The comparison study will be driven by a Proof of concept (POC).  
+This POC encompasses an application to let employees attach, sign and submit expenses to their employer via tablet or smartphone.
+Afterwards, the employee can view the uploaded expenses and download them as PDF.
 
-\paragraph{Community}
-Social networks provide a good indication to determine the community that goes with the framework.  
-\cite{Sarrafi2012a,Ayuso2012} use Twitter followers,  Stack Overflow questions,  GitHub stars and GitHub forkers as community indication.  
-We also include Facebook likes.  The summation of these five numbers give the score for the framework community.  
+Five important criteria will be used:  popularity,  productivity,  usage,  support and performance. 
+The POC can be used in all but the first.   
+A methodology that results in a score for each criterion will be described below.  
+Per criterion,  a table or graph will be provided so give an overview of the total scores
+At the final stage,  these scores will be plotted in a spider graph~\cite{Few2005}.   
+
+
+\paragraph{Popularity}
+Social networks provide a good indication to determine the popularity that goes with the framework.  
+%\cite{Sarrafi2012a,Ayuso2012} use 
+Twitter followers ($T$),  GitHub stars ($S$),  GitHub forkers ($F$),  Stack Overflow questions ($S$) and Facebook likes ($FB$) will be looked at.
+The summation of these five numbers give the score for the framework's popularity.  
+
+\begin{equation}
+  T+S+F+SO+FB
+  \label{eq:populariteit}
+\end{equation}
 
 \paragraph{Productivity}
-We both implement the full POC in a different framework and carefully record the time to implement it.  
-As we both start with a similar background,  time differences can explain different learning curves.  
-To double check this criterion,  we also partially implement the POC in the other's framework.  
-The partial implementation is the POC's login, just like~\cite{Burris}.   
-The time to implement the POC and the login screen give the score for the framework's productivity.  
+Both autors implement the full POC in a different framework and carefully record the time to implement it.  
+As both start with a similar background,  time differences can explain different learning curves.  
+To double check this criterion,  a partially implemention of the POC will be implemented in the other's framework.  
+The partial implementation is the POC's login that loads a long list.%, just like~\cite{Burris}.   
+The time to implement the POC ($t_{POC}$) and the login application ($t_{login}$) give the score for the framework's productivity. 
+
+\begin{equation}
+  {t_{POC} + t_{login}}
+  \label{eq:productiviteit}
+\end{equation}
 
 \paragraph{Usage}
-The POC will be subdivided in a number of implementation challenges.  
+The POC will be subdivided in $13$ challenges and $38$ subchallenges.  
 The score of this criterion will depend on the completion of the challenges by the framework.  
 The assessment of the challenges can be found in table~\ref{table:challenges-scores}.  
 The total of all challenges give the score for the framework's usage.
@@ -288,96 +303,150 @@ The total of all challenges give the score for the framework's usage.
 \toprule
 \textbf{Score} & \textbf{Assessment criteria}\\
 \midrule
-2 & Supported by the framework\\
-1 & A plugin is needed\\
-0 & Custom implementation or hack\\
+$C_{i} = 2$ & Supported by the framework\\
+$C_{i} = 2$ & A plugin or HTML5 feature is needed\\
+$C_{i} = 2$ & No/custom implementation or hack\\
 \bottomrule
 \end{tabular}
 \caption{Assessment criteria for implementation challenges.}
 \label{table:challenges-scores}
 \end{table}
 
+\begin{equation}
+  \sum_{i=1}^{38}{\left(C_{i}\right)}
+  \label{eq:gebruik}
+\end{equation}
 
 \paragraph{Support}
-This criterion indicates the correct functionality of the POC implementation on different devices and browsers,  similar as the cross-platform capabilities of~\cite{Sarrafi2012a}.  
-In each context,  we will walk through a scenario and rate the execution.  
-If some parts of the scenario are infeasible,  points will be subtracted.  
-The summation of scores for every iteration of the scenario in each context will give the score for the framework's support.
+This criterion indicates the correct functionality of the POC implementation on different contexts.
+A context is a combination of a particular operatingsystem, device and browser.
+Both Android and iOS, smartphones and tablets will be checked.
+Only native browsers will be looked at.
+In total eight contexts will be checked for support.
+%,  similar as the cross-platform capabilities of~\cite{Sarrafi2012a}.  
+In each context,  a subset of the challenges from the previous criterion will be checked.  
+These are the challenge were the framework actually provided an implementation ($U_{i} > 0$).
+If the challenge works as expected $C_{c,i} = 1$.
+If some part of challenge is infeasible $C_{c,i} = 0$.
+The summation of scores for each context will give the score for the framework's support.
+
+\begin{equation}
+  \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}C_{c,i}\right)}
+  \label{eq:ondersteuning}
+\end{equation}
 
 \paragraph{Performance}
-Different aspect of the framework influence the performance.  
-We will test the time to load and render the full POCs and isolated screens with Goolge Page Speed~\cite{Google2012},  as suggested by~\cite{Morgan2011}.   
-Also,  isolated tests will record the loading time of dummy pages with 1000 buttons.  
-The summation of render times will give the score for the frameworks performance.
+The loading time of an HTML5-application is a major bottleneck for performance.
+Therefor,  the loading time of the POC ($l_{c,POC}$) and login application ($l_{c,login}$) will be measured on eight devices.
+Also,  the loading time for a cached version of both the POC ($l_{c,POC_{cache}}$) and login application ($l_{c,login_{cache}}$) will be recorded.
+The summation of loading times will give the score for the framework's performance.
+
+\begin{equation}
+  \sum_{c=1}^{8}{\left(l_{c,POC}+l_{c,POC_{cache}}+l_{c,login}+l_{c,login_{cache}}\right)} 
+  \label{eq:performantie}
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Frameworks} % (1 blz per framework + tabel)
+\section{Frameworks} % (0.5 blz per framework + tabel)
 \label{sec:frameworks}
 This section introduces the explored mobile HTML5 frameworks: jQuery Mobile (jQM) and \st{} (\sta{}).
 
 \subsection{\st} % (0.5 blz Sander)
 \label{sec:frameworks-sencha-touch}
 
-ST is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
+\sta{} is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
 Ext JS is a JavaScript framework for the development of HTML5 applications.  
 jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery and depends on the WebKit engine.  
 Finally,  Raphaël, is a JavaScript library for vector drawings.  
-Parts of the first two technologies can be found in the implementation of the ST framework.    
+Parts of the first two technologies can be found in the implementation of the \sta{} framework.    
 
-As at the time of writing,  ST is at version 2.1.1~\cite{Inc.}.
+As at the time of writing,  \sta{} is at version 2.2.0~\cite{Inc.}.
 
 \paragraph{Documentation}
-All documentation for ST 2.1.1 can be found at \exturl{docs.sencha.com/touch/2-0}.  
+All documentation for \sta{} can be found at \exturl{docs.sencha.com/touch/2-0}.  
 The most important features are provided with code examples and live previews.
-The key concepts of ST are explained in extensive tutorials:  some are texts, some are videos.  
+The key concepts of \sta{} are explained in extensive tutorials:  some are texts, some are videos.  
 
-Another handy tool to discover the ST features is the Kitchen Sink~\cite{Inc.2013}.  
-This is a HTML5 application that lines up all possibilities of the framework combined with the corresponding code.
+Another handy tool to discover the \sta{} features is the Kitchen Sink~\cite{Inc.2013}.  
+This is a HTML5-application that lines up all possibilities of the framework combined with the corresponding code.
 
 \paragraph{Licenses}
-ST is free within a commercial context in which the developer does not share the code with its users.  
-There is also the option to use an open source version.  
-This comes with a GNU GPL v3 license which implies a free code redistribution as most important property.
+\sta{} is free within a commercial context in which the developer does not share the code with its users.  
+There is also the option to use an open-source version.  
+This comes with a GNU GPLv3 license which implies a free code redistribution as most important property.
 Other licenses can be found at~\cite{SenchaInc.}.
   
 \paragraph{Code and development}
-ST is written on top of Ext JS,  and can also be considered as a JavaScript framework.  
-All code needs to be written in JavaScript and loaded by one HTML container.  
-Another important aspect of ST is that it supports the Model-View-Controller (MVC) pattern.  
+\sta{} is written on top of Ext JS,  and can also be considered as a JavaScript framework.  
+All code needs to be written in JavaScript and loaded by one HTML-container.  
+Another important aspect of \sta{} is that it supports the Model-View-Controller (MVC) pattern.  
 Models group fields to data objects,  views define how the content is presented to the user and controllers connect these based on events.
 
-ST contains all UI elements as JavaScript objects.  
+\sta{} contains all UI-elements as JavaScript objects.  
 Just like object-oriented programming,  those objects are part of a class system.  
-Classes can both be defined (\code{Ext.define}) or created (\code{Ext.create}).  
+Classes can be defined and/or created.  
 Single inheritance and overriding is also possible.    
 
 To enhance performance,  it is the programmer's task to create components before they are used.  
 In this way,  the programmer partially determines the performance of the application.
 
 \paragraph{Browser support}
-Just like jQuery Touch,  ST is based upon the WebKit browser engine.  
+Just like jQuery Touch,  \sta{} is based upon the WebKit browser engine.  
 This forms the major requirement for browser support.  
 Although most mobile browsers contain this engine,  some like FireFox Mobile and Opera Mobile lack behind~\cite{JohnEClark2012}.  
-Following~\cite{Wokke2013}, the next release of the Opera browser will contain the WebKit engine,  a trend that most browser vendors will (have to) follow.
+The next release of the Opera browser will contain the WebKit engine~\cite{Wokke2013}, a trend that most browser vendors will (have to) follow.
 
-The framework offers the programmer methods to ask for the current context where the end-user is working in. 
-Properties like \code{Ext.env.Browser} and \code{Ext.env.OS} or methods like \code{Ext.Viewport.getOrientation} and \code{Ext.feature.has} can determine this context~\cite{JohnEClark2012}.  
-The latter has the same functionality as Modernizer~\cite{Modernizr2012}.  
+The framework offers the programmer methods to ask for the current context where the end-user is working in.
+This functionality is comparable with Modernizer~\cite{Modernizr2012}.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{\kendo} % (0.5 blz Sander)
 \label{sec:frameworks-kendo}
 
+\kendo{} is a framefrom from Telerik and consists of three layers:  \kendo{} Web,  \kendo{} Mobile and \kendo{} DataViz.
+The first focusses on the development of webapplications,  the second makes them mobile and the last facilitates data representation.
+\kendo{} is an hybrid form between JavaScript and markupdriven.
+It is build upon the MVVM (Model-View-ViewModel) architecture and requires the jQuery library.
+
+As at the time of writing,  \kendo{} is at version 2013 Q1~\cite{Telerik}. 
+
 \paragraph{Documentation}
+The documentation can be found at \url{http://docs.kendoui.com}~\cite{Telerikd}.
+Two important sections are the API and Getting Started.
+Both sections follow the same structure and each feature from the API is explained in detail in the Getting Started section.
+Also,  every feature can be viewed in a demo with the corresponding code.
 
 \paragraph{Licenses}
+A licence for \kendo{} Complete costs $\$699$ per developper.
+Each layer can be bought separately for a different license fee.
+\kendo{} also provides server-side wrappers that can automatically create client-side JavaScript code.
+As at the time of writing, PHP,  JSP and ASP.NET MVC are supported as server-side technologies.
+A license for a server-side wrapper costs $\$300$~\cite{Telerik}.
 
 \paragraph{Code and development}
+Both JavaScript and HTML-code needs to be writter because \kendo{} is both JavaScript and markupdriven.
+
+\kendo{} is dependent on the jQuery library.
+Just like \jqm{} there are tree strategies for building webapplications:  single-page application,  view per page or a combination of both.
+
+The MVVM architecture is imposed by \kendo{}.
+The views and models are similar with the views and models of the MVC architecture from \st{}.
+The view-model is an object that binds views with models in both directions and is called \code{ObservableObject} in \kendo{}.
+The binding is annotated in HTML with data tags.
+\kendo{} supports bindings based on different properties from JavaScript objects.
+Examples of the properties are \code{checked,  value} or \code{visible}.
+If a view is bound to a model,  the model is changed when a user changes the content of a view or the view is changed when the model is programmatically updated.
 
 \paragraph{Browser support}
+One of the most important aspects of \kendo{} is the mimicking of the native look-and-feel of the current operatingsystem.
+Supported platforms are iOS,  Android,  BlackBerry and Windows Phone~8.
+
+All widgets are from \kendo{} Web support progressive enhancement.
+Also,  the features of \kendo{} Mobile that depend on HTML5 support progressive enhancement.
+The styling of forms,  for example,  will still work on older platforms, but the functionality will be limited to text input only.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -993,6 +1062,8 @@ TODO
 \section{Related Work} % Sander 0.25 pg
 \label{sec:related-work}
 
+%TODO waarom criteria niet gekozen
+
 Many in-depth comparisons of mobile HTML5 frameworks already exist today.  
 However, none of them are scientifically published or use a large proof of concept (POC) to validate their comparison.  
 The idea of using a small-scale POC is not new.  
@@ -1023,10 +1094,6 @@ Other websites like~\cite{Bristowe2012,Burris} only focus on two mobile HTML5 fr
 % \caption{How many frameworks of which type are compared}
 % \label{table:references_frameworks}
 % \end{table}
-
-As mentioned earlier,  we will compare two mobile HTML5 frameworks based upon a large-scale POC.  
-This POC encompasses an application to let employees attach, sign and submit expenses to their employer via tablet or smartphone.
-Afterwards, the employee can view the uploaded expenses and download them as PDF.
 
 \section{Future work} % ? blz)
 \label{sec:future_work}

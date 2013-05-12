@@ -1,6 +1,6 @@
 \chapter{Literatuurstudie}
 \label{chap:literatuurstudie}
-In sectie \ref{sec:mobiele-apparaten} wordt bekeken welke mobiele apparaten er allemaal bestaan. 
+In dit hoofdstuk wordt gestart met het bekijken welke mobiele apparaten er allemaal bestaan (\ref{sec:mobiele-apparaten}). 
 Vervolgens wordt er gekeken wat er onder de motorkap van deze apparaten zit, namelijk welke mobiele besturingssystemen (\ref{sec:mobiele-besturingssystemen}), welke mobiele applicaties (\ref{sec:mobiele-applicaties}) en welke mobiele webbrowsers (\ref{sec:mobiele-webbrowsers}) er bestaan. 
 Daarna komen de drie bouwblokken van het web aan bod (\ref{sec:html5-css3-js}), namelijk HTML, CSS en \js{}.
 Hierna wordt ingegaan op vele mobiele HTML5-raamwerken (\ref{sec:mobiele-html5-raamwerken}).  
@@ -23,7 +23,7 @@ Foto's of video's nemen, navigeren naar het dichtstbijzijnde restaurant of nog s
 Hoewel Apple de lat hoog heeft gelegd met het uitbrengen van de iPhone, zijn er ook nog andere spelers op de markt. 
 Zo zijn er bijvoorbeeld de op Google's Android gebaseerde smartphones zoals de Nexus 4 en de op Windows Phone gebaseerde smartphones zoals de Nokia Lumia 800.
 
-Niet enkel de smartphone behoort tot de categorie van mobiele apparaten, maar ook de tablet. 
+Ook de tablet behoort tot de categorie van mobiele apparaten.
 Tegen 2016 zulen er 760 miljoen tablets in gebruik zijn~\cite{Gillett2012}.
 Ook hier kan terug gedacht worden aan één van Apple's succesvolle producten, namelijk de in 2010 uitgebrachte iPad~\cite{Apple2010}. 
 Er dient echter wel opgemerkt te worden dat tien jaar voordien, Microsoft al eerder een tablet uitbracht met veel minder succes~\cite{Microsoft2000}.
@@ -35,7 +35,7 @@ Ook hier bestaat er een variëteit aan modellen zoals de Kindle van Amazon en de
 \subsection{Kenmerken}
 Door de vele verschillende soorten en modellen aan mobiele apparaten, is het nodig om op een hoog niveau te bekijken over welke kenmerken deze allemaal (kunnen) beschikken. 
 Bij deze bespreking wordt ingegaan op de voornaamste kenmerken van smartphones en tablets. 
-De kenmerken en tekst zijn gebaseerd op~\cite{PhilDutson2012}.
+De kenmerken en tekst zijn gebaseerd op Phil Dutson~\cite{PhilDutson2012}.
 
 \subsubsection{Resolutie en PPI}
 Een eerste kenmerk waar vooral Apple met haar Retina graag mee uitpakt, is de resolutie. 
@@ -76,9 +76,9 @@ Doordat het wat kan duren vooraleer de locatie is vastgesteld via GPS, kan het m
 Praktisch ieder recent mobiele apparaat is uitgerust met een camera. 
 Sommige bevatten zelfs twee camera's. 
 De camera vooraan is veelal van mindere kwaliteit en wordt gebruikt om videogesprekken te voeren. 
-Achteraan het apparaat zit dan een camera met hogere resolutie om mooie foto's te kunnen maken.
+Achteraan het apparaat zit dan een camera met hogere resolutie om foto's van betere kwaliteit te kunnen maken.
 
-Twee andere toepassingen van de camera zijn toegevoegde realiteit en het inscannen van barcodes.
+Twee voorbeelden van toepassingen van de camera zijn toegevoegde realiteit en het inscannen van barcodes.
 Bij het eerstgenoemde wordt informatie toegevoegd aan het beeld dat door de camera wordt geregistreerd.
 Het laatstgenoemde wordt gebruikt om de populaire QR-code in te scannen en te zien wat ze betekent.
 Zo'n code kan tekst bevatten, een link naar een website, een telefoonnummer, enzovoort. 
@@ -154,7 +154,7 @@ Windows Phone haalt 2\% van het marktaandeel binnen in datzelfde kwartaal~\cite{
   every last row/.style={
     after row=\bottomrule}
 ]{tabellen/android.csv}
-\caption{Marktaandeel van iOS-versies op 14 februari 2013 en Android-versies op 2 april 2013.  \protect\cite{Sylvain2013,Android2013}.}
+\caption{Marktaandeel van iOS-versies op 8 mei 2013 en Android-versies op 1 mei 2013.  \protect\cite{Smith2013,Android2013}.}
 \label{tabel:marktaandeel-ios-android}
 \end{table}
 
@@ -413,17 +413,17 @@ De tegenhanger hiervan is \emph{graceful degradation}.
 Hierbij wordt eerst een versie ontwikkeld die enkel in de meest recentste browser kan worden getoond. 
 Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implementeren waardoor ook minder recente browsers de applicatie kunnen weergeven.
 
-\subsubsection{HTML5e}
-Een bedrijf wil enerzijds een stabiele webapplicatie en wil anderzijds ook van deze nieuwe kenmerken zoveel mogelijk gebruik gaan maken. 
-De term HTML5e~\cite{Hales2012} omvat de vijf meest ondersteunde HTML5-kenmerken in browsers. 
-Op figuur \ref{fig:html5e} wordt een tabel getoond met de kenmerken die voor mobiele webbrowsers van toepassing zijn.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{figuren/html5e}
-  \caption{HTML5e mobiele ondersteuning~\cite{Hales2012}}
-  \label{fig:html5e}
-\end{figure}
+%\subsubsection{HTML5e}
+%Een bedrijf wil enerzijds een stabiele webapplicatie en wil anderzijds ook van deze nieuwe kenmerken zoveel mogelijk gebruik gaan maken. 
+%De term HTML5e~\cite{Hales2012} omvat de vijf meest ondersteunde HTML5-kenmerken in browsers. 
+%Op figuur \ref{fig:html5e} wordt een tabel getoond met de kenmerken die voor mobiele webbrowsers van toepassing zijn.
+%
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.8\textwidth]{figuren/html5e}
+%  \caption{HTML5e mobiele ondersteuning~\cite{Hales2012}}
+%  \label{fig:html5e}
+%\end{figure}
 
 \subsection{CSS3}
 \label{ref:css3}
@@ -640,8 +640,7 @@ De belanghebbenden worden opgedeeld in primaire en secundaire gebruikers.
 De eerste zijn de personen die het systeem gebruiken. 
 De laatste zijn diegene die zorgen voor het onderhoud.
 
-
-\subsection{Criteria}
+\subsection{Classificatie}
 \label{sec:vergelijken-criteria}
 Op het web en in de literatuur kunnen ook alternatieve manieren teruggevonden worden waar raamwerken met elkaar worden vergeleken.  
 Deze werkwijzen verschillen in de gekozen criteria alsook de manier waarop de criteria beoordeeld worden.
@@ -651,7 +650,7 @@ Een tweede bestaat uit het quoteren van de gekozen criteria op basis van een zel
 Verder kan er ook van een \term{proof of concept} worden uitgegaan om het raamwerk te testen~(\ref{sec:manier-poc}).
 Ten slotte kunnen ook de gekozen criteria in tabelvorm worden ondergebracht om tot een overzichtelijke vergelijking te komen~(\ref{sec:manier-vergelijkingstabellen}).
 
-\subsubsection{Bespreken}
+\subsubsection{Bespreking}
 \label{sec:manier-bespreken}
 Een voorbeeld van een blogpost waarbij vergelijkingscriteria iteratief besproken worden is de Mobile framework SMACKDOWN! op Dinosaurs with Laserz~\cite{Rozynski2011}.
 Deze vergelijkt \jqt{},  \jqm{},  \st{},  PhoneGap en Titanium.  

@@ -108,6 +108,7 @@ This paper compares \st{}, \jqm{}, \kendo{} and \lungo{} by using popularity, pr
 The mobile landscape is very heterogeneous and making mobile applications can therefore be a challenging task.
 
 \section{Background}
+%TODO: of alles samennemen?
 This paper focusses on smartphones and tablets as mobile devices. 
 Other mobile devices like PDA's and e-readers are left out of scope.
 
@@ -541,13 +542,41 @@ An A graded browsers supports everything of the jQM framework, where a C graded 
 \subsection{\lungo} % (0.5 blz Tim)
 \label{sec:frameworks-lungo}
 
+\lungo{} is a mark-up drive framework of which version~1.0 appeared in 2011~\cite{TapQuo2011}.
+The framework is maintained by the Spanish company TapQuo that is specialised in mobile user experience~\cite{TapQuo2013a}.
+\lungo{} depends on  \quo{} which is a \js{} library optimised for mobile.
+%\lungo{} biedt vooral GI-elementen aan, maar daarnaast zijn er ook \term{wrappers} voor cache, opslag en SQL beschikbaar~\cite{TapQuo2013}.
+%Er wordt geen programmeerstijl zoals MVC afgedwongen.
+As of the time of writing, \lungo{} is at version~2.1~\cite{TapQuo2013}.
+
 \paragraph{Documentation}
+Documentation can be found on \exturl{lungo.tapquo.com/howto/prototype} where on the first page the boilerplate code for a typical \lungo{} application is shown.
+There are eight other pages explaining briefly the various UI components and API functionality.
+On these page the source code is shown for each example.
+One can also view a live preview of each example.
+The documentation of the underlying \js{} library can be found on \exturl{quojs.tapquo.com}.
+It exists of only one page with a very brief summary of the API.
 
 \paragraph{Licenses}
+The framework is released by the GPLv3 licence.
+A commercial licence is also available, but because of the lack of information, the authors contacted TapQuo via email to obtain more info.
+However as of writing, they did not receive any answer.
 
 \paragraph{Code and development}
+Programming a \lungo{} application is done by annotating the HTML code with CSS classes and \code{data-*} attributes.
+There is no architecture like MVC enforced by the framework.
+To manipulate the DOM, the developer has to use \quo{}.
+This \js{} library that is optimised for mobile does not contain methods for desktop users therefore making it smaller than traditional \js{} libraries like jQuery.
+The library does not enforce an architecture.
+
+One can write a single page web application or create multiple pages for each screen.
+The \code{<article>} and \code{<section>} HTML5 tags are used to separate the different screens of the application.
+\lungo{} supports a multipage web application by providing an asynchronous loader when initializing the application.
+Only the code between the \code{<body>} tags of the screens need to be saved on different web pages.
 
 \paragraph{Browser support}
+The framework indicates on their website to have support for iOS, Android, Blackberry and FirefoxOS.
+They also want to have a consistent experience across mobiles, tvs and desktops~\cite{TapQuo2013}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

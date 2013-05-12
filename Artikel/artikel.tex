@@ -759,7 +759,7 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
   \item C2.3 Enabling smartphone menu.
 \end{itemize}
 
-\framework{\sta{}}{}
+\framework{\sta}{}
 Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
 If this method returns false,  we assume to be in tablet mode.    
 The main screen of the POC requires a splitted view in tablet mode.  
@@ -768,23 +768,25 @@ The \code{flex} property defines the ratio of the sizes of both resulting compon
 In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
 Making the sub header clickable is not possible  
 
-\framework{\kendoa{}}{}
+\framework{\kendoa}{}
 \kendo{} also provides methods to query the context.
 \code{kendo.support.tablet},  for example,  returns if a tablet is being used.
 The splitview for the tablet layout is supported by \kendo{} and can be used by defining your view as \code{splitview} as value of the data attribute \code{data-role}.
 The smartphone layout needs to be build by manipulating the DOM with jQuery methods.
 
-\framework{\jqma{}}{}
-No functionality is provided by the framework, so a search for plugins was started with~\cite{Deering2012} which led to: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} and Multiview~\cite{Franck2012}. 
-All these had shortcomings. 
-The first changed the jQM library code, the second used jQM~1.0.1 and the last had problems with adapting to different browser sizes.
-\cite{Hadlock2012} showed the use of CSS3 media queries to accomplish the split screen without a plugin.
-The documentation of jQM~1.2 also used a similar approach~~\cite{JQuery2012b}.
-This approach is also encouraged in the documentation of jQM~1.3~\cite{JQuery2013e}.
-The smartphone menu can be accessed on both tablet and smartphone devices when clicking on the sub header.
+\framework{\jqma}{}
+No functionality is provided by the framework, so a search for plugins was started~\cite{Deering2012}.
+However it was shown that the use of CSS3 media queries can accomplish the same without a plugin~\cite{Hadlock2012}.
+The documentation of \jqma{}~1.2 also used a similar approach~~\cite{JQuery2012b}.
+This approach is also encouraged in the documentation of \jqma{}~1.3~\cite{JQuery2013e}.
+The smartphone menu is always accessible on both tablet and smartphone devices when tapping on the sub header.
 
-\framework{\lungoa{}}{}
-TODO
+\framework{\lungoa}{}
+The framework has the function \code{Lungo.Core.isMobile()} to know if the current device is a mobile device or not.
+\quo{} has extra attributes for \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} and \code{screen}.
+The latter only gives the width and height, so the developer still needs to program it manually.
+As a solution, the same method as for \jqma{} was used, namely CSS3 media queries.
+The smartphone menu is always accessible on both tablet and smartphone devices when tapping on the sub header.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -800,8 +802,7 @@ TODO
  \item \chal{formulieren-wissen}
 \end{itemize}
 
-
-\framework{\sta{}}{}
+\framework{\sta}{}
 Placeholders, text, email and number fields are supported by the framework and can be easily created.  
 Labels can be avoided by not defining them.  
 To create an option field, an element with type selectfield has to be included.
@@ -810,7 +811,7 @@ It is impossible to ignore the days field and only years can be delimited.
 A flipswitch is possible with the togglefield type.
 Clearing the form after it was send, has to be programmed manually.
 
-\framework{\kendoa{}}{}
+\framework{\kendoa}{}
 All form types need to be defined with HTML-attributes and follow the HTML-standard.
 A placeholder can be defined and labels can be omitted.
 %TODO option fields? :Option fields have 
@@ -819,8 +820,7 @@ The fields and depth of the datepicker can be configured to provide the custom d
 The \code{data-role} switch can initiate a flip switch.
 Clearing a model that is bound to a form (view) will clear the form automatically.
 
-
-\framework{\jqma{}}{}
+\framework{\jqma}{}
 Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
 Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
 The types of form elements used were text, number and email.
@@ -828,9 +828,23 @@ The \code{date} type could not be used, because of the lack of support in mobile
 Also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
 The need for a custom datepicker with only a month and year needed to be hardcoded.
 Clearing the form after it was send, has to be programmed manually.
+A switch and option field are directly supported by \jqma.
 
-\framework{\lungoa{}}{}
-TODO
+\framework{\lungoa}{}
+Adding placeholders is accomplished by using the HTML5 \code{placeholder} attribute.
+Labels are not mandatory in \lungo{}, so they could be left out of the code.
+
+%De types \code{text}, \code{number} en \code{email} voor formuliervelden worden verwezenlijkt door deze als type voor de \code{input}-tags mee te geven in het formulier.
+%Gelijkaardig met de twee aangehaalde problemen voor \jqm{}, werd niet gekozen voor het \code{date}-type, maar een plug-in om de functionaliteit met datums op te lossen.
+%De \code{date-picker} werd gebruikt van de plug-in pagina van Lungo zelf~\cite{TapQuo2013b}.
+%Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \term{datepicker} te openen en de aangeklikte datum in het formulierveld te zetten.
+%De plug-in laat echter niet toe om een bereik op te geven.
+%De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
+%
+%Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een \term{dropdown}menu. 
+%Een schakelaar daarentegen werd dan weer wel aangeboden.
+%Het legen van een formulier gebeurt in \lungo{} door de \code{reset}-functie in \js{} op te roepen op dat formulier.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 

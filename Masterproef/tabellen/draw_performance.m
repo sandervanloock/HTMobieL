@@ -50,6 +50,14 @@ set(gcf, 'PaperPositionMode', 'auto');
 legendflex([plot], mylegend, 'ref', gcf, 'anchor', {'n','n'}, 'buffer',[0 0], 'nrow',1, 'fontsize',8);
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', apparaten);
 rotateticklabel(gca,45);
+for i=1:4
+    X = get( get(plot(i),'Children'), 'XData');
+    Y = get( get(plot(i),'Children'), 'YData');
+    for j = 1:size(X,2)
+        text(X(3,j)/2+X(2,j)/2+.075,Y(3,j)+.1,num2str(M(j,i),'%0.2f'),'Rotation',90);
+    end
+end
+set(gca,'YLim',[0 max(M(:)+2)]);
 saveas(gca,'../figuren/performance-jquery.pdf');
 system('pdfcrop ../figuren/performance-jquery.pdf ../figuren/performance-jquery.pdf');
 
@@ -69,6 +77,14 @@ set(gcf, 'PaperPositionMode', 'auto');
 legendflex([plot], mylegend, 'ref', gcf, 'anchor', {'n','n'}, 'buffer',[0 0], 'nrow',1, 'fontsize',8);
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', apparaten);
 rotateticklabel(gca,45);
+for i=1:4
+    X = get( get(plot(i),'Children'), 'XData');
+    Y = get( get(plot(i),'Children'), 'YData');
+    for j = 1:size(X,2)
+        text(X(3,j)/2+X(2,j)/2+.075,Y(3,j)+.1,num2str(M(j,i),'%0.2f'),'Rotation',90);
+    end
+end
+set(gca,'YLim',[0 max(M(:)+4)]);
 set(gcf, 'PaperPositionMode', 'auto');
 saveas(gca,'../figuren/performance-st.pdf');
 system('pdfcrop ../figuren/performance-st.pdf ../figuren/performance-st.pdf');
@@ -89,6 +105,14 @@ set(gcf, 'PaperPositionMode', 'auto');
 legendflex([plot], mylegend, 'ref', gcf, 'anchor', {'n','n'}, 'buffer',[0 0], 'nrow',1, 'fontsize',8);
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', apparaten);
 rotateticklabel(gca,45);
+for i=1:4
+    X = get( get(plot(i),'Children'), 'XData');
+    Y = get( get(plot(i),'Children'), 'YData');
+    for j = 1:size(X,2)
+        text(X(3,j)/2+X(2,j)/2+.075,Y(3,j)+.1,num2str(M(j,i),'%0.2f'),'Rotation',90);
+    end
+end
+set(gca,'YLim',[0 max(M(:)+2)]);
 set(gcf, 'PaperPositionMode', 'auto');
 saveas(gca,'../figuren/performance-kendo.pdf');
 system('pdfcrop ../figuren/performance-kendo.pdf ../figuren/performance-kendo.pdf');
@@ -109,6 +133,14 @@ set(gcf, 'PaperPositionMode', 'auto');
 legendflex([plot], mylegend, 'ref', gcf, 'anchor', {'n','n'}, 'buffer',[0 0], 'nrow',1, 'fontsize',8);
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', apparaten);
 rotateticklabel(gca,45);
+for i=1:4
+    X = get( get(plot(i),'Children'), 'XData');
+    Y = get( get(plot(i),'Children'), 'YData');
+    for j = 1:size(X,2)
+        text(X(3,j)/2+X(2,j)/2+.075,Y(3,j)+.1,num2str(M(j,i),'%0.2f'),'Rotation',90);
+    end
+end
+set(gca,'YLim',[0 max(M(:)+2)]);
 set(gcf, 'PaperPositionMode', 'auto');
 saveas(gca,'../figuren/performance-lungo.pdf');
 system('pdfcrop ../figuren/performance-lungo.pdf ../figuren/performance-lungo.pdf');

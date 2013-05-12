@@ -91,10 +91,11 @@
 \begin{abstract}
 The need to make mobile applications that run on every device is ever-growing.
 One solution is to build mobile web applications using HTML5.
-They run one every device with a web browser and only one code base is needed.
+%TODO Tim: onderstaande zin relevant?
+%They run one every device with a web browser and only one code base is needed.
 To speed up development, different frameworks exist that help in functionality and building a user interface.
 Because of the variety of existing frameworks, a thoroughly comparison is needed to know which framework suits the job best.
-This paper uses popularity, productivity, usage, support and performance as comparison criteria to compare \st{}, \jqm{}, \kendo{} and \lungo{}.
+This paper compares \st{}, \jqm{}, \kendo{} and \lungo{} by using popularity, productivity, usage, support and performance as comparison criteria. 
 %TODO: add final conclusion
 \end{abstract}
 
@@ -103,36 +104,47 @@ This paper uses popularity, productivity, usage, support and performance as comp
 
 \section{Introduction} % (1 blz)
 \label{sec:introduction}
+%TODO: inleiding langer maken
 The mobile landscape is very heterogeneous and making mobile applications can therefore be a challenging task.
+
+\section{Background}
+This paper focusses on smartphones and tablets as mobile devices. 
+Other mobile devices like PDA's and e-readers are left out of scope.
 
 \subsection{Mobile devices}
 Since the release of the Apple iPhone in 2007~\cite{David2011}, the demand for smartphones is ever since increasing. 
 Today, over one billion smartphones are in use globally~\cite{Yang2012}.
 This will double by 2015~\cite{Gillett2012}.
-Not only smartphones, but also tablets conquer market share as mobile devices.
-\cite{Gillett2012} states that 760 million tablets will be in use globally by 2016.
-Not only Apple is producing mobile devices.
-Other companies like Google and Microsoft are on the track too.
+Also tablets conquer market share as mobile devices.
+760 million tablets will be in use globally by 2016~\cite{Gillett2012}.
+Besides Apple, other companies like Google and Microsoft are on the track too.
 
 All those mobile devices come in different shapes and sizes.
 They also include different features like GPS, camera and connectivity like Bluetooth, WiFi and 3G.
 
+%TODO Tim: deze sectietitel laten vallen, want ik praat ook over browsers
 \subsection{Mobile operating systems}
 In this section two mobile operating systems (OS) with the greatest market share are discussed: iOS and Android with 14.9\% and 75.0\% respectively in Q3 of 2012~\cite{Protalinski2012}.
 These mobile OSs run both on smartphones and tablets.
 
 The mobile OS from Apple, called iOS, first appeared in 2007.
 Since then, a new version was released every year with the most recent version being iOS~6.1 which was released in January~2013~\cite{Deitel2012,PhilDutson2012,Apple2013}.
+The mobile browser from Apple shipped with iOS is called Mobile Safari.
+Apple did make sure to catch up with the latest HTML5 specifications in its browser~\cite{Hales2012}.
+This was also because of the dropped support for Adobe Flash on their mobile devices~\cite{Jobs2010}.
 
 In 2005, Google bought Android Inc. and released its first stable mobile OS, called Android, in 2008~\cite{Satyesh2012}.
 Like with iOS, new versions were released on a yearly basis.
 Android~4.2 is the latest version and was released in October 2012~\cite{Sawers2012}.
+Android comes with the Android browser.
+The implementation of HTML5 specifications has dragged, but as of Android 4.0, support is increasing~\cite{Hales2012}.
+It is now also possible to install the mobile version of the Chrome desktop browser on devices with Android 4.0 and later.
 
-It is important to look at the market share of the different versions, which is shown in table~\ref{table:mos-versions}.
+It is important to look at the usage of the different OS versions, which is shown in table~\ref{table:mos-versions}.
 This is because not every user has (updated to) the latest version on his mobile device.
-The table shows that more than three-quarter of iOS users has already version iOS~6.x.
-In contrast, half of Android users is still using Android~2.x while the latest version is Android~4.x. 
-Those users can't benefit of the latest bells and whistles, particularly of HMTL5, on their devices.
+The table shows that almost 90\% of iOS users already has version iOS~6.x.
+In contrast, about a half of the Android users is still using Android~2.x while the latest major version is Android~4.x. 
+Those users can't benefit of the latest bells and whistles, particularly the new features of HMTL5, on their devices.
 
 \begin{table}[t]
 \centering
@@ -169,65 +181,57 @@ Those users can't benefit of the latest bells and whistles, particularly of HMTL
   every last row/.style={
     after row=\bottomrule}
 ]{../Masterproef/tabellen/android.csv}
-\caption{Market share of iOS versions on February 14, 2013 and Android versions on April 2, 2013 \protect\cite{Sylvain2013,Android2013}.}
+\caption{Usage of iOS versions on May 8, 2013 and Android versions on May 1, 2013 \protect\cite{Smith2013,Android2013}.}
 \label{table:mos-versions}
 \end{table}
 
 \subsection{Mobile applications}
 There are three possible ways to make a mobile application~\cite{Accenture2012,Hales2012}.
-The first one is a \emph{HTML5 application} which runs entirely in the browser.
+The first one is a \emph{web application} which runs entirely in the browser.
 The second type of application is a \emph{native application} which is installed on the device and programmed in a language specific to the mobile OS.
-Lastly, a mix of both can be made which is called a \emph{hybrid application} where the HTML5 application is packed as a native application.
+Lastly, a mix of both can be made which is called a \emph{hybrid application} where the web application is packed as a native application.
 
-Advantages~\cite{Accenture2012} of HTML5 applications are the presence of a browser on mobile devices, so everyone can use it directly without installing the app first and regardless of their mobile OS.
+Advantages~\cite{Accenture2012} of web applications are the presence of a browser on mobile devices, so everyone can use it directly without installing the app first and regardless of their mobile OS.
 Secondly, the code needs only to be written once and can be run anywhere (WORA)~\cite{Hales2012}.
 This is in contrast to native, were a codebase has to be maintained for every mobile OS.
-Lastly, HTML5 applications do not need to be verified by a store (like the App Store for iOS applications) prior to release.
+Lastly, web applications do not need to be verified by a store (like the App Store for iOS applications) prior to release.
 
 In contrast, native applications provide~\cite{Accenture2012} better performance.
 Secondly, it is easier to use features of the mobile device (like GPS and camera) on a native application.
-Thirdly is a security issue were HTML5 applications lack behind.
+Thirdly is a security issue were web applications lack behind.
 Lastly, publishing applications through a store increases publicity.
 
-The advantage of hybrid applications is that they patch the issues of HTML5 applications with the benefits of native applications.
+The advantage of hybrid applications is that they patch the issues of web applications with the benefits of native applications.
 However, as of December 2012, HTML5 went into candidate recommendation~\cite{Jacobs2012}.
 This implies the upcoming support of HTML5 in contemporary browsers and that hybrid applications will probably become obsolete over time.
 
-\subsection{Mobile browsers}
-As of 2008, we speak of the mobile web~\cite{Hales2012}.
-We access the Internet more and more from our browser on our mobile device.
-These browsers are becoming platforms on their own as they give access to the features of the device like GPS and camera. 
-We explore three mobile browsers with the largest market share, as can be seen in table~\ref{table:mobile-browsers}.
-
-\begin{table}
-\centering
-\begin{tabular}[b]{l r@{.}l}
-\toprule
-\textbf{Mobile browser} & \multicolumn{2}{c}{\textbf{Share (\%)}} \\
-\midrule
-Mobile Safari		& 61 	& 02	 	\\
-Android browser		& 18 	& 30 	\\
-Opera Mini			& 9 		& 84 	\\
-Chrome				& 2		& 02 	\\
-Other				& 8		& 82		\\
-\bottomrule
-\end{tabular}
-\caption{Market share of mobile  browsers on January 2013~\protect\cite{NetApplications2012}.}
-\label{table:mobile-browsers}
-\end{table}
-
-The mobile browser from Apple shipped with iOS is called Mobile Safari.
-Apple did make sure to catch up with the latest HTML5 specifications in its browser~\cite{Hales2012}.
-This was also because of the dropped support for Flash on their mobile devices~\cite{Jobs2010}.
-
-Android comes with the Android browser.
-The implementation of HTML5 specifications has dragged, but as of Android 4.0, this is a lot better~\cite{Hales2012}.
-It is now also possible to install the mobile version of the Chrome desktop browser on devices with Android 4.0 and later.
-
-The second runner-up is Opera Mini.
-It is a mobile browser where the browser engine is located on the servers of Opera.
-This means that the requested web page is not processed on the device itself.
-In contrast, Opera Mobile includes the browser engine.
+%\subsection{Mobile browsers}
+%As of 2008, we speak of the mobile web~\cite{Hales2012}.
+%We access the Internet more and more from our browser on our mobile device.
+%These browsers are becoming platforms on their own as they give access to the features of the device like GPS and camera. 
+%We explore three mobile browsers with the largest market share, as can be seen in table~\ref{table:mobile-browsers}.
+%
+%\begin{table}
+%\centering
+%\begin{tabular}[b]{l r@{.}l}
+%\toprule
+%\textbf{Mobile browser} & \multicolumn{2}{c}{\textbf{Share (\%)}} \\
+%\midrule
+%Mobile Safari		& 61 	& 02	 	\\
+%Android browser		& 18 	& 30 	\\
+%Opera Mini			& 9 		& 84 	\\
+%Chrome				& 2		& 02 	\\
+%Other				& 8		& 82		\\
+%\bottomrule
+%\end{tabular}
+%\caption{Market share of mobile  browsers on January 2013~\protect\cite{NetApplications2012}.}
+%\label{table:mobile-browsers}
+%\end{table}
+%
+%The second runner-up is Opera Mini.
+%It is a mobile browser where the browser engine is located on the servers of Opera.
+%This means that the requested web page is not processed on the device itself.
+%In contrast, Opera Mobile includes the browser engine.
 
 \subsection{HTML5, CSS3 and JavaScript}
 The tree building blocks of (mobile) HTML5 (application) development are HTML5, CSS3 and JavaScript.

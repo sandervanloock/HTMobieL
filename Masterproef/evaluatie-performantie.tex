@@ -30,7 +30,8 @@ De webapplicaties gemaakt \st{} gebruiken daarentegen Sencha Cmd.
 %%%% De cache factor van ST is constant (gemiddeld 1,8)
 %%%% De andere raamwerken hebben een beduidend grotere cache factor 
 
-Indien \st{} buiten beschouwen wordt geladen, duurt het eerste keer laden van de POC gemiddeld 5,73 seconden. Het laden van de gecachete versie duurt slechts gemiddeld 400 milliseconden.
+Indien \st{} buiten beschouwen wordt geladen, duurt het eerste keer laden van de POC gemiddeld 5,73 seconden. 
+Het laden van de gecachete versie duurt slechts gemiddeld 400 milliseconden.
 De eerste keer laden van de loginapplicatie duurt gemiddeld 3,32 seconden.
 Indien deze werd gecachet, duurt dit nog slechts gemiddeld 420 milliseconden.
 Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993}.
@@ -119,12 +120,21 @@ Hieruit is duidelijk te zien welke raamwerken opmaakgedreven zijn.
 
 \subsection{\st}
 \label{sec:performantie-st}
+Op figuur~\ref{fig:performantie-st} worden de gemiddelde downloadtijd van \st{} getoond op elk apparaat.
+
+Voor de POC is een dalende downloadtijd waarneembaar wanneer het Android-apparaat recenter wordt.
+De downloadtijd van de POC op de \gs{} duurde gemiddeld $31.43$s!
+%verschil tussen Android en iOS : (android gemiddeld 5s trager)
+
+
+
+%microloader
 % http://www.sencha.com/blog/behind-sencha-command-and-the-build-process
-%TODO exacte info tests + extra info CORS zoeken
-%TODO AJAX
-%Daarnaast zullen geïsoleerde testen met het verzenden van een AJAX-request uitgevoerd worden ($r_{r,AJAX}$).
 % Daar wordt het effect van het versturen van een OPTION-\term{request} bekeken wanneer een verzoek naar een ander domeinen wordt gestuurd.
 % ST scoort het beste volgens google page speed, maar dat heeft dus te maken met die microlader, daarna volgt lungo, Kendo en jQM die de regels minder strikt, maar uiteindelijk toch sneller presteren
+
+%AJAX
+%TODO AJAX
 
 \begin{figure}[H]
   \centering
@@ -134,7 +144,11 @@ Hieruit is duidelijk te zien welke raamwerken opmaakgedreven zijn.
 \end{figure}
 
 \subsection{\kendo}
-%gemiddelde performantie
+Op figuur~\ref{fig:performantie-kendo} worden de gemiddelde downloadtijd van \kendo{} getoond op elk apparaat.
+
+%gs hoge download tijd voor gecachete poc en login (icons ophalen)
+%nexus:  gecachete login 10 keer trager dan gecachete poc
+%verschil tussen Android en iOS niet merkbaar (android slechts 60ms trager)
 
 \begin{figure}[H]
   \centering
@@ -146,6 +160,7 @@ Hieruit is duidelijk te zien welke raamwerken opmaakgedreven zijn.
 \subsection{\jqm}
 Op figuur~\ref{fig:performantie-jqm} worden de gemiddelde downloadtijd van \jqm{} getoond op elk apparaat.
 
+%TODO Sander: fout (\gs is minst recent...
 Voor de POC is een dalende downloadtijd waarneembaar wanneer het Android-apparaat recenter wordt.
 Dit is echter ook zo voor de iPads van Apple, maar voor de iPhones stijgt de downloadtijd.
 Er zijn minimale verschillen bij de gecachete versie van de POC, waarbij het het langste duurt op de \ipadi{}.

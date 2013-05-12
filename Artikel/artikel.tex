@@ -726,7 +726,7 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 
 \begin{table}
 \centering
-\resizebox{8cm}{!} {
+\resizebox{8.5cm}{!} {
 \pgfplotstabletypeset[
   col sep=comma,
   string type,
@@ -752,7 +752,7 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chal{toestel}
+\challenge{\chal{toestel}}
 \begin{itemize}
   \item C2.1 Recognising smartphone or tablet
   \item C2.2 Show left sided menu on tablet 
@@ -760,7 +760,6 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 \end{itemize}
 
 \framework{\sta{}}{}
-
 Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
 If this method returns false,  we assume to be in tablet mode.    
 The main screen of the POC requires a splitted view in tablet mode.  
@@ -770,14 +769,12 @@ In smartphone mode,  the left screen is made invisible and an extra menubutton i
 Making the sub header clickable is not possible  
 
 \framework{\kendoa{}}{}
-
 \kendo{} also provides methods to query the context.
 \code{kendo.support.tablet},  for example,  returns if a tablet is being used.
 The splitview for the tablet layout is supported by \kendo{} and can be used by defining your view as \code{splitview} as value of the data attribute \code{data-role}.
 The smartphone layout needs to be build by manipulating the DOM with jQuery methods.
 
 \framework{\jqma{}}{}
-
 No functionality is provided by the framework, so a search for plugins was started with~\cite{Deering2012} which led to: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} and Multiview~\cite{Franck2012}. 
 All these had shortcomings. 
 The first changed the jQM library code, the second used jQM~1.0.1 and the last had problems with adapting to different browser sizes.
@@ -791,7 +788,7 @@ TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chal{formulieren}
+\challenge{\chal{formulieren}}
 
 \begin{itemize}
  \item \chal{formulieren-placeholders}
@@ -805,7 +802,6 @@ TODO
 
 
 \framework{\sta{}}{}
-
 Placeholders, text, email and number fields are supported by the framework and can be easily created.  
 Labels can be avoided by not defining them.  
 To create an option field, an element with type selectfield has to be included.
@@ -815,7 +811,6 @@ A flipswitch is possible with the togglefield type.
 Clearing the form after it was send, has to be programmed manually.
 
 \framework{\kendoa{}}{}
-
 All form types need to be defined with HTML-attributes and follow the HTML-standard.
 A placeholder can be defined and labels can be omitted.
 %TODO option fields? :Option fields have 
@@ -826,7 +821,6 @@ Clearing a model that is bound to a form (view) will clear the form automaticall
 
 
 \framework{\jqma{}}{}
-
 Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
 Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
 The types of form elements used were text, number and email.
@@ -840,7 +834,7 @@ TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chal{vullen}
+\challenge{\chal{vullen}}
 \begin{itemize}
   \item C5.1 Filling in the form elements with object
   \item C5.2 Make the form elements read-only
@@ -848,7 +842,6 @@ TODO
 %Back button to go back to the list (C3). %TODO niet van toepassing
 
 \framework{\sta{}}{}
-
 %To show the list of clickable expenses,  ST provides a navigation view.  
 %This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
 The controller can fill an empty form with a model instance.
@@ -857,13 +850,11 @@ Setting the value of the correct radiobutton does not work,  a new fieldset has 
 Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
 
 \framework{\kendoa{}}{}
-
 The view-model can bind a view with a form and can fill it automatically with a model instance.
 The mapping between properties of the model en fieldnames of the form is done implicitly.
 Making a formelement read-only had to be done with the data-attribute \code{readOnly} or \code{disabled}.
 
 \framework{\jqma{}}{}
-
 There is no automatic mapping between the data and the form.
 Setting the form elements read-only can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
 With a fieldset, the \code{disabled} attribute made is read-only.
@@ -894,7 +885,7 @@ TODO
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chal{afbeelding}
+\challenge{\chal{afbeelding}}
 \begin{itemize}
   \item C7.1 Choose image
   \item C7.2 Convert image to base64
@@ -902,7 +893,6 @@ TODO
 \end{itemize}
 
 \framework{\sta{}}{}
-
 A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
 This button enables users to select an image and passes it to a PHP file.  
 This file uploads the image and converts it to base64.
@@ -910,7 +900,6 @@ A requirement is that your server is able to run that PHP file.
 A ST image can be created based on this base64 string.
 
 \framework{\kendoa{}}{}
-
 \kendo{} Web provides a widget that creates a file upload field from a form element with input type \code{file}.
 The other two challenges depend on the FileReaderAPI and canvas from HTML5.
 The FileReaderAPI can load the canvas with the image.
@@ -918,7 +907,6 @@ Conversion to base64 can be done by calling the \code{toDataURL} method on the c
 The canvas is able to show a preview of the selected image.
 
 \framework{\jqma{}}{}
-
 A form element of type \code{file} is used to let the user attach an image.
 Depending on the mobile device, the options are to attach a local image or to take one with the camera.
 The attached image is read by the FileReaderAPI, converted to an image and imported on the canvas.
@@ -933,7 +921,7 @@ TODO
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\chal{validatie}
+\challenge{\chal{validatie}}
 \begin{itemize}
  \item C8.1 Validation rules for a required number and email field 
  \item C8.2 Validation depends on custom conditions 
@@ -942,7 +930,6 @@ TODO
 \end{itemize}
 
 \framework{\sta{}}{}
-
 Required fields and email validation can be assigned to a model.  
 To add custom validation rules or messages,  the \code{validate} method of \code{Ext.data.Model} needs to be overridden.  
 This method accepts a model instance and returns the possible validation errors.  
@@ -950,7 +937,6 @@ The errors must be iterated to concatenate the validation messages.
 The red borders are created by adding a custom CSS class to the form element.
 
 \framework{\kendoa{}}{}
-
 The validations from the first challenge can be assigned to form elements by declaring them as data-attribute in the HTML-code.
 \kendo{} can create a \code{validator} object from selected form elements.
 The \code{validator} can check the validation rules from the attributes or can be expanded with custom validation rules.
@@ -958,7 +944,6 @@ A validation message can be provided with the \code{validationMessage} and retri
 Red borders are not supported.
 
 \framework{\jqma{}}{}
-
 Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
 This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date} and custom validation conditions.
 The plugin shows errors below the corresponding field, so customisation of the plugin was needed to show them in a dialog.
@@ -986,7 +971,7 @@ TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chal{ajax}
+\challenge{\chal{ajax}}
 \begin{itemize}
   \item C10.1 Fetch plain text
   \item C10.2 Fetch and parse JSON
@@ -995,7 +980,6 @@ TODO
 \end{itemize}
 
 \framework{\sta{}}{}
-
 AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
 The plain text of the AJAX response can be used in the callback.   
 Stores can be configured with a model to define the structure of the recorded objects.  
@@ -1016,7 +1000,6 @@ There are two possibilities:  a new model can be instantiated every time data is
 A JSON payload can be created by calling the \code{toJSON} method of a model and serialized it with the JSON library.
 
 \framework{\jqma{}}{}
-
 AJAX requests are made via the jQuery library where jQM is dependent on.
 Handling plain data and JSON as response is straightforward and the data can be used directly.
 When using XML, the data has to be traversed like with HTML, this means by using selectors.
@@ -1027,7 +1010,7 @@ TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chal{lijsten}
+\challenge{\chal{lijsten}}
 \begin{itemize}
  \item C11.1 Load data into list and styling list items
  \item C11.2 Clickable items with custom action or linking to record of itemize
@@ -1036,7 +1019,6 @@ TODO
 
 
 \framework{\sta{}}{}
-
 A list can be created by setting the type of a component to \code{list}.
 \code{Ext.XTemplate} is de \st{} class responsible for defining a template for listitems.
 A template can be used in a \code{list} by setting the \code{itemTpl} property.
@@ -1047,14 +1029,12 @@ A \code{Controller} can catch the event when an item is clicked and show a view 
 Sorting the \code{Store} will sort the list that is connected with the \code{Store}.
 
 \framework{\kendoa{}}{}
-
 Lists can be defined by putting \code{listview} as \code{data-role}.
 The corresponding JavaScript instance can be configured with a \code{dataSource} and a template.
 Each instance in the \code{dataSouce} will create a listitem that is styled with the template.
 Linking listitems with a record is no standard feature in \kendo{}.
 A parameterized view can be used to link the listitem with a view.
 Sorting the \code{dataSource} will sort the list that is connected with the \code{dataSouce}.
-
 
 \framework{\jqma{}}{}
 TODO
@@ -1092,7 +1072,7 @@ TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chal{offline}
+\challenge{\chal{offline}}
 
 \begin{itemize}
  \item \chal{offline-data}
@@ -1108,7 +1088,6 @@ Making your application offline is a feature of Sencha Cmd.
 Building your application for production will create the manfist automatically.
 
 \framework{\kendoa{}}{}
-
 The framework does not provide features to faciliate offline storage.
 The \code{localStorage} needs to be manipulated by the programmer.
 Creating a manifest file must be done manually or can be automated with a tool like Yeoman. %TODO referentie
@@ -1127,7 +1106,7 @@ TODO
 
 \begin{table}
 \centering
-\resizebox{8cm}{!} {
+\resizebox{8.5cm}{!} {
 \pgfplotstabletypeset[
 	column type=l,
 	every head row/.style={

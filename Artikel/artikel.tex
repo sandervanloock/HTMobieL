@@ -582,28 +582,56 @@ They also want to have a consistent experience across mobiles, tvs and desktops~
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Evaluation}
-This section evaluates the mobile HTML5 frameworks by two criteria: community and usage.
+This section evaluates the mobile HTML5 frameworks by five criteria, namely popularity~(\ref{sec:evaluation-popularity}), productivity~(\ref{sec:evaluation-productivity}), usage~(\ref{sec:evaluation-usage}), support~(\ref{sec:evaluation-support}) and performance~(\ref{sec:evaluation-performance}).
 
 \subsection{Popularity} % (0,5 blz)
 \label{sec:evaluation-popularity}
 
-The activity around frameworks in social media has to be considered with a lot of care.  
-If,  for example,  a framework has a lot of questions on Stack Overflow,  one could conclude the framework has a lot of ambiguity.  
-Someone else could argue  the framework has a large active Internet community build around it.  
-Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
+%TODO Tim: dit moet verplaatst worden naar het motiveren van onze criteria
+%The activity around frameworks in social media has to be considered with a lot of care.  
+%If,  for example,  a framework has a lot of questions on Stack Overflow,  one could conclude the framework has a lot of ambiguity.  
+%Someone else could argue  the framework has a large active Internet community build around it.  
+%Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
 
-The scores for the popularity criterion can be found in table~\ref{tabel:evaluatie-popularity}. 
-An explanation could be explained by the large success of jQuery,  a popular JavaScript library~\cite{Hales2012}.
+%TODO Tim: oude tekst
+%An explanation could be explained by the large success of jQuery,  a popular JavaScript library~\cite{Hales2012}.
+%The fact that ST had the first stable 1.0 release in mobile UI frameworks~\cite{Oeflman2011},  is not reflected in the community numbers.  
+%\cite{Inc.} states that Sencha is the largest provider of open source HTML5 application frameworks with more than two million developers.  
+%ST itself embraces about one quarter of this number.
+%ST is not available on GitHub,  that is why no data is given.
 
-The fact that ST had the first stable 1.0 release in mobile UI frameworks~\cite{Oeflman2011},  is not reflected in the community numbers.  
-\cite{Inc.} states that Sencha is the largest provider of open source HTML5 application frameworks with more than two million developers.  
-ST itself embraces about one quarter of this number.
+The scores for popularity can be found in table~\ref{tabel:evaluatie-popularity}. 
+\kendo{} takes the first place due to the large amount of \fb{} likes.
+\jqm{} and \st{} take respectively second and third place despite the fact that these two framework are the most popular in literature~\cite{David2011,Firtman2013,Hales2012,Oeflman2011}. 
+The last place goes to \lungo{} with a remarkable low popularity on \so{} and \fb.
+When looking at the total, there are two groups of frameworks.
+On the one hand there is \kendo{} together with \jqm{} and the other hand there is \st{} together with \lungo{}.
 
-ST is not available on GitHub,  that is why no data is given.
+\jqm{} has the most followers on Twitter, followed by \kendo.
+\lungo{} is the penultimate, but the ratio tweets to followers indicate that it is the most active one. 
+\jqm{} and \kendo{} have a similar ratio.
+This is in contrast to \st{} which has send only one tweet and also has the least number of followers. 
+
+Only \jqm{} and \lungo{} are on \gh{}. 
+If the \gh{} stars and \gh{} forkers are left out of popularity, the ranking stays the same.
+
+\kendo{} references in the support menu on their website directly to \so{}. 
+However the popularity of \kendo{} is lower than \jqm{}.
+\st{} is the penultimate, but more surpassingly is that \lungo{} only has about 30 questions on \so{} and therefore takes the last place.
+
+\kendo{} and \jqm{} both have created a fan page on \fb{} in respectively November, 2011 and August, 2010.
+The fan page of \kendo{} thus has gained more \fb{} likes in a shorter period than the earlier created fan page of \jqm{}.
+An explanation is that the different layers of \kendo{} are aggregated on one fan page.
+This is in contrast to \jqm{} where a separate fan page exists for jQuery that has about 53,000 likes.
+This number is similar to that of \kendo{}.
+\st{} and \lungo{} only have a \term{interessepagina} on \fb.
+This explains the great difference in \fb{} likes.
+If the likes are left out of popularity, \kendo{} and \jqm{} switch places.
+
 
 \begin{table}
 \centering
-\resizebox{8cm}{!} {
+\resizebox{8.5cm}{!} {
 \pgfplotstabletypeset[
   col sep=comma,
   string type,
@@ -690,7 +718,7 @@ As presented in the previous criterion,  \jqm{} expells in the amount of Stack O
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Usage}
-\label{sec:poc}
+\label{sec:evaluation-usage}
 In this section we evaluate the usage by stating challenges.
 Each challenge consists of subchallenges that are explained first.
 Afterwards the framework is graded on each of these challenges and commented why that score was given.

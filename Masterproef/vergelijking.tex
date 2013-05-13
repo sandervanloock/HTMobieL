@@ -112,6 +112,7 @@ Deze applicatie toont de evolutie van zoektermen op Google
 Voor elk raamwerk zal het volume zoekopdrachten naar het raamwerk in functie van de tijd worden uitgezet.
 %TODO bekijken evolutie van data in de tijd?
 
+% TODO nog weg doen motivatie titel
 \paragraph{Motivatie}
 
 Er bestaat geen exacte formule om populariteit uit te drukken.
@@ -177,6 +178,7 @@ Tot slot zal gekeken worden naar de aanwezige literatuur van het raamwerk en waa
 %   \item \label{ass:achtergrond} Beide auteurs beschikken over een gemeenschappelijke technische achtergrond.
 % \end{enumerate}
 
+% TODO nog weg doen motivatie titel
 \paragraph{Motivatie}
 
 Volgens assumptie XX bevat de POC alle belangrijke componenten om het raamwerk maximaal te testen.
@@ -260,6 +262,7 @@ met $r$ de verschillende raamwerken en $i$ de uitdagingen.
 
 Omdat er $38$ onderuitdagingen zijn kan het raamwerk voor dit criterium maximaal $76$ behalen.
 
+% TODO nog weg doen motivatie titel
 \paragraph{Motivatie}
 
 Alle interessante functionaliteit die in de POC werd gebruikt, zit in een uitdaging vervat.  
@@ -375,7 +378,6 @@ Indien alle $8$ contexten alle uitdagingen en onderuitdagingen correct weergeven
 % 
 % In tabel \ref{tabel:toestellen-hci} staan de verschillende contexten met hun marktwaarde weergegeven.
 
-\paragraph{Motivatie}
 De keuze van de $8$ contexten waarop ondersteuning wordt getest, is voornamelijk bepaald door het beschikbaarheid van de apparaten op het departement computerwetenschappen van de KU Leuven.
 Er werd een evenwichtige keuze gemaakt tussen besturingssysteem,  browser en type apparaat.
 Er werd gekozen voor $4$ Android en $4$ iOS apparaten.
@@ -388,6 +390,10 @@ Ook werd er gekozen voor $4$ smartphones en $4$ tablets.
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
 Dit criterium zal de laattijden van het raamwerk in rekening brengen.
+
+%TODO
+% 2 soorten performantie: het opstarten en het effectief renderen (duidelijk onderscheid uitschrijven)
+% zeggen dat we in JS de snelheid van renderen van 850 lijstelementen zullen opmeten 
 
 Hier onderscheiden zich vier gevallen.
 Ten eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($l_{r,c,POC}$). 
@@ -402,11 +408,14 @@ Dit zijn dezelfde als bij het ondersteuningscriterium (zie tabel \ref{tabel:toes
 
 De formule voor het performantiecriterium wordt dan: 
 
+%TODO: factor van 850 buttons
 \begin{equation}
   PE_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)} 
   \label{eq:performantie}
 \end{equation}
 met $c$ de verschillende contexten en $r$ de verschillende raamwerken.
+
+%TODO: hier ga er vanuit dat alles lukt, dus de totale tijd (download + js tijd) kunnen we toetsen aan jakob nielson met zijn grenzen 0.1s / 1s / 10s
 
 Het opmeten van laadtijden zal met PCAP Web Performance Analyzer gebeuren. %TODO referentie http://pcapperf.appspot.com/
 Deze tool kan HAR-bestanden (HTTP \term{Archive}) analyseren.
@@ -422,12 +431,6 @@ Ook zullen de resultaten gecontroleerd worden met twee andere testen.
 Een eerste extra test is Google Page Speed~\cite{Morgan2011}. 
 Deze tool kan de code van een webapplicatie analyseren en testen op performantie specifiek voor mobiele apparaten.
 Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.
-Een andere test om de score te toetsen kijkt naar de gebruikservaring.
-Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
-De auteurs zullen de ervaring bij het scrollen van de lijst vergelijken op de acht apparaten.
-De ervaringen per apparaat zullen vervolgens relatief ten opzichte van elkaar beoordeeld worden.
-
-\paragraph{Motivatie}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

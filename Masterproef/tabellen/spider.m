@@ -215,8 +215,23 @@ end
 
 % plot the data
 o = polar(ca,angw*ones(1,c),magw);
+
 % set color of the lines
 for ii = 1:c; set(o(ii),'color',col(ii,:),'linewidth',2.25); end
+
+% calculate the area of the pentagons
+f1 = magw(:,1);
+[x,y] = pol2cart(angw,f1);
+A = polyarea(x, y)
+f2 = magw(:,2);
+[x,y] = pol2cart(angw,f2);
+A2 = polyarea(x, y)
+f3 = magw(:,3);
+[x,y] = pol2cart(angw,f3);
+A3 = polyarea(x, y)
+f4 = magw(:,4);
+[x,y] = pol2cart(angw,f4);
+A4 = polyarea(x, y)
 
 % apply the legend
 temp = legend(o,leg,'location','northeastoutside');

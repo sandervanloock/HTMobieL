@@ -1,5 +1,7 @@
 %%%% ijcai11.tex
 
+%TODO: hoogte onderaan kleiner maken
+
 \typeout{IJCAI-11 Instructions for Authors}
 
 % These are the instructions for authors for IJCAI-11.
@@ -91,8 +93,6 @@
 \begin{abstract}
 The need to make mobile applications that run on every device is ever-growing.
 One solution is to build mobile web applications using HTML5.
-%TODO Tim: onderstaande zin relevant?
-%They run one every device with a web browser and only one codebase is needed.
 To speed up development, different frameworks exist that help in functionality and building a user interface.
 Because of the variety of existing frameworks, a thoroughly comparison is needed to know which framework suits the job best.
 This paper compares \st{}, \jqm{}, \kendo{} and \lungo{} by using popularity, productivity, usage, support and performance as comparison criteria. 
@@ -265,7 +265,7 @@ This implies the upcoming support of HTML5 in contemporary browsers and that hyb
 \section{Related Work} % Sander 0.25 pg
 \label{sec:related-work}
 
-%TODO waarom criteria niet gekozen
+%TODO related work buiten HTML5, native? anders literatuur buiten vergelijkingscriteria?
 
 Many in-depth comparisons of mobile HTML5 frameworks already exist today.  
 However, none of them are scientifically published or use a large proof of concept (POC) to validate their comparison.  
@@ -303,6 +303,9 @@ Other websites like~\cite{Bristowe2012,Burris} only focus on two mobile HTML5 fr
 
 \section{Comparison criteria} %Sander 0.75 pg
 \label{sec:comparisoncriteria}
+%TODO nieuwe criteria ipv oude, wel kort zeggen welke dat we eerst initieel gingen doen
+
+%TODO waarom criteria niet gekozen
 
 The comparison study will be driven by a Proof of concept (POC).  
 This POC encompasses an application to let employees attach, sign and submit expenses to their employer via tablet or smartphone.
@@ -314,8 +317,13 @@ A methodology that results in a score for each criterion will be described below
 Per criterion,  a table or graph will be provided so give an overview of the total scores
 At the final stage,  these scores will be plotted in a spider graph~\cite{Few2005}.   
 
-
 \paragraph{Popularity}
+%TODO Tim: oude tekst
+%The activity around frameworks in social media has to be considered with a lot of care.  
+%If,  for example,  a framework has a lot of questions on Stack Overflow,  one could conclude the framework has a lot of ambiguity.  
+%Someone else could argue  the framework has a large active Internet community build around it.  
+%Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
+
 Social networks provide a good indication to determine the popularity that goes with the framework.  
 %\cite{Sarrafi2012a,Ayuso2012} use 
 Twitter followers ($T$),  GitHub stars ($S$),  GitHub forkers ($F$),  Stack Overflow questions ($S$) and Facebook likes ($FB$) will be looked at.
@@ -351,8 +359,9 @@ The total of all challenges give the score for the framework's usage.
 \textbf{Score} & \textbf{Assessment criteria}\\
 \midrule
 $C_{i} = 2$ & Supported by the framework\\
-$C_{i} = 2$ & A plugin or HTML5 feature is needed\\
-$C_{i} = 2$ & No/custom implementation or hack\\
+$C_{i} = 1$ & A plugin or HTML5 feature is needed\\
+%TODO: beter woord vinden
+$C_{i} = 0$ & No, custom or hacky implementation\\
 \bottomrule
 \end{tabular}
 \caption{Assessment criteria for implementation challenges.}
@@ -398,6 +407,7 @@ The summation of loading times will give the score for the framework's performan
 
 \section{Frameworks} % (0.5 blz per framework + tabel)
 \label{sec:frameworks}
+%TODO: tekst voor alle 4 de frameworks
 This section introduces the explored mobile HTML5 frameworks: jQuery Mobile (jQM) and \st{} (\sta{}).
 
 \subsection{\st} % (0.5 blz Sander)
@@ -419,7 +429,7 @@ The key concepts of \sta{} are explained in extensive tutorials:  some are texts
 Another handy tool to discover the \sta{} features is the Kitchen Sink~\cite{Inc.2013}.  
 This is a HTML5-application that lines up all possibilities of the framework combined with the corresponding code.
 
-\paragraph{Licenses}
+\paragraph{Licence}
 \sta{} is free within a commercial context in which the developer does not share the code with its users.  
 There is also the option to use an open-source version.  
 This comes with a GNU GPLv3 license which implies a free code redistribution as most important property.
@@ -466,7 +476,7 @@ Two important sections are the API and Getting Started.
 Both sections follow the same structure and each feature from the API is explained in detail in the Getting Started section.
 Also,  every feature can be viewed in a demo with the corresponding code.
 
-\paragraph{Licenses}
+\paragraph{Licence}
 A licence for \kendo{} Complete costs $\$699$ per developper.
 Each layer can be bought separately for a different license fee.
 \kendo{} also provides server-side wrappers that can automatically create client-side JavaScript code.
@@ -557,7 +567,7 @@ One can also view a live preview of each example.
 The documentation of the underlying \js{} library can be found on \exturl{quojs.tapquo.com}.
 It exists of only one page with a very brief summary of the API.
 
-\paragraph{Licenses}
+\paragraph{Licence}
 The framework is released by the GPLv3 licence.
 A commercial licence is also available, but because of the lack of information, the authors contacted TapQuo via email to obtain more info.
 However as of writing, they did not receive any answer.
@@ -584,14 +594,10 @@ They also want to have a consistent experience across mobiles, tvs and desktops~
 \section{Evaluation}
 This section evaluates the mobile HTML5 frameworks by five criteria, namely popularity~(\ref{sec:evaluation-popularity}), productivity~(\ref{sec:evaluation-productivity}), usage~(\ref{sec:evaluation-usage}), support~(\ref{sec:evaluation-support}) and performance~(\ref{sec:evaluation-performance}).
 
+%TODO enkel nieuwe evaluatie, niet de oude
+
 \subsection{Popularity} % (0,5 blz)
 \label{sec:evaluation-popularity}
-
-%TODO Tim: dit moet verplaatst worden naar het motiveren van onze criteria
-%The activity around frameworks in social media has to be considered with a lot of care.  
-%If,  for example,  a framework has a lot of questions on Stack Overflow,  one could conclude the framework has a lot of ambiguity.  
-%Someone else could argue  the framework has a large active Internet community build around it.  
-%Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
 
 %TODO Tim: oude tekst
 %An explanation could be explained by the large success of jQuery,  a popular JavaScript library~\cite{Hales2012}.
@@ -628,7 +634,6 @@ This number is similar to that of \kendo{}.
 This explains the great difference in \fb{} likes.
 If the likes are left out of popularity, \kendo{} and \jqm{} switch places.
 
-
 \begin{table}
 \centering
 \resizebox{8.5cm}{!} {
@@ -659,6 +664,8 @@ If the likes are left out of popularity, \kendo{} and \jqm{} switch places.
 
 \subsection{Productivity} % Sander 0,5 blz
 \label{sec:evaluation-productivity}
+
+% nieuwe cijfers vermelden en nieuwe data
 
 This section will investigate the productivity of the different frameworks based on the time to implement the POC and the login application.
 Table~\ref{tabel:evaluatie-productiviteit} contains the scores for this criterion.
@@ -752,365 +759,365 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\challenge{\chal{toestel}}
-\begin{itemize}
-  \item C2.1 Recognising smartphone or tablet
-  \item C2.2 Show left sided menu on tablet 
-  \item C2.3 Enabling smartphone menu.
-\end{itemize}
-
-\framework{\sta}{}
-Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
-If this method returns false,  we assume to be in tablet mode.    
-The main screen of the POC requires a splitted view in tablet mode.  
-A \code{vbox} layout splits the viewport with a vertical axis.  
-The \code{flex} property defines the ratio of the sizes of both resulting components. 
-In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
-Making the sub header clickable is not possible  
-
-\framework{\kendoa}{}
-\kendo{} also provides methods to query the context.
-\code{kendo.support.tablet},  for example,  returns if a tablet is being used.
-The splitview for the tablet layout is supported by \kendo{} and can be used by defining your view as \code{splitview} as value of the data attribute \code{data-role}.
-The smartphone layout needs to be build by manipulating the DOM with jQuery methods.
-
-\framework{\jqma}{}
-No functionality is provided by the framework, so a search for plugins was started~\cite{Deering2012}.
-However it was shown that the use of CSS3 media queries can accomplish the same without a plugin~\cite{Hadlock2012}.
-The documentation of \jqma{}~1.2 also used a similar approach~~\cite{JQuery2012b}.
-This approach is also encouraged in the documentation of \jqma{}~1.3~\cite{JQuery2013e}.
-The smartphone menu is always accessible on both tablet and smartphone devices when tapping on the sub header.
-
-\framework{\lungoa}{}
-The framework has the function \code{Lungo.Core.isMobile()} to know if the current device is a mobile device or not.
-\quo{} has extra attributes for \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} and \code{screen}.
-The latter only gives the width and height, so the developer still needs to program it manually.
-As a solution, the same method as for \jqma{} was used, namely CSS3 media queries.
-The smartphone menu is always accessible on both tablet and smartphone devices when tapping on the sub header.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\challenge{\chal{formulieren}}
-
-\begin{itemize}
- \item \chal{formulieren-placeholders}
- \item \chal{formulieren-types}
- \item \chal{formulieren-optieveld}
- \item \chal{formulieren-datepicker}
- \item \chal{formulieren-monthpicker}
- \item \chal{formulieren-schakelaar}
- \item \chal{formulieren-wissen}
-\end{itemize}
-
-\framework{\sta}{}
-Placeholders, text, email and number fields are supported by the framework and can be easily created.  
-Labels can be avoided by not defining them.  
-To create an option field, an element with type selectfield has to be included.
-Creating custom datepickers is not supported.  
-It is impossible to ignore the days field and only years can be delimited.  
-A flipswitch is possible with the togglefield type.
-Clearing the form after it was send, has to be programmed manually.
-
-\framework{\kendoa}{}
-All form types need to be defined with HTML-attributes and follow the HTML-standard.
-A placeholder can be defined and labels can be omitted.
-%TODO option fields? :Option fields have 
-A datepickers is contained within \kendo{} Web and can be included as widgets.
-The fields and depth of the datepicker can be configured to provide the custom datepickers.
-The \code{data-role} switch can initiate a flip switch.
-Clearing a model that is bound to a form (view) will clear the form automatically.
-
-\framework{\jqma}{}
-Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
-Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
-The types of form elements used were text, number and email.
-The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
-Also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
-The need for a custom datepicker with only a month and year needed to be hardcoded.
-Clearing the form after it was send, has to be programmed manually.
-A switch and option field are directly supported by \jqma.
-
-\framework{\lungoa}{}
-Adding placeholders is accomplished by using the HTML5 \code{placeholder} attribute.
-Labels are not mandatory in \lungo{}, so they could be left out of the code.
-
-%De types \code{text}, \code{number} en \code{email} voor formuliervelden worden verwezenlijkt door deze als type voor de \code{input}-tags mee te geven in het formulier.
-%Gelijkaardig met de twee aangehaalde problemen voor \jqm{}, werd niet gekozen voor het \code{date}-type, maar een plug-in om de functionaliteit met datums op te lossen.
-%De \code{date-picker} werd gebruikt van de plug-in pagina van Lungo zelf~\cite{TapQuo2013b}.
-%Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \term{datepicker} te openen en de aangeklikte datum in het formulierveld te zetten.
-%De plug-in laat echter niet toe om een bereik op te geven.
-%De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
+%\challenge{\chal{toestel}}
+%\begin{itemize}
+%  \item C2.1 Recognising smartphone or tablet
+%  \item C2.2 Show left sided menu on tablet 
+%  \item C2.3 Enabling smartphone menu.
+%\end{itemize}
 %
-%Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een \term{dropdown}menu. 
-%Een schakelaar daarentegen werd dan weer wel aangeboden.
-%Het legen van een formulier gebeurt in \lungo{} door de \code{reset}-functie in \js{} op te roepen op dat formulier.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\challenge{\chal{vullen}}
-\begin{itemize}
-  \item C5.1 Filling in the form elements with object
-  \item C5.2 Make the form elements read-only
-\end{itemize}
-%Back button to go back to the list (C3). %TODO niet van toepassing
-
-\framework{\sta{}}{}
-%To show the list of clickable expenses,  ST provides a navigation view.  
-%This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
-The controller can fill an empty form with a model instance.
-Field names that correspond to the object's properties are linked and filled in.
-Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.  
-Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
-
-\framework{\kendoa{}}{}
-The view-model can bind a view with a form and can fill it automatically with a model instance.
-The mapping between properties of the model en fieldnames of the form is done implicitly.
-Making a formelement read-only had to be done with the data-attribute \code{readOnly} or \code{disabled}.
-
-\framework{\jqma{}}{}
-There is no automatic mapping between the data and the form.
-Setting the form elements read-only can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
-With a fieldset, the \code{disabled} attribute made is read-only.
-Lastly with a select menu, the other options were deleted from the menu.
-%Adding a back button was no problem.
-
-\framework{\lungoa{}}{}
-TODO
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \chal{autoaanvullen}
-% Fetch suggestions based on input (C1).
-% Show suggestions in clickable drop down (C2).
-% 
-% \framework{jQM}{1,1}
-% As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
-% Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
-% To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provid this.
-% 
-% \framework{ST}{1,0}
-% A plugin can be found at~\cite{Mysamplecode2012} to create an autocomplete field.  
-% A request to the backend with a keyword returns a JSON array named \code{data}.  
-% ST can parse this array in two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  
-% The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  
-% Both strategies cannot be used to parse the array and create separate model instances for each array item.  
-% This implies that no clickable drop-down could be implemented.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\challenge{\chal{afbeelding}}
-\begin{itemize}
-  \item C7.1 Choose image
-  \item C7.2 Convert image to base64
-  \item C7.3 Preview image
-\end{itemize}
-
-\framework{\sta{}}{}
-A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
-This button enables users to select an image and passes it to a PHP file.  
-This file uploads the image and converts it to base64.
-A requirement is that your server is able to run that PHP file.    
-A ST image can be created based on this base64 string.
-
-\framework{\kendoa{}}{}
-\kendo{} Web provides a widget that creates a file upload field from a form element with input type \code{file}.
-The other two challenges depend on the FileReaderAPI and canvas from HTML5.
-The FileReaderAPI can load the canvas with the image.
-Conversion to base64 can be done by calling the \code{toDataURL} method on the canvas.
-The canvas is able to show a preview of the selected image.
-
-\framework{\jqma{}}{}
-A form element of type \code{file} is used to let the user attach an image.
-Depending on the mobile device, the options are to attach a local image or to take one with the camera.
-The attached image is read by the FileReaderAPI, converted to an image and imported on the canvas.
-The base64 encoding can be retrieved by calling the \code{.toDataURL()} on the latter and is stored in session storage.
-However the FileReaderAPI is not supported on Android~2.3 and lower or iOS less than 6.0~\cite{Deveria2013a}.
-Another limitation is the file size that can be imported on a canvas on iOS devices which is depend on the RAM size~\cite{Apple2012}.
-The final limitation is the size of the encoded evidence in base64, which can exceeded the limit for session storage, that is depend on the mobile browser~\cite{Gonzalez2012}.
-
-\framework{\lungoa{}}{}
-TODO
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\challenge{\chal{validatie}}
-\begin{itemize}
- \item C8.1 Validation rules for a required number and email field 
- \item C8.2 Validation depends on custom conditions 
- \item C8.3 Retrieve error messages of invalid fields
- \item C8.4 Red borders around invalid fields 
-\end{itemize}
-
-\framework{\sta{}}{}
-Required fields and email validation can be assigned to a model.  
-To add custom validation rules or messages,  the \code{validate} method of \code{Ext.data.Model} needs to be overridden.  
-This method accepts a model instance and returns the possible validation errors.  
-The errors must be iterated to concatenate the validation messages.
-The red borders are created by adding a custom CSS class to the form element.
-
-\framework{\kendoa{}}{}
-The validations from the first challenge can be assigned to form elements by declaring them as data-attribute in the HTML-code.
-\kendo{} can create a \code{validator} object from selected form elements.
-The \code{validator} can check the validation rules from the attributes or can be expanded with custom validation rules.
-A validation message can be provided with the \code{validationMessage} and retrieved with the \code{errors} method of a \code{validator}.
-Red borders are not supported.
-
-\framework{\jqma{}}{}
-Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
-This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date} and custom validation conditions.
-The plugin shows errors below the corresponding field, so customisation of the plugin was needed to show them in a dialog.
-To give the invalid fields a red border, CSS was used directly for \code{input} and \code{textarea}.
-Because of the progressive enhancement for \code{select} and \code{fieldset}, a bit of DOM traversal was needed.
-
-\framework{\lungoa{}}{}
-TODO
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \chal{handtekening}
-% Draw a signature with finger or pen (C1).
-% 
-% \framework{jQM}{1}
-% At first, Signature Pad~\cite{Bradley2013} was used as plugin.
-% Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
-% Two advantage over the former were the automatic scaling to 100\% width and the basic layout.
-% However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.
-% 
-% \framework{ST}{1}
-% Drawing a signature is handled by a plugin~\cite{SimFla2011}.  
-% Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
-% This plugin could be used as-is by using the newly \code{signaturefield} component.  
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\challenge{\chal{ajax}}
-\begin{itemize}
-  \item C10.1 Fetch plain text
-  \item C10.2 Fetch and parse JSON
-  \item C10.3 Send JSON payload
-  \item C10.4 Fetch and parse XML
-\end{itemize}
-
-\framework{\sta{}}{}
-AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
-The plain text of the AJAX response can be used in the callback.   
-Stores can be configured with a model to define the structure of the recorded objects.  
-A proxy configures readers and writers that define where the data can be read or written.  
-This can be locally at the client side or via a remote server.  
-Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
-Sending JSON payload must be done via an AJAX request where the \code{jsonData} is encoded via \code{Ext.encode}.
-
-\framework{\kendoa{}}{}
-AJAX-requests can be done with a \code{dataSource}.
-This object supports CRUD operations for internal (JavaScript objects and arrays) and external (XML,JSON and JSONP) data.
-The object is build upon the \code{\$.ajax} method of jQuery and therefore is the configuration of an AJAX-request similar to jQuery.
-
-How the data needs to be parsed, is described in the \code{scheme} property of the \code{dataSource}.
-Both JSON and XML are supported as parsing schemes.
-There are two possibilities:  a new model can be instantiated every time data is retrieved or the contents of a single model can be updated after each successful AJAX-request.
-
-A JSON payload can be created by calling the \code{toJSON} method of a model and serialized it with the JSON library.
-
-\framework{\jqma{}}{}
-AJAX requests are made via the jQuery library where jQM is dependent on.
-Handling plain data and JSON as response is straightforward and the data can be used directly.
-When using XML, the data has to be traversed like with HTML, this means by using selectors.
-Sending JSON can be achieved by converting the instance into a string object using the vanilla JavaScript function \code{JSON.stringify} and add it as data to the jQuery AJAX request.
-
-\framework{\lungoa{}}{}
-TODO
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\challenge{\chal{lijsten}}
-\begin{itemize}
- \item C11.1 Load data into list and styling list items
- \item C11.2 Clickable items with custom action or linking to record of itemize
- \item C11.3 Sorting data
-\end{itemize}
-
-
-\framework{\sta{}}{}
-A list can be created by setting the type of a component to \code{list}.
-\code{Ext.XTemplate} is de \st{} class responsible for defining a template for listitems.
-A template can be used in a \code{list} by setting the \code{itemTpl} property.
-Also,  a list can be coupled with a \code{Store}.
-Elements of the list are hence coupled with a model instance from the \code{Store}.
-A \code{Controller} can catch the event when an item is clicked and show a view that contains the data of the corresponding modelinstance.
-
-Sorting the \code{Store} will sort the list that is connected with the \code{Store}.
-
-\framework{\kendoa{}}{}
-Lists can be defined by putting \code{listview} as \code{data-role}.
-The corresponding JavaScript instance can be configured with a \code{dataSource} and a template.
-Each instance in the \code{dataSouce} will create a listitem that is styled with the template.
-Linking listitems with a record is no standard feature in \kendo{}.
-A parameterized view can be used to link the listitem with a view.
-Sorting the \code{dataSource} will sort the list that is connected with the \code{dataSouce}.
-
-\framework{\jqma{}}{}
-TODO
-
-\framework{\lungoa{}}{}
-TODO
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SANDER: zou ik weglaten
-% \chal{pdf}
-% \begin{itemize}
-%  \item C12.1 Requesting a PDF with POST parameters 
-%  \item C12.2 Show the PDF
-% \end{itemize}
-% 
-% \framework{\sta{}}{}
-% 
-% A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
-% Some modifications were necessary to made it compliant with the POC.  
-% The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
-% The plugin automatically creates views for every PDF page.  
-% 
-% \framework{\kendoa{}}{}
-% 
-% To download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
-% 
-% \framework{\jqma{}}{}
-% 
-% To download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
-% When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
-% The mobile device opens the corresponding native PDF viewer to show the PDF.
-% 
-% \framework{\lungoa{}}{}
-% TODO
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\challenge{\chal{offline}}
-
-\begin{itemize}
- \item \chal{offline-data}
- \item \chal{offline-app}
-\end{itemize}
-
-
-\framework{\sta{}}{}
-Within \st{} a \code{Store} can be configured with a proxy to read and write data in the \code{sessionStorage} or \code{localStorage} of the browser.
-However,  \code{Stores} can not be configured with two proxies so if data is provided by an external source and needs to be stored locally,  two \code{Stores} need to be created and kept synchronized.
-
-Making your application offline is a feature of Sencha Cmd.
-Building your application for production will create the manfist automatically.
-
-\framework{\kendoa{}}{}
-The framework does not provide features to faciliate offline storage.
-The \code{localStorage} needs to be manipulated by the programmer.
-Creating a manifest file must be done manually or can be automated with a tool like Yeoman. %TODO referentie
-
-\framework{\jqma{}}{}
-TODO
-
-\framework{\lungoa{}}{}
-TODO
+%\framework{\sta}{}
+%Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
+%If this method returns false,  we assume to be in tablet mode.    
+%The main screen of the POC requires a splitted view in tablet mode.  
+%A \code{vbox} layout splits the viewport with a vertical axis.  
+%The \code{flex} property defines the ratio of the sizes of both resulting components. 
+%In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
+%Making the sub header clickable is not possible  
+%
+%\framework{\kendoa}{}
+%\kendo{} also provides methods to query the context.
+%\code{kendo.support.tablet},  for example,  returns if a tablet is being used.
+%The splitview for the tablet layout is supported by \kendo{} and can be used by defining your view as \code{splitview} as value of the data attribute \code{data-role}.
+%The smartphone layout needs to be build by manipulating the DOM with jQuery methods.
+%
+%\framework{\jqma}{}
+%No functionality is provided by the framework, so a search for plugins was started~\cite{Deering2012}.
+%However it was shown that the use of CSS3 media queries can accomplish the same without a plugin~\cite{Hadlock2012}.
+%The documentation of \jqma{}~1.2 also used a similar approach~~\cite{JQuery2012b}.
+%This approach is also encouraged in the documentation of \jqma{}~1.3~\cite{JQuery2013e}.
+%The smartphone menu is always accessible on both tablet and smartphone devices when tapping on the sub header.
+%
+%\framework{\lungoa}{}
+%The framework has the function \code{Lungo.Core.isMobile()} to know if the current device is a mobile device or not.
+%\quo{} has extra attributes for \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} and \code{screen}.
+%The latter only gives the width and height, so the developer still needs to program it manually.
+%As a solution, the same method as for \jqma{} was used, namely CSS3 media queries.
+%The smartphone menu is always accessible on both tablet and smartphone devices when tapping on the sub header.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\challenge{\chal{formulieren}}
+%
+%\begin{itemize}
+% \item \chal{formulieren-placeholders}
+% \item \chal{formulieren-types}
+% \item \chal{formulieren-optieveld}
+% \item \chal{formulieren-datepicker}
+% \item \chal{formulieren-monthpicker}
+% \item \chal{formulieren-schakelaar}
+% \item \chal{formulieren-wissen}
+%\end{itemize}
+%
+%\framework{\sta}{}
+%Placeholders, text, email and number fields are supported by the framework and can be easily created.  
+%Labels can be avoided by not defining them.  
+%To create an option field, an element with type selectfield has to be included.
+%Creating custom datepickers is not supported.  
+%It is impossible to ignore the days field and only years can be delimited.  
+%A flipswitch is possible with the togglefield type.
+%Clearing the form after it was send, has to be programmed manually.
+%
+%\framework{\kendoa}{}
+%All form types need to be defined with HTML-attributes and follow the HTML-standard.
+%A placeholder can be defined and labels can be omitted.
+%%TODO option fields? :Option fields have 
+%A datepickers is contained within \kendo{} Web and can be included as widgets.
+%The fields and depth of the datepicker can be configured to provide the custom datepickers.
+%The \code{data-role} switch can initiate a flip switch.
+%Clearing a model that is bound to a form (view) will clear the form automatically.
+%
+%\framework{\jqma}{}
+%Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
+%Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
+%The types of form elements used were text, number and email.
+%The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
+%Also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
+%The need for a custom datepicker with only a month and year needed to be hardcoded.
+%Clearing the form after it was send, has to be programmed manually.
+%A switch and option field are directly supported by \jqma.
+%
+%\framework{\lungoa}{}
+%Adding placeholders is accomplished by using the HTML5 \code{placeholder} attribute.
+%Labels are not mandatory in \lungo{}, so they could be left out of the code.
+%
+%%De types \code{text}, \code{number} en \code{email} voor formuliervelden worden verwezenlijkt door deze als type voor de \code{input}-tags mee te geven in het formulier.
+%%Gelijkaardig met de twee aangehaalde problemen voor \jqm{}, werd niet gekozen voor het \code{date}-type, maar een plug-in om de functionaliteit met datums op te lossen.
+%%De \code{date-picker} werd gebruikt van de plug-in pagina van Lungo zelf~\cite{TapQuo2013b}.
+%%Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \term{datepicker} te openen en de aangeklikte datum in het formulierveld te zetten.
+%%De plug-in laat echter niet toe om een bereik op te geven.
+%%De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
+%%
+%%Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een \term{dropdown}menu. 
+%%Een schakelaar daarentegen werd dan weer wel aangeboden.
+%%Het legen van een formulier gebeurt in \lungo{} door de \code{reset}-functie in \js{} op te roepen op dat formulier.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\challenge{\chal{vullen}}
+%\begin{itemize}
+%  \item C5.1 Filling in the form elements with object
+%  \item C5.2 Make the form elements read-only
+%\end{itemize}
+%%Back button to go back to the list (C3). %TODO niet van toepassing
+%
+%\framework{\sta{}}{}
+%%To show the list of clickable expenses,  ST provides a navigation view.  
+%%This mechanism allows to create the list of expenses together with a handler that gets triggers after an item selection.  
+%The controller can fill an empty form with a model instance.
+%Field names that correspond to the object's properties are linked and filled in.
+%Setting the value of the correct radiobutton does not work,  a new fieldset has to be created on which the \code{setGroupValue} method needs to be applied.  
+%Making form elements read-only can be done by setting the \code{readOnly} or \code{disabled} property to true.
+%
+%\framework{\kendoa{}}{}
+%The view-model can bind a view with a form and can fill it automatically with a model instance.
+%The mapping between properties of the model en fieldnames of the form is done implicitly.
+%Making a formelement read-only had to be done with the data-attribute \code{readOnly} or \code{disabled}.
+%
+%\framework{\jqma{}}{}
+%There is no automatic mapping between the data and the form.
+%Setting the form elements read-only can be done easily for the types \code{input} and \code{textarea} with the \code{readonly} attribute.
+%With a fieldset, the \code{disabled} attribute made is read-only.
+%Lastly with a select menu, the other options were deleted from the menu.
+%%Adding a back button was no problem.
+%
+%\framework{\lungoa{}}{}
+%TODO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%% \chal{autoaanvullen}
+%% Fetch suggestions based on input (C1).
+%% Show suggestions in clickable drop down (C2).
+%% 
+%% \framework{jQM}{1,1}
+%% As of version~1.3, jQM has built-in autocomplete support~\cite{JQuery2013c}.
+%% Because the POC used 1.2, the plugin of Matthews~\cite{Matthews2013} was used.
+%% To show only five suggestion, a little customisation by the \code{slice} function was needed because the plugin did not provid this.
+%% 
+%% \framework{ST}{1,0}
+%% A plugin can be found at~\cite{Mysamplecode2012} to create an autocomplete field.  
+%% A request to the backend with a keyword returns a JSON array named \code{data}.  
+%% ST can parse this array in two ways:  with a \code{JsonReader} or an \code{ArrayReader}.  
+%% The first requires that a JSON key precedes each item,  the latter assumes each item in the array maps to a field of a model.  
+%% Both strategies cannot be used to parse the array and create separate model instances for each array item.  
+%% This implies that no clickable drop-down could be implemented.
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\challenge{\chal{afbeelding}}
+%\begin{itemize}
+%  \item C7.1 Choose image
+%  \item C7.2 Convert image to base64
+%  \item C7.3 Preview image
+%\end{itemize}
+%
+%\framework{\sta{}}{}
+%A plugin to upload files can be found~\cite{Smirnov2012} to create buttons with the \code{fileupload} component.  
+%This button enables users to select an image and passes it to a PHP file.  
+%This file uploads the image and converts it to base64.
+%A requirement is that your server is able to run that PHP file.    
+%A ST image can be created based on this base64 string.
+%
+%\framework{\kendoa{}}{}
+%\kendo{} Web provides a widget that creates a file upload field from a form element with input type \code{file}.
+%The other two challenges depend on the FileReaderAPI and canvas from HTML5.
+%The FileReaderAPI can load the canvas with the image.
+%Conversion to base64 can be done by calling the \code{toDataURL} method on the canvas.
+%The canvas is able to show a preview of the selected image.
+%
+%\framework{\jqma{}}{}
+%A form element of type \code{file} is used to let the user attach an image.
+%Depending on the mobile device, the options are to attach a local image or to take one with the camera.
+%The attached image is read by the FileReaderAPI, converted to an image and imported on the canvas.
+%The base64 encoding can be retrieved by calling the \code{.toDataURL()} on the latter and is stored in session storage.
+%However the FileReaderAPI is not supported on Android~2.3 and lower or iOS less than 6.0~\cite{Deveria2013a}.
+%Another limitation is the file size that can be imported on a canvas on iOS devices which is depend on the RAM size~\cite{Apple2012}.
+%The final limitation is the size of the encoded evidence in base64, which can exceeded the limit for session storage, that is depend on the mobile browser~\cite{Gonzalez2012}.
+%
+%\framework{\lungoa{}}{}
+%TODO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\challenge{\chal{validatie}}
+%\begin{itemize}
+% \item C8.1 Validation rules for a required number and email field 
+% \item C8.2 Validation depends on custom conditions 
+% \item C8.3 Retrieve error messages of invalid fields
+% \item C8.4 Red borders around invalid fields 
+%\end{itemize}
+%
+%\framework{\sta{}}{}
+%Required fields and email validation can be assigned to a model.  
+%To add custom validation rules or messages,  the \code{validate} method of \code{Ext.data.Model} needs to be overridden.  
+%This method accepts a model instance and returns the possible validation errors.  
+%The errors must be iterated to concatenate the validation messages.
+%The red borders are created by adding a custom CSS class to the form element.
+%
+%\framework{\kendoa{}}{}
+%The validations from the first challenge can be assigned to form elements by declaring them as data-attribute in the HTML-code.
+%\kendo{} can create a \code{validator} object from selected form elements.
+%The \code{validator} can check the validation rules from the attributes or can be expanded with custom validation rules.
+%A validation message can be provided with the \code{validationMessage} and retrieved with the \code{errors} method of a \code{validator}.
+%Red borders are not supported.
+%
+%\framework{\jqma{}}{}
+%Because of the lack of support on mobile browsers for the \code{required} attribute~\cite{Deveria2013}, the plugin of Zaefferer~\cite{Zaefferer2013} was used to check for required fields.
+%This plugin also provides built-in validation methods that were needed: \code{number}, \code{email} and \code{date} and custom validation conditions.
+%The plugin shows errors below the corresponding field, so customisation of the plugin was needed to show them in a dialog.
+%To give the invalid fields a red border, CSS was used directly for \code{input} and \code{textarea}.
+%Because of the progressive enhancement for \code{select} and \code{fieldset}, a bit of DOM traversal was needed.
+%
+%\framework{\lungoa{}}{}
+%TODO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%% \chal{handtekening}
+%% Draw a signature with finger or pen (C1).
+%% 
+%% \framework{jQM}{1}
+%% At first, Signature Pad~\cite{Bradley2013} was used as plugin.
+%% Because of the time spend on changing the default layout, jSignature~\cite{Systems2013} was used instead.
+%% Two advantage over the former were the automatic scaling to 100\% width and the basic layout.
+%% However, the plugin does not work on Android~2.3 and lower~\cite{Systems2013}.
+%% 
+%% \framework{ST}{1}
+%% Drawing a signature is handled by a plugin~\cite{SimFla2011}.  
+%% Plugins can easily be added to the framework by placing the plugin file in the \code{ux} folder and loading it in the main JavaScript file.  
+%% This plugin could be used as-is by using the newly \code{signaturefield} component.  
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\challenge{\chal{ajax}}
+%\begin{itemize}
+%  \item C10.1 Fetch plain text
+%  \item C10.2 Fetch and parse JSON
+%  \item C10.3 Send JSON payload
+%  \item C10.4 Fetch and parse XML
+%\end{itemize}
+%
+%\framework{\sta{}}{}
+%AJAX requests can be done either explicitly via a direct \code{Ext.Ajax.request} call or implicitly via stores.  
+%The plain text of the AJAX response can be used in the callback.   
+%Stores can be configured with a model to define the structure of the recorded objects.  
+%A proxy configures readers and writers that define where the data can be read or written.  
+%This can be locally at the client side or via a remote server.  
+%Readers and writers contain the format of the data - JSON or XML - and automatically parse this data to fields of the corresponding model. 
+%Sending JSON payload must be done via an AJAX request where the \code{jsonData} is encoded via \code{Ext.encode}.
+%
+%\framework{\kendoa{}}{}
+%AJAX-requests can be done with a \code{dataSource}.
+%This object supports CRUD operations for internal (JavaScript objects and arrays) and external (XML,JSON and JSONP) data.
+%The object is build upon the \code{\$.ajax} method of jQuery and therefore is the configuration of an AJAX-request similar to jQuery.
+%
+%How the data needs to be parsed, is described in the \code{scheme} property of the \code{dataSource}.
+%Both JSON and XML are supported as parsing schemes.
+%There are two possibilities:  a new model can be instantiated every time data is retrieved or the contents of a single model can be updated after each successful AJAX-request.
+%
+%A JSON payload can be created by calling the \code{toJSON} method of a model and serialized it with the JSON library.
+%
+%\framework{\jqma{}}{}
+%AJAX requests are made via the jQuery library where jQM is dependent on.
+%Handling plain data and JSON as response is straightforward and the data can be used directly.
+%When using XML, the data has to be traversed like with HTML, this means by using selectors.
+%Sending JSON can be achieved by converting the instance into a string object using the vanilla JavaScript function \code{JSON.stringify} and add it as data to the jQuery AJAX request.
+%
+%\framework{\lungoa{}}{}
+%TODO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\challenge{\chal{lijsten}}
+%\begin{itemize}
+% \item C11.1 Load data into list and styling list items
+% \item C11.2 Clickable items with custom action or linking to record of itemize
+% \item C11.3 Sorting data
+%\end{itemize}
+%
+%
+%\framework{\sta{}}{}
+%A list can be created by setting the type of a component to \code{list}.
+%\code{Ext.XTemplate} is de \st{} class responsible for defining a template for listitems.
+%A template can be used in a \code{list} by setting the \code{itemTpl} property.
+%Also,  a list can be coupled with a \code{Store}.
+%Elements of the list are hence coupled with a model instance from the \code{Store}.
+%A \code{Controller} can catch the event when an item is clicked and show a view that contains the data of the corresponding modelinstance.
+%
+%Sorting the \code{Store} will sort the list that is connected with the \code{Store}.
+%
+%\framework{\kendoa{}}{}
+%Lists can be defined by putting \code{listview} as \code{data-role}.
+%The corresponding JavaScript instance can be configured with a \code{dataSource} and a template.
+%Each instance in the \code{dataSouce} will create a listitem that is styled with the template.
+%Linking listitems with a record is no standard feature in \kendo{}.
+%A parameterized view can be used to link the listitem with a view.
+%Sorting the \code{dataSource} will sort the list that is connected with the \code{dataSouce}.
+%
+%\framework{\jqma{}}{}
+%TODO
+%
+%\framework{\lungoa{}}{}
+%TODO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SANDER: zou ik weglaten
+%% \chal{pdf}
+%% \begin{itemize}
+%%  \item C12.1 Requesting a PDF with POST parameters 
+%%  \item C12.2 Show the PDF
+%% \end{itemize}
+%% 
+%% \framework{\sta{}}{}
+%% 
+%% A plugin for a PDF viewer can be found at~\cite{Fiedler2012}.  
+%% Some modifications were necessary to made it compliant with the POC.  
+%% The PDF must be fetched from the backend with a parameterized POST request instead of a simple GET request.  
+%% The plugin automatically creates views for every PDF page.  
+%% 
+%% \framework{\kendoa{}}{}
+%% 
+%% To download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
+%% 
+%% \framework{\jqma{}}{}
+%% 
+%% To download the PDF, a hidden form is used because AJAX is not the preferred way for fetching raw data.
+%% When the users taps an expense form in the list, this hidden form is submitted with the correct parameters to download the PDF.
+%% The mobile device opens the corresponding native PDF viewer to show the PDF.
+%% 
+%% \framework{\lungoa{}}{}
+%% TODO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\challenge{\chal{offline}}
+%
+%\begin{itemize}
+% \item \chal{offline-data}
+% \item \chal{offline-app}
+%\end{itemize}
+%
+%
+%\framework{\sta{}}{}
+%Within \st{} a \code{Store} can be configured with a proxy to read and write data in the \code{sessionStorage} or \code{localStorage} of the browser.
+%However,  \code{Stores} can not be configured with two proxies so if data is provided by an external source and needs to be stored locally,  two \code{Stores} need to be created and kept synchronized.
+%
+%Making your application offline is a feature of Sencha Cmd.
+%Building your application for production will create the manfist automatically.
+%
+%\framework{\kendoa{}}{}
+%The framework does not provide features to faciliate offline storage.
+%The \code{localStorage} needs to be manipulated by the programmer.
+%Creating a manifest file must be done manually or can be automated with a tool like Yeoman. %TODO referentie
+%
+%\framework{\jqma{}}{}
+%TODO
+%
+%\framework{\lungoa{}}{}
+%TODO
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1163,93 +1170,11 @@ TODO
 \label{tabel:evaluatie-ondersteuning-u}
 \end{table}
 
-\chal{toestel}
-
-\framework{\sta{}}{}
-TODO
-
-\framework{\kendoa{}}{}
-TODO
-
-\framework{\jqma{}}{}
-TODO
-
-\framework{\lungoa{}}{}
-TODO
-
-\chal{formulieren}
-
-\framework{\sta{}}{}
-TODO
-
-\framework{\kendoa{}}{}
-TODO
-
-\framework{\jqma{}}{}
-TODO
-
-\framework{\lungoa{}}{}
-TODO
-
-\chal{autoaanvullen}
-
-\framework{\sta{}}{}
-TODO
-
-\framework{\kendoa{}}{}
-TODO
-
-\framework{\jqma{}}{}
-TODO
-
-\framework{\lungoa{}}{}
-TODO
-
-\chal{afbeelding}
-
-\framework{\sta{}}{}
-TODO
-
-\framework{\kendoa{}}{}
-TODO
-
-\framework{\jqma{}}{}
-TODO
-
-\framework{\lungoa{}}{}
-TODO
-
-\chal{handtekening}
-
-\framework{\sta{}}{}
-TODO
-
-\framework{\kendoa{}}{}
-TODO
-
-\framework{\jqma{}}{}
-TODO
-
-\framework{\lungoa{}}{}
-TODO
-
-\chal{pdf}
-
-\framework{\sta{}}{}
-TODO
-
-\framework{\kendoa{}}{}
-TODO
-
-\framework{\jqma{}}{}
-TODO
-
-\framework{\lungoa{}}{}
-TODO
+% samenvattende tekst vertalen % Sander
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Performance} % 1 blz
+\subsection{Performance} % 1 blz % Tim
 \label{sec:evaluation-performance}
 
 \begin{figure}
@@ -1266,7 +1191,7 @@ TODO
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.4\textwidth]{../Masterproef/figuren/spidergraph.pdf}
+  \includegraphics[width=0.4\textwidth]{../Masterproef/figuren/spidergraph-final.pdf}
   \caption{Comparison overview with the five comparisioncriteria for \st{},  \kendo{},  \jqm{} en \lungo{}.}
   \label{fig:spidergraph}
 \end{figure}
@@ -1277,9 +1202,6 @@ TODO
 
 \section{Future work} % ? blz)
 \label{sec:future_work}
-We have to choose the next two mobile HTML5 frameworks, implement the POC and evaluate the framework.
-We also have to evaluate the following three criteria: productivity, support and performance. 
-Finally, we want to expand the usage criterion with the following challenges:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

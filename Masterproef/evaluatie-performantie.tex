@@ -41,6 +41,46 @@ De browser neemt hiervoor de taak op zich door bij het laden een indicator te to
 
 %TODO: moet Jakob niet worden verplaatst naar het vergelijkingshoofdstuk? 
 
+%%%%% BEGIN HIER HIERSCHRIJVEN %%%%%%
+
+%TODO uitleggen dat we de JS perfomrantie hebben proberen op te meten
+% het is gelukt voor jQM en Kendo, maar niet voor ST en Lungo
+% eventueel referenties naar vragen op so
+% daarom werd besloten om deze meting er uit te laten ,aangezien we maar toch 2 frameworks konden meten
+% dit wordt vervangen door een subjectieve lijsttest (+ fout tegen nielson, tijdsbudget, we moesten 5 gebruikers gebruikers hebben, maar hadden er maar 2, met name de auteurs zelf)
+% hierdoor wordt de formule aangepast, aangezien lijsttest (uitgedrukt in eenheid) en downloadtijd (uitgebrukt in seconden) niet kunnen worden opgeteld, daarom als fator gebruiken
+% van de totale downloaded wordt gedeeld met die factor 
+
+% table subjectieve testen loginlijsten toeveogen (8 devices)
+
+% VERWERKEN TEKST SANDER
+%Een andere test om de score te toetsen kijkt naar de gebruikservaring.
+%Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
+%De auteurs zullen de ervaring bij het scrollen van de lijst vergelijken op de acht apparaten.
+%De ervaringen per apparaat zullen vervolgens relatief ten opzichte van elkaar beoordeeld worden.
+
+% onderstaande sectie hierwerken, gebruikservaring is geen verklaring meer.
+%\paragraph{Gebruikservaring}
+Een andere test om de score te toetsen kijkt naar de gebruikservaring.
+Hiervoor werd door de lijst van $850$ elementen gescrold, die getoond wordt na aanmelden op de loginapplicatie.
+De test werd uitgevoerd op de acht apparaten van tabel~\ref{tabel:toestellen-hci}.
+De totaalscores voor alle devices is in tabel~\ref{tabel:performantie-verklaring} terug te vinden.
+\st{} behaalde de maximale score.
+Dit wil zeggen dat op alle toestellen het scollen door de lijst van \st{} het vlotst ging.
+\jqm{} werd zes keer als tweede beste beoordeeld. 
+Op de \htc{} liep \kendo{} vlotter,  op de \ipadi{} was \lungo{} nummer twee.
+De lijst genereren met \kendo{} op iOS toestellen was onmogelijk omdat de applicatie de browser liet crashen.
+Op Android toestellen kon de \kendo{} lijst echter wel worden getoond.
+%TODO: dat weten we niet, enkel dat het crasht.
+% we hebben zowel de reden niet verder gecontroleerd alsook de grens tot waar het niet crasht wegens tijdsbudget
+Dit wil zeggen dat de overhead die \kendo{} genereerd, het maximale toegelaten geheugen van het iOS besturingssysteem overschrijdt.
+De score van \kendo{} is dus slechts voor vier apparaten.
+
+% nieuwe formule
+% nieuwe tabel: 3 rijen (totale download, factor, nieuw abs totaal)
+
+%%%%% TOT HIER HIERSCHRIJVEN %%%%%%
+
 In wat volgt zullen metrieken worden besproken die de score van de performantie zullen duiden.
 De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklaring}.
 
@@ -55,22 +95,6 @@ Door deze uitbreiding krijgt de loginapplicatie van \kendo{} en beter score dan 
 Er kan geconcludeerd worden dat Sencha Cmd de applicatie optimaal weet te bouwen.
 Hoewel \st{} de meeste tijd vraagt om te laden, zal het na het laden sneller werken.
 Dit wordt bevestigd in de test over gebruikservaring.
-
-\paragraph{Gebruikservaring}
-Een andere test om de score te toetsen kijkt naar de gebruikservaring.
-Hiervoor werd door de lijst van $850$ elementen gescrold, die getoond wordt na aanmelden op de loginapplicatie.
-De test werd uitgevoerd op de acht apparaten van tabel~\ref{tabel:toestellen-hci}.
-De totaalscores voor alle devices is in tabel~\ref{tabel:performantie-verklaring} terug te vinden.
-\st{} behaalde de maximale score.
-Dit wil zeggen dat op alle toestellen het scollen door de lijst van \st{} het vlotst ging.
-\jqm{} werd zes keer als tweede beste beoordeeld. 
-Op de \htc{} liep \kendo{} vlotter,  op de \ipadi{} was \lungo{} nummer twee.
-De lijst genereren met \kendo{} op iOS toestellen was onmogelijk omdat de applicatie de browser liet crashen.
-Op Android toestellen kon de \kendo{} lijst echter wel worden getoond.
-Dit wil zeggen dat de overhead die \kendo{} genereerd, het maximale toegelaten geheugen van het iOS besturingssysteem overschrijdt.
-De score van \kendo{} is dus slechts voor vier apparaten.
-
-%TODO figuur van 4 lijsten
 
 \paragraph{Downloadgrootte en HTML-code}
 De HAR-bestanden die werden gebruikt om de laadtijd op te meten bevatten ook de grootte van de pakketten die moeten worden opgehaald.

@@ -124,24 +124,9 @@ Van alle $8$ apparaten is de \iphoneiii{} het oudst (officiële voorstelling in 
 Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android toestellen dit minder vaak aanbieden ten opzichte van iOS toestellen. %TODO referentie
 De reden hiervoor is de grotere heterogeniteit tussen Android toestellen.
 
-% TODO Tim: ik zou dit verplaatsen naar de desbetreffende sectie
-Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline opslag op alle beschikbare apparaten.
-Formuliervalidatie is een kenmerk van HTML5 maar wordt op geen enkel beschikbaar mobiel besturingssysteem ondersteund~\cite{Deveria2013}.
-Dit wil zeggen dat alle raamwerken hiervoor een alternatief voorzien dat wel op alle toestellen werkt.
-% TODO Tim: ik zou dit verplaatsen naar de desbetreffende sectie
-Offline en opslag is één element van de acht technologieklassen (zie sectie \ref{sec:html5-css3-js}).
-Om de POC offline beschikbaar te maken is zowel de \code{manifest} als \code{localStorage} ondersteuning noodzakelijk.
-Beide kenmerken worden door alle beschikbare mobiele besturingssystemen ondersteund. %TODO referenties
-%http://caniuse.com/#feat=offline-apps
-%http://caniuse.com/#search=localstorage
+%TODO Tim: Lungo tap probleem ergens vermelden
 
-% TODO Tim: ik zou dit verplaatsen naar de desbetreffende sectie
-De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen.
-\kendo{}, \jqm{} en \lungo{} gebruiken dezelfde aanpak om deze uitdaging te implementeren.
-Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 ondersteund~\cite{Deveria2013a}.
-Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
-Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
-%TODO Sander: file input niet op ipad 1 vermelden? Tim: zeker, maar in betreffende sectie
+Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline opslag op alle beschikbare apparaten.
 
 % De algemene score voor iedere raamwerk is rond de 90% of meer, dus eigenlijk moet je niet kijken naar de ondersteuning wanneer je een raamwerk kiest
 % jQM is de duidelijke winnaar over alle devices, gevolgd door een gedeelde tweede plaats van Kendo en ST, daarna door Lungo.
@@ -303,6 +288,14 @@ Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 Iedere implementatie die onderliggend FileReaderAPI gebruik, heeft geen ondersteuning op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013a}.
 
+De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen.
+\kendo{}, \jqm{} en \lungo{} gebruiken dezelfde aanpak om deze uitdaging te implementeren.
+Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 ondersteund~\cite{Deveria2013a}.
+Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
+Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
+%TODO Sander: file input niet op ipad 1 vermelden? Tim: ja
+
+%TODO aggergeren
 \paragraph{\st} \score{5}{8}
 Oudere Android types bieden geen ondersteuning voor de FileReaderAPI.
 Hierdoor was het opladen van een afbeelding niet mogelijk bij de \htc{} en \gtab{}.
@@ -328,9 +321,13 @@ Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetz
 \subsection{\uit{validatie}}
 \label{sec:evaluatie-ondersteuning-validatie}
 
+Formuliervalidatie is een kenmerk van HTML5 maar wordt op geen enkel beschikbaar mobiel besturingssysteem ondersteund~\cite{Deveria2013}.
+Dit wil zeggen dat alle raamwerken hiervoor een alternatief voorzien dat wel op alle toestellen werkt.
+
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
+%TODO aggergeren
 \paragraph{\st} \score{8}{8}
 Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
@@ -350,6 +347,7 @@ Aangezien deze uitdaging handmatig werd geïmplementeerd, werd de ondersteuning 
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
+%TODO aggergeren
 \paragraph{\st} \score{8}{8}
 Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
 
@@ -398,6 +396,13 @@ Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetz
 
 In tabel \ref{tabel:evaluatie-ondersteuning-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+
+% TODO Tim: ik zou dit verplaatsen naar de desbetreffende sectie
+Offline en opslag is één element van de acht technologieklassen (zie sectie \ref{sec:html5-css3-js}).
+Om de POC offline beschikbaar te maken is zowel de \code{manifest} als \code{localStorage} ondersteuning noodzakelijk.
+Beide kenmerken worden door alle beschikbare mobiele besturingssystemen ondersteund. %TODO referenties
+%http://caniuse.com/#feat=offline-apps
+%http://caniuse.com/#search=localstorage
 
 \begin{table}[H]
 \centering

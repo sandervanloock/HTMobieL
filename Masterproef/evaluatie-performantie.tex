@@ -104,12 +104,11 @@ De score van \kendo{} is dus slechts voor vier apparaten.
 %%%%%%%%%%%%%%%%%%
 
 \subsection{Performantie}
-Aangezien de gebruikerservaring werd vervangen door de subjectieve lijsttest dient formule~\ref{eq:performantie} om de totale performantie te berekenen, te worden herschreven.
-De score voor een raamwerk $r$ wordt 
-
-De nieuwe verbeterde formule voor performantie is dan
+Aangezien de gebruikerservaring werd vervangen door de subjectieve lijsttest dient de formule om de totale performantie te berekenen~(zie \ref{eq:performantie}), te worden herschreven.
+De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op downloadtijd, maar sterk scoort op de subjectieve lijsttest, een middelmatige score te geven.
+Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de downloadtijd gedeeld door de gebruikerservaring. De score voor de performantie van een raamwerk $r$ wordt:
 \begin{equation}
-  \text{Performantie}'_r = \frac{\text{Downloadtijd}_r}{\text{Gebruikerservaring}_r}
+  \text{Performantie}'_r = \frac{\sum_{c=1}^{8}{\left(l_{r,c,\text{POC}}+l_{r,c,\text{POC}_{cache}}+l_{r,c,\text{login}}+l_{r,c,\text{login}_{cache}}\right)}}{\text{Gebruikerservaring}_r}
   \label{eq:performantie-enhanced}
 \end{equation}
 

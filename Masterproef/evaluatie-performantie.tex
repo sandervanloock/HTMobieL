@@ -62,13 +62,7 @@ Deze test werd uitgevoerd door twee personen.
 %Er dient echter opgemerkt te worden dat het tijdsbudget het niet toeliet om deze test te laten uitvoeren door minstens vijf personen te laten uitvoeren, wat voorgesteld wordt door Nielsen.
 
 Om de totaalscore van een raamwerk te bepalen worden de scores voor dat raamwerk op ieder apparaat opgeteld.
-In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwerk dat de vlotste scrolervaring aanbiedt.
-
-%TODO: invoegen van nieuwe formule 
-% hierdoor wordt de formule aangepast, aangezien lijsttest (uitgedrukt in eenheid) en downloadtijd (uitgebrukt in seconden) niet kunnen worden opgeteld, daarom als fator gebruiken
-% van de totale downloaded wordt gedeeld met die factor 
-
-In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
+In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwerk dat de vlotste scrolervaring aanbiedt. In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 
 \begin{table}[H]
 \centering
@@ -110,6 +104,19 @@ De score van \kendo{} is dus slechts voor vier apparaten.
 %%%%%%%%%%%%%%%%%%
 
 \subsection{Performantie}
+Aangezien de gebruikerservaring werd vervangen door de subjectieve lijsttest dient formule~\ref{eq:performantie} om de totale performantie te berekenen, te worden herschreven.
+De score voor een raamwerk $r$ wordt 
+
+De nieuwe verbeterde formule voor performantie is dan
+\begin{equation}
+  \text{Performantie}'_r = \frac{\text{Downloadtijd}_r}{\text{Gebruikerservaring}_r}
+  \label{eq:performantie-enhanced}
+\end{equation}
+
+%TODO: invoegen van nieuwe formule 
+% hierdoor wordt de formule aangepast, aangezien lijsttest (uitgedrukt in eenheid) en downloadtijd (uitgebrukt in seconden) niet kunnen worden opgeteld, daarom als fator gebruiken
+% van de totale downloaded wordt gedeeld met die factor 
+
 % nieuwe formule
 % nieuwe tabel: 3 rijen (totale download, factor, nieuw abs totaal)
 

@@ -518,8 +518,8 @@ De ontwikkelaar dient dus tijdens het programmeren met deze verschillen rekening
 Ten tweede vergt het schrijven van simpele, veel voorkomende taken soms veel code.
 
 Een oplossing voor de bovenstaande pijnpunten is gebruik maken van een bibliotheek. 
-Een voorbeeld hiervan is de populaire jQuery Core bibliotheek. 
-Het is ook mogelijk om jQuery uit te breiden met verscheidene plug-ins om de functionaliteit nog te vergroten~\cite{McFarland2011}.
+Een voorbeeld hiervan is de populaire jQuery Core~\cite{JQuery2013a} bibliotheek. 
+Het is ook mogelijk om deze bibliotheek uit te breiden met verscheidene plug-ins om de functionaliteit te vergroten~\cite{McFarland2011}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -528,18 +528,15 @@ Het is ook mogelijk om jQuery uit te breiden met verscheidene plug-ins om de fun
 \label{sec:mobiele-html5-raamwerken}
 
 In deze sectie wordt ingezoomd op bestaande mobiele HTML5-raamwerken die gebruik maken van de laatste nieuwe technologieën zoals HTML5, CSS3 en \js{}.
-Doordat deze raamwerken als paddestoelen uit de grond komen, is het onmogelijk om deze allemaal te bespreken en te vergelijken.
-Hierdoor werden acht raamwerken geselecteerd waaruit uiteindelijk vier raamwerken gedetailleerd besproken en vergeleken zullen worden in respectievelijk hoofdstukken \ref{chap:raamwerken} en \ref{chap:vergelijkingscriteria}.
-De motivatie hiervoor is te vinden in sectie~\ref{sec:motivatie-acht-raamwerken}.
+Doordat deze raamwerken als paddestoelen uit de grond schieten, is het onmogelijk om deze allemaal te bespreken en te vergelijken.
+Hierdoor werden acht raamwerken geselecteerd waaruit uiteindelijk vier raamwerken gedetailleerd besproken en vergeleken zullen worden.
 
-% TODO Tim: enkel termen uitleggen
-% De raamwerken zelf worden gecategoriseerd volgens twee aanpakken~\cite{Oeflman2011}: opmaakgedreven en \js{}-gedreven. 
-% Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code geschreven. 
-% Daarentegen wordt bij een \js{}-gedreven aanpak hoofdzakelijk in \js{} geprogrammeerd.
+Raamwerken kunnen worden gecategoriseerd volgens twee aanpakken~\cite{Oeflman2011}, namelijk opmaakgedreven en \js{}-gedreven.
+Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code geschreven. 
+Daarentegen wordt bij een \js{}-gedreven aanpak hoofdzakelijk in \js{} geprogrammeerd.
 
-\subsection{Motivatie}
-\label{sec:motivatie-acht-raamwerken}
-De besproken acht raamwerken zijn op drie manieren onder de aandacht van de auteurs gekomen.
+%TODO: hoe kwamen wij aan jQT, want dat staat hier nu nergens in gemotiveerd? ;-)
+De acht besproken raamwerken zijn op drie manieren onder de aandacht van de auteurs gekomen.
 Ten eerste werden al snel \jqm{} en \st{} als interessante raamwerken bevonden door hun grote populariteit in samenvattende literatuur over raamwerken~\cite{Firtman2013,Hales2012,Oeflman2011,David2011}.
 Daarnaast werd \tmp{} in de literatuur aangehaald doordat het gebruik maakt van \jqm{} en het MVC-patroon toevoegt~\cite{Firtman2013}.
 \lungo{} werd in recente literatuur gevonden~\cite{Firtman2013,Hales2012}.
@@ -553,14 +550,14 @@ Als laatste werd \davinci{} door Capgemini voorgesteld.
 % - korte geschiedenis en versie
 % - bedrijf, licentie
 
-\subsection{\jqm} % TIM
+\paragraph{\jqm} % TIM
 \jqm{} is een opmaakgedreven raamwerk dat werd aangekondigd in 2010 en hoofdzakelijk gebruikersinterface-elementen (GI-elementen) aanbiedt~\cite{Resig2010}.
 Het raamwerk wordt beheerd door het jQuery Project dat onder andere jQuery Core beheert en waar \jqm{} afhankelijk van is~\cite{JQuery2012}. 
 Op het moment van schrijven zit \jqm{} aan versie~1.3.1~\cite{Parker2013b}. 
 Sinds september 2012 is het enkel nog mogelijk om \jqm{} onder de Massachusetts Institute of Technology (MIT) licentie te verkrijgen~\cite{Dmethvin2012}. 
 Dit betekent dat de code wordt vrijgegeven als \term{open-source} en dat deze tegelijkertijd kan worden gebruikt in propriëtaire projecten en applicaties~\cite{PhilDutson2012}.
 
-\subsection{\st}% SANDER
+\paragraph{\st}% SANDER
 \st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.
 Ext JS kan als de voorganger van \st{} worden beschouwd. 
 \st{} is net als Ext JS een \js{}-gedreven raamwerk met een MVC-architectuur (Model-View-Controller).
@@ -569,30 +566,7 @@ Een gratis \term{open-source} versie van \st{} laat dit wel toe.
 Het gebruik van deze licentie binnen een applicatie vereist wel dat de applicatie zelf zijn broncode deelt.
 Op het moment van schrijven is \st{} aan versie 2.1.1~\cite{Inc.}. 
 
-\subsection{\kendo} % SANDER
-\kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
-% Buiten \kendo{} is Telerik voornamelijk gericht op tools voor de ontwikkelaar.
-% Zo ontwikkelen ze DevTools dat een grafische gebruikersinterface aanbiedt bij de ontwikkeling binnen een .NET omgeving.
-% Ze voorzien ook Icenium voor de ontwikkeling van hybride applicaties en kan als de tegenhanger van \kendo{} gezien worden.
-Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
-\kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur (Model-View-ViewModel) dat steunt op de jQuery-bibliotheek.
-Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
-.NET,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend} integratie.
-Een licentie voor \kendo{} waarbij één van voornoemde technologieën mogelijk is, kost $\$999$.
-Zonder \term{backend} integratie zijn de kosten met $\$300$ verminderd.
-Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}.
-
-\subsection{\lungo} % TIM
-\lungo{} is een opmaakgedreven raamwerk waarbij versie~1.0 uitkwam in 2011~\cite{TapQuo2011}.
-Het raamwerk wordt onderhouden door TapQuo dat een Spaans bedrijf is, gespecialiseerd rond mobiele gebruikerservaring~\cite{TapQuo2013a}.
-\lungo{} is afhankelijk van een \js{}-bibliotheek, namelijk \quo{}.
-\lungo{} biedt vooral GI-elementen aan, maar daarnaast zijn er ook \term{wrappers} voor cache, opslag en SQL beschikbaar~\cite{TapQuo2013}.
-Er wordt geen programmeerstijl zoals MVC afgedwongen.
-Het raamwerk wordt onder de GPLv3-licentie vrijgegeven, maar ook een commerciële versie is mogelijk.
-Op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
-
-\subsection{\tmp} % SANDER
+\paragraph{\tmp} % SANDER
 % TODO deze tekst zal later moeten worden verplaatst
 %Een ander raamwerk, genaamd The-M-Project~\cite{Panacoda2012}, dwingt het Model-View-Controller (MVC) echter wel af. 
 %Met dit raamwerk is het mogelijk om webapplicaties te maken die het \jqm{} raamwerk gebruiken. 
@@ -610,7 +584,30 @@ Het is belangrijk op te merken dat in de zomer van 2013 versie~2.0 wordt verwach
 \tmp{} zal van de grond worden opgebouwd omdat enkel de code aanpassen niet meer voldoende bleek.  
 De voornaamste werkpunten zijn performantie en platformonafhankelijkheid~\cite{Panacoda,Laubach2013}.
 
-\subsection{\moobile} % TIM
+\paragraph{\lungo} % TIM
+\lungo{} is een opmaakgedreven raamwerk waarbij versie~1.0 uitkwam in 2011~\cite{TapQuo2011}.
+Het raamwerk wordt onderhouden door TapQuo dat een Spaans bedrijf is, gespecialiseerd rond mobiele gebruikerservaring~\cite{TapQuo2013a}.
+\lungo{} is afhankelijk van een \js{}-bibliotheek, namelijk \quo{}.
+\lungo{} biedt vooral GI-elementen aan, maar daarnaast zijn er ook \term{wrappers} voor cache, opslag en SQL beschikbaar~\cite{TapQuo2013}.
+Er wordt geen programmeerstijl zoals MVC afgedwongen.
+Het raamwerk wordt onder de GPLv3-licentie vrijgegeven, maar ook een commerciële versie is mogelijk.
+Op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
+
+\paragraph{\kendo} % SANDER
+\kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
+% Buiten \kendo{} is Telerik voornamelijk gericht op tools voor de ontwikkelaar.
+% Zo ontwikkelen ze DevTools dat een grafische gebruikersinterface aanbiedt bij de ontwikkeling binnen een .NET omgeving.
+% Ze voorzien ook Icenium voor de ontwikkeling van hybride applicaties en kan als de tegenhanger van \kendo{} gezien worden.
+Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
+\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
+\kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur (Model-View-ViewModel) dat steunt op de jQuery-bibliotheek.
+Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
+.NET,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend} integratie.
+Een licentie voor \kendo{} waarbij één van voornoemde technologieën mogelijk is, kost $\$999$.
+Zonder \term{backend} integratie zijn de kosten met $\$300$ verminderd.
+Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}.
+
+\paragraph{\moobile} % TIM
 \moobile{} is een jong raamwerk dat op het moment van schrijven aan versie~0.2.1 zit sinds de eerste \term{commit} op GitHub in 2011~\cite{Dery2013}.
 Het raamwerk is \js{}-gedreven, volgt de MVC-architectuur en wordt onderhouden door de Canadees Jean-Philippe Déry.
 Zelf biedt \moobile{} voornamelijk GI-elementen aan, maar deze blijven (voorlopig) beperkt tot zeven componenten en drie schermovergangen~\cite{Dery2013}.
@@ -619,8 +616,7 @@ Een bijzonderheid is dat de lay-out van de componenten nagebootst kunnen worden 
 Bij het raamwerk is een simulator en tool aanwezig om de volledige applicatie te maken.
 Deze laatstgenoemde zorgt automatisch voor compressie van de verschillende bestanden.
 
-
-\subsection{\davinci}% SANDER 
+\paragraph{\davinci}% SANDER 
 \davinci{} bestaat uit twee tools:  \davinci{} Studio en \davinci{} Animator.
 De nadruk bij dit raamwerk ligt voornamelijk bij de generatie van code in een WYSIWYG-omgeving (What You See Is What You Get).
 %TODO Tim: gaan we ervan uit dat de lezer WYSIWYG snapt? Sander: is de term al niet veelzeggend? of gewoon grafische omgeving nemen?
@@ -634,8 +630,7 @@ In SNU Research Park te Seoul worden beide tools ontwikkeld.
 Op het moment van schrijven is \davinci{} toe aan versie~2.0.  
 Alle documentatie is momenteel nog niet vertaald van het Koreaans naar het Engels~\cite{Incross}.
 
-
-\subsection{\jqt}% TIM
+\paragraph{\jqt}% TIM
 \jqt{}, voorheen jQTouch, is een plug-in voor jQuery of Zepto.
 Zepto is een \js{}-bibliotheek die compatibel is met de API van jQuery, maar minimaler is dan jQuery~\cite{Zepto2013}.
 \jqt{} is een opmaakgedreven raamwerk dat wordt vrijgegeven onder de MIT-licentie.
@@ -647,13 +642,13 @@ De GI-elementen bootsen de lay-out van een iOS-apparaat na.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% ALGEMEEN: sectie zit goed in elkaar en toont objectief alle mogelijkheden die er al zijn
+%TODO Sander: verder uitwerken paper michiel/bert (zie opmerking gonzalo)
 
 \section{Vergelijken van raamwerken} 
 \label{sec:vergelijken-raamwerken}
 Om de verschillende mobiele HTML5-raamwerken te kunnen vergelijken is een consistente manier nodig.
 Enerzijds bestaat er een ISO-standaard om software te kunnen vergelijken~(\ref{sec:vergelijken-raamwerken}).
-Anderzijds kunnen ook zelf criteria worden gezocht~(\ref{sec:vergelijken-criteria}).
+Als laatste werd de gevonden literatuur en blogposts van reeds vergelijkingen tussen raamwerken geclassificeerd~(\ref{sec:vergelijken-classificatie}).
 
 \subsection{ISO 25010}
 \label{sec:vergelijken-iso}
@@ -680,7 +675,7 @@ De eerste zijn de personen die het systeem gebruiken.
 De laatste zijn diegene die zorgen voor het onderhoud.
 
 \subsection{Classificatie}
-\label{sec:vergelijken-criteria}
+\label{sec:vergelijken-classificatie}
 Op het web en in de literatuur kunnen ook alternatieve manieren teruggevonden worden waar raamwerken met elkaar worden vergeleken.  
 Deze werkwijzen verschillen in de gekozen criteria alsook de manier waarop de criteria beoordeeld worden.
 Er kunnen vier grote werkwijzen worden onderscheiden.

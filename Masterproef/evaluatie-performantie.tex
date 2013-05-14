@@ -11,6 +11,7 @@ Deze zullen tezamen worden genomen in sectie~\ref{sec:evaluatie-performantie-bes
 \label{sec:evaluatie-downloadtijd}
 
 Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
+Voor de gemiddelde downloadtijd per device per framework wordt verwezen naar appendix \ref{app:performantie}.
 
 \begin{figure}[H]
   \centering
@@ -32,7 +33,7 @@ Dit wordt verklaard door het gebruik van een architectuur waardoor een grotere \
 Als naar de versie uit cache wordt gekeken voor zowel POC als loginapplicatie, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde.
 Daarentegen behaalt \st{} telkens een vele tragere tijd.
 Enerzijds komt dit doordat de drie eerstgenoemde raamwerken enkel gebruik maken van HTML5 Application Cache.
-\st{} gebruikt daarnaast ook nog een eigen mechanisme waardoor de grotere laadtijd wordt verklaard (zie \ref{sec:performantie-st}).
+\st{} gebruikt daarnaast ook nog een eigen mechanisme waardoor de grotere laadtijd wordt verklaard (zie \ref{app:performantie-st}).
 Anderzijds gebruiken de drie eerstgenoemde raamwerken Yeoman om de applicatie te bouwen.
 De webapplicaties gemaakt \st{} gebruiken daarentegen Sencha Cmd.
 

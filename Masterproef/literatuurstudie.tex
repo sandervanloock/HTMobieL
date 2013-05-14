@@ -29,6 +29,8 @@ Tegen 2016 zulen er 760 miljoen tablets in gebruik zijn~\cite{Gillett2012}.
 Ook hier kan terug gedacht worden aan één van Apple's succesvolle producten, namelijk de in 2010 uitgebrachte iPad~\cite{Apple2010}. 
 Er dient echter wel opgemerkt te worden dat tien jaar voordien, Microsoft al eerder een tablet uitbracht met veel minder succes~\cite{Microsoft2000}.
 
+%TODO e-reader er uit smijten dan gewoon kort zeggen dat er nog PDA's, e-readers, enz bestaan
+% bij de kenmerken vertel ik toch enkel dingen over smartphone en tablet, dus die e-reader doet er niet echt toe 
 De \term{e-reader} behoort tot de laatste categorie van mobiele apparaten. 
 Deze wordt hoofdzakelijk gebruikt om digitale boeken te lezen, maar betere modellen laten bijvoorbeeld ook toe om te surfen op het Internet. 
 Ook hier bestaat er een variëteit aan modellen zoals de Kindle van Amazon en de Reader van Sony.
@@ -99,14 +101,14 @@ Omdat niet alle telecomproviders hun hardware wilden aanpassen naar 3G, gebruikt
 
 3G maakt gebruikt van een volledige nieuwe technologie, namelijk Universal Mobile Telecommunications System~(UTMS).
 Het is dus niet langer een uitbreiding op het bestaande netwerk zoals dat voor GPRS het geval was.
-De vraag naar breedband blijft, waardoor High-Speed Downlink Packet Access~(HSDPA) werd ontwikkeld. 
+De vraag naar bandbreedte blijft, waardoor High-Speed Downlink Packet Access~(HSDPA) werd ontwikkeld. 
 Het is een nieuwe implementatie van UTMS dat nog grotere snelheden toelaat~\cite{Lauwers2007}.
 
 Op dit moment zijn telecomoperatoren volop bezig met de uitrol van 4G.
-Dit maakt gebruik van LTE Advanced, een verbetering van Long Term Evolution~(LTE).
+Dit moet nog grotere snelheden mogelijk maken door gebruik te maken van LTE Advanced, een verbetering van Long Term Evolution~(LTE).
 
 \paragraph{Draadloos Internet}
-Net zoals laptops draadloos verbinden maken met Internet via Wifi, kan dit ook op mobiele apparaten.
+Net zoals laptops draadloos verbinden met Internet via Wifi, kan dit ook op mobiele apparaten.
 Vaak is de kost van mobiel Internet groter dan die van draadloos Internet, waardoor dit type van verbinding de voorkeur krijgt.
 
 \subsubsection{GPS}
@@ -126,6 +128,7 @@ Windows Phone haalt 2\% van het marktaandeel binnen in datzelfde kwartaal~\cite{
 Bij ieder besturingssysteem zal ook over de winkel gepraat worden waar applicaties kunnen worden gevonden.
 Net zoals programma's geïnstalleerd worden op een computer, kan dit ook voor mobiele apparaten.
 Deze aangeboden applicaties worden verzameld in een winkel waarna de gebruiker ze, al dat niet gratis, kan downloaden en installeren.
+De winkel kan de kwaliteit van deze applicaties hoog houden door regels op te leggen aan de ontwikkelaars (zie \ref{sec:mobiele-applicaties}).
 
 \begin{table}[t]
 \centering
@@ -209,41 +212,65 @@ Applicaties worden gedownloaded in de winkel genaamd Windows Phone Store.
 
 \section{Mobiele applicaties}
 \label{sec:mobiele-applicaties}
-%TODO Sander: eventueel eerst voorstellen,  dan een paragraafje minivergelijking..
-%TODO Tim: dus de vergelijking uit iedere sectie halen en dan pas achteraf vergelijken? zo slecht vind ik het nu ook niet ;-)
 Er zijn drie mogelijkheden om mobiele applicaties te maken~\cite{Accenture2012,Hales2012}. Eén aanpak is het maken van een webapplicatie.
-Zo'n applicatie wordt geopend vanuit de webbrowser. 
-Een andere aanpak is een \term{native} applicatie. Hierbij zal de gebruiker de applicatie installeren op zijn apparaat. 
-Als laatste kan een mix van de vorige gemaakt worden en dat wordt een hybride applicatie genoemd.
+Deze wordt geprogrammeerd gebruikmakend van een webtechnologie zoals HTML5 (zie \ref{sec:html5}) en wordt geopend vanuit een webbrowser. 
+
+Een andere aanpak is een \term{native} applicatie. 
+Deze wordt geprogrammeerd in een programmeertaal specifiek aan het besturingssysteem.
+Daarna wordt de applicatie opgeladen naar een winkel (bv. App Store voor iOS).
+Het concept van een winkel komt er doordat het mobiel apparaat reeds met voorgeïnstalleerde applicaties wordt gekocht en de gebruiker nadien zelf nog extra applicaties kan toevoegen.
+Dit is in tegenstelling tot een traditionele GSM, waar de gebruiker beperkt was tot enkel de geïnstalleerde applicaties. 
+De winkel kan ook instaan voor kwaliteitscontrole op de opgeladen applicaties.
+Eenmaal gepubliceerd op de winkel kunnen gebruikers de applicatie downloaden en installeren op hun apparaat.
+
+Als laatste kan een mix van de twee gemaakt worden en dat wordt een hybride applicatie genoemd.
+Dit kan op twee manieren gebeuren.
+Enerzijds kan de webapplicatie als een \term{native} applicatie worden ingepakt.
+Anderzijds kan één programmeertaal worden gebruiken om \term{native} applicaties te maken voor verschillende besturingssystemen.
+Bij beide manieren dient de applicatie net zoals een \term{native} applicatie nog steeds opgeladen te worden naar de winkel.
+
+Hieronder volgen de voor- en nadelen van webapplicaties~(\ref{sec:literatuur-webapps}), \term{native} applicaties~(\ref{sec:literatuur-native}) en hybride applicaties~(\ref{sec:literatuur-hydribe}).
 
 \subsection{Webapplicaties}
+\label{sec:literatuur-webapps}
 In het rapport 'The (Not So) Future Web'~\cite{Phifer2011} uit juni 2011 wordt gesteld dat tegen 2015 60\% van alle mobiele bedrijfsapplicaties en 40\% van alle mobiele consumentenapplicaties, webapplicaties zullen zijn. 
 Er zijn namelijk veel voordelen~\cite{Accenture2012} verbonden aan webapplicaties.
 
-Ten eerste heeft iedereen die een webbrowser heeft op zijn mobiel apparaat, toegang tot de applicatie.  
-Dit voordeel gaat niet op voor een \term{native} applicatie dat enkel voor een specifiek platform is geschreven. 
+Ten eerste heeft iedereen die een webbrowser heeft op zijn mobiel apparaat, toegang tot de applicatie ongeacht het besturingssysteem.
+Dit voordeel gaat niet op voor een \term{native} applicatie waar applicaties worden geschreven in een programmeertaal die specifiek zijn tot het besturingssysteem.
 
 Ten tweede, aansluitend bij het bovenstaande voordeel, moet de code slechts eenmaal worden geschreven. 
 Een vaak voorkomende term die dit samenvat is WORA: \term{write once, run anywhere}~\cite{Hales2012}. 
-Dit is in tegenstelling tot een \term{native} applicatie die specifiek geschreven is voor bijvoorbeeld iOS, Android en Windows Phone. 
-Daar dient de code driemaal te worden geschreven én te worden onderhouden.
+Dit is in tegenstelling tot een \term{native} applicatie die geschreven is in een programmeertaal specifiek tot het besturingssysteem. 
 
-Ten derde moeten webapplicaties niet worden geverifieerd vooraleer ze worden uitgebracht. 
-Dit is wel zo bij native applicaties. 
-Hierdoor kan in een webapplicatie een belangrijke update snel doorgevoerd worden, terwijl de native applicatie nogmaals het verificatieproces moet doorlopen.
+Ten derde moeten webapplicaties niet worden geverifieerd door een winkel vooraleer ze worden uitgebracht. 
+Dit is wel het geval voor \term{native} applicaties. 
+Hierdoor kan in een webapplicatie een belangrijke update snel doorgevoerd worden, terwijl de \term{native} applicatie nogmaals het verificatieproces moet doorlopen.
+
+Een nadeel van een webapplicatie is dat deze, net zoals een \term{native} applicatie, afhankelijk is van het besturingssysteem.
+Dit is specifiek het geval wanneer de nieuwste kenmerken van HTML5 (zie \ref{sec:html5}) in webapplicaties worden gebruik.
 
 \subsection{Native applicaties}
-Een andere mogelijk is om een native applicatie te schrijven. 
-Voordelen~\cite{Accenture2012} hier zijn onder meer de snelheidswinst doordat de applicatie rechtstreeks met het besturingssysteem kan werken. 
-Aansluitend bij het vorige kan ook worden geargumenteerd dat het over het algemeen een native applicatie gemakkelijker de kenmerken van het mobiel apparaat, zoals de camera of GPS, aan kan spreken. 
-Ten derde blijft beveiliging nog altijd een knelpunt bij webapplicaties. Een native applicatie heeft hier minder problemen. 
-Als laatste kan opgemerkt worden dat het gebruik van een winkel (\term{store}) voor het aanbieden van een applicatie als voordeel kan gezien worden, afgezien van het verificatieproces. 
-De applicatiewinkel zorgt namelijk voor reclame en correcte uitbetaling bij gebruik van de applicatie.
+\label{sec:literatuur-native}
+Voordelen~\cite{Accenture2012} om een \term{native} applicatie te schrijven hier zijn onder meer de snelheidswinst doordat de applicatie rechtstreeks met het besturingssysteem kan werken. 
+Aansluitend bij het vorige kan ook worden geargumenteerd dat het over het algemeen een \term{native} applicatie gemakkelijker de kenmerken van het mobiel apparaat, zoals de camera of GPS, aan kan spreken. 
+Ten derde blijft beveiliging nog altijd een knelpunt bij webapplicaties. Een \term{native} applicatie heeft hier minder problemen. 
+Als laatste kan worden opgemerkt dat het gebruik van een winkel (bv. App Store) voor het aanbieden van een applicatie als voordeel kan worden gezien.
+Ten eerste stijgt hierdoor de publiciteit van de applicatie door deze in een winkel te plaatsen.
+Ten tweede zorgt de winkel voor de correcte uitbetaling als gebruikers de applicatie downloaden.
+Als laatste controleert de winkel de kwaliteit van de applicaties, wat niet het geval is voor webapplicaties.
+
+Zoals opgemerkt bij webapplicaties ligt het nadeel bij \term{native} applicaties dat deze worden geprogrammeerd in een taal specifiek tot het besturingssysteem.
+Voorbeelden hiervan zijn Objective-C voor iOS en Java voor Android.
+Om een applicatie voor beide te schrijven, dient de code tweemaal te worden geschreven én te worden onderhouden.
 
 \subsection{Hybride applicaties}
-Er bestaat een mix tussen de twee voorgaande soorten van mobiele applicaties, namelijk een hybride applicatie~\cite{Accenture2012}. 
-Hierbij wordt de webapplicatie verpakt in een native applicatie. 
+\label{sec:literatuur-hydribe}
+Het voordeel van een hybride applicatie is dat ze de problemen van webapplicaties oplossen met de voordelen van \term{native} applicaties.
 Hierdoor kunnen specifieke kenmerken van het mobiel apparaat benaderd worden die vanuit een pure webapplicatie niet konden worden benaderd.
+Daarentegen is HTML5 vanaf december 2013 in \term{candidate recommendation} gegaan~\cite{Jacobs2012}.
+Dit impliceert de opkomende ondersteuning van HTML5 in hedendaagse browsers.
+Hierdoor zullen hybride applicaties waarschijnlijk achterhaald worden naar mate de tijd vordert.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,7 +290,7 @@ Niet iedere browser zal dit op dezelfde manier doen, waardoor er verschillen zul
 Het is namelijk ongewenst dat een webapplicatie enkel op Mobile Safari werkt als de ontwikkelaar een zo breed mogelijk publiek wenst te bereiken. 
 
 In deze sectie worden enkele mobiele webbrowsers besproken. 
-Eerst komen de twee meest populaire browsers aan bod, namelijk Mobile Safari en de native Android browser~\cite{Hales2012}. 
+Eerst komen de twee meest populaire browsers aan bod, namelijk Mobile Safari en de \term{native} Android browser~\cite{Hales2012}. 
 Ze zijn beide op de WebKit browser \term{engine} gebaseerd~\cite{Oeflman2011}. 
 % TODO Tim: is dit kort genoeg van uitleg over browser engine?
 Een \term{engine} zorgt ervoor dat de code van de opgehaalde webpagina wordt omgezet naar de webpagina die de gebruiker te zien krijgt. 
@@ -271,7 +298,7 @@ Daarna worden Internet Explorer Mobile en Opera Mobile kort besproken.
 Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tabel:marktaandeel-browsers}.
 
 % TODO Tim: toevoegen data over IE mobile?
-\begin{table}[t]
+\begin{table}[H]
 \centering
 \pgfplotstabletypeset[
   begin table=\begin{tabular}{l l},
@@ -330,6 +357,7 @@ HTML5 is verantwoordelijk voor de inhoud, CSS3 voor de presentatie en \js{} voor
 Hieronder worden deze bouwstenen dan ook toegelicht.
 
 \subsection{HTML5}
+\label{sec:html5}
 Zoals uitgelegd in \cite{MacDonald2011} stopte in 1998 het W3C (World Web Consortium) met het werken aan de HTML-standaard (HyperText Markup Language) en alle energie ging uit naar zijn opvolger: XHTML 1.0 (eXtensible HyperText Markup Language), een verbeterde HTML-versie die XML-gedreven (Extensible Markup Language) is. 
 XHTML kwam in grote mate overeen met HTML, maar de syntax was veel strikter. 
 In het begin kon het zijn naam waarmaken en webontwerpers helpen betere resultaten te boeken doordat ze slechte gewoontes moesten opgeven. 
@@ -394,7 +422,7 @@ De nieuwe \code{<canvas>}-tag in samenwerking met enkele lijnen \js{} zijn enorm
 \term{Events} aan server zijde kunnen data naar WebSockets pushen. Hierdoor moet de webpagina niet meer voortdurend de server raadplegen, wat veel efficiënter is.
 
 \item \textbf{Toegang tot het apparaat}
-Webapplicaties kunnen meer en meer kenmerken zoals camera en GPS aanspreken net zoals native applicaties dat kunnen. 
+Webapplicaties kunnen meer en meer kenmerken zoals camera en GPS aanspreken net zoals \term{native} applicaties dat kunnen. 
 \end{enumerate}
 
 Er dient opgemerkt te worden dat aangehaalde klassen zoals CSS3 en geolocatie niet tot de specificaties van HTML5 behoren. 

@@ -29,6 +29,8 @@ Tegen 2016 zulen er 760 miljoen tablets in gebruik zijn~\cite{Gillett2012}.
 Ook hier kan terug gedacht worden aan één van Apple's succesvolle producten, namelijk de in 2010 uitgebrachte iPad~\cite{Apple2010}. 
 Er dient echter wel opgemerkt te worden dat tien jaar voordien, Microsoft al eerder een tablet uitbracht met veel minder succes~\cite{Microsoft2000}.
 
+%TODO e-reader er uit smijten dan gewoon kort zeggen dat er nog PDA's, e-readers, enz bestaan
+% bij de kenmerken vertel ik toch enkel dingen over smartphone en tablet, dus die e-reader doet er niet echt toe 
 De \term{e-reader} behoort tot de laatste categorie van mobiele apparaten. 
 Deze wordt hoofdzakelijk gebruikt om digitale boeken te lezen, maar betere modellen laten bijvoorbeeld ook toe om te surfen op het Internet. 
 Ook hier bestaat er een variëteit aan modellen zoals de Kindle van Amazon en de Reader van Sony.
@@ -99,14 +101,14 @@ Omdat niet alle telecomproviders hun hardware wilden aanpassen naar 3G, gebruikt
 
 3G maakt gebruikt van een volledige nieuwe technologie, namelijk Universal Mobile Telecommunications System~(UTMS).
 Het is dus niet langer een uitbreiding op het bestaande netwerk zoals dat voor GPRS het geval was.
-De vraag naar breedband blijft, waardoor High-Speed Downlink Packet Access~(HSDPA) werd ontwikkeld. 
+De vraag naar bandbreedte blijft, waardoor High-Speed Downlink Packet Access~(HSDPA) werd ontwikkeld. 
 Het is een nieuwe implementatie van UTMS dat nog grotere snelheden toelaat~\cite{Lauwers2007}.
 
 Op dit moment zijn telecomoperatoren volop bezig met de uitrol van 4G.
-Dit maakt gebruik van LTE Advanced, een verbetering van Long Term Evolution~(LTE).
+Dit moet nog grotere snelheden mogelijk maken door gebruik te maken van LTE Advanced, een verbetering van Long Term Evolution~(LTE).
 
 \paragraph{Draadloos Internet}
-Net zoals laptops draadloos verbinden maken met Internet via Wifi, kan dit ook op mobiele apparaten.
+Net zoals laptops draadloos verbinden met Internet via Wifi, kan dit ook op mobiele apparaten.
 Vaak is de kost van mobiel Internet groter dan die van draadloos Internet, waardoor dit type van verbinding de voorkeur krijgt.
 
 \subsubsection{GPS}
@@ -126,6 +128,7 @@ Windows Phone haalt 2\% van het marktaandeel binnen in datzelfde kwartaal~\cite{
 Bij ieder besturingssysteem zal ook over de winkel gepraat worden waar applicaties kunnen worden gevonden.
 Net zoals programma's geïnstalleerd worden op een computer, kan dit ook voor mobiele apparaten.
 Deze aangeboden applicaties worden verzameld in een winkel waarna de gebruiker ze, al dat niet gratis, kan downloaden en installeren.
+De winkel kan de kwaliteit van deze applicaties hoog houden door regels op te leggen aan de ontwikkelaars (zie \ref{sec:mobiele-applicaties}).
 
 \begin{table}[t]
 \centering
@@ -209,41 +212,65 @@ Applicaties worden gedownloaded in de winkel genaamd Windows Phone Store.
 
 \section{Mobiele applicaties}
 \label{sec:mobiele-applicaties}
-%TODO Sander: eventueel eerst voorstellen,  dan een paragraafje minivergelijking..
-%TODO Tim: dus de vergelijking uit iedere sectie halen en dan pas achteraf vergelijken? zo slecht vind ik het nu ook niet ;-)
 Er zijn drie mogelijkheden om mobiele applicaties te maken~\cite{Accenture2012,Hales2012}. Eén aanpak is het maken van een webapplicatie.
-Zo'n applicatie wordt geopend vanuit de webbrowser. 
-Een andere aanpak is een \term{native} applicatie. Hierbij zal de gebruiker de applicatie installeren op zijn apparaat. 
-Als laatste kan een mix van de vorige gemaakt worden en dat wordt een hybride applicatie genoemd.
+Deze wordt geprogrammeerd gebruikmakend van een webtechnologie zoals HTML5 (zie \ref{sec:html5-css3-js}) en wordt geopend vanuit een webbrowser. 
+
+Een andere aanpak is een \term{native} applicatie. 
+Deze wordt geprogrammeerd in een programmeertaal specifiek aan het besturingssysteem.
+Daarna wordt de applicatie opgeladen naar een winkel (bv. App Store voor iOS).
+Het concept van een winkel komt er doordat het mobiel apparaat reeds met voorgeïnstalleerde applicaties wordt gekocht en de gebruiker nadien zelf nog extra applicaties kan toevoegen.
+Dit is in tegenstelling tot een traditionele GSM, waar de gebruiker beperkt was tot enkel de geïnstalleerde applicaties. 
+De winkel kan ook instaan voor kwaliteitscontrole op de opgeladen applicaties.
+Eenmaal gepubliceerd op de winkel kunnen gebruikers de applicatie downloaden en installeren op hun apparaat.
+
+Als laatste kan een mix van de twee gemaakt worden en dat wordt een hybride applicatie genoemd.
+Dit kan op twee manieren gebeuren.
+Enerzijds kan de webapplicatie als een \term{native} applicatie worden ingepakt.
+Anderzijds kan één programmeertaal worden gebruiken om \term{native} applicaties te maken voor verschillende besturingssystemen.
+Bij beide manieren dient de applicatie net zoals een \term{native} applicatie nog steeds opgeladen te worden naar de winkel.
+
+Hieronder volgen de voor- en nadelen van webapplicaties~(\ref{sec:literatuur-webapps}), \term{native} applicaties~(\ref{sec:literatuur-native}) en hybride applicaties~(\ref{sec:literatuur-hydribe}).
 
 \subsection{Webapplicaties}
+\label{sec:literatuur-webapps}
 In het rapport 'The (Not So) Future Web'~\cite{Phifer2011} uit juni 2011 wordt gesteld dat tegen 2015 60\% van alle mobiele bedrijfsapplicaties en 40\% van alle mobiele consumentenapplicaties, webapplicaties zullen zijn. 
 Er zijn namelijk veel voordelen~\cite{Accenture2012} verbonden aan webapplicaties.
 
-Ten eerste heeft iedereen die een webbrowser heeft op zijn mobiel apparaat, toegang tot de applicatie.  
-Dit voordeel gaat niet op voor een \term{native} applicatie dat enkel voor een specifiek platform is geschreven. 
+Ten eerste heeft iedereen die een webbrowser heeft op zijn mobiel apparaat, toegang tot de applicatie ongeacht het besturingssysteem.
+Dit voordeel gaat niet op voor een \term{native} applicatie waar applicaties worden geschreven in een programmeertaal die specifiek zijn tot het besturingssysteem.
 
 Ten tweede, aansluitend bij het bovenstaande voordeel, moet de code slechts eenmaal worden geschreven. 
 Een vaak voorkomende term die dit samenvat is WORA: \term{write once, run anywhere}~\cite{Hales2012}. 
-Dit is in tegenstelling tot een \term{native} applicatie die specifiek geschreven is voor bijvoorbeeld iOS, Android en Windows Phone. 
-Daar dient de code driemaal te worden geschreven én te worden onderhouden.
+Dit is in tegenstelling tot een \term{native} applicatie die geschreven is in een programmeertaal specifiek tot het besturingssysteem. 
 
-Ten derde moeten webapplicaties niet worden geverifieerd vooraleer ze worden uitgebracht. 
-Dit is wel zo bij native applicaties. 
-Hierdoor kan in een webapplicatie een belangrijke update snel doorgevoerd worden, terwijl de native applicatie nogmaals het verificatieproces moet doorlopen.
+Ten derde moeten webapplicaties niet worden geverifieerd door een winkel vooraleer ze worden uitgebracht. 
+Dit is wel het geval voor \term{native} applicaties. 
+Hierdoor kan in een webapplicatie een belangrijke update snel doorgevoerd worden, terwijl de \term{native} applicatie nogmaals het verificatieproces moet doorlopen.
+
+Een nadeel van een webapplicatie is dat deze, net zoals een \term{native} applicatie, afhankelijk is van het besturingssysteem.
+Dit is specifiek het geval wanneer de nieuwste kenmerken van HTML5 (zie \ref{sec:html5-css3-js}) in webapplicaties worden gebruik.
 
 \subsection{Native applicaties}
-Een andere mogelijk is om een native applicatie te schrijven. 
-Voordelen~\cite{Accenture2012} hier zijn onder meer de snelheidswinst doordat de applicatie rechtstreeks met het besturingssysteem kan werken. 
-Aansluitend bij het vorige kan ook worden geargumenteerd dat het over het algemeen een native applicatie gemakkelijker de kenmerken van het mobiel apparaat, zoals de camera of GPS, aan kan spreken. 
-Ten derde blijft beveiliging nog altijd een knelpunt bij webapplicaties. Een native applicatie heeft hier minder problemen. 
-Als laatste kan opgemerkt worden dat het gebruik van een winkel (\term{store}) voor het aanbieden van een applicatie als voordeel kan gezien worden, afgezien van het verificatieproces. 
-De applicatiewinkel zorgt namelijk voor reclame en correcte uitbetaling bij gebruik van de applicatie.
+\label{sec:literatuur-native}
+Voordelen~\cite{Accenture2012} om een \term{native} applicatie te schrijven hier zijn onder meer de snelheidswinst doordat de applicatie rechtstreeks met het besturingssysteem kan werken. 
+Aansluitend bij het vorige kan ook worden geargumenteerd dat het over het algemeen een \term{native} applicatie gemakkelijker de kenmerken van het mobiel apparaat, zoals de camera of GPS, aan kan spreken. 
+Ten derde blijft beveiliging nog altijd een knelpunt bij webapplicaties. Een \term{native} applicatie heeft hier minder problemen. 
+Als laatste kan worden opgemerkt dat het gebruik van een winkel (bv. App Store) voor het aanbieden van een applicatie als voordeel kan worden gezien.
+Ten eerste stijgt hierdoor de publiciteit van de applicatie door deze in een winkel te plaatsen.
+Ten tweede zorgt de winkel voor de correcte uitbetaling als gebruikers de applicatie downloaden.
+Als laatste controleert de winkel de kwaliteit van de applicaties, wat niet het geval is voor webapplicaties.
+
+Zoals opgemerkt bij webapplicaties ligt het nadeel bij \term{native} applicaties dat deze worden geprogrammeerd in een taal specifiek tot het besturingssysteem.
+Voorbeelden hiervan zijn Objective-C voor iOS en Java voor Android.
+Om een applicatie voor beide te schrijven, dient de code tweemaal te worden geschreven én te worden onderhouden.
 
 \subsection{Hybride applicaties}
-Er bestaat een mix tussen de twee voorgaande soorten van mobiele applicaties, namelijk een hybride applicatie~\cite{Accenture2012}. 
-Hierbij wordt de webapplicatie verpakt in een native applicatie. 
+\label{sec:literatuur-hydribe}
+Het voordeel van een hybride applicatie is dat ze de problemen van webapplicaties oplossen met de voordelen van \term{native} applicaties.
 Hierdoor kunnen specifieke kenmerken van het mobiel apparaat benaderd worden die vanuit een pure webapplicatie niet konden worden benaderd.
+Daarentegen is HTML5 vanaf december 2013 in \term{candidate recommendation} gegaan~\cite{Jacobs2012}.
+Dit impliceert de opkomende ondersteuning van HTML5 in hedendaagse browsers.
+Hierdoor zullen hybride applicaties waarschijnlijk achterhaald worden naar mate de tijd vordert.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -260,18 +287,18 @@ Vanuit het standpunt om webapplicaties te maken, is het dan ook zeer belangrijk 
 Een webbrowser haalt namelijk webpagina's op die geschreven zijn in HTML en andere technologieën. 
 Doordat deze technologieën evolueren (zie \ref{sec:html5-css3-js}), zullen de webbrowsers zelf ook (moeten) mee evolueren. 
 Niet iedere browser zal dit op dezelfde manier doen, waardoor er verschillen zullen ontstaan waar  rekening mee moet worden gehouden. 
-Het is namelijk ongewenst dat een webapplicatie enkel op Mobile Safari werkt als de ontwikkelaar een zo breed mogelijk publiek wenst te bereiken. 
+Het is namelijk ongewenst dat een webapplicatie enkel op de webbrowser van iOS werkt als de ontwikkelaar een zo breed mogelijk publiek wenst te bereiken. 
 
-In deze sectie worden enkele mobiele webbrowsers besproken. 
-Eerst komen de twee meest populaire browsers aan bod, namelijk Mobile Safari en de native Android browser~\cite{Hales2012}. 
-Ze zijn beide op de WebKit browser \term{engine} gebaseerd~\cite{Oeflman2011}. 
+In deze sectie worden vier mobiele webbrowsers besproken. 
+Eerst komen de twee meest populaire browsers aan bod, namelijk Mobile Safari en de \term{native} Android browser~\cite{Hales2012}. 
+Daarna worden Internet Explorer Mobile en Opera Mobile kort besproken. 
+Het marktaandeel van de genoemde browsers wordt getoond in tabel~\ref{tabel:marktaandeel-browsers}.
+
+Zowel Mobile Safari als de \term{native} Android browser zijn beide op de WebKit browser \term{engine} gebaseerd~\cite{Oeflman2011}. 
 % TODO Tim: is dit kort genoeg van uitleg over browser engine?
 Een \term{engine} zorgt ervoor dat de code van de opgehaalde webpagina wordt omgezet naar de webpagina die de gebruiker te zien krijgt. 
-Daarna worden Internet Explorer Mobile en Opera Mobile kort besproken. 
-Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tabel:marktaandeel-browsers}.
 
-% TODO Tim: toevoegen data over IE mobile?
-\begin{table}[t]
+\begin{table}[H]
 \centering
 \pgfplotstabletypeset[
   begin table=\begin{tabular}{l l},
@@ -280,8 +307,8 @@ Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tabel:mark
   header=true,
   string type,
   skip coltypes=true,
-  columns={BrowserNL,Marktaandeel},
-  columns/BrowserNL/.style={column name=\textbf{Mobiele webbrowser}},  
+  columns={Browser,Marktaandeel},
+  columns/Browser/.style={column name=\textbf{Mobiele webbrowser}},  
   columns/Marktaandeel/.style={column name=\textbf{Marktaandeel (\%)}},
   every head row/.style={
     before row=\toprule,
@@ -289,29 +316,30 @@ Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tabel:mark
   every last row/.style={
     after row=\bottomrule}
 ]{tabellen/browsers.csv}
-\caption{Marktaandeel mobiele webbrowsers op januari 2013~\cite{NetApplications2012}.}
+\caption{Marktaandeel mobiele webbrowsers op mei 2013~\cite{NetApplications2012}.}
 \label{tabel:marktaandeel-browsers}
 \end{table}
 
-\subsection{Mobile Safari}
+\paragraph{Mobile Safari}
 \label{sec:mobile-safari}
 Deze webbrowser van Apple zit standaard bij iOS en kan ook enkel op dit besturingssysteem worden gebruikt. 
 Apple heeft veel moeite gedaan om telkens de laatste nieuwe specificaties van HTML5 in zijn webbrowsers te implementeren~\cite{Hales2012}. 
-Natuurlijk zal dit ook te maken hebben met het feit dat ze geen Flash meer ondersteunen op hun iPods, iPhones en iPads~\cite{Jobs2010}.
+Natuurlijk zal dit ook te maken hebben met het feit dat ze geen Adobe Flash~\cite{Adobe2013} meer ondersteunen op hun iPods, iPhones en iPads~\cite{Jobs2010}.
 
-\subsection{Android browser}
+\paragraph{Android browser}
 \label{sec:android-browser}
 Android biedt de \term{native} Android browser aan. 
 Implementatie van de HTML5-specificaties hebben wat aangesleept, maar vanaf Android~4.0 gaat dit een stuk beter~\cite{Hales2012}. 
 Daarnaast is het nu ook mogelijk om de Chrome webbrowser op mobiele apparaten te installeren.
 
-\subsection{Internet Explorer Mobile}
+\paragraph{Internet Explorer Mobile}
 Net zoals bij Windows ook Internet Explorer wordt bijgegeven, geldt dit ook voor hun mobiel  besturingssysteem. 
 Bij de nieuwe Windows Phone~8 zal Internet Explorer Mobile~10 worden meegeleverd. 
 Deze gebruikt dezelfde \term{engine} als Internet Explorer 10. 
-\term{WebSockets}, \term{Web Workers}, \term{Application Cache} en \term{IndexedDB} worden hierin ondersteund~\cite{Hales2012}, meer daarover in~\ref{sec:html5-css3-js}.
+\term{WebSockets}, \term{Web Workers}, \term{Application Cache} en \term{IndexedDB} worden hierin ondersteund~\cite{Hales2012}.
+Deze kenmerken worden verder in meer detail uitgelegd in sectie~\ref{sec:html5-css3-js}.
 
-\subsection{Opera Mobile/Mini}
+\paragraph{Opera Mobile/Mini}
 Op het moment van schrijven is Opera Mobile 12.10 de beste mobiele HTML5-browser~\cite{Sights2012}. 
 Opera heeft eigenlijk twee aparte browsers, namelijk Opera Mobile en Opera Mini. 
 Bij deze laatste staat de browser \term{engine} op servers van Opera, waardoor het niet het mobiel apparaat is die de webpagina verwerkt. 
@@ -330,7 +358,10 @@ HTML5 is verantwoordelijk voor de inhoud, CSS3 voor de presentatie en \js{} voor
 Hieronder worden deze bouwstenen dan ook toegelicht.
 
 \subsection{HTML5}
-Zoals uitgelegd in \cite{MacDonald2011} stopte in 1998 het W3C (World Web Consortium) met het werken aan de HTML-standaard (HyperText Markup Language) en alle energie ging uit naar zijn opvolger: XHTML 1.0 (eXtensible HyperText Markup Language), een verbeterde HTML-versie die XML-gedreven (Extensible Markup Language) is. 
+\label{sec:html5}
+HTML5 is een opmaaktaal die gebruikt wordt om webpagina's mee te maken.
+De 5 in HTML5 impliceert al dat de taal een lange weg heeft afgelegd.
+Zoals Matthew MacDonald~\cite{MacDonald2011} uitlegt stopte in 1998 het W3C (World Web Consortium) met het werken aan de HTML-standaard (HyperText Markup Language) en alle energie ging uit naar zijn opvolger: XHTML 1.0 (eXtensible HyperText Markup Language), een verbeterde HTML-versie die XML-gedreven (Extensible Markup Language) is. 
 XHTML kwam in grote mate overeen met HTML, maar de syntax was veel strikter. 
 In het begin kon het zijn naam waarmaken en webontwerpers helpen betere resultaten te boeken doordat ze slechte gewoontes moesten opgeven. 
 Jammer genoeg bleven de beloofde voordelen uit. 
@@ -368,7 +399,7 @@ Iedere klasse wordt met enkele concrete voorbeelden aangehaald.
 
 \begin{enumerate}
 \item \textbf{Multimedia} 
-De nieuwe video- en audiotags maken het mogelijk om video- en geluidsfragmenten toe te voegen zonder gebruik te maken van plug-ins van derden zoals Adobe Flash en Microsoft Silverlight.
+De nieuwe video- en audiotags maken het mogelijk om video- en geluidsfragmenten toe te voegen zonder gebruik te maken van plug-ins van derden zoals Adobe Flash~\cite{Adobe2013} en Microsoft Silverlight~\cite{Microsoft2013}.
 
 \item \textbf{Offline en opslag}  
 Mobiele apparaten zijn onstabiel in hun verbinding met het Internet. HTML5 voorziet het offline werken in de cache, lokale opslag (vroeger kon dit enkel via de zogenaamde cookies) en een API om bestanden te manipuleren.
@@ -394,19 +425,22 @@ De nieuwe \code{<canvas>}-tag in samenwerking met enkele lijnen \js{} zijn enorm
 \term{Events} aan server zijde kunnen data naar WebSockets pushen. Hierdoor moet de webpagina niet meer voortdurend de server raadplegen, wat veel efficiënter is.
 
 \item \textbf{Toegang tot het apparaat}
-Webapplicaties kunnen meer en meer kenmerken zoals camera en GPS aanspreken net zoals native applicaties dat kunnen. 
+Webapplicaties kunnen meer en meer kenmerken zoals camera en GPS aanspreken net zoals \term{native} applicaties dat kunnen. 
 \end{enumerate}
 
 Er dient opgemerkt te worden dat aangehaalde klassen zoals CSS3 en geolocatie niet tot de specificaties van HTML5 behoren. 
 Toch worden ze onder de koepel van HTML5 gezien~\cite{MacDonald2011}.
 
 \subsubsection{Kenmerken detecteren en opvullen}
-%TODO Tim: introductie waarom dat nodig is
+Door enerzijds de levendigheid van HTML5 en anderzijds het verdeelde landschap van browsers en besturingssystemen, worden niet alle kenmerken van HTML5 overal ondersteund. 
+Hierdoor zal ten eerste moeten worden gedetecteerd of het kenmerk al dan niet wordt ondersteund.
+Ten tweede, indien het kenmerk niet wordt ondersteund, zal het moeten worden opgevuld met een vervanger.
+Ten derde zal deze aanpak ook vervat worden in de werking van de raamwerken (zie hoofdstuk \ref{chap:raamwerken}) onder de vorm van \emph{progressive enhancement} en \emph{graceful degradation}.
+Deze drie ideeën worden hieronder kort toegelicht.
 
 \paragraph{Kenmerken detecteren}
-Door enerzijds de levendigheid van HTML5 en anderzijds het verdeelde landschap van browsers en besturingssystemen, worden niet alle kenmerken van HTML5 overal ondersteund. 
-Een eerste mogelijkheid is om zelf op te zoeken welke kenmerken op welke apparaten werken. 
-Dit kan gecontroleerd worden op bijvoorbeeld \exturl{www.caniuse.com} en \exturl{www.mobilehtml5.org}~\cite{MacDonald2011}. 
+Er kan zelf worden opgezocht welke kenmerken op welke apparaten werken. 
+Dit kan bijvoorbeeld gecontroleerd worden op websites Can I Use en Mobile HTML5 Compatibility~\cite{Deveria2013c,Firtman2013an,MacDonald2011}. 
 
 Wat nog handiger is, is om op het apparaat zelf te detecteren of het gewenste kenmerk beschikbaar is. 
 Een erg handige tool hiervoor is Modernizr~\cite{Modernizr2012}. 
@@ -472,7 +506,7 @@ Waar vroeger enkel gewerkt kon worden met veilige lettertypes voor het web, is h
 Het heeft een lange weg afgelegd tot nu en is niet altijd even ernstig genomen. 
 Dit kwam omdat er niet werd ingezien wat er allemaal mee kon worden gedaan. 
 
-Op dit moment is het maar al te duidelijk waar \js{} in uitblinkt: het aanpassen van het \term{document object model} of kortweg DOM~\cite{PhilDutson2012}. 
+Op dit moment is het maar al te duidelijk waar \js{} in uitblinkt: het aanpassen van het \term{document object model}~(DOM)~\cite{PhilDutson2012}. 
 Dit is een API voor HTML-documenten~\cite{Hegaret2004}. 
 Hierdoor kunnen dynamische interfaces gecreëerd worden, kan op gebeurtenissen - zoals ergens op klikken - onmiddellijk gereageerd worden en is de website dan ook meer bruikbaar geworden door deze directe feedback~\cite{McFarland2011}.
 
@@ -484,8 +518,8 @@ De ontwikkelaar dient dus tijdens het programmeren met deze verschillen rekening
 Ten tweede vergt het schrijven van simpele, veel voorkomende taken soms veel code.
 
 Een oplossing voor de bovenstaande pijnpunten is gebruik maken van een bibliotheek. 
-Een voorbeeld hiervan is de populaire jQuery Core bibliotheek. 
-Het is ook mogelijk om jQuery uit te breiden met verscheidene plug-ins om de functionaliteit nog te vergroten~\cite{McFarland2011}.
+Een voorbeeld hiervan is de populaire jQuery Core~\cite{JQuery2013a} bibliotheek. 
+Het is ook mogelijk om deze bibliotheek uit te breiden met verscheidene plug-ins om de functionaliteit te vergroten~\cite{McFarland2011}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -494,18 +528,16 @@ Het is ook mogelijk om jQuery uit te breiden met verscheidene plug-ins om de fun
 \label{sec:mobiele-html5-raamwerken}
 
 In deze sectie wordt ingezoomd op bestaande mobiele HTML5-raamwerken die gebruik maken van de laatste nieuwe technologieën zoals HTML5, CSS3 en \js{}.
-Doordat deze raamwerken als paddestoelen uit de grond komen, is het onmogelijk om deze allemaal te bespreken en te vergelijken.
-Hierdoor werden acht raamwerken geselecteerd waaruit uiteindelijk vier raamwerken gedetailleerd besproken en vergeleken zullen worden in respectievelijk hoofdstukken \ref{chap:raamwerken} en \ref{chap:vergelijkingscriteria}.
-De motivatie hiervoor is te vinden in sectie~\ref{sec:motivatie-acht-raamwerken}.
+Doordat deze raamwerken als paddestoelen uit de grond schieten, is het onmogelijk om deze allemaal te bespreken en te vergelijken.
+Hierdoor werden acht raamwerken geselecteerd waaruit uiteindelijk vier raamwerken gedetailleerd besproken en vergeleken zullen worden.
 
-% TODO Tim: enkel termen uitleggen
-% De raamwerken zelf worden gecategoriseerd volgens twee aanpakken~\cite{Oeflman2011}: opmaakgedreven en \js{}-gedreven. 
-% Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code geschreven. 
-% Daarentegen wordt bij een \js{}-gedreven aanpak hoofdzakelijk in \js{} geprogrammeerd.
+Raamwerken kunnen worden gecategoriseerd volgens twee aanpakken~\cite{Oeflman2011}, namelijk opmaakgedreven en \js{}-gedreven.
+Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code geschreven. 
+Daarentegen wordt bij een \js{}-gedreven aanpak hoofdzakelijk in \js{} geprogrammeerd.
 
-\subsection{Motivatie}
-\label{sec:motivatie-acht-raamwerken}
-De besproken acht raamwerken zijn op drie manieren onder de aandacht van de auteurs gekomen.
+%TODO: hoe kwamen wij aan jQT, want dat staat hier nu nergens in gemotiveerd? ;-)
+% linken met een boek
+De acht besproken raamwerken zijn op drie manieren onder de aandacht van de auteurs gekomen.
 Ten eerste werden al snel \jqm{} en \st{} als interessante raamwerken bevonden door hun grote populariteit in samenvattende literatuur over raamwerken~\cite{Firtman2013,Hales2012,Oeflman2011,David2011}.
 Daarnaast werd \tmp{} in de literatuur aangehaald doordat het gebruik maakt van \jqm{} en het MVC-patroon toevoegt~\cite{Firtman2013}.
 \lungo{} werd in recente literatuur gevonden~\cite{Firtman2013,Hales2012}.
@@ -519,14 +551,14 @@ Als laatste werd \davinci{} door Capgemini voorgesteld.
 % - korte geschiedenis en versie
 % - bedrijf, licentie
 
-\subsection{\jqm} % TIM
+\paragraph{\jqm} % TIM
 \jqm{} is een opmaakgedreven raamwerk dat werd aangekondigd in 2010 en hoofdzakelijk gebruikersinterface-elementen (GI-elementen) aanbiedt~\cite{Resig2010}.
 Het raamwerk wordt beheerd door het jQuery Project dat onder andere jQuery Core beheert en waar \jqm{} afhankelijk van is~\cite{JQuery2012}. 
 Op het moment van schrijven zit \jqm{} aan versie~1.3.1~\cite{Parker2013b}. 
 Sinds september 2012 is het enkel nog mogelijk om \jqm{} onder de Massachusetts Institute of Technology (MIT) licentie te verkrijgen~\cite{Dmethvin2012}. 
 Dit betekent dat de code wordt vrijgegeven als \term{open-source} en dat deze tegelijkertijd kan worden gebruikt in propriëtaire projecten en applicaties~\cite{PhilDutson2012}.
 
-\subsection{\st}% SANDER
+\paragraph{\st}% SANDER
 \st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.
 Ext JS kan als de voorganger van \st{} worden beschouwd. 
 \st{} is net als Ext JS een \js{}-gedreven raamwerk met een MVC-architectuur (Model-View-Controller).
@@ -535,30 +567,7 @@ Een gratis \term{open-source} versie van \st{} laat dit wel toe.
 Het gebruik van deze licentie binnen een applicatie vereist wel dat de applicatie zelf zijn broncode deelt.
 Op het moment van schrijven is \st{} aan versie 2.1.1~\cite{Inc.}. 
 
-\subsection{\kendo} % SANDER
-\kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
-% Buiten \kendo{} is Telerik voornamelijk gericht op tools voor de ontwikkelaar.
-% Zo ontwikkelen ze DevTools dat een grafische gebruikersinterface aanbiedt bij de ontwikkeling binnen een .NET omgeving.
-% Ze voorzien ook Icenium voor de ontwikkeling van hybride applicaties en kan als de tegenhanger van \kendo{} gezien worden.
-Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
-\kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur (Model-View-ViewModel) dat steunt op de jQuery-bibliotheek.
-Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
-.NET,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend} integratie.
-Een licentie voor \kendo{} waarbij één van voornoemde technologieën mogelijk is, kost $\$999$.
-Zonder \term{backend} integratie zijn de kosten met $\$300$ verminderd.
-Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}.
-
-\subsection{\lungo} % TIM
-\lungo{} is een opmaakgedreven raamwerk waarbij versie~1.0 uitkwam in 2011~\cite{TapQuo2011}.
-Het raamwerk wordt onderhouden door TapQuo dat een Spaans bedrijf is, gespecialiseerd rond mobiele gebruikerservaring~\cite{TapQuo2013a}.
-\lungo{} is afhankelijk van een \js{}-bibliotheek, namelijk \quo{}.
-\lungo{} biedt vooral GI-elementen aan, maar daarnaast zijn er ook \term{wrappers} voor cache, opslag en SQL beschikbaar~\cite{TapQuo2013}.
-Er wordt geen programmeerstijl zoals MVC afgedwongen.
-Het raamwerk wordt onder de GPLv3-licentie vrijgegeven, maar ook een commerciële versie is mogelijk.
-Op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
-
-\subsection{\tmp} % SANDER
+\paragraph{\tmp} % SANDER
 % TODO deze tekst zal later moeten worden verplaatst
 %Een ander raamwerk, genaamd The-M-Project~\cite{Panacoda2012}, dwingt het Model-View-Controller (MVC) echter wel af. 
 %Met dit raamwerk is het mogelijk om webapplicaties te maken die het \jqm{} raamwerk gebruiken. 
@@ -576,7 +585,30 @@ Het is belangrijk op te merken dat in de zomer van 2013 versie~2.0 wordt verwach
 \tmp{} zal van de grond worden opgebouwd omdat enkel de code aanpassen niet meer voldoende bleek.  
 De voornaamste werkpunten zijn performantie en platformonafhankelijkheid~\cite{Panacoda,Laubach2013}.
 
-\subsection{\moobile} % TIM
+\paragraph{\lungo} % TIM
+\lungo{} is een opmaakgedreven raamwerk waarbij versie~1.0 uitkwam in 2011~\cite{TapQuo2011}.
+Het raamwerk wordt onderhouden door TapQuo dat een Spaans bedrijf is, gespecialiseerd rond mobiele gebruikerservaring~\cite{TapQuo2013a}.
+\lungo{} is afhankelijk van een \js{}-bibliotheek, namelijk \quo{}.
+\lungo{} biedt vooral GI-elementen aan, maar daarnaast zijn er ook \term{wrappers} voor cache, opslag en SQL beschikbaar~\cite{TapQuo2013}.
+Er wordt geen programmeerstijl zoals MVC afgedwongen.
+Het raamwerk wordt onder de GPLv3-licentie vrijgegeven, maar ook een commerciële versie is mogelijk.
+Op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
+
+\paragraph{\kendo} % SANDER
+\kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
+% Buiten \kendo{} is Telerik voornamelijk gericht op tools voor de ontwikkelaar.
+% Zo ontwikkelen ze DevTools dat een grafische gebruikersinterface aanbiedt bij de ontwikkeling binnen een .NET omgeving.
+% Ze voorzien ook Icenium voor de ontwikkeling van hybride applicaties en kan als de tegenhanger van \kendo{} gezien worden.
+Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
+\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
+\kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur (Model-View-ViewModel) dat steunt op de jQuery-bibliotheek.
+Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
+.NET,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend} integratie.
+Een licentie voor \kendo{} waarbij één van voornoemde technologieën mogelijk is, kost $\$999$.
+Zonder \term{backend} integratie zijn de kosten met $\$300$ verminderd.
+Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerik}.
+
+\paragraph{\moobile} % TIM
 \moobile{} is een jong raamwerk dat op het moment van schrijven aan versie~0.2.1 zit sinds de eerste \term{commit} op GitHub in 2011~\cite{Dery2013}.
 Het raamwerk is \js{}-gedreven, volgt de MVC-architectuur en wordt onderhouden door de Canadees Jean-Philippe Déry.
 Zelf biedt \moobile{} voornamelijk GI-elementen aan, maar deze blijven (voorlopig) beperkt tot zeven componenten en drie schermovergangen~\cite{Dery2013}.
@@ -585,8 +617,7 @@ Een bijzonderheid is dat de lay-out van de componenten nagebootst kunnen worden 
 Bij het raamwerk is een simulator en tool aanwezig om de volledige applicatie te maken.
 Deze laatstgenoemde zorgt automatisch voor compressie van de verschillende bestanden.
 
-
-\subsection{\davinci}% SANDER 
+\paragraph{\davinci}% SANDER 
 \davinci{} bestaat uit twee tools:  \davinci{} Studio en \davinci{} Animator.
 De nadruk bij dit raamwerk ligt voornamelijk bij de generatie van code in een WYSIWYG-omgeving (What You See Is What You Get).
 %TODO Tim: gaan we ervan uit dat de lezer WYSIWYG snapt? Sander: is de term al niet veelzeggend? of gewoon grafische omgeving nemen?
@@ -600,8 +631,7 @@ In SNU Research Park te Seoul worden beide tools ontwikkeld.
 Op het moment van schrijven is \davinci{} toe aan versie~2.0.  
 Alle documentatie is momenteel nog niet vertaald van het Koreaans naar het Engels~\cite{Incross}.
 
-
-\subsection{\jqt}% TIM
+\paragraph{\jqt}% TIM
 \jqt{}, voorheen jQTouch, is een plug-in voor jQuery of Zepto.
 Zepto is een \js{}-bibliotheek die compatibel is met de API van jQuery, maar minimaler is dan jQuery~\cite{Zepto2013}.
 \jqt{} is een opmaakgedreven raamwerk dat wordt vrijgegeven onder de MIT-licentie.
@@ -613,13 +643,13 @@ De GI-elementen bootsen de lay-out van een iOS-apparaat na.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% ALGEMEEN: sectie zit goed in elkaar en toont objectief alle mogelijkheden die er al zijn
+%TODO Sander: verder uitwerken paper michiel/bert (zie opmerking gonzalo)
 
 \section{Vergelijken van raamwerken} 
 \label{sec:vergelijken-raamwerken}
 Om de verschillende mobiele HTML5-raamwerken te kunnen vergelijken is een consistente manier nodig.
 Enerzijds bestaat er een ISO-standaard om software te kunnen vergelijken~(\ref{sec:vergelijken-raamwerken}).
-Anderzijds kunnen ook zelf criteria worden gezocht~(\ref{sec:vergelijken-criteria}).
+Als laatste werd de gevonden literatuur en blogposts van reeds vergelijkingen tussen raamwerken geclassificeerd~(\ref{sec:vergelijken-classificatie}).
 
 \subsection{ISO 25010}
 \label{sec:vergelijken-iso}
@@ -646,7 +676,7 @@ De eerste zijn de personen die het systeem gebruiken.
 De laatste zijn diegene die zorgen voor het onderhoud.
 
 \subsection{Classificatie}
-\label{sec:vergelijken-criteria}
+\label{sec:vergelijken-classificatie}
 Op het web en in de literatuur kunnen ook alternatieve manieren teruggevonden worden waar raamwerken met elkaar worden vergeleken.  
 Deze werkwijzen verschillen in de gekozen criteria alsook de manier waarop de criteria beoordeeld worden.
 Er kunnen vier grote werkwijzen worden onderscheiden.

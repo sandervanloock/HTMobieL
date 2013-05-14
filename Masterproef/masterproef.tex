@@ -6,12 +6,11 @@
   assistant={Ir.\ G.~Parra}}
 % De volgende \setup mag verwijderd worden als geen fiche gewenst is.
 \setup{filingcard,
-  translatedtitle={The best master thesis ever},
-  udc=621.3,
+  translatedtitle={Comparative study of frameworks for the development of mobile HTML5 applications},
+  udc=621.3, %TODO nummer vragen aan gonzalo
   shortabstract={Hier komt een heel bondig abstract van hooguit 500
     woorden. \LaTeX\ commando's mogen hier gebruikt worden. Blanco lijnen
-    (of het commando \texttt{\string\pa r}) zijn wel niet toegelaten!
-    \endgraf \lipsum[2]}}
+    (of het commando \texttt{\string\pa r}) zijn wel niet toegelaten!}} %Tim
 % Verwijder de "%" op de volgende lijn als je de kaft wil afdrukken
 %\setup{coverpageonly}
 % Verwijder de "%" op de volgende lijn als je enkel de eerste pagina's wil
@@ -59,17 +58,9 @@
 \input{prelude/uitdagingen}
 \newcommand{\score}[2]{(#1/#2)} % score bij ondersteuning
 
-
-%%%%%%%
-% Om wat tekst te genereren wordt hier het lipsum pakket gebruikt.
-% Bij een echte masterproef heb je dit natuurlijk nooit nodig!
-\IfFileExists{lipsum.sty}%
- {\usepackage{lipsum}\setlipsumdefault{11-13}}%
- {\newcommand{\lipsum}[1][11-13]{\par Hier komt wat tekst: lipsum ##1.\par}}
-%%%%%%%
-
-%\includeonly{hfdst-n}
 \begin{document}
+
+%TODO aparte prefacing voor aparte auteurs zodat er zeker geen verwarring ontstaat
 
 \begin{preface}
   Dit is mijn dankwoord om iedereen te danken die mij bezig gehouden heeft.
@@ -77,14 +68,11 @@
   Ook mijn familie heeft mij erg gesteund natuurlijk.
 \end{preface}
 
-
 \tableofcontents*
 %TODO hoe kunnen we derde niveau van structuur voorzien? %\setcounter{secnumdepth}{1}
 
-\begin{abstract}
-  In dit \texttt{abstract} environment wordt een al dan niet uitgebreide
-  samenvatting van het werk gegeven. De bedoeling is wel dat dit tot
-  1~bladzijde beperkt blijft.
+\begin{abstract} % Tim
+TODO
 \end{abstract}
 
 % Een lijst van figuren en tabellen is optioneel

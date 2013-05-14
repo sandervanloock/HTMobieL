@@ -1,18 +1,14 @@
 \chapter{Mobiele HTML5-raamwerken}
 \label{chap:raamwerken}
 
-In dit hoofdstuk wordt ingezoomd op de mobiele HTML5-raamwerken die dit werk vergelijkt.
-De keuze van raamwerken wordt eerst gemotiveerd in sectie~\ref{sec:motivatie-vier-raamwerken}.
-Daarna worden deze raamwerken, namelijk \st{}~(\ref{sec:raamwerk-st}), \kendo{}~(\ref{sec:raamwerk-kendo}),\jqm{}~(\ref{sec:raamwerk-jqm}) en \lungo{}~(\ref{sec:raamwerk-lungo}) uitvoerig besproken.
-In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een tabel weergegeven waarin deze gegevens overzichtelijk kunnen worden vergeleken.
+Dit hoofdstuk vergelijkt passief de vier gekozen mobiele HTML5-raamwerken, namelijk \st{}, \kendo{},\jqm{}~(\ref{sec:raamwerk-jqm}) en \lungo{}~(\ref{sec:raamwerk-lungo}).
+%De keuze van de raamwerken wordt eerst gemotiveerd in sectie~\ref{sec:motivatie-vier-raamwerken}.
+Omkadering, code en ontwikkeling, functionele kenmerken en niet-functionele kenmerken zullen voor ieder raamwerk worden besproken op basis van de gevonden literatuur.
+In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een overzicht van deze passieve vergelijking weergegeven waarin deze gegevens kunnen worden vergeleken.
 
-% TODO Tim: volgorde raamwerken
-% De raamwerken zelf worden gecategoriseerd volgens twee aanpakken~\cite{Oeflman2011}: opmaakgedreven en \js{}-gedreven. 
-% Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code geschreven. 
-% Daarentegen wordt bij een \js{}-gedreven aanpak hoofdzakelijk in \js{} geprogrammeerd.
-
-\section{Motivatie gekozen raamwerken}
-\label{sec:motivatie-vier-raamwerken}
+%TODO beter inleiding dan motivatie? want ik moet spreken over die types raamwerken… 
+%\section{Motivatie gekozen raamwerken}
+%\label{sec:motivatie-vier-raamwerken}
 In samenspraak met Capgemini werd gekozen om \jqm{}, \st{} en \kendo{} te onderzoeken.
 De twee eerstgenoemde werden gekozen om hun enorme populariteit~\cite{Firtman2013,Hales2012,Oeflman2011,David2011}.
 De laatstgenoemde had het voordeel dat deze de \term{native look-and-feel} kan nabootsen, wat ook een handig onderzoekspunt leek voor Capgemini.
@@ -21,6 +17,11 @@ Doordat \tmp{} een volledige make-over ondergaat in de zomer van 2013 leek het d
 \moobile{} werd ook uitgesloten door de nog zeer jonge versie van het raamwerk tijdens het onderzoek.
 Als laatste werd besloten om \davinci{} uit te sluiten door de gebrekkige Engelstalige documentatie van dit Koreaans raamwerk.
 Uiteindelijk bleef \lungo{} over en dit werd het vierde raamwerk.
+
+Zoals besproken in \ref{sec:mobiele-html5-raamwerken} kunnen raamwerken worden gecategoriseerd volgens twee aanpakken~\cite{Oeflman2011}, namelijk opmaakgedreven en \js{}-gedreven. 
+Eerst wordt gestart met het bespreken van een volledig \js{}-gedreven raamwerken, namelijk \st{}~(\ref{sec:raamwerk-st}).
+Daarna volgt \kendo{} die zowel \js{}- als opmaakgedreven is (\ref{sec:raamwerk-kendo}).
+De laatste twee besproken raamwerken, \jqm{}~(\ref{sec:raamwerk-jqm}) en \lungo{}~(\ref{sec:raamwerk-lungo}), zijn beide opmaakgedreven.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -389,12 +390,11 @@ Alle GI-elementen worden geschreven in HTML en aangeduid met \code{data-}* attri
 Een standaard teksteditor voldoet om met \jqm{} aan de slag te kunnen. 
 Natuurlijk kan het gemakkelijk zijn om van \term{integrated development environments}~(IDE's) zoals Aptana Studio~\cite{Aptana2012} of WebStorm~\cite{JetBrains2012} gebruik te maken, waardoor handige kenmerken zoals automatische code-aanvulling beschikbaar zijn.
 
-Het is ook mogelijk om gebruik te maken van Codiqua om de GI-elementen op het scherm te slepen en neer te zetten. 
-Codiqua zal automatisch op de achtergrond de HTML-code voorzien~\cite{Sperry2012}.
+Het is ook mogelijk om gebruik te maken van Codiqa~\cite{Sperry2012} om de GI-elementen op het scherm te slepen en neer te zetten. 
+Codiqua zal automatisch op de achtergrond de HTML-code voorzien.
 
 \paragraph{Documentatie}
-Documentatie is te vinden op \exturl{www.jquerymobile.com/demos/1.2.0} voor versie~1.2. 
-Hierop is een catalogus te vinden van alle mogelijke elementen waarover \jqm{} beschikt. 
+Op de documentatiesite van versie~1.2~\cite{JQuery2012b} is een catalogus te vinden van alle mogelijke elementen waarover \jqm{} beschikt. 
 Door de broncode van een voorbeeld te bekijken, kan worden gekeken welke code moet worden geschreven om tot dat resultaat te komen.
 
 Naast de GI-elementen is er ook documentatie over de API. 
@@ -494,11 +494,12 @@ Ook deze dwingt geen ontwerppatroon af.
 \paragraph{Browserondersteuning}
 \label{sec:jqm-browser-support}
 
-% TODO Tim: verder uitwerken browser support
-\jqm{} deelt browsers op in drie verschillende klassen: A, B en C~\cite{JQuery2012d}. 
-Hierbij ondersteunt een klasse A browser alles, terwijl een klasse C browser enkel de basis HTML ondersteunt (en dus bijvoorbeeld geen hippe CCS3 overgangen).
 \jqm{} maakt gebruikt van \emph{progressive enhancement} (zie \ref{par:progressive-enhancement}).
 Hierdoor wordt in principe ieder apparaat ondersteunt door het raamwerk, maar zal de applicatie op een ouder apparaat minder functionaliteit krijgen dan diezelfde applicatie op een nieuw apparaat.
+Om dit te verduidelijken deelt \jqm{} browsers op in drie verschillende klassen: A, B en C~\cite{JQuery2012d}. 
+Hierbij krijgt een klasse~A browser de volledige ervaring met AJAX-gebaseerde paginaovergangen.
+Bij een browser van klasse~B wordt geen AJAX ondersteund.
+Indien met een klasse~C browser heeft, wordt enkel een basiservaring aangeboden die nog steeds functioneel is.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -520,18 +521,17 @@ Functionele vereisten kunnen worden geschreven in \js{}.
 
 \paragraph{Tools}
 Er worden geen specifieke tools door TapQuo aangeboden om de ontwikkeling te versnellen.
-Wel kan er gebruik worden gemaakt van Twitter Bower die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren~\cite{Twitter2013}.
+Wel kan er gebruik worden gemaakt van Twitter Bower~\cite{Twitter2013} die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren.
 Dit komt door de aanwezigheid van het bestand \code{component.json} op \gh{} dat Bower gebruikt.
 %TODO Tim: verplaatsen naar uitleg bij evaluatie
 %Dit is bij \jqm{} niet mogelijk doordat \jqm{} geen geldige component is van Bower.
 
 \paragraph{Documentatie}
-De documentatie staat op \exturl{lungo.tapquo.com/howto/prototype/} waar eerst getoond wordt hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
+De documentatiesite~\cite{Lungo2013} wordt eerst getoond hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
 Vervolgens zijn er nog acht andere pagina's die de aangeboden GI-elementen en API bondig uitleggen.
 Op de documentatiepagina's is altijd eerst de broncode te zien.
 Er kan dan boven de broncode op een knop geklikt worden, waarna een livevoorbeeld wordt getoond.
-De documentatie van de onderliggende \js{}-bibliotheek wordt gevonden op \exturl{quojs.tapquo.com}.
-Deze bestaat uit één pagina met een zeer summiere samenvatting van de API.
+De documentatiesite~\cite{TapQuo2013c} van de onderliggende \js{}-bibliotheek bestaat uit één pagina met een zeer summiere samenvatting van de API.
 
 \paragraph{Marktadoptatie}
 Doordat geen informatie te vinden is op de site van \lungo{} werd een e-mail gestuurd met de vraag welke bedrijven \lungo{} gebruiken of in welke projecten van TapQuo zelf \lungo{} werd gebruikt.
@@ -643,6 +643,8 @@ Verder halen ze aan dat ze een zelfde ervaring willen hebben voor een gemaakte a
 
 \section{Overzicht}
 \label{sec:raamwerken-tabel}
+
+%TODO tekst hoger zitten ivm actief/passief
 
 In tabel~\ref{tabel:raamwerken-tabel} wordt de vergelijking van de raamwerken getooond op basis van passieve vergelijkingscriteria.
 Dit is een vergelijking gebaseerd op informatie van de raamwerken die hiervoor kan worden teruggevonden.

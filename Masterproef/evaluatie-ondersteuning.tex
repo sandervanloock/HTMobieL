@@ -223,8 +223,7 @@ Deze zijn nodig om het type van uitgave te selecteren bij het aanmaken van een n
 Alle labels buiten \term{Hotel} en \term{Restaurant} zijn te lang om in de voorziene ruimte weer te geven.
 \st{} kort deze af met ellipses waardoor niet de volledige naam leesbaar is.
 Dit kan tot verwarring leiden.
-In \term{landscape} mode worden sommige labels wel zichtbaar %
-%TODO afgekorte titel oplossing met css extentie?
+In \term{landscape} mode worden sommige labels wel zichtbaar
 De tweede onderuitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
 %TODO sander: referentie?
 De laatste twee onderuitdagingen halen de maximumscore.
@@ -241,7 +240,6 @@ Het openen van \term{data-picker} bij \kendo{} vindt plaats als de gebruiker op 
 Indien op de datum wordt geklikt zal de gebruiker de datum tektueel aanpassen.  
 Hiervoor moet het correcte formaat worden gebruikt!
 Nog een opmerking,  op alle toestellen wordt automatisch een virtueel toetsenbord weergegeven ondankt de invoer uit de \term{date-picker} moet worden gekozen.
-%TODO nul geven?
 
 \paragraph{\jqm} \score{38}{40}
 Op iedere deeluitdaging behaalt \jqm{} de maximumscore.
@@ -270,7 +268,6 @@ Deze uitdaging kon niet worden ondersteund omdat het raamwerk geen implementatie
 
 \paragraph{\kendo} \score{8}{8}
 Deze uitdaging behaalde op elk toestel de maximum score.
-%TODO check gt en htc!!
 
 \paragraph{\jqm} \score{8}{8}
 Ieder toestel ondersteunde de auto-aanvulling.
@@ -293,29 +290,29 @@ De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen.
 Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 ondersteund~\cite{Deveria2013a}.
 Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
 Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
-%TODO Sander: file input niet op ipad 1 vermelden? Tim: ja
-
-%TODO aggergeren
-\paragraph{\st} \score{5}{8}
-Oudere Android types bieden geen ondersteuning voor de FileReaderAPI.
-Hierdoor was het opladen van een afbeelding niet mogelijk bij de \htc{} en \gtab{}.
-De \ipadi{} brengt geeft geen dialoogvenster naar boven nadat op de knop werd gedrukt omdat \code{file} niet als formulierveld wordt ondersteund.
-%TODO referentie?
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
-Dit komt omdat de grootte van de fotos de limiet van de \code{local storage} overschreiden.
-%TODO exacte limiet refereren?
+Dit komt omdat de grootte van de fotos de limiet van de \code{local storage} overschreiden.%TODO exacte limiet localstorage refereren?
 Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
+De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen.%TODO referentie?
+Alle raamwerken behaalden een score van \score{5}{8}
 
-\paragraph{\jqm} \score{5}{8}
-Op vier apparaten kon een afbeelding met succes worden toegevoegd.
-Daarentegen hadden de \htc{} en \gtab{} geen ondersteuning voor de FileReaderAPI, op de \gs{} bleef de applicatie hangen en als laatste bood de \ipadi{} geen ondersteuning voor het formulierveld van het type \code{file}.
-
-\paragraph{\kendo} \score{5}{8}
-De FileReader API en \code{file} als type van het formulierveld waren de vereisten voor deze uitdaging.
-Hierdoor werd de implementatie voor \htc{},  \gtab{} en \ipadi{} niet ondersteund.
-
-\paragraph{\lungo} \score{5}{8}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+% \paragraph{\st} \score{5}{8}
+% Oudere Android types bieden geen ondersteuning voor de FileReaderAPI.
+% Hierdoor was het opladen van een afbeelding niet mogelijk bij de \htc{} en \gtab{}.
+% De \ipadi{} brengt geeft geen dialoogvenster naar boven nadat op de knop werd gedrukt omdat \code{file} niet als formulierveld wordt ondersteund.
+% 
+% Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
+% 
+% \paragraph{\jqm} \score{5}{8}
+% Op vier apparaten kon een afbeelding met succes worden toegevoegd.
+% Daarentegen hadden de \htc{} en \gtab{} geen ondersteuning voor de FileReaderAPI, op de \gs{} bleef de applicatie hangen en als laatste bood de \ipadi{} geen ondersteuning voor het formulierveld van het type \code{file}.
+% 
+% \paragraph{\kendo} \score{5}{8}
+% De FileReader API en \code{file} als type van het formulierveld waren de vereisten voor deze uitdaging.
+% Hierdoor werd de implementatie voor \htc{},  \gtab{} en \ipadi{} niet ondersteund.
+% 
+% \paragraph{\lungo} \score{5}{8}
+% Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
 
 %%%%%%%%%%%%%
 \subsection{\uit{validatie}}
@@ -325,84 +322,94 @@ Formuliervalidatie is een kenmerk van HTML5 maar wordt op geen enkel beschikbaar
 Dit wil zeggen dat alle raamwerken hiervoor een alternatief voorzien dat wel op alle toestellen werkt.
 
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
-%TODO aggergeren
-\paragraph{\st} \score{8}{8}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
-
-\paragraph{\kendo} \score{8}{8}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
-
-\paragraph{\jqm} \score{8}{8}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
-
-\paragraph{\lungo}
-Aangezien deze uitdaging handmatig werd geïmplementeerd, werd de ondersteuning niet getest.
+% \paragraph{\st} \score{8}{8}
+% Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+% 
+% \paragraph{\kendo} \score{8}{8}
+% Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+% 
+% \paragraph{\jqm} \score{8}{8}
+% Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+% 
+% \paragraph{\lungo}
+% Aangezien deze uitdaging handmatig werd geïmplementeerd, werd de ondersteuning niet getest.
 
 %%%%%%%%%%%%%
 \subsection{\uit{handtekening}}
 \label{sec:evaluatie-ondersteuning-handtekening}
 
+\kendo{}, \jqm{} hanteeren dezelfde plug-in om deze uitdaging te implementeren.
+Onderliggend steunt deze op het \term{canvas} kenmerk van HTML5.
+De plug-in die \st{} gebruikt is ook afhankelijk van dit kenmerk.
+Alle onderzochte toestellen ondersteunen de \term{canvas}~\cite{Deveria2013c} en de drie raamwerken behalen vervolgens de maximumscore \score{8}{8}. 
+
+Omdat bij \lungo{} geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
+
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
-%TODO aggergeren
-\paragraph{\st} \score{8}{8}
-Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+% \paragraph{\st} \score{8}{8}
+% Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
+% 
+% \paragraph{\kendo} \score{8}{8}
+% Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+% 
+% \paragraph{\jqm} \score{8}{8}
+% De handtekening kon op ieder apparaat worden getekend, behalve op de \gs{}.
+% Daar werd tijdens het tekenen van de handtekening, de handtekening dubbel op het scherm getekend.
+% 
+% \paragraph{\lungo}
+% 
+% Doordat geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
 
-\paragraph{\kendo} \score{7}{8}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
-
-\paragraph{\jqm} \score{7}{8}
-De handtekening kon op ieder apparaat worden getekend, behalve op de \gs{}.
-Daar werd tijdens het tekenen van de handtekening, de handtekening dubbel op het scherm getekend.
-
-\paragraph{\lungo}
-Doordat geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
 
 %%%%%%%%%%%%%
 \subsection{\uit{pdf}}
 \label{sec:evaluatie-ondersteuning-pdf}
 
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+\kendo{}, \jqm{} en \lungo{} hergebruikten dezelfde code voor deze uitdaging.
+Drie van de acht apparaten hadden problemen met het tonen van de PDF.
+Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \gs{} gaf het besturingssysteem de boodschap 'Download unsuccessful' terug.
+Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
+De score voor deze drie raamwerken is dus \score{5}{8}.
 
-\paragraph{\st} \score{7}{8}
-De plug-in waarmee PDF-bestanden getoond worden, maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla. %TODO referentie
+\st{} maakt gebruik van een plug-in voor het tonen van PDF-bestanden.
+Deze plug-in maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla~\cite{Gal2010}.
 PDF.JS is geïmplementeerd met \js{} en HTML5.
-Het \code{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
-Vanaf Android 3.0 wordt dit laatste slechts ondersteund.
+Het \term{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
+Vanaf Android 3.0 wordt dit laatste slechts ondersteund~\cite{Deveria2013c}.
 Deze uitdaging lukt dus niet op de \htc{} en \gtab{}.
 Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie van \st{} die niet gebouwd was met Sencha Cmd.
 Dit omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in werd aangesproken.
-%TODO verder uitwerken?
+%TODO verder uitwerken?	
+\st{} haalt een score van \score{6}{8} omdat de plug-in de \gs{} wel ondersteund in tegenstelling tot de drie andere raamwerken.
 
-\paragraph{\kendo} \score{5}{8}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 
-\paragraph{\jqm} \score{5}{8}
-Drie van de vier apparaten hadden problemen met het tonen van de PDF.
-Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \gs{} gaf het besturingssysteem de boodschap 'Download unsuccessful' terug.
-Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
-
-\paragraph{\lungo} \score{5}{8}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+% \paragraph{\st} \score{6}{8}
+% 
+% 
+% \paragraph{\kendo} \score{5}{8}
+% Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+% 
+% \paragraph{\jqm} \score{5}{8}
+% Drie van de vier apparaten hadden problemen met het tonen van de PDF.
+% Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \gs{} gaf het besturingssysteem de boodschap 'Download unsuccessful' terug.
+% Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
+% 
+% \paragraph{\lungo} \score{5}{8}
+% Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
 
 
 %%%%%%%%%%%%%
 \subsection{\uit{offline}}
 \label{sec:evaluatie-ondersteuning-offline}
 
-In tabel \ref{tabel:evaluatie-ondersteuning-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-% TODO Tim: ik zou dit verplaatsen naar de desbetreffende sectie
-Offline en opslag is één element van de acht technologieklassen (zie sectie \ref{sec:html5-css3-js}).
+Offline en opslag is één element van de acht technologieklassen van HTLM5(zie sectie \ref{sec:html5-css3-js}).
 Om de POC offline beschikbaar te maken is zowel de \code{manifest} als \code{localStorage} ondersteuning noodzakelijk.
-Beide kenmerken worden door alle beschikbare mobiele besturingssystemen ondersteund. %TODO referenties
-%http://caniuse.com/#feat=offline-apps
-%http://caniuse.com/#search=localstorage
+Beide kenmerken worden door alle beschikbare mobiele besturingssystemen ondersteund~\cite{Deveria2013c}. 
+
+In tabel \ref{tabel:evaluatie-ondersteuning-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
 
 \begin{table}[H]
 \centering
@@ -449,16 +456,15 @@ Beide kenmerken worden door alle beschikbare mobiele besturingssystemen onderste
 \label{tabel:evaluatie-ondersteuning-offline}
 \end{table}
 
-%TODO de 4 frameworks samenvoegen, is toch hetzelfde
-
-\paragraph{\st} \score{8}{8}
-Deze uitdaging behaalde bij alle toestellen de maximum score.
-
-\paragraph{\kendo} \score{8}{8}
-Deze uitdaging behaalde bij alle toestellen de maximum score.
-
-\paragraph{\jqm} \score{8}{8}
-Alle acht apparaten ondersteunen zowel \code{localStorage} als Application Cache, wat beide HTML5-specificaties zijn.
-
-\paragraph{\lungo} \score{8}{8}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+% 
+% \paragraph{\st} \score{8}{8}
+% Deze uitdaging behaalde bij alle toestellen de maximum score.
+% 
+% \paragraph{\kendo} \score{8}{8}
+% Deze uitdaging behaalde bij alle toestellen de maximum score.
+% 
+% \paragraph{\jqm} \score{8}{8}
+% Alle acht apparaten ondersteunen zowel \code{localStorage} als Application Cache, wat beide HTML5-specificaties zijn.
+% 
+% \paragraph{\lungo} \score{8}{8}
+% Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.

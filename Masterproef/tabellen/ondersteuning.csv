@@ -4,7 +4,7 @@ Uitdaging,Challenge,jQM,ST,Lungo,Kendo
 \uit{autoaanvullen},\chal{autoaanvullen},1.00,,0.88,1.00
 \uit{afbeelding},\chal{afbeelding},0.63,0.63,0.63,0.63
 \uit{validatie},\chal{validatie},1.00,1.00,,1.00
-\uit{handtekening},\chal{handtekening},1.00,1.00,,0.88
-\uit{pdf},\chal{pdf},0.63,0.88,0.63,0.63
+\uit{handtekening},\chal{handtekening},1.00,1.00,,1.00
+\uit{pdf},\chal{pdf},0.63,0.75,0.63,0.63
 \uit{offline},\chal{offline},1.00,1.00,1.00,1.00
-Totaal,Total,0.91,0.88,0.78,0.88
+Totaal,Total,0.91,0.86,0.78,0.88

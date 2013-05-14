@@ -36,36 +36,53 @@ Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde s
 
 \lungo{} is de afgetekende winnaar,  gevold door \kendo{} en \jqm{}. 
 \st{} blijkt het minst productief te zijn.
+Het type raamwerk (\js-gedreven of opmaakgedreven) en het al dan niet afdwingen van een architectuur weerspiegeld zich in deze resultaten.
+De verschillen tussen \jqm{} en \lungo{} enerzijds en \st{} en \kendo{} anderzijds zijn groter want ze bieden een ander type - respectievelijk \js-gedreven en zowel \js- als opmaakgedreven - en hanteren een andere architectuur - respectievelijk MVC en MVVM.
+De productiviteit van \lungo{} stijgt met $71\%$ ten opzichte van \jqm{}.
+De productiviteit van \kendo{} daalde met $44\%$ ten opzichte van \st{}.
 
-%TODO: gewoon zeggen wat er fout is aan de gegevens
-% 5 redenen waarom de tijden van POC onbruikbaar zijn
-% - lungo niet alles geïmplementeerd
-% - backend problemen, niet goed bijgehouden op Toggl
-% - ervaring met de POC
-% - kopiëren van code uit vorige implementatie (werd niet gedaan bij de loginschermen)
-% - ervaring van programmeren met HTML5 raamwerken in het algemeen 
+De belangrijkste factor waarom \lungo{} en \kendo{} beter scoren is omdat beide raamwerken als tweede werden behandeld.
+De POC werd eerst in \jqm{} en \st{} geïmplementeerd.
+Er zijn vijf redenen waarom dit de data sterk beinvloedt.
+%3 en 5
+De eerste twee reden omvatten een betere ervaring met de POC en HTML5-raamwerken in het algemeen.
+De vertrouwdheid met HTML5-raamwerken weerspiegeld zich vooral tussen \jqm{} en \lungo{}.
+Hoewel ze beide op een verschillende \js{}-bibliotheek steunen - respectievelijk jQuery en QuoJS - zijn de gelijkenissen tussen deze twee raamwerken niet te ontkennen.
+%4
+Er kon dus veel code,  zoals gebruikt bij \jqm{},  overgenomen worden bij de implementatie van de POC met \lungo.
+%2
+Ook kwamen er bij de eerste implementatie problemen met de \term{backend} naar boven.
+Deze waren bij de tweede implementatie reeds opgelost.
+Door onnauwkeurige tijdstracking met Toggl kan er geen schatting worgen gemaakt van de tijd die aan de \term{backend} werd besteed.
+Er kan echter niet ontkend worden dat dit een probleem is. %TODO ok zo?
+%1
+Een laatste reden die de productiviteitsgegevens sterk beinvloed is dat niet de volledige POC met \lungo{} kon worden ontwikkeld.
+Hierop zal in sectie \ref{sec:evaluatie-gebruik} verder worden ingegaan.
 
 % indien enkel het loginscherm wordt gebruikt als productiviteit, dan treden deze problemen niet op. (de 5 vorige redeneren ontkrachten)
 % nieuwe formule introduceren met nummering 
 
-De belangrijkste factor waarom \lungo{} en \kendo{} beter scoren is omdat beide raamwerken als tweede werden behandeld.
-De POC werd eerst in \jqm{} en \st{} geïmplementeerd.
-Hierdoor waren de programmeurs beter vertrouwd met de POC en HTML5-raamwerken in het algemeen.
-Bij de eerste implementatie kwamen er ook problemen met de \term{backend} naar boven.
-Deze waren bij de tweede implementatie reeds opgelost.
-Een schatting van de tijd die aan de \term{backend} werd besteed, situeert zich tussen $10$ en $25$ uur. %TODO Sander: dit vermelden? Tim: zeker, maar ik vind die schatting wel te breed van interval (geen interval, gewoon zeggen dat het een probleem is)
-De vertrouwdheid met HTML5-raamwerken weerspiegeld zich vooral tussen \jqm{} en \lungo{}.
-Hoewel ze beide op een verschillende \js{}-bibliotheek steunen - respectievelijk jQuery en QuoJS - zijn de gelijkenissen tussen deze twee raamwerken niet te ontkennen.
-%TODO Tim: het aantal uren daalt, maar de productiviteit stijgt wel hé ;-)
-De productiviteit van \lungo{} daalde met $71\%$ ten opzichte van \jqm{}.
-Belangrijk is ook dat niet de volledige POC met \lungo{} kon worden ontwikkeld.
-Hierop zal in sectie \ref{sec:evaluatie-gebruik} verder worden ingegaan.
-De verschillen tussen \st{} en \kendo{} zijn groter want ze bieden een ander type - respectievelijk \js-gedreven en zowel \js- als opmaakgedreven - en hanteren een andere architectuur - respectievelijk MVC en MVVM.
-De productiviteit van \kendo{} daalde met $44\%$ ten opzichte van \st{}.
-
 De werkuren van de loginapplicatie bevestigen voorgaande resulaten niet.
-Alle functionaliteit van de loginapplictie kon met de vier raamwerken worden gebouwd.
-Uit deze werkuren blijkt \jqm{} productiever dan \lungo{}. 
+Ze zijn dan ook niet onderheven aan de vijf zonet opgenoemde redenen.
+Bij elke implementatie werd met dezelfde achtergrondkennis gestart.  
+% 3
+De implementatie van een loginscherm is triviaal en eenduidig en dus geldt er voor alle raamwerken dat de ervaring met de applicatie reeds hoog was.
+% 5
+Ook werden de POCs voor de loginapplicaties gemaakt.
+Hierdoor kan de algemene ervaring met HTML5-raamwerken gelijk worden gezien voor alle implementaties van de loginapplicatie.
+% 4 en 2
+Er werd geen code gekopieerd bij de loginapplicaties en er waren geen problemen met de \term{backend}
+%  1
+Ten slotte werd alle functionaliteit van de loginapplictie met alle vier raamwerken gebouwd.
+Om al deze redenen werd beslist de score voor productiviteit aan te passen naar enkel de uren van implementatie van de loginapplicatie.
+De nieuwe verbeterde formule voor productiviteit is dan
+\begin{equation}
+  PR'_r = t_{r,login}
+  \label{eq:productiviteit-enhanced}
+\end{equation}
+waar $r$ de verschillende raamwerken voorstellen.
+
+Uit deze data blijkt \jqm{} productiever dan \lungo{}. 
 De volgorde van \kendo{} en \st{} blijft echter wel behouden.
 De relatieve verschillen tussen \jqm{} en \lungo{} en tussen \st{} en \kendo{} zijn ook verkleind.  
 Respectievelijk een stijging van $11.7\%$ en een daling met $31.8\%$.
@@ -74,9 +91,7 @@ Toch is er een trend vast te stellen:  opmaakgedreven raamwerken blijken product
 In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit kunnen verklaren.
 
 \subsection{Tools}
-%TODO Tim: onderstaande zin is wat ongelukkig, natuurlijk kan ik geen jQM app maken met Sencha Architect ;-)
-Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op Sencha Architect om het ontwikkelingsproces te vergemakkelijken.
-%TODO Tim: misschien de ondersteuning voor welke OS'es: ok
+Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op een grafische tool om het ontwikkelingsproces te vergemakkelijken:  Sencha Architect. %TODO referentie
 Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop} commando's.  
 Deze tool kan 30 dagen gratis gebruikt worden of kan worden aangekocht voor $\$399$.
 Bij de ontwikkeling van de POC werd Sencha Architect versie 2.1 gebruikt voor een tijdsduur van $21$ dagen.

@@ -40,7 +40,8 @@
 \usepackage{enumitem}
 \usepackage{longtable} %tabel over meerdere pagina's
 \usepackage{graphicx} %breedte tabel
-\usepackage{amsmath} %voor geavanceerde formules
+\usepackage{tocvsec2}
+\usepackage{amsmath} % voor tekst in math
 
 \newcommand{\term}[1]{\emph{#1}} % engelse term die we niet vertalen naar het nederlands
 \newcommand{\code}[1]{\texttt{#1}} % code command
@@ -123,12 +124,15 @@ TODO
 \include{literatuurstudie}
 \include{raamwerken}
 \include{vergelijking}
+
+%TODO includes zorgen ervoor dat de onderstaande secties op een nieuwe pagina komen
 \include{evaluatie-populariteit}
 \include{evaluatie-productiviteit}
 \include{evaluatie-gebruik}
 \include{evaluatie-ondersteuning}
 \include{evaluatie-performantie}
 \include{evaluatie-spinnenweb}
+
 \include{besluit}
 
 

@@ -59,9 +59,6 @@ Er kan echter niet ontkend worden dat dit een probleem is. %TODO ok zo?
 Een laatste reden die de productiviteitsgegevens sterk beinvloed is dat niet de volledige POC met \lungo{} kon worden ontwikkeld.
 Hierop zal in sectie \ref{sec:evaluatie-gebruik} verder worden ingegaan.
 
-% indien enkel het loginscherm wordt gebruikt als productiviteit, dan treden deze problemen niet op. (de 5 vorige redeneren ontkrachten)
-% nieuwe formule introduceren met nummering 
-
 De werkuren van de loginapplicatie bevestigen voorgaande resulaten niet.
 Ze zijn dan ook niet onderheven aan de vijf zonet opgenoemde redenen.
 Bij elke implementatie werd met dezelfde achtergrondkennis gestart.  
@@ -91,7 +88,7 @@ Toch is er een trend vast te stellen:  opmaakgedreven raamwerken blijken product
 In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit kunnen verklaren.
 
 \subsection{Tools}
-Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op een grafische tool om het ontwikkelingsproces te vergemakkelijken:  Sencha Architect. %TODO referentie
+Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op een grafische tool om het ontwikkelingsproces te vergemakkelijken:  Sencha Architect~\cite{Sencha2012a}.
 Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop} commando's.  
 Deze tool kan 30 dagen gratis gebruikt worden of kan worden aangekocht voor $\$399$.
 Bij de ontwikkeling van de POC werd Sencha Architect versie 2.1 gebruikt voor een tijdsduur van $21$ dagen.
@@ -117,11 +114,6 @@ De ervaringen van de auteurs met \st{} zegt dat deze structuur tot veel verwarri
 Ook is bij de documentatie van beide raamwerken een expliciete sectie aanwezig die de programmeur helpt om een applicatie op te zetten.
 Bij \lungo{} is dit niet het geval.  
 Om een \lungo{} applicatie op te zetten moest naar de broncode van de voorbeelden op de documentatie gekeken worden.
-% leercurve: 
-% -ST lag hoger door MVC en pure JS (zie loginscherm steekt er met 7 uur met de kop bovenuit)
-% -jQM en Kendo hadden boiler plate code, ST had tool project te maken maar dan… allemaal files en folders, je weet zo niet direct waar gestart, vanaf je iets verkeerd veranderd wordt er niets meer gerenderd. 
-% gestart met jQM en ST, waardoor productiviteit van de andere 2 hoger ligt (incl problemen met backend, zeker 20u)
-% -Lungo had geen boilerplate code, naar eerste example de broncode kopiëren. quojs zeer gelijkaardig aan jquery syntax. door de opgedane kennis van jquery verlaagt het de curve sterk, anders is het praktisch ondoenbaar (documentatie quojs is 1 bladzijde met code en kernwoorden)
 
 \subsection{Documentatie}
 Ook de kwaliteit en kwantiteit van de documentatie kunnen de scores van de productiviteit verklaren.
@@ -141,28 +133,18 @@ Dezelfde opmerking kan worden gemaakt bij de documentatie van \quo.
 Alle kenmerken van \lungo{} worden met codevoorbeelden verduidelijkt.
 Sommige voorbeelden zijn echter incorrect.
 
-% documentatie: 
-% -ST: demo (Kitchen snik app), zoekfunctie is goed (met autocomplete), maar wel veel meer documentatie dan de andere, waardoor zonder zoekfunctionaliteit moeilijk is
-% -Kendo: interactief te leren, heel overzichtelijk, veel demo's (music store),, onoverzichtelijke zoekfunctie
-% -jQM: 1.2 geen zoekfunctie, geen echte code, je moet kijken naar de broncode, documentatie zelf is geschreven met het framework. vanaf 1.3 wel zoekfunctie en codevoorbeelden
-% -Lungo: prototype heel goed, maar dan de rest zeer zeer beknopt. geen zoekfunctie. soms zijn is de voorbeeldcode niet correct. 
-
 \subsection{Debugging}
 Het zoeken naar bugs in de code verliep bij elk raamwerk gelijkaardig.
 De applicatie werd lokaal uitgerold en in de Web Inspector van Chrome gedebugd.
 Debuggen op de apparaten kon door deze te connecteren via USB met de computer.
 Android toestellen met een Chrome browser kunnen debugt worden met de Web Inspector.
 Debuggen op iOS toestellen kan op een Mac met dezelfde Web Inspector maar in de Safari browser.
-% debugging:
-% - ST: beige auteurs, dezelfde aanpak, alles in commentaar zetten tot iets werkende en dan beetje bij beetje uit commentaar halen
-% - ST: debug voor extra info (niet hetzelfde als jqm.min en jqm)
-% - altijd debuggen in chrome met console, vanaf het daar volledig werkt, pas debuggen op de devices zelf: chrome: connecteren via usb debugging, safari via xcode
 
 \subsection{Literatuur}
 Zowel \jqm{} als \st{} werden vaak in de literatuur aangehaald.
 Op Safari Books Online kunnen 13 boeken teruggevonden worden die volledig op \jqm{} zijn toegespitst.
 Het boek van Dutson in de Sam Teach Yourself serie werd gebruikt om met \jqm{} vertrouwd te geraken~\cite{PhilDutson2012}.
-%todo pro jquery mobile werd ook gelezen maar is nagenoeg een kopie van documentatie site (bevat niet meer informatie)
+Ook Pro jQuery Mobile van Broulik~\cite{Broulik2012} werd gelezen maar is dit is nagenoeg een kopie van documentatie site en bevat bijgevolg niet veel extra informatie.
 Vier boeken over \st{} kunnen op Safari Books Online worden teruggevonden waarbij het werk van Clark werd gebruikt~\cite{JohnEClark2012}.
 \kendo{} komt slecht in een boek van voor~\cite{Bhandari2013},  \lungo{} helemaal niet.
 Het boek rond \kendo{} is slechts een proefdruk en wordt pas in augustus 2013 officieel geplubliceerd.
@@ -170,16 +152,61 @@ Dit werk werd niet gebruikt.
 
 
 \subsection{Vragen}
-%TODO Sander: activiteit van de fora van de raamwerken bespreken?  Kendo:  issues op fora met fiddle verklaard
 Wanneer de programmeur met problemen van het raamwerk werd geconfronteerd, moest op het web naar oplossingen gezocht worden.
 In sectie \ref{sec:evaluatie-populariteit} werden reeds het aantal vragen van het raamwerk op Stack Overflow bekeken.
 Hoe groter dit aantal,  hoe groter de kans dat een probleem reeds op Stack Overflow is aangehaald.
 Bij \lungo{} is dit aantal minimaal en was de programmeur vaak aangewezen om zelf oplossingen van zijn problemen te zoeken.
-% vragen:
-% - ST, jQM, Kendo vaak antwoord op stack overflow (zie populariteit)
-% - Lungo: je bent op jezelf gewezen
-%Sander
+Voor \st{} en \kendo{} geldt dat ook het forum voor professionele ondersteuning hulpvaardig bleek.
+Het plaatsen van vragen bij \st{} is onmogelijk zonder betaalde ondersteuning,  \kendo{} laat het stellen van maximaal vijf vragen toe zonder de aankoop van een licentie.
+De meest voorkomende problemen zijn op de fora wel al aangehaald en gedetailleerd besproken.
 
+
+\subsection{Lijnen code}
+Als laatste wordt in tabel \ref{tabel:evaluatie-gebruik-loc} het aantal lijnen geschreven code getoond dat nodig is om de POC en loginapplicatie in de vier raamwerken te maken.
+Het type van het raamwerk (\js- of opmaakgedreven) komt sterk in de tabel naar boven.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+	column type=l,
+	every head row/.style={
+		before row={%
+			\toprule
+			\textbf{Code}
+			& \multicolumn{2}{c}{\textbf{\sta}}
+			& \multicolumn{2}{c}{\textbf{\kendoa}} 
+			& \multicolumn{2}{c}{\textbf{\jqma}}
+			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
+			\cmidrule(r){2-3}
+			\cmidrule(r){4-5}
+			\cmidrule(r){6-7}
+			\cmidrule(r){8-9}
+		},
+		after row=\midrule,
+		},
+  	every last row/.style={
+  		before row=\toprule,
+ 		after row=\bottomrule},
+	columns={Geschreven,ST(poc),ST(login),Kendo(poc),Kendo(login),jQM(poc),jQM(login),Lungo(poc),Lungo(login)},
+	begin table=\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccccccc},
+	end table=\end{tabular*},
+	header=true,
+	skip coltypes=true,
+	columns/Geschreven/.style ={column name=},
+	columns/ST(poc)/.style ={column name=POC},
+	columns/ST(login)/.style={column name=Login},
+	columns/Kendo(poc)/.style ={column name=POC},
+	columns/Kendo(login)/.style={column name=Login},
+	columns/jQM(poc)/.style ={column name=POC},
+	columns/jQM(login)/.style={column name=Login},
+	columns/Lungo(poc)/.style ={column name=POC},
+	columns/Lungo(login)/.style={column name=Login},
+	col sep=comma,
+	string type,
+]{tabellen/gebruik/loc.csv}
+\caption{Overzicht van het aantal lijnen geschreven code.}
+\label{tabel:evaluatie-gebruik-loc}
+\end{table}
 
 
 

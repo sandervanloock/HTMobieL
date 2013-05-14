@@ -50,52 +50,6 @@ Als laatste komt \lungo{} met slechts één perfecte uitdaging en zeven onvoldoe
 Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-oproepen, behalve dan bij één geval voor Lungo.
 Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
 
-%TODO: moet dat niet bij productiviteit?
-Als laatste wordt in tabel \ref{tabel:evaluatie-gebruik-loc} het aantal lijnen geschreven code getoond nodig om de POC en loginapplicatie in de vier raamwerken te maken.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-	column type=l,
-	every head row/.style={
-		before row={%
-			\toprule
-			\textbf{Code}
-			& \multicolumn{2}{c}{\textbf{\sta}}
-			& \multicolumn{2}{c}{\textbf{\kendoa}} 
-			& \multicolumn{2}{c}{\textbf{\jqma}}
-			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
-			\cmidrule(r){2-3}
-			\cmidrule(r){4-5}
-			\cmidrule(r){6-7}
-			\cmidrule(r){8-9}
-		},
-		after row=\midrule,
-		},
-  	every last row/.style={
-  		before row=\toprule,
- 		after row=\bottomrule},
-	columns={Geschreven,ST(poc),ST(login),Kendo(poc),Kendo(login),jQM(poc),jQM(login),Lungo(poc),Lungo(login)},
-	begin table=\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccccccc},
-	end table=\end{tabular*},
-	header=true,
-	skip coltypes=true,
-	columns/Geschreven/.style ={column name=},
-	columns/ST(poc)/.style ={column name=POC},
-	columns/ST(login)/.style={column name=Login},
-	columns/Kendo(poc)/.style ={column name=POC},
-	columns/Kendo(login)/.style={column name=Login},
-	columns/jQM(poc)/.style ={column name=POC},
-	columns/jQM(login)/.style={column name=Login},
-	columns/Lungo(poc)/.style ={column name=POC},
-	columns/Lungo(login)/.style={column name=Login},
-	col sep=comma,
-	string type,
-]{tabellen/gebruik/loc.csv}
-\caption{Overzicht van het aantal lijnen geschreven code.}
-\label{tabel:evaluatie-gebruik-loc}
-\end{table}
-
 
 %%%%%%%%%%%%%
 

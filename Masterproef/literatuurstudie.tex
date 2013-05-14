@@ -213,7 +213,7 @@ Applicaties worden gedownloaded in de winkel genaamd Windows Phone Store.
 \section{Mobiele applicaties}
 \label{sec:mobiele-applicaties}
 Er zijn drie mogelijkheden om mobiele applicaties te maken~\cite{Accenture2012,Hales2012}. Eén aanpak is het maken van een webapplicatie.
-Deze wordt geprogrammeerd gebruikmakend van een webtechnologie zoals HTML5 (zie \ref{sec:html5}) en wordt geopend vanuit een webbrowser. 
+Deze wordt geprogrammeerd gebruikmakend van een webtechnologie zoals HTML5 (zie \ref{sec:html5-css3-js}) en wordt geopend vanuit een webbrowser. 
 
 Een andere aanpak is een \term{native} applicatie. 
 Deze wordt geprogrammeerd in een programmeertaal specifiek aan het besturingssysteem.
@@ -248,7 +248,7 @@ Dit is wel het geval voor \term{native} applicaties.
 Hierdoor kan in een webapplicatie een belangrijke update snel doorgevoerd worden, terwijl de \term{native} applicatie nogmaals het verificatieproces moet doorlopen.
 
 Een nadeel van een webapplicatie is dat deze, net zoals een \term{native} applicatie, afhankelijk is van het besturingssysteem.
-Dit is specifiek het geval wanneer de nieuwste kenmerken van HTML5 (zie \ref{sec:html5}) in webapplicaties worden gebruik.
+Dit is specifiek het geval wanneer de nieuwste kenmerken van HTML5 (zie \ref{sec:html5-css3-js}) in webapplicaties worden gebruik.
 
 \subsection{Native applicaties}
 \label{sec:literatuur-native}
@@ -287,17 +287,17 @@ Vanuit het standpunt om webapplicaties te maken, is het dan ook zeer belangrijk 
 Een webbrowser haalt namelijk webpagina's op die geschreven zijn in HTML en andere technologieën. 
 Doordat deze technologieën evolueren (zie \ref{sec:html5-css3-js}), zullen de webbrowsers zelf ook (moeten) mee evolueren. 
 Niet iedere browser zal dit op dezelfde manier doen, waardoor er verschillen zullen ontstaan waar  rekening mee moet worden gehouden. 
-Het is namelijk ongewenst dat een webapplicatie enkel op Mobile Safari werkt als de ontwikkelaar een zo breed mogelijk publiek wenst te bereiken. 
+Het is namelijk ongewenst dat een webapplicatie enkel op de webbrowser van iOS werkt als de ontwikkelaar een zo breed mogelijk publiek wenst te bereiken. 
 
-In deze sectie worden enkele mobiele webbrowsers besproken. 
+In deze sectie worden vier mobiele webbrowsers besproken. 
 Eerst komen de twee meest populaire browsers aan bod, namelijk Mobile Safari en de \term{native} Android browser~\cite{Hales2012}. 
-Ze zijn beide op de WebKit browser \term{engine} gebaseerd~\cite{Oeflman2011}. 
+Daarna worden Internet Explorer Mobile en Opera Mobile kort besproken. 
+Het marktaandeel van de genoemde browsers wordt getoond in tabel~\ref{tabel:marktaandeel-browsers}.
+
+Zowel Mobile Safari als de \term{native} Android browser zijn beide op de WebKit browser \term{engine} gebaseerd~\cite{Oeflman2011}. 
 % TODO Tim: is dit kort genoeg van uitleg over browser engine?
 Een \term{engine} zorgt ervoor dat de code van de opgehaalde webpagina wordt omgezet naar de webpagina die de gebruiker te zien krijgt. 
-Daarna worden Internet Explorer Mobile en Opera Mobile kort besproken. 
-Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tabel:marktaandeel-browsers}.
 
-% TODO Tim: toevoegen data over IE mobile?
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -307,8 +307,8 @@ Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tabel:mark
   header=true,
   string type,
   skip coltypes=true,
-  columns={BrowserNL,Marktaandeel},
-  columns/BrowserNL/.style={column name=\textbf{Mobiele webbrowser}},  
+  columns={Browser,Marktaandeel},
+  columns/Browser/.style={column name=\textbf{Mobiele webbrowser}},  
   columns/Marktaandeel/.style={column name=\textbf{Marktaandeel (\%)}},
   every head row/.style={
     before row=\toprule,
@@ -316,29 +316,30 @@ Het marktaandeel van de genoemde browsers wordt getoond in tabel \ref{tabel:mark
   every last row/.style={
     after row=\bottomrule}
 ]{tabellen/browsers.csv}
-\caption{Marktaandeel mobiele webbrowsers op januari 2013~\cite{NetApplications2012}.}
+\caption{Marktaandeel mobiele webbrowsers op mei 2013~\cite{NetApplications2012}.}
 \label{tabel:marktaandeel-browsers}
 \end{table}
 
-\subsection{Mobile Safari}
+\paragraph{Mobile Safari}
 \label{sec:mobile-safari}
 Deze webbrowser van Apple zit standaard bij iOS en kan ook enkel op dit besturingssysteem worden gebruikt. 
 Apple heeft veel moeite gedaan om telkens de laatste nieuwe specificaties van HTML5 in zijn webbrowsers te implementeren~\cite{Hales2012}. 
-Natuurlijk zal dit ook te maken hebben met het feit dat ze geen Flash meer ondersteunen op hun iPods, iPhones en iPads~\cite{Jobs2010}.
+Natuurlijk zal dit ook te maken hebben met het feit dat ze geen Adobe Flash~\cite{Adobe2013} meer ondersteunen op hun iPods, iPhones en iPads~\cite{Jobs2010}.
 
-\subsection{Android browser}
+\paragraph{Android browser}
 \label{sec:android-browser}
 Android biedt de \term{native} Android browser aan. 
 Implementatie van de HTML5-specificaties hebben wat aangesleept, maar vanaf Android~4.0 gaat dit een stuk beter~\cite{Hales2012}. 
 Daarnaast is het nu ook mogelijk om de Chrome webbrowser op mobiele apparaten te installeren.
 
-\subsection{Internet Explorer Mobile}
+\paragraph{Internet Explorer Mobile}
 Net zoals bij Windows ook Internet Explorer wordt bijgegeven, geldt dit ook voor hun mobiel  besturingssysteem. 
 Bij de nieuwe Windows Phone~8 zal Internet Explorer Mobile~10 worden meegeleverd. 
 Deze gebruikt dezelfde \term{engine} als Internet Explorer 10. 
-\term{WebSockets}, \term{Web Workers}, \term{Application Cache} en \term{IndexedDB} worden hierin ondersteund~\cite{Hales2012}, meer daarover in~\ref{sec:html5-css3-js}.
+\term{WebSockets}, \term{Web Workers}, \term{Application Cache} en \term{IndexedDB} worden hierin ondersteund~\cite{Hales2012}.
+Deze kenmerken worden verder in meer detail uitgelegd in sectie~\ref{sec:html5-css3-js}.
 
-\subsection{Opera Mobile/Mini}
+\paragraph{Opera Mobile/Mini}
 Op het moment van schrijven is Opera Mobile 12.10 de beste mobiele HTML5-browser~\cite{Sights2012}. 
 Opera heeft eigenlijk twee aparte browsers, namelijk Opera Mobile en Opera Mini. 
 Bij deze laatste staat de browser \term{engine} op servers van Opera, waardoor het niet het mobiel apparaat is die de webpagina verwerkt. 

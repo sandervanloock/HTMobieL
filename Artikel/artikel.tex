@@ -31,6 +31,7 @@
 \usepackage{multirow}
 \usepackage{pgfplotstable} %nodig voor CSV to Latex
 \usepackage{booktabs} % voor layout comparisontable
+\usepackage{amsmath}
 
 %\usepackage[hyphens]{url}
 
@@ -330,7 +331,7 @@ Twitter followers ($T$),  GitHub stars ($S$),  GitHub forkers ($F$),  Stack Over
 The summation of these five numbers give the score for the framework's popularity.  
 
 \begin{equation}
-  T+S+F+SO+FB
+  POP_f = T_f+S_f+F_f+SO_f+FB_f
   \label{eq:populariteit}
 \end{equation}
 
@@ -342,7 +343,7 @@ The partial implementation is the POC's login that loads a long list.%, just lik
 The time to implement the POC ($t_{POC}$) and the login application ($t_{login}$) give the score for the framework's productivity. 
 
 \begin{equation}
-  {t_{POC} + t_{login}}
+  PROD_f = {t_{f,POC} + t_{f,login}}
   \label{eq:productiviteit}
 \end{equation}
 
@@ -358,10 +359,10 @@ The total of all challenges give the score for the framework's usage.
 \toprule
 \textbf{Score} & \textbf{Assessment criteria}\\
 \midrule
-$C_{i} = 2$ & Supported by the framework\\
-$C_{i} = 1$ & A plugin or HTML5 feature is needed\\
+$C_{f,i} = 2$ & Supported by the framework\\
+$C_{f,i} = 1$ & A plugin or HTML5 feature is needed\\
 %TODO: beter woord vinden
-$C_{i} = 0$ & No, custom or hacky implementation\\
+$C_{f,i} = 0$ & No, custom or hacky implementation\\
 \bottomrule
 \end{tabular}
 \caption{Assessment criteria for implementation challenges.}
@@ -369,7 +370,7 @@ $C_{i} = 0$ & No, custom or hacky implementation\\
 \end{table}
 
 \begin{equation}
-  \sum_{i=1}^{38}{\left(C_{i}\right)}
+  US_f = \sum_{i=1}^{38}{\left(C_{f,i}\right)}
   \label{eq:gebruik}
 \end{equation}
 
@@ -381,25 +382,33 @@ Only native browsers will be looked at.
 In total eight contexts will be checked for support.
 %,  similar as the cross-platform capabilities of~\cite{Sarrafi2012a}.  
 In each context,  a subset of the challenges from the previous criterion will be checked.  
-These are the challenge were the framework actually provided an implementation ($U_{i} > 0$).
-If the challenge works as expected $C_{c,i} = 1$.
-If some part of challenge is infeasible $C_{c,i} = 0$.
+These are the challenge were the framework actually provided an implementation ($C_{r,i} > 0$).
+If the challenge works as expected $C_{f,c,i} = 1$.
+If some part of challenge is infeasible $C_{f,c,i} = 0$.
 The summation of scores for each context will give the score for the framework's support.
 
 \begin{equation}
-  \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}C_{c,i}\right)}
+  SU_f = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}C_{f,c,i}\right)}
   \label{eq:ondersteuning}
 \end{equation}
 
 \paragraph{Performance}
 The loading time of an HTML5-application is a major bottleneck for performance.
-Therefor,  the loading time of the POC ($l_{c,POC}$) and login application ($l_{c,login}$) will be measured on eight devices.
-Also,  the loading time for a cached version of both the POC ($l_{c,POC_{cache}}$) and login application ($l_{c,login_{cache}}$) will be recorded.
+Therefor,  the loading time of the POC ($l_{f,c,POC}$) and login application ($l_{f,c,login}$) will be measured on eight devices.
+Also,  the loading time for a cached version of both the POC ($l_{f,c,POC_{cache}}$) and login application ($l_{f,c,login_{cache}}$) will be recorded.
 The summation of loading times will give the score for the framework's performance.
 
+% \begin{multline}
+%   PERF_f = \sum_{c=1}^{8}{\left(l_{f,c,POC}+l_{f,c,POC_{cache}}+l_{f,c,login} \\
+% 	 + l_{f,c,login_{cache + l_{r,c,list}}}\right)} 
+%   \label{eq:performantie}
+% \end{multline}
+
 \begin{equation}
-  \sum_{c=1}^{8}{\left(l_{c,POC}+l_{c,POC_{cache}}+l_{c,login}+l_{c,login_{cache}}\right)} 
-  \label{eq:performantie}
+\begin{split}
+PERF_f =  \sum_{c=1}^{8}\left(l_{f,c,POC}+l_{f,c,POC_{cache}} \right.\\  
+       \left. + l_{f,c,login} + l_{f,c,login_{cache}} + l_{r,c,list} \right)
+\end{split}
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

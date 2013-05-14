@@ -354,7 +354,7 @@ Deze worden in tabel \ref{tabel:toestellen-hci} weergegeven.
 
 De som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
 \begin{equation}
-  O_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}U_{r,i}\right)}
+  O_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}U_{r,c,i}\right)}
   \label{eq:ondersteuning}
 \end{equation}
 met $r$ de verschillende raamwerken,  $N$ het aantal geïmplementeerd uitdagingen en onderuitdagingen,  $c$ de verschillende contexten en $i$ de uitdagingen. 
@@ -411,7 +411,7 @@ De formule voor het performantiecriterium wordt dan:
 
 %TODO: factor van 850 buttons
 \begin{equation}
-  PE_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)} 
+  PE_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache} + r_{r,c,lijst}}\right)} 
   \label{eq:performantie}
 \end{equation}
 met $c$ de verschillende contexten en $r$ de verschillende raamwerken.
@@ -453,26 +453,26 @@ De formules om de relatieve scores te bereken worden hieronder weergegeven.
 De relatieve scores zullen gebruikt worden om het spinneweb op te stellen.
 
 \begin{equation}
-  REL(GM_r)=\frac{T_r+S_r+F_r+SO_r+FB_r}{\max_{m=1}^{4}{T_m+S_i+F_m+SO_m+FB_m}}
+  REL(GM_r)=\frac{GM_r}{\max_{m}{GM_m}}
   \label{eq:rel-populariteit}
 \end{equation}
 
 \begin{equation}
-  REL(PR_r) = \frac{\left({t_{r,POC} + t_{r,login}}\right)^{-1}}{\max_{m=1}^{4}{t_{m,POC} + t_{m,login}}}
+  REL(PR_r) = \frac{\left(PR_R\right)^{-1}}{\max_{m}{\left(PR_m\right)^{-1}}}
   \label{eq:rel-productiviteit}
 \end{equation}
 
 \begin{equation}
-  REL(GB_r) = \frac{\sum_{i=1}^{38}{\left(U_{r,i}\right)}}{\max_{m=1}^{4}{\sum_{i=1}^{38}{\left(U_{m,i}\right)}}}
+  REL(GB_r) = \frac{GB_R}{\max_{m}{GB_m}}
   \label{eq:rel-gebruik}
 \end{equation}
 
 \begin{equation}
-  REL(O_r) = \frac{\sum_{c=1}^{8}{\left(\sum_{i=1}^{N}U_{r,i}\right)}}{\max_{m=1}^{4}{\sum_{c=1}^{8}{\left(\sum_{i=1}^{N}U_{m,i}\right)}}}
+  REL(O_r) = \frac{O_r}{\max_{m}{O_m}}
   \label{eq:rel-ondersteuning}
 \end{equation}
 
 \begin{equation}
-  REL(PE_r)= \frac{\left(\sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)}\right)^{-1}}{\max_{m=1}^{4}{\sum_{c=1}^{8}{\left(l_{m,c,POC}+l_{m,c,POC_{cache}}+l_{m,c,login}+l_{m,c,login_{cache}}\right)}}}
+  REL(PE_r)= \frac{\left(PR_r\right)^{-1}}{\max_{m}{\left(PR_m\right)^{-1}}}
   \label{eq:rel-performantie}
 \end{equation}

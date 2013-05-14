@@ -161,6 +161,8 @@ De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en de login a
 \end{equation}
 waar $r$ de verschillende raamwerken voorstellen.
 
+%TODO aantal lijnen code hier?
+
 De uitkomsten van dit criterium zullen gestaafd worden met zes argumenten.
 Eerst zullen het aantal tools bekeken worden die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
 Ook zullen de factoren die de leercurve bepalen, worden geschat.
@@ -396,27 +398,15 @@ Dit criterium zal de laattijden van het raamwerk in rekening brengen.
 % 2 soorten performantie: het opstarten en het effectief renderen (duidelijk onderscheid uitschrijven)
 % zeggen dat we in JS de snelheid van renderen van 850 lijstelementen zullen opmeten 
 
-Hier onderscheiden zich vier gevallen.
+Performantie kan worden opgesplitst in twee verschillende factoren: opstarten en gebruiken van de applicatie.
+De eerste factor zal met laadtijden worden aangeduid,  de tweede met gebruikservaring.
+
+Bij de laadtijden onderscheiden zich vier gevallen.
 Ten eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($l_{r,c,POC}$). 
 Vervolgens zal de tijd worden opgemeten om de POC uit het cachegeheugen te laden ($l_{r,c,POC_{cache}}$).
 Dezelfde twee gevallen zullen ook voor de loginapplicatie die in sectie \ref{sec:vergelijking-productiviteit} werden geïntroduceerd, worden opgemeten ($l_{r,c,login}$ en $l_{r,c,login_{cache}}$).
 De redenen waarom deze applicatie wordt gebruikt, is omdat ervan kan worden uitgegaan dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
 Dit is in tegenstelling tot deze applicatie die gelijkaardig is in de vier raamwerken.
-De laadtijden kunnen vervolgens objectiever vergeleken worden en het aantal lijnen code kan verschillen verklaren.
-
-De laadtijden voor de vier gevallen zullen op acht verschillende apparaten worden opgemeten.
-Dit zijn dezelfde als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
-
-De formule voor het performantiecriterium wordt dan: 
-
-%TODO: factor van 850 buttons
-\begin{equation}
-  PE_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache} + r_{r,c,lijst}}\right)} 
-  \label{eq:performantie}
-\end{equation}
-met $c$ de verschillende contexten en $r$ de verschillende raamwerken.
-
-%TODO: hier ga er vanuit dat alles lukt, dus de totale tijd (download + js tijd) kunnen we toetsen aan jakob nielson met zijn grenzen 0.1s / 1s / 10s
 
 Het opmeten van laadtijden zal met PCAP Web Performance Analyzer gebeuren. %TODO referentie http://pcapperf.appspot.com/
 Deze tool kan HAR-bestanden (HTTP \term{Archive}) analyseren.
@@ -425,7 +415,26 @@ Om deze bestanden te verkrijgen moet een laptop als hotspot worden ingesteld en 
 Wireshark of TCPdump kunnen op de hotspot HTTP-verkeer opmerken en bijhorende HAR-bestanden aanmaken.
 
 Elke meting zal drie keer worden uitgevoerd.
-Het gemiddelde van de drie metingen zal de uiteindelijke laadtijd bepalen.
+Het gemiddelde van de drie metingen zal de uiteindelijke laadtijd bepalen. %TODO referentie 3 metingen ?
+
+De gebruikservaring zal gemeten worden door de tijd op te meten hoelang het raamwerk nodig heeft om GI-elementen te renderen.
+Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
+De tijd die het raamwerk nodig heeft om de lijst de renderen ($r_{r,c,lijst}$) kan gemeten worden in \js.
+
+
+De laadtijden en gebruikservaring zullen op acht verschillende apparaten worden opgemeten.
+Dit zijn dezelfde als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
+
+De formule voor het performantiecriterium wordt dan: 
+\begin{equation}
+  PE_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache} + r_{r,c,lijst}}\right)} 
+  \label{eq:performantie}
+\end{equation}
+met $c$ de verschillende contexten en $r$ de verschillende raamwerken.
+
+De score komt dus overeen met de responstijd van de applicatie.
+Dit kan gecategoriseerd worden met limieten zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  $PE_r < 0.1$,  $PE_r < 1$ en $PE_r < 10$ (Alle tijden worden in seconden uitgedrukt).
+De eerste twee categorieën zijn aanvaardbaar.
 
 Om de scores van het performantiecriterium te staven zullen twee eigenschappen van de code bekeken worden:  de downloadgrootte en het aantal lijnen HTML-code.
 Ook zullen de resultaten gecontroleerd worden met twee andere testen.

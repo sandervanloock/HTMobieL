@@ -3,7 +3,7 @@
 In dit hoofdstuk wordt gestart met het bekijken welke mobiele apparaten er allemaal bestaan (\ref{sec:mobiele-apparaten}). 
 Vervolgens wordt er gekeken wat er onder de motorkap van deze apparaten zit, namelijk welke mobiele besturingssystemen (\ref{sec:mobiele-besturingssystemen}), welke mobiele applicaties (\ref{sec:mobiele-applicaties}) en welke mobiele webbrowsers (\ref{sec:mobiele-webbrowsers}) er bestaan. 
 Daarna komen de drie bouwblokken van het web aan bod (\ref{sec:html5-css3-js}), namelijk HTML, CSS en \js{}.
-Hierna wordt ingegaan op vele mobiele HTML5-raamwerken (\ref{sec:mobiele-html5-raamwerken}).  
+Hierna wordt ingegaan op bestaande mobiele HTML5-raamwerken (\ref{sec:mobiele-html5-raamwerken}).  
 Ten slotte worden verschillende, reeds bestaande manieren om raamwerken te vergelijken, bekeken (\ref{sec:vergelijken-raamwerken}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,7 +13,8 @@ Ten slotte worden verschillende, reeds bestaande manieren om raamwerken te verge
 \label{sec:mobiele-apparaten}
 Mobiele apparaten bestaan in alle soorten en maten, met weinig of veel opties, voor weinig of veel geld. 
 Het verdient daarom de aandacht om deze diversiteit onder de loep te nemen. 
-Eerst wordt ingegaan op de soorten mobiele apparaten volgens \cite{GCF2013} en daarna op de kenmerken volgens \cite{PhilDutson2012}.
+Eerst wordt ingegaan op drie soorten mobiele apparaten, namelijk de smarthone, tablet en e-reader~\cite{GCF2013}.
+Daarna wordt stilgestaan bij de kenmerken van deze apparaten~\cite{PhilDutson2012}.
 
 \subsection{Soorten}
 Sinds de voorstelling van de Apple iPhone in 2007~\cite{David2011}, stijgt het gebruik van de smartphone ontzettend snel in onze samenleving.  
@@ -23,7 +24,7 @@ Foto's of video's nemen, navigeren naar het dichtstbijzijnde restaurant of nog s
 Hoewel Apple de lat hoog heeft gelegd met het uitbrengen van de iPhone, zijn er ook nog andere spelers op de markt. 
 Zo zijn er bijvoorbeeld de op Google's Android gebaseerde smartphones zoals de Nexus 4 en de op Windows Phone gebaseerde smartphones zoals de Nokia Lumia 800.
 
-Ook de tablet behoort tot de categorie van mobiele apparaten.
+De tweede soort mobiele apparaten zijn tablets.
 Tegen 2016 zulen er 760 miljoen tablets in gebruik zijn~\cite{Gillett2012}.
 Ook hier kan terug gedacht worden aan één van Apple's succesvolle producten, namelijk de in 2010 uitgebrachte iPad~\cite{Apple2010}. 
 Er dient echter wel opgemerkt te worden dat tien jaar voordien, Microsoft al eerder een tablet uitbracht met veel minder succes~\cite{Microsoft2000}.
@@ -50,7 +51,8 @@ De eerste iPhone had een resolutie van 320$\times$480 en een 3,5” scherm, wat 
 De iPhone~4 (Retina) daarentegen heeft een resolutie van 640$\times$960 en een 3,5” scherm, wat neerkomt op 326 PPI. 
 Met andere woorden zijn er meer pixels op dezelfde fysieke grootte geplaatst, wat een scherper beeld tot resultaat heeft. 
 
-% TODO Tim: afbeelding misschien vectorieel maken?
+% TODO voor Sander: is deze afbeelding nuttig? 
+% TODO afbeelding vectorieel maken
 \begin{figure}
   \centering
   \includegraphics[height=0.8\textwidth]{figuren/mobile-devices-resolutions.png}
@@ -68,10 +70,6 @@ De laatstgenoemde soort maakt gebruik van veranderingen in frequentie.
 Door het scherm aan te raken met een vinger, dat een geleider is, ontstaat er een kleine verandering in frequentie die gedetecteerd wordt. 
 Niet-geleidende materialen zullen geen frequentieverandering veroorzaken, wat verklaart dat zo'n scherm niet reageert als het wordt aangeraakt met een handschoen.
 
-\subsubsection{GPS}
-Met het \term{global positioning system} (GPS) kan de gebruiker zijn locatie opvragen en doorgeven aan een applicatie om zo bijvoorbeeld het dichtstbijzijnde restaurant te vinden. 
-Doordat het wat kan duren vooraleer de locatie is vastgesteld via GPS, kan het mobiel apparaat ook gebruik maken van mobiele masten of het Internet om zo, hetzij minder nauwkeurig, sneller de locatie te bepalen.
-
 \subsubsection{Camera}
 Praktisch ieder recent mobiele apparaat is uitgerust met een camera. 
 Sommige bevatten zelfs twee camera's. 
@@ -84,30 +82,36 @@ Het laatstgenoemde wordt gebruikt om de populaire QR-code in te scannen en te zi
 Zo'n code kan tekst bevatten, een link naar een website, een telefoonnummer, enzovoort. 
 
 \subsubsection{Verbinding}
-%TODO Tim: Wifi, 3G, EDGE beter uitleggen
+Iedereen wil zoveel mogelijk met elkaar en het Internet verbonden zijn en dit kan ook op mobiele apparaten. 
+Enerzijds kan gebruik worden gemaakt van mobiel Internet en anderzijds van draadloos Internet.
+Daarnaast kan data ook uitgewisseld worden tussen apparaten, zonder hiervoor het Internet te gebruiken.
+Een voorbeeld hiervan is Bluetooth dat een draadloze verbinding op korte afstand opzet.
 
-In deze periode wil iedereen met elkaar verbonden zijn, dus ook op mobiele apparaten.
-Hier wordt kort Wifi, 3G, Bluetooth en infrarood besproken.
-Het mobiel apparaat kan meerdere mogelijkheden voorzien om verbinding te maken. 
-Enerzijds kan dit via Wi-Fi. Daarnaast zijn er ook nog andere technologieën zoals 3G mogelijk.
+\paragraph{Mobiel Internet}
+Om dit in perspectief te plaatsen wordt eerst even teruggegaan in de tijd van mobiele communicatie.
+Helemaal in het begin was er 1G, de eerste generatie mobiele telefonie, waarbij gesprekken analoog werd verzonden.
+2G gebruikte daarentegen een digitaal netwerk, waarbij nieuwe diensten zoals SMS tekstberichten beschikbaar werden~\cite{Miami2008}.
 
-% \subsubsection{Oriëntatie}
-% Een handig kenmerk is dat vele mobiele apparaten kunnen detecteren hoe ze gehouden worden door de gebruiker. Dit maakt het mogelijk om de informatie zo optimaal mogelijk op het scherm te tonen. Men kan bijvoorbeeld een verschillende lay-out voorzien voor een staand en liggend scherm.
-% 
-% \subsubsection{Versnellingsmeter}
-% Als het mobiele apparaat een versnellingsmeter bevat, is het mogelijk om hiervan in spelletjes e.d. gebruik van te maken.
-% 
-% \subsubsection{Afstandssensor}
-% Niet veel mobiele apparaten beschikken over dit kenmerk, maar dit kan bijvoorbeeld gebruikt worden wanneer een gebruiker met zijn smartphone aan het bellen is, waarbij het scherm zichzelf automatisch uitschakelt als het tegen de wang wordt gehouden.
+Op de overgang van 2G naar 3G worden General Packet Radio Service~(GPRS) en Enhanced Data Rates for GSM Evolution~(EGDE) geplaatst.
+GPRS is een uitbereiding op 2G waarbij data over het mobiele netwerk kan worden uitgewisseld.
+De gebruiker moet slechts één maal inbellen op het netwerk en blijft daarna altijd verbonden.
+Omdat niet alle telecomproviders hun hardware wilden aanpassen naar 3G, gebruikten ze EGDE dat een uitbreiding is op GPRS en grotere snelheden mogelijk maakt~\cite{Lauwers2007}.
 
-% \subsubsection{Fysiek toetsenbord}
-% Sommige apparaten beschikken ook nog over een fysiek toetsenbord, soms ook in combinatie met een aanraakscherm. 
+3G maakt gebruikt van een volledige nieuwe technologie, namelijk Universal Mobile Telecommunications System~(UTMS).
+Het is dus niet langer een uitbreiding op het bestaande netwerk zoals dat voor GPRS het geval was.
+De vraag naar breedband blijft, waardoor High-Speed Downlink Packet Access~(HSDPA) werd ontwikkeld. 
+Het is een nieuwe implementatie van UTMS dat nog grotere snelheden toelaat~\cite{Lauwers2007}.
 
-% \subsubsection{Barometer}
-% Sommige mobiele apparaten zijn uitgerust met een barometer. Naast het meten van de druk die kan helpen bij het bepalen van het weer, helpt deze de GPS bij het bepalen van de locatie.
+Op dit moment zijn telecomoperatoren volop bezig met de uitrol van 4G.
+Dit maakt gebruik van LTE Advanced, een verbetering van Long Term Evolution~(LTE).
 
-%TODO Sander:  Als er in de tekst naar kenmerken van een device wordt verwezen krijg je altijd het voorbeeld GPS of Camera.  Dat lijken mij ook de twee belangrijkste voor POC.  Deze twee zijn mss voldoende om dan te bespreken?
-%TODO Tim: Inderdaad, of we kunnen deze kleine paragrafen allemaal in 1 grote steken.
+\paragraph{Draadloos Internet}
+Net zoals laptops draadloos verbinden maken met Internet via Wifi, kan dit ook op mobiele apparaten.
+Vaak is de kost van mobiel Internet groter dan die van draadloos Internet, waardoor dit type van verbinding de voorkeur krijgt.
+
+\subsubsection{GPS}
+Met het \term{global positioning system} (GPS) kan de gebruiker zijn locatie opvragen en doorgeven aan een applicatie om zo bijvoorbeeld het dichtstbijzijnde restaurant te vinden. 
+Doordat het wat kan duren vooraleer de locatie is vastgesteld via GPS, kan het mobiel apparaat ook gebruik maken van mobiele masten of het Internet om zo, hetzij minder nauwkeurig, sneller de locatie te bepalen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -118,6 +122,10 @@ Net zoals er brede waaier bestaat aan besturingssystemen voor computers, geldt d
 In deze sectie wordt een overzicht gegeven van mobiele besturingssystemen met een significant marktaandeel~\cite{David2011, Hales2012} zoals iOS en Android, maar ook een nieuwkomer op de markt, namelijk Windows Phone.
 iOS en Android haalden respectievelijk 14,9\% and 75,0\% in het derde kwartaal van 2012.
 Windows Phone haalt 2\% van het marktaandeel binnen in datzelfde kwartaal~\cite{Protalinski2012}.
+
+Bij ieder besturingssysteem zal ook over de winkel gepraat worden waar applicaties kunnen worden gevonden.
+Net zoals programma's geïnstalleerd worden op een computer, kan dit ook voor mobiele apparaten.
+Deze aangeboden applicaties worden verzameld in een winkel waarna de gebruiker ze, al dat niet gratis, kan downloaden en installeren.
 
 \begin{table}[t]
 \centering
@@ -165,11 +173,12 @@ Het is duidelijk dat iOS gebonden is aan de hardware van Apple.
 Verschillende versies volgden elkaar op: iOS 2 (juli 2008), iOS 3 (juni 2009), iOS 4 (juni 2010) en iOS 5 (oktober 2011)~\cite{Deitel2012, PhilDutson2012}. 
 
 De nieuwste versie, iOS 6, werd uitgegeven in september 2012. 
-Nieuwigheden zijn onder andere hun eigen Maps (in plaats van Google Maps) en een Pass Kit (de vervanging van het traditionele trein-, cinematicket, enz.). 
-Daarnaast zijn er ook ander andere verbeteringen uitgevoerd met betrekking tot sociale media en spraakcommando's~\cite{Deitel2012}. 
+Voorbeelden van nieuwigheden zijn de sterkere integratie van sociale media zoals \fb{} en Twitter en het gebruik van spraakcommando's~\cite{Deitel2012}. 
 Op tabel \ref{tabel:marktaandeel-ios-android} is te zien dat drie vierde van de iOS-gebruikers al iOS 6 gebruikt.
 
-Browsen op het web gebeurt met de geïnstalleerde Mobile Safari webbrowser (zie \ref{sec:mobile-safari}). Applicaties kunnen gedownload worden in de App Store, die sinds iOS 2 aanwezig is~\cite{Deitel2012}. 
+Browsen op het web gebeurt met de geïnstalleerde Mobile Safari webbrowser (zie \ref{sec:mobile-safari}). Applicaties kunnen gedownload worden in winkel genaamd App Store, die sinds iOS 2 aanwezig is~\cite{Deitel2012}. 
+%TODO referentie?
+Op deze winkel is er sterkte controle op de kwaliteit van de aangeboden applicaties.
 
 \subsection{Android}
 Android Inc. werd opgericht in 2003 en werd in 2005 overgekocht door Google Inc~\cite{Satyesh2012}. 
@@ -180,7 +189,11 @@ Hun nieuwste versie, Android~4.2, werd aangekondigd in oktober 2012~\cite{Sawers
 
 Op tabel \ref{tabel:marktaandeel-ios-android} is het marktaandeel te zien van de verschillende Android-versies, waargenomen over een periode van 14 dagen. 
 Het is duidelijk dat Gingerbread~(Android~2.3) bijna de helft van het marktaandeel inneemt.
-Applicaties worden gedownload in Google Play. 
+Applicaties worden gedownload in de winkel genaamd Google Play. 
+De controle op de kwaliteit van de aangeboden applicaties is minder strikt dan die van Apple.
+Dit wordt opgelost door de gebruiker de toestemming te vragen op hij de rechten die applicatie wenst, toe te kennen.
+Zo kan een applicatie bijvoorbeeld het recht vragen om de SMS-berichten van het apparaat te lezen.
+Indien de gebruiker hiermee niet akkoord gaat, kan hij de applicatie niet downloaden.
 Android bevat ook een standaard browser (zie \ref{sec:android-browser}).
 
 \subsection{Windows Phone}
@@ -188,6 +201,8 @@ Windows Phone van Microsoft werd aangekondigd in oktober 2010 als vervanging voo
 Dit is duidelijk te zien als er gekeken wordt naar de versies: de laatste versie was Windows Mobile~6.5.3 en de eerste versie is Windows Phone~7. 
 In 2011 ging Microsoft een partnerovereenkomst aan met Nokia om zo snel de markt te kunnen overwinnen~\cite{Microsoft2011}. 
 De nieuwste versie, Windows Phone~8, werd aangekondigd in oktober 2012~\cite{Reed2012}. 
+Applicaties worden gedownloaded in de winkel genaamd Windows Phone Store.
+%TODO: verder uitzoeken hoe het proces van Windows Phone Store werkt?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -386,6 +401,8 @@ Er dient opgemerkt te worden dat aangehaalde klassen zoals CSS3 en geolocatie ni
 Toch worden ze onder de koepel van HTML5 gezien~\cite{MacDonald2011}.
 
 \subsubsection{Kenmerken detecteren en opvullen}
+%TODO Tim: introductie waarom dat nodig is
+
 \paragraph{Kenmerken detecteren}
 Door enerzijds de levendigheid van HTML5 en anderzijds het verdeelde landschap van browsers en besturingssystemen, worden niet alle kenmerken van HTML5 overal ondersteund. 
 Een eerste mogelijkheid is om zelf op te zoeken welke kenmerken op welke apparaten werken. 
@@ -412,18 +429,6 @@ Daarna zullen er iteratief elementen worden toegevoegd tot het moment dat de bet
 De tegenhanger hiervan is \emph{graceful degradation}. 
 Hierbij wordt eerst een versie ontwikkeld die enkel in de meest recentste browser kan worden getoond. 
 Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implementeren waardoor ook minder recente browsers de applicatie kunnen weergeven.
-
-%\subsubsection{HTML5e}
-%Een bedrijf wil enerzijds een stabiele webapplicatie en wil anderzijds ook van deze nieuwe kenmerken zoveel mogelijk gebruik gaan maken. 
-%De term HTML5e~\cite{Hales2012} omvat de vijf meest ondersteunde HTML5-kenmerken in browsers. 
-%Op figuur \ref{fig:html5e} wordt een tabel getoond met de kenmerken die voor mobiele webbrowsers van toepassing zijn.
-%
-%\begin{figure}
-%  \centering
-%  \includegraphics[width=0.8\textwidth]{figuren/html5e}
-%  \caption{HTML5e mobiele ondersteuning~\cite{Hales2012}}
-%  \label{fig:html5e}
-%\end{figure}
 
 \subsection{CSS3}
 \label{ref:css3}

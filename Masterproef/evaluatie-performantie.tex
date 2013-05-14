@@ -1,14 +1,20 @@
 \section{Performantie}
 \label{sec:evaluatie-performantie}
 
-%%%%%%%%%%%%
+In sectie~\ref{sec:evaluatie-downloadtijd} zal eerst de downloadtijd worden besproken.
+Daarna zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de gebruikerservaring worden besproken.
 
-Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel niet gecachet als gecachet, voor de vier raamwerken getoond.
+%%%%%%%%%%%%%%%%%%
+
+\subsection{Downloadtijd}
+\label{sec:evaluatie-downloadtijd}
+
+Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figuren/performance.pdf}
-  \caption{Gemiddelde downloadtijd van POC,  POC uit cache,  login en login uit cache voor elk raamwerk (minder is beter).}
+  \caption{Gemiddelde downloadtijd van POC,  POC uit cache,  login en login uit cache voor elk raamwerk. Minder is beter.}
   \label{fig:performantie}
 \end{figure}
 
@@ -18,66 +24,120 @@ Als er gekeken wordt naar de POC heeft \lungo{} maar een derde van de tijd nodig
 Aangezien niet alles werd geïmplementeerd in de POC voor \lungo{}, zou men kunnen stellen dat dat de reden is.
 Als er echter wordt gekeken naar de loginapplicatie waar alles wel vergelijkbaar is, dan blijft \lungo{} het snelste raamwerk.
 Het is zelfs meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
-Deze drie raamwerken behalen quasi dezelfde opstarttijd, maar ook hier is \st{} terug de traagste.
+Deze drie raamwerken behalen quasi dezelfde opstarttijd.
+\kendo{} en \st{} nemen respectievelijk voorlaatste en laatste plaats in.
+Dit wordt verklaard door het gebruik van een architectuur waardoor een grotere \js{}-code dient te worden gedownload ten opzichte van raamwerken die geen architectuur afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
 
-Als naar de gecachte versie wordt gekeken voor zowel POC als loginapplicatie, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde.
+Als naar de versie uit cache wordt gekeken voor zowel POC als loginapplicatie, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde.
 Daarentegen behaalt \st{} telkens een vele tragere tijd.
 Enerzijds komt dit doordat de drie eerstgenoemde raamwerken enkel gebruik maken van HTML5 Application Cache.
-\st{} gebruikt daarnaast ook nog een eigen mechanisme (zie \ref{sec:performantie-st}) waardoor de grotere laadtijd wordt verklaard.
+\st{} gebruikt daarnaast ook nog een eigen mechanisme waardoor de grotere laadtijd wordt verklaard (zie \ref{sec:performantie-st}).
 Anderzijds gebruiken de drie eerstgenoemde raamwerken Yeoman om de applicatie te bouwen.
 De webapplicaties gemaakt \st{} gebruiken daarentegen Sencha Cmd.
 
 %%%% De cache factor van ST is constant (gemiddeld 1,8)
 %%%% De andere raamwerken hebben een beduidend grotere cache factor 
 
-Indien \st{} buiten beschouwen wordt geladen, duurt het eerste keer laden van de POC gemiddeld 5,73 seconden. 
-Het laden van de gecachete versie duurt slechts gemiddeld 400 milliseconden.
+Indien \st{} buiten beschouwen wordt gelaten, duurt het eerste keer laden van de POC gemiddeld 5,73 seconden. 
+Het laden van de versie uit cache duurt slechts gemiddeld 400 milliseconden.
 De eerste keer laden van de loginapplicatie duurt gemiddeld 3,32 seconden.
-Indien deze werd gecachet, duurt dit nog slechts gemiddeld 420 milliseconden.
-Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993}.
-Hij stelt dat indien de tijden onder 1 seconde blijven, de gebruiker de vertraging waarneemt, maar het zijn gedachtengang niet belet.
-Tussen de 1 en 10 seconden dient er feedback over het laden te worden gegeven aan de gebruiker.
-De browser neemt hiervoor de taak op zich door bij het laden een indicator te tonen.
+Indien deze uit cache komt, duurt dit nog slechts gemiddeld 420 milliseconden.
+Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993} doordat de tijden uit cache onder de seconde blijven.
+Volgens Nielsen dient er wel feedback over het laden te worden gegeven aan de gebruiker.
+Dit neemt de browser voor zich door bij het laden een laadbalk of spinner te tonen.
 
-%TODO: architectuur -> meer code, dus minder performant
+%%%%%%%%%%%%%%%%%%
 
-%%%%% BEGIN HIER HIERSCHRIJVEN %%%%%%
+\subsection{Gebruikerservaring}
+\label{sec:evaluatie-gebruikerservaring}
+De gebruikerservaring via \js{} kon enkel worden opgemeten in \jqm{} en \kendo{}.
+Bij de twee andere raamwerken werden de betreffende \term{events} niet gevonden om correct de tijd op te meten.
+% TODO: eventueel referenties naar vragen op so
+Doordat er maar data voor twee raamwerken voor handen was, werd deze methode vervangen door een subjectieve lijsttest.
+Deze bestaat eruit de vlotheid van het scrollen door de lijst van 850 lijstelementen voor de vier raamwerken op de 8 apparaten te vergelijken.
+Per apparaat word een score van 1, 2, 3 of 4 uitgedeeld aan de raamwerken.
+Hierbij is 4 de beste score wat overeenkomt met het vlotste scrollen door de lijst relatief ten opzichte van de drie andere raamwerken.
+Deze test werd uitgevoerd door twee personen.
+% TODO: is dat nu goed of slecht als we dat maar met 2 personen hebben gedaan?
+%Er dient echter opgemerkt te worden dat het tijdsbudget het niet toeliet om deze test te laten uitvoeren door minstens vijf personen te laten uitvoeren, wat voorgesteld wordt door Nielsen.
 
-%TODO uitleggen dat we de JS perfomrantie hebben proberen op te meten
-% het is gelukt voor jQM en Kendo, maar niet voor ST en Lungo
-% eventueel referenties naar vragen op so
-% daarom werd besloten om deze meting er uit te laten ,aangezien we maar toch 2 frameworks konden meten
-% dit wordt vervangen door een subjectieve lijsttest (+ fout tegen nielson, tijdsbudget, we moesten 5 gebruikers gebruikers hebben, maar hadden er maar 2, met name de auteurs zelf)
+Om de totaalscore van een raamwerk te bepalen worden de scores voor dat raamwerk op ieder apparaat opgeteld.
+In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwerk dat de vlotste scrolervaring aanbiedt.
+
+%TODO: invoegen van nieuwe formule 
 % hierdoor wordt de formule aangepast, aangezien lijsttest (uitgedrukt in eenheid) en downloadtijd (uitgebrukt in seconden) niet kunnen worden opgeteld, daarom als fator gebruiken
 % van de totale downloaded wordt gedeeld met die factor 
 
-% table subjectieve testen loginlijsten toeveogen (8 devices)
+In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 
-% VERWERKEN TEKST SANDER
-%Een andere test om de score te toetsen kijkt naar de gebruikservaring.
-%Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
-%De auteurs zullen de ervaring bij het scrollen van de lijst vergelijken op de acht apparaten.
-%De ervaringen per apparaat zullen vervolgens relatief ten opzichte van elkaar beoordeeld worden.
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Apparaat,ST,Kendo,jQM,Lungo},
+  columns/Apparaat/.style={column name=\textbf{Apparaat}, column type={l}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={l}},   
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/performantie-gebruikerservaring.csv}
+\caption{Gebruikerservaring voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
+\label{tabel:evaluatie-performantie-gebruikerservaring}
+\end{table}
 
-% onderstaande sectie hierwerken, gebruikservaring is geen verklaring meer.
-%\paragraph{Gebruikservaring}
-Een andere test om de score te toetsen kijkt naar de gebruikservaring.
-Hiervoor werd door de lijst van $850$ elementen gescrold, die getoond wordt na aanmelden op de loginapplicatie.
-De test werd uitgevoerd op de acht apparaten van tabel~\ref{tabel:toestellen-hci}.
-De totaalscores voor alle devices is in tabel~\ref{tabel:performantie-verklaring} terug te vinden.
 \st{} behaalde de maximale score.
-Dit wil zeggen dat op alle toestellen het scollen door de lijst van \st{} het vlotst ging.
+Dit wil zeggen dat op alle toestellen het scrollen door de lijst van \st{} het vlotst ging.
 \jqm{} werd zes keer als tweede beste beoordeeld. 
 Op de \htc{} liep \kendo{} vlotter,  op de \ipadi{} was \lungo{} nummer twee.
-De lijst genereren met \kendo{} op iOS toestellen was onmogelijk omdat de applicatie de browser liet crashen.
+De lijst genereren met \kendo{} op iOS-toestellen was onmogelijk omdat de applicatie de browser liet crashen.
+De reden alsook de grens waarom \kendo{} niet crasht op iOS-toestellen werd door tijdsbudget niet gecontroleerd.
+Een mogelijke denkpiste is dat \kendo{} een overhead genereerd die het maximale toegelaten geheugen voor het iOS-besturingssysteem overschrijdt.
 Op Android toestellen kon de \kendo{} lijst echter wel worden getoond.
-%TODO: dat weten we niet, enkel dat het crasht.
-% we hebben zowel de reden niet verder gecontroleerd alsook de grens tot waar het niet crasht wegens tijdsbudget
-Dit wil zeggen dat de overhead die \kendo{} genereerd, het maximale toegelaten geheugen van het iOS besturingssysteem overschrijdt.
 De score van \kendo{} is dus slechts voor vier apparaten.
 
+
+%%%%%%%%%%%%%%%%%%
+
+\subsection{Performantie}
 % nieuwe formule
 % nieuwe tabel: 3 rijen (totale download, factor, nieuw abs totaal)
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Performantie,ST,Kendo,jQM,Lungo},
+  columns/Performantie/.style={column name=\textbf{Performantie}, column type={l}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={l}}, 
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/performantie.csv}
+\caption{Overzicht van performantie voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa). Minder is beter.}
+\label{tabel:evaluatie-gebruik}
+\end{table}
 
 %%%%% TOT HIER HIERSCHRIJVEN %%%%%%
 
@@ -115,6 +175,7 @@ Tabel~\ref{tabel:performantie-verklaring} bevat het aantal lijnen HTML-code dat 
 Hieruit is duidelijk te zien welke raamwerken opmaakgedreven zijn.
 %TODO Sander: moet hier nog meer vermeld worden?
 
+%TODO geen komma's in de tabellen als dat niet nodig is
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -125,7 +186,7 @@ Hieruit is duidelijk te zien welke raamwerken opmaakgedreven zijn.
   string type,
   header=true,
   columns={Performantie Metrieken,jQM,ST,Kendo,Lungo},
-  columns/Performantie/.style={column name=\textbf{Performantie Metrieken}, column type={l}},  
+  columns/Performantie Metrieken/.style={column name=\textbf{Performantie}, column type={l}},  
   columns/ST/.style={column name=\textbf{\sta}, column type={c}},
   columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
   columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
@@ -134,7 +195,6 @@ Hieruit is duidelijk te zien welke raamwerken opmaakgedreven zijn.
     before row=\toprule,
     after row=\midrule},
   every last row/.style={
-  	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/performantie/performantie-verklaring.csv}
 \caption{Metrieken gebruikt bij de verklaring van performantiecriterium voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}

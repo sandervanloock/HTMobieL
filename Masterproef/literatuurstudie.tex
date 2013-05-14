@@ -359,7 +359,9 @@ Hieronder worden deze bouwstenen dan ook toegelicht.
 
 \subsection{HTML5}
 \label{sec:html5}
-Zoals uitgelegd in \cite{MacDonald2011} stopte in 1998 het W3C (World Web Consortium) met het werken aan de HTML-standaard (HyperText Markup Language) en alle energie ging uit naar zijn opvolger: XHTML 1.0 (eXtensible HyperText Markup Language), een verbeterde HTML-versie die XML-gedreven (Extensible Markup Language) is. 
+HTML5 is een opmaaktaal die gebruikt wordt om webpagina's mee te maken.
+De 5 in HTML5 impliceert al dat de taal een lange weg heeft afgelegd.
+Zoals Matthew MacDonald~\cite{MacDonald2011} uitlegt stopte in 1998 het W3C (World Web Consortium) met het werken aan de HTML-standaard (HyperText Markup Language) en alle energie ging uit naar zijn opvolger: XHTML 1.0 (eXtensible HyperText Markup Language), een verbeterde HTML-versie die XML-gedreven (Extensible Markup Language) is. 
 XHTML kwam in grote mate overeen met HTML, maar de syntax was veel strikter. 
 In het begin kon het zijn naam waarmaken en webontwerpers helpen betere resultaten te boeken doordat ze slechte gewoontes moesten opgeven. 
 Jammer genoeg bleven de beloofde voordelen uit. 
@@ -397,7 +399,7 @@ Iedere klasse wordt met enkele concrete voorbeelden aangehaald.
 
 \begin{enumerate}
 \item \textbf{Multimedia} 
-De nieuwe video- en audiotags maken het mogelijk om video- en geluidsfragmenten toe te voegen zonder gebruik te maken van plug-ins van derden zoals Adobe Flash en Microsoft Silverlight.
+De nieuwe video- en audiotags maken het mogelijk om video- en geluidsfragmenten toe te voegen zonder gebruik te maken van plug-ins van derden zoals Adobe Flash~\cite{Adobe2013} en Microsoft Silverlight~\cite{Microsoft2013}.
 
 \item \textbf{Offline en opslag}  
 Mobiele apparaten zijn onstabiel in hun verbinding met het Internet. HTML5 voorziet het offline werken in de cache, lokale opslag (vroeger kon dit enkel via de zogenaamde cookies) en een API om bestanden te manipuleren.
@@ -430,12 +432,15 @@ Er dient opgemerkt te worden dat aangehaalde klassen zoals CSS3 en geolocatie ni
 Toch worden ze onder de koepel van HTML5 gezien~\cite{MacDonald2011}.
 
 \subsubsection{Kenmerken detecteren en opvullen}
-%TODO Tim: introductie waarom dat nodig is
+Door enerzijds de levendigheid van HTML5 en anderzijds het verdeelde landschap van browsers en besturingssystemen, worden niet alle kenmerken van HTML5 overal ondersteund. 
+Hierdoor zal ten eerste moeten worden gedetecteerd of het kenmerk al dan niet wordt ondersteund.
+Ten tweede, indien het kenmerk niet wordt ondersteund, zal het moeten worden opgevuld met een vervanger.
+Ten derde zal deze aanpak ook vervat worden in de werking van de raamwerken (zie hoofdstuk \ref{chap:raamwerken}) onder de vorm van \emph{progressive enhancement} en \emph{graceful degradation}.
+Deze drie ideeën worden hieronder kort toegelicht.
 
 \paragraph{Kenmerken detecteren}
-Door enerzijds de levendigheid van HTML5 en anderzijds het verdeelde landschap van browsers en besturingssystemen, worden niet alle kenmerken van HTML5 overal ondersteund. 
-Een eerste mogelijkheid is om zelf op te zoeken welke kenmerken op welke apparaten werken. 
-Dit kan gecontroleerd worden op bijvoorbeeld \exturl{www.caniuse.com} en \exturl{www.mobilehtml5.org}~\cite{MacDonald2011}. 
+Er kan zelf worden opgezocht welke kenmerken op welke apparaten werken. 
+Dit kan bijvoorbeeld gecontroleerd worden op websites Can I Use en Mobile HTML5 Compatibility~\cite{Deveria2013c,Firtman2013an,MacDonald2011}. 
 
 Wat nog handiger is, is om op het apparaat zelf te detecteren of het gewenste kenmerk beschikbaar is. 
 Een erg handige tool hiervoor is Modernizr~\cite{Modernizr2012}. 
@@ -501,7 +506,7 @@ Waar vroeger enkel gewerkt kon worden met veilige lettertypes voor het web, is h
 Het heeft een lange weg afgelegd tot nu en is niet altijd even ernstig genomen. 
 Dit kwam omdat er niet werd ingezien wat er allemaal mee kon worden gedaan. 
 
-Op dit moment is het maar al te duidelijk waar \js{} in uitblinkt: het aanpassen van het \term{document object model} of kortweg DOM~\cite{PhilDutson2012}. 
+Op dit moment is het maar al te duidelijk waar \js{} in uitblinkt: het aanpassen van het \term{document object model}~(DOM)~\cite{PhilDutson2012}. 
 Dit is een API voor HTML-documenten~\cite{Hegaret2004}. 
 Hierdoor kunnen dynamische interfaces gecreëerd worden, kan op gebeurtenissen - zoals ergens op klikken - onmiddellijk gereageerd worden en is de website dan ook meer bruikbaar geworden door deze directe feedback~\cite{McFarland2011}.
 

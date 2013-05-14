@@ -90,8 +90,8 @@ Een voorbeeld hiervan is Bluetooth dat een draadloze verbinding op korte afstand
 \paragraph{Mobiel Internet}
 Om dit in perspectief te plaatsen wordt eerst even teruggegaan in de tijd van mobiele communicatie.
 Helemaal in het begin was er 1G, de eerste generatie mobiele telefonie, waarbij gesprekken analoog werd verzonden.
+2G gebruikte daarentegen een digitaal netwerk, waarbij nieuwe diensten zoals SMS tekstberichten beschikbaar werden~\cite{Miami2008}.
 
-2G gebruikte daarentegen een digitaal netwerk, waarbij nieuwe diensten zoals SMS tekstberichten beschikbaar werden.
 Op de overgang van 2G naar 3G worden General Packet Radio Service~(GPRS) en Enhanced Data Rates for GSM Evolution~(EGDE) geplaatst.
 GPRS is een uitbereiding op 2G waarbij data over het mobiele netwerk kan worden uitgewisseld.
 De gebruiker moet slechts één maal inbellen op het netwerk en blijft daarna altijd verbonden.
@@ -113,24 +113,6 @@ Vaak is de kost van mobiel Internet groter dan die van draadloos Internet, waard
 Met het \term{global positioning system} (GPS) kan de gebruiker zijn locatie opvragen en doorgeven aan een applicatie om zo bijvoorbeeld het dichtstbijzijnde restaurant te vinden. 
 Doordat het wat kan duren vooraleer de locatie is vastgesteld via GPS, kan het mobiel apparaat ook gebruik maken van mobiele masten of het Internet om zo, hetzij minder nauwkeurig, sneller de locatie te bepalen.
 
-% \subsubsection{Oriëntatie}
-% Een handig kenmerk is dat vele mobiele apparaten kunnen detecteren hoe ze gehouden worden door de gebruiker. Dit maakt het mogelijk om de informatie zo optimaal mogelijk op het scherm te tonen. Men kan bijvoorbeeld een verschillende lay-out voorzien voor een staand en liggend scherm.
-% 
-% \subsubsection{Versnellingsmeter}
-% Als het mobiele apparaat een versnellingsmeter bevat, is het mogelijk om hiervan in spelletjes e.d. gebruik van te maken.
-% 
-% \subsubsection{Afstandssensor}
-% Niet veel mobiele apparaten beschikken over dit kenmerk, maar dit kan bijvoorbeeld gebruikt worden wanneer een gebruiker met zijn smartphone aan het bellen is, waarbij het scherm zichzelf automatisch uitschakelt als het tegen de wang wordt gehouden.
-
-% \subsubsection{Fysiek toetsenbord}
-% Sommige apparaten beschikken ook nog over een fysiek toetsenbord, soms ook in combinatie met een aanraakscherm. 
-
-% \subsubsection{Barometer}
-% Sommige mobiele apparaten zijn uitgerust met een barometer. Naast het meten van de druk die kan helpen bij het bepalen van het weer, helpt deze de GPS bij het bepalen van de locatie.
-
-%TODO Sander:  Als er in de tekst naar kenmerken van een device wordt verwezen krijg je altijd het voorbeeld GPS of Camera.  Dat lijken mij ook de twee belangrijkste voor POC.  Deze twee zijn mss voldoende om dan te bespreken?
-%TODO Tim: Inderdaad, of we kunnen deze kleine paragrafen allemaal in 1 grote steken.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -140,6 +122,10 @@ Net zoals er brede waaier bestaat aan besturingssystemen voor computers, geldt d
 In deze sectie wordt een overzicht gegeven van mobiele besturingssystemen met een significant marktaandeel~\cite{David2011, Hales2012} zoals iOS en Android, maar ook een nieuwkomer op de markt, namelijk Windows Phone.
 iOS en Android haalden respectievelijk 14,9\% and 75,0\% in het derde kwartaal van 2012.
 Windows Phone haalt 2\% van het marktaandeel binnen in datzelfde kwartaal~\cite{Protalinski2012}.
+
+Bij ieder besturingssysteem zal ook over de winkel gepraat worden waar applicaties kunnen worden gevonden.
+Net zoals programma's geïnstalleerd worden op een computer, kan dit ook voor mobiele apparaten.
+Deze aangeboden applicaties worden verzameld in een winkel waarna de gebruiker ze, al dat niet gratis, kan downloaden en installeren.
 
 \begin{table}[t]
 \centering
@@ -187,11 +173,12 @@ Het is duidelijk dat iOS gebonden is aan de hardware van Apple.
 Verschillende versies volgden elkaar op: iOS 2 (juli 2008), iOS 3 (juni 2009), iOS 4 (juni 2010) en iOS 5 (oktober 2011)~\cite{Deitel2012, PhilDutson2012}. 
 
 De nieuwste versie, iOS 6, werd uitgegeven in september 2012. 
-Nieuwigheden zijn onder andere hun eigen Maps (in plaats van Google Maps) en een Pass Kit (de vervanging van het traditionele trein-, cinematicket, enz.). 
-Daarnaast zijn er ook ander andere verbeteringen uitgevoerd met betrekking tot sociale media en spraakcommando's~\cite{Deitel2012}. 
+Voorbeelden van nieuwigheden zijn de sterkere integratie van sociale media zoals \fb{} en Twitter en het gebruik van spraakcommando's~\cite{Deitel2012}. 
 Op tabel \ref{tabel:marktaandeel-ios-android} is te zien dat drie vierde van de iOS-gebruikers al iOS 6 gebruikt.
 
-Browsen op het web gebeurt met de geïnstalleerde Mobile Safari webbrowser (zie \ref{sec:mobile-safari}). Applicaties kunnen gedownload worden in de App Store, die sinds iOS 2 aanwezig is~\cite{Deitel2012}. 
+Browsen op het web gebeurt met de geïnstalleerde Mobile Safari webbrowser (zie \ref{sec:mobile-safari}). Applicaties kunnen gedownload worden in winkel genaamd App Store, die sinds iOS 2 aanwezig is~\cite{Deitel2012}. 
+%TODO referentie?
+Op deze winkel is er sterkte controle op de kwaliteit van de aangeboden applicaties.
 
 \subsection{Android}
 Android Inc. werd opgericht in 2003 en werd in 2005 overgekocht door Google Inc~\cite{Satyesh2012}. 
@@ -202,7 +189,11 @@ Hun nieuwste versie, Android~4.2, werd aangekondigd in oktober 2012~\cite{Sawers
 
 Op tabel \ref{tabel:marktaandeel-ios-android} is het marktaandeel te zien van de verschillende Android-versies, waargenomen over een periode van 14 dagen. 
 Het is duidelijk dat Gingerbread~(Android~2.3) bijna de helft van het marktaandeel inneemt.
-Applicaties worden gedownload in Google Play. 
+Applicaties worden gedownload in de winkel genaamd Google Play. 
+De controle op de kwaliteit van de aangeboden applicaties is minder strikt dan die van Apple.
+Dit wordt opgelost door de gebruiker de toestemming te vragen op hij de rechten die applicatie wenst, toe te kennen.
+Zo kan een applicatie bijvoorbeeld het recht vragen om de SMS-berichten van het apparaat te lezen.
+Indien de gebruiker hiermee niet akkoord gaat, kan hij de applicatie niet downloaden.
 Android bevat ook een standaard browser (zie \ref{sec:android-browser}).
 
 \subsection{Windows Phone}
@@ -210,6 +201,8 @@ Windows Phone van Microsoft werd aangekondigd in oktober 2010 als vervanging voo
 Dit is duidelijk te zien als er gekeken wordt naar de versies: de laatste versie was Windows Mobile~6.5.3 en de eerste versie is Windows Phone~7. 
 In 2011 ging Microsoft een partnerovereenkomst aan met Nokia om zo snel de markt te kunnen overwinnen~\cite{Microsoft2011}. 
 De nieuwste versie, Windows Phone~8, werd aangekondigd in oktober 2012~\cite{Reed2012}. 
+Applicaties worden gedownloaded in de winkel genaamd Windows Phone Store.
+%TODO: verder uitzoeken hoe het proces van Windows Phone Store werkt?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

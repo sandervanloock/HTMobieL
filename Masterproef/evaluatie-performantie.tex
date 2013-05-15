@@ -1,9 +1,52 @@
 \section{Performantie}
 \label{sec:evaluatie-performantie}
 
-In sectie~\ref{sec:evaluatie-downloadtijd} zal eerst de gemiddelde downloadtijd worden besproken.
-Daarna zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de gebruikerservaring worden besproken.
-Deze zullen tezamen worden genomen in sectie~\ref{sec:evaluatie-performantie-besluit}.
+Eerst zal de totale performantie worden besproken van de vier raamwerken.
+Daarna zal in sectie~\ref{sec:evaluatie-downloadtijd} de gemiddelde downloadtijd gedetailleerd worden besproken.
+Hieropvolgend zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de gebruikerservaring worden besproken.
+Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{sec:evaluatie-performantie-xxx}.
+
+Vooral de totale performantie kan besproken, zal de formule om de totale performantie te berekenen~(zie \ref{eq:performantie}), moeten worden herschreven.
+Dit komt doordat in de gebruikerservaring zal worden vervangen door een subjectieve lijsttest (zie \ref{sec:evaluatie-gebruikerservaring}). 
+De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op gemiddelde downloadtijd, maar sterk scoort op de subjectieve lijsttest, een middelmatige score te geven.
+Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de downloadtijd gedeeld door de gebruikerservaring. De score voor de performantie van een raamwerk $r$ wordt:
+\begin{equation}
+  \text{Performantie}'_r = \frac{\text{Totale downloadtijd}_r}{\text{Totale gebruikerservaring}'_r}
+  \label{eq:performantie-enhanced}
+\end{equation}
+
+De bekomen data voor de vier raamwerken aan de hand van deze nieuwe formule wordt weergegeven in tabel \ref{tabel:evaluatie-performantie}.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Performantie,ST,Kendo,jQM,Lungo},
+  columns/Performantie/.style={column name=\textbf{Performantie}, column type={l}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={l}}, 
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/performantie.csv}
+\caption{Overzicht van performantie voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa). Minder is beter.}
+\label{tabel:evaluatie-performantie}
+\end{table}
+
+%TODO Tim: ik heb zelf dit besluit getrokken, klopt het? nog opmerkingen?
+Het is duidelijk dat op vlak van totale performantie \jqm{} het beste scoort, kort gevolgd door \lungo{}.
+Dit wordt verklaard doordat deze raamwerken geen architectuur afdwingen waardoor er ook een kleinere \js{}-code dient te worden gedownload ten opzichte van raamwerken die wel een architectuur afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
+\kendo{} en \st{} komen respectievelijk op de voorlaatste en laatste plaats.
 
 %%%%%%%%%%%%%%%%%%
 
@@ -110,47 +153,9 @@ De score van \kendo{} is dus slechts voor vier apparaten.
 
 %%%%%%%%%%%%%%%%%%
 
-\subsection{Performantie}
-\label{sec:evaluatie-performantie-besluit}
-
-Aangezien de gebruikerservaring werd vervangen door de subjectieve lijsttest dient de formule om de totale performantie te berekenen~(zie \ref{eq:performantie}), te worden herschreven.
-De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op gemiddelde downloadtijd, maar sterk scoort op de subjectieve lijsttest, een middelmatige score te geven.
-Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de downloadtijd gedeeld door de gebruikerservaring. De score voor de performantie van een raamwerk $r$ wordt:
-\begin{equation}
-  \text{Performantie}'_r = \frac{\text{Totale downloadtijd}_r}{\text{Totale gebruikerservaring}'_r}
-  \label{eq:performantie-enhanced}
-\end{equation}
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Performantie,ST,Kendo,jQM,Lungo},
-  columns/Performantie/.style={column name=\textbf{Performantie}, column type={l}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={l}}, 
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/performantie.csv}
-\caption{Overzicht van performantie voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa). Minder is beter.}
-\label{tabel:evaluatie-performantie}
-\end{table}
-
-%TODO Tim: ik heb zelf dit besluit getrokken, klopt het? nog opmerkingen?
-Het is duidelijk dat op vlak van totale performantie \jqm{} het beste scoort, kort gevolgd door \lungo{}.
-Dit wordt verklaard doordat deze raamwerken geen architectuur afdwingen waardoor er ook een kleinere \js{}-code dient te worden gedownload ten opzichte van raamwerken die wel een architectuur afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
-\kendo{} en \st{} komen respectievelijk op de voorlaatste en laatste plaats.
+%TODO sander: oplossen titel
+\subsection{xxx}
+\label{sec:evaluatie-performantie-xxx}
 
 In wat volgt zullen metrieken worden besproken die de score van de performantie zullen duiden.
 De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklaring}.

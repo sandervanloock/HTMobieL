@@ -1,6 +1,7 @@
 %%%% ijcai11.tex
 
 %TODO: hoogte onderaan kleiner maken
+%TODO: use short names for frameworks throughout the paper
 
 \typeout{IJCAI-11 Instructions for Authors}
 
@@ -362,13 +363,13 @@ PERF_f =  \sum_{c=1}^{8}\left(l_{f,c,POC}+l_{f,c,POC_{cache}} \right.\\
 
 \section{Frameworks} % (0.5 blz per framework + tabel)
 \label{sec:frameworks}
-This section introduces the compared mobile HTML5 frameworks: \st{}~(\sta{}), \kendo{}~(\kendob{}), \jqm{}~(\jqma{}) and \lungo{}.
+This section introduces the compared mobile HTML5 frameworks: \st{}, \kendo{}, \jqm{} and \lungo{}.
 %TODO: tekst over de 3 mogelijkheden om webapps te maken hier naar boven plaatsen?
 
 \subsection{\st} % (0.5 blz Sander)
 \label{sec:frameworks-sencha-touch}
 
-\sta{} is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
+\st{}~(\sta{}) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
 Ext JS is a JavaScript framework for the development of HTML5 applications.  
 jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery and depends on the WebKit engine.  
 Finally,  Raphaël, is a JavaScript library for vector drawings.  
@@ -418,8 +419,9 @@ This functionality is comparable with Modernizer~\cite{Modernizr2012}.
 
 \subsection{\kendo} % (0.5 blz Sander)
 \label{sec:frameworks-kendo}
+%TODO \kendob afkorting gebruiken
 
-\kendo{} is a framefrom from Telerik and consists of three layers:  \kendo{} Web,  \kendo{} Mobile and \kendo{} DataViz.
+\kendo{} (\kendob{}) is a framefrom from Telerik and consists of three layers:  \kendo{} Web,  \kendo{} Mobile and \kendo{} DataViz.
 The first focusses on the development of webapplications,  the second makes them mobile and the last facilitates data representation.
 \kendo{} is an hybrid form between JavaScript and markupdriven.
 It is build upon the MVVM (Model-View-ViewModel) architecture and requires the jQuery library.
@@ -468,7 +470,7 @@ The styling of forms,  for example,  will still work on older platforms, but the
 \subsection{\jqm{}} % (0.5 blz Tim)
 \label{sec:jqm}
 
-\jqma{} is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
+\jqm{}~(\jqma{}) is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
 In November 2011 version~1.0 was released~\cite{Parker2011} and one year later in October, version~1.2 was released~\cite{Parker2012}. 
 As at the time of writing, \jqma{} released version~1.3 \cite{Parker2013a}.
 The framework is controlled by the jQuery Project that also manages jQuery Core. 
@@ -550,48 +552,12 @@ They also want to have a consistent experience across mobiles, tvs and desktops~
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%TODO enkel nieuwe evaluatie, niet de oude
 \section{Evaluation}
 This section evaluates the four mobile HTML5 frameworks by five criteria, namely popularity~(\ref{sec:evaluation-popularity}), productivity~(\ref{sec:evaluation-productivity}), usage~(\ref{sec:evaluation-usage}), support~(\ref{sec:evaluation-support}) and performance~(\ref{sec:evaluation-performance}).
 
-%TODO enkel nieuwe evaluatie, niet de oude
-
 \subsection{Popularity} % (0,5 blz)
 \label{sec:evaluation-popularity}
-
-%TODO Tim: oude tekst
-%An explanation could be explained by the large success of jQuery,  a popular JavaScript library~\cite{Hales2012}.
-%The fact that ST had the first stable 1.0 release in mobile UI frameworks~\cite{Oeflman2011},  is not reflected in the community numbers.  
-%\cite{Inc.} states that Sencha is the largest provider of open source HTML5 application frameworks with more than two million developers.  
-%ST itself embraces about one quarter of this number.
-%ST is not available on GitHub,  that is why no data is given.
-
-The scores for popularity can be found in table~\ref{tabel:evaluatie-popularity}. 
-\kendo{} takes the first place due to the large amount of \fb{} likes.
-\jqm{} and \st{} take respectively second and third place despite the fact that these two framework are the most popular in literature~\cite{David2011,Firtman2013,Hales2012,Oeflman2011}. 
-The last place goes to \lungo{} with a remarkable low popularity on \so{} and \fb.
-When looking at the total, there are two groups of frameworks.
-On the one hand there is \kendo{} together with \jqm{} and the other hand there is \st{} together with \lungo{}.
-
-\jqm{} has the most followers on Twitter, followed by \kendo.
-\lungo{} is the penultimate, but the ratio tweets to followers indicate that it is the most active one. 
-\jqm{} and \kendo{} have a similar ratio.
-This is in contrast to \st{} which has send only one tweet and also has the least number of followers. 
-
-Only \jqm{} and \lungo{} are on \gh{}. 
-If the \gh{} stars and \gh{} forkers are left out of popularity, the ranking stays the same.
-
-\kendo{} references in the support menu on their website directly to \so{}. 
-However the popularity of \kendo{} is lower than \jqm{}.
-\st{} is the penultimate, but more surpassingly is that \lungo{} only has about 30 questions on \so{} and therefore takes the last place.
-
-\kendo{} and \jqm{} both have created a fan page on \fb{} in respectively November, 2011 and August, 2010.
-The fan page of \kendo{} thus has gained more \fb{} likes in a shorter period than the earlier created fan page of \jqm{}.
-An explanation is that the different layers of \kendo{} are aggregated on one fan page.
-This is in contrast to \jqm{} where a separate fan page exists for jQuery that has about 53,000 likes.
-This number is similar to that of \kendo{}.
-\st{} and \lungo{} only have a \term{interessepagina} on \fb.
-This explains the great difference in \fb{} likes.
-If the likes are left out of popularity, \kendo{} and \jqm{} switch places.
 
 \begin{table}
 \centering
@@ -618,6 +584,35 @@ If the likes are left out of popularity, \kendo{} and \jqm{} switch places.
 \caption{Overview of popularity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-popularity}
 \end{table}
+
+The scores for popularity can be found in table~\ref{tabel:evaluatie-popularity}. 
+\kendob{} takes the first place due to the large amount of \fb{} likes.
+\jqma{} and \sta{} take respectively second and third place despite the fact that these two framework are the most popular in literature~\cite{David2011,Firtman2013,Hales2012,Oeflman2011}. 
+The last place goes to \lungo{} with a remarkable low popularity on \so{} and \fb.
+When looking at the total, there are two groups of frameworks.
+On the one hand there is \kendob{} together with \jqma{} and the other hand there is \sta{} together with \lungo{}.
+
+\jqma{} has the most followers on Twitter, followed by \kendob.
+\lungo{} is the penultimate, but the ratio tweets to followers indicate that it is the most active one. 
+\jqma{} and \kendob{} have a similar ratio.
+This is in contrast to \sta{} which has send only one tweet and also has the least number of followers. 
+
+Only \jqma{} and \lungo{} are on \gh{}. 
+If the \gh{} stars and \gh{} forkers are left out of popularity, the ranking stays the same.
+
+\kendob{} references in the support menu on their website directly to \so{}. 
+However the popularity of \kendob{} is lower than \jqma{}.
+\sta{} is the penultimate, but more surpassingly is that \lungo{} only has about 30 questions on \so{} and therefore takes the last place.
+
+\kendob{} and \jqma{} both have created a fan page on \fb{} in respectively November, 2011 and August, 2010.
+The fan page of \kendob{} thus has gained more \fb{} likes in a shorter period than the earlier created fan page of \jqma{}.
+An explanation is that the different layers of \kendo{} are aggregated on one fan page.
+This is in contrast to \jqma{} where a separate fan page exists for jQuery that has about 53,000 likes.
+This number is similar to that of \kendo{}.
+%TODO interessepagina in het engels
+\sta{} and \lungo{} only have a \term{interessepagina} on \fb.
+This explains the great difference in \fb{} likes.
+If the likes are left out of popularity, \kendob{} and \jqma{} switch places.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -715,6 +710,8 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 \caption{Overview of usage for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-usage}
 \end{table}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 

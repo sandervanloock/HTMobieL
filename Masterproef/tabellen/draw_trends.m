@@ -13,6 +13,19 @@ L = newData1.('textdata')(2:end-3,1);
 
 L = L(1:200:end,:);
 
+x = 1/52;
+X = 1:x:7;
+X = X(:,1:297);
+X = transpose(X);
+
+months = ['2008';
+'2009';
+'2010';
+'2011';
+'2013';
+'2013';
+'2014'];
+
 %%%%%%%%%%
 col = [	1 64/255 38/255 %st=rood
         85/255 156/255 57/255 %kendo=groen
@@ -33,11 +46,12 @@ figure;
 o = plot(M);
 hold on;
 for ii = 1:4; set(o(ii),'color',col(ii,:),'linewidth',1.25); end
-legend('Sencha Touch', 'Kendo UI', 'jQuery Mobile', 'Lungo');
-xlabel('Raamwerken')
+legend('Sencha Touch', 'Kendo UI', 'jQuery Mobile', 'Lungo','Location','NorthWest');
+xlabel('Jaar')
 ylabel('Populariteit op Google (op 100)');
-title('Google Trends grafiek voor onderzochte raamwerken');
-%set(gca,'XTickLabel',L);
+%title('Google Trends grafiek voor onderzochte raamwerken');
+set(gca,'XTickLabel',months);
+%set(gca,'XLim',[0 297])
 %rotateticklabel(gca,90);
 saveas(gca,'../figuren/google-trends.pdf');
 system('pdfcrop ../figuren/google-trends.pdf ../figuren/google-trends.pdf');

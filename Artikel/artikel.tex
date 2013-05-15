@@ -1,6 +1,7 @@
 %%%% ijcai11.tex
 
 %TODO: hoogte onderaan kleiner maken
+%TODO: use short names for frameworks throughout the paper
 
 \typeout{IJCAI-11 Instructions for Authors}
 
@@ -98,7 +99,11 @@ One solution is to build mobile web applications using HTML5.
 To speed up development, different frameworks exist that help in functionality and building a user interface.
 Because of the variety of existing frameworks, a thoroughly comparison is needed to know which framework suits the job best.
 This paper compares \st{}, \jqm{}, \kendo{} and \lungo{} by using popularity, productivity, usage, support and performance as comparison criteria. 
-%TODO: add final conclusion
+The conclusion is that \jqm{} is the best framework with great productivity and performance. 
+\kendo{} gets the second place and its main asset is usage.
+\lungo{} is third and has the fastest download performance.
+\st{} ends last.
+However all four frameworks have good support.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,28 +111,16 @@ This paper compares \st{}, \jqm{}, \kendo{} and \lungo{} by using popularity, pr
 
 \section{Introduction} % (1 blz)
 \label{sec:introduction}
-%TODO: inleiding langer maken
-The mobile landscape is very heterogeneous and making mobile applications can therefore be a challenging task.
-
-\section{Background}
-%TODO: of alles samennemen?
-This paper focusses on smartphones and tablets as mobile devices. 
-Other mobile devices like PDA's and e-readers are left out of scope.
-
-\subsection{Mobile devices}
 Since the release of the Apple iPhone in 2007~\cite{David2011}, the demand for smartphones is ever since increasing. 
 Today, over one billion smartphones are in use globally~\cite{Yang2012}.
 This will double by 2015~\cite{Gillett2012}.
 Also tablets conquer market share as mobile devices.
 760 million tablets will be in use globally by 2016~\cite{Gillett2012}.
 Besides Apple, other companies like Google and Microsoft are on the track too.
-
 All those mobile devices come in different shapes and sizes.
 They also include different features like GPS, camera and connectivity like Bluetooth, WiFi and 3G.
 
-%TODO Tim: deze sectietitel laten vallen, want ik praat ook over browsers
-\subsection{Mobile operating systems}
-In this section two mobile operating systems (OS) with the greatest market share are discussed: iOS and Android with 14.9\% and 75.0\% respectively in Q3 of 2012~\cite{Protalinski2012}.
+On these mobile devices run mobile operating systems~(OS). The two mobile OSs with the greatest market share are iOS and Android with 14.9\% and 75.0\% respectively in Q3 of 2012~\cite{Protalinski2012}.
 These mobile OSs run both on smartphones and tablets.
 
 The mobile OS from Apple, called iOS, first appeared in 2007.
@@ -188,7 +181,6 @@ Those users cannot benefit of the latest bells and whistles, particularly the ne
 \label{table:mos-versions}
 \end{table}
 
-\subsection{Mobile applications}
 There are three possible ways to make a mobile application~\cite{Accenture2012,Hales2012}.
 The first one is a \emph{web application} which runs entirely in the browser.
 The second type of application is a \emph{native application} which is installed on the device and programmed in a language specific to the mobile OS.
@@ -214,52 +206,6 @@ On the other hand stores can also control the quality of the applications, which
 The advantage of hybrid applications is that they patch the issues of web applications with the benefits of native applications.
 However, as of December 2012, HTML5 went into candidate recommendation~\cite{Jacobs2012}.
 This implies the upcoming support of HTML5 in contemporary browsers and that hybrid applications will probably become obsolete over time.
-
-%\subsection{Mobile browsers}
-%As of 2008, we speak of the mobile web~\cite{Hales2012}.
-%We access the Internet more and more from our browser on our mobile device.
-%These browsers are becoming platforms on their own as they give access to the features of the device like GPS and camera. 
-%We explore three mobile browsers with the largest market share, as can be seen in table~\ref{table:mobile-browsers}.
-%
-%\begin{table}
-%\centering
-%\begin{tabular}[b]{l r@{.}l}
-%\toprule
-%\textbf{Mobile browser} & \multicolumn{2}{c}{\textbf{Share (\%)}} \\
-%\midrule
-%Mobile Safari		& 61 	& 02	 	\\
-%Android browser		& 18 	& 30 	\\
-%Opera Mini			& 9 		& 84 	\\
-%Chrome				& 2		& 02 	\\
-%Other				& 8		& 82		\\
-%\bottomrule
-%\end{tabular}
-%\caption{Market share of mobile  browsers on January 2013~\protect\cite{NetApplications2012}.}
-%\label{table:mobile-browsers}
-%\end{table}
-%
-%The second runner-up is Opera Mini.
-%It is a mobile browser where the browser engine is located on the servers of Opera.
-%This means that the requested web page is not processed on the device itself.
-%In contrast, Opera Mobile includes the browser engine.
-
-%\subsection{HTML5, CSS3 and JavaScript}
-%The tree building blocks of (mobile) HTML5 (application) development are HTML5, CSS3 and JavaScript.
-%The first is responsible for content, the second for presentation and the third for functionality. 
-%
-%HTML5 (HyperText Markup Language) has came a long way since 2004 and is still not finished~\cite{MacDonald2011}.
-%We can see HTML5 as eight classes \cite{W3C2012}: (1) semantics, (2) offline and storage, (3) device access, (4) connectivity, (5) multimedia, (6) 3D, graphics and effects, (7) performance and integration and (8) CSS3.
-%Not all classes like CSS3 and geolocation are part of the HTML5 specification, but they are seen as HTML5 features~\cite{MacDonald2011}.
-%Not all specifications of HTML5 are implemented in each browser, which makes it very challenging.
-%
-%CSS3 (Cascading Style Sheets) is the hart of web design.
-%Some of the important characteristics~\cite{MacDonald2011} are media queries which can be used to adapt the layout to the device, called responsive design.
-%Secondly, it is possible the achieve transitions without the use of JavaScript.
-%Lastly custom fonts can be included and used throughout the web page.
-%
-%JavaScript started in 1995 and is now mostly used to do DOM (Document Object Model) traversal and adaption~\cite{PhilDutson2012}.
-%The DOM is an API (Application Programming Interface) for HTML documents~\cite{Hegaret2004}.
-%Because of the differences in implementation, JavaScript libraries like jQuery are used to ease implementation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -426,13 +372,13 @@ The formula for performance then becomes:
 
 \section{Frameworks} % (0.5 blz per framework + tabel)
 \label{sec:frameworks}
-%TODO: tekst voor alle 4 de frameworks
-This section introduces the explored mobile HTML5 frameworks: jQuery Mobile (jQM) and \st{} (\sta{}).
+This section introduces the compared mobile HTML5 frameworks: \st{}, \kendo{}, \jqm{} and \lungo{}.
+%TODO: tekst over de 3 mogelijkheden om webapps te maken hier naar boven plaatsen?
 
 \subsection{\st} % (0.5 blz Sander)
 \label{sec:frameworks-sencha-touch}
 
-\sta{} is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
+\st{}~(\sta{}) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
 Ext JS is a JavaScript framework for the development of HTML5 applications.  
 jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery and depends on the WebKit engine.  
 Finally,  Raphaël, is a JavaScript library for vector drawings.  
@@ -441,6 +387,7 @@ Parts of the first two technologies can be found in the implementation of the \s
 As at the time of writing,  \sta{} is at version 2.2.0~\cite{Inc.}.
 
 \paragraph{Documentation}
+%TODO: url verwijderen
 All documentation for \sta{} can be found at \exturl{docs.sencha.com/touch/2-0}.  
 The most important features are provided with code examples and live previews.
 The key concepts of \sta{} are explained in extensive tutorials:  some are texts, some are videos.  
@@ -481,8 +428,9 @@ This functionality is comparable with Modernizer~\cite{Modernizr2012}.
 
 \subsection{\kendo} % (0.5 blz Sander)
 \label{sec:frameworks-kendo}
+%TODO \kendob afkorting gebruiken
 
-\kendo{} is a framefrom from Telerik and consists of three layers:  \kendo{} Web,  \kendo{} Mobile and \kendo{} DataViz.
+\kendo{} (\kendob{}) is a framefrom from Telerik and consists of three layers:  \kendo{} Web,  \kendo{} Mobile and \kendo{} DataViz.
 The first focusses on the development of webapplications,  the second makes them mobile and the last facilitates data representation.
 \kendo{} is an hybrid form between JavaScript and markupdriven.
 It is build upon the MVVM (Model-View-ViewModel) architecture and requires the jQuery library.
@@ -490,6 +438,7 @@ It is build upon the MVVM (Model-View-ViewModel) architecture and requires the j
 As at the time of writing,  \kendo{} is at version 2013 Q1~\cite{Telerik}. 
 
 \paragraph{Documentation}
+%TODO: url verwijderen
 The documentation can be found at \url{http://docs.kendoui.com}~\cite{Telerikd}.
 Two important sections are the API and Getting Started.
 Both sections follow the same structure and each feature from the API is explained in detail in the Getting Started section.
@@ -527,44 +476,47 @@ The styling of forms,  for example,  will still work on older platforms, but the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{jQuery Mobile} % (0.5 blz Tim)
+\subsection{\jqm{}} % (0.5 blz Tim)
 \label{sec:jqm}
 
-jQM is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
+\jqm{}~(\jqma{}) is a mobile HTML5 user interface~(UI) framework that was announced in 2010~\cite{Resig2010}. 
 In November 2011 version~1.0 was released~\cite{Parker2011} and one year later in October, version~1.2 was released~\cite{Parker2012}. 
-As at the time of writing, jQM released version~1.3 \cite{Parker2013a}.
+As at the time of writing, \jqma{} released version~1.3 \cite{Parker2013a}.
 The framework is controlled by the jQuery Project that also manages jQuery Core. 
-The latter is a JavaScript library where jQM is dependent on~\cite{JQuery2012}. 
-jQM is among other things sponsored by Adobe, Nokia, BlackBerry and Mozilla~\cite{JQuery2012a}.
+The latter is a JavaScript library where \jqma{} is dependent on~\cite{JQuery2012}. 
+\jqma{} is among other things sponsored by Adobe, Nokia, BlackBerry and Mozilla~\cite{JQuery2012a}.
 
 \paragraph{Licence}
-As of September 2012 it is only possible to use jQM under the Massachusetts Institute of Technology~(MIT) licence~\cite{Dmethvin2012}. 
+As of September 2012 it is only possible to use \jqma{} under the Massachusetts Institute of Technology~(MIT) licence~\cite{Dmethvin2012}. 
 This means that the code is released as open source and can also be used in proprietary projects~\cite{PhilDutson2012}.
 
 \paragraph{Documentation}
-One can find the documentation of jQM on \exturl{www.jquerymobile.com/demos/1.2.0}. On the one hand it contains an overview of all possible UI components. 
+The documentation site of version~1.2~\cite{JQuery2012b} is a catalog of all possible elements that \jqma{} offers. 
+It contains an overview of all possible UI components. 
 By checking the source code, you can find out what code to write to get the same result. 
-On the other hand it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
+Furthermore it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
 
 \paragraph{Code and development}
-jQM is a mark-up driven UI framework and thus provides mainly UI components. 
-jQM provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
-One can obtain these components by writing HTML5 with jQM specific \code{data-}* attributes. 
-When running the application, jQM will add the extra necessary code to correctly show these components by doing progressive enhancement.
+\jqma{} is a mark-up driven UI framework and thus provides mainly UI components. 
+\jqma{} provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
+One can obtain these components by writing HTML5 with \jqma{} specific \code{data-}* attributes. 
+When running the application, \jqma{} will add the extra necessary code to correctly show these components by doing progressive enhancement.
 
-There are three ways of writing a HTML5 application in jQM~\cite{Broulik2012}. 
+There are three ways of writing a HTML5 application in \jqma{}~\cite{Broulik2012}. 
 The first one is to write the full application on one single web page.
 The advantage is that there are initially less requests to the server.
 The second option is to write a web page for each screen. 
 The advantage here is that the first viewed screen is downloaded more quickly. 
 However, with each transition, the next screen has to be fetched which can delay navigation.
-This is done with AJAX by default in jQM.
+This is done with AJAX by default in \jqma{}.
 Lastly, you can mix the two above to find an optimum by putting the most likely viewed screens on one web page and the less likely viewed on separated pages.  
 
 \paragraph{Browser support}
 \label{sec:jqm-browser-support}
-jQM divides browsers into three grades: A, B and C. 
-An A graded browsers supports everything of the jQM framework, where a C graded browsers only provides basic HTML experience (so for example no CSS3 transitions)~\cite{JQuery2012d}.
+\jqma{} divides browsers into three grades: A, B and C. 
+In an A-graded browser, the application is fully enhanced with AJAX based animated page transitions.
+In a B-graded browser, the application has an enhanced experience, but there are no AJAX navigation features.
+Lastly in a C-graded browser, the application has a basic, non-enhanced HTML experience, but is still functional~\cite{JQuery2012d}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -579,12 +531,11 @@ The framework is maintained by the Spanish company TapQuo that is specialised in
 As of the time of writing, \lungo{} is at version~2.1~\cite{TapQuo2013}.
 
 \paragraph{Documentation}
-Documentation can be found on \exturl{lungo.tapquo.com/howto/prototype} where on the first page the boilerplate code for a typical \lungo{} application is shown.
+The documentation site~\cite{Lungo2013} first shows how a typical \lungo{} application looks like.
 There are eight other pages explaining briefly the various UI components and API functionality.
-On these page the source code is shown for each example.
+On these pages the source code is shown for each example.
 One can also view a live preview of each example.
-The documentation of the underlying \js{} library can be found on \exturl{quojs.tapquo.com}.
-It exists of only one page with a very brief summary of the API.
+The documentation site~\cite{TapQuo2013c} of the underlying \js{} library exists of only one page with a very brief summary of the API.
 
 \paragraph{Licence}
 The framework is released by the GPLv3 licence.
@@ -610,48 +561,12 @@ They also want to have a consistent experience across mobiles, tvs and desktops~
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Evaluation}
-This section evaluates the mobile HTML5 frameworks by five criteria, namely popularity~(\ref{sec:evaluation-popularity}), productivity~(\ref{sec:evaluation-productivity}), usage~(\ref{sec:evaluation-usage}), support~(\ref{sec:evaluation-support}) and performance~(\ref{sec:evaluation-performance}).
-
 %TODO enkel nieuwe evaluatie, niet de oude
+\section{Evaluation}
+This section evaluates the four mobile HTML5 frameworks by five criteria, namely popularity~(\ref{sec:evaluation-popularity}), productivity~(\ref{sec:evaluation-productivity}), usage~(\ref{sec:evaluation-usage}), support~(\ref{sec:evaluation-support}) and performance~(\ref{sec:evaluation-performance}).
 
 \subsection{Popularity} % (0,5 blz)
 \label{sec:evaluation-popularity}
-
-%TODO Tim: oude tekst
-%An explanation could be explained by the large success of jQuery,  a popular JavaScript library~\cite{Hales2012}.
-%The fact that ST had the first stable 1.0 release in mobile UI frameworks~\cite{Oeflman2011},  is not reflected in the community numbers.  
-%\cite{Inc.} states that Sencha is the largest provider of open source HTML5 application frameworks with more than two million developers.  
-%ST itself embraces about one quarter of this number.
-%ST is not available on GitHub,  that is why no data is given.
-
-The scores for popularity can be found in table~\ref{tabel:evaluatie-popularity}. 
-\kendo{} takes the first place due to the large amount of \fb{} likes.
-\jqm{} and \st{} take respectively second and third place despite the fact that these two framework are the most popular in literature~\cite{David2011,Firtman2013,Hales2012,Oeflman2011}. 
-The last place goes to \lungo{} with a remarkable low popularity on \so{} and \fb.
-When looking at the total, there are two groups of frameworks.
-On the one hand there is \kendo{} together with \jqm{} and the other hand there is \st{} together with \lungo{}.
-
-\jqm{} has the most followers on Twitter, followed by \kendo.
-\lungo{} is the penultimate, but the ratio tweets to followers indicate that it is the most active one. 
-\jqm{} and \kendo{} have a similar ratio.
-This is in contrast to \st{} which has send only one tweet and also has the least number of followers. 
-
-Only \jqm{} and \lungo{} are on \gh{}. 
-If the \gh{} stars and \gh{} forkers are left out of popularity, the ranking stays the same.
-
-\kendo{} references in the support menu on their website directly to \so{}. 
-However the popularity of \kendo{} is lower than \jqm{}.
-\st{} is the penultimate, but more surpassingly is that \lungo{} only has about 30 questions on \so{} and therefore takes the last place.
-
-\kendo{} and \jqm{} both have created a fan page on \fb{} in respectively November, 2011 and August, 2010.
-The fan page of \kendo{} thus has gained more \fb{} likes in a shorter period than the earlier created fan page of \jqm{}.
-An explanation is that the different layers of \kendo{} are aggregated on one fan page.
-This is in contrast to \jqm{} where a separate fan page exists for jQuery that has about 53,000 likes.
-This number is similar to that of \kendo{}.
-\st{} and \lungo{} only have a \term{interessepagina} on \fb.
-This explains the great difference in \fb{} likes.
-If the likes are left out of popularity, \kendo{} and \jqm{} switch places.
 
 \begin{table}
 \centering
@@ -678,6 +593,35 @@ If the likes are left out of popularity, \kendo{} and \jqm{} switch places.
 \caption{Overview of popularity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-popularity}
 \end{table}
+
+The scores for popularity can be found in table~\ref{tabel:evaluatie-popularity}. 
+\kendob{} takes the first place due to the large amount of \fb{} likes.
+\jqma{} and \sta{} take respectively second and third place despite the fact that these two framework are the most popular in literature~\cite{David2011,Firtman2013,Hales2012,Oeflman2011}. 
+The last place goes to \lungo{} with a remarkable low popularity on \so{} and \fb.
+When looking at the total, there are two groups of frameworks.
+On the one hand there is \kendob{} together with \jqma{} and the other hand there is \sta{} together with \lungo{}.
+
+\jqma{} has the most followers on Twitter, followed by \kendob.
+\lungo{} is the penultimate, but the ratio tweets to followers indicate that it is the most active one. 
+\jqma{} and \kendob{} have a similar ratio.
+This is in contrast to \sta{} which has send only one tweet and also has the least number of followers. 
+
+Only \jqma{} and \lungo{} are on \gh{}. 
+If the \gh{} stars and \gh{} forkers are left out of popularity, the ranking stays the same.
+
+\kendob{} references in the support menu on their website directly to \so{}. 
+However the popularity of \kendob{} is lower than \jqma{}.
+\sta{} is the penultimate, but more surpassingly is that \lungo{} only has about 30 questions on \so{} and therefore takes the last place.
+
+\kendob{} and \jqma{} both have created a fan page on \fb{} in respectively November, 2011 and August, 2010.
+The fan page of \kendob{} thus has gained more \fb{} likes in a shorter period than the earlier created fan page of \jqma{}.
+An explanation is that the different layers of \kendo{} are aggregated on one fan page.
+This is in contrast to \jqma{} where a separate fan page exists for jQuery that has about 53,000 likes.
+This number is similar to that of \kendo{}.
+%TODO interessepagina in het engels
+\sta{} and \lungo{} only have a \term{interessepagina} on \fb.
+This explains the great difference in \fb{} likes.
+If the likes are left out of popularity, \kendob{} and \jqma{} switch places.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -775,6 +719,8 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 \caption{Overview of usage for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-usage}
 \end{table}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 

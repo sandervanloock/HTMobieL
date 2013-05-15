@@ -338,7 +338,7 @@ If some part of challenge is infeasible $C_{f,c,i} = 0$.
 The summation of scores for each context will give the score for the framework's support.
 
 \begin{equation}
-  \text{SU}_f = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}C_{f,c,i}\right)}
+  \text{SU}_f = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N_f}C_{f,c,i}\right)}
   \label{eq:ondersteuning}
 \end{equation}
 
@@ -1107,43 +1107,51 @@ Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Support} % 2 blz
+\subsection{Support} % 1 blz
 \label{sec:evaluation-support}
 
-%%%%%%%%%%%%%%%V TODO VERTALEN %%%%%%%%%%%%%%%
+Dit section will evaluate the support of the frameworks on $8$ mobile devices.
+The formula for this criterion can be found in equation~\ref{eq:ondersteuning}.
+The scores for the four frameworks are summarized in table~\ref{tabel:evaluatie-ondersteuning-u}.
 
-Zoals besproken in sectie \ref{sec:vergelijking-ondersteuning} wordt enkel het raamwerk en niet een eigen implementatie op ondersteuning getest.
-Daarom verschilt de maximale score voor ondersteuning per raamwerk.
-Welke uitdagingen door het raamwerk konden worden geïmplementeerd werd in het vorige criterium geduid.
-De maximale scores voor \st{},  \kendo{},  \jqm{} en \lungo{} zijn respectievelijk $96$, $104$, $104$ en $80$.
-De score voor ondersteuning is respectievelijk $84$, $91$, $95$ en $62$.
-Wanneer we de relatieve score per raamwerk bekijken heeft \st{} een score van $88\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo $78\%$.
-Er kan dus meteen geconcludeerd worden dat de vier raamwerken behoorlijk hoog scoren.
-Dit wil zeggen dat de keuze van een raamwerk onafhankelijk is van de ondersteuning.
-Dezelfde apparaten worden door de verschillende raamwerken ondersteund of niet.
-Dit komt doordat de raamwerken allemaal steunen op dezelfde onderliggende technolgie, namlelijk HTLM5.
-Hoewel de verschillen klein zijn kan gezegd worden dat \jqm{} de beste ondersteuning biedt,  gevolgd door een ex aquo van \st{} en \kendo{}.
-\lungo{} biedt de minste ondersteuning.
+As mentioned in section \ref{sec:comparisoncriteria},  only the functionality of the framework is tested so custom or hacky implementation are not checked for support.
+This is the reason why the maximum score for each framework is different.
+The challenges that could be implemented using the framework are described in the previous criterion.
+De maximum scores voor \sta{},  \kendob{},  \jqma{} and \lungo{} are respectively $96$, $104$, $104$ and $80$.
+Their result for support is respectively $83$, $91$, $95$ and $62$.
+Looking at a relative scores,  \st{} supports $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ and \lungo $78\%$.
+A first conclusion is that all frameworks have a remarkable high score.
+This means that de choice of a framework is independent of support.
+The reason why the scores are more or less identical is that the frameworks all depend on the same underlying technology,  HTML5.
+Altough differences are small,  \jqma{} provides the best support,  followed by \kendob{} and \sta{}.
+\lungo{} has the least support.
+The major problems for \lungo{} can be found in \chal{formulieren}.
+The navigation through the POC did not worked on the \htc{} and the \gtab{}. %TODO waarom niet?
+Also,  the tap event was used to implement the navigation.
+When only tapped once,  the system recorded a double tap.
+Therefor each tap also resulted in a tap on the next screen and possibly caused a undesirable action.
 
-Alle raamwerken buiten \lungo{} ondersteunen gemiddeld $68\%$ van de geïmplementeerde uitdagingen.
-\lungo{} scoort ondersteund slechts de helft van de geïmplementeerde uitdagingen.
-De grootste problemen werden bij formulieren waargenomen.
-Daarnaast kon niet genavigeerd worden doorheen de volledige POC op de \htc{} en \gtab{}.
-Een laatste opmerking bij de POC geïmplementeerd in \lungo{} is dat het \term{tap event} werd gebruikt om te navigeren.
-Deze heeft een dubbel klikeffect op de toestellen, waardoor de eerste klik op het huidig scherm gebeurt en de tweede klik op de volgende.
-Zo kan het bijvoorbeeld gebeuren dat een menu op het volgende scherm al openklapt, zonder dat de gebruiker dit verwachtte.
+In general,  Android 2.3 devices - the \htc{} and \gtab{} - had the least support.
+All other devices scored an average of $95\%$.
+The differences in operatingsystem were remarkable:  Android has $79\%$ support while iOS has $95\%$.
+Only version $2.3$ and $4$ of Android and version $5$ and $6$ of iOS were tested.
+The two oldest devices were the \iphoneiii{} and \gs{} respectively released in june 2009 and march 2010~\cite{Staff2009,Gideon2010}.
+Although both devices are upgraded to a later operatingsystem,  it looks like Android devices offer updates less frequently.%TODO referentie?
+This can be explained with the large hetrogenity between Android devices.
 
-Android 2.3 toestellen - \htc{} en \gtab{} - hebben het minste ondersteuning.
-Android 4 en iOS toestellen scoren gemiddeld $95\%$.
-De gemiddelde score bij alle Android toestellen is $79\%$ in tegenstelling tot een $95\%$ ondersteuning op iOS toestellen.
-Er moet opgemerkt worden dat enkel versie $5$ en $6$ van iOS werd getest.
-Van alle $8$ apparaten is de \iphoneiii{} het oudst (officiële voorstelling in juni 2009) gevolgd door de \gs{} (officiële voorstelling in maart 2010). %TODO referenties
-Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android toestellen dit minder vaak aanbieden ten opzichte van iOS toestellen. %TODO referentie
-De reden hiervoor is de grotere heterogeniteit tussen Android toestellen.
-
-%TODO Tim: Lungo tap probleem ergens vermelden
-
-Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline opslag op alle beschikbare apparaten.
+All frameworks but \jqma{} provide methods to query the context.
+\jqma{} implemented this feature with CSS3 media queries.
+This implementations worked on $7$ of $8$ devices except for the \gtab.
+However,  \kendob{} was able to recognize this device as a tablet and achieved the maximum score.
+Uploading an image requires support for both the local storage and File API.  
+Also the \code{file} input type is necessary to indicate the upload component.
+The four implementations of this challenge all fail for the \htc{}, \gtab{} and \ipadi{} because the lack of support for one or more of these dependencies~\cite{Deveria2013c}.
+HTML5 provides features for form validation but non of the $8$ devices support these features.
+All frameworks, however,  implement a custom validation mechanism that is supported on each device.
+All four implementations for the signature depend on the \code{canvas} feature of HTML5 and is supported for each device.
+\kendob{}, \jqma{} and \lungo{} reuse the code to implement the \chal{pdf}, \sta{} has a plugin available that depend on the PDF.JS,  a PDF-renderer from Mozilla~\cite{Gal2010}.
+The first implementation failed to work on the \gs{} while latter implementation showed the PDF successfully.
+Finally, offline capabilities also are supported on all $8$ devices~\cite{Deveria2013c} so each framewok achieved the maximum score.
 
 \begin{table}
 \centering

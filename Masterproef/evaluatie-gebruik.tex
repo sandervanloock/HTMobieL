@@ -40,14 +40,14 @@ Vooral op het vlak om data automatisch in te laden in velden of lijsten, scoort 
 Als laatste komt \lungo{} dat een onvoldoende behaalt.
 Dezelfde pijnpunten van \jqm{} zijn ook geldig voor \lungo{}.
 Daarenboven is er bij \lungo{} een totaal gebrek aan formuliervalidatie en aan de meer geavanceerdere formulierelementen.
-Voor deze laatste moet er het geluk zijn om plugin te vinden of zal de functionaliteit zelf moeten worden geïmplementeerd. 
+Voor deze laatste moet er het geluk zijn om plug-in te vinden of zal de functionaliteit zelf moeten worden geïmplementeerd. 
 
 \kendo{} en \st{} behalen elk zes perfecte uitdagingen.
 \kendo{} scoort twee maal onvoldoende, terwijl \st{} dat slechts één keer doet.
 \jqm{} heeft drie perfecte uitdagingen en vier onvoldoendes.
 Als laatste komt \lungo{} met slechts één perfecte uitdaging en zeven onvoldoendes.
 
-Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-oproepen, behalve dan bij één geval voor Lungo.
+Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-oproepen, behalve dan bij één geval voor \lungo{}.
 Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
 
 
@@ -136,11 +136,11 @@ Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde e
 Daarom werd gekozen voor \code{fieldset} met twee opties.
 
 De kleur van de knoppen aanpassen kan op twee manieren. 
-Ofwel schrijft men zelf de CSS-code ofwel gebruikt men ThemeRoller~\cite{JQuery2012c}. 
+Ofwel wordt dit gedaan met CSS-code ofwel wordt gebruik gemaakt van ThemeRoller~\cite{JQuery2012c}. 
 Deze laatste manier werd gebruikt om de knoppen groen te maken. 
 Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
-Door daarna de knop te annoteren met het \code{data-theme}-attribuut activeert men het betreffende thema. 
-Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's (\term{swatch} \code{b}) was en men die direct kan gebruiken.
+Door daarna de knop te annoteren met het \code{data-theme}-attribuut wordt het betreffende thema geactiveerd. 
+Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's (\term{swatch} \code{b}) was en kon deze direct worden gebruikt.
 
 \paragraph{\lungo}
 Het tonen van kop- en voettekst gebeurt door de verschillende schermen van de applicatie te omvatten door \code{<article>}-tags en daarbinnen de \code{<header>}- en \code{<footer>}-tag te gebruiken.
@@ -251,13 +251,13 @@ In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tabl
 Eerst werd gezocht naar plug-ins aan de hand van een blogpost~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
 Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
 Zo was de eerste destructief ten opzichte van het raamwerk. 
-Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als men wil updaten naar een nieuwe versie. 
+Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als er moeten worden geüpdatet naar een nieuwe versie. 
 De tweede plug-in werkte enkel tot versie 1.0.1 van \jqm{}. 
 De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
 
 Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 media queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
 Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
-Daarnaast gebruikte men al op de documentatiesite van \jqm{}~1.2 een gelijkaardige layout~\cite{JQuery2012b}. 
+Daarnaast wordt op de documentatiesite van \jqm{}~1.2 al een gelijkaardige lay-out gebruikt~\cite{JQuery2012b}. 
 De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiesite van \jqm{}~1.2.
 Bij CSS3 media queries moet zelf een breekpunt (uitgedrukt in pixels) worden opgegeven wanneer dient geschakeld te worden tussen smartphonelay-out of tabletlay-out.
 
@@ -341,7 +341,7 @@ Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voo
 De laadschermen werden in combinatie met de AJAX-oproepen gebruikt.
 Bij de AJAX-oproep wordt de functie \code{beforeSend} voor de oproep opgeroepen en de functie \code{complete} na de oproep.
 Dit zijn dus de ideale plaatsen om respectievelijk de laadschermen te tonen en te verbergen.
-Indien men AJAX-oproepen in een ketting gaat plaatsen, lukt deze aanpak niet meer.
+Indien de AJAX-oproepen in een ketting worden geplaatst, lukt deze aanpak niet meer.
 De \code{complete}-functie van de eerste AJAX-oproep zal pas opgeroepen worden als de laatste AJAX-oproep klaar is.
 Hierdoor zal gedurende de ketting van AJAX-oproepen, alleen het eerste laadscherm zichtbaar zijn en zullen de andere nooit worden getoond.
 Een oplossing hiervoor is om het verbergen van het laadscherm uit de \code{complete}-oproep te halen en deze in zowel in de \code{succes}-functie als de \code{error}-functie te plaatsen.
@@ -364,7 +364,7 @@ Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet 
 Een oplossing hiervoor is om bij een ketting van vensters, nooit de vensters tussenin te sluiten.
 Wanneer zowel een laadscherm als dialoogvenster worden geopend, zal enkel dat laatste getoond worden.
 
-Om een dialoogvenster te tonen, geeft men de volgende parameters mee: titel, omschrijving, tijd op het scherm en de \term{callback} functie.
+Om een dialoogvenster te tonen, worden de volgende parameters meegegeven: titel, omschrijving, tijd op het scherm en de \term{callback} functie.
 Indien er beslist wordt om geen tijd op te geven, kan het venster worden gesloten met \code{Lungo.Notification.hide()}.
 Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
 Deze zullen respectievelijk een groene en rode kleur hebben.
@@ -481,7 +481,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{formpanel} worden 
 \paragraph{\jqm} 
 Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}-attribuut in HTML5. 
 Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
-Wat wel opmerkelijk is wanneer men een formulier invult, daarna verstuurt en dan terugkeert, het formulier nog alle waarden bevat. 
+Wat wel opmerkelijk is wanneer een formulier wordt ingevuld, daarna verstuurd en dan wordt teruggegaan, het formulier nog alle waarden bevat. 
 Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. 
 Dit kan met behulp van \js{} via de \code{reset()}-functie op het formulier.
  
@@ -1173,7 +1173,7 @@ Deze sorteereigenschap bepaalt het veld waarop gesorteerd moet worden en eventue
 
 \paragraph{\jqm}
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
-Hiervoor maakt men gebruik van de \code{.each()}-functie van jQuery om ieder data-item te overlopen.
+Hiervoor wordt gebruik gemaakt van de \code{.each()}-functie van jQuery om ieder data-item te overlopen.
 Per item moet een \code{append} gebeuren van een lijstitem op de lijst.
 In dit item wordt de template van de lijst geschreven.
 Na alle elementen te hebben overlopen, moet de lijst ververst worden zodat \jqm{} de correcte lay-out toepast op de volledige lijst

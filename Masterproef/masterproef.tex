@@ -30,7 +30,24 @@
 
 \usepackage{kulemtx}
 \headstyles{kulemtman}
+
+\renewcommand*\kulemtmanToC{%
+\let\cftchapterfont\sffamily
+\let\cftchapterdotsep\cftdotsep
+\def\cftchapterleader{\normalfont\cftdotfill{\cftchapterdotsep}}%
+\def\cftchapterpagefont{}%
+\setlength\cftbeforechapterskip{\medskipamount}%
+\setlength\cftbeforesectionskip{\smallskipamount}%
+\settocdepth{section}%
+\addtodef\cftchapterbreak{\par}{}%
+\let\cftsubsectionfont\itshape
+\def\l@subsection##1##2{%
+\leftskip\cftsubsectionindent \rightskip\@tocrmarg \parfillskip\fill
+\ifhmode ,\quad \else\noindent\fi \ignorespaces
+{\let\numberline\@gobble \cftsubsectionfont ##1}%
+~~{\cftsubsectionpagefont ##2}\ignorespaces}}
 \kulemtmanToC
+
 
 \usepackage{pgfplotstable} %nodig voor CSV to Latex
 \usepackage{booktabs} % voor lay-out comparisontable
@@ -82,10 +99,7 @@
 %gunter d
 %tim
 
-
-
 \tableofcontents*
-%TODO hoe kunnen we derde niveau van structuur voorzien? %\setcounter{secnumdepth}{1} \settocdepth{section}
 
 \begin{abstract} % Tim
 Ontwikkelaars van mobiele applicaties worden geconfronteerd met de variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.

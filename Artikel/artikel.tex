@@ -102,7 +102,7 @@ This paper compares \st{}, \jqm{}, \kendo{} and \lungo{} by using popularity, pr
 The conclusion is that \jqm{} is the best framework with great productivity and performance. 
 \kendo{} gets the second place and its main asset is usage.
 \lungo{} is third and has the fastest download performance.
-\st{} ends last.
+\st{} ends last but gets the best user experience.
 However all four frameworks have good support.
 \end{abstract}
 
@@ -722,25 +722,24 @@ The best framework in usage is \kendob{}, followed closely by \sta{}.
 This can be explained because they both enforce an architecture, namely MVVM and MVC respectively.
 The lack of enforcing an architecture by the two other frameworks result in a laborious approach, where points are lost due to the lack of features by the framework.
 Both \kendob{} and \sta{} are controlled by a company and because of the fact that the POC is a typical application for a company, this can also explain the good results.
+\kendob{} obtains the maximum score for \chal{formulieren}, but has a smaller score for \chal{offline} than \sta.
 
+\jqma{} has a bit more than half of the maximum score.
+It gets 0 points on \chal{vullen} and \chal{lijsten}.
+This is because of the lack of enforcing an architecture, the developer has to do those things manually. 
 
-Opmerkelijk is de perfecte score van \kendo{} voor formulieren, maar de mindere ondersteuning voor offline dan \st{}.
-\jqm{} behaalt de helft met wat overschot, maar goed is dat zeker niet.
-Vooral op het vlak om data automatisch in te laden in velden of lijsten, scoort het nul door het ontbreken van een architectuur. 
-Als laatste komt \lungo{} dat een onvoldoende behaalt.
-Dezelfde pijnpunten van \jqm{} zijn ook geldig voor \lungo{}.
-Daarenboven is er bij \lungo{} een totaal gebrek aan formuliervalidatie en aan de meer geavanceerdere formulierelementen.
-Voor deze laatste moet er het geluk zijn om plugin te vinden of zal de functionaliteit zelf moeten worden geïmplementeerd. 
+The last place goes to \lungo{} that fails the usage criterion.
+The same problems of \jqma{} are also applicable for \lungo{}.
+Furthermore it gets a zero for \chal{validatie} and also has problems with the more advances form elements in \chal{formulieren}.
+One has to have the luck of finding a plugin or implement the functionality by hand.
 
-\kendo{} en \st{} behalen elk zes perfecte uitdagingen.
-\kendo{} scoort twee maal onvoldoende, terwijl \st{} dat slechts één keer doet.
-\jqm{} heeft drie perfecte uitdagingen en vier onvoldoendes.
-Als laatste komt \lungo{} met slechts één perfecte uitdaging en zeven onvoldoendes.
+\kendob{} and \sta{} both have six perfect challenges.
+\kendob{} fails on two challenges, while \sta{} only fails on one.
+\jqm{} has three perfect challenges and fails on four.
+\lungo{} has only one perfect challenge and fails on seven.
 
-Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-oproepen, behalve dan bij één geval voor Lungo.
-Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
-
-
+It can be generally stated that each of the four frameworks have great support for \chal{ajax}, except for one case particular case with \lungo{}.
+Also \chal{laadscherm} is fully supported by each framework.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1204,13 +1203,102 @@ Finally, offline capabilities also are supported on all $8$ devices~\cite{Deveri
 
 \subsection{Performance} % 1 blz % Tim
 \label{sec:evaluation-performance}
+The performance of both the total download time and user experience of each framework can be found in table \ref{tabel:evaluatie-performantie}.
+\jqma{} takes first place, shortly followed by \lungo{}.
+This is because both frameworks do not enforce an architecture, which means that less \js{} code has to be downloaded.
+This is in contrast to \kendob{} and \sta{} that take respectively second last and last place.
+
+\begin{table}
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{3cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Performance,ST,Kendo,jQM,Lungo},
+  columns/Performance/.style={column name=\textbf{Performance}, column type={l}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={l}}, 
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{../Masterproef/tabellen/performantie.csv}
+\caption{Performance for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa). Less is better.}
+\label{tabel:evaluatie-performantie}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%
+
+\paragraph{Average download time}
+Figure \ref{fig:evaluatie-performantie-gebruikerservaring} shows the average download time for POC, POC from cache, login application, login application from cache for the four frameworks. 
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.4\textwidth]{../Masterproef/figuren/performance.pdf}
-  \caption{Average download time for POC,  POC from cache,  login and login from cache for each framework (less is better).}
-  \label{fig:performance}
+  \includegraphics[width=\columnwidth]{../Masterproef/figuren/performance.pdf}
+  \caption{Average download time for POC, POC from cache, login application, login application from cache for the four frameworks. Less is better.}
+  \label{fig:evaluatie-performantie-gebruikerservaring}
 \end{figure}
+
+\lungo{} takes first place and only needs a third of the download time needed by \sta{}, the slowest of the four.
+\jqma{} and \kendob{} take the second and third place respectively.
+Because not everything was implemented in the POC of \lungo{}, one could argue that that is the reason of the first place of \lungo{}.
+But when looking at the login application, \lungo{} still takes first place.
+It is even more than half faster than \jqma{}, \kendob{} or \sta{}.
+Those three frameworks have about the same average download time.
+The reason that \kendob{} and \sta{} are respectively second last and last is because they enforce an architecture and therefore the libraries to download are bigger than those of \lungo{} and \jqma{}.
+
+When viewing the cached versions of the POC and login application, \kendob{}, \jqma{} en \lungo{} have about the same average download time.
+However \st{} has a much higher download time when using the cached version.
+The first reason is that the first three frameworks are only using HTML5 Application Cache.
+\sta{} also uses its own caching mechanism in addition to HTML5 Application Cache.
+The second reason is that the application in the first three frameworks are compiled using Yeoman~\cite{Yeoman2013} and \st{} with Sencha Cmd~\cite{Sencha2012}.
+
+%%%%%%%%%%%%%%%%%%
+
+\paragraph{User experience}
+Table \ref{tabel:evaluatie-performantie-gebruikerservaring} shows the total score for user experience.
+\sta{} takes first place with the maximal score.
+\jqma{} was voted six time the second best for user experience.
+\kendob{} was better on the \htc{} and \lungo{} on the \ipadiii{}.
+The generation of the 850 list items was impossible for \kendob{} on all the iOS devices.
+The browser crashed an the device returned to the home screen.
+%De reden alsook de grens waarom \kendo{} niet crasht op iOS-toestellen werd door tijdsbudget niet gecontroleerd.
+%Een mogelijke denkpiste is dat \kendo{} een overhead genereerd die het maximale toegelaten geheugen voor het iOS-besturingssysteem overschrijdt.
+In contrast, list generation did work on all Android devices.
+%De score van \kendo{} is dus slechts voor vier apparaten.
+
+\begin{table}
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{3cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Device,ST,Kendo,jQM,Lungo},
+  columns/Device/.style={column name=\textbf{Device}, column type={l}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={l}},   
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{../Masterproef/tabellen/performantie-gebruikerservaring.csv}
+\caption{User experience for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
+\label{tabel:evaluatie-performantie-gebruikerservaring}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

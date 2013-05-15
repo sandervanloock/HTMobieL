@@ -373,14 +373,24 @@ De laadtijden en gebruikservaring zullen op acht verschillende apparaten worden 
 De gemiddelde laadtijd zal bekomen worden door de totale laadtijd door het aantal toestellen ($8$) te delen.
 Dit zijn dezelfde als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
 
-De formule voor het performantiecriterium wordt dan: 
+De formule voor het performantiecriterium wordt dan:
+%TODO: ik heb nu 2 tijdelijke formules gemaakt, omdat ik die kan hergebruiken in evaluatie 
 \begin{equation}
-  \text{Performantie}_r= \frac{\sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)}}{8}  + \sum_{c=1}^{8}{\left(l_{r,c,lijst}\right)} 
+  \text{Totale downloadtijd}_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)}
+    \label{eq:totale-downloadtijd}
+\end{equation}
+\begin{equation}
+  \text{Totale gebruikerservaring}_r= \sum_{c=1}^{8}{\left(l_{r,c,lijst}\right)}
+  \label{eq:totale-gebruikerservaring}
+\end{equation}
+\begin{equation}
+  \text{Performantie}_r= \frac{\text{Totale downloadtijd}_r + \text{Totale gebruikerservaring}_r}{8}
   \label{eq:performantie}
 \end{equation}
 met $c$ de verschillende contexten en $r$ de verschillende raamwerken.
 
 De score komt dus overeen met de responstijd van de applicatie.
+% TODO: PE toch klopt niet, we tellen 2 tijden op (zowel download als rendertijd) en daarop gaan we dan die formule van Nielsen op loslaten, ik denk dat je gewoon die Nielson op de 2 apparaten tijden kunt loslaten, maar niet op de som van de 2..
 Dit kan gecategoriseerd worden met limieten zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  $PE_r < 0.1$,  $PE_r < 1$ en $PE_r < 10$ (Alle tijden worden in seconden uitgedrukt).
 De eerste twee categorieën zijn aanvaardbaar.
 

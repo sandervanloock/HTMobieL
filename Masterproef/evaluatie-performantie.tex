@@ -63,7 +63,12 @@ Deze test werd uitgevoerd door twee personen.
 % TODO: is dat nu goed of slecht als we dat maar met 2 personen hebben gedaan?
 %Er dient echter opgemerkt te worden dat het tijdsbudget het niet toeliet om deze test te laten uitvoeren door minstens vijf personen te laten uitvoeren, wat voorgesteld wordt door Nielsen.
 
-Om de totaalscore van een raamwerk te bepalen worden de scores voor dat raamwerk op ieder apparaat opgeteld.
+Om de totaalscore van een raamwerk te bepalen worden de scores voor dat raamwerk op ieder apparaat opgeteld. De nieuwe formule voor totale gebruikerservaring voor een raamwerk $r$ wordt:
+\begin{equation}
+  \text{Totale gebruikerservaring}'_r = \sum_{c=1}^{8}{\text{ervaring}_{r,c}}
+  \label{eq:performantie-enhanced}
+\end{equation}
+
 In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwerk dat de vlotste scrolervaring aanbiedt. In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 
 \begin{table}[H]
@@ -111,13 +116,11 @@ De score van \kendo{} is dus slechts voor vier apparaten.
 Aangezien de gebruikerservaring werd vervangen door de subjectieve lijsttest dient de formule om de totale performantie te berekenen~(zie \ref{eq:performantie}), te worden herschreven.
 De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op gemiddelde downloadtijd, maar sterk scoort op de subjectieve lijsttest, een middelmatige score te geven.
 Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de downloadtijd gedeeld door de gebruikerservaring. De score voor de performantie van een raamwerk $r$ wordt:
-%TODO aanpassen aan formule sander vergelijkingshoofdstuk
 \begin{equation}
-  \text{Performantie}'_r = \frac{\sum_{c=1}^{8}{\left(l_{r,c,\text{POC}}+l_{r,c,\text{POC}_{cache}}+l_{r,c,\text{login}}+l_{r,c,\text{login}_{cache}}\right)}}{\text{Gebruikerservaring}_r}
+  \text{Performantie}'_r = \frac{\text{Totale downloadtijd}_r}{\text{Totale gebruikerservaring}'_r}
   \label{eq:performantie-enhanced}
 \end{equation}
 
-%TODO aanpassen aan formule sander vergelijkingshoofdstuk
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[

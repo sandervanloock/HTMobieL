@@ -331,22 +331,25 @@ Social networks provide a good indication to determine the popularity that goes 
 Twitter followers ($T$),  GitHub stars ($S$),  GitHub forkers ($F$),  Stack Overflow questions ($S$) and Facebook likes ($FB$) will be looked at.
 The summation of these five numbers give the score for the framework's popularity.  
 
-\begin{equation}
-  POP_f = T_f+S_f+F_f+SO_f+FB_f
-  \label{eq:populariteit}
-\end{equation}
+% \begin{equation}
+%   POP_f = T_f+S_f+F_f+SO_f+FB_f
+%   \label{eq:populariteit}
+% \end{equation}
 
 \paragraph{Productivity}
-Both autors implement the full POC in a different framework and carefully record the time to implement it.  
-As both start with a similar background,  time differences can explain different learning curves.  
-To double check this criterion,  a partially implemention of the POC will be implemented in the other's framework.  
-The partial implementation is the POC's login that loads a long list.%, just like~\cite{Burris}.   
-The time to implement the POC ($t_{POC}$) and the login application ($t_{login}$) give the score for the framework's productivity. 
+Both autors implement the full POC in a two different framework and carefully record the time to implement it.  
+However,  this time will be influenced by many factors.
+The second implementations will have an advantage because of the gained experience after the first implementation.
+Also,  code reuse and possible incomplete implementations because of the limited functionality of the framework, affect this times in a negative way.
+A better criterion will be the hours to partially implement the POC in the other's framework.  
+The partial implementation contains the POC's login that loads a long list.%, just like~\cite{Burris}.   
+This application is not subjected to the influences described above. %TODO verder verklaren?
+The time to implement the login application ($t_{login}$) gives the score for the framework's productivity. 
 
-\begin{equation}
-  PROD_f = {t_{f,POC} + t_{f,login}}
-  \label{eq:productiviteit}
-\end{equation}
+% \begin{equation}
+%   PROD_f = t_{f,login}
+%   \label{eq:productiviteit}
+% \end{equation}
 
 \paragraph{Usage}
 The POC will be subdivided in $13$ challenges and $38$ subchallenges.  
@@ -371,7 +374,7 @@ $C_{f,i} = 0$ & No, custom or hacky implementation\\
 \end{table}
 
 \begin{equation}
-  US_f = \sum_{i=1}^{38}{\left(C_{f,i}\right)}
+  \text{US}_f = \sum_{i=1}^{38}{\left(C_{f,i}\right)}
   \label{eq:gebruik}
 \end{equation}
 
@@ -389,7 +392,7 @@ If some part of challenge is infeasible $C_{f,c,i} = 0$.
 The summation of scores for each context will give the score for the framework's support.
 
 \begin{equation}
-  SU_f = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}C_{f,c,i}\right)}
+  \text{SU}_f = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N}C_{f,c,i}\right)}
   \label{eq:ondersteuning}
 \end{equation}
 
@@ -398,18 +401,24 @@ The loading time of an HTML5-application is a major bottleneck for performance.
 Therefor,  the loading time of the POC ($l_{f,c,POC}$) and login application ($l_{f,c,login}$) will be measured on eight devices.
 Also,  the loading time for a cached version of both the POC ($l_{f,c,POC_{cache}}$) and login application ($l_{f,c,login_{cache}}$) will be recorded.
 The summation of loading times will give the score for the framework's performance.
+The average performance becomes:
 
-% \begin{multline}
-%   PERF_f = \sum_{c=1}^{8}{\left(l_{f,c,POC}+l_{f,c,POC_{cache}}+l_{f,c,login} \\
-% 	 + l_{f,c,login_{cache + l_{r,c,list}}}\right)} 
-%   \label{eq:performantie}
-% \end{multline}
 
 \begin{equation}
 \begin{split}
-PERF_f =  \sum_{c=1}^{8}\left(l_{f,c,POC}+l_{f,c,POC_{cache}} \right.\\  
-       \left. + l_{f,c,login} + l_{f,c,login_{cache}} + l_{r,c,list} \right)
+\text{AvgDownloadTime}_f =  \\ \frac{\sum_{c=1}^{8}\left(l_{f,c,POC}+l_{f,c,POC_{cache}}+ l_{f,c,login} + l_{f,c,login_{cache}}\right)}{8}
+  \label{eq:dowloadtime}
 \end{split}
+\end{equation}
+
+The responsetime of a list with $850$ elements will be measured on each context with two user tests ($\text{experience}_{f,c}$).
+The result will be a total ordening of the frameworks per context that indicate the responsiveness.
+The summation of the results will provide a factor to weight the average download time.
+The formula for performance then becomes:
+
+\begin{equation}
+  \text{PERF}_f =  \frac{\text{AvgDownloadTime}_f}{\sum_{c=1}^{8}{\text{experience}_{f,c}}}
+  \label{eq:performance}
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1135,6 +1144,41 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 \subsection{Support} % 2 blz
 \label{sec:evaluation-support}
 
+%%%%%%%%%%%%%%%V TODO VERTALEN %%%%%%%%%%%%%%%
+
+Zoals besproken in sectie \ref{sec:vergelijking-ondersteuning} wordt enkel het raamwerk en niet een eigen implementatie op ondersteuning getest.
+Daarom verschilt de maximale score voor ondersteuning per raamwerk.
+Welke uitdagingen door het raamwerk konden worden geïmplementeerd werd in het vorige criterium geduid.
+De maximale scores voor \st{},  \kendo{},  \jqm{} en \lungo{} zijn respectievelijk $96$, $104$, $104$ en $80$.
+De score voor ondersteuning is respectievelijk $84$, $91$, $95$ en $62$.
+Wanneer we de relatieve score per raamwerk bekijken heeft \st{} een score van $88\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo $78\%$.
+Er kan dus meteen geconcludeerd worden dat de vier raamwerken behoorlijk hoog scoren.
+Dit wil zeggen dat de keuze van een raamwerk onafhankelijk is van de ondersteuning.
+Dezelfde apparaten worden door de verschillende raamwerken ondersteund of niet.
+Dit komt doordat de raamwerken allemaal steunen op dezelfde onderliggende technolgie, namlelijk HTLM5.
+Hoewel de verschillen klein zijn kan gezegd worden dat \jqm{} de beste ondersteuning biedt,  gevolgd door een ex aquo van \st{} en \kendo{}.
+\lungo{} biedt de minste ondersteuning.
+
+Alle raamwerken buiten \lungo{} ondersteunen gemiddeld $68\%$ van de geïmplementeerde uitdagingen.
+\lungo{} scoort ondersteund slechts de helft van de geïmplementeerde uitdagingen.
+De grootste problemen werden bij formulieren waargenomen.
+Daarnaast kon niet genavigeerd worden doorheen de volledige POC op de \htc{} en \gtab{}.
+Een laatste opmerking bij de POC geïmplementeerd in \lungo{} is dat het \term{tap event} werd gebruikt om te navigeren.
+Deze heeft een dubbel klikeffect op de toestellen, waardoor de eerste klik op het huidig scherm gebeurt en de tweede klik op de volgende.
+Zo kan het bijvoorbeeld gebeuren dat een menu op het volgende scherm al openklapt, zonder dat de gebruiker dit verwachtte.
+
+Android 2.3 toestellen - \htc{} en \gtab{} - hebben het minste ondersteuning.
+Android 4 en iOS toestellen scoren gemiddeld $95\%$.
+De gemiddelde score bij alle Android toestellen is $79\%$ in tegenstelling tot een $95\%$ ondersteuning op iOS toestellen.
+Er moet opgemerkt worden dat enkel versie $5$ en $6$ van iOS werd getest.
+Van alle $8$ apparaten is de \iphoneiii{} het oudst (officiële voorstelling in juni 2009) gevolgd door de \gs{} (officiële voorstelling in maart 2010). %TODO referenties
+Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android toestellen dit minder vaak aanbieden ten opzichte van iOS toestellen. %TODO referentie
+De reden hiervoor is de grotere heterogeniteit tussen Android toestellen.
+
+%TODO Tim: Lungo tap probleem ergens vermelden
+
+Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline opslag op alle beschikbare apparaten.
+
 \begin{table}
 \centering
 \resizebox{8.5cm}{!} {
@@ -1199,10 +1243,61 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 \subsection{Comparison overview} % ? blz
 \label{sec:evaluation-overview}
 
+Figure \ref{fig:spidergraph} shows the spidergraph with the scores for the five criteria for the four frameworks.
+
+The areas of the four pentagons are:
+\begin{description}
+ \item [\jqm{}] $1.87$
+ \item [\kendo{}] $1.32$
+ \item [\lungo{}] $0.88$
+ \item [\st{}] $0.73$
+\end{description}
+
+The area unit is the unit as can be seen on the axes.
+
+\jqma{} has the largest area ($1.87$) and can be seen as the winner.
+One of the major factors that make \jqma{} successful is that it does not forces an architecture.
+This decreases the learning curve in favor of productivity.
+Also,  the extensive documentation and large community make \jqma{} more productive.
+\lungo{} also forces no architecture but is extremely unpopular.
+The absence of architecture also has two disadvantages.
+First,  the framework provides less functionality but many plugins and HTML5-features act as substitutes.
+Secondly,  the code that needs to be written is verbose and thereby error prone.
+
+\kendob{} is second with an area of $1.32$.
+The MVVM architecture makes \kendob{} more usable but less productive in comparison with \jqma{}.
+However,  the MVVM arcitecture seems more intuitive than MVC.
+The main drawback of \kendob{},  which can not be seen on the figure, is the high license kost.
+The expectation that open-source frameworks are more popular is not reflected in the popularity scores.
+\kendob{} also is the least performant.
+The crashes on iOS devices caused a decrease in the user experience tests and hence a drop in performance.
+The native look-and-feel and corresponding benefits are not been studied although it is an important factor for \kendob{} in particular.
+
+\lungo{} has an area of ($0.88$) and claims the third place.
+In tree out of five criteria,  \lungo{} is last.
+For the other criteria,  \lungo{} is second.
+Again, no architectur is imposed which can be seen in productivity and usability.
+However,  the advantage in productivity is smaller and disadvantage is usability is larger in comparison with \jqma{}.
+The lack of familiarity,  as can be seen with the popularity,  is an explanation of these differences.
+A positive aspect is that \lungo{} achieved the best average download times.  
+This is because \quo{},  the core library of \lungo{},  is optimised for mobile devices.
+The user experience tests weakend the score for performance
+
+
+\sta {} is has an area of ($0.73$) and is worst framework following these criteria.
+The combination of the MVC architecture and the fact that it is \js-driven makes \sta{} both the least productive and least performant in comparison to the other frameworks.
+Alle HTML code is generated by the framework and therefor the \js-files are very large.
+As a result,  the average downloadtimes were remarkably large.
+The user experience tests gave an opposite result because after the initial waiting time,  \sta{} had the fastest responstimes.
+The tools provided by Sencha to support the developper are not able to close the gap in productivity.
+The tools require a learning process on their own.
+As a last remark,  \sta{} is depending on the WebKit engine.
+Devices with a default browser that do not contain this engine,  like Windows Phone, are not investigated.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.4\textwidth]{../Masterproef/figuren/spidergraph-final.pdf}
-  \caption{Comparison overview with the five comparisioncriteria for \st{},  \kendo{},  \jqm{} en \lungo{}.}
+  \caption{Comparison overview with the five comparisioncriteria for \sta{},  \kendob{},  \jqma{} en \lungo{}.}
   \label{fig:spidergraph}
 \end{figure}
 
@@ -1219,6 +1314,35 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 
 \section{Conclusion} % 0,5 blz
 \label{sec:conclusion}
+
+%%%%%%%%%%%%%%%V TODO VERTALEN %%%%%%%%%%%%%%%
+
+HTML5 is een nieuwe,  niet-gestandardiseerde technologie die zich richt op mobiele apparaten.
+Deze technologie moet een antwoord bieden op de verscheidenheid van apparaten,  besturingssystemen en browsers.
+Vele raamwerken bestaan die verderbouwen op HTML5 om de ontwikkeling van mobiele web applicaties te vergemakkelijken.
+
+In deze thesis werd een vergelijkende studie uitgevoerd tussen \st{}, \kendo{},  \jqm{} en \lungo{}.
+\st{} bouwt op de MVC-architectuur en is \js-gedreven.
+Het raamwerk is gratis binnen een commerciele context.
+\kendo{} dwingt de MVVM-architectuur af en is zowel \js- als opmaakgedreven.
+Een licentie voor het gebruik van \kendo{} kost $\$699$.
+\jqm{} en \lungo{} hebben geen architectuur en zijn beide opmaakgedreven.
+Beide raamwerken zijn \term{open-source}.
+
+Vijf criteria werden gekozen om de vergelijkende studie uit te voeren:  populariteit,  productiviteit,  gebruik,  ondersteuning en performantie.
+Elk criterium werd voorzien van een formule om een score te berekenen.
+Een POC die werknemers toelaat onkosten toe te voegen, werd geformaliseerd en op zoveel mogelijk vlakken getest met de opgelegde criteria
+Om populariteit te meten werd naar de activiteit van de raamwerken op sociale netwerken gekeken.
+De tijd om een loginapplicatie te ontwikkelen, bepaalde de productiviteit.
+De POC werd onderverdeeld in $13$ uitdagingen en $38$ deeluitdagingen om de functionaliteit van het raamwerk te testen en het gebruikscriterium te quoteren.
+Vervolgens werd een subset van de uitdagingen getest op $8$ verschillende mobiele toestellen om de ondersteuning te controleren.
+Ten slotte bepaalden de laad- en responstijden van de POC en loginapplicatie de performantie.
+De responstijden werden opgementen met gebruikservaringstesten.
+De scores van de $5$ criteria voor de $4$ raamwerken werden in één spinnenweb ondergebracht.
+
+Na evaluatie bleek \jqm{} het beste raamwerk op basis van de gekozen criteria, gevolgd door \kendo{}, \lungo{} en \st{}.
+Deze volgorde werd bepaald door de oppervlakte van de vijfhoeken op het spinnenweb te berekenen.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

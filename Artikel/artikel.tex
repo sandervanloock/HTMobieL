@@ -565,9 +565,9 @@ This section evaluates the four mobile HTML5 frameworks by five criteria, namely
 \subsection{Popularity} % (0,5 blz)
 \label{sec:evaluation-popularity}
 
-\begin{table}
+\begin{table}[t]
 \centering
-\resizebox{8.5cm}{!} {
+\resizebox{\columnwidth}{!} {
 \pgfplotstabletypeset[
   col sep=comma,
   string type,
@@ -587,7 +587,7 @@ This section evaluates the four mobile HTML5 frameworks by five criteria, namely
     after row=\bottomrule}
 ]{../Masterproef/tabellen/populariteit.csv}
 }
-\caption{Overview of popularity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
+\caption{Popularity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-popularity}
 \end{table}
 
@@ -615,8 +615,7 @@ The fan page of \kendob{} thus has gained more \fb{} likes in a shorter period t
 An explanation is that the different layers of \kendo{} are aggregated on one fan page.
 This is in contrast to \jqma{} where a separate fan page exists for jQuery that has about 53,000 likes.
 This number is similar to that of \kendo{}.
-%TODO interessepagina in het engels
-\sta{} and \lungo{} only have a \term{interessepagina} on \fb.
+\sta{} and \lungo{} only have a interest page on \fb.
 This explains the great difference in \fb{} likes.
 If the likes are left out of popularity, \kendob{} and \jqma{} switch places.
 
@@ -625,12 +624,36 @@ If the likes are left out of popularity, \kendob{} and \jqma{} switch places.
 \subsection{Productivity} % Sander 0,5 blz
 \label{sec:evaluation-productivity}
 
-% nieuwe cijfers vermelden en nieuwe data
+% TODO nieuwe cijfers vermelden en nieuwe data
 
 This section will investigate the productivity of the different frameworks based on the time to implement the POC and the login application.
 Table~\ref{tabel:evaluatie-productiviteit} contains the scores for this criterion.
 The data shows that \lungo{} is the obvious winner,  followed by \kendo{} en \jqm{}.
 \st{} appears to be the least productive.
+
+\begin{table}[t]
+\centering
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Productivity,ST,Kendo,jQM,Lungo},
+  columns/Productivity/.style={column name=\textbf{Productivity}, column type={l}},  
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{../Masterproef/tabellen/productiviteit.csv}
+\caption{Productivity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
+\label{tabel:evaluatie-productiviteit}
+\end{table}
 
 Two important factor need to be taken into account when analyzing this data.
 First,  the implementations of the POC and login application were first executed with \jqm{} and \st{}.
@@ -657,31 +680,6 @@ The final factor is the different places where a developper can go to ask questi
 Stack Overflow or fora are examples of such places. %TODO fora?
 As presented in the previous criterion,  \jqm{} expells in the amount of Stack Overflow questions
 
-
-\begin{table}
-\centering
-\pgfplotstabletypeset[
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Productivity,ST,Kendo,jQM,Lungo},
-  columns/Productivity/.style={column name=\textbf{Productivity}, column type={l}},  
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{../Masterproef/tabellen/productiviteit.csv}
-\caption{Overview of productivity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-productiviteit}
-\end{table}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Usage}
@@ -691,7 +689,7 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 
 \begin{table}
 \centering
-\resizebox{8.5cm}{!} {
+\resizebox{\columnwidth}{!} {
 \pgfplotstabletypeset[
   col sep=comma,
   string type,
@@ -711,7 +709,7 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
     after row=\bottomrule}
 ]{../Masterproef/tabellen/gebruik.csv}
 }
-\caption{Overview of usage for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
+\caption{Usage for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-usage}
 \end{table}
 
@@ -1110,48 +1108,8 @@ Dit section will evaluate the support of the frameworks on $8$ mobile devices.
 The formula for this criterion can be found in equation~\ref{eq:ondersteuning}.
 The scores for the four frameworks are summarized in table~\ref{tabel:evaluatie-ondersteuning-u}.
 
-As mentioned in section \ref{sec:comparisoncriteria},  only the functionality of the framework is tested so custom or hacky implementation are not checked for support.
-This is the reason why the maximum score for each framework is different.
-The challenges that could be implemented using the framework are described in the previous criterion.
-De maximum scores voor \sta{},  \kendob{},  \jqma{} and \lungo{} are respectively $96$, $104$, $104$ and $80$.
-Their result for support is respectively $83$, $91$, $95$ and $62$.
-Looking at a relative scores,  \st{} supports $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ and \lungo $78\%$.
-A first conclusion is that all frameworks have a remarkable high score.
-This means that de choice of a framework is independent of support.
-The reason why the scores are more or less identical is that the frameworks all depend on the same underlying technology,  HTML5.
-Altough differences are small,  \jqma{} provides the best support,  followed by \kendob{} and \sta{}.
-\lungo{} has the least support.
-The major problems for \lungo{} can be found in \chal{formulieren}.
-The navigation through the POC did not worked on the \htc{} and the \gtab{}. %TODO waarom niet?
-Also,  the tap event was used to implement the navigation.
-When only tapped once,  the system recorded a double tap.
-Therefor each tap also resulted in a tap on the next screen and possibly caused a undesirable action.
-
-In general,  Android 2.3 devices - the \htc{} and \gtab{} - had the least support.
-All other devices scored an average of $95\%$.
-The differences in operatingsystem were remarkable:  Android has $79\%$ support while iOS has $95\%$.
-Only version $2.3$ and $4$ of Android and version $5$ and $6$ of iOS were tested.
-The two oldest devices were the \iphoneiii{} and \gs{} respectively released in june 2009 and march 2010~\cite{Staff2009,Gideon2010}.
-Although both devices are upgraded to a later operatingsystem,  it looks like Android devices offer updates less frequently.%TODO referentie?
-This can be explained with the large hetrogenity between Android devices.
-
-All frameworks but \jqma{} provide methods to query the context.
-\jqma{} implemented this feature with CSS3 media queries.
-This implementations worked on $7$ of $8$ devices except for the \gtab.
-However,  \kendob{} was able to recognize this device as a tablet and achieved the maximum score.
-Uploading an image requires support for both the local storage and File API.  
-Also the \code{file} input type is necessary to indicate the upload component.
-The four implementations of this challenge all fail for the \htc{}, \gtab{} and \ipadi{} because the lack of support for one or more of these dependencies~\cite{Deveria2013c}.
-HTML5 provides features for form validation but non of the $8$ devices support these features.
-All frameworks, however,  implement a custom validation mechanism that is supported on each device.
-All four implementations for the signature depend on the \code{canvas} feature of HTML5 and is supported for each device.
-\kendob{}, \jqma{} and \lungo{} reuse the code to implement the \chal{pdf}, \sta{} has a plugin available that depend on the PDF.JS,  a PDF-renderer from Mozilla~\cite{Gal2010}.
-The first implementation failed to work on the \gs{} while latter implementation showed the PDF successfully.
-Finally, offline capabilities also are supported on all $8$ devices~\cite{Deveria2013c} so each framewok achieved the maximum score.
-
-\begin{table}
+\begin{table*}
 \centering
-\resizebox{8.5cm}{!} {
 \pgfplotstabletypeset[
 	column type=l,
 	every head row/.style={
@@ -1189,10 +1147,48 @@ Finally, offline capabilities also are supported on all $8$ devices~\cite{Deveri
 	col sep=comma,
 	string type,
 ]{../Masterproef/tabellen/ondersteuning-u.csv}
-}
 \caption{Overview of support per challenge.}
 \label{tabel:evaluatie-ondersteuning-u}
-\end{table}
+\end{table*}
+
+As mentioned in section \ref{sec:comparisoncriteria},  only the functionality of the framework is tested so custom or hacky implementation are not checked for support.
+This is the reason why the maximum score for each framework is different.
+The challenges that could be implemented using the framework are described in the previous criterion.
+De maximum scores voor \sta{},  \kendob{},  \jqma{} and \lungo{} are respectively $96$, $104$, $104$ and $80$.
+Their result for support is respectively $83$, $91$, $95$ and $62$.
+Looking at a relative scores,  \st{} supports $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ and \lungo $78\%$.
+A first conclusion is that all frameworks have a remarkable high score.
+This means that de choice of a framework is independent of support.
+The reason why the scores are more or less identical is that the frameworks all depend on the same underlying technology,  HTML5.
+Altough differences are small,  \jqma{} provides the best support,  followed by \kendob{} and \sta{}.
+\lungo{} has the least support.
+The major problems for \lungo{} can be found in \chal{formulieren}.
+The navigation through the POC did not work on the \htc{} and the \gtab{}. 
+The tap event was used to implement the navigation, but did not fire when tapping.
+On the other devices, the tap event resulted in a double tap.
+Therefor each tap also resulted in a tap on the next screen which can result in an undesirable action.
+
+In general,  Android 2.3 devices - the \htc{} and \gtab{} - had the least support.
+All other devices scored an average of $95\%$.
+The differences in operatingsystem were remarkable:  Android has $79\%$ support while iOS has $95\%$.
+Only version $2.3$ and $4$ of Android and version $5$ and $6$ of iOS were tested.
+The two oldest devices were the \iphoneiii{} and \gs{} respectively released in june 2009 and march 2010~\cite{Staff2009,Gideon2010}.
+Although both devices are upgraded to a later operatingsystem,  it looks like Android devices offer updates less frequently.%TODO referentie?
+This can be explained with the large hetrogenity between Android devices.
+
+All frameworks but \jqma{} provide methods to query the context.
+\jqma{} implemented this feature with CSS3 media queries.
+This implementations worked on $7$ of $8$ devices except for the \gtab.
+However,  \kendob{} was able to recognize this device as a tablet and achieved the maximum score.
+Uploading an image requires support for both the local storage and File API.  
+Also the \code{file} input type is necessary to indicate the upload component.
+The four implementations of this challenge all fail for the \htc{}, \gtab{} and \ipadi{} because the lack of support for one or more of these dependencies~\cite{Deveria2013c}.
+HTML5 provides features for form validation but non of the $8$ devices support these features.
+All frameworks, however,  implement a custom validation mechanism that is supported on each device.
+All four implementations for the signature depend on the \code{canvas} feature of HTML5 and is supported for each device.
+\kendob{}, \jqma{} and \lungo{} reuse the code to implement the \chal{pdf}, \sta{} has a plugin available that depend on the PDF.JS,  a PDF-renderer from Mozilla~\cite{Gal2010}.
+The first implementation failed to work on the \gs{} while latter implementation showed the PDF successfully.
+Finally, offline capabilities also are supported on all $8$ devices~\cite{Deveria2013c} so each framewok achieved the maximum score.
 
 % samenvattende tekst vertalen % Sander
   
@@ -1205,7 +1201,7 @@ The performance of both the total download time and user experience of each fram
 This is because both frameworks do not enforce an architecture, which means that less \js{} code has to be downloaded.
 This is in contrast to \kendob{} and \sta{} that take respectively second last and last place.
 
-\begin{table}
+\begin{table}[b]
 \centering
 \pgfplotstabletypeset[
   begin table=\begin{tabular}{p{3cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
@@ -1236,7 +1232,7 @@ This is in contrast to \kendob{} and \sta{} that take respectively second last a
 \paragraph{Average download time}
 Figure \ref{fig:evaluatie-performantie-gebruikerservaring} shows the average download time for POC, POC from cache, login application, login application from cache for the four frameworks. 
 
-\begin{figure}
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=\columnwidth]{../Masterproef/figuren/performance.pdf}
   \caption{Average download time for POC, POC from cache, login application, login application from cache for the four frameworks. Less is better.}
@@ -1271,7 +1267,7 @@ The browser crashed an the device returned to the home screen.
 In contrast, list generation did work on all Android devices.
 %De score van \kendo{} is dus slechts voor vier apparaten.
 
-\begin{table}
+\begin{table}[!ht]
 \centering
 \pgfplotstabletypeset[
   begin table=\begin{tabular}{p{3cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
@@ -1303,6 +1299,13 @@ In contrast, list generation did work on all Android devices.
 \label{sec:evaluation-overview}
 
 Figure \ref{fig:spidergraph} shows the spidergraph with the scores for the five criteria for the four frameworks.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{../Masterproef/figuren/spidergraph-final.pdf}
+  \caption{Overview with the five comparison criteria for \sta{},  \kendob{},  \jqma{} en \lungo{}.}
+  \label{fig:spidergraph}
+\end{figure}
 
 The areas of the four pentagons are:
 \begin{description}
@@ -1352,14 +1355,6 @@ The tools provided by Sencha to support the developper are not able to close the
 The tools require a learning process on their own.
 As a last remark,  \sta{} is depending on the WebKit engine.
 Devices with a default browser that do not contain this engine,  like Windows Phone, are not investigated.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.4\textwidth]{../Masterproef/figuren/spidergraph-final.pdf}
-  \caption{Comparison overview with the five comparisioncriteria for \sta{},  \kendob{},  \jqma{} en \lungo{}.}
-  \label{fig:spidergraph}
-\end{figure}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

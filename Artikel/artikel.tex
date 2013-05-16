@@ -249,18 +249,17 @@ Security,  for example,  is not an issue for framework vendors.
 
 \section{Comparison criteria} %Sander 0.75 pg
 \label{sec:comparisoncriteria}
-%TODO nieuwe criteria ipv oude, wel kort zeggen welke dat we eerst initieel gingen doen
 
 %TODO waarom criteria niet gekozen
 
-The comparison study will be driven by a Proof of concept (POC).  
-This POC encompasses an application to let employees attach, sign and submit expenses to their employer via tablet or smartphone.
+The comparison study will be driven by a proof of concept (POC).  
+This POC encompasses an application that allows employees to attach, sign and submit expenses to their employer.
 Afterwards, the employee can view the uploaded expenses and download them as PDF.
 
 Five important criteria will be used:  popularity,  productivity,  usage,  support and performance. 
 The POC can be used in all but the first.   
 A methodology that results in a score for each criterion will be described below.  
-Per criterion,  a table or graph will be provided so give an overview of the total scores
+Per criterion,  a table or graph will be provided to give an overview of the total scores
 At the final stage,  these scores will be plotted in a spider graph~\cite{Few2005}.   
 
 \paragraph{Popularity}
@@ -271,7 +270,7 @@ At the final stage,  these scores will be plotted in a spider graph~\cite{Few200
 %Also,  the numbers of Twitter followers and Facebook likes only give an indication of the popularity of the framework,  there is no exact science involved.
 Social networks provide a good indication to determine the popularity that goes with the framework.  
 %\cite{Sarrafi2012a,Ayuso2012} use 
-Twitter followers ($T$),  GitHub stars ($S$),  GitHub forkers ($F$),  Stack Overflow questions ($S$) and Facebook likes ($FB$) will be looked at.
+Twitter followers,  GitHub stars,  GitHub forkers,  Stack Overflow questions and Facebook likes will be recorded.
 The summation of these five numbers give the score for the framework's popularity.  
 
 % \begin{equation}
@@ -284,10 +283,10 @@ Both autors implement the full POC in a two different framework and carefully re
 However,  this time will be influenced by many factors.
 The second implementations will have an advantage because of the gained experience after the first implementation.
 Also,  code reuse and possible incomplete implementations because of the limited functionality of the framework, affect this times in a negative way.
-A better criterion will be the hours to partially implement the POC in the other's framework.  
-The partial implementation contains the POC's login that loads a long list.%, just like~\cite{Burris}.   
+A better criterion will be the hours to partially implement the POC.  
+The partial implementation contains the POC's login that loads a long list.
 This application is not subjected to the influences described above. %TODO verder verklaren?
-The time to implement the login application ($t_{login}$) gives the score for the framework's productivity. 
+The time to implement the login application gives the score for the framework's productivity. 
 
 % \begin{equation}
 %   PROD_f = t_{f,login}
@@ -298,7 +297,7 @@ The time to implement the login application ($t_{login}$) gives the score for th
 The POC will be subdivided in $13$ challenges and $38$ subchallenges.  
 The score of this criterion will depend on the completion of the challenges by the framework.  
 The assessment of the challenges can be found in table~\ref{table:challenges-scores}.  
-The total of all challenges give the score for the framework's usage.
+The total of all challenges gives the score for the framework's usage.
 
 \begin{table}[h]	
 \centering
@@ -317,7 +316,7 @@ $C_{f,i} = 0$ & No, custom or hacky implementation\\
 \end{table}
 
 \begin{equation}
-  \text{US}_f = \sum_{i=1}^{38}{\left(C_{f,i}\right)}
+  \text{Usage}_f = \sum_{i=1}^{38}{\left(C_{f,i}\right)}
   \label{eq:gebruik}
 \end{equation}
 
@@ -326,41 +325,41 @@ This criterion indicates the correct functionality of the POC implementation on 
 A context is a combination of a particular operatingsystem, device and browser.
 Both Android and iOS, smartphones and tablets will be checked.
 Only native browsers will be looked at.
-In total eight contexts will be checked for support.
+In total, eight contexts will be checked for support.
 %,  similar as the cross-platform capabilities of~\cite{Sarrafi2012a}.  
 In each context,  a subset of the challenges from the previous criterion will be checked.  
-These are the challenge were the framework actually provided an implementation ($C_{r,i} > 0$).
+These are the challenge where the framework actually provided an implementation ($C_{r,i} > 0$).
 If the challenge works as expected $C_{f,c,i} = 1$.
 If some part of challenge is infeasible $C_{f,c,i} = 0$.
 The summation of scores for each context will give the score for the framework's support.
 
 \begin{equation}
-  \text{SU}_f = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N_f}C_{f,c,i}\right)}
+  \text{Support}_f = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N_f}C_{f,c,i}\right)}
   \label{eq:ondersteuning}
 \end{equation}
 
 \paragraph{Performance}
-The loading time of an HTML5-application is a major bottleneck for performance.
+The download time of an HTML5-application is a major bottleneck for performance.
 Therefor,  the loading time of the POC ($l_{f,c,POC}$) and login application ($l_{f,c,login}$) will be measured on eight devices.
 Also,  the loading time for a cached version of both the POC ($l_{f,c,POC_{cache}}$) and login application ($l_{f,c,login_{cache}}$) will be recorded.
-The summation of loading times will give the score for the framework's performance.
-The average performance becomes:
+The summation of these loading times on $8$ devices, provide the average download time.
 
-
+%TODO links uitlijnen
 \begin{equation}
 \begin{split}
-\text{AvgDownloadTime}_f =  \\ \frac{\sum_{c=1}^{8}\left(l_{f,c,POC}+l_{f,c,POC_{cache}}+ l_{f,c,login} + l_{f,c,login_{cache}}\right)}{8}
+\text{Average download time}_f =  \\ \frac{\sum_{c=1}^{8}\left(l_{f,c,POC}+l_{f,c,POC_{cache}}+ l_{f,c,login} + l_{f,c,login_{cache}}\right)}{8}
   \label{eq:dowloadtime}
 \end{split}
 \end{equation}
 
 The responsetime of a list with $850$ elements will be measured on each context with two user tests ($\text{experience}_{f,c}$).
+Calculating the responsetime with \js{} is not possible because \sta{} and \lungo{} do not have an event after the elements are rendered.
 The result will be a total ordening of the frameworks per context that indicate the responsiveness.
 The summation of the results will provide a factor to weight the average download time.
-The formula for performance then becomes:
+The formula for the framework's performance then becomes:
 
 \begin{equation}
-  \text{PERF}_f =  \frac{\text{AvgDownloadTime}_f}{\sum_{c=1}^{8}{\text{experience}_{f,c}}}
+  \text{Performance}_f =  \frac{\text{Average download time}_f}{\sum_{c=1}^{8}{\text{experience}_{f,c}}}
   \label{eq:performance}
 \end{equation}
 

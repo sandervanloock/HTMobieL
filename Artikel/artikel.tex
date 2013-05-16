@@ -687,7 +687,8 @@ As presented in the previous criterion,  \jqm{} expells in the amount of Stack O
 In this section the usage is evaluated by evaluating 13 challenges.
 The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 
-\begin{table}
+
+\begin{table}[!b]
 \centering
 \resizebox{\columnwidth}{!} {
 \pgfplotstabletypeset[
@@ -712,6 +713,51 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 \caption{Usage for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-usage}
 \end{table}
+
+% tabel voor performantie staat hier om latex te laten forceren en mooiere layout te hebben
+\begin{table*}
+\centering
+\pgfplotstabletypeset[
+	column type=l,
+	every head row/.style={
+		before row={%
+			\toprule
+			\textbf{Challenge}
+			& \multicolumn{2}{c}{\textbf{\sta}}
+			& \multicolumn{2}{c}{\textbf{\kendoa}} 
+			& \multicolumn{2}{c}{\textbf{\jqma}}
+			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
+			\cmidrule(r){2-3}
+			\cmidrule(r){4-5}
+			\cmidrule(r){6-7}
+			\cmidrule(r){8-9}
+		},
+		after row=\midrule,
+		},
+  	every last row/.style={
+  		before row=\toprule,
+ 		after row=\bottomrule},
+	columns={Challenge,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
+	begin table=\begin{tabular}{lcccccccc},
+	end table=\end{tabular},
+	header=true,
+	skip coltypes=true,
+	columns/Challenge/.style ={column name=},
+	columns/ST(abs)/.style ={column name=Score},
+	columns/ST(max)/.style={column name=Max},
+	columns/Kendo(abs)/.style ={column name=Score},
+	columns/Kendo(max)/.style={column name=Max},
+	columns/jQM(abs)/.style ={column name=Score},
+	columns/jQM(max)/.style={column name=Max},
+	columns/Lungo(abs)/.style ={column name=Score},
+	columns/Lungo(max)/.style={column name=Max},
+	col sep=comma,
+	string type,
+]{../Masterproef/tabellen/ondersteuning-u.csv}
+\caption{Overview of support per challenge.}
+\label{tabel:evaluatie-ondersteuning-u}
+\end{table*}
+
 
 The best framework in usage is \kendob{}, followed closely by \sta{}.
 This can be explained because they both enforce an architecture, namely MVVM and MVC respectively.
@@ -762,52 +808,10 @@ In \st{} a plugin could be used, but with the other three frameworks, this has t
 \subsection{Support} % 1 blz
 \label{sec:evaluation-support}
 
-Dit section will evaluate the support of the frameworks on $8$ mobile devices.
+This section will evaluate the support of the frameworks on $8$ mobile devices.
 The formula for this criterion can be found in equation~\ref{eq:ondersteuning}.
 The scores for the four frameworks are summarized in table~\ref{tabel:evaluatie-ondersteuning-u}.
 
-\begin{table*}
-\centering
-\pgfplotstabletypeset[
-	column type=l,
-	every head row/.style={
-		before row={%
-			\toprule
-			\textbf{Challenge}
-			& \multicolumn{2}{c}{\textbf{\sta}}
-			& \multicolumn{2}{c}{\textbf{\kendoa}} 
-			& \multicolumn{2}{c}{\textbf{\jqma}}
-			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
-			\cmidrule(r){2-3}
-			\cmidrule(r){4-5}
-			\cmidrule(r){6-7}
-			\cmidrule(r){8-9}
-		},
-		after row=\midrule,
-		},
-  	every last row/.style={
-  		before row=\toprule,
- 		after row=\bottomrule},
-	columns={Challenge,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
-	begin table=\begin{tabular}{lcccccccc},
-	end table=\end{tabular},
-	header=true,
-	skip coltypes=true,
-	columns/Challenge/.style ={column name=},
-	columns/ST(abs)/.style ={column name=Score},
-	columns/ST(max)/.style={column name=Max},
-	columns/Kendo(abs)/.style ={column name=Score},
-	columns/Kendo(max)/.style={column name=Max},
-	columns/jQM(abs)/.style ={column name=Score},
-	columns/jQM(max)/.style={column name=Max},
-	columns/Lungo(abs)/.style ={column name=Score},
-	columns/Lungo(max)/.style={column name=Max},
-	col sep=comma,
-	string type,
-]{../Masterproef/tabellen/ondersteuning-u.csv}
-\caption{Overview of support per challenge.}
-\label{tabel:evaluatie-ondersteuning-u}
-\end{table*}
 
 As mentioned in section \ref{sec:comparisoncriteria},  only the functionality of the framework is tested so custom or hacky implementation are not checked for support.
 This is the reason why the maximum score for each framework is different.
@@ -859,7 +863,7 @@ The performance of both the total download time and user experience of each fram
 This is because both frameworks do not enforce an architecture, which means that less \js{} code has to be downloaded.
 This is in contrast to \kendob{} and \sta{} that take respectively second last and last place.
 
-\begin{table}[b]
+\begin{table}
 \centering
 \pgfplotstabletypeset[
   begin table=\begin{tabular}{p{3cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
@@ -890,7 +894,8 @@ This is in contrast to \kendob{} and \sta{} that take respectively second last a
 \paragraph{Average download time}
 Figure \ref{fig:evaluatie-performantie-gebruikerservaring} shows the average download time for POC, POC from cache, login application, login application from cache for the four frameworks. 
 
-\begin{figure}[!ht]
+%TODO engelstalige labels maken
+\begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{../Masterproef/figuren/performance.pdf}
   \caption{Average download time for POC, POC from cache, login application, login application from cache for the four frameworks. Less is better.}
@@ -997,6 +1002,7 @@ The tools require a learning process on their own.
 As a last remark,  \sta{} is depending on the WebKit engine.
 Devices with a default browser that do not contain this engine,  like Windows Phone, are not investigated.
 
+%TODO engelstalige labels maken
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{../Masterproef/figuren/spidergraph-final.pdf}

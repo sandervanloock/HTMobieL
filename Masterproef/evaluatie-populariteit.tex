@@ -9,7 +9,7 @@ Daarna zullen deze vijf vergelijkingscriteria in sectie~\ref{sec:evaluatie-spinn
 \section{Populariteit} % 2 blz inclusief google trends
 \label{sec:evaluatie-populariteit}
 
-De populariteit van de vier raamwerken wordt samengevat in tabel~\ref{tabel:evaluatie-populariteit}. 
+De populariteit van de vier raamwerken op 8 mei 2013 wordt samengevat in tabel~\ref{tabel:evaluatie-populariteit}. 
 
 \begin{table}[H]
 \centering
@@ -33,7 +33,7 @@ De populariteit van de vier raamwerken wordt samengevat in tabel~\ref{tabel:eval
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/populariteit.csv}
-\caption{Overzicht van populariteit voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
+\caption{Overzicht van populariteit op 8 mei 2013 voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-populariteit}
 \end{table}
 
@@ -47,8 +47,7 @@ Op de voorlaatste plaats komt \lungo{}, maar als het aantal \term{tweets} wordt 
 \jqm{} en \kendo{} hebben een vergelijkbare activiteit bij het sturen van \term{tweets}.
 \st{} heeft het minst aantal volgers en het aantal verstuurde \term{tweets} is slechts 1.
 
-% TODO: als het open source is, zal het populairder zijn ??!
-% - verschil jQM/lungo <-> ST/Kendo door Github
+%TODO: als het open source is, zal het populairder zijn ??! verschil jQM/lungo <-> ST/Kendo door Github
 
 In tegenstelling tot \jqm{} en \lungo{} bevinden \kendo{} en \st{} zich niet op \gh{}.
 Zelfs indien \gh{} wordt weggelaten, blijft de rangschikking ongewijzigd.
@@ -60,23 +59,35 @@ Toch blijft de populariteit van \kendo{} op \so{} lager dan die van \jqm{}.
 \kendo{} en \jqm{} hebben beide een fanpgina op \fb{} opgericht in respectievelijk november 2011 en augustus 2010.
 De fanpgina van \kendo{} heeft dus in een kortere tijd veel meer vind-ik-leuks opgeleverd dat de eerder opgerichte fanpgina van \jqm{}.
 De verschillende producten van \kendo{} worden geaggregeerd op één fanpagina. 
-%Dit is in tegenstelling tot \jqm{} dat een aparte fanpagina heeft voor jQuery die zo'n 53.000 fans telt wat vergelijkbaar is met de pagina van \kendo{}.
 \st{} en \lungo{} hebben enkel een interessepagina op \fb.
 Dit verklaart het grote verschil in vind-ik-leuks op \fb.
-%Indien het aantal vind-ik-leuks op Facebook wordt weggelaten, wisselen \kendo{} en \jqm{} van plaats.
+
+Deze populariteit werd ook iedere week bijgehouden over een periode van een kleine twee maand en kan gevonden worden op figuur~\ref{fig:populariteit-evolutie}.
+Opvallend is de sterke opmars van \kendo{} in deze korte periode.
+Dit komt grotendeels door het enorm stijgend aantal \fb{} vind-ik-leuks.
+De andere drie raamwerken stijgen gestaag.
+
+%TODO vectorieel maken
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{figuren/populariteit.png}
+  \caption{Populariteit waargenomen over de periode van 15 april tot 22 mei 2013.}
+  \label{fig:populariteit-evolutie}
+\end{figure}
 
 Als laatste wordt de populariteit aan de hand van Google Trends bekeken op figuur~\ref{fig:google-trends}.
-Duidelijk is dat \jqm{} de grote winnaar is.
+Duidelijk is dat hier \jqm{} de grote winnaar is.
 Sinds 2011 maakt het raamwerk een grote opmars door het uitbrengen van de eerste stabiele versie~1.0.
 Eind 2012 kende \jqm{} echter een serieuze daling, maar deze werd terug een stijging omgezet door het uitbrengen van versie~1.3. 
 \st{} kende een piek in maart 2012 bij het uitbrengen van \st{}~2.0.
 Sinds begin 2012 maakt \kendo{} een opmars en als de trend zich verder zet, zal het \st{} inhalen.
+Dit komt overeen met de waargenomen opmars van \kendo{} op figuur~\ref{fig:populariteit-evolutie}.
 \lungo{} is nauwelijks op de grafiek waarneembaar.
 
-%TODO: veranderen in vectorieel
+%TODO voor Sander: kan jij die PDF met jouw matlab opnieuw genereren?
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{figuren/google-trends.png}
+  \includegraphics[width=\textwidth]{figuren/google-trends.pdf}
   \caption{Populariteit op Google Trends waargenomen van januari 2008 tot heden waarbij een resultaat van 100 overeenkomt met de grootste zoekinteresse~\cite{Google2012a}}
   \label{fig:google-trends}
 \end{figure}

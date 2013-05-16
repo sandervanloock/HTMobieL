@@ -114,11 +114,13 @@ Hoewel de verschillen klein zijn kan gezegd worden dat \jqm{} de beste ondersteu
 \lungo{} biedt de minste ondersteuning.
 
 Alle raamwerken buiten \lungo{} ondersteunen gemiddeld $88\%$ van de geïmplementeerde uitdagingen.
-\lungo{} ondersteund slechts $78\%$ van de geïmplementeerde uitdagingen.
+\lungo{} ondersteunt slechts $78\%$ van de geïmplementeerde uitdagingen.
 De grootste problemen werden bij formulieren waargenomen.
-Daarnaast kon niet genavigeerd worden doorheen de volledige POC op de \htc{} en \gtab{}. %TODO waarom niet?
-Een laatste opmerking bij de POC zoals geïmplementeerd in \lungo{} is dat het \term{tap event} werd gebruikt om te navigeren.
-Deze heeft een dubbel klikeffect op de toestellen, waardoor de eerste klik op het huidig scherm gebeurt en de tweede klik op de volgende.
+Daarnaast kon niet genavigeerd worden doorheen de volledige POC op de \htc{} en \gtab{}. 
+Dit komt doordat het \term{tap event} werd gebruikt om te navigeren.
+Op de \htc{} en \gtab{} werden deze echter niet afgevuurd.
+Op de andere toestellen had dit een dubbel klikeffect.
+Hierdoor gebeurde de eerste klik op het huidig scherm gebeurt en de tweede klik op het volgende.
 Zo kan het bijvoorbeeld gebeuren dat een menu op het volgende scherm al openklapt, zonder dat de gebruiker dit verwachtte.
 
 Android 2.3 toestellen - \htc{} en \gtab{} - hebben het minste ondersteuning.
@@ -295,7 +297,7 @@ Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 onderste
 Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
 Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
-Dit komt omdat de grootte van de fotos de limiet van de \code{local storage} overschreiden.%TODO exacte limiet localstorage refereren?
+Dit komt omdat de grootte van de foto's de limiet van de \code{local storage} overschreiden.%TODO exacte limiet localstorage refereren?
 Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
 De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen.%TODO referentie?
 Alle raamwerken behaalden een score van \score{5}{8}

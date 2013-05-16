@@ -423,46 +423,44 @@ This functionality is comparable with Modernizer~\cite{Modernizr2012}.
 
 \subsection{\kendo} % (0.5 blz Sander)
 \label{sec:frameworks-kendo}
-%TODO \kendob afkorting gebruiken
 
-\kendo{} (\kendob{}) is a framefrom from Telerik and consists of three layers:  \kendo{} Web,  \kendo{} Mobile and \kendo{} DataViz.
+\kendo{} (\kendob{}) is a framefrom from Telerik and consists of three layers:  Web,  Mobile and DataViz.
 The first focusses on the development of webapplications,  the second makes them mobile and the last facilitates data representation.
-\kendo{} is an hybrid form between JavaScript and markupdriven.
-It is build upon the MVVM (Model-View-ViewModel) architecture and requires the jQuery library.
+\kendob{} is an hybrid form of JavaScript and markupdriven frameworks.
+It is build upon the (Model-View-View Model) MVVM architecture and requires the jQuery library.
 
-As at the time of writing,  \kendo{} is at version 2013 Q1~\cite{Telerik}. 
+As at the time of writing,  \kendob{} is at version 2013 Q1~\cite{Telerik}. 
 
 \paragraph{Documentation}
-%TODO: url verwijderen
-The documentation can be found at \url{http://docs.kendoui.com}~\cite{Telerikd}.
-Two important sections are the API and Getting Started.
+Two important sections from the documentation are the API and Getting Started~\cite{Telerikd}.
 Both sections follow the same structure and each feature from the API is explained in detail in the Getting Started section.
 Also,  every feature can be viewed in a demo with the corresponding code.
 
-\paragraph{Licence}
-A licence for \kendo{} Complete costs $\$699$ per developper.
+\paragraph{License}
+A license for \kendob{} Complete costs $\$699$ per developper.
 Each layer can be bought separately for a different license fee.
-\kendo{} also provides server-side wrappers that can automatically create client-side JavaScript code.
+\kendob{} also provides server-side wrappers that can automatically create client-side JavaScript code.
 As at the time of writing, PHP,  JSP and ASP.NET MVC are supported as server-side technologies.
 A license for a server-side wrapper costs $\$300$~\cite{Telerik}.
 
 \paragraph{Code and development}
-Both JavaScript and HTML-code needs to be writter because \kendo{} is both JavaScript and markupdriven.
+Both JavaScript and HTML code needs to be writter because \kendo{} is both JavaScript and markupdriven.
 
+%TODO verplaatsen naar boven
 \kendo{} is dependent on the jQuery library.
 Just like \jqm{} there are tree strategies for building webapplications:  single-page application,  view per page or a combination of both.
 
-The MVVM architecture is imposed by \kendo{}.
-The views and models are similar with the views and models of the MVC architecture from \st{}.
-The view-model is an object that binds views with models in both directions and is called \code{ObservableObject} in \kendo{}.
-The binding is annotated in HTML with data tags.
-\kendo{} supports bindings based on different properties from JavaScript objects.
+The MVVM architecture is imposed by \kendob{}.
+The views and models are similar like the views and models of the MVC architecture from \sta{}.
+The view model is an object that binds views with models in both directions and is called \code{ObservableObject} in \kendob{}.
+The binding is annotated in HTML with data-attributes.
+\kendob{} supports bindings based on different properties from JavaScript objects.
 Examples of the properties are \code{checked,  value} or \code{visible}.
 If a view is bound to a model,  the model is changed when a user changes the content of a view or the view is changed when the model is programmatically updated.
 
 \paragraph{Browser support}
-One of the most important aspects of \kendo{} is the mimicking of the native look-and-feel of the current operatingsystem.
-Supported platforms are iOS,  Android,  BlackBerry and Windows Phone~8.
+One of the most important aspects of \kendob{} is the mimicking of the native look-and-feel of the current operatingsystem.
+Supported platforms are iOS,  Android,  BlackBerry~OS and Windows Phone~8.
 
 All widgets are from \kendo{} Web support progressive enhancement.
 Also,  the features of \kendo{} Mobile that depend on HTML5 support progressive enhancement.

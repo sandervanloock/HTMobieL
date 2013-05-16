@@ -28,13 +28,13 @@ De laatste twee besproken raamwerken, \jqm{}~(\ref{sec:raamwerk-jqm}) en \lungo{
 \section{\st}
 \label{sec:raamwerk-st}
 
-\st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.  
+\st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël. 
 Ext JS is een \js{}-raamwerk voor de ontwikkeling van webapplicaties. 
 jQuery Touch is een jQuery plug-in voor mobiele webontwikkeling.  
 Het steunt op WebKit en voegt \term{touch events} toe aan jQuery.  
 Raphaël,  ten slotte,  is een \js{}-bibliotheek voor vectortekeningen. 
 Op het moment van schrijven is \st{} aan versie 2.2~\cite{Inc.}.  
-
+De eerste stabiele versie werd in november 2010 voorgesteld.
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
 \st{} is \js{}-gedreven, dus alle functionaliteit wordt in \js{} geïmplementeerd. 
@@ -214,7 +214,7 @@ Op de Sencha website zijn voor de belangrijkste browsers en bijhorend besturings
 
 \section{\kendo}
 \label{sec:raamwerk-kendo}
-\kendo{} is een raamwerk van de hand van Telerik.
+\kendo{} is een raamwerk van de hand van Telerik en werd stabiel vrijgegeven in novermber 2011.
 Het bestaat uit drie luiken:  Web, Mobile en DataViz.  
 Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
 \kendo{} is zowel een \js{}- als opmaakgedreven raamwerk en heeft een (Model-View-View Model) MVVM-architectuur dat steunt op de jQuery bibliotheek.
@@ -394,6 +394,7 @@ Om met \jqm{} aan de slag te kunnen, is niets meer nodig dan kennis over HTML, C
 Alle GI-elementen worden geschreven in HTML en aangeduid met \code{data-}* attributen.
 
 \paragraph{Tools}
+%TODO onderstaande paragraaf geldt voor alle frameworks (opmerking gonzalo bij sencha)
 Een standaard teksteditor voldoet om met \jqm{} aan de slag te kunnen. 
 Natuurlijk kan het gemakkelijk zijn om van \term{integrated development environments}~(IDE's) zoals Aptana Studio~\cite{Aptana2012} of WebStorm~\cite{JetBrains2012} gebruik te maken, waardoor handige kenmerken zoals automatische code-aanvulling beschikbaar zijn.
 
@@ -420,6 +421,7 @@ Zoals werd aangehaald, wordt voornamelijk HTML5-code geschreven voorzien van \co
 Daarna zal het raamwerk door middel van \term{progressive enhancement} allerhande code toevoegen om de beoogde GI-elementen correct te tonen in de browser. 
 Dit wordt verder uitgelegd in de sectie browserondersteuning (zie \ref{sec:jqm-browser-support}).
 
+%TODO naar boven verplaatsen
 Er zijn drie strategieën om webapplicaties te maken in \jqm{}~\cite{Broulik2012}. 
 Een eerste is om de volledige applicatie in één webpagina te schrijven. 
 De vele schermen van de webapplicatie zijn dan allemaal samengebracht op eenzelfde webpagina. 
@@ -484,6 +486,7 @@ Deze webpagina bevat allemaal \code{<div>}-verpakkingen voor ieder scherm.
 \jqm{} zal enkel die \code{<div>} verder aanvullen die op dat moment getoond wordt aan de gebruiker. 
 
 \paragraph{Aanpasbaarheid}
+%TODO ``goed'' weglaten?
 Als \jqm{} \term{out-of-the-box} wordt gebruikt, zit alles goed qua kleur en design. 
 Er is keuze uit vijf kleurenthema's die kunnen worden toegepast op de gehele applicatie of enkel op bepaalde elementen. 
 Om een applicatie echt te laten onderscheiden van de andere, is een eigen kleurthema noodzakelijk. 
@@ -528,24 +531,28 @@ Functionele vereisten kunnen worden geschreven in \js{}.
 
 \paragraph{Tools}
 Er worden geen specifieke tools door TapQuo aangeboden om de ontwikkeling te versnellen.
+%TODO geldt dit niet voor alles wat op git staat en component.json bevat?
 Wel kan er gebruik worden gemaakt van Twitter Bower~\cite{Twitter2013} die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren.
 Dit komt door de aanwezigheid van het bestand \code{component.json} op \gh{} dat Bower gebruikt.
 
 \paragraph{Documentatie}
-De documentatiesite~\cite{Lungo2013} wordt eerst getoond hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
+Op de documentatiesite~\cite{Lungo2013} wordt eerst getoond hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
 Vervolgens zijn er nog acht andere pagina's die de aangeboden GI-elementen en API bondig uitleggen.
 Op de documentatiepagina's is altijd eerst de broncode te zien.
 Er kan dan boven de broncode op een knop geklikt worden, waarna een livevoorbeeld wordt getoond.
+%TODO ``zeer sumiere samenvatting'' pas in evaluatie vermelden?
 De documentatiesite~\cite{TapQuo2013c} van de onderliggende \js{}-bibliotheek bestaat uit één pagina met een zeer summiere samenvatting van de API.
 
 \paragraph{Marktadoptatie}
 Doordat geen informatie te vinden is op de site van \lungo{} werd een e-mail gestuurd met de vraag welke bedrijven \lungo{} gebruiken of in welke projecten van TapQuo zelf \lungo{} werd gebruikt.
+%TODO ik zou die jammer genoeg weglaten :)
 Jammer genoeg hebben de auteurs tot op het moment van schrijven geen antwoord ontvangen.
 
 \paragraph{Licenties}
 Het raamwerk wordt onder de GPLv3-licentie vrijgegeven.
 Daarnaast is een commerciële versie ook mogelijk.
 Voor duiding omtrent deze laatste genoemde werd contact opgenomen met TapQuo via e-mail.
+%TODO zelfde opmerking
 Jammer genoeg hebben de auteurs tot op het moment van schrijven geen antwoord ontvangen.
 
 \subsection{Code en ontwikkeling}
@@ -557,7 +564,9 @@ Analoog wordt ook voor de kop- en voettekst de \code{<header>}- en \code{<footer
 
 Enerzijds kan de volledige applicatie op één webpagina worden geprogrammeerd.
 Daarnaast biedt \lungo{} ook de mogelijkheid om de verschillende schermen op afzonderlijke pagina's op te slaan.
+%TODO opgeslaan te worden
 Hierbij dient enkel de code binnen de \code{<body>}-tag opgeslaan te worden.
+%TODO dienen te worden opgehaald
 Daarna wordt bij de initialisatie van \lungo{} gedefinieerd welke afzonderlijke pagina's asynchroon dienen te worden opgehaald.
 
 \subsection{Functionele kenmerken}
@@ -565,13 +574,14 @@ De documentatiepagina is opgedeeld in negen groepen die hieronder kort worden aa
 
 \begin{enumerate}
 
-\item \textbf{Prototype } 
+\item \textbf{Prototype} 
 Hierop worden GI-elementen, navigatie, formulieren, scrollen, lijsten en data-attributen aangehaald. 
 Opmerkelijk is de directe ondersteuning door het raamwerk bij het naar beneden trekken van een lijst waarbij de data automatisch wordt herladen.
 
 \item \textbf{Core }
 Hier worden functies aangehaald die het raamwerk zelf intern gebruikt.
 Een voorbeeld hiervan is de \code{Lungo.Core.isMobile()}-functie die controleert of de applicatie in een mobiele omgeving wordt uitgevoerd.
+%TODO onderstaande zin klopt niet,  array gn nederlands
 Een ander voorbeeld is de aanwezig van een sorteer- en zoekfunctie voor arrays.
 
 \item \textbf{Data }
@@ -597,14 +607,17 @@ Het raamwerk voorziet voor beide acties de mogelijkheid om een eigen functie hie
 \item \textbf{Routing }
 Hier wordt uitgebreid ingegaan op de navigatie doorheen de applicatie vanuit \js{}.
 Het is mogelijk om binnen eenzelfde artikel tussen verschillende secties te navigeren alsook van artikel te veranderen.
+%TODO wat is de zijnavigatie?
 Daarnaast is het mogelijk om vanuit \js{} de zijnavigatie te tonen.
 Als laatste voorziet \lungo{} een terugkeerfunctionaliteit, vergelijkbaar met de functie \code{history.back()} uit \js{}.
 
 \item \textbf{Service }
+%TODO zonder meer vanuit het lungo
 Versturen van HTTP-oproepen kan zonder meer vanuit het \lungo{}.
 Zowel HTTP GET als HTTP POST zijn mogelijk.
 Het raamwerk kan omgaan met tekst, XML, JSON en HTML als antwoord.
 Er is ook een verkorte notatie indien het antwoord JSON is.
+%TODO deze functionaliteit is zit ook in jquery ajax he,  als ik het goed begrijp is het zels browser specifiek en niet afh van js
 Als laatste biedt \lungo{} de mogelijkheid om het antwoord van de HTTP-oproep te cachen, waarbij de maximale tijd moeten worden opgegeven.
 Indien de oproep nog eens gebeurt en de maximale tijd is niet verstreken, zal \lungo{} geen HTTP-oproep versturen, maar het opgeslagen antwoord gebruiken.
 
@@ -622,6 +635,7 @@ Hierdoor bevat het geen methodes voor desktopgebruikers, waardoor het bestand kl
 
 \paragraph{Aanpasbaarheid}
 \label{sec:lungo-aanpasbaarheid}
+%TODO ``goed'' vervangen?
 Standaard zit een \lungo{}-applicatie goed qua lay-out.
 TapQuo biedt zelf geen tools aan om de kleuren of het uitzicht van de applicatie te veranderen.
 Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijven.
@@ -635,7 +649,8 @@ Voor aanpassingen die van toepassing zijn op DOM-manipulatie, is de ontwikkelaar
 Ook deze dwingt geen ontwerppatroon af.
 
 \paragraph{Ondersteuning browser}
-TapQuo geeft aan op hun website dat ze ondersteuning bieden voor iOS, Android, Blackberry en FirefoxOS.
+TapQuo geeft aan op hun website dat ze ondersteuning bieden voor iOS, Android, Blackberry~OS en FirefoxOS.
+%TODO ik dacht dat het enkel voor mobile was geoptimaliseerd en geen tv, desktop ondersteunde..
 Verder halen ze aan dat ze een zelfde ervaring willen hebben voor een gemaakte applicatie gaande van mobiele apparaten, tv's tot desktopapparaten.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -646,7 +661,7 @@ Verder halen ze aan dat ze een zelfde ervaring willen hebben voor een gemaakte a
 
 In tabel~\ref{tabel:raamwerken-tabel} wordt de passieve vergelijking van de raamwerken getoond.
 In het volgende hoofdstuk worden de vijf actieve vergelijkingscriteria besproken.
-De resultaten hiervan kunnen niet worden bekomen door enkel naar de literatuur te kijken, maar moeten actief onderzocht worden.
+De resultaten van de actieve vergelijking kunnen niet worden bekomen door enkel naar de literatuur te kijken, maar moeten actief onderzocht worden.
 De resultaten hiervan zullen in hoofdstuk \ref{chap:evaluatie} besproken worden.
 
 \begin{landscape}

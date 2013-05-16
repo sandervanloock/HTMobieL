@@ -376,6 +376,7 @@ This section introduces the compared mobile HTML5 frameworks: \st{}, \kendo{}, \
 \label{sec:frameworks-sencha-touch}
 
 \st{}~(\sta{}) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
+The first stable version of \sta{} was officialy released in November 2010.
 Ext JS is a JavaScript framework for the development of HTML5 applications.  
 jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery and depends on the WebKit engine.  
 Finally,  Raphaël, is a JavaScript library for vector drawings.  
@@ -424,7 +425,7 @@ This functionality is comparable with Modernizer~\cite{Modernizr2012}.
 \subsection{\kendo} % (0.5 blz Sander)
 \label{sec:frameworks-kendo}
 
-\kendo{} (\kendob{}) is a framefrom from Telerik and consists of three layers:  Web,  Mobile and DataViz.
+\kendo{} (\kendob{}) is a framefrom from Telerik,  launched in November 2011 and consists of three layers:  Web,  Mobile and DataViz.
 The first focusses on the development of webapplications,  the second makes them mobile and the last facilitates data representation.
 \kendob{} is an hybrid form of JavaScript and markupdriven frameworks.
 It is build upon the (Model-View-View Model) MVVM architecture and requires the jQuery library.
@@ -479,22 +480,24 @@ The framework is controlled by the jQuery Project that also manages jQuery Core.
 The latter is a JavaScript library where \jqma{} is dependent on~\cite{JQuery2012}. 
 \jqma{} is among other things sponsored by Adobe, Nokia, BlackBerry and Mozilla~\cite{JQuery2012a}.
 
-\paragraph{Licence}
-As of September 2012 it is only possible to use \jqma{} under the Massachusetts Institute of Technology~(MIT) licence~\cite{Dmethvin2012}. 
+\paragraph{License}
+As of September 2012 it is only possible to use \jqma{} under the Massachusetts Institute of Technology~(MIT) license~\cite{Dmethvin2012}. 
 This means that the code is released as open source and can also be used in proprietary projects~\cite{PhilDutson2012}.
 
 \paragraph{Documentation}
 The documentation site of version~1.2~\cite{JQuery2012b} is a catalog of all possible elements that \jqma{} offers. 
 It contains an overview of all possible UI components. 
 By checking the source code, you can find out what code to write to get the same result. 
+%TODO configure defaults
 Furthermore it explains the API on how to configure defaults, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
 
 \paragraph{Code and development}
 \jqma{} is a mark-up driven UI framework and thus provides mainly UI components. 
-\jqma{} provides 6 categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
+\jqma{} provides six categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and litsviews~\cite{JQuery2012b}. 
 One can obtain these components by writing HTML5 with \jqma{} specific \code{data-}* attributes. 
 When running the application, \jqma{} will add the extra necessary code to correctly show these components by doing progressive enhancement.
 
+%TODO naar boven verplaatsen
 There are three ways of writing a HTML5 application in \jqma{}~\cite{Broulik2012}. 
 The first one is to write the full application on one single web page.
 The advantage is that there are initially less requests to the server.
@@ -507,7 +510,7 @@ Lastly, you can mix the two above to find an optimum by putting the most likely 
 \paragraph{Browser support}
 \label{sec:jqm-browser-support}
 \jqma{} divides browsers into three grades: A, B and C. 
-In an A-graded browser, the application is fully enhanced with AJAX based animated page transitions.
+In an A-graded browser, the application is fully enhanced with AJAX-based animated page transitions.
 In a B-graded browser, the application has an enhanced experience, but there are no AJAX navigation features.
 Lastly in a C-graded browser, the application has a basic, non-enhanced HTML experience, but is still functional~\cite{JQuery2012d}.
 
@@ -530,9 +533,10 @@ On these pages the source code is shown for each example.
 One can also view a live preview of each example.
 The documentation site~\cite{TapQuo2013c} of the underlying \js{} library exists of only one page with a very brief summary of the API.
 
-\paragraph{Licence}
-The framework is released by the GPLv3 licence.
-A commercial licence is also available, but because of the lack of information, the authors contacted TapQuo via email to obtain more info.
+\paragraph{License}
+The framework is released by the GPLv3 license.
+%TODO onderstaande zinsconstructie
+A commercial license is also available, but because of the lack of information, the authors contacted TapQuo via email to obtain more info.
 However as of writing, they did not receive any answer.
 
 \paragraph{Code and development}
@@ -548,7 +552,8 @@ The \code{<article>} and \code{<section>} HTML5 tags are used to separate the di
 Only the code between the \code{<body>} tags of the screens need to be saved on different web pages.
 
 \paragraph{Browser support}
-The framework indicates on their website to have support for iOS, Android, Blackberry and FirefoxOS.
+The framework indicates on their website to have support for iOS, Android, Blackberry~OS and FirefoxOS.
+%TODO ik dacht dat het enkel voor mobile was geoptimaliseerd en geen tv, desktop ondersteunde..
 They also want to have a consistent experience across mobiles, tvs and desktops~\cite{TapQuo2013}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

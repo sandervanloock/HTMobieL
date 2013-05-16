@@ -745,138 +745,18 @@ When requiring advances features, some frameworks will provide these native, but
 Firstly, if \chal{validatie} is supported, the frameworks or plugins do not have support to make a red border around the invalid fields.
 Secondly, \chal{autoaanvullen} is out-of-the-box provided by \kendob{} and \jqma{}, plugins had to be used for \lungo{} and \sta{}.
 The latter did not work in cooperation with the backend.
-Thirdly, to accomplish \chal{offline} %TODO
+Thirdly, only \st{} provides offline data and application in \chal{offline}.
+In the other frameworks one has to work directly with HTML5 Local Storage and create the manifest for HTML5 Application Cache.
+Fourthly, both \sta{} and \kendob{} have support for \chal{toestel}.
+\jqma{} and \lungo{} are using CSS3 media queries to accomplish this.
+Lastly, frameworks don't always support advanced form elements for \chal{formulieren}.
+Only \kendob{} accomplishes both date and month pickers with a specified range and \lungo{} lacks support for an option field.
 
 No framework has support for \chal{handtekening}.
 A plugin was found for every framework except for \lungo{}.
 \chal{afbeelding} also suffers from the same problem, especially when the image has to be converted to base64.
 In \st{} a plugin could be used, but with the other three frameworks, this has to programmed manually using the HTML5 FileReader API and canvas. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\challenge{\chal{toestel}}
-
-%\framework{\sta}{}
-%Detection of a smartphone context is done via the \code{Ext.os.is.Phone} method.  
-%If this method returns false,  we assume to be in tablet mode.    
-%The main screen of the POC requires a splitted view in tablet mode.  
-%A \code{vbox} layout splits the viewport with a vertical axis.  
-%The \code{flex} property defines the ratio of the sizes of both resulting components. 
-%In smartphone mode,  the left screen is made invisible and an extra menubutton in the header is created.  
-%Making the sub header clickable is not possible  
-%
-%\framework{\kendoa}{}
-%\kendo{} also provides methods to query the context.
-%\code{kendo.support.tablet},  for example,  returns if a tablet is being used.
-%The splitview for the tablet layout is supported by \kendo{} and can be used by defining your view as \code{splitview} as value of the data attribute \code{data-role}.
-%The smartphone layout needs to be build by manipulating the DOM with jQuery methods.
-%
-%\framework{\jqma}{}
-%No functionality is provided by the framework, so a search for plugins was started~\cite{Deering2012}.
-%However it was shown that the use of CSS3 media queries can accomplish the same without a plugin~\cite{Hadlock2012}.
-%The documentation of \jqma{}~1.2 also used a similar approach~~\cite{JQuery2012b}.
-%This approach is also encouraged in the documentation of \jqma{}~1.3~\cite{JQuery2013e}.
-%The smartphone menu is always accessible on both tablet and smartphone devices when tapping on the sub header.
-%
-%\framework{\lungoa}{}
-%The framework has the function \code{Lungo.Core.isMobile()} to know if the current device is a mobile device or not.
-%\quo{} has extra attributes for \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} and \code{screen}.
-%The latter only gives the width and height, so the developer still needs to program it manually.
-%As a solution, the same method as for \jqma{} was used, namely CSS3 media queries.
-%The smartphone menu is always accessible on both tablet and smartphone devices when tapping on the sub header.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\challenge{\chal{formulieren}}
-%
-%\begin{itemize}
-% \item \chal{formulieren-placeholders}
-% \item \chal{formulieren-types}
-% \item \chal{formulieren-optieveld}
-% \item \chal{formulieren-datepicker}
-% \item \chal{formulieren-monthpicker}
-% \item \chal{formulieren-schakelaar}
-% \item \chal{formulieren-wissen}
-%\end{itemize}
-%
-%\framework{\sta}{}
-%Placeholders, text, email and number fields are supported by the framework and can be easily created.  
-%Labels can be avoided by not defining them.  
-%To create an option field, an element with type selectfield has to be included.
-%Creating custom datepickers is not supported.  
-%It is impossible to ignore the days field and only years can be delimited.  
-%A flipswitch is possible with the togglefield type.
-%Clearing the form after it was send, has to be programmed manually.
-%
-%\framework{\kendoa}{}
-%All form types need to be defined with HTML-attributes and follow the HTML-standard.
-%A placeholder can be defined and labels can be omitted.
-%%TODO option fields? :Option fields have 
-%A datepickers is contained within \kendo{} Web and can be included as widgets.
-%The fields and depth of the datepicker can be configured to provide the custom datepickers.
-%The \code{data-role} switch can initiate a flip switch.
-%Clearing a model that is bound to a form (view) will clear the form automatically.
-%
-%\framework{\jqma}{}
-%Placeholders can be achieved with the HTML5 \code{placeholder} attribute.
-%Labels are mandatory in jQM for assistive technologies, but can be hidden via the \code{ui-hide-label} class~\cite{JQuery2013}. 
-%The types of form elements used were text, number and email.
-%The \code{date} type could not be used, because of the lack of support in mobile browsers~\cite{Deveria2013b}.
-%Also the need to specify a range the user can choose from, justifies the use of the Date \& Time Picker of Mobiscroll~\cite{Mobiscroll2013}.
-%The need for a custom datepicker with only a month and year needed to be hardcoded.
-%Clearing the form after it was send, has to be programmed manually.
-%A switch and option field are directly supported by \jqma.
-%
-%\framework{\lungoa}{}
-%Adding placeholders is accomplished by using the HTML5 \code{placeholder} attribute.
-%Labels are not mandatory in \lungo{}, so they could be left out of the code.
-%
-%%De types \code{text}, \code{number} en \code{email} voor formuliervelden worden verwezenlijkt door deze als type voor de \code{input}-tags mee te geven in het formulier.
-%%Gelijkaardig met de twee aangehaalde problemen voor \jqm{}, werd niet gekozen voor het \code{date}-type, maar een plug-in om de functionaliteit met datums op te lossen.
-%%De \code{date-picker} werd gebruikt van de plug-in pagina van Lungo zelf~\cite{TapQuo2013b}.
-%%Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \term{datepicker} te openen en de aangeklikte datum in het formulierveld te zetten.
-%%De plug-in laat echter niet toe om een bereik op te geven.
-%%De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
-%%
-%%Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een \term{dropdown}menu. 
-%%Een schakelaar daarentegen werd dan weer wel aangeboden.
-%%Het legen van een formulier gebeurt in \lungo{} door de \code{reset}-functie in \js{} op te roepen op dat formulier.
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\challenge{\chal{lijsten}}
-%\begin{itemize}
-% \item C11.1 Load data into list and styling list items
-% \item C11.2 Clickable items with custom action or linking to record of itemize
-% \item C11.3 Sorting data
-%\end{itemize}
-%
-%
-%\framework{\sta{}}{}
-%A list can be created by setting the type of a component to \code{list}.
-%\code{Ext.XTemplate} is de \st{} class responsible for defining a template for listitems.
-%A template can be used in a \code{list} by setting the \code{itemTpl} property.
-%Also,  a list can be coupled with a \code{Store}.
-%Elements of the list are hence coupled with a model instance from the \code{Store}.
-%A \code{Controller} can catch the event when an item is clicked and show a view that contains the data of the corresponding modelinstance.
-%
-%Sorting the \code{Store} will sort the list that is connected with the \code{Store}.
-%
-%\framework{\kendoa{}}{}
-%Lists can be defined by putting \code{listview} as \code{data-role}.
-%The corresponding JavaScript instance can be configured with a \code{dataSource} and a template.
-%Each instance in the \code{dataSouce} will create a listitem that is styled with the template.
-%Linking listitems with a record is no standard feature in \kendo{}.
-%A parameterized view can be used to link the listitem with a view.
-%Sorting the \code{dataSource} will sort the list that is connected with the \code{dataSouce}.
-%
-%\framework{\jqma{}}{}
-%TODO
-%
-%\framework{\lungoa{}}{}
-%TODO
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Support} % 1 blz
@@ -1045,7 +925,7 @@ The browser crashed an the device returned to the home screen.
 In contrast, list generation did work on all Android devices.
 %De score van \kendo{} is dus slechts voor vier apparaten.
 
-\begin{table}[!ht]
+\begin{table}
 \centering
 \pgfplotstabletypeset[
   begin table=\begin{tabular}{p{3cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
@@ -1077,23 +957,6 @@ In contrast, list generation did work on all Android devices.
 \label{sec:evaluation-overview}
 
 Figure \ref{fig:spidergraph} shows the spidergraph with the scores for the five criteria for the four frameworks.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{../Masterproef/figuren/spidergraph-final.pdf}
-  \caption{Overview with the five comparison criteria for \sta{},  \kendob{},  \jqma{} en \lungo{}.}
-  \label{fig:spidergraph}
-\end{figure}
-
-The areas of the four pentagons are:
-\begin{description}
- \item [\jqm{}] $1.87$
- \item [\kendo{}] $1.32$
- \item [\lungo{}] $0.88$
- \item [\st{}] $0.73$
-\end{description}
-
-The area unit is the unit as can be seen on the axes.
 
 \jqma{} has the largest area ($1.87$) and can be seen as the winner.
 One of the major factors that make \jqma{} successful is that it does not forces an architecture.
@@ -1133,6 +996,13 @@ The tools provided by Sencha to support the developper are not able to close the
 The tools require a learning process on their own.
 As a last remark,  \sta{} is depending on the WebKit engine.
 Devices with a default browser that do not contain this engine,  like Windows Phone, are not investigated.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{../Masterproef/figuren/spidergraph-final.pdf}
+  \caption{Overview with the five comparison criteria for \sta{},  \kendob{},  \jqma{} en \lungo{}.}
+  \label{fig:spidergraph}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

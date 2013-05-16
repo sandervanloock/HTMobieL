@@ -11,10 +11,17 @@ Ten slotte worden verschillende, reeds bestaande manieren om raamwerken te verge
 
 \section{Mobiele apparaten}
 \label{sec:mobiele-apparaten}
-Mobiele apparaten bestaan in alle soorten en maten, met weinig of veel opties, voor weinig of veel geld. 
+Mobiele apparaten bestaan in alle soorten en maten, met weinig of veel opties, voor weinig of veel geld zoals wordt geïllustreerd op figuur \ref{fig:devices}. 
 Het verdient daarom de aandacht om deze diversiteit onder de loep te nemen. 
 Eerst wordt ingegaan op drie soorten mobiele apparaten, namelijk de smartphone, tablet en e-reader~\cite{GCF2013}.
 Daarna wordt stilgestaan bij de kenmerken van deze apparaten~\cite{PhilDutson2012}.
+
+\begin{figure}
+  \centering
+  \includegraphics[height=0.6\textwidth]{figuren/mobile-devices.jpg}
+  \caption{Verschillende mobiele apparaten~\cite{Grady2013}.}
+  \label{fig:devices}
+\end{figure}
 
 \subsection{Soorten}
 Sinds de voorstelling van de Apple iPhone in 2007~\cite{David2011}, stijgt het gebruik van de smartphone ontzettend snel in onze samenleving.  
@@ -52,14 +59,13 @@ De eerste iPhone had een resolutie van 320$\times$480 en een 3,5” scherm, wat 
 De iPhone~4 (Retina) daarentegen heeft een resolutie van 640$\times$960 en een 3,5” scherm, wat neerkomt op 326 PPI. 
 Met andere woorden zijn er meer pixels op dezelfde fysieke grootte geplaatst, wat een scherper beeld tot resultaat heeft. 
 
-% TODO voor Sander: is deze afbeelding nuttig? 
-% TODO afbeelding vectorieel maken
-\begin{figure}
-  \centering
-  \includegraphics[height=0.8\textwidth]{figuren/mobile-devices-resolutions.png}
-  \caption{Resoluties van bekende mobiele apparaten~\cite{Wolfermann2012}.}
-  \label{fig:resoluties}
-\end{figure}
+%TODO aan Sander: is deze afbeelding nuttig?  ik zou dan eerder een figuur met allemaal verschillende devices in mijn thesis steken dan een afbeelden met deze resoluties...
+%\begin{figure}
+%  \centering
+%  \includegraphics[height=0.8\textwidth]{figuren/mobile-devices-resolutions.png}
+%  \caption{Resoluties van bekende mobiele apparaten~\cite{Wolfermann2012}.}
+%  \label{fig:resoluties}
+%\end{figure}
 
 \subsubsection{Aanraakscherm}
 De populaire soorten schermen zijn resistieve en capacitieve aanraakschermen. 
@@ -179,8 +185,7 @@ Voorbeelden van nieuwigheden zijn de sterkere integratie van sociale media zoals
 Op tabel \ref{tabel:marktaandeel-ios-android} is te zien dat drie vierde van de iOS-gebruikers al iOS 6 gebruikt.
 
 Browsen op het web gebeurt met de geïnstalleerde Mobile Safari webbrowser (zie \ref{sec:mobile-safari}). Applicaties kunnen gedownload worden in winkel genaamd App Store, die sinds iOS 2 aanwezig is~\cite{Deitel2012}. 
-%TODO referentie?
-Op deze winkel is er sterkte controle op de kwaliteit van de aangeboden applicaties.
+Op deze winkel is er sterkte controle op de kwaliteit van de aangeboden applicaties door de ontwikkelaars zeer strikte regels op te leggen~\cite{Apple2010a}.
 
 \subsection{Android}
 Android Inc. werd opgericht in 2003 en werd in 2005 overgekocht door Google Inc~\cite{Satyesh2012}. 
@@ -193,9 +198,10 @@ Op tabel \ref{tabel:marktaandeel-ios-android} is het marktaandeel te zien van de
 Het is duidelijk dat Gingerbread~(Android~2.3) bijna de helft van het marktaandeel inneemt.
 Applicaties worden gedownload in de winkel genaamd Google Play. 
 De controle op de kwaliteit van de aangeboden applicaties is minder strikt dan die van Apple.
-Dit wordt opgelost door de gebruiker de toestemming te vragen op hij de rechten die applicatie wenst, toe te kennen.
-Zo kan een applicatie bijvoorbeeld het recht vragen om de SMS-berichten van het apparaat te lezen.
-Indien de gebruiker hiermee niet akkoord gaat, kan hij de applicatie niet downloaden.
+De applicatie moeten aan een aantal algemene regels voldoen, maar het basisconcept is dat van permissies~\cite{Android2013b}.
+Als een ontwikkelaar in zijn applicatie bijvoorbeeld wil gebruik maken van de SMS-berichten van de gebruiker, zal hij eerst de permissie moeten krijgen van de gebruiker.
+Dit gebeurt net voor de installatie van de applicatie op Google Play.
+Indien de gebruiker hiermee niet akkoord gaat, kan hij de applicatie niet downloaden~\cite{Android2013a}.
 Android bevat ook een standaard browser (zie \ref{sec:android-browser}).
 
 \subsection{Windows Phone}
@@ -203,8 +209,8 @@ Windows Phone van Microsoft werd aangekondigd in oktober 2010 als vervanging voo
 Dit is duidelijk te zien als er gekeken wordt naar de versies: de laatste versie was Windows Mobile~6.5.3 en de eerste versie is Windows Phone~7. 
 In 2011 ging Microsoft een partnerovereenkomst aan met Nokia om zo snel de markt te kunnen overwinnen~\cite{Microsoft2011}. 
 De nieuwste versie, Windows Phone~8, werd aangekondigd in oktober 2012~\cite{Reed2012}. 
-Applicaties worden gedownloaded in de winkel genaamd Windows Phone Store.
-%TODO: verder uitzoeken hoe het proces van Windows Phone Store werkt?
+Applicaties worden gedownload in de winkel genaamd Windows Phone Store.
+Microsoft legt, net zoals Apple, regels op aan de ontwikkelaars voor ze hun applicaties in de winkel kunnen publiceren~\cite{Microsoft2013a}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -294,7 +300,7 @@ Daarna worden Internet Explorer Mobile en Opera Mobile kort besproken.
 Het marktaandeel van de genoemde browsers wordt getoond in tabel~\ref{tabel:marktaandeel-browsers}.
 
 Zowel Mobile Safari als de \term{native} Android browser zijn beide op de WebKit browser \term{engine} gebaseerd~\cite{Oeflman2011}. 
-% TODO Tim: is dit kort genoeg van uitleg over browser engine?
+%TODO Tim: is dit kort genoeg van uitleg over browser engine?
 Een \term{engine} zorgt ervoor dat de code van de opgehaalde webpagina wordt omgezet naar de webpagina die de gebruiker te zien krijgt. 
 
 \begin{table}[H]
@@ -477,9 +483,7 @@ In deze sectie worden kort de belangrijke eigenschappen besproken zoals \term{me
 Zoals aangehaald, zijn er verschillende apparaten met verschillende schermen en resoluties. 
 Een goeie webpagina bestaat erin deze elementen zo goed mogelijk te benutten. 
 Dit kan vanaf nu door gebruik te maken van \term{media queries} in CSS3. 
-De website kan zich hiermee aanpassen aan het apparaat waarop het wordt getoond. 
-Dit wordt in het Engels omschreven als \term{responsive design}.
-% TODO Tim: nederlands woord voor responsive design?
+De website kan zich hiermee aanpassen aan het apparaat waarop het wordt getoond, wat  Responsive Web Design~(RWD) wordt genoemd.
 
 Ook CSS3 volgt het principe van achterwaartse compatibiliteit. 
 Browsers die deze \term{media queries} niet ondersteunen, zullen deze negeren en enkel de gewone lay-out toepassen ongeacht het toestel.
@@ -530,7 +534,7 @@ In deze sectie wordt ingezoomd op bestaande mobiele HTML5-raamwerken die gebruik
 Doordat deze raamwerken als paddestoelen uit de grond schieten, is het onmogelijk om deze allemaal te bespreken en te vergelijken.
 Hierdoor werden acht raamwerken geselecteerd waaruit uiteindelijk vier raamwerken gedetailleerd besproken en vergeleken zullen worden.
 
-Raamwerken kunnen worden gecategoriseerd volgens twee aanpakken~\cite{Oeflman2011}, namelijk opmaakgedreven en \js{}-gedreven.
+Raamwerken kunnen worden gecategoriseerd volgens twee aanpakken, namelijk opmaakgedreven en \js{}-gedreven~\cite{Oeflman2011}.
 Bij een opmaakgedreven aanpak wordt de webapplicatie voornamelijk in HTML-code geschreven. 
 Daarentegen wordt bij een \js{}-gedreven aanpak hoofdzakelijk in \js{} geprogrammeerd.
 
@@ -565,12 +569,7 @@ Het gebruik van deze licentie binnen een applicatie vereist wel dat de applicati
 Op het moment van schrijven is \st{} aan versie 2.1.1~\cite{Inc.}. 
 
 \paragraph{\tmp} % SANDER
-% TODO deze tekst zal later moeten worden verplaatst
-%Een ander raamwerk, genaamd The-M-Project~\cite{Panacoda2012}, dwingt het Model-View-Controller (MVC) echter wel af. 
-%Met dit raamwerk is het mogelijk om webapplicaties te maken die het \jqm{} raamwerk gebruiken. 
-%In plaats van HTML5-code te schrijven, zoals dat bij \jqm{} gebeurt, schrijft je \js{}-code. 
-%The-M-Project zal dan zelf intern deze \js{}-code omzetten naar de desbetreffende \jqm{} HTML5-code.
-\tmp{} is een raamwerk dat bouwt op jQuery en \jqm{}.
+\tmp{} is een raamwerk dat het mogelijk maakt om webapplicaties te bouwen die van \jqm{} gebruik maken.
 Initieel werd het in 2012 ontwikkeld door M-Way Solutions maar nu behoort het tot Panacoda,  een Duitse ontwikkelaar voor softwaretools en mobiele webapplicaties.
 Panacoda bezit ook Espresso,  een krachtige tool om applicaties te bouwen en ontwikkelen met \tmp{}.
 Het laat ook toe applicaties om te vormen tot \term{native} applicaties. 
@@ -625,7 +624,7 @@ Deze laatstgenoemde zorgt automatisch voor compressie van de verschillende besta
 \paragraph{\davinci}% SANDER 
 \davinci{} bestaat uit twee tools:  \davinci{} Studio en \davinci{} Animator.
 De nadruk bij dit raamwerk ligt voornamelijk bij de generatie van code in een WYSIWYG-omgeving (What You See Is What You Get).
-%TODO Tim: gaan we ervan uit dat de lezer WYSIWYG snapt? Sander: is de term al niet veelzeggend? of gewoon grafische omgeving nemen?
+%TODO Tim: gaan we ervan uit dat de lezer WYSIWYG snapt? Sander: is de term al niet veelzeggend? of gewoon grafische omgeving nemen? Tim: "wat je ziet, is wat je krijgt" (afkorting komt ook niet voor in lijst, dus mss dan gewoon helemaal niet de afkorting gebruiken)
 De \davinci{} Studio is plug-in voor Eclipse die HTML-,  \js{}- en CSS-code genereert.
 De gebruiker kan GI-elementen via \term{drag-and-drop} aan de applicatie toevoegen.
 Het binden van data kan door op een visuele manier de mapping tussen GI en data weer te geven.
@@ -769,8 +768,10 @@ Bij elke transformatie wordt stap voor stap uitgelegd welke veranderingen de ori
 Hierbij wordt de werking en architectuur van het raamwerk toegelicht.
 
 Een ander voorbeeld van het gebruik van een \term{proof of concept} staat in Mobile JavaScript Application Development van A. Kosmaczewski~\cite{Kosmaczewski2012}.
+%TODO: TODO-applicatie, in het engels is het zelf "to-do list", dus wrs "to-do application", dus sowieso geen hoofdletters (zie opmerking Gonzalo)
 Hier wordt een TODO-applicatie ontwikkeld in PhoneGap, \st{} en \jqm{}.
 Elk raamwerk wordt ingeleid door eerst de platformen op te lijsten die het ondersteunen en de belangrijkste kenmerken weer te geven.
+%TODO: TODO-applicatie, in het engels is het zelf "to-do list", dus sowieso geen hoofdletters (zie opmerking Gonzalo)
 Vervolgens worden de functionaliteiten van het raamwerk uitgelegd en toegepast door stap voor stap de TODO-applicatie op te bouwen.
 Ook worden er tools besproken die de ontwikkeling vergemakkelijken.
 
@@ -782,13 +783,11 @@ Het aantal raamwerken die in de tabel worden opgenomen kunnen variëren van twee
 
 Een voorbeeld is \exturl{www.jqueryuivskendoui.com/} waar jQuery UI met \kendo{} wordt vergeleken~\cite{Bristowe2012}.
 Het bestaat uit één grote tabel die specifieke kenmerken tussen beide raamwerken vergelijkt.
-%TODO Tim: geen 'we' gebruiken
-In de tabel vinden we onder andere een vergelijking van beschikbare thema's,  browsercompatibiliteit,  formuliervalidatie,  ondersteuning van het product etc.
+In de tabel wordt een vergelijking weergegeven van beschikbare thema's,  browsercompatibiliteit,  formuliervalidatie,  ondersteuning van het product etc.
 
 Een alternatief is \exturl{www.markus-falk.com/mobile-frameworks-comparison-chart} waar 43 raamwerken in een vergelijkingstabel zijn opgenomen~\cite{Falk2011}. 
-%TODO Tim: UI… GI dan? 
-De vergelijkingscriteria worden opgedeeld in compatibiliteit met het besturingssysteem,  doel van de applicatie,  taal voor ontwikkeling,  hardware interactie,  UI,  licenties en overige.  
-Deze laatste categorie bevat de criteria of er al-dan-niet een SDK beschikbaar is, encryptie ondersteund wordt en of advertenties worden ondersteund.  
+De vergelijkingscriteria worden opgedeeld in compatibiliteit met het besturingssysteem,  doel van de applicatie,  taal voor ontwikkeling,  hardware interactie,  GI,  licenties en overige.  
+Deze laatste categorie bevat de criteria of er al-dan-niet een Software Development Kit~(SDK) beschikbaar is, encryptie ondersteund wordt en of advertenties worden ondersteund.  
 Handig hierbij is dat de webpagina een stappenplan voorziet waarin per categorie alle vereisten ingevuld kunnen worden.  
 De resultaten zijn dan de raamwerken die compatibel zijn met deze vereisten.
 

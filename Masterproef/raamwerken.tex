@@ -1,14 +1,11 @@
 \chapter{Mobiele HTML5-raamwerken}
 \label{chap:raamwerken}
 
-Dit hoofdstuk vergelijkt passief de vier gekozen mobiele HTML5-raamwerken, namelijk \st{}, \kendo{},\jqm{}~(\ref{sec:raamwerk-jqm}) en \lungo{}~(\ref{sec:raamwerk-lungo}).
-%De keuze van de raamwerken wordt eerst gemotiveerd in sectie~\ref{sec:motivatie-vier-raamwerken}.
-Omkadering, code en ontwikkeling, functionele kenmerken en niet-functionele kenmerken zullen voor ieder raamwerk worden besproken op basis van de gevonden literatuur.
+Dit hoofdstuk vergelijkt op een passieve manier de vier gekozen mobiele HTML5-raamwerken, namelijk \st{}, \kendo{},\jqm{}~(\ref{sec:raamwerk-jqm}) en \lungo{}~(\ref{sec:raamwerk-lungo}).
+Dit is een vergelijking gebaseerd op informatie van de raamwerken die in de literatuur kon worden gevonden.
+Omkadering, code en ontwikkeling, functionele kenmerken en niet-functionele kenmerken zullen voor ieder raamwerk worden besproken.
 In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een overzicht van deze passieve vergelijking weergegeven waarin deze gegevens kunnen worden vergeleken.
 
-%TODO beter inleiding dan motivatie? want ik moet spreken over die types raamwerken… 
-%\section{Motivatie gekozen raamwerken}
-%\label{sec:motivatie-vier-raamwerken}
 In samenspraak met Capgemini werd gekozen om \jqm{}, \st{} en \kendo{} te onderzoeken.
 De twee eerstgenoemde werden gekozen om hun enorme populariteit~\cite{Firtman2013,Hales2012,Oeflman2011,David2011}.
 De laatstgenoemde had het voordeel dat deze de \term{native look-and-feel} kan nabootsen, wat ook een handig onderzoekspunt leek voor Capgemini.
@@ -18,7 +15,7 @@ Doordat \tmp{} een volledige make-over ondergaat in de zomer van 2013 leek het d
 Als laatste werd besloten om \davinci{} uit te sluiten door de gebrekkige Engelstalige documentatie van dit Koreaans raamwerk.
 Uiteindelijk bleef \lungo{} over en dit werd het vierde raamwerk.
 
-Zoals besproken in \ref{sec:mobiele-html5-raamwerken} kunnen raamwerken worden gecategoriseerd volgens twee aanpakken~\cite{Oeflman2011}, namelijk opmaakgedreven en \js{}-gedreven. 
+Zoals besproken in \ref{sec:mobiele-html5-raamwerken} kunnen raamwerken worden gecategoriseerd volgens twee aanpakken, namelijk opmaakgedreven en \js{}-gedreven~\cite{Oeflman2011}. 
 Eerst wordt gestart met het bespreken van een volledig \js{}-gedreven raamwerk, namelijk \st{}~(\ref{sec:raamwerk-st}).
 Daarna volgt \kendo{} die zowel \js{}- als opmaakgedreven is (\ref{sec:raamwerk-kendo}).
 De laatste twee besproken raamwerken, \jqm{}~(\ref{sec:raamwerk-jqm}) en \lungo{}~(\ref{sec:raamwerk-lungo}), zijn beide opmaakgedreven.
@@ -521,8 +518,6 @@ Functionele vereisten kunnen worden geschreven in \js{}.
 Er worden geen specifieke tools door TapQuo aangeboden om de ontwikkeling te versnellen.
 Wel kan er gebruik worden gemaakt van Twitter Bower~\cite{Twitter2013} die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren.
 Dit komt door de aanwezigheid van het bestand \code{component.json} op \gh{} dat Bower gebruikt.
-%TODO Tim: verplaatsen naar uitleg bij evaluatie
-%Dit is bij \jqm{} niet mogelijk doordat \jqm{} geen geldige component is van Bower.
 
 \paragraph{Documentatie}
 De documentatiesite~\cite{Lungo2013} wordt eerst getoond hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
@@ -547,16 +542,11 @@ Er wordt geen programmeerstijl zoals MVC afgedwongen.
 
 Om de verschillende schermen te scheiden wordt gebruik gemaakt van \code{<article>}- en \code{<section>}-tags die specifiek zijn voor HTML5.
 Analoog wordt ook voor de kop- en voettekst de \code{<header>}- en \code{<footer>}-tags gebruikt.
-%TODO Tim: verplaatsen naar evaluatie
-%Hierdoor is het duidelijk dat \lungo{} ten opzichte van \jqm{} volledig gebruik maakt van de nieuwste HTML5-tags.
 
 Enerzijds kan de volledige applicatie op één webpagina worden geprogrammeerd.
 Daarnaast biedt \lungo{} ook de mogelijkheid om de verschillende schermen op afzonderlijke pagina's op te slaan.
 Hierbij dient enkel de code binnen de \code{<body>}-tag opgeslaan te worden.
 Daarna wordt bij de initialisatie van \lungo{} gedefinieerd welke afzonderlijke pagina's asynchroon dienen te worden opgehaald.
-%TODO Tim: verplaatsen naar evaluatie
-%In tegenstelling tot \jqm{} dient enkel wat binnen de \code{<body>}-tag staat, opgeslaan te worden.
-%Bij \jqm{} dient telkens ook de volledige \code{<head>}-tag op iedere pagina herhaald te worden.
 
 \subsection{Functionele kenmerken}
 De documentatiepagina is opgedeeld in negen groepen die hieronder kort worden aangehaald.
@@ -579,7 +569,7 @@ Indien het apparaat het kenmerk niet ondersteund, voorziet \lungo{} een \term{fa
 
 \item \textbf{DOM }
 Het manipuleren van de DOM gebeurt door de \quo{}-bibliotheek.
-Hiervoor wordt gerefereerd naar de documentatie van QuoJS.
+Hiervoor wordt gerefereerd naar de documentatie van \quo{}.
 Zelf biedt \lungo{} enkel ondersteuning voor \term{events} bij het laden en ontladen van pagina's binnen de applicatie.
 
 \item \textbf{Element }
@@ -629,7 +619,7 @@ Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijve
 \lungo{} dwingt geen enkel ontwerppatroon af.
 Voor de echte functionaliteit wordt beroep gedaan op \js{}.
 Daarbij is de ontwikkelaar vrij hoe hij te werk gaat en kan gebruik maken van de \lungo{} API. 
-Voor aanpassingen die van toepassing zijn op DOM-manipulatie, is de ontwikkelaar aangewezen op QuoJS.
+Voor aanpassingen die van toepassing zijn op DOM-manipulatie, is de ontwikkelaar aangewezen op \quo{}.
 Ook deze dwingt geen ontwerppatroon af.
 
 \paragraph{Ondersteuning browser}
@@ -642,14 +632,10 @@ Verder halen ze aan dat ze een zelfde ervaring willen hebben voor een gemaakte a
 \section{Overzicht}
 \label{sec:raamwerken-tabel}
 
-%TODO tekst hoger zitten ivm actief/passief
-
-In tabel~\ref{tabel:raamwerken-tabel} wordt de vergelijking van de raamwerken getooond op basis van passieve vergelijkingscriteria.
-Dit is een vergelijking gebaseerd op informatie van de raamwerken die hiervoor kan worden teruggevonden.
-De passieve vergelijkingscriteria vergelijken de raamwerken met gevonden informatie over het raamwerk zelf.
-De data is samengezet,  geen extra onderzoek werd verricht.
-In het volgende hoofdstuk worden vijf actieve vergelijkingscriteria besproken.
-Deze zijn actief onderzocht en de resultaten hiervan zullen in hoofdstuk \ref{chap:evaluatie} besproken worden.
+In tabel~\ref{tabel:raamwerken-tabel} wordt de passieve vergelijking van de raamwerken getoond.
+In het volgende hoofdstuk worden de vijf actieve vergelijkingscriteria besproken.
+De resultaten hiervan kunnen niet worden bekomen door enkel naar de literatuur te kijken, maar moeten actief onderzocht worden.
+De resultaten hiervan zullen in hoofdstuk \ref{chap:evaluatie} besproken worden.
 
 \begin{landscape}
 \begin{table}[H]

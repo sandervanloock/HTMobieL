@@ -30,6 +30,8 @@ set(gca,'YLim',[0 max(M(:)+2)]);
 saveas(gca,'../figuren/performance.pdf');
 system('pdfcrop ../figuren/performance.pdf ../figuren/performance.pdf');
 
+%logintimes = M(
+
 apparaten = {'HTCDesireZ', 'GalaxyTab', 'GalaxyS', 'Nexus 7','iPad1 WiFi', 'iPad3 4G WiFi', 'iPhone 3GS', 'iPhone 4S'};
 mylegend = {'POC','POC uit cache','Login','Login uit cache'};
 

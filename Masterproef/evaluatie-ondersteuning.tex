@@ -154,6 +154,7 @@ Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline 
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
+%TODO aggregeren
 \paragraph{\st} \score{7}{8}
 Alle toestellen buiten de \gtab{} werden door het \st{} raamwerk herkend.
 Het genereren van de toestelspecifieke lay-out werd op elk toestel wel ondersteund.
@@ -163,7 +164,7 @@ Net zoals bij \jqm{} werd de \gtab{} enkel als tablet herkend als de applicatie 
 De toestelspecifieke lay-out werd correct weergegeven.
 Ook werd het besturingssysteem herkend en werd de \term{native look-and-feel} nagebootst.
 
-\paragraph{\jqm} \score{8}{8}
+\paragraph{\jqm} \score{7}{8}
 Zeven van de acht toestellen werden met succes herkend als smartphone of tablet.
 Echter door de lage resolutie van de \gtab{}, werd staand de tablet als smartphone herkend.
 Indien het gekozen breekpunt van de CSS3 media query wordt geoptimaliseerd voor dit toestel, kan volledige ondersteuning voor \gtab{} worden bekomen.
@@ -269,6 +270,7 @@ Deze laatste deed verschillende acties naargelang geklikt of gesleept werd op de
 Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
+%TODO: samennemen
 \paragraph{\st} 
 Deze uitdaging kon niet worden ondersteund omdat het raamwerk geen implementatie toeliet
 
@@ -297,10 +299,15 @@ Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 onderste
 Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
 Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
-Dit komt omdat de grootte van de foto's de limiet van de \code{local storage} overschreiden.%TODO exacte limiet localstorage refereren?
+Dit komt omdat de grootte van de foto's de limiet van de \code{local storage} overschrijden.
+%TODO exacte limiet localstorage refereren?
+% TODO Tim
+% Zie http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/CreatingContentforSafarioniPhone/CreatingContentforSafarioniPhone.html#//apple_ref/doc/uid/TP40006482-SW15
+% Zie http://dev-test.nemikor.com/web-storage/support-test/
 Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
-De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen.%TODO referentie?
-Alle raamwerken behaalden een score van \score{5}{8}
+De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen.
+%TODO referentie?
+Alle raamwerken behaalden een score van 5/8.
 
 % \paragraph{\st} \score{5}{8}
 % Oudere Android types bieden geen ondersteuning voor de FileReaderAPI.
@@ -324,10 +331,12 @@ Alle raamwerken behaalden een score van \score{5}{8}
 \subsection{\uit{validatie}}
 \label{sec:evaluatie-ondersteuning-validatie}
 
-Formuliervalidatie is een kenmerk van HTML5 maar wordt op geen enkel beschikbaar mobiel besturingssysteem ondersteund~\cite{Deveria2013c}.
+HTML5 formuliervalidatie wordt op geen enkel beschikbaar mobiel besturingssysteem ondersteund~\cite{Deveria2013c}.
 Dit wil zeggen dat alle raamwerken hiervoor een alternatief voorzien dat wel op alle toestellen werkt.
 
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Een specifiek mobiel probleem bij \lungo{} was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
+Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
+Dit werd opgelost door \code{focusInvalid:false} in te stellen.
 
 % \paragraph{\st} \score{8}{8}
 % Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
@@ -345,14 +354,12 @@ Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er
 \subsection{\uit{handtekening}}
 \label{sec:evaluatie-ondersteuning-handtekening}
 
-\kendo{}, \jqm{} hanteeren dezelfde plug-in om deze uitdaging te implementeren.
+\kendo{} en \jqm{} hanteren dezelfde plug-in om deze uitdaging te implementeren.
 Onderliggend steunt deze op het \term{canvas} kenmerk van HTML5.
 De plug-in die \st{} gebruikt is ook afhankelijk van dit kenmerk.
-Alle onderzochte toestellen ondersteunen de \term{canvas}~\cite{Deveria2013c} en de drie raamwerken behalen vervolgens de maximumscore \score{8}{8}. 
+Alle onderzochte toestellen ondersteunen de \term{canvas}~\cite{Deveria2013c} en de drie raamwerken behalen vervolgens de maximumscore 8/8. 
 
 Omdat bij \lungo{} geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
-
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
 
 % \paragraph{\st} \score{8}{8}
 % Deze uitdaging werkte op ieder toestel en behaalde zo de maximumscore.
@@ -377,20 +384,18 @@ Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er
 Drie van de acht apparaten hadden problemen met het tonen van de PDF.
 Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \gs{} gaf het besturingssysteem de boodschap 'Download unsuccessful' terug.
 Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
-De score voor deze drie raamwerken is dus \score{5}{8}.
+De score voor deze drie raamwerken is dus 5/8.
 
 \st{} maakt gebruik van een plug-in voor het tonen van PDF-bestanden.
 Deze plug-in maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla~\cite{Gal2010}.
 PDF.JS is geïmplementeerd met \js{} en HTML5.
 Het \term{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
-Vanaf Android 3.0 wordt dit laatste slechts ondersteund~\cite{Deveria2013c}.
+Slechts vanaf Android 3.0 wordt dit laatste ondersteund~\cite{Deveria2013c}.
+%TODO: iOS vermelden
 Deze uitdaging lukt dus niet op de \htc{} en \gtab{}.
 Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie van \st{} die niet gebouwd was met Sencha Cmd.
-Dit omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in werd aangesproken.
-%TODO verder uitwerken?	
-\st{} haalt een score van \score{6}{8} omdat de plug-in de \gs{} wel ondersteund in tegenstelling tot de drie andere raamwerken.
-
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
+Dit was omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in werd aangesproken.
+\st{} haalt een score van 6/8 omdat de plug-in de \gs{} wel ondersteunt in tegenstelling tot de drie andere raamwerken.
 
 % \paragraph{\st} \score{6}{8}
 % 
@@ -411,11 +416,13 @@ Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er
 \subsection{\uit{offline}}
 \label{sec:evaluatie-ondersteuning-offline}
 
-Offline en opslag is één element van de acht technologieklassen van HTLM5(zie sectie \ref{sec:html5-css3-js}).
+In tabel \ref{tabel:evaluatie-ondersteuning-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
+
+Offline en opslag is één element van de acht technologieklassen van HTLM5 (zie sectie \ref{sec:html5-css3-js}).
 Om de POC offline beschikbaar te maken is zowel de \code{manifest} als \code{localStorage} ondersteuning noodzakelijk.
 Beide kenmerken worden door alle beschikbare mobiele besturingssystemen ondersteund~\cite{Deveria2013c}. 
 
-In tabel \ref{tabel:evaluatie-ondersteuning-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
+
 
 \begin{table}[H]
 \centering

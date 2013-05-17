@@ -53,6 +53,7 @@ Door plug-ins en HTML5-kenmerken zal dit gebrek aan functionaliteit toch beperkt
 Een tweede nadeel is de code die moet geschreven worden bij gebruik van het \jqm{} raamwerk.
 \jqm{} is opmaakgedreven waarbij veel HTML-code moet worden geschreven.
 Deze verbositeit maakt de code zeer gevoelig voor fouten. 
+%TODO: link HTML <-> JS leggen is error prone ...
 
 %TODO slagzin voor elk raamwerk? :Wanneer er voor een productief raamwerk,  zonder architectuur,  moet worden gekozen dat zeer populair is,  kies dan voor \jqm{}!
 
@@ -72,10 +73,8 @@ Het feit dat \kendo{} niet \term{open-source} is reflecteerd zich echter niet in
 Van alle vier raamwerken is \kendo{} het minst performant.
 De laadtijden waren lager in vergelijking met \st{} maar de crashes op iOS-toestellen zorgden voor een lage gebruikservaring.
 Het feit dat \kendo{} een \term{native look-and-feel} aanbiedt is een belangrijk kenmerk maar dit kan ook niet op het spinnenweb worden teruggevonden.
-De positieve impact van dit kenmerk werd niet geevalueerd.
-Er dient gezegd dat de iOS-lay-out sterk gelijkend is op de echte iOS-lay-out.
+De iOS-lay-out is sterk gelijkend is op de echte iOS-lay-out.
 Dit was bij Android minder geslaagd.
-De ondersteuning voor Windows Mobile en Blackberry werd niet onderzocht.
 
 % kendo is winnaar (uitstekend op pop, gebruik en ondersteuning % Waarom kiezen voor kendo:
 % - architectuur => minder productief maar meer bruikbaar
@@ -87,9 +86,8 @@ De ondersteuning voor Windows Mobile en Blackberry werd niet onderzocht.
 Op drie van de vijf criteria scoort \lungo{} het slechtst,  voor de overige criteria is \lungo{} tweede.
 Er is geen architectuur opgelegd en weer kan dit voor- en nadeel zowel in productiviteit en gebruik opgemerkt worden.
 De voordelen bij productiviteit zijn echter minder dan \jqm{} omdat de ondersteuning en documentatie minimaal is.
-De nadelen bij gebruik zijn dan weer uitvergroot omdat er niet zoveel functionaliteit en plug-in als bij \jqm{} konden werden teruggevonden.
-Positief is dan weer dat \lungo{} de beste laadtijden behaalden omdat \quo{}, de kern bibliotheek van \lungo{},  geoptimaliseerd is in voor mobiele apparaten.
-%TODO weglaten.. maakt het verwarrend met onderstaande zin:  TapQuo is dan ook gespecialiseerd in de mobiele gebruikers ervaring.
+De nadelen bij gebruik zijn dan weer uitvergroot omdat er niet zoveel functionaliteit en plug-ins als bij \jqm{} konden werden teruggevonden.
+Positief is dan weer dat \lungo{} de beste laadtijden behaalden omdat \quo{}, de \js{}-bibliotheek van \lungo{},  geoptimaliseerd is voor mobiele apparaten.
 De testen op gebruikservaring zwakte de performantie van \lungo{} af.
 \lungo{} is veruit het minst populair.
 Dit kan zowel met de literatuur als met sociale netwerken bevestigd worden.
@@ -103,12 +101,12 @@ Dit kan zowel met de literatuur als met sociale netwerken bevestigd worden.
 \st{} is volgens de gekozen criteria het slechtste raamwerk ($0.73$).
 De combinatie van de MVC-architectuur en \js-gedreven opmaak maken \st{} zowel het minst productief als minst performant in vergelijking met de andere raamwerken.
 Alle HTML-code wordt door het raamwerk zelf aangemaakt waardoor de \js-bestanden zeer groot zijn.
-De downloadtijden waren dan ook opmerkelijk langer.
+De downloadtijden waren dan ook opmerkelijk langer door het Delta Update mechanisme
 De gebruikservaringtesten gaven echter het tegenovergestelde resultaat want na de initiële wachttijd had \st{} de laagste responstijden.
 De tools die Sencha aanbiedt om ontwikkelaars te helpen (Sencha Architect en Sencha Cmd) blijken niet voldoende om het verschil met andere raamwerken te dichten.
 De tools laten werken is een leerproces op zich.
 Hoewel de ondersteuning van \st{} hoog is, moet er opgemerkt worden dat het afhankelijk is van de WebKit \term{engine}.
-Toestellen met een standaard browser die deze \term{engine} niet bevatten, zoals Windows Phone,  werden niet onderzocht.
+Toestellen met een standaard browser die deze \term{engine} niet bevatten, zoals Windows Phone,  kunnen \st{} niet gebruiken.
 
 % Sencha (nergens numero uno) % Waar niet kiezen voor st:
 % + / - Tools voorhanden (Sencha Cmd / Architect ) om programmeren makkelijker te maken maar tools niet even handig (of betalend)

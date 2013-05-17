@@ -1,7 +1,12 @@
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
 Het gebruik van de vier raamwerken wordt samengevat voor de $13$ uitdagingen in tabel \ref{tabel:evaluatie-gebruik}.
+Voor de score van productiviteit wordt naar formule \ref{eq:gebruik} verwezen.
 Per sectie zal iedere uitdaging per raamwerk worden besproken.
+
+%TODO versies die we nu effectief gebruikt hebben om te implementeren
+
+%TODO enkel de dingen uitleggen die je hebt gebruikt, dus geen extra info over wat het nog allemaal kan, of dingen die niet in de challenges beschreven staan
 
 \begin{table}[H]
 \centering
@@ -33,22 +38,19 @@ Per sectie zal iedere uitdaging per raamwerk worden besproken.
 Het raamwerk dat het beste scoort bij gebruik is \kendo{}, kort gevolgd door \st{}.
 Dit kan grotendeels door de aanwezigheid van een architectuur, respectievelijk MVVM en MVC, worden verklaard.
 Het ontbreken van een architectuur bij de andere twee raamwerken resulteert in een omslachtige aanpak, waardoor punten worden verloren.
-%TODO ik vrees een beetje voor de geldigheid van onderstaande zin
-Daarnaast worden beide raamwerken beheerd door een bedrijf en aangezien de POC een typische bedrijfsapplicatie is, kan mede de goede score worden verklaard.
 Opmerkelijk is de perfecte score van \kendo{} voor formulieren, maar de mindere ondersteuning voor offline dan \st{}.
-%TODO onderstaande zin...
-\jqm{} behaalt de helft met wat overschot, maar goed is dat zeker niet.
-Vooral op het vlak om data automatisch in te laden in velden of lijsten, scoort het nul door het ontbreken van een architectuur. 
+\jqm{} behaalt de helft met wat overschot.
+Op het vlak om data automatisch in te laden in velden of lijsten, scoort het nul door het ontbreken van een architectuur. 
 Als laatste komt \lungo{} dat een onvoldoende behaalt.
 Dezelfde pijnpunten van \jqm{} zijn ook geldig voor \lungo{}.
 Daarenboven is er bij \lungo{} een totaal gebrek aan formuliervalidatie en aan de meer geavanceerdere formulierelementen.
 Voor deze laatste moet er een plug-in worden gebruikt of zal de functionaliteit zelf moeten worden geïmplementeerd. 
 
 %TODO weinig diepgang in deze vier zinnen?
-\kendo{} en \st{} behalen elk zes perfecte uitdagingen.
-\kendo{} scoort twee maal onvoldoende, terwijl \st{} dat slechts één keer doet.
-\jqm{} heeft drie perfecte uitdagingen en vier onvoldoendes.
-Als laatste komt \lungo{} met slechts één perfecte uitdaging en zeven onvoldoendes.
+%\kendo{} en \st{} behalen elk zes perfecte uitdagingen.
+%\kendo{} scoort twee maal onvoldoende, terwijl \st{} dat slechts één keer doet.
+%\jqm{} heeft drie perfecte uitdagingen en vier onvoldoendes.
+%Als laatste komt \lungo{} met slechts één perfecte uitdaging en zeven onvoldoendes.
 
 Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-oproepen, behalve dan bij één geval voor \lungo{}.
 Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
@@ -93,8 +95,8 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Het opbouwen van een \code{View} in \st{} gebeurt hiërarchisch met containers.
 Een component die aan een container kan worden toegevoegd is de \code{Toolbar}.
 Een \code{Toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
-Dit kan dan dienstdoen als hoofdtekst en voettekst.
-Een cascade van hoofdteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
+Dit kan dan dienst doen als kop- en voettekst.
+Een cascade van kopteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
 Een \code{Toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
 Knoppen aan een \code{Toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
 
@@ -108,6 +110,7 @@ Deze eigenschap laat toe om CSS-code als tekst of object aan de knop toe te voeg
 De anatomie van een \code{View} wordt met het data-attribuut \code{data-layout} bepaald.
 Hier wordt de \term{identifier} van een HTML-fragment opgegeven waar het skelet van een \code{View} wordt beschreven.
 Kop- en/of voetteksten toevoegen kan door in het fragment de \code{header} en/of \code{footer} tags te gebruiken.
+Deze twee tags zijn nieuw in HTML5.
 Een hoofdtekst kan een \code{Navbar} hebben waarin knoppen kunnen worden gedefinieerd.
 \code{Header}-tags kunnen niet genest worden, dus zijn onderkopteksten niet mogelijk in \kendo{}.
 
@@ -115,7 +118,7 @@ Een tabbar moet met een \code{Buttongroup} worden gemaakt.
 Dit is een lijst van knopppen.
 Na deze lijst moeten de bijhorende \code{Views} worden geschreven.
 Het initialiseren van de lijst van knoppen moet via \code{\$("\#id").kendoMobileButtonGroup()}.
-Het bijhorende \js-object bevat een \code{select} gebeurtenis die zich afspeeld wanneer een knop is geslecteerd.
+Het bijhorende \js-object bevat een \code{select} gebeurtenis die zich afspeelt wanneer een knop is geselecteerd.
 Aan deze gebeurtenis moet een functie worden gekoppeld die alle \code{Views} verbergt behalve diegene die hoort bij de geselecteerde knop.
 Deze operaties steunen op de CSS-manipulatie zoals aangeboden door jQuery.
 
@@ -127,16 +130,13 @@ Het toevoegen van een kop- en voettekst gebeurt door gebruik te maken van \code{
 Wel moest dezelfde code op ieder scherm worden herhaald. 
 Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. 
 Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. 
-%TODO versie 1.3?
 Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die \jqm{}~1.3 zelf aanbiedt. 
-%TODO CSS3 media queries met \term
-De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
+De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 Media Queries.
 
-%TODO onderstaande zin voor de komma klopt niet
-Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
+Om de onderkoptekst te implementeren, werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen.
+Dit schoof echter de inhoud van de pagina niet mee naar onder. 
 De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
-%TODO speciale navigatie?
-Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
+Deze extra titel wordt ook gebruikt op naar het menu voor de smartphone te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
 
 Standaard is er een tabbalk aanwezig in \jqm, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
 Daarom werd gekozen voor \code{fieldset} met twee opties.
@@ -144,23 +144,20 @@ Daarom werd gekozen voor \code{fieldset} met twee opties.
 De kleur van de knoppen aanpassen kan op twee manieren. 
 Ofwel wordt dit gedaan met CSS-code ofwel wordt gebruik gemaakt van ThemeRoller~\cite{JQuery2012c}. 
 Deze laatste manier werd gebruikt om de knoppen groen te maken. 
-%TODO men,  ``in die webinterface''
-Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
+Men sleept dan eenvoudigweg de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
 Door daarna de knop te annoteren met het \code{data-theme}-attribuut wordt het betreffende thema geactiveerd. 
 Om de knop blauw te maken was er geen nood aan een aanpassing.
 Blauw is al één van de standaard thema's (\term{swatch} \code{b}) en kon dus direct worden gebruikt.
 
 \paragraph{\lungo}
-Het tonen van kop- en voettekst gebeurt door de verschillende schermen van de applicatie te omvatten met \code{<article>}-tags en daarbinnen de \code{<header>}- en \code{<footer>}-tag te gebruiken.
-%TODO al vroeger vermelden (ook al bij kendo van toepassing)
-Deze drie tags zijn nieuw in HTML5.
+Het tonen van kop- en voettekst gebeurt door de verschillende schermen van de applicatie te omvatten met \code{article}-tags en daarbinnen de \code{header}- en \code{footer}-tag te gebruiken.
 Dit is in tegenstelling tot \jqm{} waarbij wordt gebruik gemaakt van het \code{data-role}-attribuut om kop- en voettekst aan te duiden.
 In de voettekst kunnen door CSS-regels de twee logo's links en rechts uitgelijnd worden.
 De onderkoptekst werd met een omweg bekomen door een lijst te maken met slechts één lijstitem.
 
 Het maken van een tabbar is standaard aanwezig in \lungo{}.
-Deze wordt bekomen door een \code{<nav>}-tag te annoteren met de \code{groupbar}-klasse.
-In de \code{<nav>}-tag worden de links naar de verschillende tabbladen gemaakt door middel van \code{<a>}-tags.
+Deze wordt bekomen door een \code{nav}-tag te annoteren met de \code{groupbar}-klasse.
+In de \code{nav}-tag worden de links naar de verschillende tabbladen gemaakt door middel van \code{a}-tags.
 De tabbar wordt getoond over de volledige breedte en komt onmiddellijk onder de koptekst en dus boven de onderkoptekst.
 Dit in tegenstelling tot het gevraagde in de POC waar de tabbar onder de onderkoptekst diende te komen.
 
@@ -227,7 +224,7 @@ Om naar het menu terug te keren moet een extra knop in de koptekst worden toegev
 
 \paragraph{\kendo}
 De methodes die \code{Kendo.support} aanbiedt, kunnen de context waarin de applicatie wordt uitgevoerd, opvragen.
-Een onderscheid maken tussen smartphone of tablet kan met \code{kendo.support.tablet}.
+Een onderscheid maken tussen smartphone of tablet kan met \code{Kendo.support.tablet}.
 
 De lay-out van de tablet is mogelijk met een \code{Splitview}.
 Deze \code{View} is specifiek voor tablets en kan het scherm horizontaal of verticaal opdelen.
@@ -249,29 +246,26 @@ In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tabl
 Eerst werd gezocht naar plug-ins aan de hand van een blogpost~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
 Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
 Zo was de eerste destructief ten opzichte van het raamwerk.
-%TODO moeten worden geüpdatet
-Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als er moeten worden geüpdatet naar een nieuwe versie. 
+Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als er moet worden geüpdatet naar een nieuwe versie. 
 De tweede plug-in werkte enkel tot versie 1.0.1.
-%TODO had moeite..
-De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
+De laatste plug-in paste zich niet aan aan de veranderende afmetingen van de browser. 
 
-Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 media queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
+Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 Media Queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
 Ook uit de documentatie van versie~1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
 Daarnaast wordt op de documentatiesite van \jqm{}~1.2 al een gelijkaardige lay-out gebruikt~\cite{JQuery2012b}. 
-De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiesite van \jqm{}~1.2.
-Bij CSS3 media queries moet zelf een breekpunt (uitgedrukt in pixels) worden opgegeven wanneer dient geschakeld te worden tussen smartphonelay-out of tabletlay-out.
+De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 Media Queries en de documentatiesite van \jqm{}~1.2.
+Bij CSS3 Media Queries moet zelf een breekpunt (uitgedrukt in pixels) worden opgegeven wanneer dient geschakeld te worden tussen smartphone lay-out of tablet lay-out.
 
-%TODO gebruikt gebruikt
-Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt gebruikt.
+Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt getoond.
 
 \paragraph{\lungo}
 Het raamwerk zelf biedt de functie \code{Lungo.Core.isMobile()} aan om te weten of het huidige apparaat mobiel is.
 QuoJS biedt daarnaast ook nog \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} en \code{screen} aan.
 Deze laatste geeft de breedte en hoogte terug.
 Dit betekent dat de ontwikkelaar nog altijd zelf instaat voor de bepaling of het een smartphone of tablet is.
-Als oplossing werd gebruik gemaakt van CSS3 media queries, met dezelfde aanpak als \jqm{}.
-%TODO gebruikt gebruikt
-Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt gebruikt.
+Als oplossing werd gebruik gemaakt van CSS3 Media Queries, met dezelfde aanpak als \jqm{}.
+
+Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt getoond.
 
 %%%%%%%%%%%%%
 
@@ -309,23 +303,23 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{View} te plaatsen.
-Een object van dit xtype kan een bericht bevatten dat de laadtekst voorstelt.
+Een laadscherm tonen kan door een masker met \code{xtype} \code{loadmask} op de huidige \code{View} te plaatsen.
+Een object van dit \code{xtype} kan een bericht bevatten dat de laadtekst voorstelt.
 Het tonen van een masker kan door de \code{setMasked} methode op een \code{View} op te roepen.
-Een courante aanpak is te werken met de \term{singleton} klasse \code{Ext.Viewport} die de zichtbare \code{View} voorsteld.
+Ook kan er met de \term{singleton} klasse \code{Ext.Viewport} die de zichtbare \code{View} voorstelt, gewerkt worden.
 Hierop de \code{setMasked} methode oproepen, verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
 
 De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialoogvensters weer te geven.
-\st{} biedt drie standaarden van dialogen aan: \code{alert}, \code{promt} en \code{confirm}.
+\st{} biedt drie standaarden van dialoogvensters aan: \code{alert}, \code{promt} en \code{confirm}.
 De eerste laat de gebruiker een bericht zien,  de tweede vraagt de gebruiker om invoer en de laatste vraagt bevestiging aan de gebruiker.
 Deze drie standaarden zijn als methode in \code{Ext.Msg} beschikbaar.
-Parameters van de methoden kunnen de titel, tekst en functie van de knoppen bepalen.
-Een meer generieke aanpak is het oproepen van de \code{show} methode op \code{Ext.Msg}.
-Intern roepen de standaard dialogen deze methode ook op.
+Parameters van de methoden kunnen de functie van de knoppen, titel en tekst bepalen.
+Een meer generieke aanpak is het oproepen van de \code{show}-methode op \code{Ext.Msg}.
+Intern roepen de standaard dialoogvensters deze methode ook op.
 
 \paragraph{\kendo}
 %laadscherm
-Een \code{Application} object wordt na initialisatie van een \kendo{} applicatie aangemaakt.
+Een \code{Application}-object wordt na initialisatie van een \kendo{}-applicatie aangemaakt.
 Hierop kunnen de \code{showLoading} en \code{hideLoading} methoden worden opgeroepen om de animatie van het laadscherm te tonen of te verbergen.
 
 %dialoogvenster
@@ -338,15 +332,6 @@ Openen van het venster kan in \js{} met de \code{open} methode of in HTML door t
 \paragraph{\jqm}
 Het standaard laadscherm is enkel een \term{spinner} die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
 Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook tekst worden ondergezet.
-
-De laadschermen werden in combinatie met de AJAX-oproepen gebruikt.
-%TODO oproep opgeroepen
-Bij de AJAX-oproep wordt de functie \code{beforeSend} voor de oproep opgeroepen en de functie \code{complete} na de oproep.
-Dit zijn dus de ideale plaatsen om respectievelijk de laadschermen te tonen en te verbergen.
-Indien de AJAX-oproepen in een ketting worden geplaatst, lukt deze aanpak niet meer.
-De \code{complete}-functie van de eerste AJAX-oproep zal pas opgeroepen worden als de laatste AJAX-oproep klaar is.
-Hierdoor zal gedurende de ketting van AJAX-oproepen, alleen het eerste laadscherm zichtbaar zijn en zullen de andere nooit worden getoond.
-Een oplossing hiervoor is om het verbergen van het laadscherm uit de \code{complete}-oproep te halen en deze in zowel in de \code{succes}-functie als de \code{error}-functie te plaatsen.
 
 Om gemakkelijk dialoogvensters te tonen, werd eerst gebruik gemaakt van DateBox~\cite{Sage2013} als plug-in.
 Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in \jqm{} aanwezig.
@@ -361,8 +346,7 @@ Het laadscherm wordt in samenwerking met de AJAX-oproepen gebruikt.
 Net voor de AJAX-oproep zal het laadscherm worden getoond en in de \term{callback} van de AJAX-oproep zal het worden verborgen.
 Er treedt zich echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-oproepen.
 Volgens de documentatie verbergt de functie \code{Lungo.Notification.hide()} het huidige laadscherm of dialoogvenster. 
-%TODO einde van de zin:  niet verschijnt verborgen
-Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt verborgen.
+Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt.
 Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet wordt getoond.
 Een oplossing hiervoor is om bij een ketting van vensters, nooit de vensters tussenin te sluiten.
 Wanneer zowel een laadscherm als dialoogvenster worden geopend, zal enkel dat laatste getoond worden.
@@ -375,7 +359,6 @@ Deze zullen respectievelijk een groene en rode kleur hebben.
 
 %%%%%%%%%%%%%
 
-%TODO: controleren of iedereen iets over dat optieveld en die schakelaar heeft geschreven
 \subsection{\uit{formulieren}}
 \label{sec:evaluatie-gebruik-formulieren}
 
@@ -432,8 +415,8 @@ Volgende velden worden aangeboden in \st{}:
   \item \code{fieldset}
 \end{itemize}
 
-Tekst-, email en nummervelden worden bij het renderen tot HTML5-invoertypes omgevormd en bijgevolg worden op mobiele toestellen bijhorende virtuele toetsenborden weergegeven.
-Een placeholder toevoegen kan door een veld te voorzien met de \code{placeholder} eigenschap en de waarde aan de gewenste placeholder gelijk te stellen. 
+Tekst-, e-mail en nummervelden worden bij het renderen tot HTML5-invoertypes omgevormd en bijgevolg worden op mobiele toestellen bijhorende virtuele toetsenborden weergegeven.
+Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap \code{placeholder} en de waarde aan de gewenste \term{placeholder} gelijk te stellen. 
 Een label toevoegen verloopt analoog,  deze weglaten zal geen label renderen.
 
 Optievelden toevoegen kan door objecten met het xtype \code{selectfield},  een schakelaar met xtype \code{togglefield}.
@@ -450,7 +433,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
 \paragraph{\kendo}
  Formulierelementen definiëren kan via data-attributen door gebruik te maken van de opmaakgedreven aanpak van \kendo.
  Deze methodologie volgt sterk de HTML5-standaard.
- Het \code{placeHolder} attribuut kan een placeholder definiëren,  het vermijden van \code{<label>}-tags zal geen labels genereren.
+ Het \code{placeholder}attribuut kan een \term{placeholder} definiëren,  het vermijden van \code{label}-tags zal geen labels genereren.
  Het type van het formulierelement moet met het \code{type} attribuut worden gedefinieerd.
  Volgende types worden door \kendo{} ondersteund:
  \begin{itemize}
@@ -471,8 +454,8 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Hiervoor moet invoerelementen van het type \code{radio} worden toegevoegd.
  Het aanmaken van een schakelaar kan door aan invoerelement van het type \code{checked} het \code{data-role} attribuut aan \code{switch} gelijk te stellen.
 
- \term{Datepickers} worden als widget aangeboden in het Web luik van \kendo.
- Het invoerelement ziet er als volgt uit: \code{<input id=\"datepicker\"\/>}.  
+ \term{Datepickers} worden als widget aangeboden in \kendo Web.
+ Het invoerelement ziet er als volgt uit: \code{<input id=\"{}datepicker\"{}\/>}.  
  Vervolgens moet het element worden geïnitialiseerd met \code{\$("\#datePicker").kendoDatePicker()}.
  De datepicker is aanpasbaar zoals gevraagd in de POC.
  Het bereik van de selectie kan worden ingeperkt door de \code{min} en \code{max} eigenschap van de \code{kendoDatePicker} te zetten.
@@ -481,7 +464,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Hiervoor moet de eigenschap \code{depth} aan \code{year} worden gelijkgesteld.
  
  Het wissen van formulieren steunt op de MVVM-architectuur.
- Een fomulier kan worden gebonden aan een \code{(View) Model}.
+ Een formulier kan worden gebonden aan een \code{(View) Model}.
  De waarde van elk formulierelement komt dan overeen met de waarde van een eigenschap van dat \code{(View) Model} met dezelfde naam.
  Wanneer een uitgave wordt toegevoegd, zal de huidige waarde van het \code{(View) Model} wordt het \code{(View) Model} gereset.
  Door de dubbele binding tussen formulier en \code{(View) Model} zal ook de inhoud van de formulierelementen worden gewist.
@@ -490,11 +473,10 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
 Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}-attribuut in HTML5. 
 Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
 Wat wel opmerkelijk is wanneer een formulier wordt ingevuld, daarna verstuurd en dan wordt teruggegaan, het formulier nog alle waarden bevat. 
-Men moet na het formulier te hebben verstuurd, zelf het formulier altijd leegmaken. 
-Dit kan met behulp van \js{} via de \code{reset()}-functie op het formulier.
+Na het versturen van het formulier, zal het formulier altijd moeten worden leeggemaakt. 
+Dit kan met behulp van \js{} via de \code{reset}-functie op het formulier.
  
 Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
-%Deze zorgen ervoor dat op de mobiele apparaten aangepaste toetsenborden te voorschijn komen. 
 Het \code{date} type werd echter niet gebruikt om wille van twee redenen.
 Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013c}.
 Android~2.3 ondersteunt dit niet en de \term{placeholder}-tekst in het veld ontbrak op iOS~6 en Android~4.2.
@@ -525,6 +507,7 @@ De \code{date-picker} werd gebruikt van de plug-in pagina van Lungo zelf~\cite{T
 Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \term{datepicker} te openen en de aangeklikte datum in het formulierveld te zetten.
 De plug-in laat echter niet toe om een bereik op te geven.
 De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
+De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
 
 Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een \term{dropdown}menu. 
 Een schakelaar daarentegen werd dan weer wel aangeboden.
@@ -568,32 +551,32 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
 Twee verschillende methoden worden in de POC gebruikt.
-Een eerste maakt gebruik van de \code{setRecord} methode van een \code{Formpanel}.
+Een eerste maakt gebruik van de \code{setRecord}-methode van een \code{Formpanel}.
 De modelinstantie die het formulier zal invullen moet als parameter worden meegeven.
 \st{} zal automatisch de velden invullen waarbij de naam gelijk is aan de eigenschap van het model.
 Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op schakelaars.
 Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
+Er bestaat dus geen vlekkeloze mapping tussen een eigenschap van een model en een \code{radiofield}.
+Hetzelfde geldt voor een \code{checkboxfield}.
 Een model kan worden voorzien met eigenschappen met volgende types:
 \begin{itemize}
-  \item auto (Default, implies no conversion)
+  \item auto
   \item string
   \item int
   \item float
   \item boolean
   \item date
 \end{itemize}
-Er bestaat dus geen vlekkeloze mapping tussen een eigenschap van een model en een \code{radiofield}.
-Hetzelfde geldt voor een \code{checkboxfield}.
 Om deze in te vullen moet de \code{setGroupValue} van het veld worden aangesproken.
 
 De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{navigationview} en wordt besproken in \uit{lijsten}.
 
-Velden \term{read-only} maken kan door objecten te voozien van de \code{readOnly} eigenschap en de waarde op \code{true} te zetten.
+Velden \term{read-only} maken kan door objecten te voorzien van de \code{readOnly} eigenschap en de waarde op \code{true} te zetten.
 Bij \code{radiofields} en \code{checkboxfields} heet deze eigenschap \code{disabled}.
 
 
 \paragraph{\kendo}
-Het invullen van een formulier steunt ook op de MVVM-architectuur en is gelijkaardig aan het resetten van een formulier.
+Het invullen van een formulier steunt op de MVVM-architectuur en is gelijkaardig aan het resetten van een formulier.
 De dubbele binding tussen een formulier en \code{(View) Model} wordt met de HTML-tag \code{data-model} aangegeven.
 Een \code{(View Model} wordt in \kendo{} \code{ObservableObject} genoemd.
 Een \code{Model} heet \code{Model} en erft over van een \code{ObservableObject}.
@@ -605,30 +588,30 @@ De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 
 \term{Read-only} velden moeten als data-attribuut in het formulierelement worden gespecificeerd.
 
-Alle invoer types buiten radio- en selectknoppen gebruiken hiervoor het \code{readOnly} sleutelwoord.
-Radio- en selectknoppen worden onbeschikbaar met het \code{disabled} sleutelwoord.
+Alle invoertypes buiten \code{radio}- en \code{select}knoppen gebruiken hiervoor het \code{readOnly} sleutelwoord.
+\code{Radio}- en \code{select}knoppen worden onbeschikbaar gemaakt met het \code{disabled} sleutelwoord.
 
 \paragraph{\jqm}
 Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
-Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
-%TODO onderstaande twee zinnen niet super duidelijk
-Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
-Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
+Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#veld").val("waarde")}.
+Bij het \code{select}-type voor een veld kan deze code niet worden gebruikt.
+Eerst moet de waarde worden gezocht in de lijst van \code{option}-tags.
+Vervolgens wordt aan de gevonden \code{option}-tag het \code{selected}-attribuut toegevoegd.
 Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
 Ook hier moet eerst de waarde worden gezocht, waarna aan de gevonden waarde het \code{checked}-attribuut wordt toegevoegd.
 Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd, wat betekent dat dit dus voor iedere formulierveld dient te gebeuren.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
-Dit geld voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} wordt gebruikt.
+Dit geldt voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} moeten worden gebruikt.
 Voor \code{select}-items moeten de andere niet-benodigde lijstitems verwijderd worden, want deze kunnen nog steeds aangeklikt worden.
 
 \paragraph{\lungo}
 Velden vullen met data dient handmatig te gebeuren door eerst het formulierveld op te zoeken en daarna de waarde te zetten.
-Dit gebeurt typisch volgens de volgende code: \code{\$\$("\#form-veld").val("waarde")}.
+Dit gebeurt typisch volgens de volgende code: \code{\$\$("\#veld").val("waarde")}.
 Deze functie kan ook gebruikt worden voor \code{select}-types.
-Geoptimaliseerde mobiele lay-out voor \code{radio}-types is niet aanwezig in \lungo.
 Een opmerking dient wel gemaakt te worden dat de waarde altijd een \code{string} moet zijn.
-Dit betekent dus dat getallen altijd eerst moeten worden omgevormd met de \js{}-functie \code{toString()}. 
+Dit betekent dus dat getallen altijd eerst moeten worden omgevormd met de \js{}-functie \code{toString}. 
+Geoptimaliseerde mobiele lay-out voor \code{radio}-types is niet aanwezig in \lungo.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
 Dit gaat voor alle types van velden, behalve voor \code{select}-types.
@@ -673,12 +656,12 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
 Deze plug-in is niet op de Sencha Market terug te vinden.
 Plug-ins worden in de vorm van een \js-bestand geleverd.
-Dit bestand moet in de folder touch/src/ux worden geplaatst en de nieuwe klasse moet worden geïnitialiseerd bij het laden van de applicatie.
+Dit bestand moet in de folder \code{touch/src/ux} worden geplaatst en de nieuwe klasse moet worden geïnitialiseerd bij het laden van de applicatie.
 Hierdoor wordt het xtype \code{autocompletefield} beschikbaar.
 Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
 Ook is het mogelijk het maximaal aantal suggesties vast te leggen.
 
-De \term{backend} vande POC geeft bij een bepaald sleutelwoord suggesties in een JSON-rij terug.
+De \term{backend} van de POC geeft bij een bepaalde invoer suggesties in een JSON-rij terug.
 De rij is voorzien van een sleutel maar alle elementen van de rij hebben er geen.
 \st{} voorziet drie methoden om de resultaten van een \code{proxy} te parsen naar modelinstanties:
 \begin{description}
@@ -690,14 +673,14 @@ Geen van voorgaande methoden was in staat de rij met suggesties te parsen van ri
 Hierdoor kon geen klikbare dropdownmenu worden getoond.
 
 \paragraph{\kendo}
-Het automatisch aanvullen van een formulierelement wordt als widget door \kendo{} Web aangeboden.
-Een HTML-invoerelement met \term{identifier} moet worden aangemaakt en geinitialiseerd met \code{\$("\#id").kendoAutoComplete()}.
+Het automatisch aanvullen van een formulierelement wordt als \term{widget} door \kendo{} Web aangeboden.
+Een HTML-invoerelement met \term{identifier} moet worden aangemaakt en geïnitialiseerd met \code{\$("\#id").kendoAutoComplete()}.
 Elementen die automatisch aanvullen kunnen zowel van een lokale als externe bron worden aangeleverd.
 Externe suggesties moeten via een \code{DataSource} worden ingeladen.
 Een \code{DataSource} ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
 Deze moet geconfigureerd worden om suggesties van de \term{backend} op te halen.
 Buiten een \code{DataSource} kan het minimale aantal suggesties en een filter worden opgegeven.
-De filter bepaalt de methode om suggesties op te halen:  en kan \code{startswith}, \code{endswith} of \code{contains} zijn.
+De filter bepaalt de methode om suggesties op te halen en kan \code{startswith}, \code{endswith} of \code{contains} zijn.
 
 \paragraph{\jqm}
 Indien er wordt gebruik gemaakt van versie~1.2 is een plug-in nodig om auto-aanvulling te bekomen.
@@ -712,7 +695,9 @@ Standaard biedt \lungo{} geen auto-aanvullig aan, maar wel op zijn site van plug
 Daar werd de plug-in AutoComplete gebruikt.
 De voorbeeldcode maakt het gemakkelijk om onmiddellijk een werkend voorbeeld van de plug-in te hebben.
 Veel code kon dus gewoon worden overgenomen om een werkende auto-aanvulling te bekomen.
-Er diende nog één extra CSS-regel te worden toegevoegd om de bollen voor de suggesties te verwijderen.
+Er diende nog één extra CSS-regel te worden toegevoegd om het symbool voor de suggesties te verwijderen.
+Deze maakten namelijk gebruik van \code{li}-items binnen een \code{ul}-tag waardoor er symbool voor de suggesties kwamen.
+
 
 %%%%%%%%%%%%%
 
@@ -754,12 +739,12 @@ Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov20
 De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
 Na het toevoegen van de plug-in wordt het xtype \code{img} beschikbaar voor \st{} componenten.
 
-De plug-in voorziet twee modes voor het opladen van bestanden: lokale als base64 of extern naar een server.
-De eerste laat toe afbeeldingen in het DOM of \term{local storage} te laden en wordt door de POC opgelegd.
+De plug-in voorziet twee modes voor het opladen van bestanden: lokale als Base64 of extern naar een server.
+De eerste laat toe afbeeldingen lokaal of in het DOM op te laden en is nodig voor de POC.
 
 Nadat een bestand is opgeladen kunnen twee gebeurtenissen zich voordoen:  \code{loadsuccess} of \code{loadfailure}.
-Het is de taak van een \code{Controller} om deze gebeurtenissen op te vangen en een bijhorende methode te definiëren.
-De succes functie krijgt de base64 tekst mee en kan een voorbeeld van de afbeelding weergeven.
+Het is de taak van een \code{Controller} om deze gebeurtenissen op te vangen en te delegeren naar een bijhorende methode.
+De succesfunctie krijgt de Base64-tekst mee en kan een voorbeeld van de afbeelding weergeven.
 
 \paragraph{\kendo}
 \kendo{} Web biedt een widget aan die het opladen van bestanden toelaat.
@@ -767,32 +752,28 @@ Deze widget kan in twee modes worden gebruikt: syncroon of asynchroon.
 Een HTML-invoerelement met \term{identifier} moet worden toegevoegd en geïnitialiseerd met \code{\$("\#id").kendoUpload()}.
 In synchrone mode wordt het formulier samen met de afbeelding verzonden naar de \term{backend} als een uitgave wordt toegevoegd.
 In asynchrone mode gebeurt het opladen meteen na het selecteren van de afbeelding.
-%TODO streepje tussen HTML5 en File API
 Deze methode voor het opladen van bestanden steunt op de HTML5 FileReaderAPI.
-Het verzoek naar de \term{backend} is een POST-verzoek met \code{Content Type} \code{multipart/form-data}.
+Het verzoek naar de \term{backend} is een POST-verzoek met \code{Content-Type} \code{multipart/form-data}.
 Omdat een voorbeeld van de afbeelding werd gevraagd, is de asynchrone oplossing gekozen.	
-\kendo{} voorziet \term{backend} integratie met ASP.NET MVC,  JSP en PHP.
+\kendo{} voorziet \term{backend}integratie met ASP.NET MVC,  JSP en PHP.
 Voor deze drie technologieën is een implementatie beschikbaar om het opladen van bestanden aan serverzijde af te handelen.
 Er werd gekozen om de PHP-implementatie te gebruiken.
 Wanneer een afbeelding succesvol is opgeladen, wordt de \code{success callback} opgeroepen met het bestand als parameter.
-Het bestand wordt met een \code{FileReader} gelezen,  aan een \code{canvas} toegevoegd en naar base64 omgezet met de \code{toDataURL} methode.
-Deze werkwijze is aanloog aan de \jqm{} en \lungo{} implementatie.
+Het bestand wordt met een \code{FileReaderAPI} gelezen,  aan een \code{canvas} toegevoegd en naar Base64 omgezet met de \code{toDataURL} methode.
 
 \paragraph{\jqm}
 Het toevoegen van een afbeelding gebeurt door \code{file} als invoertype van het formulierveld te gebruiken. 
 In versie~1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
-Het omvormen van de afbeelding naar base64 werd geïmplementeerd met de FileReaderAPI en het canvas, wat beide HTML5-specificaties zijn. 
-De aangeklikte afbeelding wordt gelezen door middel van de FileReaderAPI, waarna het tijdelijk als afbeelding wordt opgeslagen en daarna geïmporteerd wordt op het canvas. 
-Eenmaal geïmporteerd, kan de functie \code{.toDataURL()} opgeroepen worden op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
+Het omvormen van de afbeelding naar Base64 is analoog aan \kendo{}.
 
 Het voorvertonen van de geüploade afbeelding hangt af van het mobiele besturingssysteem.
 Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
-Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
+Het is natuurlijk ook mogelijk om de voorvertoning na conversie zelf te tonen op het scherm.
 Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
 
 \paragraph{\lungo}
 Een afbeelding kiezen gebeurt door het formulierveld met het type \code{file} toe te voegen.
-De methode om een afbeelding om te vormen naar base64 is volledig analoog met die van \jqm{}.
+De methode om een afbeelding om te vormen naar Base64 is volledig analoog met die van \kendo{}.
 
 %%%%%%%%%%%%%
 
@@ -835,44 +816,45 @@ Een model kan worden voorzien van validatieregels.
 Deze regels worden als objecten in een rij aan de \code{validations} eigenschap van een model toegekend.
 Volgende validatieregels zijn ingebouwd:
 \begin{description}
-  \item [presence] verzekert dat het het veld een waarde heeft waarbij nul als geldig wordt beschouwd,  lege tekst niet.
-  \item [length] verzekert dat een text een minimale en/of maximale waarde heeft.
-  \item [format] verzekert dat een text voldoet aan een opgegeven reguliere expressie.
-  \item [inclusion] verzekert dat de waarde van een veld gelijk is aan een element van een gespecifieerde set.
-  \item [exclusion] verzekert dat de waarde van een veld zeker niet gelijk is aan een element van een gespecifieerde set.
+  \item [presence] verzekert dat het veld een waarde heeft waarbij nul als geldig wordt beschouwd,  lege tekst niet.
+  \item [length] verzekert dat een tekst een minimale en/of maximale waarde heeft.
+  \item [format] verzekert dat een tekst voldoet aan een opgegeven reguliere expressie.
+  \item [inclusion] verzekert dat de waarde van een veld gelijk is aan een element van een gespecificeerde set.
+  \item [exclusion] verzekert dat de waarde van een veld zeker niet gelijk is aan een element van een gespecificeerde set.
 \end{description}
-De controle of een opgegeven waarde een nummer is kan met de \code{format} regel en de \code{/\d+/} reguliere expressie.
-Om een bepaalde modelinstantie te valideren moet de \code{validate} methode op de instantie worden opgeroepen.
+De controle of een opgegeven waarde een nummer is kan met de \code{format} regel en de \code{\textbackslash{}d+} reguliere expressie. 
+Om een bepaalde modelinstantie te valideren moet de \code{validate}-methode op de instantie worden opgeroepen.
 Om eigen validatieregels toe te laten moet de implementatie van deze methode worden overschreven~\cite{Krause2011}.
 Deze functionaliteit zit dus niet standaard in \st{}.
 Met de nieuwe \code{validate} methode kan een \code{validator} aan een validatieregel worden toegevoegd.
 Dit is een functie die de programmeur zelf bepaalt en \code{true} of \code{false} teruggeeft bij het al dan niet slagen van een conditie.
 
-Het opbouwen van een foutenboodschap kan door te itereren over de fouten die na validtie worden teruggegeven.
-Een specifieke foutenboodschap kan aan elke validatieregel worden toegekend.
+Het opbouwen van een foutboodschap kan door te itereren over de fouten die na validatie worden teruggegeven.
+Een specifieke foutboodschap kan aan elke validatieregel worden toegekend.
 
 Invalide formulierelementen aanduiden met een rode rand, wordt niet door \st{} ondersteund.
 Hiervoor moet CSS worden gebruikt.
-Foutief ingevulde formulierelementen moeten na valiatie met een CSS-klasse worden aangevuld.
+Foutief ingevulde formulierelementen moeten na validatie met een CSS-klasse worden aangevuld.
 
 \paragraph{\kendo}
-Het \kendo{} raamwerk ondersteunt de validaties zoals aangeboden binnen HTML5:
-\begin{itemize}
+Het \kendo{}-raamwerk ondersteunt de validaties zoals aangeboden binnen HTML5:
+\begin{description}
   \item [required] verzekert dat een het veld een waarde heeft.
   \item [pattern] verzekert dat de waarde van een veld voldoet aan een opgegeven reguliere expressie.
   \item [min/max] verzekert dat de waarde van een veld groter en/of kleiner is dan een opgegeven waarde.
-  \item [data types] verzekert dat de waarde van een veld gelijk is aan het opgegeven type (e-mail, url, number, enz.)
-\end{itemize}
+  \item [data types] verzekert dat de waarde van een veld gelijk is aan het opgegeven type (e-mail, URL, getal, enz.)
+\end{description}
 Deze validaties moeten binnen het data-attribuut van het formulierelement worden aangebracht.
 
 De \kendo{} \code{validator} is compatibel met deze HTML5-validaties.
-Een \code{validator} moet in \js worden aangemaakt met volgend commando:  \code{\$("\#myform").kendoValidator().data("kendoValidator")}.
-Hierbij kan de jQuery \term{selector} eender welk element uit het DOM aanduiden.
+%TODO out of box
+Een \code{validator} moet in \js{} worden aangemaakt met volgend commando:  \code{\$("\#myform").kendoValidator().data("kendoValidator")}.
+Hierbij kan de jQuery-\term{selector} eender welk element uit het DOM aanduiden.
 De \code{validator} zal geselecteerde invoerelementen controleren op validatieregels.
 
 Eigen condities kunnen als validatieregels worden geformuleerd als \js-functie die \code{true} teruggeeft als de validatie slaagt.
 Deze functie kan aan de set van regels van een \code{validator} worden toegevoegd.
-De validatiecontrole starten kan door de \code{validate} methode op de \code{validator} op te roepen.
+De validatiecontrole starten kan door de \code{validate}-methode op de \code{validator} op te roepen.
 Bij het controleren van invoerelementen worden altijd eerst de standaard validatieregels gecontoleerd,  daarna de eigen validatieregels.
 De volgorde waarin de controles worden uitgevoerd ligt vast en zal stoppen zodra één controle mislukt.
 
@@ -881,12 +863,12 @@ Deze kunnen worden overschreven door zelf een data-attribuut \code{validationMes
 Bij eigen validatieregels kan een validatiebericht per regel worden gespecificeerd.
 
 Invalide formulierelementen aanduiden met een rode rand wordt niet door \kendo{} ondersteund.
-De standaard implementatie voorziet een \code{tooltip} per invalied veld.
+De standaard implementatie voorziet een \code{tooltip} per invalide veld.
 Deze zal het validatiebericht naast het invalide formulierelement plaatsen. 
 
-Een venster tonen waarbij alle foutenboodschappen zijn samengevat is ook niet standaard aanwezig.
-De \code{errors} methode van de \code{validator} geeft een rij van foutenboodschappen terug.
-De volledige foutenboodschap moet vervolgens worden geconstrueerd door alle foutenboodschappen te concateneren.
+Een venster tonen waarbij alle foutboodschappen zijn samengevat is ook niet standaard aanwezig.
+De \code{errors}-methode van de \code{validator} geeft een rij van foutboodschappen terug.
+De volledige foutboodschap moet vervolgens worden geconstrueerd door alle foutboodschappen te concateneren.
 Hoe een dialoogvenster gemaakt wordt werd in \uit{laadscherm} besproken.
 
 \paragraph{\jqm}
@@ -897,8 +879,7 @@ Enerzijds is hiervoor geen ondersteuning voor mobiele browsers~\cite{Deveria2013
 Anderzijds is het ook nodig om de velden te valideren op hun waarde.
 Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
 Deze lost beide problemen op.
-%TODO ofwel anderzijds?
-De plug-in zelf kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code ofwel anderzijds door programmatie met \js{}. 
+De plug-in zelf kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code en anderzijds door programmatie met \js{}. 
 Beide aanpakken werden getest en slaagden. 
 
 De plug-in bevat de volgende ingebakken validatieregels die nodig waren: \code{required}, \code{number}, \code{email} en \code{date}.
@@ -907,11 +888,6 @@ Zo een afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
 
 De plug-in toont standaard een foutboodschap onder het foute formulierveld.
 Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
-
-%TODO naar ondersteuning verplaatsen?
-Een specifiek mobiel probleem was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
-Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
-Dit werd opgelost door \code{focusInvalid:false} in te stellen.
 
 De plug-in annoteert de foute velden met de CSS-klasse \code{error}.
 Hierdoor kon de rode rand in CSS worden geprogrammeerd. 
@@ -922,11 +898,9 @@ Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} 
 \paragraph{\lungo}
 Validatie is niet aanwezig in \lungo{} en er kon ook geen plug-in voor QuoJS gevonden worden~\cite{Ameye2013}.
 Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met QuoJS.
-%TODO onderstaande twee zinnen spreken elkaar tegen
-Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \jqm{}), werd alle validatie manueel geprogrammeerd. 
+Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \jqm{}), moest alle validatie manueel geprogrammeerd worden. 
 Bij wijze van voorbeeld werd enkel validatie op het loginscherm geprogrammeerd.
 Validatie op de rest van de formulieren doorheen de POC is volgens dezelfde werkwijze mogelijk, maar werd niet geïmplementeerd.
-Dit verandert namelijk niets aan de score.
 
 Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute velden werd ook zelf geprogrammeerd.
 Bij een foutief gevalideerd veld werd een CSS-klasse toegevoegd die zorgde voor een rode rand.
@@ -970,13 +944,13 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden.
 De plug-in maakt een nieuw xtype \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
 
-Deze maakt gebruikt van het HTML5-canvas en retourneert de handtekening als base64 tekst.
+Deze maakt gebruikt van het HTML5 \code{canvas} en retourneert de handtekening als Base64 tekst.
 
 \paragraph{\kendo}
-Aangezien \kendo{} steunt op de jQuery bibliotheek is \kendo{} ook perfect compatibel met jQuery plug-ins.
+Aangezien \kendo{} steunt op de jQuery bibliotheek is \kendo{} ook compatibel met jQuery plug-ins.
 De jSignature handtekening plug-in van Willow Systems~\cite{Systems2013} werd geïmplementeerd.
 De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{toDataURL()} methode.
-Hierdoor kan de base64-string bekomen worden die nodig is om door te sturen naar de server.
+Hierdoor kan de Base64-string bekomen worden die nodig is om door te sturen naar de server.
 
 \paragraph{\jqm}
 Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat \jqm{} dit niet standaard aanbiedt. 
@@ -1029,14 +1003,14 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{Stores} worden uitgevoerd.
 De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van de jQuery bibliotheek.
-Een enige uitzondering is te vinden bij kruis-domein AJAX-verzoeken.
+Een enige uitzondering is te vinden bij AJAX-verzoeken naar een ander domein.
 Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de eigenschap \code{useDefaultXhrHeader} op \code{false} worden gezet.
 
 De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{Stores}.
 Een \code{Store} wordt voorzien van een \code{Proxy}.  
-Deze kan data aan de klant of server zijde opslaan.  
-Een \code{proxy} voor opslag aan klant zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
-Een \code{Proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
+Deze kan data aan de klant- of serverzijde opslaan.  
+Een \code{proxy} voor opslag aan klant zijde kan zowel in het RAM-geheugen als de lokale opslag van de browser opslaan.  
+Een \code{Proxy} voor serveropslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
 Een \code{Proxy} kan ook geconfigureerd worden met \code{Readers} en \code{Writers} om data van de server te lezen of naar de server te schrijven.
 
 Het verzenden van een JSON-\term{payload} moet via een expliciete AJAX-verzoek gebeuren.
@@ -1044,12 +1018,12 @@ Data kan via \code{Ext.encode} naar JSON worden geëncodeerd en via de \code{jso
 
 \paragraph{\kendo}
 Om asynchrone verzoeken naar de \term{backend} te implementeren, moet een \code{DataSource} worden gebruikt.
-Dit object voorzien CRUD operaties op zowel lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
+Dit object voorzien CRUD-operaties op zowel lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
 De \code{transport} eigenschap kan de configuraties bevatten om data te creëren (\code{create} eigenschap),  lezen (\code{read} eigenschap),  verwijderen (\code{destroy} eigenschap) en op te waarderen (\code{update} eigenschap).
 Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax} methode van jQuery.
 
 Hoe data moet worden geparset, staat gedefinieerd in de \code{schema} eigenschap van de \code{DataSource}.
-Zowel JSON als XML wordt ondersteund.
+Zowel JSON als XML worden ondersteund.
 Aan een \code{schema} kan een \code{Model} worden toegekend.
 Er onderscheiden zich twee gevallen:  een bestaand \code{ObservableObject} kan met data worden geladen of nieuwe instanties van een \code{Model} kunnen worden aangemaakt.
 Het eerste geval zal de velden van één \code{ObservableObject} wijzigen als CRUD-operaties worden uitgevoerd.
@@ -1063,34 +1037,30 @@ Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden
 Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
 
 In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-oproep ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
-%TODO kunnen direct worden omgegaan
-Hierdoor is de functie \code{parseJSON} niet nodig en kunnen direct worden omgaan met het antwoord.
+Hierdoor is de functie \code{parseJSON} niet nodig en kan er direct met het antwoord worden omgaan.
 
 Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
 Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
-%TODO selectoren niet op woordenlijst.org
-Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeuren aan de hand van selectoren.
+Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeuren aan de hand van \term{selectors}.
 
 Het versturen van JSON is gelijkaardig met het versturen van andere data.
 Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
 Daarna zal in de AJAX-oproep moeten worden aangegeven  dat de inhoud JSON is.
-Dit gebeurt door \code{contentType:"{}application/json"} te schrijven.
+Dit gebeurt door \code{contentType:"{}application/json"} te schrijven bij het AJAX-verzoek.
 
 \paragraph{\lungo}
 Standaard biedt \lungo{} functies aan voor het ophalen en versturen van data via AJAX.
-Deze functies zullen intern de functies van QuoJS oproepen.
-De URL, de data, de callback en het type dienen hierbij te worden opgegeven.
-De laatstgenoemde kan \code{text}, \code{json}, \code{xml} of \code{html} zijn.
-%TODO onderstaande zin
-Met \code{text}, \code{json} kan onmiddellijk worden omgegeven.
-%TODO selectoren
-Voor \code{xml} dient er gebruik te worden gemaakt van de selectoren in QuoJS om de gevraagde data op te zoeken.
+Deze functies zullen intern de functies van \quo{} oproepen.
+De URL, de data, de \term{callback} en het type dienen hierbij te worden opgegeven.
+De laatstgenoemde kan tekst, JSON, XML of HTML zijn.
+Tekst en JSON kunnen onmiddellijk worden gebruikt.
+Voor XML dient er gebruik te worden gemaakt van de \term{selectors} in \quo{} om de gevraagde data op te zoeken.
 
 Bij het versturen van JSON-data konden de functies van \lungo{} zelf niet worden gebruikt.
 Deze hadden te weinig opties om aan te geven dat de verstuurde data JSON was.
-Hierdoor werden de functies van QuoJS gebruikt, die meer opties hadden.
-Toch bleef er een probleem bij het versturen van JSON-data.
-Na lang zoekwerk hoe QuoJS met deze oproep omging, bleek uiteindelijk dat de bibliotheek altijd de parameters wilde serialiseren.
+Hierdoor werden de functies van \quo{} gebruikt, die meer opties hadden.
+Toch bleef er een probleem bij het versturen van JSON-\term{payload}.
+Na lang zoekwerk hoe \quo{} met deze oproep omging, bleek uiteindelijk dat de bibliotheek altijd de parameters wilde serialiseren.
 Dit is uiteraard niet nodig als ruwe data, zoals JSON, wordt meegegeven.
 Aangezien dit een fout was in de bibliotheek werd het \js-bestand zelf aangepast.
 
@@ -1141,11 +1111,11 @@ De functionaliteiten van \code{Ext.XTemplate} zijn:
   \item Uitvoeren van willekeurige \js-code.
   \item Eigen functies in het sjabloon oproepen.
 \end{itemize}
-Het formateren van een datum kan door de \code{date} methode van \code{Ext.util.Format} op te roepen in het sjabloon.
+Het formateren van een datum kan door de \code{date}-methode van \code{Ext.util.Format} op te roepen in het sjabloon.
 
 Zoals reeds besproken bij \uit{vullen}, kan een formulier worden ingevuld met een \code{Navigationview}.
 Deze \code{View} heeft een \code{push} en \code{pop} methode om een \code{View} op een \code{stack} te plaatsen of af te halen.
-Om een \code{View} te tonen die hoort bij een lijstelement wordt gebruik gemaakt van deze \code{Vavigationview} en de \code{push} methode.
+Om een \code{View} te tonen die hoort bij een lijstelement wordt gebruik gemaakt van deze \code{Vavigationview} en de \code{push}-methode.
 De lijst wordt in een \code{Navigationview} ingesloten.
 Het aanklikken van een lijstelement veroorzaakt een \code{disclosure} gebeurtenis.
 Een \code{Controller} kan deze gebeurtenis opvangen en de \code{push} methode op de \code{Vavigationview} oproepen.
@@ -1166,13 +1136,13 @@ Het koppelen van een \js-rij en \code{Listview} kan door te binden op basis van 
 Deze methodiek is uitvoerig op de \kendo{} documentatie beschreven.
 
 De opmaak van lijsten kan met \kendo{} \code{Templates} worden uitgedrukt.
-Deze sjablonen zijn apparte scripts van het type \code{text/x-kendo-template} en moeten in een HTML-bestand worden geschreven.
+Deze sjablonen zijn aparte scripts van het type \code{text/x-kendo-template} en moeten in een HTML-bestand worden geschreven.
 De sjablonen hebben toegang tot de velden van de modelinstanties die aan de lijst zijn toegekend.
 Hiervoor moet de veldnaam tussen \term{hashtags} worden gebruikt.
 Binnen de scripts is het mogelijk om \js-functies op te roepen door de functie ook binnen \term{hashtags} te schrijven.
 
 De link van elk lijstelement moet in het sjabloon worden gedefinieerd.
-Om de elementen uit het uitgavenoverzicht te linken, werd gebruik gaakt van een geparameteriseerde \code{View}.
+Om de elementen uit het uitgavenoverzicht te linken, werd gebruik gemaakt van een geparameteriseerde \code{View}.
 Dit laat toe om parameters in de link naar de \code{View} op te geven,  analoog aan HTTP GET-verzoeken.
 De parameter die wordt doorgegeven is de \term{identifier} van de uitgave.
 Wanneer naar de \code{View} wordt genavigeerd, zal een functie met opgegeven parameter worden uitgevoerd.
@@ -1186,7 +1156,7 @@ Deze sorteereigenschap bepaalt het veld waarop gesorteerd moet worden en eventue
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
 Hiervoor wordt gebruik gemaakt van de \code{.each()}-functie van jQuery om ieder data-item te overlopen.
 Per item moet een \code{append} gebeuren van een lijstitem op de lijst.
-In dit item wordt de template van de lijst geschreven.
+In dit item wordt de sjabloon van de lijst geschreven.
 Na alle elementen te hebben overlopen, moet de lijst ververst worden zodat \jqm{} de correcte lay-out toepast op de volledige lijst
 
 Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
@@ -1203,7 +1173,7 @@ Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
 Hiervoor wordt gebruik gemaakt van de functie \code{\$\$.each} van QuoJS om ieder element van de rij te overlopen.
 Per element gebeurt een \code{append} op de lijst waar de data dient geladen te worden.
-Het toegevoegde lijstitem bepaalt de template van de lijst.
+Het toegevoegde lijstitem bepaalt de sjabloon van de lijst.
 
 Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
 Er kunnen hiervoor twee manieren gekozen worden (zie ook \jqm{}).

@@ -369,15 +369,15 @@ voor een raamwerk $r$.
 De responsetijd van de applicatie kan niet met deze formule worden getoetst.
 De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen, dan geldt:
 \begin{equation}
-  \text{Maximale reponsetijd}_r= \frac{\sum_{c=1}^{8}\left(\widehat{l}_{r,c,login}\right) + \text{Totale rendertijd}_r}{8}
+  \text{Maximale reponsetijd}_r= \frac{\sum\limits_{c=1}^{8}\left(\widehat{l}_{r,c,login}\right) + \text{Totale rendertijd}_r}{8}
   \label{eq:performantie-max}
 \end{equation}
 
 Deze maximale reponsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  
 \begin{itemize}
-\item $\text{Maximale reponsetijd}_r < 0.1$: de gebruiker heeft het gevoel dat het systeem direct reageert.
-\item $\text{Maximale reponsetijd}_r < 1$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
-\item $\text{Maximale reponsetijd}_r < 10$: de limiet om de aandacht van de gebruiker te behouden.
+\item $\text{Maximale reponsetijd}_r < 0.1\unit{s}$: de gebruiker heeft het gevoel dat het systeem direct reageert.
+\item $\text{Maximale reponsetijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
+\item $\text{Maximale reponsetijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
 \end{itemize}
 
 Om de scores van het performantiecriterium te staven zullen twee eigenschappen van de code bekeken worden:  de downloadgrootte en het aantal lijnen HTML-code van zowel de POC als loginapplicatie.
@@ -403,29 +403,29 @@ Om verwarring te voorkomen, moeten ook de scores voor het productiviteitscriteri
 Dit komt omdat voor deze criteria geldt:  hoe lager de score,  hoe beter het raamwerk.
 
 De formules om de relatieve scores te bereken worden hieronder weergegeven.
-De relatieve scores zullen gebruikt worden om het spinneweb op te stellen.
+De relatieve scores zullen gebruikt worden om het spinnenweb op te stellen.
 
 \begin{equation}
-  REL(\text{Populariteit}_r)=\frac{\text{Populariteit}_r}{\max_{m}\{\text{Populariteit}_m\}}
+  \text{Populariteit}_r^{\pentagon}=\frac{\text{Populariteit}_r}{\underset{m}{\max}\{\text{Populariteit}_m\}}
   \label{eq:rel-populariteit}
 \end{equation}
 
 \begin{equation}
-  REL(\text{Productiviteit}_r) = \frac{\text{Productiviteit}_r^{-1}}{\max_{m}\{\text{Productiviteit}_m^{-1}\}}
+  \text{Productiviteit}_r^{\pentagon} = \frac{\text{Productiviteit}_r^{-1}}{\underset{m}{\max}\{\text{Productiviteit}_m^{-1}\}}
   \label{eq:rel-productiviteit}
 \end{equation}
 
 \begin{equation}
-  REL(\text{Gebruik}_r) = \frac{\text{Gebruik}_r}{\max_{m}\{\text{Gebruik}_m\}}
+  \text{Gebruik}_r^{\pentagon} = \frac{\text{Gebruik}_r}{\underset{m}{\max}\{\text{Gebruik}_m\}}
   \label{eq:rel-gebruik}
 \end{equation}
 
 \begin{equation}
-  REL(\text{Ondersteuning}_r) = \frac{\text{Ondersteuning}_r}{\max_{m}\{\text{Ondersteuning}_m\}}
+  \text{Ondersteuning}_r^{\pentagon} = \frac{\text{Ondersteuning}_r}{\underset{m}{\max}\{\text{Ondersteuning}_m\}}
   \label{eq:rel-ondersteuning}
 \end{equation}
 
 \begin{equation}
-  REL(\text{Performantie}_r)= \frac{\text{Performantie}_r^{-1}}{\max_{m}\{\text{Performantie}_m^{-1}\}}
+  \text{Performantie}_r^{\pentagon}= \frac{\text{Performantie}_r^{-1}}{\underset{m}{\max}\{\text{Performantie}_m^{-1}\}}
   \label{eq:rel-performantie}
 \end{equation}

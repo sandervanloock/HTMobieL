@@ -39,40 +39,41 @@ Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde s
 Het type raamwerk (\js-gedreven of opmaakgedreven) en het al dan niet afdwingen van een architectuur weerspiegeld zich in deze resultaten.
 De verschillen tussen \jqm{} en \lungo{} enerzijds en \st{} en \kendo{} anderzijds zijn groter want ze bieden een ander type - respectievelijk \js-gedreven en zowel \js- als opmaakgedreven - en hanteren een andere architectuur - respectievelijk MVC en MVVM.
 De productiviteit van \lungo{} stijgt met $71\%$ ten opzichte van \jqm{}.
-De productiviteit van \kendo{} daalde met $44\%$ ten opzichte van \st{}.
+De productiviteit van \kendo{} stijgt met $44\%$ ten opzichte van \st{}.
 
 De belangrijkste factor waarom \lungo{} en \kendo{} beter scoren is omdat beide raamwerken als tweede werden behandeld.
 De POC werd eerst in \jqm{} en \st{} geïmplementeerd.
 Er zijn vijf redenen waarom dit de data sterk beinvloedt.
+%TODO deze vijf punten met itemize ofzo?
 %3 en 5
 De eerste twee reden omvatten een betere ervaring met de POC en HTML5-raamwerken in het algemeen.
 De vertrouwdheid met HTML5-raamwerken weerspiegeld zich vooral tussen \jqm{} en \lungo{}.
 Hoewel ze beide op een verschillende \js{}-bibliotheek steunen - respectievelijk jQuery en QuoJS - zijn de gelijkenissen tussen deze twee raamwerken niet te ontkennen.
 %4
-Er kon dus veel code,  zoals gebruikt bij \jqm{},  overgenomen worden bij de implementatie van de POC met \lungo.
+Verder kon er ook veel code,  zoals gebruikt bij \jqm{},  overgenomen worden bij de implementatie van de POC met \lungo.
 %2
 Ook kwamen er bij de eerste implementatie problemen met de \term{backend} naar boven.
 Deze waren bij de tweede implementatie reeds opgelost.
-Door onnauwkeurige tijdstracking met Toggl kan er geen schatting worgen gemaakt van de tijd die aan de \term{backend} werd besteed.
-Er kan echter niet ontkend worden dat dit een probleem is. %TODO ok zo?
+Door het onnauwkeurig opmeten van de tijd met Toggl kan er geen schatting worgen gemaakt van de tijd die aan de \term{backend} werd besteed.
+Er kan echter niet ontkend worden dat dit een probleem was.%TODO ok zo?
 %1
 Een laatste reden die de productiviteitsgegevens sterk beinvloed is dat niet de volledige POC met \lungo{} kon worden ontwikkeld.
 Hierop zal in sectie \ref{sec:evaluatie-gebruik} verder worden ingegaan.
 
-De werkuren van de loginapplicatie bevestigen voorgaande resulaten niet.
+De werkuren van de login applicatie bevestigen voorgaande resulaten niet.
 Ze zijn dan ook niet onderheven aan de vijf zonet opgenoemde redenen.
 Bij elke implementatie werd met dezelfde achtergrondkennis gestart.  
 % 3
-De implementatie van een loginscherm is triviaal en eenduidig en dus geldt er voor alle raamwerken dat de ervaring met de applicatie reeds hoog was.
+De implementatie van de login applicatie is triviaal en eenduidig en dus geldt er voor alle raamwerken dat de ervaring met de applicatie reeds hoog was.
 % 5
-Ook werden de POCs voor de loginapplicaties gemaakt.
-Hierdoor kan de algemene ervaring met HTML5-raamwerken gelijk worden gezien voor alle implementaties van de loginapplicatie.
+Ook werd eerst de implementatie van de POC gemaakt voordat aan de login applicatie werd begonnen.
+Hierdoor was de algemene ervaring met HTML5-raamwerken gelijkgesteld.
 % 4 en 2
-Er werd geen code gekopieerd bij de loginapplicaties en er waren geen problemen met de \term{backend}
+Verder werd er geen code gekopieerd en waren er geen problemen met de \term{backend}
 %  1
-Ten slotte werd alle functionaliteit van de loginapplictie met alle vier raamwerken gebouwd.
-Om al deze redenen werd beslist de score voor productiviteit aan te passen naar enkel de uren van implementatie van de loginapplicatie.
-De nieuwe verbeterde formule voor productiviteit is dan
+Ten slotte werd alle functionaliteit van de login applictie met alle vier raamwerken gebouwd.
+Om al deze redenen werd beslist de score voor productiviteit aan te passen door enkel de uren van de login applicatie ($t_{r,login}$) te beschouwen.
+De verbeterde formule voor productiviteit is dan
 \begin{equation}
   \text{Productiviteit}'_r = t_{r,login}
   \label{eq:productiviteit-enhanced}
@@ -90,15 +91,14 @@ In wat volgt zullen andere factoren worden besproken die de verschillen in produ
 \subsection{Tools}
 Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op een grafische tool om het ontwikkelingsproces te vergemakkelijken:  Sencha Architect~\cite{Sencha2012a}.
 Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop} commando's.  
-Deze tool kan 30 dagen gratis gebruikt worden of kan worden aangekocht voor $\$399$.
 Bij de ontwikkeling van de POC werd Sencha Architect versie 2.1 gebruikt voor een tijdsduur van $21$ dagen.
 Het grootste voordeel van Sencha Architect kon bij de ontwikkeling van \code{Views} worden gevonden.
 De \code{Views} kunnen specifiek voor mobiele schermen worden geoptimaliseerd.
 Dit zowel voor staande als liggende apparaten.
-Na $21$ dagen werd de PhpStorm als IDE gebruikt bij de ontwikkeling van \st{}.
+Na $21$ dagen werd overgeschakeld op PhpStorm als IDE.
 Dezelfde IDE werd ook gebruikt bij de ontwikkeling met andere raamwerken en biedt ondersteuning voor zowel Windows, Mac als Linux.
-Een voordeel bij het gebruik van deze IDE is onder andere de automatische codeaanvulling.
-Daarnaast toont de IDE hints voor het optimaliseren van \js{}-code die specifiek gebruikt maakt van de jQuery-bibliotheek.
+Een voordeel bij het gebruik van deze IDE is onder andere de automatische code-aanvulling.
+Daarnaast toont de IDE hints voor het optimaliseren van \js{}-code die specifiek gebruikt maakt van de jQuery bibliotheek.
 
 %TODO: vermelden van Yeoman + twitter bower?
 
@@ -108,28 +108,28 @@ Daarnaast toont de IDE hints voor het optimaliseren van \js{}-code die specifiek
 
 \subsection{Boilerplate code}
 Het initialiseren van een nieuwe applicatie van het raamwerk beïnvloed ook sterk de productiviteit.
-\st{} biedt hiervoor terug een tool,  Sencha Cmd,  die deze functionaliteit mogelijk maakt~\cite{Sencha2012}.
+\st{} biedt hiervoor terug een tool,  Sencha Cmd~\cite{Sencha2012}.
 Deze tool kan de initiële applicaties opzetten,  bestanden toevoegen en de applicatie bouwen en uitrollen.
-Ondanks dat de initialisatie van een nieuwe project kan worden geautomatiseerd, zijn de bekomen bestanden van het project niet zo duidelijk.
-Een nieuwe \code{Controller},  \code{Store},  \code{Model} of \code{View} genereren kan automatisch met Sencha Cmd of manueel.
+Na de geautomatiseerde initialisatie van een project zijn de gemaakte folders en bestanden echter niet geheel duidelijk.
+Een nieuwe \code{Controller},  \code{Store},  \code{Model} of \code{View} genereren kan manueel of automatisch met Sencha Cmd.
 Bij de manuele aanpak moet het nieuwe \js-bestand in de juiste folder worden ondergebracht.
-\st{} legt een strenge structuur van folders op en de applicatie zal enkel werken als aan deze structuur wordt vastgehouden.
-De ervaringen van de auteurs met \st{} zegt dat deze structuur tot veel verwarring leidt.
+\st{} legt een strenge structuur van folders op die ongewijzigd moet blijven opdat de applicatie zou werken.
+%TODO weglaten De ervaringen van de auteurs met \st{} zeggen dat deze structuur tot veel verwarring leidt.
 
-\jqm{} en \kendo{} beschrijven boilerplate code bij hun documentatie~\cite{JQuery2012b,Telerikd}.
+\jqm{} en \kendo{} beschrijven boilerplate code in hun documentatie~\cite{JQuery2012b,Telerikd}.
 Ook is bij de documentatie van beide raamwerken een expliciete sectie aanwezig die de programmeur helpt om een applicatie op te zetten.
 Bij \lungo{} is dit niet het geval.  
-Om een \lungo{} applicatie op te zetten moest naar de broncode van de voorbeelden op de documentatie gekeken worden.
+Om een \lungo{} applicatie op te zetten, moest naar de broncode van de voorbeelden op de documentatie gekeken worden.
 
 \subsection{Documentatie}
 Ook de kwaliteit en kwantiteit van de documentatie kunnen de scores van de productiviteit verklaren.
 De \st{} documentatie is het grootst in vergelijking met de andere raamwerken.
-De grootte van de documentatie maakt het moeilijk om zelf onduidelijkheden gericht te zoeken.
+De grootte van de documentatie maakt het moeilijk om zelf gericht naar onduidelijkheden te zoeken.
 De zoekfunctie met auto-aanvulling is noodzakelijk om de juiste documentatie terug te vinden.
-De documentatie van \kendo{} is overzichtelijker en nog steeds volledig.
-De combinatie van de secties API en Getting Started waren de voornaamste drijfveer.
+De documentatie van \kendo{} is overzichtelijker en volledig.
+De combinatie van de secties API en Getting Started boden de voornaamste hulp.
 Ook worden alle kenmerken die het raamwerk aanbiedt met demo's en codevoorbeelden getoond.
-De zoekfunctie van de documentatie is niet optimaal en hierdoor ook maar weinig gebruikt.
+De zoekfunctie van de documentatie is niet optimaal en hierdoor werd deze maar weinig gebruikt.
 De documentatie van \jqm{}~1.2 bevat geen zoekfunctie en codevoorbeelden.
 Hierdoor moet naar de broncode worden gekeken om de code van een kenmerk te begrijpen.
 Een voordeel van de \jqm{} documentatie is dat de documentatie zelf met \jqm{} is gebouwd.
@@ -143,32 +143,34 @@ Sommige voorbeelden zijn echter incorrect.
 Het zoeken naar bugs in de code verliep bij elk raamwerk gelijkaardig.
 De applicatie werd lokaal uitgerold en in de Web Inspector van Chrome gedebugd.
 Debuggen op de apparaten kon door deze te connecteren via USB met de computer.
-Android toestellen met een Chrome browser kunnen debugt worden met de Web Inspector.
+Android toestellen kunnen gedebugd worden met de Web Inspector van de Chrome browser.
 Debuggen op iOS toestellen kan op een Mac met dezelfde Web Inspector maar in de Safari browser.
 
 \subsection{Literatuur}
+%TODO et. al na auteurs vermelden?
 Zowel \jqm{} als \st{} werden vaak in de literatuur aangehaald.
 Op Safari Books Online kunnen 13 boeken teruggevonden worden die volledig op \jqm{} zijn toegespitst.
 Het boek van Dutson in de Sam Teach Yourself serie werd gebruikt om met \jqm{} vertrouwd te geraken~\cite{PhilDutson2012}.
-Ook Pro jQuery Mobile van Broulik~\cite{Broulik2012} werd gelezen maar is dit is nagenoeg een kopie van documentatie site en bevat bijgevolg niet veel extra informatie.
-Vier boeken over \st{} kunnen op Safari Books Online worden teruggevonden waarbij het werk van Clark werd gebruikt~\cite{JohnEClark2012}.
-\kendo{} komt slecht in een boek van voor~\cite{Bhandari2013},  \lungo{} helemaal niet.
+Ook Pro jQuery Mobile van Broulik~\cite{Broulik2012} werd gelezen maar dit is nagenoeg een kopie van de documentatie en bevat bijgevolg niet veel extra informatie.
+Vier boeken over \st{} kunnen op Safari Books Online worden teruggevonden.
+Het boek van Clark werd gebruikt~\cite{JohnEClark2012}.
+\kendo{} komt slechts in een boek voor~\cite{Bhandari2013},  \lungo{} helemaal niet.
 Het boek rond \kendo{} is slechts een proefdruk en wordt pas in augustus 2013 officieel geplubliceerd.
 Dit werk werd niet gebruikt.
 
 
 \subsection{Vragen}
-Wanneer de programmeur met problemen van het raamwerk werd geconfronteerd, moest op het web naar oplossingen gezocht worden.
-In sectie \ref{sec:evaluatie-populariteit} werden reeds het aantal vragen van het raamwerk op Stack Overflow bekeken.
-Hoe groter dit aantal,  hoe groter de kans dat een probleem reeds op Stack Overflow is aangehaald.
-Bij \lungo{} is dit aantal minimaal en was de programmeur vaak aangewezen om zelf oplossingen van zijn problemen te zoeken.
-Voor \st{} en \kendo{} geldt dat ook het forum voor professionele ondersteuning hulpvaardig bleek.
+Wanneer de programmeur met problemen van het raamwerk werd geconfronteerd, kan op het web naar oplossingen gezocht worden.
+In sectie \ref{sec:evaluatie-populariteit} werden reeds het aantal vragen van het raamwerk op \so{} bekeken.
+Hoe groter dit aantal,  hoe groter de kans dat een probleem reeds is aangehaald.
+Bij \lungo{} is dit aantal minimaal en was de programmeur vaak aangewezen om zelf oplossingen te zoeken.
+Voor \st{} en \kendo{} geldt dat ook het forum voor professionele ondersteuning hulpvaardig was.
 Het plaatsen van vragen bij \st{} is onmogelijk zonder betaalde ondersteuning,  \kendo{} laat het stellen van maximaal vijf vragen toe zonder de aankoop van een licentie.
-De meest voorkomende problemen zijn op de fora wel al aangehaald en gedetailleerd besproken.
+De meest voorkomende problemen zijn op de fora al aangehaald en gedetailleerd besproken.
 
 
 \subsection{Lijnen code}
-Als laatste wordt in tabel \ref{tabel:evaluatie-gebruik-loc} het aantal lijnen geschreven code getoond dat nodig is om de POC en loginapplicatie in de vier raamwerken te maken.
+Als laatste wordt in tabel \ref{tabel:evaluatie-gebruik-loc} het aantal lijnen geschreven code getoond dat nodig is om de POC en login applicatie te maken.
 Het type van het raamwerk (\js- of opmaakgedreven) komt sterk in de tabel naar boven.
 
 \begin{table}[H]

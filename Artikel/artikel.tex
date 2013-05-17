@@ -2,7 +2,8 @@
 
 %TODO: hoogte onderaan kleiner maken
 %TODO: use short names for frameworks throughout the paper
-%TODO: welke afkorting nu voor Kendo UI? KUI of Kendo?
+%TODO: welke afkorting nu voor Kendo UI? KUI of Kendo? Sander: Kendo
+%TODO: welke afkorting in de captions van tabellen/figuren?
 
 \typeout{IJCAI-11 Instructions for Authors}
 
@@ -279,7 +280,7 @@ The summation of these five numbers give the score for the framework's popularit
 % \end{equation}
 
 \paragraph{Productivity}
-Both autors implement the full POC in a two different framework and carefully record the time to implement it.  
+Both autors implement the POC two different framework and carefully record the time to implement it.  
 However,  this time will be influenced by many factors.
 The second implementations will have an advantage because of the gained experience after the first implementation.
 Also,  code reuse and possible incomplete implementations because of the limited functionality of the framework, affect this times in a negative way.
@@ -601,18 +602,21 @@ On the one hand there is \kendob{} together with \jqma{} and the other hand ther
 \jqma{} has the most followers on Twitter, followed by \kendob.
 \lungo{} is the penultimate, but the ratio tweets to followers indicate that it is the most active one. 
 \jqma{} and \kendob{} have a similar ratio.
+%TODO weer de 1ne tweet duiden
 This is in contrast to \sta{} which has send only one tweet and also has the least number of followers. 
 
 Only \jqma{} and \lungo{} are on \gh{}. 
 If the \gh{} stars and \gh{} forkers are left out of popularity, the ranking stays the same.
 
-\kendob{} references in the support menu on their website directly to \so{}. 
+\kendob{} refer in the support menu on their website directly to \so{}. 
 However the popularity of \kendob{} is lower than \jqma{}.
 \sta{} is the penultimate, but more surpassingly is that \lungo{} only has about 30 questions on \so{} and therefore takes the last place.
 
+%TODO kommas voor jaartal?
 \kendob{} and \jqma{} both have created a fan page on \fb{} in respectively November, 2011 and August, 2010.
 The fan page of \kendob{} thus has gained more \fb{} likes in a shorter period than the earlier created fan page of \jqma{}.
 An explanation is that the different layers of \kendo{} are aggregated on one fan page.
+%TODO onderstaande weglaten (is ook weg uit thesistekst)
 This is in contrast to \jqma{} where a separate fan page exists for jQuery that has about 53,000 likes.
 This number is similar to that of \kendo{}.
 \sta{} and \lungo{} only have a interest page on \fb.
@@ -626,10 +630,11 @@ If the likes are left out of popularity, \kendob{} and \jqma{} switch places.
 
 % TODO nieuwe cijfers vermelden en nieuwe data
 
-This section will investigate the productivity of the different frameworks based on the time to implement the POC and the login application.
-Table~\ref{tabel:evaluatie-productiviteit} contains the scores for this criterion.
-The data shows that \lungo{} is the obvious winner,  followed by \kendo{} en \jqm{}.
-\st{} appears to be the least productive.
+This section will investigate the productivity of the different frameworks
+Table~\ref{tabel:evaluatie-productiviteit} contains the hours to implement the POC and login application for each framework.
+The third row with the hours of the login application determine the score for this criterion.
+The data shows that \jqma{} is the winner,  followed by \lungo{} en \kendob{}.
+\sta{} appears to be the least productive.
 
 \begin{table}[t]
 \centering
@@ -651,34 +656,36 @@ The data shows that \lungo{} is the obvious winner,  followed by \kendo{} en \jq
   	before row=\midrule,
     after row=\bottomrule}
 ]{../Masterproef/tabellen/productiviteit.csv}
-\caption{Productivity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
+\caption{Productivity for \st{}~(\sta), \kendo{}~(\kendob), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
 \label{tabel:evaluatie-productiviteit}
 \end{table}
 
-Two important factor need to be taken into account when analyzing this data.
-First,  the implementations of the POC and login application were first executed with \jqm{} and \st{}.
-The gained experience helped the developpers in the second implementation phase.
-Also,  problems with the backend were resolved in the first implementation phase.
+% Two important factor need to be taken into account when analyzing this data.
+% First,  the implementations of the POC and login application were first executed with \jqm{} and \st{}.
+% The gained experience helped the developpers in the second implementation phase.
+% Also,  problems with the backend were resolved in the first implementation phase.
 
-The imposed architecture with \st{} and \kendo{} increases the learning curve.
-Also, the fact that a framework is JavaScript driven complicates the implementation.
-This is why \st{} is the least productive.
+The imposed architecture with \sta{} and \kendob{} increases the learning curve.
+Also, the fact that a framework is \js-driven complicates the implementation.
+This is why \sta{} is the least productive.
 
 There are also other factor that influence the productivity.
 Firstly,  tools can speed up the production process.
-Sencha provides Sencha Architect,  a graphical environment to visualy build applications from the ground up.
-Version 2.1 of Sencha Architect was used to build the views but was not of much use to build more sophisticated functionality.
+Sencha provides Sencha Architect,  a graphical environment to visualy build applications.
+Version~2.1 of Sencha Architect was used to build the views but was not of much use to build more sophisticated functionality.
 Secondly,  boilarplate code can be used to initialize a new project.
 All frameworks beside \lungo{} describe such code in their documentation.
-\st{} even offers Sencha Cmd to automate this process.
+\sta{} even offers Sencha Cmd to automate this process.
 Also, the quality and quantity of the documentation influence the productivity.
-A well-engineered search functionality,  real-time code examples and structure classification is crucial for a good documentation.
-\kendo{} is the only framework that which documentation has all three components.  
-An other factor is the available literature.
-Safari Books Online contains $12$ books that specifically discuss \jqm{},  \lungo{} has no books at all.
-The final factor is the different places where a developper can go to ask questions.
-Stack Overflow or fora are examples of such places. %TODO fora?
-As presented in the previous criterion,  \jqm{} expells in the amount of Stack Overflow questions
+A well-engineered search functionality,  real-time code examples and a structured classification is crucial for a optimal documentation.
+\kendob{} is the only framework where the documentation has all three components.  
+An other determinant factor is the available literature.
+Safari Books Online contains $13$ books that specifically discuss \jqma{},  \lungo{} has no books at all.
+The final factor contains the virtual places where a developer can ask questions.
+\so{} or fora are examples of such places. %TODO fora?
+As presented in the previous criterion,  \jqma{} expells in the amount of \so{} questions.
+\sta{} and \kendob{} provide professional support on fora from their website.
+Although no questions can be asked without a license,  frequently asked questions are already discussed and explained on the fora.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

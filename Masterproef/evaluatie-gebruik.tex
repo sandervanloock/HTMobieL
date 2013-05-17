@@ -568,10 +568,10 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
 Twee verschillende methoden worden in de POC gebruikt.
-Een eerste maakt gebruik van de \code{setRecord} methode van een \code{formpanel}.
-De modelinstantie die het formulier zal invullen als parameter worden meegeven.
+Een eerste maakt gebruik van de \code{setRecord} methode van een \code{Formpanel}.
+De modelinstantie die het formulier zal invullen moet als parameter worden meegeven.
 \st{} zal automatisch de velden invullen waarbij de naam gelijk is aan de eigenschap van het model.
-Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op \code{togglefields}.
+Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op schakelaars.
 Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
 Een model kan worden voorzien met eigenschappen met volgende types:
 \begin{itemize}
@@ -586,32 +586,32 @@ Er bestaat dus geen vlekkeloze mapping tussen een eigenschap van een model en ee
 Hetzelfde geldt voor een \code{checkboxfield}.
 Om deze in te vullen moet de \code{setGroupValue} van het veld worden aangesproken.
 
+De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{navigationview} en wordt besproken in \uit{lijsten}.
 
-%TODO u13 lijsten en click invullen van formulier,  hier ook...
-De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{navigationview} en wordt in \uit{lijsten}.
-
-Velden read-only maken kan door objecten te voozien van de \code{readOnly} eigenschap en de waarde op \code{true} te zetten.
+Velden \term{read-only} maken kan door objecten te voozien van de \code{readOnly} eigenschap en de waarde op \code{true} te zetten.
 Bij \code{radiofields} en \code{checkboxfields} heet deze eigenschap \code{disabled}.
 
 
 \paragraph{\kendo}
 Het invullen van een formulier steunt ook op de MVVM-architectuur en is gelijkaardig aan het resetten van een formulier.
-De dubbele binding tussen een formulier en \code{(view)model} wordt met de HTML-tag \code{data-model} aangegeven.
-Een \code{viewmodel} wordt in \kendo{} \code{ObservableObject} genoemd.
-Een \code{model} heet \code{Model} en erft over van een \code{ObservableObject}.
+De dubbele binding tussen een formulier en \code{(View) Model} wordt met de HTML-tag \code{data-model} aangegeven.
+Een \code{(View Model} wordt in \kendo{} \code{ObservableObject} genoemd.
+Een \code{Model} heet \code{Model} en erft over van een \code{ObservableObject}.
 Deze laatste breidt een \code{ObservableObject} uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
 In wat volgt zal aangenomen worden dat een \code{ObservableObject} wordt gebruikt in plaats van een \code{Model},  tenzij anders vermeld.
 Om een formulier met data te vullen is het de taak van de programmeur de velden van het \code{ObservableObject} van de correct waarden te voorzien.
 De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 
 
-Read-only velden moeten in het data-attribuut van het formulierelement worden gespecificeerd.
+\term{Read-only} velden moeten als data-attribuut in het formulierelement worden gespecificeerd.
+
 Alle invoer types buiten radio- en selectknoppen gebruiken hiervoor het \code{readOnly} sleutelwoord.
 Radio- en selectknoppen worden onbeschikbaar met het \code{disabled} sleutelwoord.
 
 \paragraph{\jqm}
 Om een formulierveld in te vullen met data, dient eerst het formulierveld gezocht te worden en daarna zijn waarde gezet te worden.
 Dit gebeurt typisch voor velden van het type \code{input} en \code{textarea} volgens de volgende code: \code{\$("\#form-veld").val("waarde")}.
+%TODO onderstaande twee zinnen niet super duidelijk
 Bij het \code{select}-type voor een veld kan deze code niet worden gebruik.
 Hier moet de waarde worden gezocht in de lijst en dan aan de gevonden waarde het \code{selected}-attribuut worden toegevoegd.
 Een gelijkaardige manier dient gevolgd te worden voor het \code{radio}-type voor een veld.
@@ -628,7 +628,7 @@ Dit gebeurt typisch volgens de volgende code: \code{\$\$("\#form-veld").val("waa
 Deze functie kan ook gebruikt worden voor \code{select}-types.
 Geoptimaliseerde mobiele lay-out voor \code{radio}-types is niet aanwezig in \lungo.
 Een opmerking dient wel gemaakt te worden dat de waarde altijd een \code{string} moet zijn.
-Dit betekent dus voor getallen dat deze altijd eerst moeten worden omgevormd met de \js{}-functie \code{toString()}. 
+Dit betekent dus dat getallen altijd eerst moeten worden omgevormd met de \js{}-functie \code{toString()}. 
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
 Dit gaat voor alle types van velden, behalve voor \code{select}-types.
@@ -672,13 +672,15 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
 Deze plug-in is niet op de Sencha Market terug te vinden.
-Door het \js-bestand toe te voegen wordt het xtype \code{autocompletefield} beschikbaar.
+Plug-ins worden in de vorm van een \js-bestand geleverd.
+Dit bestand moet in de folder touch/src/ux worden geplaatst en de nieuwe klasse moet worden geïnitialiseerd bij het laden van de applicatie.
+Hierdoor wordt het xtype \code{autocompletefield} beschikbaar.
 Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
 Ook is het mogelijk het maximaal aantal suggesties vast te leggen.
 
-De \term{backend} server die bij de POC hoort geeft bij een bepaald sleutelwoord suggesties in een JSON-rij terug.
-De rij is voorzien van een sleutel maar alle elementen van de rij hebben geen sleutel.
-\st{} voorziet vier methoden om de resultaten van een \code{proxy} te parsen naar modelinstanties:
+De \term{backend} vande POC geeft bij een bepaald sleutelwoord suggesties in een JSON-rij terug.
+De rij is voorzien van een sleutel maar alle elementen van de rij hebben er geen.
+\st{} voorziet drie methoden om de resultaten van een \code{proxy} te parsen naar modelinstanties:
 \begin{description}
  \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
  \item [\code{XmlReader}] parst XML-tags naar model velden.
@@ -689,9 +691,9 @@ Hierdoor kon geen klikbare dropdownmenu worden getoond.
 
 \paragraph{\kendo}
 Het automatisch aanvullen van een formulierelement wordt als widget door \kendo{} Web aangeboden.
-Een HTML-invoerelement met id met worden aangemaakt en geinitialiseerd met \code{\$("\#id").kendoAutoComplete()}.
+Een HTML-invoerelement met \term{identifier} moet worden aangemaakt en geinitialiseerd met \code{\$("\#id").kendoAutoComplete()}.
 Elementen die automatisch aanvullen kunnen zowel van een lokale als externe bron worden aangeleverd.
-Externe suggesties moeten via een \code{dataSource} worden ingeladen.
+Externe suggesties moeten via een \code{DataSource} worden ingeladen.
 Een \code{DataSource} ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
 Deze moet geconfigureerd worden om suggesties van de \term{backend} op te halen.
 Buiten een \code{DataSource} kan het minimale aantal suggesties en een filter worden opgegeven.
@@ -748,34 +750,33 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/file-uploading-component-for-sencha-touch}.
+Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden.
 De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
-Het \js-bestand moet in de touch/src/ux folder worden geplaatst en de \code{Ext.ux.Fileup} klasse moet worden geïnitialiseerd.
-Het xtype \code{img} wordt dan beschikbaar voor \st{} componenten.
+Na het toevoegen van de plug-in wordt het xtype \code{img} beschikbaar voor \st{} componenten.
 
 De plug-in voorziet twee modes voor het opladen van bestanden: lokale als base64 of extern naar een server.
-De eerste laat toe afbeeldingen in het DOM of \term{local storage} te laden.
-Dit laatste is een aspect van de POC.
+De eerste laat toe afbeeldingen in het DOM of \term{local storage} te laden en wordt door de POC opgelegd.
 
 Nadat een bestand is opgeladen kunnen twee gebeurtenissen zich voordoen:  \code{loadsuccess} of \code{loadfailure}.
-Het is de taak van een \code{controller} om deze gebeurtenissen op te vangen en een bijhorende methode te definiëren.
-De succes functie krijgt de base64 text mee en kan een voorbeeld van de afbeelding laten weergeven.
+Het is de taak van een \code{Controller} om deze gebeurtenissen op te vangen en een bijhorende methode te definiëren.
+De succes functie krijgt de base64 tekst mee en kan een voorbeeld van de afbeelding weergeven.
 
 \paragraph{\kendo}
 \kendo{} Web biedt een widget aan die het opladen van bestanden toelaat.
 Deze widget kan in twee modes worden gebruikt: syncroon of asynchroon.
-Een HTML-invoerelement met \code{id} moet worden toegevoegd en geïnitialiseerd met \code{\$("\#id").kendoUpload()}.
-In synchrone wordt het formulier met het oplaadelement verzonden naar de \term{backend} als een uitgave wordt toegevoegd.
+Een HTML-invoerelement met \term{identifier} moet worden toegevoegd en geïnitialiseerd met \code{\$("\#id").kendoUpload()}.
+In synchrone mode wordt het formulier samen met de afbeelding verzonden naar de \term{backend} als een uitgave wordt toegevoegd.
 In asynchrone mode gebeurt het opladen meteen na het selecteren van de afbeelding.
-Deze methode voor het opladen van bestanden steunt op de HTML5 File API.
+%TODO streepje tussen HTML5 en File API
+Deze methode voor het opladen van bestanden steunt op de HTML5 FileReaderAPI.
 Het verzoek naar de \term{backend} is een POST-verzoek met \code{Content Type} \code{multipart/form-data}.
-Omdat een voorbeeld van afbeelding werd gevraagd, is de asynchrone oplossing gekozen.	
+Omdat een voorbeeld van de afbeelding werd gevraagd, is de asynchrone oplossing gekozen.	
 \kendo{} voorziet \term{backend} integratie met ASP.NET MVC,  JSP en PHP.
 Voor deze drie technologieën is een implementatie beschikbaar om het opladen van bestanden aan serverzijde af te handelen.
 Er werd gekozen om de PHP-implementatie te gebruiken.
 Wanneer een afbeelding succesvol is opgeladen, wordt de \code{success callback} opgeroepen met het bestand als parameter.
 Het bestand wordt met een \code{FileReader} gelezen,  aan een \code{canvas} toegevoegd en naar base64 omgezet met de \code{toDataURL} methode.
-Deze werkwijze is aanloog aan de \jqm{} implementatie.
+Deze werkwijze is aanloog aan de \jqm{} en \lungo{} implementatie.
 
 \paragraph{\jqm}
 Het toevoegen van een afbeelding gebeurt door \code{file} als invoertype van het formulierveld te gebruiken. 
@@ -784,7 +785,7 @@ Het omvormen van de afbeelding naar base64 werd geïmplementeerd met de FileRead
 De aangeklikte afbeelding wordt gelezen door middel van de FileReaderAPI, waarna het tijdelijk als afbeelding wordt opgeslagen en daarna geïmporteerd wordt op het canvas. 
 Eenmaal geïmporteerd, kan de functie \code{.toDataURL()} opgeroepen worden op het canvas om de geïmporteerde afbeelding om te vormen naar base64. 
 
-Het voorvertonen van het geüploade afbeelding hangt af van het mobiele besturingssysteem.
+Het voorvertonen van de geüploade afbeelding hangt af van het mobiele besturingssysteem.
 Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
 Het is natuurlijk ook mogelijk om de preview na conversie zelf te tonen op het scherm.
 Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
@@ -842,20 +843,19 @@ Volgende validatieregels zijn ingebouwd:
 \end{description}
 De controle of een opgegeven waarde een nummer is kan met de \code{format} regel en de \code{/\d+/} reguliere expressie.
 Om een bepaalde modelinstantie te valideren moet de \code{validate} methode op de instantie worden opgeroepen.
-Om eigen validatieregels toe te laten moet de implementatie van deze methode worden overschreven. \footnote{Informatie gevonden op \exturl{www.sencha.com/forum/showthread.php?122680-Conditional-fields-validations}}
+Om eigen validatieregels toe te laten moet de implementatie van deze methode worden overschreven~\cite{Krause2011}.
 Deze functionaliteit zit dus niet standaard in \st{}.
 Met de nieuwe \code{validate} methode kan een \code{validator} aan een validatieregel worden toegevoegd.
 Dit is een functie die de programmeur zelf bepaalt en \code{true} of \code{false} teruggeeft bij het al dan niet slagen van een conditie.
 
-Het opbouwen van een foutenboodschap kan door te itereren over de fouten die na validtie werden teruggevonden.
+Het opbouwen van een foutenboodschap kan door te itereren over de fouten die na validtie worden teruggegeven.
 Een specifieke foutenboodschap kan aan elke validatieregel worden toegekend.
 
-Invalide formulierelementen aanduiden met een rode rand wordt niet door \st{} ondersteund.
+Invalide formulierelementen aanduiden met een rode rand, wordt niet door \st{} ondersteund.
 Hiervoor moet CSS worden gebruikt.
 Foutief ingevulde formulierelementen moeten na valiatie met een CSS-klasse worden aangevuld.
 
 \paragraph{\kendo}
-%TODO verwijs naar niet support voor HTML5 validatie..
 Het \kendo{} raamwerk ondersteunt de validaties zoals aangeboden binnen HTML5:
 \begin{itemize}
   \item [required] verzekert dat een het veld een waarde heeft.
@@ -867,7 +867,7 @@ Deze validaties moeten binnen het data-attribuut van het formulierelement worden
 
 De \kendo{} \code{validator} is compatibel met deze HTML5-validaties.
 Een \code{validator} moet in \js worden aangemaakt met volgend commando:  \code{\$("\#myform").kendoValidator().data("kendoValidator")}.
-Hierbij kan de jQuery selector eender welk element uit het DOM aanduiden.
+Hierbij kan de jQuery \term{selector} eender welk element uit het DOM aanduiden.
 De \code{validator} zal geselecteerde invoerelementen controleren op validatieregels.
 
 Eigen condities kunnen als validatieregels worden geformuleerd als \js-functie die \code{true} teruggeeft als de validatie slaagt.
@@ -875,8 +875,6 @@ Deze functie kan aan de set van regels van een \code{validator} worden toegevoeg
 De validatiecontrole starten kan door de \code{validate} methode op de \code{validator} op te roepen.
 Bij het controleren van invoerelementen worden altijd eerst de standaard validatieregels gecontoleerd,  daarna de eigen validatieregels.
 De volgorde waarin de controles worden uitgevoerd ligt vast en zal stoppen zodra één controle mislukt.
-
-%TODO mijn tricky implementatie van other -> remkars validatie vermelden?
 
 Validatieberichten kunnen voor standaard validaties door het raamwerk zelf worden opgebouwd.
 Deze kunnen worden overschreven door zelf een data-attribuut \code{validationMessage} aan het invoerelement toe te kennen.
@@ -887,18 +885,19 @@ De standaard implementatie voorziet een \code{tooltip} per invalied veld.
 Deze zal het validatiebericht naast het invalide formulierelement plaatsen. 
 
 Een venster tonen waarbij alle foutenboodschappen zijn samengevat is ook niet standaard aanwezig.
-De \code{errors} methode van een \code{validator} geeft een rij van foutenboodschappen terug.
+De \code{errors} methode van de \code{validator} geeft een rij van foutenboodschappen terug.
 De volledige foutenboodschap moet vervolgens worden geconstrueerd door alle foutenboodschappen te concateneren.
-Hoe een dialoogvenster gemaakt wordt zal in \uit{dialoog} worden besproken.
+Hoe een dialoogvenster gemaakt wordt werd in \uit{laadscherm} besproken.
 
 \paragraph{\jqm}
-Validatie is niet standaard aanwezig in jQuery Mobile. 
+Validatie is niet standaard aanwezig in \jqm. 
 Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required}-attribuut in HTML5. 
 Dit werd niet gedaan om twee redenen.
 Enerzijds is hiervoor geen ondersteuning voor mobiele browsers~\cite{Deveria2013c}. 
 Anderzijds is het ook nodig om de velden te valideren op hun waarde.
 Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
 Deze lost beide problemen op.
+%TODO ofwel anderzijds?
 De plug-in zelf kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code ofwel anderzijds door programmatie met \js{}. 
 Beide aanpakken werden getest en slaagden. 
 
@@ -909,12 +908,13 @@ Zo een afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
 De plug-in toont standaard een foutboodschap onder het foute formulierveld.
 Door de uitgebreide API van de plug-in die ook uitvoerig gedocumenteerd is, konden alle foutboodschappen samen in een dialoogvenster worden weergegeven.
 
+%TODO naar ondersteuning verplaatsen?
 Een specifiek mobiel probleem was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
 Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
-Dit werd opgelost door \code{focusInvalid:false} in te stellen in de plug-in.
+Dit werd opgelost door \code{focusInvalid:false} in te stellen.
 
 De plug-in annoteert de foute velden met de CSS-klasse \code{error}.
-Hierdoor kon de rode rond in CSS worden geprogrammeerd. 
+Hierdoor kon de rode rand in CSS worden geprogrammeerd. 
 Dit ging voor \code{input} en \code{textarea}, maar gaf problemen voor \code{select} en \code{fieldset}.
 Door de extra code die \jqm{} genereert rond deze velden, moest via de DOM de omringende code geannoteerd worden om de rode rand te bekomen. 
 Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
@@ -922,6 +922,7 @@ Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} 
 \paragraph{\lungo}
 Validatie is niet aanwezig in \lungo{} en er kon ook geen plug-in voor QuoJS gevonden worden~\cite{Ameye2013}.
 Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met QuoJS.
+%TODO onderstaande twee zinnen spreken elkaar tegen
 Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \jqm{}), werd alle validatie manueel geprogrammeerd. 
 Bij wijze van voorbeeld werd enkel validatie op het loginscherm geprogrammeerd.
 Validatie op de rest van de formulieren doorheen de POC is volgens dezelfde werkwijze mogelijk, maar werd niet geïmplementeerd.
@@ -966,25 +967,23 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden op \exturl{market.sencha.com/extensions/signature-pad-field}.
-Een plug-in aan het raamwerk toevoegen kan door het \js-bestand in de touch/src/ux folder te plaatsen.
-Vervolgens moet de plug-in worden geladen bij het initialiseren van de applicatie.
-
+Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden.
 De plug-in maakt een nieuw xtype \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
 
-De plug-in maakt gebruikt van het HTML5-canvas en retourneert de handtekening als geëncodeerde base64-tekst.
+Deze maakt gebruikt van het HTML5-canvas en retourneert de handtekening als base64 tekst.
 
 \paragraph{\kendo}
 Aangezien \kendo{} steunt op de jQuery bibliotheek is \kendo{} ook perfect compatibel met jQuery plug-ins.
-Net zoals bij \jqm{} werd ook de jSignature handtekening van Willow Systems~\cite{Systems2013} geïmplementeerd.
+De jSignature handtekening plug-in van Willow Systems~\cite{Systems2013} werd geïmplementeerd.
+De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{toDataURL()} methode.
+Hierdoor kan de base64-string bekomen worden die nodig is om door te sturen naar de server.
 
 \paragraph{\jqm}
 Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat \jqm{} dit niet standaard aanbiedt. 
 Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
 Door de lange tijd die werd besteed aan het aanpassen van de lay-out, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
 Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
-De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{.toDataURL()} methode.
-Hierdoor kan de base64-string bekomen worden die nodig is om door te sturen naar de server.
+Dezelfde aanpak als bij \kendo{} werd gevolgd.
 
 \paragraph{\lungo}
 Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook geen plug-in worden gevonden.
@@ -1028,37 +1027,35 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{stores} worden uitgevoerd.
-De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van jQuery.
+AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{Stores} worden uitgevoerd.
+De expliciete oproep is gelijkaardig aan de \code{\$.ajax} methode van de jQuery bibliotheek.
 Een enige uitzondering is te vinden bij kruis-domein AJAX-verzoeken.
 Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de eigenschap \code{useDefaultXhrHeader} op \code{false} worden gezet.
-%TODO referentie cors + opzoeken options request
 
-De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{stores}.
-Een \code{store} wordt voorzien van een \code{proxy}.  
+De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{Stores}.
+Een \code{Store} wordt voorzien van een \code{Proxy}.  
 Deze kan data aan de klant of server zijde opslaan.  
-Een \code{proxy} voor opslag aan client zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
-Een \code{proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
-Een \code{proxy} kan ook geconfigureerd worden met \code{readers} en \code{writers} om data van de server te lezen of naar de server te schrijven.
+Een \code{proxy} voor opslag aan klant zijde kan zowel in het RAM-geheugen als in de \term{local storage} en \term{session storage} van de browser opslaan.  
+Een \code{Proxy} voor server opslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
+Een \code{Proxy} kan ook geconfigureerd worden met \code{Readers} en \code{Writers} om data van de server te lezen of naar de server te schrijven.
 
-Het verzenden van een JSON-\term{payload} moet via een expliciet AJAX-verzoek gebeuren.
+Het verzenden van een JSON-\term{payload} moet via een expliciete AJAX-verzoek gebeuren.
 Data kan via \code{Ext.encode} naar JSON worden geëncodeerd en via de \code{jsonData} eigenschap aan het verzoek worden gekoppeld.
 
 \paragraph{\kendo}
 Om asynchrone verzoeken naar de \term{backend} te implementeren, moet een \code{DataSource} worden gebruikt.
-Zoals reeds besproken in de vorige uitdaging biedt dit object CRUD operaties.
-Dit kan zowel op lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
+Dit object voorzien CRUD operaties op zowel lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
 De \code{transport} eigenschap kan de configuraties bevatten om data te creëren (\code{create} eigenschap),  lezen (\code{read} eigenschap),  verwijderen (\code{destroy} eigenschap) en op te waarderen (\code{update} eigenschap).
 Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax} methode van jQuery.
 
 Hoe data moet worden geparset, staat gedefinieerd in de \code{schema} eigenschap van de \code{DataSource}.
 Zowel JSON als XML wordt ondersteund.
-Aan een \code{schema} kan een \code{model} worden toegekend.
-Er onderscheiden zich twee gevallen:  een bestaand \code{viewModel} kan met data worden geladen of nieuwe instanties van een \code{model} kunnen worden aangemaakt.
-Het eerste geval zal de velden van één \code{viewModel} wijzigen als CRUD-operaties worden uitgevoerd.
-De eigenschap moet dan aan het \code{viewModel} worden gelijkgesteld.
-Het tweede geval zal het aantal instanties van een \code{model} wijzigen als CRUD-operaties worden uitgevoerd.
-De eigenschap kan aan een reeds gedefinieerd \code{Model} worden gelijkgesteld of een model kan lokaal worden gedefinieerd.
+Aan een \code{schema} kan een \code{Model} worden toegekend.
+Er onderscheiden zich twee gevallen:  een bestaand \code{ObservableObject} kan met data worden geladen of nieuwe instanties van een \code{Model} kunnen worden aangemaakt.
+Het eerste geval zal de velden van één \code{ObservableObject} wijzigen als CRUD-operaties worden uitgevoerd.
+De eigenschap moet dan aan het \code{ObservableObject} worden gelijkgesteld.
+Het tweede geval zal de instanties van een \code{Model} wijzigen als CRUD-operaties worden uitgevoerd.
+Hiervoor moet het model lokaal worden gedefinieerd.
 
 \paragraph{\jqm}
 Het maken van oproepen via AJAX gebeurt door jQuery. 
@@ -1066,10 +1063,12 @@ Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden
 Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
 
 In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-oproep ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
+%TODO kunnen direct worden omgegaan
 Hierdoor is de functie \code{parseJSON} niet nodig en kunnen direct worden omgaan met het antwoord.
 
 Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
 Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
+%TODO selectoren niet op woordenlijst.org
 Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeuren aan de hand van selectoren.
 
 Het versturen van JSON is gelijkaardig met het versturen van andere data.
@@ -1082,7 +1081,9 @@ Standaard biedt \lungo{} functies aan voor het ophalen en versturen van data via
 Deze functies zullen intern de functies van QuoJS oproepen.
 De URL, de data, de callback en het type dienen hierbij te worden opgegeven.
 De laatstgenoemde kan \code{text}, \code{json}, \code{xml} of \code{html} zijn.
+%TODO onderstaande zin
 Met \code{text}, \code{json} kan onmiddellijk worden omgegeven.
+%TODO selectoren
 Voor \code{xml} dient er gebruik te worden gemaakt van de selectoren in QuoJS om de gevraagde data op te zoeken.
 
 Bij het versturen van JSON-data konden de functies van \lungo{} zelf niet worden gebruikt.
@@ -1091,7 +1092,7 @@ Hierdoor werden de functies van QuoJS gebruikt, die meer opties hadden.
 Toch bleef er een probleem bij het versturen van JSON-data.
 Na lang zoekwerk hoe QuoJS met deze oproep omging, bleek uiteindelijk dat de bibliotheek altijd de parameters wilde serialiseren.
 Dit is uiteraard niet nodig als ruwe data, zoals JSON, wordt meegegeven.
-Aangezien dit een fout was in de bibliotheek zelf werd om het probleem zo snel mogelijk te verhelpen het \js-bestand zelf aangepast.
+Aangezien dit een fout was in de bibliotheek werd het \js-bestand zelf aangepast.
 
 %%%%%%%%%%%%%
 
@@ -1129,51 +1130,53 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Zoals besproken in de vorige uitdaging kan een lijst voorzien worden van een sjabloon.
+Een lijst kan voorzien worden van een sjabloon.
 Dit sjabloon kan HTML-code of een instantie van de \code{Ext.XTemplate} klasse zijn.
 De eerste definieert met HTML-tags de lay-out van de lijstelementen,  de tweede is geavanceerder.
 De functionaliteiten van \code{Ext.XTemplate} zijn:
 \begin{itemize}
   \item Doorlopen van een rij.
-  \item Conditionele processen met de basis operatoren.
+  \item Conditionele processen met basis operatoren.
   \item Ondersteuning voor basis wiskundige operaties.
   \item Uitvoeren van willekeurige \js-code.
   \item Eigen functies in het sjabloon oproepen.
 \end{itemize}
 Het formateren van een datum kan door de \code{date} methode van \code{Ext.util.Format} op te roepen in het sjabloon.
 
-Zoals reeds besproken bij \uit{vullen}, kan een formulier worden ingevuld met een \code{navigationview}.
-Deze \code{view} heeft een \code{push} en \code{pop} methode om een \code{view} op een \code{stack} te plaatsen of af te halen.
-Om een \code{view} te tonen die hoort bij een lijstelement wordt gebruik gemaakt van deze \code{navigationview} en de \code{push} methode.
-De lijst wordt in een \code{navigationview} ingesloten.
+Zoals reeds besproken bij \uit{vullen}, kan een formulier worden ingevuld met een \code{Navigationview}.
+Deze \code{View} heeft een \code{push} en \code{pop} methode om een \code{View} op een \code{stack} te plaatsen of af te halen.
+Om een \code{View} te tonen die hoort bij een lijstelement wordt gebruik gemaakt van deze \code{Vavigationview} en de \code{push} methode.
+De lijst wordt in een \code{Navigationview} ingesloten.
 Het aanklikken van een lijstelement veroorzaakt een \code{disclosure} gebeurtenis.
-Een \code{controller} kan deze gebeurtenis opvangen en de \code{push} methode op de \code{navigationview} oproepen.
+Een \code{Controller} kan deze gebeurtenis opvangen en de \code{push} methode op de \code{Vavigationview} oproepen.
 De methode kan geparameteriseerd worden met een modelinstantie, analoog als de \code{setRecord} methode van een formulierpaneel.
+Automatisch zal een \term{back} knop worden gegenereerd die na aanklikken de \code{pop} methode zal oproepen.
 
-Het sorteren van een lijst kan automatisch met een \code{store}.
-Een \code{store} kan aan een lijst worden gekoppeld zodat alle modelinstanties van de \code{store} in de lijst worden weergegeven.
-De \code{store} moet dan voorzien worden van een \code{sorter}.
-Deze kan modelinstanties van een \code{store} sorteren op basis van eigenschappen van het bijhorende model.
-Ook kan de richting van sorteren worden geconfigureerd.
-Meerdere \code{sorters} definiëren is mogelijk voor het geval er gelijkheden op vorige niveau's optreden.
-Een \code{store} sorteren kan ook expliciet door de \code{sort} methode op de \code{store} op te roepen.
+Het sorteren van een lijst kan automatisch met een \code{Store}.
+Een \code{Store} kan aan een lijst worden gekoppeld zodat alle modelinstanties van de \code{Store} in de lijst worden weergegeven.
+De \code{Store} moet dan voorzien worden van een \code{Sorter}.
+Deze kan modelinstanties van een \code{Store} sorteren op basis van eigenschappen van het bijhorende model.
+Ook kan de richting van sorteren kan worden geconfigureerd.
+Een \code{Store} sorteren kan ook expliciet door de \code{sort} methode op de \code{Store} op te roepen.
 
 \paragraph{\kendo}
 Lijsten worden met een \code{listview} als \code{data-role} weergegeven.
 Wanneer lijsten met een \code{DataSource} gebonden worden zullen alle instanties van de \code{DataSource} als element in de lijst verschijnen.
-%todo binding tussen js lijst en listview
+Het koppelen van een \js-rij en \code{Listview} kan door te binden op basis van de \code{source} eigenschap.
+Deze methodiek is uitvoerig op de \kendo{} documentatie beschreven.
+
 De opmaak van lijsten kan met \kendo{} \code{Templates} worden uitgedrukt.
 Deze sjablonen zijn apparte scripts van het type \code{text/x-kendo-template} en moeten in een HTML-bestand worden geschreven.
 De sjablonen hebben toegang tot de velden van de modelinstanties die aan de lijst zijn toegekend.
 Hiervoor moet de veldnaam tussen \term{hashtags} worden gebruikt.
-Binnen de scripts is ook mogelijk om \js-functies op te roepen door de functie ook binnen \term{hashtags} te schrijven.
+Binnen de scripts is het mogelijk om \js-functies op te roepen door de functie ook binnen \term{hashtags} te schrijven.
 
 De link van elk lijstelement moet in het sjabloon worden gedefinieerd.
-Om de elementen uit het uitgavenoverzicht te linken, werd gebruik gaakt van een geparameteriseerde \code{view}.
-Dit laat toe om parameters in de link naar de \code{view} op te geven,  analoog aan HTTP GET-verzoeken.
-De parameter die wordt doorgegeven is de id van de uitgave.
-Wanneer naar de \code{view} wordt genavigeerd, zal een functie met opgegeven parameter worden uitgevoerd.
-De functie zal een \code{ObservableObject} laden met data van de uitgave die hoort bij de meegekregen id.
+Om de elementen uit het uitgavenoverzicht te linken, werd gebruik gaakt van een geparameteriseerde \code{View}.
+Dit laat toe om parameters in de link naar de \code{View} op te geven,  analoog aan HTTP GET-verzoeken.
+De parameter die wordt doorgegeven is de \term{identifier} van de uitgave.
+Wanneer naar de \code{View} wordt genavigeerd, zal een functie met opgegeven parameter worden uitgevoerd.
+De functie zal een \code{ObservableObject} laden met data van de uitgave die hoort bij de meegekregen \term{identifier}.
 Het \code{ObservableObject} is gekoppeld aan een formulier dat automatisch zal worden ingevuld zodra het object wordt geïnitialiseerd.
 
 Het sorteren van een lijst kan door de \code{DataSource} die aan de lijst is gekoppeld van een sorteereigenschap te voorzien.
@@ -1198,7 +1201,7 @@ Er komt dus geen functionaliteit van het raamwerk om data te sorteren.
 
 \paragraph{\lungo}
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
-Hiervoor wordt gebruik gemaakt van de functie \code{\$\$.each} van QuoJS om ieder element van de array te overlopen.
+Hiervoor wordt gebruik gemaakt van de functie \code{\$\$.each} van QuoJS om ieder element van de rij te overlopen.
 Per element gebeurt een \code{append} op de lijst waar de data dient geladen te worden.
 Het toegevoegde lijstitem bepaalt de template van de lijst.
 

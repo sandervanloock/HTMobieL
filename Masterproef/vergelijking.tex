@@ -69,41 +69,39 @@ Deze bevat een overzicht van de onkosten met bijhorende bewijsstukken, alsook de
 
 In deze sectie zullen de actieve criteria toelicht worden die zullen worden toegepast om de raamwerken te vergelijken.
 In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die in de literatuur worden toegepast.
-Elementen van deze technieken zullen terugkomen in onze methode om de raamwerken te evalueren.
+Elementen van deze technieken zullen terugkomen in de voorgestelde methode om de raamwerken te evalueren.
 Sectie \ref{sec:raamwerken-tabel} bevatte de passieve vergelijkingscriteria die raamwerken vergeleken met informatie over het raamwerk zelf.
 
-Vijf grote criteria zullen worden gebruikt: populariteit (\ref{sec:vergelijking-populariteit}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
+Vijf criteria zullen worden gebruikt: populariteit (\ref{sec:vergelijking-populariteit}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
 Elk raamwerk krijgt voor elk criterium een score afgeleid uit een formule. 
 Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-spinnenweb}).
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
-%TODO productiviteit schrappen?
 De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuningscriterium drijven.  
-%TODO gonzalo snapt onderstaande zin niet. Het wordt al vermeld bij gebruik. Hiet weglaten?
-%Dit komt omdat Capgemini de POC zo heeft opgesteld dat het verschillende functionaliteit bevat om een volledige vergelijking te kunnen maken.
-
+Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteit bevat die van een normale applicatie verwacht.
+Zo is de POC representatief om een volledige vergelijking te kunnen maken.
 De score van performantie zal deels bepaald worden door de laadtijden van de POC.
 
 \subsection{Populariteit}
 \label{sec:vergelijking-populariteit}
 De populariteit van een raamwerk kan in cijfers worden uitgedrukt door gebruik te maken van sociale netwerken. 
-Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en forkers van GitHub,  vragen op Stackoverflow en aantal vind-ik-leuks van Facebook~\cite{Sarrafi2012a,Ayuso2012}. 
+Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en \term{forkers} van \gh{},  vragen op \so{} en aantal vind-ik-leuks van \fb{}~\cite{Sarrafi2012a,Ayuso2012}. 
 
 GitHub kan worden gezien als een sociaal netwerk voor programmeurs~\cite{Catone2008} en bepaalt dus de actieve gemeenschap rond het raamwerk.
-Raamwerken die niet op GitHub te vinden zijn kruigen nul voor zowel het aantal sterren en forkers.
+Raamwerken die niet op GitHub te vinden zijn krijgen nul voor zowel het aantal sterren en \term{forkers}.
 Een alternatief hield de interpolatie van de GitHub data van de overige raamwerken in.
 Omdat deze aanpak het raamwerk onterecht zou bevoordelen, is hier niet voor gekozen.
 
-De som van Twitter volgers ($T_r$), GitHub sterren ($S_r$), GitHub forkers ($F_r$), Stackoverflow vragen ($SO_r$) en Facebook vind-ik-leuks ($FB_r$) vormt de score voor het gemeenschapscriteria:
+De som van Twitter volgers ($T_r$), \gh{} sterren ($S_r$), \gh{} \term{forkers} ($F_r$), \so{} vragen ($SO_r$) en \fb{} vind-ik-leuks ($FB_r$) vormt de score voor het gemeenschapscriterium:
 \begin{equation}
   \text{Populariteit}_r=T_r+S_r+F_r+SO_r+FB_r
   \label{eq:populariteit}
 \end{equation}
-met $r$ de verschillende raamwerken.
+voor een raamwerk $r$.
 
-De uitkomsten van dit criterium zullen vergeleken worden met data geleverd door Google Trends~\cite{Google2012a}.
+De uitkomsten van dit criterium zullen worden vergeleken met data geleverd door Google Trends~\cite{Google2012a}.
 Deze webapplicatie toont de evolutie van zoektermen op Google op een schaal van 100, waarbij 100 overeenkomt met de grootste zoekinteresse.
 Voor elk raamwerk zal het aantal zoekopdrachten op Google in functie van de tijd worden uitgezet.
-%TODO bekijken evolutie van data in de tijd?
+%TODO bekijken evolutie van data in de tijd? ja
 
 Er bestaat geen exacte formule om populariteit uit te drukken.
 De formule die werd gekozen om de score voor dit criterium te quoteren is onderheven aan subjectiviteit.
@@ -111,11 +109,11 @@ Twee opmerkingen moeten hierbij worden gemaakt.
 Enerzijds zijn de auteurs zich ervan bewust dat de doorsnede tussen sociale netwerken niet leeg is.
 Zo kan éénzelfde persoon zowel een volger op Twitter zijn als een vind-ik-leuk op Facebook plaatsen.
 Verschillende individuen zullen dus dubbel geteld worden in de totale score voor populariteit van het raamwerk.
-De score zal dus slechts een indicatie geven over de popularieit,  het is geen exacte weergave.
-Ten tweede zijn de auteurs er zicht van bewust dat de inclusie van Stackoverflow op twee manieren kan worden bekeken.
-Enerzijds kunnen veel vragen over één onderwerp duiden op veel onduidelijkheden over dit onderwerp.
+De score zal dus slechts een indicatie geven over de populariteit,  het is geen exacte weergave.
+Ten tweede zijn de auteurs er zicht van bewust dat de inclusie van \so{} op twee manieren kan worden bekeken.
+Enerzijds kunnen veel vragen duiden op veel onduidelijkheden over het raamwerk.
 Anderzijds kan dit een maat zijn voor de populariteit van dit onderwerp.
-De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste en het dus valied is Stackoverflow in de formule op te nemen.
+De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste en het dus valide is \so{} in de formule op te nemen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,25 +122,23 @@ De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste e
 \label{sec:vergelijking-productiviteit}
 De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwerk vertrouwd te raken en iets nuttig te kunnen bouwen.
 De auteurs zullen het raamwerk testen met een implementatie van de POC.
-Er kan verondersteld worden dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
+Er wordt verondersteld dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
 
-Elk zullen ze de POC in twee verschillende raamwerken maken,  daarnaast ook een extra login applicatie in twee andere raamwerken.
-%TODO namen vermelden ok?
-Tim Ameye maakt de POC in \jqm{} en \lungo{} en de login applicatie in \st{} en \kendo{}.
-Sander Van Loock zal dan de POC in \st{} en \kendo{} maken en de login applicaties in \jqm{} en \lungo{}.
+Elk zullen ze de POC in twee verschillende raamwerken maken en daarnaast ook een extra login applicatie in twee andere raamwerken.
+De ene auteur maakt de POC in \jqm{} en \lungo{} en de loginapplicatie in \st{} en \kendo{}.
+De andere zal dan de POC in \st{} en \kendo{} maken en de loginapplicaties in \jqm{} en \lungo{}.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
-De implementatie van de login applicatie is een extra test.
-Deze applicatie bevat GI-elementen, validaties,  \term{backend} integratie en een lijst.
-Deze test kan dit dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
+De implementatie van de loginapplicatie is een extra test.
+Deze applicatie bevat GI-elementen, validaties,  \term{backend}integratie en een lijst.
+De implementatie van de loginapplicatie kan dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
 Na het aanmelden met deze applicatie zal de gebruiker een lijst van $850$ elementen te zien krijgen.
-Deze lijst is voornamelijk bedoeld om de performantie te testen (zie sectie \ref{sec:vergelijking-performantie}).
-De elementen in de lijst zullen voorzien worden van een afbeelding en tekst.
-Het aantal elementen in de lijst - $850$ - is een schatting van het aantal liedjes die Elvis Presley ooit heeft opgenomen~\cite{Zimmy2011}.
-Deze keuze werd gemaakt met het oog op potentiele muziek applicaties die alle nummers van een artiest ook in lijsten samenbrengt.
-Elvis Presley is de artiest die het meeste opgenomen nummers achter zijn naam heeft staan en kan dus als bovengrens voor dit soort applicaties worden beschouwd.
+Deze lijst is bedoeld als stresstest om de performantie te testen (zie sectie \ref{sec:vergelijking-performantie}).
+De elementen in de lijst zullen voorzien worden van een afbeelding en tekst die een potentiële muziekapplicatie voorstellen.
+Het aantal liedjes in de lijst - $850$ - is een schatting van het maximum aantal liedjes dat ooit is opgenomen~\cite{Zimmy2011}.
+Het kan dus als bovengrens voor dit soort applicaties worden beschouwd.
 De implementatie van deze applicatie zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raamwerk,  één eenvoudige applicatie opgeleverd kan worden.
 Omdat de POC twee keer moet worden geïmplementeerd, wordt verwacht dat de tweede implementatie sneller zal verlopen.
-Dit probleem is onafwendbaar en zal bij de evalatie van de data aangehaald worden.
+Dit probleem is onafwendbaar en zal bij de evaluatie van de data aangehaald worden.
 De uren voor de implementatie van de loginapplicatie zal de score correcter maken.
 
 De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en de login applicatie ($t_{r,login}$) vormt de score voor de productiviteit:
@@ -150,13 +146,12 @@ De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en de login a
   \text{Productiviteit}_r = {t_{r,POC} + t_{r,login}}
   \label{eq:productiviteit}
 \end{equation}
-waar $r$ de verschillende raamwerken voorstellen.
+voor een raamwerk $r$.
 
-De uitkomsten van dit criterium zullen gestaafd worden met enkele argumenten.
-Eerst zullen het aantal tools bekeken worden die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
+De uitkomsten van dit criterium zullen gestaafd worden door ten eerste het aantal tools te bekijken die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
 Ook zullen de factoren die de leercurve bepalen, worden geschat.
 Vervolgens zal de kwaliteit en kwantiteit van de documentatie van elk raamwerk worden bekekenen.
-De mogelijkheden voor debuggen bepalen ook de productiviteit en zullen onderzocht worden.
+De mogelijkheden voor debuggen bepalen ook de productiviteit en zullen worden onderzocht.
 Dan zal gekeken worden naar de aanwezige literatuur van het raamwerk en waar ontwikkelaars met vragen terecht kunnen.
 Ten slotte zullen de lijnen code die nodig waren voor zowel de POC als de login applicatie gepresenteerd worden.
 
@@ -166,15 +161,12 @@ Ten slotte zullen de lijnen code die nodig waren voor zowel de POC als de login 
 \subsection{Gebruik}
 \label{sec:vergelijking-gebruik}
 
-De POC kan onderverdeeld worden in verschillende deelproblemen.
-Deze deelproblemen worden als uitdaging aan het raamwerk voorgelegd.
-Alle uitdagingen en deeluitdagingen zijn hieronder te vinden.
+De POC kan onderverdeeld worden in $13$ uitdagingen die onderverdeeld zijn in $38$ deeluitdagingen.
+Alle uitdagingen en deeluitdagingen zijn in tabel~\ref{tabel:uitdagingen} te vinden.
 
-%\begin{table}[H]
-%\centering
 \pgfplotstabletypeset[
   begin table=\begin{longtable}{p{12cm}},
-  end table=\end{longtable},
+  end table=\caption{Uitdagingen}\label{tabel:uitdagingen}\end{longtable},
   skip coltypes=true,
   col sep=comma,
   string type,
@@ -187,17 +179,12 @@ Alle uitdagingen en deeluitdagingen zijn hieronder te vinden.
   every last row/.style={
     after row=\bottomrule}
 ]{tabellen/uitdagingen.csv}
-%\caption{Uitdagingen}
-%\label{tabel:uitdagingen}
-%\end{table}
-
-In totaal konden $13$ uitdagingen en $38$ deeluitdagingen uit de POC geëxtraheerd worden.
 
 De wijze waarop het raamwerk de uitdaging aangaat zal een score bepalen.
 Er onderscheiden zich drie gevallen.
-De hoogste score ($2$) wordt toegekend wanneer de functionaliteit reeds aangeboden wordt door het raamwerk. 
+De hoogste score ($2$) wordt toegekend wanneer de functionaliteit aangeboden wordt door het raamwerk. 
 Een lagere score ($1$) betekent dat een plug-in moet worden gezocht.
-Omdat de raamwerken verderbouwen op HTML5, zal een kenmerk van HTML5 ook als plug-in beschouwd worden.
+Omdat de raamwerken bouwen op HTML5, zal een kenmerk van HTML5 ook als plug-in beschouwd worden.
 Voor een oplijsting van de HTML5 kenmerken wordt naar sectie \ref{sec:html5-css3-js} verwezen.
 Wanneer de implementatie zelf moet worden geschreven of een hack noodzakelijk is, zal de laagste score ($0$) worden toegekend.
 Ook is het mogelijk  dat de uitdaging helemaal niet wordt geïmplementeerd.
@@ -227,20 +214,16 @@ Er zijn dus slechts $3$ scores waaruit gekozen kan worden om de implementatie te
 De verklaringen bij de scores omvatten alle gevallen op een eenduidige manier.
 Een alternatief bestaat uit $4$ scores waarbij HTML5-kenmerken een lagere score krijgen ten opzichte van plug-ins.
 Omdat de raamwerken afhankelijk zijn van HTML5 werd hiervoor niet gekozen.
-%TODO beter uitleggen?
 
 De formule voor gebruik is de volgende:
 \begin{equation}
   \text{Gebruik}_r = \sum_{i=1}^{38}{\left(U_{r,i}\right)}
   \label{eq:gebruik}
 \end{equation}
-met $r$ de verschillende raamwerken en $i$ de uitdagingen.
+voor een raamwerk $r$ en een deeluitdaging $i$.
 
-Omdat er $38$ deeluitdagingen zijn, kan het raamwerk voor dit criterium maximaal $76$ behalen.
-
-%TODO alternatief voor ``interessante'' functionaliteit
-Alle interessante functionaliteit die in de POC werd gebruikt, zit in een uitdaging vervat.  
-Interessante functionaliteit slaat op functionaliteit die potentieel door het raamwerk kan worden geleverd.
+Omdat er $38$ deeluitdagingen zijn, kan een raamwerk voor dit criterium maximaal $76$ behalen.
+Alle functionaliteit die potentieel door een raamwerk kan worden geleverd en in de POC wordt gebruikt, zit in een uitdaging vervat.  
 De POC bevat bijvoorbeeld ook een omzetting van \term{identifiers} naar een tekstuele vorm.
 Dit is geen interessante functionaliteit omdat het eigen is aan de POC zelf.
 De implementatie hiervan zal uitsluitend uit \js{}-code bestaan.
@@ -254,25 +237,25 @@ Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen en v
 Enkel de standaard browser van het besturingssysteem zal beschouwd worden.
 Voor Android toestellen is dit de Android browser of Chrome.  
 Vanaf versie 4.0 wordt Chrome als standaard browser beschouwd~\cite{Wimberly2008}.
-Voor iOS is Safari de standaard browser
+Voor iOS is Mobile Safari de standaard browser
 
 
 Een context wordt gedefinieerd als één bepaalde configuratie van toestel, besturingssysteem en browser.
-In elke context zal de functionaliteit van de POC op ondersteuning worden getest met uitdagingen.
+In elke context zal de functionaliteit van de POC op ondersteuning worden getest.
 Uitdagingen die gebruikt zijn om het gebruikscriterium te testen, kunnen hier worden hergebruikt.
 Aangezien sommige uitdagingen triviaal gelden voor elk apparaat zal er slechts een subset van deze uitdagingen getest worden.
-Triviale uitdagingen zijn uitdagingen waarbij de implementatie in elk raamwerk enkel uit \js bestaat.
-Deze uitdagingen zijn:
+De overgebleven uitdagingen zijn:
 \begin{itemize}
- \item \uit{anatomie}
- \item \uit{laadscherm}
- \item \uit{vullen}
- \item \uit{ajax}
- \item \uit{lijsten}
+ \item \uit{toestel}
+ \item \uit{formulieren}
+ \item \uit{autoaanvullen}
+ \item \uit{afbeelding}
+ \item \uit{validatie}
+ \item \uit{handtekening}
+ \item \uit{pdf}
+ \item \uit{offline}
 \end{itemize}
-Er resten dan nog $8$ uitdagingen.
 Voor dit criterium worden alle deeluitdagingen verwaarloosd behalve bij \uit{formulieren} en \uit{offline}.
-%De onderuitdagingen zijn te specifiek om op ondersteuning te testen.
 Een uitdaging zal enkel slagen als alle deeluitdagingen ondersteund worden.
 Zo kan bijvoorbeeld op een apparaat getest worden of auto-aanvullen werkt.
 Uitdaging \uit{autoaanvullen} bevat als deeluitdagingen het ophalen van suggesties en het tonen van een dropdownmenu.
@@ -287,9 +270,8 @@ In dit geval moet de uitdaging niet worden gecontroleerd.
 Hierdoor is het aantal uitdagingen of onderuitdagingen die getest worden afhankelijk van het raamwerk.
 
 
-De score van een uitdaging of deeluitdaging kan $1$ of $0$ zijn.
-Dit slaat op respectievelijk een vlekkeloze of problematieke uitvoering.
-In totaal zullen $8$ contexten worden gebruikt.
+De score van een uitdaging of deeluitdaging kan $1$ of $0$ zijn, respectievelijk een correcte of foutieve uitvoering.
+In totaal zullen acht contexten worden gebruikt.
 Deze worden in tabel \ref{tabel:toestellen-hci} weergegeven.
 
  \begin{table}[H]
@@ -315,85 +297,93 @@ Deze worden in tabel \ref{tabel:toestellen-hci} weergegeven.
      after row=\bottomrule}
  ]{tabellen/apparaten.csv}
  }
- \caption{Beschikbare apparaten met hun besturingssysteem~(BS) en browser.}
+ \caption{Acht contexten: apparaten met hun soort, lancering, besturingssysteem~(BS) en browser.}
  \label{tabel:toestellen-hci}
  \end{table}
  
- %TODO getallen voluit schrijven?
-De keuze van de $8$ contexten waarop ondersteuning wordt getest, is voornamelijk bepaald door het beschikbaarheid van de apparaten op het departement computerwetenschappen van de KU Leuven.
+De keuze van de acht contexten waarop ondersteuning wordt getest, is voornamelijk bepaald door het beschikbaarheid van de apparaten op het Departement Computerwetenschappen van de KU Leuven.
 Er werd een evenwichtige keuze gemaakt tussen besturingssysteem,  browser en type apparaat.
-Er werd gekozen voor $4$ Android en $4$ iOS apparaten.
-Bij de $4$ Android apparaten zijn er $2$ met een Android browser en $2$ met Chrome browser.
-Ook werd er gekozen voor $4$ smartphones en $4$ tablets.
+Er werd gekozen voor vier Android en vier iOS apparaten.
+Bij de vier Android apparaten zijn er twee met een Android browser en twee met Chrome browser.
+Ook werd er gekozen voor vier smartphones en vier tablets.
 
 De som van de scores van de verschillende contexten bepaalt de score van het ondersteuningscriterium:
 \begin{equation}
-  \text{Ondersteuning}_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N_f}U_{r,c,i}\right)}
+  \text{Ondersteuning}_r = \sum_{c=1}^{8}{\left(\sum_{i=1}^{N_r}U_{r,c,i}\right)}
   \label{eq:ondersteuning}
 \end{equation}
-met $r$ de verschillende raamwerken,  $N_F$ het aantal geïmplementeerd uitdagingen en deeluitdagingen van het raamwerk,  $c$ de verschillende contexten en $i$ de uitdagingen. 
+voor  een raamwerk $r$, een context $c$, $N_r$ het maximum aantal geïmplementeerde deeluitdagingen voor een raamwerk $r$ en een uitdaging $i$. 
 
 
 Indien het raamwerk een implementatie bevat voor alle uitdagingen en deeluitdagingen kan er per context maximaal $13$ gescoord worden.
-Indien de $8$ contexten alle uitdagingen en deeluitdagingen correct weergeven zal de maximale score van $104$ behaald worden.
+Indien de acht contexten alle uitdagingen en deeluitdagingen correct weergeven zal de maximale score van $104$ behaald worden.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
-Performantie kan worden opgesplitst in twee verschillende factoren: laadtijden en gebruikservaring.
+Performantie kan worden opgesplitst in twee verschillende factoren: laadtijden en rendertijden.
+Zoals in sectie~\ref{sec:vergelijking-productiviteit} werd verteld, wordt de loginapplicatie als stresstest gebruikt om te performantie te testen.
+Ook geldt dat er wordt verwacht dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
+Dit is in tegenstelling tot de loginapplicatie die wel in de vier raamwerken kan worden geïmplementeerd.
+Hierdoor zal de POC niet worden gebruikt.
 
-Bij de laadtijden onderscheiden zich vier gevallen die samen de totale laadtijd bepalen.
-Eerste zal de laadtijd van de volledig geïmplementeerde POC bekeken worden ($l_{r,c,POC}$). 
-Vervolgens zal de tijd worden opgemeten om de POC uit het cachegeheugen te laden ($l_{r,c,POC_{cache}}$).
-Dezelfde twee gevallen zullen ook voor de login applicatie die in sectie \ref{sec:vergelijking-productiviteit} werden geïntroduceerd, worden opgemeten ($l_{r,c,login}$ en $l_{r,c,login_{cache}}$).
-De redenen waarom deze applicatie wordt gebruikt, is omdat er wordt verwacht dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
-Dit is in tegenstelling tot deze login applicatie wel met de vier raamwerken kan worden gebouwd.
+Bij de laadtijden onderscheiden zich twee gevallen die samen de totale laadtijd bepalen.
+Eerste zal de laadtijd van de loginaaplicatie bekeken worden ($\widehat{l}_{r,c,login}$). 
+Vervolgens zal de tijd worden opgemeten om de loginaaplicatie uit het cachegeheugen te laden ($\widehat{l}_{r,c,login_{cache}}$).
 
 Het opmeten van laadtijden zal met PCAP Web Performance Analyzer gebeuren~\cite{SongL.bmcquadeMdsteele2010}.
-Deze tool kan HAR-bestanden (HTTP \term{Archive}) analyseren.
-Dit zijn bestanden die sporen van HTTP-trafiek bevatten.
-Om deze bestanden te verkrijgen moet een laptop als hotspot worden ingesteld en de apparaten connecteren op de hotspot.
-Wireshark of TCPdump kunnen op de hotspot HTTP-verkeer opmerken en de HAR-bestanden aanmaken.
+Deze tool kan PCAP-bestanden die HTTP-trafiek bevatten, analyseren.
+Om deze bestanden te verkrijgen zal een laptop als hotspot worden ingesteld en de apparaten geconnecteerd op deze hotspot.
+TCPdump zal gebruikt worden op de hotspot om HTTP-verkeer op te meten en de PCAP-bestanden aan te maken.
 
-Elke meting zal drie keer worden uitgevoerd. %TODO moeten deze drie metingen ook in de formule worden opgenomen?
-Het gemiddelde van de drie metingen zal de uiteindelijke laadtijd bepalen. %TODO referentie 3 metingen ?
-% Tim: de redenen was dat het manueel werk is, dus nu zaten we voor 3 metingen op 8 devices aan ongeveer 1 werkdag om dat uit te voeren
+%Elke meting zal drie keer worden uitgevoerd. %TODO moeten deze drie metingen ook in de formule worden opgenomen?
+%Het gemiddelde van de drie metingen zal de uiteindelijke laadtijd bepalen. %TODO referentie 3 metingen ?
+%% Tim: de redenen was dat het manueel werk is, dus nu zaten we voor 3 metingen op 8 devices aan ongeveer 1 werkdag om dat uit te voeren
 
+De rendertijd zal gemeten worden met de tijd die het raamwerk nodig heeft om GI-elementen te renderen.
+Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
+De tijd die het raamwerk nodig heeft om de lijst de renderen ($\widehat{l}_{r,c,lijst}$) kan gemeten worden met \js-code.
 
-De gebruikservaring zal gemeten worden met de tijd die het raamwerk nodig heeft om GI-elementen te renderen.
-Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de login applicatie.
-De tijd die het raamwerk nodig heeft om de lijst de renderen ($l_{r,c,lijst}$) kan gemeten worden met \js-code.
-
-De laadtijden en gebruikservaring zullen op acht verschillende apparaten worden opgemeten.
-De gemiddelde laadtijd zal bekomen worden door de totale laadtijd door het aantal toestellen ($8$) te delen.
-Dit zijn dezelfde als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
-
-De formule voor het performantiecriterium wordt dan:
+De laadtijden en rendertijden zullen op acht verschillende apparaten worden opgemeten.
+Dit zijn dezelfde apparaten als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
+De totale laad- en rendertijd voor een raamwerk wordt bepaald door de som van de gemiddelde download -en rendertijden per apparaat.
+Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
 \begin{equation}
-  \text{Totale downloadtijd}_r= \sum_{c=1}^{8}{\left(l_{r,c,POC}+l_{r,c,POC_{cache}}+l_{r,c,login}+l_{r,c,login_{cache}}\right)}
+  \text{Totale laadtijd}_r= \sum_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}
     \label{eq:totale-downloadtijd}
 \end{equation}
 \begin{equation}
-  \text{Totale gebruikerservaring}_r= \sum_{c=1}^{8}{\left(l_{r,c,lijst}\right)}
+  \text{Totale rendertijd}_r= \sum_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}
   \label{eq:totale-gebruikerservaring}
 \end{equation}
+De performantie wordt bepaald door de totale laad- en rendertijden te delen door het aantal apparaten.
+De formule voor het performantiecriterium wordt dan:
 \begin{equation}
-  \text{Performantie}_r= \frac{\text{Totale downloadtijd}_r + \text{Totale gebruikerservaring}_r}{8}
+  \text{Performantie}_r= \frac{\text{Totale laadtijd}_r + \text{Totale rendertijd}_r}{8}
   \label{eq:performantie}
 \end{equation}
-met $c$ de verschillende contexten en $r$ de verschillende raamwerken.
+voor een raamwerk $r$.
 
-De score komt dus overeen met de responstijd van de applicatie.
-%TODO: PE toch klopt niet, we tellen 2 tijden op (zowel download als rendertijd) en daarop gaan we dan die formule van Nielsen op loslaten, ik denk dat je gewoon die Nielson op de 2 apparaten tijden kunt loslaten, maar niet op de som van de 2..
-%Sander:  voor ge de lijst ziet moet toch eerst de applicatie laden en dan de lijst renderen.  De gebruiker moet op beide wachten..
-Dit kan gecategoriseerd worden met limieten zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  $PE_r < 0.1$,  $PE_r < 1$ en $PE_r < 10$ (Alle tijden worden in seconden uitgedrukt).
-De eerste twee categorieën zijn aanvaardbaar.
+De responsetijd van de applicatie kan niet met deze formule worden getoetst.
+De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen, dan geldt:
+\begin{equation}
+  \text{Maximale reponsetijd}_r= \frac{\sum_{c=1}^{8}\left(\widehat{l}_{r,c,login}\right) + \text{Totale rendertijd}_r}{8}
+  \label{eq:performantie-max}
+\end{equation}
 
-Om de scores van het performantiecriterium te staven zullen twee eigenschappen van de code bekeken worden:  de downloadgrootte en het aantal lijnen HTML-code.
+Deze maximale reponsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  
+\begin{itemize}
+\item $\text{Maximale reponsetijd}_r < 0.1$: de gebruiker heeft het gevoel dat het systeem direct reageert.
+\item $\text{Maximale reponsetijd}_r < 1$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
+\item $\text{Maximale reponsetijd}_r < 10$: de limiet om de aandacht van de gebruiker te behouden.
+\end{itemize}
+
+Om de scores van het performantiecriterium te staven zullen twee eigenschappen van de code bekeken worden:  de downloadgrootte en het aantal lijnen HTML-code van zowel de POC als loginapplicatie.
+Daarnaast zal ook de gemiddelde downloadtijd van de POC per raamwerk worden bekeken.
 Ook zullen de resultaten gecontroleerd worden met Google Page Speed~\cite{Morgan2011}. 
-Deze tool kan de code van een webapplicatie analyseren en de performantie testen specifiek voor mobiele apparaten.
+Deze tool kan de code van een webpagina analyseren en de performantie testen specifiek voor mobiele apparaten.
 Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -403,14 +393,14 @@ Het resultaat is een score op 100 en een lijst van werkpunten om de performantie
 \label{sec:vergelijking-spinnenweb}
 
 Om de scores van de vijf criteria in een spinnenweb te kunnen plotten moet elke score op dezelfde schaal worden gebracht om duidelijk de verschillen te kunnen waarnemen.
-De Matlab extensie om spinnenwebben te genereren, vereist dit ook~\cite{Martti2007}.
+De Matlab-extensie om spinnenwebben te genereren, vereist dit ook~\cite{Martti2007}.
 Er werd gekozen om alle scores te relativeren.
 Hiervoor moet elke score van een criterium gedeeld worden door het maximaal behaalde resultaat van dat criterium.
 Alle scores zullen vervolgens tussen $0$ en $1$ liggen.
 Deze methode zal ervoor zorgen dat het raamwerk met de beste score een $1$ behaalt.
 
-Om verwarring te voorkomen, moeten ook de scores voor het productiviteitscriterium en performantiecriterium geinverteerd worden.
-Dit komt omdat voor deze critera geldt:  hoe lager de score,  hoe beter het raamwerk.
+Om verwarring te voorkomen, moeten ook de scores voor het productiviteitscriterium en performantiecriterium geïnverteerd worden.
+Dit komt omdat voor deze criteria geldt:  hoe lager de score,  hoe beter het raamwerk.
 
 De formules om de relatieve scores te bereken worden hieronder weergegeven.
 De relatieve scores zullen gebruikt worden om het spinneweb op te stellen.
@@ -421,12 +411,12 @@ De relatieve scores zullen gebruikt worden om het spinneweb op te stellen.
 \end{equation}
 
 \begin{equation}
-  REL(\text{Productiviteit}_r) = \frac{\left(\text{Productiviteit}_R\right)^{-1}}{\max_{m}\{\left(\text{Productiviteit}_m\right)^{-1}\}}
+  REL(\text{Productiviteit}_r) = \frac{\text{Productiviteit}_r^{-1}}{\max_{m}\{\text{Productiviteit}_m^{-1}\}}
   \label{eq:rel-productiviteit}
 \end{equation}
 
 \begin{equation}
-  REL(\text{Gebruik}_r) = \frac{\text{Gebruik}_R}{\max_{m}\{\text{Gebruik}_m\}}
+  REL(\text{Gebruik}_r) = \frac{\text{Gebruik}_r}{\max_{m}\{\text{Gebruik}_m\}}
   \label{eq:rel-gebruik}
 \end{equation}
 
@@ -436,6 +426,6 @@ De relatieve scores zullen gebruikt worden om het spinneweb op te stellen.
 \end{equation}
 
 \begin{equation}
-  REL(\text{Performantie}_r)= \frac{\left(\text{Performantie}_r\right)^{-1}}{\max_{m}\{\left(\text{Performantie}_m\right)^{-1}\}}
+  REL(\text{Performantie}_r)= \frac{\text{Performantie}_r^{-1}}{\max_{m}\{\text{Performantie}_m^{-1}\}}
   \label{eq:rel-performantie}
 \end{equation}

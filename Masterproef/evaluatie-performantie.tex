@@ -1,24 +1,19 @@
 \section{Performantie}
 \label{sec:evaluatie-performantie}
 
-Eerst zal de performantie worden besproken van de vier raamwerken.
-Voor de score van productiviteit wordt naar formule \ref{eq:gebruik} verwezen.
+Voordat de performantie kan worden besproken, zal formule~\ref{eq:performantie} om de performantie te berekenen, moeten worden herschreven.
+Dit komt doordat de rendertijd zal worden vervangen door de gebruikerservaring van een subjectieve lijsttest.
+De motivatie is hiervoor te vinden in sectie~\ref{sec:evaluatie-gebruikerservaring}. 
 
-Daarna zal in sectie~\ref{sec:evaluatie-downloadtijd} de totale downloadtijd gedetailleerd worden besproken.
-Hieropvolgend zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de gebruikerservaring worden besproken.
-Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{sec:evaluatie-performantie-xxx}.
-
-Vooral de totale performantie kan besproken, zal de formule om de totale performantie te berekenen~(zie \ref{eq:performantie}), moeten worden herschreven.
-Dit komt doordat in de gebruikerservaring zal worden vervangen door een subjectieve lijsttest (zie \ref{sec:evaluatie-gebruikerservaring}). 
-De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op gemiddelde downloadtijd, maar sterk scoort op de subjectieve lijsttest, een middelmatige score te geven.
-Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de downloadtijd gedeeld door de gebruikerservaring. De score voor de performantie van een raamwerk $r$ wordt:
+De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op de totale downloadtijd (zie formule~\ref{eq:totale-downloadtijd}), maar sterk scoort op gebruikerservaring, een middelmatige score te geven.
+Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de totale downloadtijd gedeeld door de gebruikerservaring. De nieuwe formule voor de score voor de performantie wordt:
 \begin{equation}
-  \text{Performantie}'_r = \frac{\text{Totale downloadtijd}_r}{\text{Totale gebruikerservaring}'_r}
+  \text{Performantie}'_r = \frac{\text{Totale downloadtijd}_r}{\text{Gebruikerservaring}_r}
   \label{eq:performantie-enhanced}
 \end{equation}
-
+van een raamwerk $r$. 
 De bekomen data voor de vier raamwerken aan de hand van deze nieuwe formule wordt weergegeven in tabel \ref{tabel:evaluatie-performantie}.
-
+Voor de score van performantie geldt hoe kleiner, hoe beter.
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -45,9 +40,13 @@ De bekomen data voor de vier raamwerken aan de hand van deze nieuwe formule word
 \label{tabel:evaluatie-performantie}
 \end{table}
 
-Het is duidelijk dat op vlak van totale performantie \jqm{} het beste scoort, kort gevolgd door \lungo{}.
+Het is duidelijk dat op vlak van performantie \lungo{} het beste scoort, kort gevolgd door \jqm{} en \st{}.
 Dit wordt verklaard doordat deze raamwerken geen architectuur afdwingen waardoor er ook een kleinere \js{}-code dient te worden gedownload ten opzichte van raamwerken die wel een architectuur afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
 \kendo{} en \st{} komen respectievelijk op de voorlaatste en laatste plaats.
+
+Eerst zal in sectie~\ref{sec:evaluatie-downloadtijd} de downloadtijd gedetailleerd worden besproken.
+Hieropvolgend zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de rendertijd worden besproken.
+Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{sec:evaluatie-performantie-xxx}.
 
 %%%%%%%%%%%%%%%%%%
 

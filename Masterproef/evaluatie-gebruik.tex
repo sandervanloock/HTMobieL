@@ -1,6 +1,6 @@
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
-Het gebruik van de vier raamwerken wordt samengevat voor de 13 uitdagingen in tabel \ref{tabel:evaluatie-gebruik}.
+Het gebruik van de vier raamwerken wordt samengevat voor de $13$ uitdagingen in tabel \ref{tabel:evaluatie-gebruik}.
 Per sectie zal iedere uitdaging per raamwerk worden besproken.
 
 \begin{table}[H]
@@ -33,15 +33,18 @@ Per sectie zal iedere uitdaging per raamwerk worden besproken.
 Het raamwerk dat het beste scoort bij gebruik is \kendo{}, kort gevolgd door \st{}.
 Dit kan grotendeels door de aanwezigheid van een architectuur, respectievelijk MVVM en MVC, worden verklaard.
 Het ontbreken van een architectuur bij de andere twee raamwerken resulteert in een omslachtige aanpak, waardoor punten worden verloren.
+%TODO ik vrees een beetje voor de geldigheid van onderstaande zin
 Daarnaast worden beide raamwerken beheerd door een bedrijf en aangezien de POC een typische bedrijfsapplicatie is, kan mede de goede score worden verklaard.
 Opmerkelijk is de perfecte score van \kendo{} voor formulieren, maar de mindere ondersteuning voor offline dan \st{}.
+%TODO onderstaande zin...
 \jqm{} behaalt de helft met wat overschot, maar goed is dat zeker niet.
 Vooral op het vlak om data automatisch in te laden in velden of lijsten, scoort het nul door het ontbreken van een architectuur. 
 Als laatste komt \lungo{} dat een onvoldoende behaalt.
 Dezelfde pijnpunten van \jqm{} zijn ook geldig voor \lungo{}.
 Daarenboven is er bij \lungo{} een totaal gebrek aan formuliervalidatie en aan de meer geavanceerdere formulierelementen.
-Voor deze laatste moet er het geluk zijn om plug-in te vinden of zal de functionaliteit zelf moeten worden geïmplementeerd. 
+Voor deze laatste moet er een plug-in worden gebruikt of zal de functionaliteit zelf moeten worden geïmplementeerd. 
 
+%TODO weinig diepgang in deze vier zinnen?
 \kendo{} en \st{} behalen elk zes perfecte uitdagingen.
 \kendo{} scoort twee maal onvoldoende, terwijl \st{} dat slechts één keer doet.
 \jqm{} heeft drie perfecte uitdagingen en vier onvoldoendes.
@@ -87,65 +90,71 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Het opbouwen van een \code{view} in \st{} gebeurt hiërarchisch met containers.
-Een component die aan een container kan worden toegevoegd is de \code{toolbar}.
-Een \code{toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
+Het opbouwen van een \code{View} in \st{} gebeurt hiërarchisch met containers.
+Een component die aan een container kan worden toegevoegd is de \code{Toolbar}.
+Een \code{Toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
 Dit kan dan dienstdoen als hoofdtekst en voettekst.
 Een cascade van hoofdteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
-Een \code{toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
-Knoppen aan een \code{toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
+Een \code{Toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
+Knoppen aan een \code{Toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
 
-Het toevoegen van een tabbar verloopt analoog door een \code{tabpanel} toe te voegen.
-De \code{items} eigenschap bevat dan een lijst van \code{views} met een titel waarbij de \code{view} zichtbaar wordt als op de titel wordt gedrukt.
+Het toevoegen van een tabbar verloopt analoog.
+De \code{items} eigenschap bevat dan een lijst van \code{Views} met een titel waarbij de \code{View} zichtbaar wordt als op de titel wordt gedrukt.
 
-Knoppen van kleur veranderen kan door de \code{style} van een knop te zetten.
-Deze eigenschap laat toe om CSS-eigenschappen als tekst of object aan de knop toe te voegen.
+Knoppen van kleur veranderen kan door de \code{style} eigenschap van een knop te zetten.
+Deze eigenschap laat toe om CSS-code als tekst of object aan de knop toe te voegen.
 
 \paragraph{\kendo}
-De anatomie van een \code{view} wordt met het data-attribuut \code{data-layout} bepaald.
-Hier wordt de id van een HTML-fragment opgegeven waar het skelet van een \code{view} staat.
-Hoofd- en/of voetteksten toevoegen kan door in het fragment de \code{header} of \code{footer} tags te gebruiken.
-Een hoofdtekst kan een \code{navbar} hebben waarin knoppen kunnen worden gedefinieerd.
-\code{Header}-tags kunnen niet genest worden, dus zijn onderhoofdteksten niet mogelijk in \kendo{}.
-%TODO referentie
+De anatomie van een \code{View} wordt met het data-attribuut \code{data-layout} bepaald.
+Hier wordt de \term{identifier} van een HTML-fragment opgegeven waar het skelet van een \code{View} wordt beschreven.
+Kop- en/of voetteksten toevoegen kan door in het fragment de \code{header} en/of \code{footer} tags te gebruiken.
+Een hoofdtekst kan een \code{Navbar} hebben waarin knoppen kunnen worden gedefinieerd.
+\code{Header}-tags kunnen niet genest worden, dus zijn onderkopteksten niet mogelijk in \kendo{}.
 
-Een tabbar moet met een \code{buttongroup} worden gemaakt.
+Een tabbar moet met een \code{Buttongroup} worden gemaakt.
 Dit is een lijst van knopppen.
-Na deze lijst moeten de bijhorende \code{views} worden geschreven.
+Na deze lijst moeten de bijhorende \code{Views} worden geschreven.
 Het initialiseren van de lijst van knoppen moet via \code{\$("\#id").kendoMobileButtonGroup()}.
 Het bijhorende \js-object bevat een \code{select} gebeurtenis die zich afspeeld wanneer een knop is geslecteerd.
-Aan deze gebeurtenis moet een functie worden gekoppeld die alle \code{views} verbergt behalve diegene die hoort bij de geselecteerde knop.
+Aan deze gebeurtenis moet een functie worden gekoppeld die alle \code{Views} verbergt behalve diegene die hoort bij de geselecteerde knop.
 Deze operaties steunen op de CSS-manipulatie zoals aangeboden door jQuery.
 
 De kleur van een knop wijzigen moet met CSS gebeuren.
-Omdat knoppen met HTML-tags worden aangemaakt kan de CSS-klasse rechtstreeks aan de tags worden toegevoegd.
+Omdat knoppen met HTML-tags worden aangemaakt kan de CSS-klasse rechtstreeks aan een tag worden toegevoegd.
 
 \paragraph{\jqm}
 Het toevoegen van een kop- en voettekst gebeurt door gebruik te maken van \code{data-role="header"} en \code{data-role="footer"}. 
 Wel moest dezelfde code op ieder scherm worden herhaald. 
 Dit kan worden vermeden door gebruik te maken van eenzelfde \code{data-id} attribuut. 
 Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijhorende logo's links en rechts uitgelijnd. 
+%TODO versie 1.3?
 Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die \jqm{}~1.3 zelf aanbiedt. 
+%TODO CSS3 media queries met \term
 De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 media queries.
 
+%TODO onderstaande zin voor de komma klopt niet
 Voor de onderkoptekst werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen, maar dan schoof de inhoud van de pagina niet mee naar onder. 
 De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
+%TODO speciale navigatie?
 Deze extra titel wordt ook gebruikt op de smartphone om naar de speciale navigatie te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
 
-Standaard is er een tabbalk aanwezig in jQuery Mobile, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
+Standaard is er een tabbalk aanwezig in \jqm, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
 Daarom werd gekozen voor \code{fieldset} met twee opties.
 
 De kleur van de knoppen aanpassen kan op twee manieren. 
 Ofwel wordt dit gedaan met CSS-code ofwel wordt gebruik gemaakt van ThemeRoller~\cite{JQuery2012c}. 
 Deze laatste manier werd gebruikt om de knoppen groen te maken. 
+%TODO men,  ``in die webinterface''
 Men sleept dan eenvoudigweg in die webinterface de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
 Door daarna de knop te annoteren met het \code{data-theme}-attribuut wordt het betreffende thema geactiveerd. 
-Om de knop blauw te maken was er geen nood aan een aanpassing, doordat blauw al één van de standaard thema's (\term{swatch} \code{b}) was en kon deze direct worden gebruikt.
+Om de knop blauw te maken was er geen nood aan een aanpassing.
+Blauw is al één van de standaard thema's (\term{swatch} \code{b}) en kon dus direct worden gebruikt.
 
 \paragraph{\lungo}
-Het tonen van kop- en voettekst gebeurt door de verschillende schermen van de applicatie te omvatten door \code{<article>}-tags en daarbinnen de \code{<header>}- en \code{<footer>}-tag te gebruiken.
+Het tonen van kop- en voettekst gebeurt door de verschillende schermen van de applicatie te omvatten met \code{<article>}-tags en daarbinnen de \code{<header>}- en \code{<footer>}-tag te gebruiken.
+%TODO al vroeger vermelden (ook al bij kendo van toepassing)
 Deze drie tags zijn nieuw in HTML5.
-Dit is in tegenstelling tot \jqm{} waarbij wordt gebruik gemaakt van \code{data-role}-attribuut om kop- en voettekst aan te duiden.
+Dit is in tegenstelling tot \jqm{} waarbij wordt gebruik gemaakt van het \code{data-role}-attribuut om kop- en voettekst aan te duiden.
 In de voettekst kunnen door CSS-regels de twee logo's links en rechts uitgelijnd worden.
 De onderkoptekst werd met een omweg bekomen door een lijst te maken met slechts één lijstitem.
 
@@ -196,7 +205,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
 \st{} kan zowel besturingssysteem, browser als ondersteunde (HTML5-)kenmerken opvragen en herkennen.
 Het besturingssysteem kan bevraagd worden via \code{Ext.os.name}.
-Deze methode herkent onder andere Android, iOS, Windows en BlackBerry.
+Deze methode herkent onder andere Android, iOS, Windows en BlackBerry~OS.
 Er kan ook gebruik worden gemaakt van de \term{singleton} klasse \code{Ext.os.is}.
 Zo geeft \code{Ext.os.is.Android} terug of Android het gebruikte besturingssysteem is of niet.
 Het opvragen en herkennen van browser en (HTML5-)kenmerken gebeurt op een analoge manier.
@@ -207,69 +216,61 @@ Het opvragen en herkennen van browser en (HTML5-)kenmerken gebeurt op een analog
  \item [\code{HBox}] plaatst de componenten horizontaal naast elkaar.
  \item [\code{VBox}] plaatst de componenten verticaal onder elkaar.
  \item [\code{Card}] plaatst de componenten boven elkaar.
- \item [\code{Fit}] maakt de component passend voor zijn ouder container.
- \item [\code{Docking}] maakt het plaatsen van extra componenten mogelijk in de top-, rechter-, bodem- of linkerrand van zijn ouder container.
+ \item [\code{Fit}] maakt de component passend voor zijn ouder component.
+ \item [\code{Docking}] maakt het plaatsen van extra componenten mogelijk in de top-, rechter-, bodem- of linkerrand van zijn ouder component.
 \end{description}
-De creatie van de tablet lay-out steunt op de \code{HBox} lay-out.
+De creatie van de tablet lay-out steunt op de \code{HBox} waarde.
 De \code{flex} eigenschap van deze lay-out definieert de ratio van de groottes van beide componenten.
 De creatie van de smartphone lay-out maakt het menu in de linkse component van de lay-out onzichtbaar.
-Om naar het menu terug te keren moet een extra knop in de hoofdtekst worden toegevoegd die naar het menu navigeert.
-\st{} ondersteund geen klikbare hoofdteksten die deze functionaliteit toelaten.
+Om naar het menu terug te keren moet een extra knop in de koptekst worden toegevoegd die naar het menu navigeert.
+\st{} ondersteunt geen klikbare kopteksten die deze functionaliteit toelaten.
 
 \paragraph{\kendo}
 De methodes die \code{Kendo.support} aanbiedt, kunnen de context waarin de applicatie wordt uitgevoerd, opvragen.
 Een onderscheid maken tussen smartphone of tablet kan met \code{kendo.support.tablet}.
 
-De lay-out van de tablet is mogelijk met een \code{splitview}.
-Deze \code{view} is specifiek voor tablets en kan het scherm horizontaal of verticaal opdelen.
-Een \code{splitview} moet als waarde bij het data-attribuut \code{data-role} worden toegekend.
-De verschillende schermen binnen een \code{splitview} moeten als \code{pane} worden geannoteerd.
-Het scherm van de \code{splitview} dat moet wijzigen bij het aanklikken van een knop, moet met het \code{data-target} attribuut bij de kop worden gedefinieerd.
+De lay-out van de tablet is mogelijk met een \code{Splitview}.
+Deze \code{View} is specifiek voor tablets en kan het scherm horizontaal of verticaal opdelen.
+Een \code{Splitview} moet als waarde aan het data-attribuut \code{data-role} worden toegekend.
+De verschillende schermen binnen een \code{Splitview} moeten als \code{Pane} worden geannoteerd.
+Een \code{Pane} is \code{View} die op zichzelf staat en bij \code{Splitviews} moet worden gebruikt.
+Het scherm van de \code{Splitview} dat moet wijzigen door het menu, moet met het \code{data-target} attribuut bij de knop worden gedefinieerd.
 
-De tablet lay-out wordt als standaard gebruikt.
+De tablet lay-out standaard gebruikt.
 Om de smartphone lay-out te verkrijgen moeten drie aanpassingen gebeuren.
-Beide \code{panes} van de \code{splitview} moeten als apparte \code{view} worden toegevoegd ter vervanging van de \code{splitview}.
+Beide \code{Panes} van de \code{Splitview} moeten als aparte \code{View} worden toegevoegd.
+Dit als vervanging van de \code{Splitview}.
 Ook moeten de \code{data-target} attributen worden verwijderd.
-Ten slotte moet de hoofdtekst linken naar het menu in de schermen voor het toevoegen van een uitgave.
-
-%TODO layout als data-role bespreken?
-
-% Dit zijn de mogelijkheden:
-% \begin{description}
-%   \item [\code{touch}] geeft terug of de browser \term{touch} gebeurtenissen ondersteund.
-%   \item [\code{pointers}] geeft terug of de browser \code{pointer} gebeurtenissen ondersteund.
-%   \item [\code{scrollbar}] geeft de breedte van de \code{scrollbar} terug in pixels.
-%   \item [\code{hasHW3D}] geeft terug of de browser 3D-ondersteuning biedt voor transities en transformaties.
-%   \item [\code{hasNativeScrolling}] geeft terug of de browser deze CSS-eigenschap ondersteund.
-%   \item [\code{devicePixelRatio}] geeft het huidige pixel ratio terug (Android).
-%   \item [\code{placeHolder}] geeft terug of de browser invoer placeholders ondersteund.
-%   \item [\code{zoomLevel}] geeft het huidige zoom niveau terug van de browser.
-% \end{description}
+Ten slotte moeten de onderkopteksten linken naar het menu.
 
 \paragraph{\jqm}
 Het raamwerk biedt zelf geen functies aan om te herkennen of het toestel een smartphone of tablet is.
 In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
 Eerst werd gezocht naar plug-ins aan de hand van een blogpost~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
 Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
-Zo was de eerste destructief ten opzichte van het raamwerk. 
+Zo was de eerste destructief ten opzichte van het raamwerk.
+%TODO moeten worden geüpdatet
 Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als er moeten worden geüpdatet naar een nieuwe versie. 
-De tweede plug-in werkte enkel tot versie 1.0.1 van \jqm{}. 
+De tweede plug-in werkte enkel tot versie 1.0.1.
+%TODO had moeite..
 De laatste plug-in had moeite met het zich aanpassen aan veranderende afmetingen van de browser. 
 
 Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 media queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
-Ook uit de documentatie van versie 1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
+Ook uit de documentatie van versie~1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
 Daarnaast wordt op de documentatiesite van \jqm{}~1.2 al een gelijkaardige lay-out gebruikt~\cite{JQuery2012b}. 
 De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 media queries en de documentatiesite van \jqm{}~1.2.
 Bij CSS3 media queries moet zelf een breekpunt (uitgedrukt in pixels) worden opgegeven wanneer dient geschakeld te worden tussen smartphonelay-out of tabletlay-out.
 
+%TODO gebruikt gebruikt
 Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt gebruikt.
 
 \paragraph{\lungo}
-Het raamwerk zelf biedt de functie \code{Lungo.Core.isMobile()} aan om te weten of het huidige apparaat een mobiel apparaat is.
+Het raamwerk zelf biedt de functie \code{Lungo.Core.isMobile()} aan om te weten of het huidige apparaat mobiel is.
 QuoJS biedt daarnaast ook nog \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} en \code{screen} aan.
 Deze laatste geeft de breedte en hoogte terug.
 Dit betekent dat de ontwikkelaar nog altijd zelf instaat voor de bepaling of het een smartphone of tablet is.
 Als oplossing werd gebruik gemaakt van CSS3 media queries, met dezelfde aanpak als \jqm{}.
+%TODO gebruikt gebruikt
 Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt gebruikt.
 
 %%%%%%%%%%%%%
@@ -308,18 +309,18 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{view} te plaatsen.
-Een object van dit xtype kan een bericht bevatten wat de laadtekst voorstelt.
-Het toten van een masker kan door de \code{setMasked} methode op een \code{view} op te roepen.
-Een courante aanpak is te werken met de \term{singleton} klasse \code{Ext.Viewport} die de huidige zichtbare \code{view} voorsteld.
-Hierop de \code{setMasked} methode oproepen verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
+Een laadscherm tonen kan door een masker met xtype \code{loadmask} op de huidige \code{View} te plaatsen.
+Een object van dit xtype kan een bericht bevatten dat de laadtekst voorstelt.
+Het tonen van een masker kan door de \code{setMasked} methode op een \code{View} op te roepen.
+Een courante aanpak is te werken met de \term{singleton} klasse \code{Ext.Viewport} die de zichtbare \code{View} voorsteld.
+Hierop de \code{setMasked} methode oproepen, verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
 
-De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialogen weer te geven.
+De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialoogvensters weer te geven.
 \st{} biedt drie standaarden van dialogen aan: \code{alert}, \code{promt} en \code{confirm}.
 De eerste laat de gebruiker een bericht zien,  de tweede vraagt de gebruiker om invoer en de laatste vraagt bevestiging aan de gebruiker.
 Deze drie standaarden zijn als methode in \code{Ext.Msg} beschikbaar.
 Parameters van de methoden kunnen de titel, tekst en functie van de knoppen bepalen.
-Een meer generieke aanpak is het oproepen van de \code{show} methode van \code{Ext.Msg}.
+Een meer generieke aanpak is het oproepen van de \code{show} methode op \code{Ext.Msg}.
 Intern roepen de standaard dialogen deze methode ook op.
 
 \paragraph{\kendo}
@@ -330,16 +331,16 @@ Hierop kunnen de \code{showLoading} en \code{hideLoading} methoden worden opgero
 %dialoogvenster
 Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd (niet te verwarren met het \code{viewModel} van de MVVM-architectuur).
 Het attribuut \code{data-role} moet \code{modelview} als waarde hebben om een HTML-fragment als dialoogvenster te definiëren.
-Dit fragment kan hoofd- en/of voetteksten bevatten.
+Dit fragment kan kop- en/of voetteksten bevatten.
 Het is mogelijk het \code{ModelView} in \js{} te selecteren met \code{\$("\#id").data("kendoMobileModalView")}.
-%TODO waarbij id voor de id van het modelview staat?
-Openen van het venster kan in \js{} met de \code{open} methode of in HTML door te linken naar het \code{modelview} en het \code{data-rel} attribuut aan \code{modelview} gelijk te stellen.
+Openen van het venster kan in \js{} met de \code{open} methode of in HTML door te linken naar het \code{ModelView} en het \code{data-rel} attribuut aan \code{modelview} gelijk te stellen.
 
 \paragraph{\jqm}
 Het standaard laadscherm is enkel een \term{spinner} die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
-Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook een tekst worden ondergezet.
+Door de opties in de API te gebruiken, komt de \term{spinner} duidelijk naar voor door een zwarte achtergrond en kan er ook tekst worden ondergezet.
 
 De laadschermen werden in combinatie met de AJAX-oproepen gebruikt.
+%TODO oproep opgeroepen
 Bij de AJAX-oproep wordt de functie \code{beforeSend} voor de oproep opgeroepen en de functie \code{complete} na de oproep.
 Dit zijn dus de ideale plaatsen om respectievelijk de laadschermen te tonen en te verbergen.
 Indien de AJAX-oproepen in een ketting worden geplaatst, lukt deze aanpak niet meer.
@@ -360,6 +361,7 @@ Het laadscherm wordt in samenwerking met de AJAX-oproepen gebruikt.
 Net voor de AJAX-oproep zal het laadscherm worden getoond en in de \term{callback} van de AJAX-oproep zal het worden verborgen.
 Er treedt zich echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-oproepen.
 Volgens de documentatie verbergt de functie \code{Lungo.Notification.hide()} het huidige laadscherm of dialoogvenster. 
+%TODO einde van de zin:  niet verschijnt verborgen
 Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt verborgen.
 Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet wordt getoond.
 Een oplossing hiervoor is om bij een ketting van vensters, nooit de vensters tussenin te sluiten.
@@ -413,42 +415,43 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 % Creating custom datepickers is not supported.  
 % It is impossible to ignore the days field and only years can be delimited.  
 % Clearing the form after it was send, has to be programmed manually.
-Een formulier wordt in \st{} \code{fielset} genoemd.
-Een \code{view} van een formulier voorzien kan door in de rij van elementen een object met \code{xtype} \code{fieldset} te maken.
+Een formulier wordt in \st{} \code{Formpanel} genoemd.
+Een \code{Formpanel} van een formulier voorzien kan door in de rij van elementen een object met xtype \code{Fieldset} te maken.
 Dit object kan op zijn beurt voorzien worden van een rij van elementen.
 Volgende velden worden aangeboden in \st{}:
 \begin{itemize}
-  \item \code{textfield}        Ext.field.Text
-  \item \code{numberfield}      Ext.field.Number
-  \item \code{emailfield}	 Ext.field.Email			
-  \item \code{textareafield}    Ext.field.TextArea
-  \item \code{hiddenfield}      Ext.field.Hidden
-  \item \code{radiofield}       Ext.field.Radio
-  \item \code{checkboxfield}    Ext.field.Checkbox
-  \item \code{selectfield}      Ext.field.Select	
-  \item \code{togglefield}      Ext.field.Toggle
-  \item \code{fieldset}         Ext.form.FieldSet
+  \item \code{textfield}
+  \item \code{numberfield}
+  \item \code{emailfield}			
+  \item \code{textareafield}
+  \item \code{hiddenfield}
+  \item \code{radiofield}
+  \item \code{checkboxfield}
+  \item \code{selectfield}
+  \item \code{togglefield}
+  \item \code{fieldset}
 \end{itemize}
 
 Tekst-, email en nummervelden worden bij het renderen tot HTML5-invoertypes omgevormd en bijgevolg worden op mobiele toestellen bijhorende virtuele toetsenborden weergegeven.
-Een placeholder toevoegen kan door een veld met \code{placeholder} eigenschap te voorzien en de waarde aan de gewenste placeholder gelijk te stellen. 
+Een placeholder toevoegen kan door een veld te voorzien met de \code{placeholder} eigenschap en de waarde aan de gewenste placeholder gelijk te stellen. 
 Een label toevoegen verloopt analoog,  deze weglaten zal geen label renderen.
 
-Een aangepaste \term{datepicker} maken is niet standaard voorzien.
+Optievelden toevoegen kan door objecten met het xtype \code{selectfield},  een schakelaar met xtype \code{togglefield}.
+
+Een aangepaste \term{datepicker} maken is niet voorzien.
 Een standaard \term{datepicker} is echter wel voorzien met \code{datepicker} als xtype.
 Deze kan enkel geconfigureerd worden door een begin- en eindjaar in te stellen.
 Een \term{datepicker} maken waarbij het bereik kleiner is dan een jaar, is niet mogelijk.
 Ook is het onmogelijk om enkel een maand- en jaarveld te tonen.
 
-%TODO challenge bekijken (enkel reset oproepen normaal ok )
 Het leegmaken van een formulier gebeurt niet automatisch wanneer het verzonden wordt.
-Hiervoor moet de \code{reset} methode op het bijhorende \code{formpanel} worden opgeroepen.
+Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden opgeroepen.
 
 \paragraph{\kendo}
  Formulierelementen definiëren kan via data-attributen door gebruik te maken van de opmaakgedreven aanpak van \kendo.
- Deze methodologie volgt dus sterk de HTML5-standaard.
- Het placeholder attribuut kan een placeholder definiëren,  het vermijden van een label zal geen labels genereren.
- Het type van het formulierelement moet met het type attribuut worden weergegeven.
+ Deze methodologie volgt sterk de HTML5-standaard.
+ Het \code{placeHolder} attribuut kan een placeholder definiëren,  het vermijden van \code{<label>}-tags zal geen labels genereren.
+ Het type van het formulierelement moet met het \code{type} attribuut worden gedefinieerd.
  Volgende types worden door \kendo{} ondersteund:
  \begin{itemize}
   \item \code{text}
@@ -458,26 +461,30 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{formpanel} worden 
   \item \code{email}
   \item \code{number}
   \item \code{tel}
-  \item \code{file} (niet in iOS)
+  \item \code{file}
   \item \code{date}
   \item \code{timemonth} 
   \item \code{datetime}
  \end{itemize}
+ 
+ Optievelden toevoegen volgt de HTML-werkwijze.
+ Hiervoor moet invoerelementen van het type \code{radio} worden toegevoegd.
+ Het aanmaken van een schakelaar kan door aan invoerelement van het type \code{checked} het \code{data-role} attribuut aan \code{switch} gelijk te stellen.
 
- \term{Datepickers} worden als widget aangeboden in het Web luik van \kendo{}.
- Het raamwerk zal een invoerelement omvormen naar een \code{kendoDatePicker}.
+ \term{Datepickers} worden als widget aangeboden in het Web luik van \kendo.
  Het invoerelement ziet er als volgt uit: \code{<input id=\"datepicker\"\/>}.  
  Vervolgens moet het element worden geïnitialiseerd met \code{\$("\#datePicker").kendoDatePicker()}.
  De datepicker is aanpasbaar zoals gevraagd in de POC.
- Het bereik van de data selectie kan worden ingeperkt door de \code{min} en \code{max} eigenschap van de \code{kendoDatePicker} te zetten.
+ Het bereik van de selectie kan worden ingeperkt door de \code{min} en \code{max} eigenschap van de \code{kendoDatePicker} te zetten.
  Deze eigenschappen worden bij initialisatie van het object meegegeven.
- Enkel maand- en jaarvelden tonen kan door de diepte van de \term{datepicker} in te stellen.
+ Enkel maand- en jaarvelden tonen, kan door de diepte van de \term{datepicker} in te stellen.
  Hiervoor moet de eigenschap \code{depth} aan \code{year} worden gelijkgesteld.
  
  Het wissen van formulieren steunt op de MVVM-architectuur.
- Een fomulier is gebonden aan een \code{(view)model}:  de inhoud van elk formulierelement komt overeen met de waarde van een eigenschap van een \code{(view)model} met dezelfde naam.
- Wanneer een uitgave wordt verzonden, zal de huidige waarde van het \code{(view)model} in een \js-object worden opgeslagen en wordt het \code{(view)model} gereset.
- Door de dubbele binding tussen formulier en \code{(view)model} zal ook de inhoud van de formulierelementen worden gewist.
+ Een fomulier kan worden gebonden aan een \code{(View) Model}.
+ De waarde van elk formulierelement komt dan overeen met de waarde van een eigenschap van dat \code{(View) Model} met dezelfde naam.
+ Wanneer een uitgave wordt toegevoegd, zal de huidige waarde van het \code{(View) Model} wordt het \code{(View) Model} gereset.
+ Door de dubbele binding tussen formulier en \code{(View) Model} zal ook de inhoud van de formulierelementen worden gewist.
  
 \paragraph{\jqm} 
 Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}-attribuut in HTML5. 

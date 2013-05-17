@@ -1,5 +1,5 @@
 Uitdaging,Challenge,Max,jQM(abs),jQM(rel),ST(abs),ST(rel),Lungo(abs),Lungo(rel),Kendo(abs),Kendo(rel)
 U7.1 Kies een afbeelding,C7.1 Choose image,2,2,1.00,1,0.50,2,1.00,2,1.00
-U7.2 Converteer de afbeelding naar base64,C7.2 Convert image to base64,2,1,0.50,1,0.50,1,0.50,1,0.50
+U7.2 Converteer de afbeelding naar Base64,C7.2 Convert image to Base64,2,1,0.50,1,0.50,1,0.50,1,0.50
 U7.3 Voorbeeld van de afbeelding,C7.3 Preview image,2,1,0.50,2,1.00,1,0.50,1,0.50
 Totaal,Total,6,4,0.67,4,0.67,4,0.67,4,0.67

@@ -8,11 +8,11 @@ Grootte CSS (kB),245.70,168.40,92.07,84.93
 Type,JavaScript-gedreven,JavaScript- en opmaakgedreven,Opmaakgedreven,Opmaakgedreven
 Architectuur,MVC,MVVM,/,/
 Licentie,GNU GPLv3 \& commercieel,commercieel,MIT,GNU GPLv3 \& commercieel
-Licentiekost,gratis,\$ 699,gratis,gratis
+Licentiekost,gratis,\$699,gratis,gratis
 Professionele ondersteuning,ja,ja,nee,nee
-Kosten ondersteuning,\$ 299,\$ 699 (zit in licentiekost),/,/
-Native look-and-feel,nee ,ja,nee,nee
+Kosten ondersteuning,\$299,\$699 (zit in licentiekost),/,/
+\term{Native look-and-feel},nee ,ja,nee,nee
 Inpakken tot native applicatie,ja,nee,nee,nee
-Tools gebruikersinterface,Sencha Architect,nee,Codiqa,nee
+Tools voor GI,Sencha Architect,nee,Codiqa,nee
 Tools voor thema,nee ,Mobile ThemeBuilder,ThemeRoller voor jQuery Mobile,nee
-Tools voor minifien,Sencha Cmd,nee,nee,nee
+Tools voor uitrollen,Sencha Cmd,nee,nee,nee

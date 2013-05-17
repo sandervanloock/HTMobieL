@@ -79,7 +79,6 @@ Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
 De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuningscriterium drijven.  
 Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteit bevat die van een normale applicatie verwacht.
 Zo is de POC representatief om een volledige vergelijking te kunnen maken.
-De score van performantie zal deels bepaald worden door de laadtijden van de POC.
 
 \subsection{Populariteit}
 \label{sec:vergelijking-populariteit}
@@ -323,20 +322,22 @@ Indien de acht contexten alle uitdagingen en deeluitdagingen correct weergeven z
 
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
-Performantie kan worden opgesplitst in twee verschillende factoren: laadtijden en rendertijden.
+Performantie kan worden opgesplitst in twee verschillende factoren: downloadtijden en rendertijden.
 Zoals in sectie~\ref{sec:vergelijking-productiviteit} werd verteld, wordt de loginapplicatie als stresstest gebruikt om te performantie te testen.
 Ook geldt dat er wordt verwacht dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
 Dit is in tegenstelling tot de loginapplicatie die wel in de vier raamwerken kan worden geïmplementeerd.
 Hierdoor zal de POC niet worden gebruikt.
 
-Bij de laadtijden onderscheiden zich twee gevallen die samen de totale laadtijd bepalen.
-Eerste zal de laadtijd van de loginaaplicatie bekeken worden ($\widehat{l}_{r,c,login}$). 
-Vervolgens zal de tijd worden opgemeten om de loginaaplicatie uit het cachegeheugen te laden ($\widehat{l}_{r,c,login_{cache}}$).
+Bij de downloadtijden onderscheiden zich twee gevallen die samen de totale downloadtijd bepalen.
+Eerste zal de downloadtijd van de loginaaplicatie bekeken worden ($\widehat{l}_{r,c,login}$). 
+Vervolgens zal de tijd worden opgemeten om de loginaaplicatie uit het cachegeheugen te downloaden ($\widehat{l}_{r,c,login_{cache}}$).
 
-Het opmeten van laadtijden zal met PCAP Web Performance Analyzer gebeuren~\cite{SongL.bmcquadeMdsteele2010}.
-Deze tool kan PCAP-bestanden die HTTP-trafiek bevatten, analyseren.
-Om deze bestanden te verkrijgen zal een laptop als hotspot worden ingesteld en de apparaten geconnecteerd op deze hotspot.
-TCPdump zal gebruikt worden op de hotspot om HTTP-verkeer op te meten en de PCAP-bestanden aan te maken.
+Het opmeten van de downloadtijden zal met TCPdump~\cite{Tcpdump2010} gebeuren, zoals werd voorgesteld door Thair~\cite{Thair2011}.
+Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot concerteren.
+Wanneer de meting wordt gestart, zal op het apparaat naar de applicatie gesurft worden waarna de meting wordt beëindigd. 
+De uitvoer van TCPdump is een PCAP-bestand die de HTTP-trafiek bevat.
+Deze zal via PCAP Web Performance Analyzer~\cite{SongL.bmcquadeMdsteele2010} worden omgezet naar een HAR-file, waarna een HTTP-waterval zal worden getoond.
+Hieruit kan de totale downloadtijd worden gehaald van de gedownloade bestanden voor die applicatie.
 
 %Elke meting zal drie keer worden uitgevoerd. %TODO moeten deze drie metingen ook in de formule worden opgenomen?
 %Het gemiddelde van de drie metingen zal de uiteindelijke laadtijd bepalen. %TODO referentie 3 metingen ?
@@ -346,12 +347,12 @@ De rendertijd zal gemeten worden met de tijd die het raamwerk nodig heeft om GI-
 Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
 De tijd die het raamwerk nodig heeft om de lijst de renderen ($\widehat{l}_{r,c,lijst}$) kan gemeten worden met \js-code.
 
-De laadtijden en rendertijden zullen op acht verschillende apparaten worden opgemeten.
+De downloadtijden en rendertijden zullen op acht verschillende apparaten worden opgemeten.
 Dit zijn dezelfde apparaten als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
 De totale laad- en rendertijd voor een raamwerk wordt bepaald door de som van de gemiddelde download -en rendertijden per apparaat.
 Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
 \begin{equation}
-  \text{Totale laadtijd}_r= \sum_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}
+  \text{Totale downloadtijd}_r= \sum_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}
     \label{eq:totale-downloadtijd}
 \end{equation}
 \begin{equation}
@@ -361,7 +362,7 @@ Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worde
 De performantie wordt bepaald door de totale laad- en rendertijden te delen door het aantal apparaten.
 De formule voor het performantiecriterium wordt dan:
 \begin{equation}
-  \text{Performantie}_r= \frac{\text{Totale laadtijd}_r + \text{Totale rendertijd}_r}{8}
+  \text{Performantie}_r= \frac{\text{Totale downloadtijd}_r + \text{Totale rendertijd}_r}{8}
   \label{eq:performantie}
 \end{equation}
 voor een raamwerk $r$.
@@ -389,10 +390,11 @@ Het resultaat is een score op 100 en een lijst van werkpunten om de performantie
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Spinnenweb}
+\section{Vergelijkingsoverzicht}
 \label{sec:vergelijking-spinnenweb}
 
-Om de scores van de vijf criteria in een spinnenweb te kunnen plotten moet elke score op dezelfde schaal worden gebracht om duidelijk de verschillen te kunnen waarnemen.
+Om de scores van de vijf criteria samen te vatten zal een spinnenweb worden gebruikt.
+Hierdoor moet elke score op dezelfde schaal worden gebracht om duidelijk de verschillen te kunnen waarnemen.
 De Matlab-extensie om spinnenwebben te genereren, vereist dit ook~\cite{Martti2007}.
 Er werd gekozen om alle scores te relativeren.
 Hiervoor moet elke score van een criterium gedeeld worden door het maximaal behaalde resultaat van dat criterium.

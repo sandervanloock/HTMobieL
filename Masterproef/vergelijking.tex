@@ -352,17 +352,17 @@ Dit zijn dezelfde apparaten als bij het ondersteuningscriterium (zie tabel \ref{
 De totale laad- en rendertijd voor een raamwerk wordt bepaald door de som van de gemiddelde download -en rendertijden per apparaat.
 Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
 \begin{equation}
-  \text{Totale downloadtijd}_r= \sum_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}
+  \text{Gemiddelde downloadtijd}_r= \frac{\sum_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}}{8}
     \label{eq:totale-downloadtijd}
 \end{equation}
 \begin{equation}
-  \text{Totale rendertijd}_r= \sum_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}
+  \text{Gemiddelde rendertijd}_r= \frac{\sum_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}}{8}
   \label{eq:totale-gebruikerservaring}
 \end{equation}
 De performantie wordt bepaald door de totale laad- en rendertijden te delen door het aantal apparaten.
 De formule voor het performantiecriterium wordt dan:
 \begin{equation}
-  \text{Performantie}_r= \frac{\text{Totale downloadtijd}_r + \text{Totale rendertijd}_r}{8}
+  \text{Performantie}_r= \text{Gemiddelde downloadtijd}_r + \text{Gemiddelde rendertijd}_r
   \label{eq:performantie}
 \end{equation}
 voor een raamwerk $r$.
@@ -370,7 +370,7 @@ voor een raamwerk $r$.
 De responsetijd van de applicatie kan niet met deze formule worden getoetst.
 De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen, dan geldt:
 \begin{equation}
-  \text{Maximale reponsetijd}_r= \frac{\sum\limits_{c=1}^{8}\left(\widehat{l}_{r,c,login}\right) + \text{Totale rendertijd}_r}{8}
+  \text{Maximale reponsetijd}_r= \frac{\sum_{c=1}^{8}\left(\widehat{l}_{r,c,login} + \widehat{l}_{r,c,lijst}\right)}{8}
   \label{eq:performantie-max}
 \end{equation}
 

@@ -58,6 +58,19 @@ Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{s
 De gemiddelde downloadtijd wordt bepaald door 1) en 2).
 Op figuur xx wordt de 
 
+\begin{figure}
+  \centering
+  \subfloat[Login applicatie]{
+    \includegraphics[width=0.45\textwidth, height=0.3\textheight]{figuren/performantie-login.pdf}
+    \label{fig:performantie-login}
+  }
+  \subfloat[Login applicatie uit cache]{
+    \includegraphics[width=0.45\textwidth, height=0.3\textheight]{figuren/performantie-login-cache.pdf}
+    \label{fig:performantie-login-cache}
+  }
+  \label{fig:performantie-login-boxplot}
+  \caption{Boxplots voor downloadtijden van login applicatie voor \st{}, \kendo{},  \jqm{} en \lungo{}. Minder is beter.}
+\end{figure}
 
 \lungo{} behaalt de eerste plaats.
 \jqm{} en \kendo{} behalen respectievelijk een tweede en derde plaats.
@@ -159,7 +172,7 @@ Voor de gemiddelde downloadtijd per apparaat per raamwerk wordt verwezen naar ap
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{figuren/performance.pdf}
+  \includegraphics[width=\textwidth]{figuren/performance-nl.pdf}
   \caption{Gemiddelde downloadtijd van POC,  POC uit cache,  login en login uit cache voor elk raamwerk. Minder is beter.}
   \label{fig:performantie}
 \end{figure}

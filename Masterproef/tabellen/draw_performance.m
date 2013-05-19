@@ -1,6 +1,23 @@
 function [] = draw_performance()
 
-M = csvread('performantie.csv',1,1,[1,1,4,4]);
+%%% boxplots login + login uit cache
+
+login = csvread('performantie-login.csv',1,0);
+logincache = login(:,5:8);
+login = login(:,1:4);
+
+mylabels = {'Sencha Touch','Kendo UI','jQuery Mobile','Lungo'};
+boxplot(login,'colors',[1 64/255 38/255;85/255 156/255 57/255;0 71/255 129/255;1 209/255 81/255],'labels',mylabels);
+ylabel('tijd (s)') 
+saveas(gca,'../figuren/performantie-login.pdf');
+system('pdfcrop ../figuren/performantie-login.pdf ../figuren/performantie-login.pdf');
+figure;
+boxplot(logincache,'colors',[1 64/255 38/255;85/255 156/255 57/255;0 71/255 129/255;1 209/255 81/255],'labels',mylabels);
+ylabel('tijd (s)') 
+saveas(gca,'../figuren/performantie-login-cache.pdf');
+system('pdfcrop ../figuren/performantie-login-cache.pdf ../figuren/performantie-login-cache.pdf');
+
+M = csvread('performantie.csv',1,1,[1 1 4 4]);
 %swap jqm(1) en st(2) => st,jqm,lungo,kendo
 M = M(:,[1:1-1,2,1+1:2-1,1,2+1:end]);
 %swap jqm(2) en kendo(4) => st,kendo,lungo,jqm
@@ -27,13 +44,33 @@ for i=1:4
     end
 end
 set(gca,'YLim',[0 max(M(:)+2)]);
-saveas(gca,'../figuren/performance.pdf');
-system('pdfcrop ../figuren/performance.pdf ../figuren/performance.pdf');
-
-%logintimes = M(
+saveas(gca,'../figuren/performance-nl.pdf');
+system('pdfcrop ../figuren/performance-nl.pdf ../figuren/performance-nl.pdf');
+%%%%%%%%%%%% engelse performance voor paper
+figure;
+plot = bar(M');
+set(plot(1),'facecolor',[1 64/255 38/255]);
+set(plot(2),'facecolor',[85/255 156/255 57/255]);
+set(plot(3),'facecolor',[0 71/255 129/255]);
+set(plot(4),'facecolor',[1 209/255 81/255]);
+ylabel('tijd (s)') 
+legend('Sencha Touch', 'Kendo UI', 'jQuery Mobile', 'Lungo');
+set(gca,'XTickLabelMode', 'manual', 'XTickLabel', mylabels);
+for i=1:4
+    X = get( get(plot(i),'Children'), 'XData');
+    Y = get( get(plot(i),'Children'), 'YData');
+    for j = 1:size(X,2)
+        text(X(3,j)/2+X(2,j)/2,Y(3,j)+.1,num2str(M(i,j),'%0.2f'),'Rotation',90);
+    end
+end
+mylabels = {'POC','POC from cache','Login','Login from cache'};
+set(gca,'XTickLabelMode', 'manual', 'XTickLabel', mylabels);
+set(gca,'YLim',[0 max(M(:)+2)]);
+saveas(gca,'../figuren/performance-en.pdf');
+system('pdfcrop ../figuren/performance-en.pdf ../figuren/performance-en.pdf');
 
 apparaten = {'HTCDesireZ', 'GalaxyTab', 'GalaxyS', 'Nexus 7','iPad1 WiFi', 'iPad3 4G WiFi', 'iPhone 3GS', 'iPhone 4S'};
-mylegend = {'POC','POC uit cache','Login','Login uit cache'};
+mylegend = {'POC','POC uit cache','Loginapplicatie','Login applicatie uit cache'};
 
 %jquery mobile performance
 M = csvread('performantie/performantie-jqm.csv',1,2,[1,2,8,5]);
@@ -146,3 +183,4 @@ set(gca,'YLim',[0 max(M(:)+2)]);
 set(gcf, 'PaperPositionMode', 'auto');
 saveas(gca,'../figuren/performance-lungo.pdf');
 system('pdfcrop ../figuren/performance-lungo.pdf ../figuren/performance-lungo.pdf');
+close all;

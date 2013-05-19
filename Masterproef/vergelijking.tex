@@ -329,8 +329,8 @@ Dit is in tegenstelling tot de loginapplicatie die wel in de vier raamwerken kan
 Hierdoor zal de POC niet worden gebruikt.
 
 Bij de downloadtijden onderscheiden zich twee gevallen die samen de totale downloadtijd bepalen.
-Eerste zal de downloadtijd van de loginaaplicatie bekeken worden ($\widehat{l}_{r,c,login}$). 
-Vervolgens zal de tijd worden opgemeten om de loginaaplicatie uit het cachegeheugen te downloaden ($\widehat{l}_{r,c,login_{cache}}$).
+Eerste zal de downloadtijd van de loginapplicatie worden bekeken ($\widehat{l}_{r,c,login}$). 
+Vervolgens zal de tijd worden opgemeten om de loginapplicatie uit het cachegeheugen te downloaden ($\widehat{l}_{r,c,login_{cache}}$).
 
 Het opmeten van de downloadtijden zal met TCPdump~\cite{Tcpdump2010} gebeuren, zoals werd voorgesteld door Thair~\cite{Thair2011}.
 Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot concerteren.
@@ -339,17 +339,13 @@ De uitvoer van TCPdump is een PCAP-bestand die de HTTP-trafiek bevat.
 Deze zal via PCAP Web Performance Analyzer~\cite{SongL.bmcquadeMdsteele2010} worden omgezet naar een HAR-file, waarna een HTTP-waterval zal worden getoond.
 Hieruit kan de totale downloadtijd worden gehaald van de gedownloade bestanden voor die applicatie.
 
-%Elke meting zal drie keer worden uitgevoerd. %TODO moeten deze drie metingen ook in de formule worden opgenomen?
-%Het gemiddelde van de drie metingen zal de uiteindelijke laadtijd bepalen. %TODO referentie 3 metingen ?
-%% Tim: de redenen was dat het manueel werk is, dus nu zaten we voor 3 metingen op 8 devices aan ongeveer 1 werkdag om dat uit te voeren
-
 De rendertijd zal gemeten worden met de tijd die het raamwerk nodig heeft om GI-elementen te renderen.
 Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
 De tijd die het raamwerk nodig heeft om de lijst de renderen ($\widehat{l}_{r,c,lijst}$) kan gemeten worden met \js-code.
 
 De downloadtijden en rendertijden zullen op acht verschillende apparaten worden opgemeten.
 Dit zijn dezelfde apparaten als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
-De totale laad- en rendertijd voor een raamwerk wordt bepaald door de som van de gemiddelde download -en rendertijden per apparaat.
+De gemiddelde laad- en rendertijd voor een raamwerk wordt bepaald door de som van de gemiddelde download -en rendertijden per apparaat.
 Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
 \begin{equation}
   \text{Gemiddelde downloadtijd}_r= \frac{\sum_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}}{8}
@@ -359,7 +355,7 @@ Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worde
   \text{Gemiddelde rendertijd}_r= \frac{\sum_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}}{8}
   \label{eq:totale-gebruikerservaring}
 \end{equation}
-De performantie wordt bepaald door de totale laad- en rendertijden te delen door het aantal apparaten.
+De performantie wordt bepaald door de gemiddelde laad- en rendertijden te delen door het aantal apparaten.
 De formule voor het performantiecriterium wordt dan:
 \begin{equation}
   \text{Performantie}_r= \text{Gemiddelde downloadtijd}_r + \text{Gemiddelde rendertijd}_r
@@ -370,19 +366,19 @@ voor een raamwerk $r$.
 De responsetijd van de applicatie kan niet met deze formule worden getoetst.
 De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen, dan geldt:
 \begin{equation}
-  \text{Maximale reponsetijd}_r= \frac{\sum_{c=1}^{8}\left(\widehat{l}_{r,c,login} + \widehat{l}_{r,c,lijst}\right)}{8}
+  \text{Maximale responsetijd}_r= \frac{\sum_{c=1}^{8}\left(\widehat{l}_{r,c,login} + \widehat{l}_{r,c,lijst}\right)}{8}
   \label{eq:performantie-max}
 \end{equation}
 
-Deze maximale reponsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  
+Deze maximale responsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  
 \begin{itemize}
-\item $\text{Maximale reponsetijd}_r < 0.1\unit{s}$: de gebruiker heeft het gevoel dat het systeem direct reageert.
-\item $\text{Maximale reponsetijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
-\item $\text{Maximale reponsetijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
+\item $\text{Maximale responsetijd}_r < 0.1\unit{s}$: de gebruiker heeft het gevoel dat het systeem direct reageert.
+\item $\text{Maximale responsetijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
+\item $\text{Maximale responsetijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
 \end{itemize}
 
 Om de scores van het performantiecriterium te staven zullen twee eigenschappen van de code bekeken worden:  de downloadgrootte en het aantal lijnen HTML-code van zowel de POC als loginapplicatie.
-Daarnaast zal ook de gemiddelde downloadtijd van de POC per raamwerk worden bekeken.
+Daarnaast zal ook de gemiddelde downloadtijd van de POC en de loginapplicatie met elkaar worden vergeleken.
 Ook zullen de resultaten gecontroleerd worden met Google Page Speed~\cite{Morgan2011}. 
 Deze tool kan de code van een webpagina analyseren en de performantie testen specifiek voor mobiele apparaten.
 Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.

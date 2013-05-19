@@ -5,8 +5,8 @@ Voordat de performantie kan worden besproken, zal formule~\ref{eq:performantie} 
 Dit komt doordat de rendertijd zal worden vervangen door de gebruikerservaring van een subjectieve lijsttest.
 De motivatie is hiervoor te vinden in sectie~\ref{sec:evaluatie-gebruikerservaring}. 
 
-De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op de totale downloadtijd (zie formule~\ref{eq:totale-downloadtijd}), maar sterk scoort op gebruikerservaring, een middelmatige score te geven.
-Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de totale downloadtijd gedeeld door de gebruikerservaring. De nieuwe formule voor de score voor de performantie wordt:
+De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op de gemiddelde downloadtijd (zie formule~\ref{eq:totale-downloadtijd}), maar sterk scoort op gebruikerservaring, een middelmatige score te geven.
+Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de gemiddelde downloadtijd gedeeld door de gebruikerservaring. De nieuwe formule voor de score voor de performantie wordt:
 \begin{equation}
   \text{Performantie}'_r = \frac{\text{Gemiddelde downloadtijd}_r}{\text{Gebruikerservaring}_r}
   \label{eq:performantie-enhanced}
@@ -40,46 +40,51 @@ Voor de score van performantie geldt hoe kleiner, hoe beter.
 \label{tabel:evaluatie-performantie}
 \end{table}
 
-%TODO besluit
 Het is duidelijk dat op vlak van performantie \lungo{} het beste scoort, kort gevolgd door \jqm{} en \st{}.
 Dit wordt verklaard doordat deze raamwerken geen architectuur afdwingen waardoor er ook een kleinere \js{}-code dient te worden gedownload ten opzichte van raamwerken die wel een architectuur afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
 \kendo{} en \st{} komen respectievelijk op de voorlaatste en laatste plaats.
+\st{} scoort het slechtst op gemiddelde downloadtijd, maar behaalt de beste score op gebruikerservaring.
 
-Eerst zal in sectie~\ref{sec:evaluatie-downloadtijd} de downloadtijd gedetailleerd worden besproken.
-Hieropvolgend zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de rendertijd worden besproken.
+Eerst zal in sectie~\ref{sec:evaluatie-downloadtijd} de gemiddelde downloadtijd gedetailleerd worden besproken.
+Hieropvolgend zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de gebruikerservaring worden besproken.
 Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{sec:evaluatie-performantie-xxx}.
+
+%TODO nielsen maximale responsetijd
 
 %%%%%%%%%%%%%%%%%%
 
 \subsection{Gemiddelde downloadtijd}
 \label{sec:evaluatie-downloadtijd}
 
-%TODO figuur referentie
-De gemiddelde downloadtijd wordt bepaald door 1) en 2).
-Op figuur xx wordt de 
+De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd}.
+Om beter de spreiding van deze downloadtijd op de acht apparaten te kunnen bekijken, wordt op figuur \ref{fig:performantie-login-boxplot} de downloadtijd uitgezet in een boxplot.
+Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de loginapplicatie uit cache.
 
 \begin{figure}
   \centering
-  \subfloat[Login applicatie]{
-    \includegraphics[width=0.45\textwidth, height=0.3\textheight]{figuren/performantie-login.pdf}
+  \subfloat[Loginapplicatie]{
+    \includegraphics[width=0.85\textwidth]{figuren/performantie-login.pdf}
     \label{fig:performantie-login}
   }
-  \subfloat[Login applicatie uit cache]{
-    \includegraphics[width=0.45\textwidth, height=0.3\textheight]{figuren/performantie-login-cache.pdf}
+  \quad
+  \subfloat[Loginapplicatie uit cache]{
+    \includegraphics[width=0.85\textwidth]{figuren/performantie-login-cache.pdf}
     \label{fig:performantie-login-cache}
   }
+  \caption{Downloadtijden van loginapplicatie voor \st{}, \kendo{},  \jqm{} en \lungo{}. Minder is beter.}
   \label{fig:performantie-login-boxplot}
-  \caption{Boxplots voor downloadtijden van login applicatie voor \st{}, \kendo{},  \jqm{} en \lungo{}. Minder is beter.}
 \end{figure}
 
-\lungo{} behaalt de eerste plaats.
+\paragraph{Loginapplicatie}
+\lungo{} behaalt de eerste plaats (zie figuur \ref{fig:performantie-login}).
 \jqm{} en \kendo{} behalen respectievelijk een tweede en derde plaats.
-Het is zelfs meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
+\lungo{} is zelfs meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
 Deze drie raamwerken behalen quasi dezelfde downloadtijd.
 \kendo{} en \st{} nemen respectievelijk voorlaatste en laatste plaats in.
 Dit wordt verklaard door het gebruik van een architectuur waardoor een grotere \js{}-code dient te worden gedownload ten opzichte van raamwerken die geen architectuur afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
 
-Als naar de versie uit cache wordt gekeken, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde.
+\paragraph{Loginapplicatie uit cache}
+Als naar de versie uit cache wordt gekeken, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde (zie figuur \ref{fig:performantie-login-cache}).
 Daarentegen behaalt \st{} telkens een vele tragere tijd.
 Enerzijds komt dit doordat de drie eerstgenoemde raamwerken enkel gebruik maken van HTML5 Application Cache.
 \st{} gebruikt daarnaast ook nog een eigen mechanisme waardoor de grotere laadtijd wordt verklaard (zie \ref{app:performantie-st}).
@@ -89,13 +94,13 @@ De webapplicaties gemaakt \st{} gebruiken daarentegen Sencha Cmd.
 %%%% De cache factor van ST is constant (gemiddeld 1,8)
 %%%% De andere raamwerken hebben een beduidend grotere cache factor 
 
-Indien \st{} buiten beschouwen wordt gelaten, duurt het eerste keer laden van de POC gemiddeld 5,73 seconden. 
-Het laden van de versie uit cache duurt slechts gemiddeld 400 milliseconden.
-De eerste keer laden van de loginapplicatie duurt gemiddeld 3,32 seconden.
-Indien deze uit cache komt, duurt dit nog slechts gemiddeld 420 milliseconden.
-Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993} doordat de tijden uit cache onder de seconde blijven.
-Volgens Nielsen dient er wel feedback over het laden te worden gegeven aan de gebruiker.
-Dit neemt de browser voor zich door bij het laden een laadbalk of spinner te tonen.
+%Indien \st{} buiten beschouwen wordt gelaten, duurt het eerste keer laden van de POC gemiddeld 5,73 seconden. 
+%Het laden van de versie uit cache duurt slechts gemiddeld 400 milliseconden.
+%De eerste keer laden van de loginapplicatie duurt gemiddeld 3,32 seconden.
+%Indien deze uit cache komt, duurt dit nog slechts gemiddeld 420 milliseconden.
+%Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993} doordat de tijden uit cache onder de seconde blijven.
+%Volgens Nielsen dient er wel feedback over het laden te worden gegeven aan de gebruiker.
+%Dit neemt de browser voor zich door bij het laden een laadbalk of spinner te tonen.
 
 %%%%%%%%%%%%%%%%%%
 
@@ -112,9 +117,9 @@ Deze test werd uitgevoerd door twee personen.
 %TODO: is dat nu goed of slecht als we dat maar met 2 personen hebben gedaan?
 %Er dient echter opgemerkt te worden dat het tijdsbudget het niet toeliet om deze test te laten uitvoeren door minstens vijf personen te laten uitvoeren, wat voorgesteld wordt door Nielsen.
 
-Om de totaalscore van een raamwerk te bepalen worden de scores voor dat raamwerk op ieder apparaat opgeteld. De nieuwe formule voor totale gebruikerservaring voor een raamwerk $r$ wordt:
+Om de score voor gebruikerservaring van een raamwerk te bepalen worden de scores voor dat raamwerk op ieder apparaat opgeteld. De formule voor gebruikerservaring voor een raamwerk $r$ wordt:
 \begin{equation}
-  \text{Totale gebruikerservaring}'_r = \sum_{c=1}^{8}{\text{ervaring}_{r,c}}
+  \text{Gebruikerservaring}'_r = \sum_{c=1}^{8}{\text{ervaring}_{r,c}}
   \label{eq:performantie-gebruikservaring}
 \end{equation}
 
@@ -146,7 +151,7 @@ In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwe
 \label{tabel:evaluatie-performantie-gebruikerservaring}
 \end{table}
 
-\st{} behaalde de maximale score.
+\st{} behaalt de maximale score.
 Dit wil zeggen dat op alle toestellen het scrollen door de lijst van \st{} het vlotst ging.
 \jqm{} werd zes keer als tweede beste beoordeeld. 
 Op de \htc{} liep \kendo{} vlotter,  op de \ipadi{} was \lungo{} nummer twee.
@@ -159,23 +164,23 @@ De score van \kendo{} is dus slechts voor vier apparaten.
 
 %%%%%%%%%%%%%%%%%%
 
-%TODO sander: oplossen titel
-\subsection{xxx}
+\subsection{Duiding}
 \label{sec:evaluatie-performantie-xxx}
+%TODO sander: updaten duiding, geen POC meer gebruiken, enkel login
 
 In wat volgt zullen metrieken worden besproken die de score van de performantie zullen duiden.
 De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklaring}.
 
-%TODO gemiddelde downloadtijd
-Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
-Voor de gemiddelde downloadtijd per apparaat per raamwerk wordt verwezen naar appendix \ref{app:performantie}.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{figuren/performance-nl.pdf}
-  \caption{Gemiddelde downloadtijd van POC,  POC uit cache,  login en login uit cache voor elk raamwerk. Minder is beter.}
-  \label{fig:performantie}
-\end{figure}
+%TODO is de gemiddelde downloadtijd nu nog relevant? waar steken we die?
+%Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
+%Voor de gemiddelde downloadtijd per apparaat per raamwerk wordt verwezen naar appendix \ref{app:performantie}.
+%
+%\begin{figure}[H]
+%  \centering
+%  \includegraphics[width=\textwidth]{figuren/performance-nl.pdf}
+%  \caption{Gemiddelde downloadtijd van POC,  POC uit cache,  login en login uit cache voor elk raamwerk. Minder is beter.}
+%  \label{fig:performantie}
+%\end{figure}
 
 
 %TODO geen komma's in de tabellen als dat niet nodig is

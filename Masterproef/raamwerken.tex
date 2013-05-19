@@ -216,7 +216,7 @@ Hoewel dit bij de meeste browsers geen probleem meer vormt, vallen toch enkele p
 De volgende versie van de Opera browser zal de WebKit \term{engine} wel bevatten~\cite{Wokke2013}, een trend dat de meeste browser verkopers zullen (moeten) volgen.
 
 Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen over de context die gehanteerd wordt (browser, besturingssysteem, toestel, etc.).  
-Verder kan \st{} ook vragen naar de ondersteuning van specifieke kenmerken (audio,  canvas,  CSS3, ...)  analoog als Modernizr~\cite{Modernizr2012}.  
+Verder kan \st{} ook vragen naar de ondersteuning van specifieke kenmerken (audio,  \code{canvas},  CSS3, ...)  analoog als Modernizr~\cite{Modernizr2012}.  
 
 Op de Sencha website zijn voor de belangrijkste browsers en bijhorend besturingssystemen \term{scorecards} voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
 %TODO beetje uitwerken
@@ -560,7 +560,7 @@ Opmerkelijk is de directe ondersteuning door het raamwerk bij het naar beneden t
 
 \item \textbf{Core }
 Hier worden functies aangehaald die het raamwerk zelf intern gebruikt.
-Een voorbeeld hiervan is de \code{Lungo.Core.isMobile()}-functie die controleert of de applicatie in een mobiele omgeving wordt uitgevoerd.
+Een voorbeeld hiervan is de \code{Lungo.Core.isMobile}-functie die controleert of de applicatie in een mobiele omgeving wordt uitgevoerd.
 Een ander voorbeeld is de aanwezigheid van een sorteer- en zoekfunctie voor rijen.
 
 \item \textbf{Data }
@@ -588,7 +588,7 @@ Hier wordt uitgebreid ingegaan op de navigatie doorheen de applicatie vanuit \js
 Het is mogelijk om binnen eenzelfde artikel tussen verschillende secties te navigeren alsook van artikel te veranderen.
 Daarnaast is het mogelijk om vanuit \js{} de zijnavigatie te tonen.
 Dit navigatie wordt zichtbaar door links bovenaan te klikken.
-Als laatste voorziet \lungo{} een terugkeerfunctionaliteit, vergelijkbaar met de functie \code{history.back()} uit \js{}.
+Als laatste voorziet \lungo{} een terugkeerfunctionaliteit, vergelijkbaar met de functie \code{history.back} uit \js{}.
 
 \item \textbf{Service }
 Versturen van HTTP-verzoeken kan vanuit \lungo{} zelf.

@@ -20,18 +20,18 @@ U3.2 Toon dialoogvenster,C3.2 Show dialog box
 \uit{formulieren-wissen},\chal{formulieren-wissen}
 \uit{vullen},\chal{vullen}
 U5.1 Vul formulierelementen met object,C5.1 Filling in the form elements with object
-U5.2 Maak elementen van het formulier read-only,C5.2 Make the form elements read-only
+U5.2 Maak elementen van het formulier \term{read-only},C5.2 Make the form elements read-only
 \uit{autoaanvullen},\chal{autoaanvullen}
-U6.1 Haal suggesties op gebaseerd op gebruikersinvoer,C6.1 Fetch suggestions based on input
+U6.1 Zoek suggesties gebaseerd op gebruikersinvoer,C6.1 Search suggestions based on input
 U6.2 Toon suggesties in klikbaar dropdownmenu,C6.2 Show suggestions in clickable drop down
 \uit{afbeelding},\chal{afbeelding}
 U7.1 Kies een afbeelding,C7.1 Choose image
-U7.2 Converteer de afbeelding naar base64,C7.2 Convert image to base64
+U7.2 Converteer de afbeelding naar Base64,C7.2 Convert image to Base64
 U7.3 Voorbeeld van de afbeelding,C7.3 Preview image
 \uit{validatie},\chal{validatie}
 U8.1 Validatieregels voor verplichte nummer- en e-mailvelden,C8.1 Validation rules for a required number and email field 
 U8.2 Validatieregels voor eigen condities,C8.2 Validation depends on custom conditions 
-U8.3 Venster voor foutenboodschappen van ongeldige velden,C8.3 Error dialog with invalid fields and explanation
+U8.3 Foutboodschappen ophalen van ongeldige velden,C8.3 Retrieve error messages of invalid fields
 U8.4 Rode randen plaatsen rond ongeldige velden,C8.4 Red borders around invalid fields 
 \uit{handtekening},\chal{handtekening}
 U9.1 Teken een handtekening met vinger of pen,C9.1 Draw a signature with finger or pen 
@@ -41,7 +41,7 @@ U10.2 Haal JSON-data op en parse,C10.2 Fetch and parse JSON
 U10.3 Zend JSON-data,C10.3 Send JSON payload
 U10.4 Haal XML-data op en parse,C10.4 Fetch and parse XML
 \uit{lijsten},\chal{lijsten}
-U11.1 Laad data in lijst en stijl de elementen met een template,C11.1 Load data into list and styling list items
+U11.1 Laad data in lijst en stijl de elementen met een sjabloon,C11.1 Load data into list and styling list items
 U11.2 Klikbare lijstelementen met actie of link naar het record van het element,C11.2 Clickable items with custom action or linking to record of item
 U11.3 Sorteren van data,C11.3 Sorting data
 \uit{pdf},\chal{pdf}

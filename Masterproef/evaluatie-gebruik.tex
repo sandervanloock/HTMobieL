@@ -52,7 +52,7 @@ Voor deze laatste moet er een plug-in worden gebruikt of zal de functionaliteit 
 %\jqm{} heeft drie perfecte uitdagingen en vier onvoldoendes.
 %Als laatste komt \lungo{} met slechts één perfecte uitdaging en zeven onvoldoendes.
 
-Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-oproepen, behalve dan bij één geval voor \lungo{}.
+Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-verzoeken, behalve dan bij één geval voor \lungo{}.
 Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
 
 
@@ -111,13 +111,13 @@ De anatomie van een \code{View} wordt met het data-attribuut \code{data-layout} 
 Hier wordt de \term{identifier} van een HTML-fragment opgegeven waar het skelet van een \code{View} wordt beschreven.
 Kop- en/of voetteksten toevoegen kan door in het fragment de \code{header} en/of \code{footer} tags te gebruiken.
 Deze twee tags zijn nieuw in HTML5.
-Een hoofdtekst kan een \code{Navbar} hebben waarin knoppen kunnen worden gedefinieerd.
+Een koptekst kan een \code{Navbar} hebben waarin knoppen kunnen worden gedefinieerd.
 \code{Header}-tags kunnen niet genest worden, dus zijn onderkopteksten niet mogelijk in \kendo{}.
 
 Een tabbar moet met een \code{Buttongroup} worden gemaakt.
 Dit is een lijst van knopppen.
 Na deze lijst moeten de bijhorende \code{Views} worden geschreven.
-Het initialiseren van de lijst van knoppen moet via \code{\$("\#id").kendoMobileButtonGroup()}.
+Het initialiseren van de lijst van knoppen moet via \code{\$("\#veld").kendoMobileButtonGroup}.
 Het bijhorende \js-object bevat een \code{select} gebeurtenis die zich afspeelt wanneer een knop is geselecteerd.
 Aan deze gebeurtenis moet een functie worden gekoppeld die alle \code{Views} verbergt behalve diegene die hoort bij de geselecteerde knop.
 Deze operaties steunen op de CSS-manipulatie zoals aangeboden door jQuery.
@@ -259,7 +259,7 @@ Bij CSS3 Media Queries moet zelf een breekpunt (uitgedrukt in pixels) worden opg
 Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt getoond.
 
 \paragraph{\lungo}
-Het raamwerk zelf biedt de functie \code{Lungo.Core.isMobile()} aan om te weten of het huidige apparaat mobiel is.
+Het raamwerk zelf biedt de functie \code{Lungo.Core.isMobile} aan om te weten of het huidige apparaat mobiel is.
 QuoJS biedt daarnaast ook nog \code{browser}, \code{os.name}, \code{os.name}, \code{env.os.version} en \code{screen} aan.
 Deze laatste geeft de breedte en hoogte terug.
 Dit betekent dat de ontwikkelaar nog altijd zelf instaat voor de bepaling of het een smartphone of tablet is.
@@ -326,7 +326,7 @@ Hierop kunnen de \code{showLoading} en \code{hideLoading} methoden worden opgero
 Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd (niet te verwarren met het \code{viewModel} van de MVVM-architectuur).
 Het attribuut \code{data-role} moet \code{modelview} als waarde hebben om een HTML-fragment als dialoogvenster te definiëren.
 Dit fragment kan kop- en/of voetteksten bevatten.
-Het is mogelijk het \code{ModelView} in \js{} te selecteren met \code{\$("\#id").data("kendoMobileModalView")}.
+Het is mogelijk het \code{ModelView} in \js{} te selecteren met \code{\$("\#veld").data("kendoMobileModalView")}.
 Openen van het venster kan in \js{} met de \code{open} methode of in HTML door te linken naar het \code{ModelView} en het \code{data-rel} attribuut aan \code{modelview} gelijk te stellen.
 
 \paragraph{\jqm}
@@ -339,20 +339,20 @@ Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
 Door zelf het dialoogvenster met \jqm{} aan te maken, kon de lay-out gemakkelijker worden aangepast.
 
 \paragraph{\lungo}
-Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt aangeboden door het raamwerk, namelijk: \code{Lungo.Notification.show()}.
+Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt aangeboden door het raamwerk, namelijk: \code{Lungo.Notification.show}.
 Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
 
-Het laadscherm wordt in samenwerking met de AJAX-oproepen gebruikt.
-Net voor de AJAX-oproep zal het laadscherm worden getoond en in de \term{callback} van de AJAX-oproep zal het worden verborgen.
-Er treedt zich echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-oproepen.
-Volgens de documentatie verbergt de functie \code{Lungo.Notification.hide()} het huidige laadscherm of dialoogvenster. 
+Het laadscherm wordt in samenwerking met de AJAX-verzoeken gebruikt.
+Net voor de AJAX-verzoek zal het laadscherm worden getoond en in de \term{callback} van de AJAX-verzoek zal het worden verborgen.
+Er treedt zich echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-verzoeken.
+Volgens de documentatie verbergt de functie \code{Lungo.Notification.hide} het huidige laadscherm of dialoogvenster. 
 Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt.
 Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet wordt getoond.
 Een oplossing hiervoor is om bij een ketting van vensters, nooit de vensters tussenin te sluiten.
 Wanneer zowel een laadscherm als dialoogvenster worden geopend, zal enkel dat laatste getoond worden.
 
 Om een dialoogvenster te tonen, worden de volgende parameters meegegeven: titel, omschrijving, tijd op het scherm en de \term{callback} functie.
-Indien er beslist wordt om geen tijd op te geven, kan het venster worden gesloten met \code{Lungo.Notification.hide()}.
+Indien er beslist wordt om geen tijd op te geven, kan het venster worden gesloten met \code{Lungo.Notification.hide}.
 Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
 Deze zullen respectievelijk een groene en rode kleur hebben.
 
@@ -399,7 +399,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 % It is impossible to ignore the days field and only years can be delimited.  
 % Clearing the form after it was send, has to be programmed manually.
 Een formulier wordt in \st{} \code{Formpanel} genoemd.
-Een \code{Formpanel} van een formulier voorzien kan door in de rij van elementen een object met xtype \code{Fieldset} te maken.
+Een \code{Formpanel} van een formulier voorzien kan door in de rij van elementen een object met \code{xtype} \code{Fieldset} te maken.
 Dit object kan op zijn beurt voorzien worden van een rij van elementen.
 Volgende velden worden aangeboden in \st{}:
 \begin{itemize}
@@ -419,10 +419,10 @@ Tekst-, e-mail en nummervelden worden bij het renderen tot HTML5-invoertypes omg
 Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap \code{placeholder} en de waarde aan de gewenste \term{placeholder} gelijk te stellen. 
 Een label toevoegen verloopt analoog,  deze weglaten zal geen label renderen.
 
-Optievelden toevoegen kan door objecten met het xtype \code{selectfield},  een schakelaar met xtype \code{togglefield}.
+Optievelden toevoegen kan door objecten met het \code{xtype} \code{selectfield},  een schakelaar met \code{xtype} \code{togglefield}.
 
 Een aangepaste \term{datepicker} maken is niet voorzien.
-Een standaard \term{datepicker} is echter wel voorzien met \code{datepicker} als xtype.
+Een standaard \term{datepicker} is echter wel voorzien met \code{datepicker} als \code{xtype}.
 Deze kan enkel geconfigureerd worden door een begin- en eindjaar in te stellen.
 Een \term{datepicker} maken waarbij het bereik kleiner is dan een jaar, is niet mogelijk.
 Ook is het onmogelijk om enkel een maand- en jaarveld te tonen.
@@ -455,8 +455,8 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Het aanmaken van een schakelaar kan door aan invoerelement van het type \code{checked} het \code{data-role} attribuut aan \code{switch} gelijk te stellen.
 
  \term{Datepickers} worden als widget aangeboden in \kendo Web.
- Het invoerelement ziet er als volgt uit: \code{<input id=\"{}datepicker\"{}\/>}.  
- Vervolgens moet het element worden geïnitialiseerd met \code{\$("\#datePicker").kendoDatePicker()}.
+ Het invoerelement ziet er als volgt uit: \code{<input id=\"{}veld\"{}\/>}.  
+ Vervolgens moet het element worden geïnitialiseerd met \code{\$("\#veld").kendoDatePicker}.
  De datepicker is aanpasbaar zoals gevraagd in de POC.
  Het bereik van de selectie kan worden ingeperkt door de \code{min} en \code{max} eigenschap van de \code{kendoDatePicker} te zetten.
  Deze eigenschappen worden bij initialisatie van het object meegegeven.
@@ -657,8 +657,8 @@ Het automatisch aanvullen van een formulierelement steunt op een plug-in van Taj
 Deze plug-in is niet op de Sencha Market terug te vinden.
 Plug-ins worden in de vorm van een \js-bestand geleverd.
 Dit bestand moet in de folder \code{touch/src/ux} worden geplaatst en de nieuwe klasse moet worden geïnitialiseerd bij het laden van de applicatie.
-Hierdoor wordt het xtype \code{autocompletefield} beschikbaar.
-Een object met dit xtype kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
+Hierdoor wordt het \code{xtype} \code{autocompletefield} beschikbaar.
+Een object met dit \code{xtype} kan een \code{proxy} definiëren die de server kan aanspreken om suggesties asynchroon op te halen.
 Ook is het mogelijk het maximaal aantal suggesties vast te leggen.
 
 De \term{backend} van de POC geeft bij een bepaalde invoer suggesties in een JSON-rij terug.
@@ -674,7 +674,7 @@ Hierdoor kon geen klikbare dropdownmenu worden getoond.
 
 \paragraph{\kendo}
 Het automatisch aanvullen van een formulierelement wordt als \term{widget} door \kendo{} Web aangeboden.
-Een HTML-invoerelement met \term{identifier} moet worden aangemaakt en geïnitialiseerd met \code{\$("\#id").kendoAutoComplete()}.
+Een HTML-invoerelement met \term{identifier} moet worden aangemaakt en geïnitialiseerd met \code{\$("\#id").kendoAutoComplete}.
 Elementen die automatisch aanvullen kunnen zowel van een lokale als externe bron worden aangeleverd.
 Externe suggesties moeten via een \code{DataSource} worden ingeladen.
 Een \code{DataSource} ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
@@ -737,7 +737,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden.
 De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
-Na het toevoegen van de plug-in wordt het xtype \code{img} beschikbaar voor \st{} componenten.
+Na het toevoegen van de plug-in wordt het \code{xtype} \code{img} beschikbaar voor \st{} componenten.
 
 De plug-in voorziet twee modes voor het opladen van bestanden: lokale als Base64 of extern naar een server.
 De eerste laat toe afbeeldingen lokaal of in het DOM op te laden en is nodig voor de POC.
@@ -749,7 +749,7 @@ De succesfunctie krijgt de Base64-tekst mee en kan een voorbeeld van de afbeeldi
 \paragraph{\kendo}
 \kendo{} Web biedt een widget aan die het opladen van bestanden toelaat.
 Deze widget kan in twee modes worden gebruikt: syncroon of asynchroon.
-Een HTML-invoerelement met \term{identifier} moet worden toegevoegd en geïnitialiseerd met \code{\$("\#id").kendoUpload()}.
+Een HTML-invoerelement met \term{identifier} moet worden toegevoegd en geïnitialiseerd met \code{\$("\#id").kendoUpload}.
 In synchrone mode wordt het formulier samen met de afbeelding verzonden naar de \term{backend} als een uitgave wordt toegevoegd.
 In asynchrone mode gebeurt het opladen meteen na het selecteren van de afbeelding.
 Deze methode voor het opladen van bestanden steunt op de HTML5 FileReaderAPI.
@@ -848,7 +848,8 @@ Deze validaties moeten binnen het data-attribuut van het formulierelement worden
 
 De \kendo{} \code{validator} is compatibel met deze HTML5-validaties.
 %TODO out of box
-Een \code{validator} moet in \js{} worden aangemaakt met volgend commando:  \code{\$("\#myform").kendoValidator().data("kendoValidator")}.
+Een \code{validator} moet in \js{} worden aangemaakt met volgend commando:  \newline
+\code{\$("\#veld").kendoValidator.data("kendoValidator")}.
 Hierbij kan de jQuery-\term{selector} eender welk element uit het DOM aanduiden.
 De \code{validator} zal geselecteerde invoerelementen controleren op validatieregels.
 
@@ -942,14 +943,14 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\st}
 Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden.
-De plug-in maakt een nieuw xtype \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
+De plug-in maakt een nieuw \code{xtype} \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
 
 Deze maakt gebruikt van het HTML5 \code{canvas} en retourneert de handtekening als Base64 tekst.
 
 \paragraph{\kendo}
 Aangezien \kendo{} steunt op de jQuery bibliotheek is \kendo{} ook compatibel met jQuery plug-ins.
 De jSignature handtekening plug-in van Willow Systems~\cite{Systems2013} werd geïmplementeerd.
-De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{toDataURL()} methode.
+De plug-in maakt gebruik van het HTML5 \code{canvas}-element en de \code{toDataURL}-methode.
 Hierdoor kan de Base64-string bekomen worden die nodig is om door te sturen naar de server.
 
 \paragraph{\jqm}
@@ -1009,7 +1010,7 @@ Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de ei
 De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{Stores}.
 Een \code{Store} wordt voorzien van een \code{Proxy}.  
 Deze kan data aan de klant- of serverzijde opslaan.  
-Een \code{proxy} voor opslag aan klant zijde kan zowel in het RAM-geheugen als de lokale opslag van de browser opslaan.  
+Een \code{proxy} voor opslag aan klantzijde kan zowel in het RAM-geheugen als de lokale opslag van de browser opslaan.  
 Een \code{Proxy} voor serveropslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
 Een \code{Proxy} kan ook geconfigureerd worden met \code{Readers} en \code{Writers} om data van de server te lezen of naar de server te schrijven.
 
@@ -1036,7 +1037,7 @@ Het maken van oproepen via AJAX gebeurt door jQuery.
 Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
 Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
 
-In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-oproep ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
+In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-verzoek ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
 Hierdoor is de functie \code{parseJSON} niet nodig en kan er direct met het antwoord worden omgaan.
 
 Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
@@ -1045,7 +1046,7 @@ Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeur
 
 Het versturen van JSON is gelijkaardig met het versturen van andere data.
 Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
-Daarna zal in de AJAX-oproep moeten worden aangegeven  dat de inhoud JSON is.
+Daarna zal in de AJAX-verzoek moeten worden aangegeven  dat de inhoud JSON is.
 Dit gebeurt door \code{contentType:"{}application/json"} te schrijven bij het AJAX-verzoek.
 
 \paragraph{\lungo}
@@ -1154,7 +1155,7 @@ Deze sorteereigenschap bepaalt het veld waarop gesorteerd moet worden en eventue
 
 \paragraph{\jqm}
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
-Hiervoor wordt gebruik gemaakt van de \code{.each()}-functie van jQuery om ieder data-item te overlopen.
+Hiervoor wordt gebruik gemaakt van de \code{.each}-functie van jQuery om ieder data-item te overlopen.
 Per item moet een \code{append} gebeuren van een lijstitem op de lijst.
 In dit item wordt de sjabloon van de lijst geschreven.
 Na alle elementen te hebben overlopen, moet de lijst ververst worden zodat \jqm{} de correcte lay-out toepast op de volledige lijst
@@ -1223,12 +1224,12 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
 Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
-Deze \code{view} bestaat uit een paneel met een hoofdtekst.
-Het paneel toont één pagina van het PDF-bestand,  de hoofdtekst bevat de navigatie naar andere pagina's.
+Deze \code{view} bestaat uit een paneel met een kopftekst.
+Het paneel toont één pagina van het PDF-bestand,  de koptekst bevat de navigatie naar andere pagina's.
 
 Om de plug-in in de POC in te passen waren echter twee aanpassingen noodzakelijk.
 Het PDF-bestand moet via een POST verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
-Ook moest er een terugknop in de hoofdtekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
+Ook moest er een terugknop in de koptekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
 Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
 
 \paragraph{\kendo}
@@ -1333,7 +1334,7 @@ Nadat een uitgaveformulier is verzonden worden de uitgaven uit de \code{localSto
 
 Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} zelf niet ondersteund.
 De HTML5 Application Cache kan zelf worden aangemaakt.
-Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
+Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\jqm}
 Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
@@ -1348,7 +1349,7 @@ Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverw
 Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gebruikersgegevens werden bewaard.
 
 Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
-Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
+Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\lungo}
 Het raamwerk biedt zelf functies aan om data op te slaan.
@@ -1356,4 +1357,4 @@ Intern zal het gebruik maken van \code{localStorage}, wat gespecificeerd is in H
 Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een fallback voorzien.
 
 Het offline beschikbaar maken van de applicatie wordt vanuit \lungo{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
-Om het proces te vergemakkelijken werd het \code{.appcache}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
+Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.

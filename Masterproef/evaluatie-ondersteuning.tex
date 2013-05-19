@@ -167,7 +167,7 @@ Ook werd het besturingssysteem herkend en werd de \term{native look-and-feel} na
 \paragraph{\jqm} \score{7}{8}
 Zeven van de acht toestellen werden met succes herkend als smartphone of tablet.
 Echter door de lage resolutie van de \gtab{}, werd staand de tablet als smartphone herkend.
-Indien het gekozen breekpunt van de CSS3 media query wordt geoptimaliseerd voor dit toestel, kan volledige ondersteuning voor \gtab{} worden bekomen.
+Indien het gekozen breekpunt van de CSS3 Media Query wordt geoptimaliseerd voor dit toestel, kan volledige ondersteuning voor \gtab{} worden bekomen.
 
 \paragraph{\lungo} \score{7}{8}
 Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
@@ -231,9 +231,9 @@ Alle labels buiten \term{Hotel} en \term{Restaurant} zijn te lang om in de voorz
 \st{} kort deze af met ellipses waardoor niet de volledige naam leesbaar is.
 Dit kan tot verwarring leiden.
 In \term{landscape} mode worden sommige labels wel zichtbaar
-De tweede onderuitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
+De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
 %TODO sander: referentie?
-De laatste twee onderuitdagingen halen de maximumscore.
+De laatste twee deeluitdagingen halen de maximumscore.
 
 \paragraph{\kendo} \score{34}{40}
 Alle Android toestellen toonden een wit kader bij \term{read-only} widgets.
@@ -241,7 +241,7 @@ Deze zijn te zien wanneer het overzicht van een ingevoerde uitgave wordt opgevra
 Dit ondankt de invoervelden standaard HTML-invoer zijn.
 Het raamwerk moet de waarden van de widgets in de \term{read-only} invoerelementen invullen.
 Deze functionaliteit werkt enkel op iOS toestellen.
-De tweede onderuitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
+De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
 %TODO sander: referentie?
 Het openen van \term{data-picker} bij \kendo{} vindt plaats als de gebruiker op het icoontje in het invoerveld klikt.
 Indien op de datum wordt geklikt zal de gebruiker de datum tektueel aanpassen.  
@@ -299,7 +299,7 @@ Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 onderste
 Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
 Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
-Dit komt omdat de grootte van de foto's de limiet van de \code{local storage} overschrijden.
+Dit komt omdat de grootte van de foto's de limiet van de \code{localStorage} overschrijden.
 %TODO exacte limiet localstorage refereren?
 % TODO Tim
 % Zie http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/CreatingContentforSafarioniPhone/CreatingContentforSafarioniPhone.html#//apple_ref/doc/uid/TP40006482-SW15
@@ -355,9 +355,9 @@ Dit werd opgelost door \code{focusInvalid:false} in te stellen.
 \label{sec:evaluatie-ondersteuning-handtekening}
 
 \kendo{} en \jqm{} hanteren dezelfde plug-in om deze uitdaging te implementeren.
-Onderliggend steunt deze op het \term{canvas} kenmerk van HTML5.
+Onderliggend steunt deze op het \code{canvas} kenmerk van HTML5.
 De plug-in die \st{} gebruikt is ook afhankelijk van dit kenmerk.
-Alle onderzochte toestellen ondersteunen de \term{canvas}~\cite{Deveria2013c} en de drie raamwerken behalen vervolgens de maximumscore 8/8. 
+Alle onderzochte toestellen ondersteunen de \code{canvas}~\cite{Deveria2013c} en de drie raamwerken behalen vervolgens de maximumscore 8/8. 
 
 Omdat bij \lungo{} geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
 
@@ -389,7 +389,7 @@ De score voor deze drie raamwerken is dus 5/8.
 \st{} maakt gebruik van een plug-in voor het tonen van PDF-bestanden.
 Deze plug-in maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla~\cite{Gal2010}.
 PDF.JS is geïmplementeerd met \js{} en HTML5.
-Het \term{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
+Het \code{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
 Slechts vanaf Android 3.0 wordt dit laatste ondersteund~\cite{Deveria2013c}.
 %TODO: iOS vermelden
 Deze uitdaging lukt dus niet op de \htc{} en \gtab{}.

@@ -151,26 +151,30 @@ Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline 
 \subsection{\uit{toestel}}
 \label{sec:evaluatie-ondersteuning-toestel}
 
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+\st{} en \kendo{} voorzien methoden om de context waarin de applicatie wordt uitgevoerd,  op te vragen.
+De implementatie van \jqm{} en \lungo{} steunt op CSS3.
+Het soort apparaat (smartphone of tablet) werd bij op alle toestellen behalve de \gtab correct herkend.
+Door de lage resolutie van de \gtab{} werd deze als smartphone gezien op \st{},  \jqm{} en \lungo{}.
+Bij \jqm{} en \lungo{} geldt dit niet wanneer de applicatie liggend wordt opgestart.
+\kendo{} herkende in alle gevallen de \gtab{} wel correct.
 
-%TODO aggregeren
-\paragraph{\st} \score{7}{8}
-Alle toestellen buiten de \gtab{} werden door het \st{} raamwerk herkend.
-Het genereren van de toestelspecifieke lay-out werd op elk toestel wel ondersteund.
 
-\paragraph{\kendo} \score{8}{8}
-Net zoals bij \jqm{} werd de \gtab{} enkel als tablet herkend als de applicatie liggend werd geladen.
-De toestelspecifieke lay-out werd correct weergegeven.
-Ook werd het besturingssysteem herkend en werd de \term{native look-and-feel} nagebootst.
-
-\paragraph{\jqm} \score{7}{8}
-Zeven van de acht toestellen werden met succes herkend als smartphone of tablet.
-Echter door de lage resolutie van de \gtab{}, werd staand de tablet als smartphone herkend.
-Indien het gekozen breekpunt van de CSS3 Media Query wordt geoptimaliseerd voor dit toestel, kan volledige ondersteuning voor \gtab{} worden bekomen.
-
-\paragraph{\lungo} \score{7}{8}
-Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
+% \paragraph{\st} \score{7}{8}
+% Alle toestellen buiten de \gtab{} werden door het \st{} raamwerk herkend.
+% Het genereren van de toestelspecifieke lay-out werd op elk toestel wel ondersteund.
+% 
+% \paragraph{\kendo} \score{8}{8}
+% Net zoals bij \jqm{} werd de \gtab{} enkel als tablet herkend als de applicatie liggend werd geladen.
+% De toestelspecifieke lay-out werd correct weergegeven.
+% Ook werd het besturingssysteem herkend en werd de \term{native look-and-feel} nagebootst.
+% 
+% \paragraph{\jqm} \score{7}{8}
+% Zeven van de acht toestellen werden met succes herkend als smartphone of tablet.
+% Echter door de lage resolutie van de \gtab{}, werd staand de tablet als smartphone herkend.
+% Indien het gekozen breekpunt van de CSS3 Media Query wordt geoptimaliseerd voor dit toestel, kan volledige ondersteuning voor \gtab{} worden bekomen.
+% 
+% \paragraph{\lungo} \score{7}{8}
+% Aangezien dezelfde aanpak werd gebruik als \jqm{} is de ondersteuning exact hetzelfde.
 
 %%%%%%%%%%%%%
 \subsection{\uit{formulieren}}
@@ -267,22 +271,22 @@ Deze laatste deed verschillende acties naargelang geklikt of gesleept werd op de
 \subsection{\uit{autoaanvullen}}
 \label{sec:evaluatie-ondersteuning-autoaanvullen}
 
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+\st{} kon deze uitdaging niet implementeren en dit werd bijgevold niet op ondersteuning getest.
+\kendo{} en \jqm{} behaalde beide de maximum score.
+Op de \htc{} werden bij \lungo{} de suggesties dubbel op het scherm aan de gebruiker getoond.
 
-%TODO: samennemen
-\paragraph{\st} 
-Deze uitdaging kon niet worden ondersteund omdat het raamwerk geen implementatie toeliet
-
-\paragraph{\kendo} \score{8}{8}
-Deze uitdaging behaalde op elk toestel de maximum score.
-
-\paragraph{\jqm} \score{8}{8}
-Ieder toestel ondersteunde de auto-aanvulling.
-
-\paragraph{\lungo} \score{7}{8}
-Zeven van de acht toestellen ondersteunden auto-aanvulling.
-De \htc{} toonde echter de suggesties dubbel op het scherm aan de gebruiker.
+% \paragraph{\st} 
+% Deze uitdaging kon niet worden ondersteund omdat het raamwerk geen implementatie toeliet
+% 
+% \paragraph{\kendo} \score{8}{8}
+% Deze uitdaging behaalde op elk toestel de maximum score.
+% 
+% \paragraph{\jqm} \score{8}{8}
+% Ieder toestel ondersteunde de auto-aanvulling.
+% 
+% \paragraph{\lungo} \score{7}{8}
+% Zeven van de acht toestellen ondersteunden auto-aanvulling.
+% De \htc{} toonde echter de suggesties dubbel op het scherm aan de gebruiker.
 
 %%%%%%%%%%%%%
 \subsection{\uit{afbeelding}}
@@ -390,8 +394,8 @@ De score voor deze drie raamwerken is dus 5/8.
 Deze plug-in maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla~\cite{Gal2010}.
 PDF.JS is geïmplementeerd met \js{} en HTML5.
 Het \code{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
-Slechts vanaf Android 3.0 wordt dit laatste ondersteund~\cite{Deveria2013c}.
-%TODO: iOS vermelden
+Slechts vanaf Android 3.0 wordt dit laatste ondersteund.
+Alle gecontroleerde versies van iOS ondersteunen dit wel~\cite{Deveria2013c}.
 Deze uitdaging lukt dus niet op de \htc{} en \gtab{}.
 Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie van \st{} die niet gebouwd was met Sencha Cmd.
 Dit was omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in werd aangesproken.

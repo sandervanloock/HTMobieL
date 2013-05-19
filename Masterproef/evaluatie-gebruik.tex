@@ -5,6 +5,8 @@ Voor de score van productiviteit wordt naar formule \ref{eq:gebruik} verwezen.
 Per sectie zal iedere uitdaging per raamwerk worden besproken.
 
 %TODO versies die we nu effectief gebruikt hebben om te implementeren
+%ST:  2.1.1
+%Kendo: 2013 Q1
 
 %TODO enkel de dingen uitleggen die je hebt gebruikt, dus geen extra info over wat het nog allemaal kan, of dingen die niet in de challenges beschreven staan
 
@@ -209,14 +211,14 @@ Het opvragen en herkennen van browser en (HTML5-)kenmerken gebeurt op een analog
 
 
 \st{} voorziet vijf lay-outs die aan een component kunnen worden toegekend:
-\begin{description}
- \item [\code{HBox}] plaatst de componenten horizontaal naast elkaar.
- \item [\code{VBox}] plaatst de componenten verticaal onder elkaar.
- \item [\code{Card}] plaatst de componenten boven elkaar.
- \item [\code{Fit}] maakt de component passend voor zijn ouder component.
- \item [\code{Docking}] maakt het plaatsen van extra componenten mogelijk in de top-, rechter-, bodem- of linkerrand van zijn ouder component.
-\end{description}
-De creatie van de tablet lay-out steunt op de \code{HBox} waarde.
+% \begin{description}
+%  \item [\code{HBox}] plaatst de componenten horizontaal naast elkaar.
+%  \item [\code{VBox}] plaatst de componenten verticaal onder elkaar.
+%  \item [\code{Card}] plaatst de componenten boven elkaar.
+%  \item [\code{Fit}] maakt de component passend voor zijn ouder component.
+%  \item [\code{Docking}] maakt het plaatsen van extra componenten mogelijk in de top-, rechter-, bodem- of linkerrand van zijn ouder component.
+% \end{description}
+De creatie van de tablet lay-out steunt op de \code{HBox} lay-out die componenten horizontaal naast elkaar plaatst.
 De \code{flex} eigenschap van deze lay-out definieert de ratio van de groottes van beide componenten.
 De creatie van de smartphone lay-out maakt het menu in de linkse component van de lay-out onzichtbaar.
 Om naar het menu terug te keren moet een extra knop in de koptekst worden toegevoegd die naar het menu navigeert.
@@ -401,21 +403,22 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Een formulier wordt in \st{} \code{Formpanel} genoemd.
 Een \code{Formpanel} van een formulier voorzien kan door in de rij van elementen een object met \code{xtype} \code{Fieldset} te maken.
 Dit object kan op zijn beurt voorzien worden van een rij van elementen.
-Volgende velden worden aangeboden in \st{}:
-\begin{itemize}
-  \item \code{textfield}
-  \item \code{numberfield}
-  \item \code{emailfield}			
-  \item \code{textareafield}
-  \item \code{hiddenfield}
-  \item \code{radiofield}
-  \item \code{checkboxfield}
-  \item \code{selectfield}
-  \item \code{togglefield}
-  \item \code{fieldset}
-\end{itemize}
+Volgende velden worden onder andere in \st{} aangeboden: \code{textfield},  \code{emailfield}	,  \code{numberfield}, \code{selectfield} en \code{togglefield}.
+% \begin{itemize}
+%   \item \code{textfield}
+%   \item \code{numberfield}
+%   \item \code{emailfield}			
+%   \item \code{textareafield}
+%   \item \code{hiddenfield}
+%   \item \code{radiofield}
+%   \item \code{checkboxfield}
+%   \item \code{selectfield}
+%   \item \code{togglefield}
+%   \item \code{fieldset}
+% \end{itemize}
 
-Tekst-, e-mail en nummervelden worden bij het renderen tot HTML5-invoertypes omgevormd en bijgevolg worden op mobiele toestellen bijhorende virtuele toetsenborden weergegeven.
+Tekst-, e-mail en nummervelden werden gaangemaakt met de eerste drie velden.
+Bij het renderen worden deze tot HTML5-invoertypes omgevormd en bijgevolg zullen op mobiele toestellen bijhorende toetsenborden getoond worden.
 Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap \code{placeholder} en de waarde aan de gewenste \term{placeholder} gelijk te stellen. 
 Een label toevoegen verloopt analoog,  deze weglaten zal geen label renderen.
 
@@ -435,23 +438,23 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Deze methodologie volgt sterk de HTML5-standaard.
  Het \code{placeholder}attribuut kan een \term{placeholder} definiëren,  het vermijden van \code{label}-tags zal geen labels genereren.
  Het type van het formulierelement moet met het \code{type} attribuut worden gedefinieerd.
- Volgende types worden door \kendo{} ondersteund:
- \begin{itemize}
-  \item \code{text}
-  \item \code{password}
-  \item \code{search}
-  \item \code{url}
-  \item \code{email}
-  \item \code{number}
-  \item \code{tel}
-  \item \code{file}
-  \item \code{date}
-  \item \code{timemonth} 
-  \item \code{datetime}
- \end{itemize}
- 
- Optievelden toevoegen volgt de HTML-werkwijze.
- Hiervoor moet invoerelementen van het type \code{radio} worden toegevoegd.
+ Volgende types worden onder andere door \kendo{} ondersteund:  \code{text}, \code{email}, \code{number} en \code{radio}.
+ De eerste drie zijn nodig om aangepaste toestenborden op mobiele apparaten te tonen.
+%  \begin{itemize}
+%   \item \code{text}
+%   \item \code{password}
+%   \item \code{search}
+%   \item \code{url}
+%   \item \code{email}
+%   \item \code{number}
+%   \item \code{tel}
+%   \item \code{file}
+%   \item \code{date}
+%   \item \code{timemonth} 
+%   \item \code{datetime}
+%  \end{itemize}
+%  
+ Optievelden toevoegen volgt de HTML-werkwijze door \code{radio} als invoertype in te stellen.
  Het aanmaken van een schakelaar kan door aan invoerelement van het type \code{checked} het \code{data-role} attribuut aan \code{switch} gelijk te stellen.
 
  \term{Datepickers} worden als widget aangeboden in \kendo Web.
@@ -814,15 +817,17 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Een model kan worden voorzien van validatieregels.
 Deze regels worden als objecten in een rij aan de \code{validations} eigenschap van een model toegekend.
-Volgende validatieregels zijn ingebouwd:
-\begin{description}
-  \item [presence] verzekert dat het veld een waarde heeft waarbij nul als geldig wordt beschouwd,  lege tekst niet.
-  \item [length] verzekert dat een tekst een minimale en/of maximale waarde heeft.
-  \item [format] verzekert dat een tekst voldoet aan een opgegeven reguliere expressie.
-  \item [inclusion] verzekert dat de waarde van een veld gelijk is aan een element van een gespecificeerde set.
-  \item [exclusion] verzekert dat de waarde van een veld zeker niet gelijk is aan een element van een gespecificeerde set.
-\end{description}
-De controle of een opgegeven waarde een nummer is kan met de \code{format} regel en de \code{\textbackslash{}d+} reguliere expressie. 
+% Volgende validatieregels zijn ingebouwd:
+% \begin{description}
+%   \item [presence] verzekert dat het veld een waarde heeft waarbij nul als geldig wordt beschouwd,  lege tekst niet.
+%   \item [length] verzekert dat een tekst een minimale en/of maximale waarde heeft.
+%   \item [format] verzekert dat een tekst voldoet aan een opgegeven reguliere expressie.
+%   \item [inclusion] verzekert dat de waarde van een veld gelijk is aan een element van een gespecificeerde set.
+%   \item [exclusion] verzekert dat de waarde van een veld zeker niet gelijk is aan een element van een gespecificeerde set.
+% \end{description}
+Verplichte velden moeten worden aangeduidt met \code{presence}.
+De controle op geldige e-mailadressen kan door \code{email} als validatieregel aan het invoerelement toe te kennen. 
+Controleren op een nummer kan met \code{format} en de \code{\textbackslash{}d+} reguliere expressie. 
 Om een bepaalde modelinstantie te valideren moet de \code{validate}-methode op de instantie worden opgeroepen.
 Om eigen validatieregels toe te laten moet de implementatie van deze methode worden overschreven~\cite{Krause2011}.
 Deze functionaliteit zit dus niet standaard in \st{}.
@@ -837,17 +842,17 @@ Hiervoor moet CSS worden gebruikt.
 Foutief ingevulde formulierelementen moeten na validatie met een CSS-klasse worden aangevuld.
 
 \paragraph{\kendo}
-Het \kendo{}-raamwerk ondersteunt de validaties zoals aangeboden binnen HTML5:
-\begin{description}
-  \item [required] verzekert dat een het veld een waarde heeft.
-  \item [pattern] verzekert dat de waarde van een veld voldoet aan een opgegeven reguliere expressie.
-  \item [min/max] verzekert dat de waarde van een veld groter en/of kleiner is dan een opgegeven waarde.
-  \item [data types] verzekert dat de waarde van een veld gelijk is aan het opgegeven type (e-mail, URL, getal, enz.)
-\end{description}
+Het \kendo{}-raamwerk ondersteunt de validaties zoals aangeboden binnen HTML5.
+% \begin{description}
+%   \item [required] verzekert dat een het veld een waarde heeft.
+%   \item [pattern] verzekert dat de waarde van een veld voldoet aan een opgegeven reguliere expressie.
+%   \item [min/max] verzekert dat de waarde van een veld groter en/of kleiner is dan een opgegeven waarde.
+%   \item [data types] verzekert dat de waarde van een veld gelijk is aan het opgegeven type (e-mail, URL, getal, enz.)
+% \end{description}
 Deze validaties moeten binnen het data-attribuut van het formulierelement worden aangebracht.
+Het \code{required} attribuut maakt de velden verplicht, \code{email} en \code{number} als invoertype zullen de opgegeven waarden controleren op geldigheid.
 
 De \kendo{} \code{validator} is compatibel met deze HTML5-validaties.
-%TODO out of box
 Een \code{validator} moet in \js{} worden aangemaakt met volgend commando:  \newline
 \code{\$("\#veld").kendoValidator.data("kendoValidator")}.
 Hierbij kan de jQuery-\term{selector} eender welk element uit het DOM aanduiden.
@@ -1102,16 +1107,16 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\st}
 Een lijst kan voorzien worden van een sjabloon.
-Dit sjabloon kan HTML-code of een instantie van de \code{Ext.XTemplate} klasse zijn.
-De eerste definieert met HTML-tags de lay-out van de lijstelementen,  de tweede is geavanceerder.
-De functionaliteiten van \code{Ext.XTemplate} zijn:
-\begin{itemize}
-  \item Doorlopen van een rij.
-  \item Conditionele processen met basis operatoren.
-  \item Ondersteuning voor basis wiskundige operaties.
-  \item Uitvoeren van willekeurige \js-code.
-  \item Eigen functies in het sjabloon oproepen.
-\end{itemize}
+Dit is een instantie van de \code{Ext.XTemplate} klasse zijn.
+Hier kunnen HTML-tags de lay-out van de lijstelementen vastleggen of kan er \js-code worden uitvoeren.
+% De functionaliteiten van \code{Ext.XTemplate} zijn:
+% \begin{itemize}
+%   \item Doorlopen van een rij.
+%   \item Conditionele processen met basis operatoren.
+%   \item Ondersteuning voor basis wiskundige operaties.
+%   \item Uitvoeren van willekeurige \js-code.
+%   \item Eigen functies in het sjabloon oproepen.
+% \end{itemize}
 Het formateren van een datum kan door de \code{date}-methode van \code{Ext.util.Format} op te roepen in het sjabloon.
 
 Zoals reeds besproken bij \uit{vullen}, kan een formulier worden ingevuld met een \code{Navigationview}.
@@ -1233,18 +1238,17 @@ Ook moest er een terugknop in de koptekst van het paneel worden aangebracht om t
 Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
 
 \paragraph{\kendo}
-De implementatie voor het tonen van het PDF-bestand is analoog als de implementatie met \jqm{}.
-%TODO terug aanhalen? Aan elk lijstelement in het overzicht van uitgavenformulieren wordt een functie gebonden.
-
-\paragraph{\jqm}
 AJAX is bedoeld om tekst op te halen, maar geen ruwe data zoals een PDF~\cite{Scott2009}. 
 Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
 Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de \term{backend} die dan een PDF teruggeeft in de browser. 
 Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
+\paragraph{\jqm}
+De implementatie voor het tonen van het PDF-bestand is analoog als de implementatie met \kendo{}.
+
 \paragraph{\lungo}
-Om dezelfde reden als \jqm{} werd ook hier geen gebruik gemaakt van AJAX om de PDF op te vragen.
-Een verborgen formulier, net zoals dat voor \jqm{} het geval was, werd gebruikt om de PDF op te halen.
+Om dezelfde reden als \kendo{} werd ook hier geen gebruik gemaakt van AJAX om de PDF op te vragen.
+Een verborgen formulier, net zoals dat voor \kendo{} het geval was, werd gebruikt om de PDF op te halen.
 Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
 %%%%%%%%%%%%%
@@ -1299,18 +1303,7 @@ De controle op onverzonde uitgaven wordt herleid tot het controleren van data in
 Het verwijderen van onverzonden lokale uitgaven kan door de data in de \code{store} te wissen.
 
 De applicatie offline beschikbaar maken wordt ondersteund door Sencha Cmd~\cite{Sencha2012}.
-
-Een applicatie,  zoals geinitialiseerd door Sencha Cmd,  moet alle benodigde \js-, en CSS-bestanden in een JSON-bestand onderbrengen.
-Een \code{microloader} zal de afhankelijke bestanden automatisch laden bij het opstarten van de applicatie.
-
-Het bouwen en uitrollen van een applicatie kan op vier niveaus:
-\begin{description}
-  \item [testing] maakt een testapplicatie om de kwaliteit te testen.  \js- en CSS-bestanden worden samengevoegd maar niet verkleind om makkelijk te debuggen
-  \item [package] maakt een zelfstandige applicatie die verspreidbaar is en vanop een bestandensyteem,  zonder web server,  kan lopen.
-  \item [production] maakt een applicatie die op een webserver beschikbaar wordt gemaakt waarvan de \js-, en CSS- bestanden zijn samengevoegd en verkleind.  Het maakt de applicatie ook offline beschikbaar door gebruik te maken van de HTML5-applicatie cache.  Ook is het mogelijk de applicatie op te waarderen naar een nieuwe versie.
-  \item [native] maakt een \term{native} applicatie die op het Android of iOS besturingssysteem kan lopen.
-\end{description}
-Om de applicatie offline beschikbaar te maken moet de applicatie gebouwd worden voor productie.
+Hiervoor moet de applicatie gebouwd worden voor productie (zie sectie \ref{sec:raamwerk-st}).
 De tool zal automatisch een manifest bestand aanmaken die alle vereiste bestanden bevat.
 
 \paragraph{\kendo}

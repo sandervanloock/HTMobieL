@@ -70,6 +70,17 @@ Het kan initiële applicaties opzetten,  bestanden toevoegen en de applicatie bo
 De applicatie kan ook gebouwd worden naar een \term{native} applicatie voor iOS en Android door de webapplicatie om te vormen.
 De tool is gratis op de Sencha website te downloaden~\cite{Inc.}.
 
+Een applicatie,  zoals geinitialiseerd door Sencha Cmd,  moet alle benodigde \js-, en CSS-bestanden in een JSON-bestand onderbrengen.
+Een \code{microloader} zal de afhankelijke bestanden automatisch laden bij het opstarten van de applicatie.
+
+Het bouwen en uitrollen van een applicatie kan op vier niveaus:
+\begin{description}
+  \item [testing] maakt een testapplicatie om de kwaliteit te testen.  \js- en CSS-bestanden worden samengevoegd maar niet verkleind om makkelijk te debuggen
+  \item [package] maakt een zelfstandige applicatie die verspreidbaar is en vanop een bestandensyteem,  zonder web server,  kan lopen.
+  \item [production] maakt een applicatie die op een webserver beschikbaar wordt gemaakt waarvan de \js-, en CSS- bestanden zijn samengevoegd en verkleind.  Het maakt de applicatie ook offline beschikbaar door gebruik te maken van de HTML5-applicatie cache.  Ook is het mogelijk de applicatie op te waarderen naar een nieuwe versie.
+  \item [native] maakt een \term{native} applicatie die op het Android of iOS besturingssysteem kan lopen.
+\end{description}
+
 \subparagraph{Sencha Animator}
 Dit is een desktopapplicatie om CSS3-animaties te ontwerpen~\cite{Sencha2012b}.  
 De applicatie kan worden gedownload voor Mac, Windows en Linux distributies.
@@ -409,7 +420,7 @@ Op de documentatiesite van versie~1.2~\cite{JQuery2012b} is een catalogus te vin
 Door de broncode van een voorbeeld te bekijken, kan worden gekeken welke code moet worden geschreven om tot dat resultaat te komen.
 
 Naast de GI-elementen is er ook documentatie over de API. 
-Deze gaat over initiële configuraties, \term{events} en methodes die kunnen worden gebruikt.
+Deze gaat over initiële configuraties, gebeurtenissen en methodes die kunnen worden gebruikt.
 
 \paragraph{Marktadoptatie}
 Op de website van \jqm{} wordt een reeks applicaties getoond die gemaakt zijn met hun raamwerk. 
@@ -571,7 +582,7 @@ Indien het apparaat het kenmerk niet ondersteund, voorziet \lungo{} een \term{fa
 \item \textbf{DOM }
 Het manipuleren van de DOM gebeurt door de \quo{}-bibliotheek.
 Hiervoor wordt gerefereerd naar de documentatie van \quo{}.
-Zelf biedt \lungo{} enkel ondersteuning voor \term{events} bij het laden en ontladen van pagina's binnen de applicatie.
+Zelf biedt \lungo{} enkel ondersteuning voor gebeurtenissen bij het laden en ontladen van pagina's binnen de applicatie.
 
 \item \textbf{Element }
 Toevoegen van een telbubbel, vooruitgangsbalk, laadbalk, automatisch herladen bij het naar beneden trekken van lijst en een fotocarousel zijn programmeerbaar en manipuleerbaar via de \lungo{} API vanuit \js{}. 

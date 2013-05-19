@@ -107,9 +107,8 @@
 
 \begin{abstract} % Tim
 Ontwikkelaars van mobiele applicaties worden geconfronteerd met de variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
-Dit komt doordat een applicatie dient te worden geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
+Dit komt doordat een applicatie wordt geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
 Een oplossing hiervoor is het maken van een mobiele webapplicatie, gebruikmakend van HTML5.
-%Ieder mobiel apparaat die een webbrowser heeft, kan de webapplicatie openen ongeacht zijn mobiel besturingssysteem.
 Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden die helpen bij de functionaliteit van de applicatie en de elementen voor de gebruikersinterface. 
 
 Door de variëteit aan mobiele HTML5-raamwerken, dringt een grondige vergelijking zich op om te weten welk raamwerk nu het beste is.
@@ -121,20 +120,18 @@ Het vierde criterium bekijkt de ondersteuning door de raamwerken op acht apparat
 Het laatste criterium betreft de performantie.
 Hierbij zal enerzijds de downloadtijd en anderzijds de gebruikerservaring bekeken worden.
 
-Uit de vergelijking komt \jqm{} als beste raamwerk naar boven.
+De vergelijking toont aan dat \jqm{} het beste raamwerk is.
 Daarna volgen \kendo{}, \lungo{} en \st{} op een respectievelijke tweede, derde en vierde plaats.
 \jqm{} heeft als belangrijkste troeven de hoge productiviteit en performantie doordat het enerzijds zeer goed gedocumenteerd is en anderzijds geen architectuur afdwingt.
 Dit laatste is echter een nadeel waardoor het minder scoort op gebruik.
-\kendo{} heeft als belangrijkste troef het gebruik doordat het een architectuur afdwingt.
+\kendo{} heeft als belangrijkste troef het gebruik doordat het MVVM als architectuur afdwingt.
 Het scoort echter ondermaats op performantie door het crashen van lange lijsten op iOS.
-%TODO met de nieuwe criteria geldt dit niet meer
-\lungo{} behaald op geen enkel criterium de maximumscore.
-Het behaalde echter wel de beste downloadtijd bij performantie doordat het raamwerk geoptimaliseerd voor mobiel gebruik.
-\st{} is het minst productief en minst performant in vergelijking met de andere raamwerken.
+\lungo{} behaalde enkel de maximumscore voor performantie doordat het raamwerk geoptimaliseerd is voor mobiel gebruik.
+\st{} is het minst productief en performant in vergelijking met de andere raamwerken.
 Door het afdwingen van een architectuur scoort het quasi evengoed als \kendo{} op vlak van gebruik.
-%TODO ondersteuning op het apparaat?
-Alle onderzochte raamwerken scoren zeer goed op ondersteuning.
+Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte mobiele apparaten.
 \end{abstract}
+
 
 \selectlanguage{english}
 \begin{abstract} % Sander
@@ -156,11 +153,11 @@ Then, \kendo{},  \lungo{} and \st{} follow on respectively second, third and for
 \jqm{} has a high productivity and performance as major advantages because on the one hand it is well-documented and on the other hand it does not impose an architecture.
 The latter,  however,  is a disadvantage when looking at the usability.
 \kendo{} has the MVVM architecture as most important advantage.
-However,  it scores below average because it crashes on iOS when loading long lists.
-\lungo{} only achieved a maximumscore for perfomance because the framework is optimized for mobile usage.
+However,  it scores below average on performance because it crashes on iOS when loading long lists.
+\lungo{} only achieved a maximum score for performance because the framework is optimised for mobile usage.
 \st{} is the least productive and performant in comparison with other frameworks.
 By enforcing an architecture,  it scores almost as good as \kendo{} regarding usability.
-All frameworks provide good support on the devices.
+All frameworks provide good support on the evaluated mobile devices.
 
 \end{abstract}
 \selectlanguage{dutch}
@@ -172,40 +169,47 @@ All frameworks provide good support on the devices.
 %\listoffiguresandtables
 
 \chapter{Lijst van afkortingen}
-\section*{Afkortingen}
 \begin{flushleft}
   \renewcommand{\arraystretch}{1.1}
-  \begin{tabularx}{\textwidth}{@{}p{2cm}X@{}}
+  \begin{longtable}{p{2cm} l}
+  %TODO voor Sander: mijn blad met toevoegde afkortingen hieronder bijsteken
      AJAX & Asynchronous JavaScript And XML \\
      API & Application Programming Interface \\
      CORS & Cross-origin resource sharing \\
      CRUD & Create Read Update Destroy \\
-     CSS & Cascading Style Sheets \\
+     CSS(3) & Cascading Style Sheets (3) \\
      DOM & Document Object Model \\
+     EDGE & Enhanced Data Rates for GSM Evolution \\
      GI & Gebruikersinterface \\
-     GWT & Google Web Toolkit \\
+     GPRS & General Packet Radio Service \\
      GPS & Global Positioning System \\
      GPU & Graphics Processing Unit \\
      GUI & Graphical User Interface \\
+     GWT & Google Web Toolkit \\
+     HSDPA & High-Speed Downlink Packet Access \\
      HTML(5) & HyperText Markup Language (5) \\
      IDE & Integrated Development Environment \\
-     JSON & JavaScript Object Notation \\
-     JSONP & JavaScript Object Notation with Padding \\
+     JSON(P)  & JavaScript Object Notation (with Padding) \\
+     LTE & Long Term Evolution \\
+     MIT & Massachusetts Institute of Technology \\
      MVC & Model View Controller \\
+     PDA & Personal Digital Assistant \\
      PDF & Portable Document Format \\
      POC & Proof Of Concept \\
      PPI & Pixels Per Inch \\
+     QR & Quick Response \\
      RIA & Rich Internet Application \\
      RWD & Responsive Web Design \\
      SASS & Syntactically Awesome Stylesheets \\
      SDK & Software Development Kit \\
      SEO & Search Engine Optimization \\
+     UTMS & Universal Mobile Telecommunications System \\
      W3C & World Web Consortium \\
      WHATWG & Web Hypertext Application Technology Working Group \\
      WORA & Write Once, Run Anywhere \\
      XHTML & eXtensible HyperText Markup Language \\ 
      XML & eXtensible Markup Language
-  \end{tabularx}
+  \end{longtable}
 \end{flushleft}
 
 % Nu begint de eigenlijke tekst

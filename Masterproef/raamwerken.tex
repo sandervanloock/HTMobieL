@@ -133,7 +133,7 @@ Zoals besproken biedt Sencha de terminal tool Sencha Cmd aan om het de ontwikkel
 
 \paragraph{Debugging}
 De broncode van \st{} kan ingeladen worden met \code{sencha-touch-debug.js} als bibliotheek.  
-Deze versie is niet gecomprimeerd en bevat commentaar en documentatie om makkelijker te zoeken waar in de code de fout zich juist bevindt.
+Deze versie is niet gecomprimeerd en bevat commentaar en documentatie om makkelijker uit te zoeken welke fout werd gemaakt.
 
 \subsection{Functionele kenmerken}
 %Net \st{} heeft functionaliteiten om eenvoudig GI-elementen te genereren.  
@@ -163,8 +163,7 @@ Optioneel kunnen validaties bij de velden worden toegevoegd om validatieregels o
 Een \code{Store} wordt voorzien van een \code{Proxy}.  
 Deze kan data aan de klant- of serverzijde opslaan.  
 Een \code{Proxy} voor opslag aan klantzijde kan zowel in het RAM-geheugen als in lokale opslag van de browser opslaan.  
-%TODO voluit schrijven AJAX
-Een \code{Proxy} voor serveropslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
+Een \code{Proxy} voor serveropslag kan data verzenden voor hetzelfde domein via Asynchronous JavaScript and XML~(AJAX) ) of tussen verschillende domeinen via JSONP.  
 JSONP staat voor JavaScript Object Notation with Padding en is een methode om data op een server in een ander domein op te vragen.
 Een \code{Proxy} kan ook nog voorzien worden van een \code{Reader} die aangeeft hoe de ontvangen data gelezen moet worden.
 
@@ -218,7 +217,7 @@ Deze architectuur vermijdt lange \js{}-bestanden door ze logisch op te delen.
 Modellen groeperen velden tot een beschrijving van data-objecten, \code{Views} definiëren de weergave van componenten en controllers verbinden beide op basis van gebeurtenissen.
 
 In theorie zou het verschil tussen mobiele websites en applicaties enkel in de \code{Views} terug te vinden zijn.  
-Echter,  dit wordt nog niet volledig ondersteund en worden aparte projecten voor deze functionaliteit gepromoot.
+Echter,  dit wordt nog niet volledig ondersteund en daarom worden aparte projecten voor deze functionaliteit gepromoot.
 
 \paragraph{Ondersteuning browser}
 \st{} steunt op de WebKit-browser \term{engine} dus moet de browser deze bevatten.  
@@ -229,7 +228,7 @@ De volgende versie van de Opera browser zal de WebKit \term{engine} wel bevatten
 Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen over de context die gehanteerd wordt (browser, besturingssysteem, toestel, etc.).  
 Verder kan \st{} ook vragen naar de ondersteuning van specifieke kenmerken (audio,  \code{canvas},  CSS3, ...)  analoog als Modernizr~\cite{Modernizr2012}.  
 
-Op de Sencha website zijn voor de belangrijkste browsers en bijhorend besturingssystemen \term{scorecards} voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
+Op de website van Sencha zijn voor de belangrijkste browsers en bijhorend besturingssystemen \term{scorecards} voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
 %TODO beetje uitwerken
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,6 +253,7 @@ Data-attributen kunnen een HTML-element associëren met \kendo{} of het overeenk
 Alle GI-elementen van \kendo{} Mobile kunnen met data-attributen worden opgebouwd.
 \term{Widgets} van \kendo{} Web kunnen zowel met \js{} als data-attributen geïnitialiseerd worden.
 
+%TODO 'heel kendo' -> beetje formeler
 Het laden van het raamwerk kan door heel \kendo{} op te roepen of enkel \kendo{} Mobile met respectievelijk \code{kendo.all.js} of \code{kendo.mobile.js}.
 Elk van de drie luiken - Web, Mobile en DataViz - kan op zichzelf functioneren door hun \js{}-bestand in te laden.
 Er kan wel slecht één van de drie script gelijktijdig gebruikt worden.  
@@ -412,7 +412,8 @@ Om met \jqm{} aan de slag te kunnen, is niets meer nodig dan kennis over HTML, C
 Alle GI-elementen worden geschreven in HTML en aangeduid met data-attributen.
 
 \paragraph{Tools}
-Het is ook mogelijk om gebruik te maken van Codiqa~\cite{Sperry2012} om met \term{drag-and-drop} de GI-elementen op het scherm te zetten. 
+Codiqa~\cite{Sperry2012} is een tool om snel de GGI van de applicatie op te zetten.
+Door \term{drag-and-drop} worden de GI-elementen op het scherm gezet.
 Codiqua zal automatisch op de achtergrond de HTML-code voorzien.
 
 \paragraph{Documentatie}
@@ -466,7 +467,7 @@ Als laatste kunnen deze blokken ook samengevoegd worden tot een accordeon.
 
 \item \textbf{Elementen voor formulieren}
 \jqm{} biedt alle gangbare elementen voor formulieren aan zoals tekstinvoer, een selectie uit een lijst, een zoekveld, een \term{slider} en een \term{switch}. 
-Het raamwerk verplicht zelfs om de \code{<label>}-tag te gebruiken. 
+Het raamwerk verplicht zelfs om de \code{label}-tag te gebruiken. 
 Zo wordt de applicatie toegankelijker gemaakt voor bijvoorbeeld mensen met een schermlezer.
 
 \item \textbf{Lijsten}

@@ -45,12 +45,6 @@ Dezelfde pijnpunten van \jqm{} zijn ook geldig voor \lungo{}.
 Daarenboven is er bij \lungo{} een totaal gebrek aan formuliervalidatie en aan de meer geavanceerdere formulierelementen.
 Voor deze laatste moet er een plug-in worden gebruikt of zal de functionaliteit zelf moeten worden geïmplementeerd. 
 
-%TODO weinig diepgang in deze vier zinnen?
-%\kendo{} en \st{} behalen elk zes perfecte uitdagingen.
-%\kendo{} scoort twee maal onvoldoende, terwijl \st{} dat slechts één keer doet.
-%\jqm{} heeft drie perfecte uitdagingen en vier onvoldoendes.
-%Als laatste komt \lungo{} met slechts één perfecte uitdaging en zeven onvoldoendes.
-
 Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-verzoeken, behalve dan bij één geval voor \lungo{}.
 Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
 
@@ -559,6 +553,7 @@ Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
 Er bestaat dus geen vlekkeloze mapping tussen een eigenschap van een model en een \code{radiofield}.
 Hetzelfde geldt voor een \code{checkboxfield}.
 Een model kan worden voorzien met eigenschappen met volgende types:
+%TODO moet dat niet met code?
 \begin{itemize}
   \item auto
   \item string
@@ -696,7 +691,7 @@ Daar werd de plug-in AutoComplete gebruikt.
 De voorbeeldcode maakt het gemakkelijk om onmiddellijk een werkend voorbeeld van de plug-in te hebben.
 Veel code kon dus gewoon worden overgenomen om een werkende auto-aanvulling te bekomen.
 Er diende nog één extra CSS-regel te worden toegevoegd om het symbool voor de suggesties te verwijderen.
-Deze maakten namelijk gebruik van \code{li}-items binnen een \code{ul}-tag waardoor er symbool voor de suggesties kwamen.
+Deze maakten namelijk gebruik van \code{li}-items binnen een \code{ul}-tag waardoor er symbolen voor de suggesties kwamen.
 
 
 %%%%%%%%%%%%%
@@ -1224,13 +1219,14 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
+%TODO URL weghalen
 Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
 Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
-Deze \code{view} bestaat uit een paneel met een kopftekst.
+Deze \code{view} bestaat uit een paneel met een koptekst.
 Het paneel toont één pagina van het PDF-bestand,  de koptekst bevat de navigatie naar andere pagina's.
 
 Om de plug-in in de POC in te passen waren echter twee aanpassingen noodzakelijk.
-Het PDF-bestand moet via een POST verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
+Het PDF-bestand moet via een POST-verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
 Ook moest er een terugknop in de koptekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
 Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
 
@@ -1285,18 +1281,18 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\st}
 Zoals besproken bij \uit{ajax} kan een \code{store} voozien worden van een \code{proxy} die data opslaat aan klantzijde.
-Deze \code{store} maakt gebruik van de HTML5-localStorage API.
+Deze \code{store} maakt gebruik van de HTML5 \code{localStorage} API.
 Om inlog gegevens en onverzonden onkosten lokaal te bewaren moeten twee \code{stores} met deze \code{proxy} worden gedefinieerd.
 Een belangrijke opmerking is dat geen twee \code{proxies} aan een \code{store} kunnen worden toegevoegd.
 Gegevens van een gebruiker moeten van de server worden opgehaald - met een AJAX-\code{proxy} - en lokaal worden opgeslagen - met een \term{local storage} \code{proxy}.
-Hiervoor zijn twee verschillende \code{store} instanties nodig die gesynchronizeerd moeten worden!
+Hiervoor zijn twee verschillende \code{store} instanties nodig die gesynchronizeerd moeten worden.
 Bij het laden van de applicatie zal de \code{store} die gebruikers lokaal opslaat, op data worden gecontroleerd.
 Indien er data wordt gevonden,  was de gebruiker reeds ingelogd.
 De applicatie zal dan meteen naar het startscherm navigeren.
 
 Om onverzonden uitgaven lokaal op te slaan, moeten de uitgaven ook aan een \code{store} met lokale \code{proxy} worden toegevoegd.
 Deze worden dan automatisch naar de \term{local storage} weggeschreven.
-De controle op onverzonde uitgaven wordt herleid tot het controleren van data in de \code{store}.
+De controle op onverzonden uitgaven wordt herleid tot het controleren van data in de \code{store}.
 Het verwijderen van onverzonden lokale uitgaven kan door de data in de \code{store} te wissen.
 
 De applicatie offline beschikbaar maken wordt ondersteund door Sencha Cmd~\cite{Sencha2012}.
@@ -1304,7 +1300,7 @@ Hiervoor moet de applicatie gebouwd worden voor productie (zie sectie \ref{sec:r
 De tool zal automatisch een manifest bestand aanmaken die alle vereiste bestanden bevat.
 
 \paragraph{\kendo}
-%user opslaan => jqm (check bij employeedatasource)
+%TODO user opslaan => jqm (check bij employeedatasource)
 Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
 Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
 Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
@@ -1320,7 +1316,7 @@ De controle op reeds bestaande uitgaven zoekt naar reeds bestaande uitgaven in d
 Nadat een uitgaveformulier is verzonden worden de uitgaven uit de \code{localStorage} verwijderd.
 
     
-%expense opslaan => add Expense toevoegen aan localstorage
+%TODO expense opslaan => add Expense toevoegen aan localstorage
 
 Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} zelf niet ondersteund.
 De HTML5 Application Cache kan zelf worden aangemaakt.
@@ -1329,7 +1325,7 @@ Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst
 \paragraph{\jqm}
 Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
 Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
-Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een fallback geschreven die de data bijhoudt als \js{}-variabelen.
+Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een \term{fallback} geschreven die de data bijhoudt als \js{}-variabelen.
 Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
 Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
 
@@ -1344,7 +1340,7 @@ Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst
 \paragraph{\lungo}
 Het raamwerk biedt zelf functies aan om data op te slaan.
 Intern zal het gebruik maken van \code{localStorage}, wat gespecificeerd is in HTML5.
-Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een fallback voorzien.
+Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een \term{fallback} voorzien.
 
 Het offline beschikbaar maken van de applicatie wordt vanuit \lungo{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
 Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.

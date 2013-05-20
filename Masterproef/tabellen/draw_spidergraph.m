@@ -47,3 +47,4 @@ s(1) = subplot(1,1,1);
 plot = spider(Mfinal,'',[],{'Popularity' ''; 'Performance' ''; 'Productivity' '';'Support' '';'Usage' ''},{'Sencha Touch' 'Kendo UI' 'jQuery Mobile' 'Lungo' },s(1));
 saveas(plot,'../figuren/spidergraph-final-en.pdf');
 system('pdfcrop ../figuren/spidergraph-final-en.pdf ../figuren/spidergraph-final-en.pdf');
+close all;

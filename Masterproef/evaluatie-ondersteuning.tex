@@ -104,10 +104,10 @@ Zoals besproken in sectie \ref{sec:vergelijking-ondersteuning} wordt enkel het r
 Daarom verschilt de maximale score voor ondersteuning per raamwerk.
 Welke uitdagingen door het raamwerk konden worden geïmplementeerd werd in het vorige criterium geduid.
 De maximale scores voor \st{},  \kendo{},  \jqm{} en \lungo{} zijn respectievelijk $96$, $104$, $104$ en $80$.
-De score voor ondersteuning is respectievelijk $83$, $91$, $95$ en $62$.
+De score voor ondersteuning is respectievelijk $83$, $92$, $95$ en $62$.
 Wanneer we de relatieve score per raamwerk bekijken heeft \st{} een score van $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo $78\%$.
-Er kan dus meteen geconcludeerd worden dat de vier raamwerken behoorlijk hoog scoren.
-Dit wil zeggen dat de keuze van een raamwerk onafhankelijk is van de ondersteuning.
+Er kan dus meteen geconcludeerd worden dat de raamwerken buiten \lungo{} behoorlijk hoog scoren.
+Dit wil zeggen dat de keuze voor één van de drie raamwerken onafhankelijk is van de ondersteuning.
 Dezelfde apparaten worden door de verschillende raamwerken ondersteund of niet.
 Dit komt doordat de raamwerken allemaal steunen op dezelfde onderliggende technolgie, namlelijk HTLM5.
 Hoewel de verschillen klein zijn kan gezegd worden dat \jqm{} de beste ondersteuning biedt,  gevolgd door een \kendo{} en \st{}.
@@ -120,13 +120,13 @@ Daarnaast kon niet genavigeerd worden doorheen de volledige POC op de \htc{} en 
 Dit komt doordat de \term{tap} gebeurtenis werd gebruikt om te navigeren.
 Op de \htc{} en \gtab{} werden deze echter niet afgevuurd.
 Op de andere toestellen had dit een dubbel klikeffect.
-Hierdoor gebeurde de eerste klik op het huidig scherm gebeurt en de tweede klik op het volgende.
+Hierdoor gebeurde de eerste klik op het huidig scherm en de tweede klik op het volgende.
 Zo kan het bijvoorbeeld gebeuren dat een menu op het volgende scherm al openklapt, zonder dat de gebruiker dit verwachtte.
 
 Android 2.3 toestellen - \htc{} en \gtab{} - hebben het minste ondersteuning.
 Android 4 en iOS toestellen scoren gemiddeld $95\%$.
 De gemiddelde score bij alle Android toestellen is $79\%$ in tegenstelling tot een $95\%$ ondersteuning op iOS toestellen.
-Er moet opgemerkt worden dat enkel versie $5$ en $6$ van iOS werd getest.
+Er moet opgemerkt worden dat enkel versie $5$ en $6$ van iOS werd getest (zie tabel \ref{tabel:toestellen-hci}).
 Van alle $8$ apparaten is de \iphoneiii{} het oudst (officiële voorstelling in juni 2009) gevolgd door de \gs{} (officiële voorstelling in maart 2010)~\cite{Staff2009,Gideon2010}.
 Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android toestellen dit minder vaak aanbieden ten opzichte van iOS toestellen. %TODO referentie?
 De reden hiervoor is de grotere heterogeniteit tussen Android toestellen.
@@ -134,18 +134,6 @@ De reden hiervoor is de grotere heterogeniteit tussen Android toestellen.
 
 Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline opslag op alle beschikbare apparaten.
 
-% De algemene score voor iedere raamwerk is rond de 90% of meer, dus eigenlijk moet je niet kijken naar de ondersteuning wanneer je een raamwerk kiest
-% jQM is de duidelijke winnaar over alle devices, gevolgd door een gedeelde tweede plaats van Kendo en ST, daarna door Lungo.
-% Op de HTC (android 2.3) haalt iedereen rond de 70, behalve lungo 55
-% Galaxytab bieden jQM en Kendo 70% support, terwijl ST en lungo maar rond de 55 beiden
-% Op de recenste devices scoren alle raamwerken ruim boven de 90%
-% Iedereen support 100% de offline
-% Support op iOS zit bij ieder raamwerk rond of boven de 90%, terwijl bij android dat bij ieder raamwerk maar boven de 70% ligt (een gemiddelde van 9 punten beter)
-% bij iOS altijd updaten tot de laatste versie (behalve ipad 1), zie maximale versies iOS op http://en.wikipedia.org/wiki/List_of_iOS_devices
-% Android: de hardware is zo divers, moeilijk te updaten, dus je blijft vast aan je 'oud' os en daardoor support HTML5 bla bal bal
-% Formuliervalidatie worden volledig ondersteund door raamwerk of plugin, in tegenstelling tot HTML5 formuliervalidatie op mobiele apparaten.
-% Toevoegen van afbeeldingen, maakt jQM/Kendo/Lungo expliciet gebruik van HTML5 en ST impliciet under the hood in the plugin
-% local storage en manifest is ook HTML5, maar wordt wel overal ondersteund
 
 %%%%%%%%%%%%%
 \subsection{\uit{toestel}}
@@ -153,10 +141,10 @@ Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline 
 
 \st{} en \kendo{} voorzien methoden om de context waarin de applicatie wordt uitgevoerd,  op te vragen.
 De implementatie van \jqm{} en \lungo{} steunt op CSS3.
-Het soort apparaat (smartphone of tablet) werd bij op alle toestellen behalve de \gtab correct herkend.
-Door de lage resolutie van de \gtab{} werd deze als smartphone gezien op \st{},  \jqm{} en \lungo{}.
+Het soort apparaat (smartphone of tablet) werd op alle toestellen behalve de \gtab correct herkend.
+Door de lage resolutie van de \gtab{} werd deze als smartphone gecategoriseerd op \st{},  \jqm{} en \lungo{}.
 Bij \jqm{} en \lungo{} geldt dit niet wanneer de applicatie liggend wordt opgestart.
-\kendo{} herkende in alle gevallen de \gtab{} wel correct.
+\kendo{} herkende in zowel in staande als liggende modus de \gtab{} wel correct.
 
 
 % \paragraph{\st} \score{7}{8}
@@ -229,28 +217,30 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st} \score{33}{40}
-Alle smartphones en de \gtab{} vertoonden een probleem bij de labels van de optieknoppen.
+Alle smartphones en de \gtab{} vertoonden een probleem bij de labels van de \code{optie}knoppen.
 Deze zijn nodig om het type van uitgave te selecteren bij het aanmaken van een nieuwe uitgave.
 Alle labels buiten \term{Hotel} en \term{Restaurant} zijn te lang om in de voorziene ruimte weer te geven.
 \st{} kort deze af met ellipses waardoor niet de volledige naam leesbaar is.
 Dit kan tot verwarring leiden.
-In \term{landscape} mode worden sommige labels wel zichtbaar
-De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
+In liggende mode worden sommige labels wel zichtbaar
+De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen e-mailtoetsenbord ondersteund wordt.
 %TODO sander: referentie?
-De laatste twee deeluitdagingen halen de maximumscore.
+De schakelaar die \st{} voorziet, werkte op elk toestel.
+
 
 \paragraph{\kendo} \score{34}{40}
-Alle Android toestellen toonden een wit kader bij \term{read-only} widgets.
+Alle Android toestellen toonden een wit kader bij \term{read-only} \term{widgets}.
 Deze zijn te zien wanneer het overzicht van een ingevoerde uitgave wordt opgevraagd.
 Dit ondankt de invoervelden standaard HTML-invoer zijn.
-Het raamwerk moet de waarden van de widgets in de \term{read-only} invoerelementen invullen.
-Deze functionaliteit werkt enkel op iOS toestellen.
-De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen email toetsenbord ondersteund wordt.
+Het raamwerk moet de waarden van de \term{widgets} in de \term{read-only} invoerelementen invullen.
+Deze functionaliteit werkt enkel op iOS-toestellen.
+De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen e-mailtoetsenbord ondersteund wordt.
 %TODO sander: referentie?
-Het openen van \term{data-picker} bij \kendo{} vindt plaats als de gebruiker op het icoontje in het invoerveld klikt.
-Indien op de datum wordt geklikt zal de gebruiker de datum tektueel aanpassen.  
-Hiervoor moet het correcte formaat worden gebruikt!
-Nog een opmerking,  op alle toestellen wordt automatisch een virtueel toetsenbord weergegeven ondankt de invoer uit de \term{date-picker} moet worden gekozen.
+Het openen van \term{datepicker} bij \kendo{} vindt plaats als de gebruiker op het icoontje in het invoerveld klikt.
+Indien op de datum wordt geklikt zal de gebruiker de datum tekstueel aanpassen.  
+Hiervoor moet het correcte formaat worden gebruikt.
+Ook werd op alle toestellen een virtueel toetsenbord weergegeven ondanks de invoer uit de \term{datepicker} moet worden gekozen.
+De schakelaar en optievelden werkte op elk apparaat.
 
 \paragraph{\jqm} \score{38}{40}
 Op iedere deeluitdaging behaalt \jqm{} de maximumscore.
@@ -258,6 +248,7 @@ Het scrollen in de \term{datepicker} werkte echter niet vloeiend op de \htc{} en
 Op de \ipadi{} werd opgemerkt dat door de lokale instellingen, een scheidingsteken voor de duizendtallen werd gebruikt voor het getal in het nummerveld.
 Als laatste bleken er verschillende implementaties van de \js{}-functie \code{new Date(dateString)} doorheen de apparaten.
 Als \code{dateString} werd het patroon \code{jaar/maand/dag} uiteindelijk gebruikt, want het patroon \code{jaar-maand-dag} gaf op de \htc{} en \gtab{} anders problemen.
+%TODO schakelaar/optievelden?
 
 \paragraph{\lungo} \score{22}{32}
 De slechtste ondersteuning was op de \htc{} en \gtab{}.
@@ -292,16 +283,11 @@ Op de \htc{} werden bij \lungo{} de suggesties dubbel op het scherm aan de gebru
 \subsection{\uit{afbeelding}}
 \label{sec:evaluatie-ondersteuning-afbeelding}
 
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-Iedere implementatie die onderliggend FileReaderAPI gebruik, heeft geen ondersteuning op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013c}.
-
 De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen.
 \kendo{}, \jqm{} en \lungo{} gebruiken dezelfde aanpak om deze uitdaging te implementeren.
-Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 ondersteund~\cite{Deveria2013c}.
+Deze aanpak steunt op de FileReaderAPI en wordt enkel vanaf Android versie 3 en iOS versie 6 ondersteund~\cite{Deveria2013c}.
 Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
-Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
+Hierdoor zullen de \htc{},  \gtab{} en \ipadi{} deze uitdaging in de vier raamwerken niet ondersteunen.
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
 Dit komt omdat de grootte van de foto's de limiet van de \code{localStorage} overschrijden.
 %TODO exacte limiet localstorage refereren?
@@ -336,7 +322,8 @@ Alle raamwerken behaalden een score van 5/8.
 \label{sec:evaluatie-ondersteuning-validatie}
 
 HTML5 formuliervalidatie wordt op geen enkel beschikbaar mobiel besturingssysteem ondersteund~\cite{Deveria2013c}.
-Dit wil zeggen dat alle raamwerken hiervoor een alternatief voorzien dat wel op alle toestellen werkt.
+Elke implementatie van deze uitdaging werd door alle toestellen ondersteund.
+Dit wil zeggen dat alle raamwerken een alternatief voorzien dat wel op alle toestellen werkt.
 
 Een specifiek mobiel probleem bij \lungo{} was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
 Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
@@ -384,10 +371,10 @@ Omdat bij \lungo{} geen plug-in werd gevonden voor deze uitdaging, kon ook de on
 \subsection{\uit{pdf}}
 \label{sec:evaluatie-ondersteuning-pdf}
 
-\kendo{}, \jqm{} en \lungo{} hergebruikten dezelfde code voor deze uitdaging.
+\kendo{}, \jqm{} en \lungo{} hergebruiken dezelfde code voor deze uitdaging.
 Drie van de acht apparaten hadden problemen met het tonen van de PDF.
 Op de \htc{} werd een wit scherm getoond, op de \gtab{} lukt het niet en op de \gs{} gaf het besturingssysteem de boodschap 'Download unsuccessful' terug.
-Bij de vier andere apparaten werd de PDF-lezer geopend en kon de PDF worden bekeken.
+Bij de vier andere apparaten werd de PDF-lezer geopend en kon het bestand worden bekeken.
 De score voor deze drie raamwerken is dus 5/8.
 
 \st{} maakt gebruik van een plug-in voor het tonen van PDF-bestanden.
@@ -396,9 +383,9 @@ PDF.JS is geïmplementeerd met \js{} en HTML5.
 Het \code{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
 Slechts vanaf Android 3.0 wordt dit laatste ondersteund.
 Alle gecontroleerde versies van iOS ondersteunen dit wel~\cite{Deveria2013c}.
-Deze uitdaging lukt dus niet op de \htc{} en \gtab{}.
+Het tonen van een PDF werkt dus niet op de \htc{} en \gtab{}.
 Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie van \st{} die niet gebouwd was met Sencha Cmd.
-Dit was omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in werd aangesproken.
+Dit was omdat de gebouwde versie een foutenboodschap gaf wanneer de plug-in werd aangesproken.
 \st{} haalt een score van 6/8 omdat de plug-in de \gs{} wel ondersteunt in tegenstelling tot de drie andere raamwerken.
 
 % \paragraph{\st} \score{6}{8}
@@ -423,7 +410,7 @@ Dit was omdat de gebouwde versie een foutenboodschap gaf wanneer de PDF plug-in 
 In tabel \ref{tabel:evaluatie-ondersteuning-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
 
 Offline en opslag is één element van de acht technologieklassen van HTLM5 (zie sectie \ref{sec:html5-css3-js}).
-Om de POC offline beschikbaar te maken is zowel de \code{manifest} als \code{localStorage} ondersteuning noodzakelijk.
+Om de POC offline beschikbaar te maken is zowel ondersteuning voor \code{manifest} en \code{localStorage} noodzakelijk.
 Beide kenmerken worden door alle beschikbare mobiele besturingssystemen ondersteund~\cite{Deveria2013c}. 
 
 

@@ -341,27 +341,23 @@ The summation of scores for each context will give the score for the framework's
 
 \paragraph{Performance}
 The download time of an HTML5-application is a major bottleneck for performance.
-Therefor,  the loading time of the POC ($l_{f,c,POC}$) and login application ($l_{f,c,login}$) will be measured on eight devices.
-Also,  the loading time for a cached version of both the POC ($l_{f,c,POC_{cache}}$) and login application ($l_{f,c,login_{cache}}$) will be recorded.
-The summation of these loading times on $8$ devices, provide the average download time.
+Therefor,  the loading time of the login application ($l_{f,c,login}$) will be measured on eight devices.
+Also,  the loading time for a cached version of the login application ($l_{f,c,login_{cache}}$) will be recorded.
+The summation of these loading times on $8$ devices, provide the average download time:
 
-%TODO links uitlijnen
-\begin{equation}
-\begin{split}
-\text{Average download time}_f =  \\ \frac{\sum_{c=1}^{8}\left(l_{f,c,POC}+l_{f,c,POC_{cache}}+ l_{f,c,login} + l_{f,c,login_{cache}}\right)}{8}
-  \label{eq:dowloadtime}
-\end{split}
-\end{equation}
+\begin{math}
+  \text{Average download time}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}}{8}
+\end{math}
 
-The responsetime of a list with $850$ elements will be measured on each context with two user tests ($\text{experience}_{f,c}$).
+The responsetime of a list with $850$ elements will be measured on each context with two user tests ($\text{Experience}_{f,c}$).
 Calculating the responsetime with \js{} is not possible because \sta{} and \lungo{} do not have an event after the elements are rendered.
 The result will be a total ordening of the frameworks per context that indicate the responsiveness.
 The summation of the results will provide a factor to weight the average download time.
 The formula for the framework's performance then becomes:
 
 \begin{equation}
-  \text{Performance}_f =  \frac{\text{Average download time}_f}{\sum_{c=1}^{8}{\text{experience}_{f,c}}}
-  \label{eq:performance}
+  \text{Performance}'_r = \frac{\text{Average download time}_r}{\text{Experience}_r}
+  \label{eq:performantie-enhanced}
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -430,7 +426,7 @@ The first focusses on the development of webapplications,  the second makes them
 \kendob{} is an hybrid form of JavaScript and markupdriven frameworks.
 It is build upon the (Model-View-View Model) MVVM architecture and requires the jQuery library.
 
-As at the time of writing,  \kendob{} is at version 2013 Q1~\cite{Telerik}. 
+As at the time of writing,  \kendob{} is at version 2013 Q1~\cite{Telerike}. 
 
 \paragraph{Documentation}
 Two important sections from the documentation are the API and Getting Started~\cite{Telerikd}.
@@ -442,7 +438,7 @@ A license for \kendob{} Complete costs $\$699$ per developper.
 Each layer can be bought separately for a different license fee.
 \kendob{} also provides server-side wrappers that can automatically create client-side JavaScript code.
 As at the time of writing, PHP,  JSP and ASP.NET MVC are supported as server-side technologies.
-A license for a server-side wrapper costs $\$300$~\cite{Telerik}.
+A license for a server-side wrapper costs $\$300$~\cite{Telerike}.
 
 \paragraph{Code and development}
 Both JavaScript and HTML code needs to be writter because \kendo{} is both JavaScript and markupdriven.
@@ -970,7 +966,7 @@ In contrast, list generation did work on all Android devices.
 
 Figure \ref{fig:spidergraph} shows the spidergraph with the scores for the five criteria for the four frameworks.
 
-\jqma{} has the largest area ($1.87$) and can be seen as the winner.
+\jqma{} has the largest area ($1.76$) and can be seen as the winner.
 One of the major factors that make \jqma{} successful is that it does not forces an architecture.
 This decreases the learning curve in favor of productivity.
 Also,  the extensive documentation and large community make \jqma{} more productive.
@@ -980,7 +976,7 @@ First,  the framework provides less functionality but many plugins and HTML5-fea
 Secondly,  the HTML-code that needs to be written is verbose.
 This complicates the linking of HTML with \js{} code.
 
-\kendob{} is second with an area of $1.32$.
+\kendob{} is second with an area of $1.31$.
 The MVVM architecture makes \kendob{} more usable but less productive in comparison with \jqma{}.
 However,  the MVVM arcitecture seems more intuitive than MVC.
 The main drawback of \kendob{},  which can not be seen on the figure, is the high license kost.
@@ -989,21 +985,20 @@ The expectation that open-source frameworks are more popular is not reflected in
 The crashes on iOS devices caused a decrease in the user experience tests and hence a drop in performance.
 The native look-and-feel and corresponding benefits are not been studied although it is an important factor for \kendob{} in particular.
 
-\lungo{} has an area of ($0.88$) and claims the third place.
+\lungo{} has an area of ($0.90$) and claims the third place.
 In tree out of five criteria,  \lungo{} is last.
-For the other criteria,  \lungo{} is second.
 Again, no architectur is imposed which can be seen in productivity and usability.
 However,  the advantage in productivity is smaller and disadvantage is usability is larger in comparison with \jqma{}.
 The lack of familiarity,  as can be seen with the popularity,  is an explanation of these differences.
-A positive aspect is that \lungo{} achieved the best average download times.  
+A positive aspect is that \lungo{} achieved the best download times.  
 This is because \quo{},  the core library of \lungo{},  is optimised for mobile devices.
 The user experience tests weakend the score for performance
 
 
-\sta {} is has an area of ($0.73$) and is worst framework following these criteria.
+\sta {} is has an area of ($0.75$) and is worst framework following these criteria.
 The combination of the MVC architecture and the fact that it is \js-driven makes \sta{} both the least productive and least performant in comparison to the other frameworks.
 Alle HTML code is generated by the framework and therefor the \js-files are very large.
-As a result,  the average downloadtimes were remarkably large.
+As a result,  the downloadtimes were remarkably large.
 The user experience tests gave an opposite result because after the initial waiting time,  \sta{} had the fastest responstimes.
 The tools provided by Sencha to support the developper are not able to close the gap in productivity.
 The tools require a learning process on their own.

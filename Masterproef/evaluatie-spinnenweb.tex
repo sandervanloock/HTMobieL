@@ -18,31 +18,33 @@ De formules van productiviteit en performantie zijn echter gewijzigd na de evalu
 Hun nieuwe relatieve formules zijn dan respectievelijk
 
 \begin{equation}
-  REL(\text{Productiviteit'}_r) = \frac{\left(\text{Productiviteit}'_R\right)^{-1}}{\max_{m}\{\left(\text{Productiviteit}'_m\right)^{-1}\}}
-  \label{eq:rel-productiviteit-final}
+  \text{Productiviteit}_r^{\pentagon} = \frac{\text{Productiviteit}_r^{'-1}}{\underset{m}{\max}\{\text{Productiviteit}_m^{'-1}\}}
+  \label{eq:rel-productiviteit-2}
 \end{equation}
 
 en
 
 \begin{equation}
-  REL(\text{Performantie'}_r)= \frac{\left(\text{Performantie}'_r\right)^{-1}}{\max_{m}\{\left(\text{Performantie}'_m\right)^{-1}\}}
-  \label{eq:rel-performantie-final}
-\end{equation}.
+  \text{Performantie}_r^{\pentagon}= \frac{\text{Performantie}_r^{'-1}}{\underset{m}{\max}\{\text{Performantie}_m^{'-1}\}}
+  \label{eq:rel-performantie-2}
+\end{equation}
 
-De oppervlakten van de vier vijfhoeken is de volgende:
-\begin{description}
- \item [\jqm{}] $1.87$
- \item [\kendo{}] $1.32$
- \item [\lungo{}] $0.88$
- \item [\st{}] $0.73$
-\end{description}
+% De oppervlakten van de vier vijfhoeken is de volgende:
+% \begin{description}
+% %nieuwste data
+%  \item [\jqm{}] $1.76$
+%  \item [\kendo{}] $1.31$
+%  \item [\lungo{}] $0.90$
+%  \item [\st{}] $0.76$
+% \end{description}
 
-De eenheden komen overeen met de eenheid zoals weergegeven op de assen.
-In wat volgt zullen de oppervlaktes van de raamwerken verklaart worden door conclusies te trekken over de resultaten van alle criteria.
+
+In wat volgt zullen de raamwerken besproken worden, door de oppervlaktes van vijhoeken te bekijken en conclusies te trekken over de resultaten van alle criteria.
+De eenheid van de oppervlaktes komt overeen met de eenheid zoals weergegeven op de assen van het spinnenweb.
 
 % but...
 
-\jqm{} heeft de grootste oppervlakte ($1.87$) en is de winnaar.
+\jqm{} heeft de grootste oppervlakte ($1.76$) en is de winnaar.
 Een van de belangrijkste factoren die \jqm{} tot winnaar maakt is het feit dat er geen architectuur wordt afgedwongen.
 Dit maakt dat de leercurve veel lager ligt ten voordele van de productiviteit.
 Ook een betere documentatie en omkadering maakt \jqm{} productiever.
@@ -62,7 +64,7 @@ Dit maakt het linken van HTML- met \js{}-code foutgevoelig.
 % + zeer populair (jQuery core) zie stackoverlow => vragen worden door een hele community opgelost (geen payed support)
 % als een easy (geen architectuur) raamwerk + populair (belangrijke klanten,  gekend op social media)
 
-\kendo{} bekleedt de tweede plaats met een opervlakte van $1.32$.
+\kendo{} bekleedt de tweede plaats met een opervlakte van $1.31$.
 In tegenstelling tot \jqm{} heeft het wel een architectuur en is het dus meer bruikbaar.
 De score van de productiviteit bevindt zich onder de helft maar in vergelijking met \st{} scoort het beter.
 Het grote nadeel van \kendo{},  wat niet in het spinnenweb kan worden gezien,  is de hoge kost voor een licentie.
@@ -79,8 +81,8 @@ Dit was bij Android minder geslaagd.
 % + native look-and-feel => laadtijden stijgen?  meer op native applicatie (positieve impact niet geevalueerd) (iOS lay-out sterk gelijkend op
 %echte iOS,  Android minder gelijkend, Blackberry en windows niet bekeken)
 
-\lungo{} heeft de derde grootste oppervlakte ($0.88$).
-Op drie van de vijf criteria scoort \lungo{} het slechtst,  voor de overige criteria is \lungo{} tweede.
+\lungo{} heeft de derde grootste oppervlakte ($0.90$).
+Op drie van de vijf criteria scoort \lungo{} het slechtst.
 Er is geen architectuur opgelegd en weer kan dit voor- en nadeel zowel in productiviteit en gebruik opgemerkt worden.
 De voordelen bij productiviteit zijn echter minder dan \jqm{} omdat de ondersteuning en documentatie minimaal is.
 De nadelen bij gebruik zijn dan weer uitvergroot omdat er niet zoveel functionaliteit en plug-ins als bij \jqm{} konden werden teruggevonden.
@@ -95,7 +97,7 @@ Dit kan zowel met de literatuur als met sociale netwerken bevestigd worden.
 % + performatie zeer positief => quo js geoptimaliseerd (bedrijf gespecialiseerd in mobile user experience)! (weinig support help hier ook)
 % nauwelijks bekend (literatuur, social networks (zie populariteit), ...)
 
-\st{} is volgens de gekozen criteria het slechtste raamwerk ($0.73$).
+\st{} is volgens de gekozen criteria het slechtste raamwerk ($0.75$).
 De combinatie van de MVC-architectuur en \js-gedreven opmaak maken \st{} zowel het minst productief als minst performant in vergelijking met de andere raamwerken.
 Alle HTML-code wordt door het raamwerk zelf aangemaakt waardoor de \js-bestanden zeer groot zijn.
 De downloadtijden waren dan ook opmerkelijk langer door het Delta Update mechanisme

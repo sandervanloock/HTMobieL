@@ -457,7 +457,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Optievelden toevoegen volgt de HTML-werkwijze door \code{radio} als invoertype in te stellen.
  Het aanmaken van een schakelaar kan door aan invoerelement van het type \code{checked} het \code{data-role} attribuut aan \code{switch} gelijk te stellen.
 
- \term{Datepickers} worden als widget aangeboden in \kendo Web.
+ \term{Datepickers} worden als \term{widget} aangeboden in \kendo Web.
  Het invoerelement ziet er als volgt uit: \code{<input id=\"{}veld\"{}\/>}.  
  Vervolgens moet het element worden geïnitialiseerd met \code{\$("\#veld").kendoDatePicker}.
  De datepicker is aanpasbaar zoals gevraagd in de POC.
@@ -750,8 +750,8 @@ Het is de taak van een \code{Controller} om deze gebeurtenissen op te vangen en 
 De succesfunctie krijgt de Base64-tekst mee en kan een voorbeeld van de afbeelding weergeven.
 
 \paragraph{\kendo}
-\kendo{} Web biedt een widget aan die het opladen van bestanden toelaat.
-Deze widget kan in twee modes worden gebruikt: syncroon of asynchroon.
+\kendo{} Web biedt een \term{widget} aan die het opladen van bestanden toelaat.
+Deze \term{widget} kan in twee modes worden gebruikt: syncroon of asynchroon.
 Een HTML-invoerelement met \term{identifier} moet worden toegevoegd en geïnitialiseerd met \code{\$("\#id").kendoUpload}.
 In synchrone mode wordt het formulier samen met de afbeelding verzonden naar de \term{backend} als een uitgave wordt toegevoegd.
 In asynchrone mode gebeurt het opladen meteen na het selecteren van de afbeelding.
@@ -1227,19 +1227,19 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden op \exturl{market.sencha.com/extensions/pdf-viewer-panel}.
-Het tonen van een PDF-bestand kan door de huidige \code{view} te wijzigen naar een \code{Ext.ux.PDF view}.
-Deze \code{view} bestaat uit een paneel met een kopftekst.
+Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden.
+Het tonen van een PDF-bestand kan door de huidige \code{View} te wijzigen naar een \code{Ext.ux.PDF view}.
+Deze \code{View} bestaat uit een paneel met een koptekst.
 Het paneel toont één pagina van het PDF-bestand,  de koptekst bevat de navigatie naar andere pagina's.
 
 Om de plug-in in de POC in te passen waren echter twee aanpassingen noodzakelijk.
-Het PDF-bestand moet via een POST verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
+Het PDF-bestand moet via een POST-verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
 Ook moest er een terugknop in de koptekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
 Beide aanpassingen moesten in het \js-bestand van de plug-in worden aangebracht.
 
 \paragraph{\kendo}
 AJAX is bedoeld om tekst op te halen, maar geen ruwe data zoals een PDF~\cite{Scott2009}. 
-Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de backend. 
+Hierdoor werd gebruik gemaakt van een verborgen formulier met de nodige parameters die de PDF ophaalt bij de \term{backend}. 
 Bij het klikken op een lijstitem in het overzicht, wordt dit verborgen formulier opgestuurd naar de \term{backend} die dan een PDF teruggeeft in de browser. 
 Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
 
@@ -1247,9 +1247,7 @@ Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correc
 De implementatie voor het tonen van het PDF-bestand is analoog als de implementatie met \kendo{}.
 
 \paragraph{\lungo}
-Om dezelfde reden als \kendo{} werd ook hier geen gebruik gemaakt van AJAX om de PDF op te vragen.
-Een verborgen formulier, net zoals dat voor \kendo{} het geval was, werd gebruikt om de PDF op te halen.
-Het weergeven van de PDF wordt overgelaten aan het mobiel apparaat dat de correcte applicatie hiervoor opstart.
+De implementatie voor het tonen van het PDF-bestand is analoog als de implementatie met \kendo{}.
 
 %%%%%%%%%%%%%
 
@@ -1287,24 +1285,24 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Zoals besproken bij \uit{ajax} kan een \code{store} voozien worden van een \code{proxy} die data opslaat aan klantzijde.
-Deze \code{store} maakt gebruik van de HTML5-localStorage API.
-Om inlog gegevens en onverzonden onkosten lokaal te bewaren moeten twee \code{stores} met deze \code{proxy} worden gedefinieerd.
-Een belangrijke opmerking is dat geen twee \code{proxies} aan een \code{store} kunnen worden toegevoegd.
-Gegevens van een gebruiker moeten van de server worden opgehaald - met een AJAX-\code{proxy} - en lokaal worden opgeslagen - met een \term{local storage} \code{proxy}.
-Hiervoor zijn twee verschillende \code{store} instanties nodig die gesynchronizeerd moeten worden!
-Bij het laden van de applicatie zal de \code{store} die gebruikers lokaal opslaat, op data worden gecontroleerd.
+Zoals besproken bij \uit{ajax} kan een \code{Store} voozien worden van een \code{Proxy} die data opslaat aan klantzijde.
+Deze \code{Store} maakt gebruik van de HTML5 \code{localStorage}.
+Om gegevens van een gebruiker en onverzonden onkosten lokaal te bewaren moeten twee \code{Stores} met deze \code{Proxy} worden gedefinieerd.
+Een belangrijke opmerking is dat geen twee \code{Proxies} aan een \code{Store} kunnen worden toegevoegd.
+Gegevens van een gebruiker moeten van de server worden opgehaald - met een AJAX-\code{Proxy} - en lokaal worden opgeslagen - met een \term{LocalStorageProxy}.
+Hiervoor zijn twee verschillende \code{Store} instanties nodig die gesynchronizeerd moeten worden.
+Bij het laden van de applicatie zal de \code{Store} die gebruikers lokaal opslaat, op data worden gecontroleerd.
 Indien er data wordt gevonden,  was de gebruiker reeds ingelogd.
 De applicatie zal dan meteen naar het startscherm navigeren.
 
-Om onverzonden uitgaven lokaal op te slaan, moeten de uitgaven ook aan een \code{store} met lokale \code{proxy} worden toegevoegd.
-Deze worden dan automatisch naar de \term{local storage} weggeschreven.
-De controle op onverzonde uitgaven wordt herleid tot het controleren van data in de \code{store}.
-Het verwijderen van onverzonden lokale uitgaven kan door de data in de \code{store} te wissen.
+Om onverzonden uitgaven lokaal op te slaan, moeten de uitgaven ook aan een \code{Store} met lokale \code{Proxy} worden toegevoegd.
+Deze worden dan automatisch naar de \code{localStorage} weggeschreven.
+De controle op onverzonde uitgaven wordt herleid tot het controleren van data in de \code{Store}.
+Het verwijderen van onverzonden lokale uitgaven kan door de data in de \code{Store} te wissen.
 
 De applicatie offline beschikbaar maken wordt ondersteund door Sencha Cmd~\cite{Sencha2012}.
 Hiervoor moet de applicatie gebouwd worden voor productie (zie sectie \ref{sec:raamwerk-st}).
-De tool zal automatisch een manifest bestand aanmaken die alle vereiste bestanden bevat.
+De tool zal automatisch een \code{manifest}-bestand aanmaken die alle vereiste bestanden bevat.
 
 \paragraph{\kendo}
 %user opslaan => jqm (check bij employeedatasource)
@@ -1313,41 +1311,42 @@ Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in 
 Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
 
 Na het aanmelden zullen alle gegevens van de werknemer geserialiseerd worden opgeslagen.
-Deze gegevens zitten in een \code{OservableObject} en kunnen met de \code{toJSON} methode als JSON-object worden verkregen.
-Het serialiseren zelf kan via de \code{JSON.stringify} methode.
-Wanneer het aanmeldscherm wordt getoond zal gecontroleerd worden of er gegevens van een werknemer lokaal beschikbaar zijn.
+Deze gegevens zitten in een \code{OservableObject} en kunnen met de \code{toJSON}-methode als JSON-object worden verkregen.
+Het serialiseren zelf kan via de \code{JSON.stringify}-methode.
+Wanneer het aanmeldscherm wordt getoond, zal gecontroleerd worden of er gegevens van een werknemer lokaal beschikbaar zijn.
 Indien dit het geval is, wordt automatisch naar naar het startscherm genavigeerd.
 
 Wanneer een uitgave wordt toegevoegd zal deze aan een \code{DataSource} en in de \code{localStorage} worden toegevoegd.
-De controle op reeds bestaande uitgaven zoekt naar reeds bestaande uitgaven in de \code{localStorage}.
+Beide acties zullen plaatsvinden in de methode om een uitgave toe te voegen.
 Nadat een uitgaveformulier is verzonden worden de uitgaven uit de \code{localStorage} verwijderd.
 
-    
-%expense opslaan => add Expense toevoegen aan localstorage
 
-Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} zelf niet ondersteund.
+Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} niet ondersteund.
 De HTML5 Application Cache kan zelf worden aangemaakt.
 Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
+%TODO veel herhaling van tekst want dezelfde aanpak zoals bij kendo (geldt ook voor lungo)
 \paragraph{\jqm}
 Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
 Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
-Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een fallback geschreven die de data bijhoudt als \js{}-variabelen.
+Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een \term{fallback} geschreven die de data bijhoudt als \js{}-variabelen.
 Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
 Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
 
 
-Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code in inlaadt.
+Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code inlaadt.
 Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
 Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gebruikersgegevens werden bewaard.
 
+%TODO oorzaak -> gevolg relatie niet correct. Ze verwijzen in jqm documentatie mss naar appcache maar het is niet zo dat de mogelijkheid van appcache de onbeschikbaarheid impliceert
 Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
 Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\lungo}
 Het raamwerk biedt zelf functies aan om data op te slaan.
 Intern zal het gebruik maken van \code{localStorage}, wat gespecificeerd is in HTML5.
-Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een fallback voorzien.
+Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een \term{fallback} voorzien.
 
+%TODO oorzaak -> gevolg relatie niet correct. Ze verwijzen in jqm documentatie mss naar appcache maar het is niet zo dat de mogelijkheid van appcache de onbeschikbaarheid impliceert
 Het offline beschikbaar maken van de applicatie wordt vanuit \lungo{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
 Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.

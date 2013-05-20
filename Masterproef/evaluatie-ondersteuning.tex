@@ -292,26 +292,19 @@ Op de \htc{} werden bij \lungo{} de suggesties dubbel op het scherm aan de gebru
 \subsection{\uit{afbeelding}}
 \label{sec:evaluatie-ondersteuning-afbeelding}
 
-Aangezien deze uitdaging voor ondersteuning geen deeluitdagingen bevat, wordt er geen tabel getoond.
-Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-Iedere implementatie die onderliggend HTML5 FileReaderAPI gebruik, heeft geen ondersteuning op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013c}.
-
-De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen.
-\kendo{}, \jqm{} en \lungo{} gebruiken dezelfde aanpak om deze uitdaging te implementeren.
-Deze aanpak steunt op de File API en wordt enkel vanaf Android versie 3 ondersteund~\cite{Deveria2013c}.
-Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
+De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen waardoor de raamwerken allemaal een score van 5/8 behaalden.
+\kendo{}, \jqm{} en \lungo{} gebruiken dezelfde aanpak om deze uitdaging te implementeren, namelijk HTML5 FileReaderAPI.
+Deze heeft geen ondersteuning op Android versies 2.3 en lager of iOS versies lager dan 6.0~\cite{Deveria2013c}. 
+Ook de plug-in die \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
 Hierdoor zullen de \htc{} en \gtab{} deze uitdaging in de vier raamwerken niet ondersteunen.
+
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
-Dit komt omdat de grootte van de foto's de limiet van de \code{localStorage} overschrijden.
-%TODO exacte limiet localstorage refereren?
-% TODO Tim
-% Zie http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/CreatingContentforSafarioniPhone/CreatingContentforSafarioniPhone.html#//apple_ref/doc/uid/TP40006482-SW15
-% Zie http://dev-test.nemikor.com/web-storage/support-test/
+Dit is een gekende limiet van iOS waarbij apparaten met minder dan $256\unit{MB}$ RAM maximaal drie megapixels foto's kunnen importeren op het \code{canvas}.
+Apparaten met $256\unit{MB}$ RAM of meer kunnen foto's tot vijf megapixels importeren op het \code{canvas}~\cite{Apple2012}.
+Een gelijkaardige probleem gaat ook op voor Android-apparaten als de foto wordt opgeslaan in de lokale opslag.
+De exacte limieten voor \code{localStorage} en \code{sessionStorage} zijn browser- en versiespecifiek~\cite{Gonzalez2012}.
 Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
-De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen.
-%TODO referentie?
-Alle raamwerken behaalden een score van 5/8.
+De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen~\cite{ViljamiSalminen2012}.
 
 % \paragraph{\st} \score{5}{8}
 % Oudere Android types bieden geen ondersteuning voor de FileReaderAPI.

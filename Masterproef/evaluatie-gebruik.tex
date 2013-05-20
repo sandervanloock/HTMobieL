@@ -2,11 +2,8 @@
 \label{sec:evaluatie-gebruik}
 Het gebruik van de vier raamwerken wordt samengevat voor de $13$ uitdagingen in tabel \ref{tabel:evaluatie-gebruik}.
 Voor de score van productiviteit wordt naar formule \ref{eq:gebruik} verwezen.
+Voor \st{} werd gebruik gemaakt van versie~2.1.1, voor \kendo{} van versie~2013~Q1, voor \jqm{} van versie~1.3.0 en voor \lungo{} van versie~2.1.
 Per sectie zal iedere uitdaging per raamwerk worden besproken.
-
-%TODO versies die we nu effectief gebruikt hebben om te implementeren
-%ST:  2.1.1
-%Kendo: 2013 Q1
 
 %TODO enkel de dingen uitleggen die je hebt gebruikt, dus geen extra info over wat het nog allemaal kan, of dingen die niet in de challenges beschreven staan
 
@@ -47,12 +44,6 @@ Als laatste komt \lungo{} dat een onvoldoende behaalt.
 Dezelfde pijnpunten van \jqm{} zijn ook geldig voor \lungo{}.
 Daarenboven is er bij \lungo{} een totaal gebrek aan formuliervalidatie en aan de meer geavanceerdere formulierelementen.
 Voor deze laatste moet er een plug-in worden gebruikt of zal de functionaliteit zelf moeten worden geïmplementeerd. 
-
-%TODO weinig diepgang in deze vier zinnen?
-%\kendo{} en \st{} behalen elk zes perfecte uitdagingen.
-%\kendo{} scoort twee maal onvoldoende, terwijl \st{} dat slechts één keer doet.
-%\jqm{} heeft drie perfecte uitdagingen en vier onvoldoendes.
-%Als laatste komt \lungo{} met slechts één perfecte uitdaging en zeven onvoldoendes.
 
 Een algemene trend bij iedere raamwerk is de volle ondersteuning van AJAX-verzoeken, behalve dan bij één geval voor \lungo{}.
 Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
@@ -325,7 +316,7 @@ Een \code{Application}-object wordt na initialisatie van een \kendo{}-applicatie
 Hierop kunnen de \code{showLoading} en \code{hideLoading} methoden worden opgeroepen om de animatie van het laadscherm te tonen of te verbergen.
 
 %dialoogvenster
-Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd (niet te verwarren met het \code{viewModel} van de MVVM-architectuur).
+Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd (niet te verwarren met het \code{View Model} van de MVVM-architectuur).
 Het attribuut \code{data-role} moet \code{modelview} als waarde hebben om een HTML-fragment als dialoogvenster te definiëren.
 Dit fragment kan kop- en/of voetteksten bevatten.
 Het is mogelijk het \code{ModelView} in \js{} te selecteren met \code{\$("\#veld").data("kendoMobileModalView")}.
@@ -562,6 +553,7 @@ Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
 Er bestaat dus geen vlekkeloze mapping tussen een eigenschap van een model en een \code{radiofield}.
 Hetzelfde geldt voor een \code{checkboxfield}.
 Een model kan worden voorzien met eigenschappen met volgende types:
+%TODO moet dat niet met code?
 \begin{itemize}
   \item auto
   \item string
@@ -699,7 +691,7 @@ Daar werd de plug-in AutoComplete gebruikt.
 De voorbeeldcode maakt het gemakkelijk om onmiddellijk een werkend voorbeeld van de plug-in te hebben.
 Veel code kon dus gewoon worden overgenomen om een werkende auto-aanvulling te bekomen.
 Er diende nog één extra CSS-regel te worden toegevoegd om het symbool voor de suggesties te verwijderen.
-Deze maakten namelijk gebruik van \code{li}-items binnen een \code{ul}-tag waardoor er symbool voor de suggesties kwamen.
+Deze maakten namelijk gebruik van \code{li}-items binnen een \code{ul}-tag waardoor er symbolen voor de suggesties kwamen.
 
 
 %%%%%%%%%%%%%
@@ -1305,8 +1297,7 @@ Hiervoor moet de applicatie gebouwd worden voor productie (zie sectie \ref{sec:r
 De tool zal automatisch een \code{manifest}-bestand aanmaken die alle vereiste bestanden bevat.
 
 \paragraph{\kendo}
-%user opslaan => jqm (check bij employeedatasource)
-Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
+Vanuit het raamwerk is er geen ondersteuning om gegevens offline te bewaren.
 Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
 Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
 

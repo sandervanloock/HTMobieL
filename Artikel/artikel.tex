@@ -35,6 +35,8 @@
 \usepackage{pgfplotstable} %nodig voor CSV to Latex
 \usepackage{booktabs} % voor layout comparisontable
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfig}
 
 %\usepackage[hyphens]{url}
 
@@ -184,7 +186,7 @@ Those users cannot benefit of the latest bells and whistles, particularly the ne
 \end{table}
 
 There are three possible ways to make a mobile application~\cite{Accenture2012,Hales2012}.
-The first one is a \emph{web application} which runs entirely in the browser.
+The first one is a \emph{web application} using HTML5 which runs entirely in the browser.
 The second type of application is a \emph{native application} which is installed on the device and programmed in a language specific to the mobile OS.
 Lastly, a mix of both can be made which is called a \emph{hybrid application}.
 One approach is to pack the web application as a native application.
@@ -280,7 +282,8 @@ The summation of these five numbers give the score for the framework's popularit
 % \end{equation}
 
 \paragraph{Productivity}
-Both autors implement the POC two different framework and carefully record the time to implement it.  
+%TODO: moeten die 'oude' dingen daar nog inzitten?
+Both authors implement the POC two different framework and carefully record the time to implement it.  
 However,  this time will be influenced by many factors.
 The second implementations will have an advantage because of the gained experience after the first implementation.
 Also,  code reuse and possible incomplete implementations because of the limited functionality of the framework, affect this times in a negative way.
@@ -340,25 +343,25 @@ The summation of scores for each context will give the score for the framework's
 \end{equation}
 
 \paragraph{Performance}
-The download time of an HTML5-application is a major bottleneck for performance.
-Therefor,  the loading time of the login application ($l_{f,c,login}$) will be measured on eight devices.
-Also,  the loading time for a cached version of the login application ($l_{f,c,login_{cache}}$) will be recorded.
-The summation of these loading times on $8$ devices, provide the average download time:
+The login application will be used as a stress test for the POC.
+On the one hand, the average download time of both the non-cached ($l_{f,c,POC_{cache}}$) and cached version ($l_{f,c,login_{cache}}$) will be taken into account.
+The formula for average download for a framework $f$ is:
 
 \begin{math}
   \text{Average download time}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}}{8}
 \end{math}
 
-The responsetime of a list with $850$ elements will be measured on each context with two user tests ($\text{Experience}_{f,c}$).
-Calculating the responsetime with \js{} is not possible because \sta{} and \lungo{} do not have an event after the elements are rendered.
-The result will be a total ordening of the frameworks per context that indicate the responsiveness.
-The summation of the results will provide a factor to weight the average download time.
-The formula for the framework's performance then becomes:
+On the other hand, the user experience by scrolling through a long list of 850 items will be tested.
+This is because the calculation of render times with \js{} was not possible because for \sta{} and \lungo{} as they do not have an event after the elements are rendered.
+The user experience will be measured on each context with two user tests ($\text{User experience}_{f,c}$).
+The result will be a total ordering of the frameworks per context that indicate the responsiveness.
+The performance for a framework $f$ is defined by:
 
 \begin{equation}
   \text{Performance}'_r = \frac{\text{Average download time}_r}{\text{Experience}_r}
   \label{eq:performantie-enhanced}
 \end{equation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -717,7 +720,7 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 \label{tabel:evaluatie-usage}
 \end{table}
 
-% tabel voor performantie staat hier om latex te laten forceren en mooiere layout te hebben
+% tabel voor ondersteuning staat hier om latex te laten forceren en mooiere layout te hebben
 \begin{table*}
 \centering
 \pgfplotstabletypeset[
@@ -841,32 +844,7 @@ The two oldest devices were the \iphoneiii{} and \gs{} respectively released in 
 Although both devices are upgraded to a later operatingsystem,  it looks like Android devices offer updates less frequently.%TODO referentie?
 This can be explained with the large hetrogenity between Android devices.
 
-All frameworks but \jqma{} provide methods to query the context.
-\jqma{} implemented this feature with CSS3 media queries.
-This implementations worked on $7$ of $8$ devices except for the \gtab.
-However,  \kendob{} was able to recognize this device as a tablet and achieved the maximum score.
-Uploading an image requires support for both the local storage and File API.  
-Also the \code{file} input type is necessary to indicate the upload component.
-The four implementations of this challenge all fail for the \htc{}, \gtab{} and \ipadi{} because the lack of support for one or more of these dependencies~\cite{Deveria2013c}.
-HTML5 provides features for form validation but non of the $8$ devices support these features.
-All frameworks, however,  implement a custom validation mechanism that is supported on each device.
-All four implementations for the signature depend on the \code{canvas} feature of HTML5 and is supported for each device.
-\kendob{}, \jqma{} and \lungo{} reuse the code to implement the \chal{pdf}, \sta{} has a plugin available that depend on the PDF.JS,  a PDF-renderer from Mozilla~\cite{Gal2010}.
-The first implementation failed to work on the \gs{} while latter implementation showed the PDF successfully.
-Finally, offline capabilities also are supported on all $8$ devices~\cite{Deveria2013c} so each framewok achieved the maximum score.
-
-% samenvattende tekst vertalen % Sander
-  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Performance} % 1 blz % Tim
-\label{sec:evaluation-performance}
-The performance of both the total download time and user experience of each framework can be found in table \ref{tabel:evaluatie-performantie}.
-\jqma{} takes first place, shortly followed by \lungo{}.
-This is because both frameworks do not enforce an architecture, which means that less \js{} code has to be downloaded.
-This is in contrast to \kendob{} and \sta{} that take respectively second last and last place.
-
-\begin{table}
+\begin{table}[t]
 \centering
 \pgfplotstabletypeset[
   begin table=\begin{tabular}{p{3cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
@@ -892,28 +870,65 @@ This is in contrast to \kendob{} and \sta{} that take respectively second last a
 \label{tabel:evaluatie-performantie}
 \end{table}
 
+All frameworks but \jqma{} provide methods to query the context.
+\jqma{} implemented this feature with CSS3 media queries.
+This implementations worked on $7$ of $8$ devices except for the \gtab.
+However,  \kendob{} was able to recognize this device as a tablet and achieved the maximum score.
+Uploading an image requires support for both the local storage and File API.  
+Also the \code{file} input type is necessary to indicate the upload component.
+The four implementations of this challenge all fail for the \htc{}, \gtab{} and \ipadi{} because the lack of support for one or more of these dependencies~\cite{Deveria2013c}.
+HTML5 provides features for form validation but non of the $8$ devices support these features.
+All frameworks, however,  implement a custom validation mechanism that is supported on each device.
+All four implementations for the signature depend on the \code{canvas} feature of HTML5 and is supported for each device.
+\kendob{}, \jqma{} and \lungo{} reuse the code to implement the \chal{pdf}, \sta{} has a plugin available that depend on the PDF.JS,  a PDF-renderer from Mozilla~\cite{Gal2010}.
+The first implementation failed to work on the \gs{} while latter implementation showed the PDF successfully.
+Finally, offline capabilities also are supported on all $8$ devices~\cite{Deveria2013c} so each framewok achieved the maximum score.
+
+
+\begin{figure}[t]
+  \centering
+  \subfloat[Login application]{
+    \includegraphics[width=\columnwidth]{../Masterproef/figuren/performantie-login.pdf}
+    \label{fig:performantie-login}
+  }
+  \quad
+  \subfloat[Login application from cache]{
+    \includegraphics[width=\columnwidth]{../Masterproef/figuren/performantie-login-cache.pdf}
+    \label{fig:performantie-login-cache}
+  }
+  \caption{Download time of the login application for \st{}, \kendo{},  \jqm{} en \lungo{}.}
+  \label{fig:performantie-login-boxplot}
+\end{figure}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Performance} % 1 blz % Tim
+\label{sec:evaluation-performance}
+The performance of both the average download time and user experience of each framework can be found in table \ref{tabel:evaluatie-performantie}.
+\lungo{} takes first place, shortly followed by \jqma{} and \sta{}.
+This is because the two frameworks do not enforce an architecture, which means that less \js{} code has to be downloaded.
+This is in contrast to \kendob{} and \sta{} that take respectively third  and last place.
+\sta{} gets last place for performance because of the worst download time, but gets the first place for user experience.
+
 %%%%%%%%%%%%%%%%%%
 
 \paragraph{Average download time}
-Figure \ref{fig:evaluatie-performantie-gebruikerservaring} shows the average download time for POC, POC from cache, login application, login application from cache for the four frameworks. 
+Figure \ref{fig:performantie-login-boxplot} shows the download time of the login application and the login application from cache for the four frameworks. 
 
-%TODO engelstalige labels maken
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{../Masterproef/figuren/performance-en.pdf}
-  \caption{Average download time for POC, POC from cache, login application, login application from cache for the four frameworks. Less is better.}
-  \label{fig:evaluatie-performantie-gebruikerservaring}
-\end{figure}
+%TODO is deze figuur nog relevant voor paper?
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=\columnwidth]{../Masterproef/figuren/performance-en.pdf}
+%  \caption{Average download time for POC, POC from cache, login application, login application from cache for the four frameworks. Less is better.}
+%  \label{fig:evaluatie-performantie-gebruikerservaring}
+%\end{figure}
 
-\lungo{} takes first place and only needs a third of the download time needed by \sta{}, the slowest of the four.
-\jqma{} and \kendob{} take the second and third place respectively.
-Because not everything was implemented in the POC of \lungo{}, one could argue that that is the reason of the first place of \lungo{}.
-But when looking at the login application, \lungo{} still takes first place.
-It is even more than half faster than \jqma{}, \kendob{} or \sta{}.
-Those three frameworks have about the same average download time.
+\lungo{} takes first place and \jqma{} and \kendob{} take the second and third place respectively.
+\lungo{} is about have of the time faster than \jqma{}, \kendob{} or \sta{}.
+Those three frameworks nearly have the same download time.
 The reason that \kendob{} and \sta{} are respectively second last and last is because they enforce an architecture and therefore the libraries to download are bigger than those of \lungo{} and \jqma{}.
 
-When viewing the cached versions of the POC and login application, \kendob{}, \jqma{} en \lungo{} have about the same average download time.
+When viewing the login application from cache \kendob{}, \jqma{} and \lungo{} have about the same download time.
 However \st{} has a much higher download time when using the cached version.
 The first reason is that the first three frameworks are only using HTML5 Application Cache.
 \sta{} also uses its own caching mechanism in addition to HTML5 Application Cache.
@@ -922,12 +937,13 @@ The second reason is that the application in the first three frameworks are comp
 %%%%%%%%%%%%%%%%%%
 
 \paragraph{User experience}
-Table \ref{tabel:evaluatie-performantie-gebruikerservaring} shows the total score for user experience.
+Table \ref{tabel:evaluatie-performantie-gebruikerservaring} shows the the user experience.
 \sta{} takes first place with the maximal score.
+This means that the scroll experience when best on all the devices.
 \jqma{} was voted six time the second best for user experience.
 \kendob{} was better on the \htc{} and \lungo{} on the \ipadiii{}.
 The generation of the 850 list items was impossible for \kendob{} on all the iOS devices.
-The browser crashed an the device returned to the home screen.
+The browser crashed an the device and returned to the home screen.
 %De reden alsook de grens waarom \kendo{} niet crasht op iOS-toestellen werd door tijdsbudget niet gecontroleerd.
 %Een mogelijke denkpiste is dat \kendo{} een overhead genereerd die het maximale toegelaten geheugen voor het iOS-besturingssysteem overschrijdt.
 In contrast, list generation did work on all Android devices.
@@ -964,11 +980,11 @@ In contrast, list generation did work on all Android devices.
 \subsection{Comparison overview} % ? blz
 \label{sec:evaluation-overview}
 
-Figure \ref{fig:spidergraph} shows the spidergraph with the scores for the five criteria for the four frameworks.
+Figure \ref{fig:spidergraph} shows the spider graph with the scores for the five criteria for the four frameworks.
 
 \jqma{} has the largest area ($1.76$) and can be seen as the winner.
 One of the major factors that make \jqma{} successful is that it does not forces an architecture.
-This decreases the learning curve in favor of productivity.
+This decreases the learning curve in favour of productivity.
 Also,  the extensive documentation and large community make \jqma{} more productive.
 \lungo{} also forces no architecture but is extremely unpopular.
 The absence of architecture also has two disadvantages.
@@ -978,8 +994,8 @@ This complicates the linking of HTML with \js{} code.
 
 \kendob{} is second with an area of $1.31$.
 The MVVM architecture makes \kendob{} more usable but less productive in comparison with \jqma{}.
-However,  the MVVM arcitecture seems more intuitive than MVC.
-The main drawback of \kendob{},  which can not be seen on the figure, is the high license kost.
+However,  the MVVM architecture seems more intuitive than MVC.
+The main drawback of \kendob{},  which can not be seen on the figure, is the high license cost.
 The expectation that open-source frameworks are more popular is not reflected in the popularity scores.
 \kendob{} also is the least performant.
 The crashes on iOS devices caused a decrease in the user experience tests and hence a drop in performance.
@@ -992,7 +1008,7 @@ However,  the advantage in productivity is smaller and disadvantage is usability
 The lack of familiarity,  as can be seen with the popularity,  is an explanation of these differences.
 A positive aspect is that \lungo{} achieved the best download times.  
 This is because \quo{},  the core library of \lungo{},  is optimised for mobile devices.
-The user experience tests weakend the score for performance
+The user experience tests weakened the score for performance
 
 
 \sta {} is has an area of ($0.75$) and is worst framework following these criteria.
@@ -1005,7 +1021,6 @@ The tools require a learning process on their own.
 As a last remark,  \sta{} is depending on the WebKit engine.
 Devices with a default browser that do not contain this engine,  like Windows Phone, are not investigated.
 
-%TODO engelstalige labels maken
 \begin{figure}
   \centering
   \includegraphics[width=\columnwidth]{../Masterproef/figuren/spidergraph-final-en.pdf}
@@ -1063,13 +1078,14 @@ This paper described a comparative study between \sta{},  \kendob{},  \jqma{} an
 \jqma{} and \lungo{} do not have an architecture and are both markupdriven.
 
 Five criteria were chosen to execute the comparative study:  popularity,  productivity,  usage,  support and performance.
-Each criterion was provided with a forumla to calculate a score for the criterion.
+Each criterion was provided with a formula to calculate a score for the criterion.
 A POC was formalised and checked with the criteria in as many ways as possible.
 The activity of the framework on social networks, determined the popularity.
-The productivity was measured by timetracking the time to implementing a loginapplication.
+The productivity was measured by time tracking the time to implementing a login application.
 The POC was subdivided in $13$ challenges and $38$ subchallenges to test the usability of the framework.
 Next,  a subset of these challenges were tested on $8$ different devices to check the support.
-Finally,  the load- and responsetime of the POC and loginapplication determined the performance criterion.
+%TODO dit is veranderd.
+Finally,  the load- and response time of the POC and login application determined the performance criterion.
 All the scores were plotted in a spidergraph.
 
 The comparison shows that \jqm{} is the best framework.

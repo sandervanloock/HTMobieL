@@ -106,7 +106,7 @@ Er bestaat geen exacte formule om populariteit uit te drukken.
 De formule die werd gekozen om de score voor dit criterium te quoteren is onderheven aan subjectiviteit.
 Twee opmerkingen moeten hierbij worden gemaakt.
 Enerzijds zijn de auteurs zich ervan bewust dat de doorsnede tussen sociale netwerken niet leeg is.
-Zo kan éénzelfde persoon zowel een volger op Twitter zijn als een vind-ik-leuk op Facebook plaatsen.
+Zo kan éénzelfde persoon zowel een volger op Twitter zijn als een vind-ik-leuk op \fb{} plaatsen.
 Verschillende individuen zullen dus dubbel geteld worden in de totale score voor populariteit van het raamwerk.
 De score zal dus slechts een indicatie geven over de populariteit,  het is geen exacte weergave.
 Ten tweede zijn de auteurs er zicht van bewust dat de inclusie van \so{} op twee manieren kan worden bekeken.
@@ -125,7 +125,7 @@ Er wordt verondersteld dat de auteurs over een gemeenschappelijke technische ach
 
 Elk zullen ze de POC in twee verschillende raamwerken maken en daarnaast ook een extra loginapplicatie in twee andere raamwerken.
 De ene auteur maakt de POC in \jqm{} en \lungo{} en de loginapplicatie in \st{} en \kendo{}.
-De andere zal dan de POC in \st{} en \kendo{} maken en de loginapplicaties in \jqm{} en \lungo{}.
+De andere zal dan de POC in \st{} en \kendo{} maken en de loginapplicatie in \jqm{} en \lungo{}.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
 De implementatie van de loginapplicatie is een extra test.
 Deze applicatie bevat GI-elementen, validaties,  \term{backend}integratie en een lijst.
@@ -149,7 +149,7 @@ voor een raamwerk $r$.
 
 De uitkomsten van dit criterium zullen gestaafd worden door ten eerste het aantal tools te bekijken die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
 Ook zullen de factoren die de leercurve bepalen, worden geschat.
-Vervolgens zal de kwaliteit en kwantiteit van de documentatie van elk raamwerk worden bekekenen.
+Vervolgens zal de kwaliteit en kwantiteit van de documentatie van elk raamwerk worden bekeken.
 De mogelijkheden voor debuggen bepalen ook de productiviteit en zullen worden onderzocht.
 Dan zal gekeken worden naar de aanwezige literatuur van het raamwerk en waar ontwikkelaars met vragen terecht kunnen.
 Ten slotte zullen de lijnen code die nodig waren voor zowel de POC als de loginapplicatie gepresenteerd worden.
@@ -164,8 +164,8 @@ De POC kan onderverdeeld worden in $13$ uitdagingen die onderverdeeld zijn in $3
 Alle uitdagingen en deeluitdagingen zijn in tabel~\ref{tabel:uitdagingen} te vinden.
 
 \pgfplotstabletypeset[
-  begin table=\begin{longtable}{p{12cm}},
-  end table=\caption{Uitdagingen}\label{tabel:uitdagingen}\end{longtable},
+  begin table=\begin{longtable}{l},
+  end table=\caption{$13$ uitdagingen onderverdeeld in $38$ deeluitdagingen voor gebruik.}\label{tabel:uitdagingen}\end{longtable},
   skip coltypes=true,
   col sep=comma,
   string type,
@@ -275,7 +275,7 @@ Deze worden in tabel \ref{tabel:toestellen-hci} weergegeven.
 
  \begin{table}[H]
  \centering
- \resizebox{14cm}{!} {
+ \resizebox{\textwidth}{!} {
  \pgfplotstabletypeset[
    begin table=\begin{tabular}{l l l l l},
    end table=\end{tabular},
@@ -329,8 +329,8 @@ Dit is in tegenstelling tot de loginapplicatie die wel in de vier raamwerken kan
 Hierdoor zal de POC niet worden gebruikt.
 
 Bij de downloadtijden onderscheiden zich twee gevallen die samen de totale downloadtijd bepalen.
-Eerste zal de downloadtijd van de loginaaplicatie bekeken worden ($\widehat{l}_{r,c,login}$). 
-Vervolgens zal de tijd worden opgemeten om de loginaaplicatie uit het cachegeheugen te downloaden ($\widehat{l}_{r,c,login_{cache}}$).
+Eerste zal de downloadtijd van de loginapplicatie worden bekeken ($\widehat{l}_{r,c,login}$). 
+Vervolgens zal de tijd worden opgemeten om de loginapplicatie uit het cachegeheugen te downloaden ($\widehat{l}_{r,c,login_{cache}}$).
 
 Het opmeten van de downloadtijden zal met TCPdump~\cite{Tcpdump2010} gebeuren, zoals werd voorgesteld door Thair~\cite{Thair2011}.
 Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot concerteren.
@@ -339,17 +339,13 @@ De uitvoer van TCPdump is een PCAP-bestand die de HTTP-trafiek bevat.
 Deze zal via PCAP Web Performance Analyzer~\cite{SongL.bmcquadeMdsteele2010} worden omgezet naar een HAR-file, waarna een HTTP-waterval zal worden getoond.
 Hieruit kan de totale downloadtijd worden gehaald van de gedownloade bestanden voor die applicatie.
 
-%Elke meting zal drie keer worden uitgevoerd. %TODO moeten deze drie metingen ook in de formule worden opgenomen?
-%Het gemiddelde van de drie metingen zal de uiteindelijke laadtijd bepalen. %TODO referentie 3 metingen ?
-%% Tim: de redenen was dat het manueel werk is, dus nu zaten we voor 3 metingen op 8 devices aan ongeveer 1 werkdag om dat uit te voeren
-
 De rendertijd zal gemeten worden met de tijd die het raamwerk nodig heeft om GI-elementen te renderen.
 Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
 De tijd die het raamwerk nodig heeft om de lijst de renderen ($\widehat{l}_{r,c,lijst}$) kan gemeten worden met \js-code.
 
 De downloadtijden en rendertijden zullen op acht verschillende apparaten worden opgemeten.
 Dit zijn dezelfde apparaten als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
-De totale laad- en rendertijd voor een raamwerk wordt bepaald door de som van de gemiddelde download -en rendertijden per apparaat.
+De gemiddelde laad- en rendertijd voor een raamwerk wordt bepaald door de som van de gemiddelde download -en rendertijden per apparaat.
 Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
 \begin{equation}
   \text{Gemiddelde downloadtijd}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}}{8}
@@ -359,7 +355,7 @@ Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worde
   \text{Gemiddelde rendertijd}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}}{8}
   \label{eq:totale-gebruikerservaring}
 \end{equation}
-De performantie wordt bepaald door de totale laad- en rendertijden te delen door het aantal apparaten.
+De performantie wordt bepaald door de gemiddelde laad- en rendertijden te delen door het aantal apparaten.
 De formule voor het performantiecriterium wordt dan:
 \begin{equation}
   \text{Performantie}_r= \text{Gemiddelde downloadtijd}_r + \text{Gemiddelde rendertijd}_r
@@ -374,15 +370,15 @@ De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt gela
   \label{eq:performantie-max}
 \end{equation}
 
-Deze maximale reponsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  
+Deze maximale responsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  
 \begin{itemize}
-\item $\text{Maximale reponsetijd}_r < 0.1\unit{s}$: de gebruiker heeft het gevoel dat het systeem direct reageert.
-\item $\text{Maximale reponsetijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
-\item $\text{Maximale reponsetijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
+\item $\text{Maximale responsetijd}_r < 0.1\unit{s}$: de gebruiker heeft het gevoel dat het systeem direct reageert.
+\item $\text{Maximale responsetijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
+\item $\text{Maximale responsetijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
 \end{itemize}
 
 Om de scores van het performantiecriterium te staven zullen twee eigenschappen van de code bekeken worden:  de downloadgrootte en het aantal lijnen HTML-code van zowel de POC als loginapplicatie.
-Daarnaast zal ook de gemiddelde downloadtijd van de POC per raamwerk worden bekeken.
+Daarnaast zal ook de gemiddelde downloadtijd van de POC en de loginapplicatie met elkaar worden vergeleken.
 Ook zullen de resultaten gecontroleerd worden met Google Page Speed~\cite{Morgan2011}. 
 Deze tool kan de code van een webpagina analyseren en de performantie testen specifiek voor mobiele apparaten.
 Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.

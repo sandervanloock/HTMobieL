@@ -1,9 +1,4 @@
 Performantie Metrieken,jQM,ST,Lungo,Kendo
-Google PageSpeed POC,71.00,96.00,88.00,66.00
-Google PageSpeed login,71.00,96.00,82.00,73.00
-Grootte POC,194.65,1126.40,249.08,542.01
-Grootte login,185.43,247.59,59.75,296.50
-LOC POC,2127.00,1941.00,1162.00,1126.00
-LOC login,117.00,183.00,125.00,137.00
-Ervaring,22.00,32.00,14.00,8.0
-
+Google PageSpeed loginapplicatie (score op 100),71,96,82,73
+Grootte loginapplicatie (kB),185.43,247.59,59.75,296.50
+LOC (HTML) loginapplicatie,45,67,68,48

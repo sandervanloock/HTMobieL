@@ -5,7 +5,7 @@ In deze sectie zal de ondersteuning van de raamwerken op mobiele apparaten worde
 In de secties \ref{sec:evaluatie-ondersteuning-toestel} tot \ref{sec:evaluatie-ondersteuning-offline} zal iedere uitdaging per raamwerk uitvoerig worden besproken.
 Voor de score van ondersteuning wordt naar formule \ref{eq:ondersteuning} verwezen.
 De scores van de vier raamwerken wordt samengevat per uitdaging in tabel~\ref{tabel:evaluatie-ondersteuning-u}.
-Voor een overzicht van de ondersteuning per apparaat wordt verwezen naar appendix~\ref{app:ondersteuning}.
+Voor een gedetailleerd overzicht van de ondersteuning per apparaat wordt verwezen naar appendix~\ref{app:ondersteuning}.
 
 %\begin{landscape}
 \begin{table}[H]
@@ -49,7 +49,7 @@ Voor een overzicht van de ondersteuning per apparaat wordt verwezen naar appendi
 	string type,
 ]{tabellen/ondersteuning-u.csv}
 }
-\caption{Overzicht van ondersteuning per uitdaging.}
+\caption{Ondersteuning per uitdaging.}
 \label{tabel:evaluatie-ondersteuning-u}
 \end{table}
 %\end{landscape}
@@ -96,7 +96,7 @@ columns={Apparaat,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(
 	col sep=comma,
 	string type,
 ]{tabellen/ondersteuning-a.csv}
-\caption{Overzicht van ondersteuning per apparaat.}
+\caption{Ondersteuning per apparaat.}
 \label{tabel:evaluatie-ondersteuning-a}
 \end{table}
 
@@ -109,7 +109,7 @@ Wanneer we de relatieve score per raamwerk bekijken heeft \st{} een score van $8
 Er kan dus meteen geconcludeerd worden dat de raamwerken buiten \lungo{} behoorlijk hoog scoren.
 Dit wil zeggen dat de keuze voor één van de drie raamwerken onafhankelijk is van de ondersteuning.
 Dezelfde apparaten worden door de verschillende raamwerken ondersteund of niet.
-Dit komt doordat de raamwerken allemaal steunen op dezelfde onderliggende technolgie, namlelijk HTLM5.
+Dit komt doordat de raamwerken allemaal steunen op dezelfde onderliggende technologie, namelijk HTLM5.
 Hoewel de verschillen klein zijn kan gezegd worden dat \jqm{} de beste ondersteuning biedt,  gevolgd door een \kendo{} en \st{}.
 \lungo{} biedt de minste ondersteuning.
 
@@ -128,7 +128,7 @@ Android 4 en iOS toestellen scoren gemiddeld $95\%$.
 De gemiddelde score bij alle Android toestellen is $79\%$ in tegenstelling tot een $95\%$ ondersteuning op iOS toestellen.
 Er moet opgemerkt worden dat enkel versie $5$ en $6$ van iOS werd getest (zie tabel \ref{tabel:toestellen-hci}).
 Van alle $8$ apparaten is de \iphoneiii{} het oudst (officiële voorstelling in juni 2009) gevolgd door de \gs{} (officiële voorstelling in maart 2010)~\cite{Staff2009,Gideon2010}.
-Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android toestellen dit minder vaak aanbieden ten opzichte van iOS toestellen. %TODO referentie?
+Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android-toestellen dit minder vaak aanbieden ten opzichte van iOS toestellen. %TODO referentie?
 De reden hiervoor is de grotere heterogeniteit tussen Android toestellen.
 
 
@@ -216,11 +216,11 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \label{tabel:evaluatie-ondersteuning-formulieren}
 \end{table}
 
-\paragraph{\st} \score{33}{40}
+\paragraph{\st}
 Alle smartphones en de \gtab{} vertoonden een probleem bij de labels van de \code{optie}knoppen.
 Deze zijn nodig om het type van uitgave te selecteren bij het aanmaken van een nieuwe uitgave.
 Alle labels buiten \term{Hotel} en \term{Restaurant} zijn te lang om in de voorziene ruimte weer te geven.
-\st{} kort deze af met ellipses waardoor niet de volledige naam leesbaar is.
+\st{} kort deze af met ellipsen waardoor niet de volledige naam leesbaar is.
 Dit kan tot verwarring leiden.
 In liggende mode worden sommige labels wel zichtbaar
 De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen e-mailtoetsenbord ondersteund wordt.
@@ -228,7 +228,7 @@ De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen e-mailtoet
 De schakelaar die \st{} voorziet, werkte op elk toestel.
 
 
-\paragraph{\kendo} \score{34}{40}
+\paragraph{\kendo}
 Alle Android toestellen toonden een wit kader bij \term{read-only} \term{widgets}.
 Deze zijn te zien wanneer het overzicht van een ingevoerde uitgave wordt opgevraagd.
 Dit ondankt de invoervelden standaard HTML-invoer zijn.
@@ -242,7 +242,7 @@ Hiervoor moet het correcte formaat worden gebruikt.
 Ook werd op alle toestellen een virtueel toetsenbord weergegeven ondanks de invoer uit de \term{datepicker} moet worden gekozen.
 De schakelaar en optievelden werkte op elk apparaat.
 
-\paragraph{\jqm} \score{38}{40}
+\paragraph{\jqm}
 Op iedere deeluitdaging behaalt \jqm{} de maximumscore.
 Het scrollen in de \term{datepicker} werkte echter niet vloeiend op de \htc{} en \gtab{}, maar de functionaliteit werkte wel.
 Op de \ipadi{} werd opgemerkt dat door de lokale instellingen, een scheidingsteken voor de duizendtallen werd gebruikt voor het getal in het nummerveld.
@@ -250,13 +250,13 @@ Als laatste bleken er verschillende implementaties van de \js{}-functie \code{ne
 Als \code{dateString} werd het patroon \code{jaar/maand/dag} uiteindelijk gebruikt, want het patroon \code{jaar-maand-dag} gaf op de \htc{} en \gtab{} anders problemen.
 %TODO schakelaar/optievelden?
 
-\paragraph{\lungo} \score{22}{32}
+\paragraph{\lungo}
 De slechtste ondersteuning was op de \htc{} en \gtab{}.
 Met deze toestellen kon zeer moeilijk op de velden worden geklikt.
 Soms lukte dit, soms lukte dit niet.
 Daarenboven kwam er geen aangepast toetsenbord voor een formulierveld van het type e-mail.
 De aangepaste \term{datepicker} werkte op ieder toestel, wat in schril contrast staat met de schakelaar die op geen enkel toestel correct werkte.
-Deze laatste deed verschillende acties naargelang geklikt of gesleept werd op de schakelaar.
+Deze laatste deed verschillende acties naargelang geklikt of ge\term{swipe}d werd op de schakelaar.
 
 %%%%%%%%%%%%%
 \subsection{\uit{autoaanvullen}}
@@ -288,16 +288,14 @@ De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen.
 Deze aanpak steunt op de FileReaderAPI en wordt enkel vanaf Android versie 3 en iOS versie 6 ondersteund~\cite{Deveria2013c}.
 Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
 Hierdoor zullen de \htc{},  \gtab{} en \ipadi{} deze uitdaging in de vier raamwerken niet ondersteunen.
+
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
-Dit komt omdat de grootte van de foto's de limiet van de \code{localStorage} overschrijden.
-%TODO exacte limiet localstorage refereren?
-% TODO Tim
-% Zie http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/CreatingContentforSafarioniPhone/CreatingContentforSafarioniPhone.html#//apple_ref/doc/uid/TP40006482-SW15
-% Zie http://dev-test.nemikor.com/web-storage/support-test/
+Dit is een gekende limiet van iOS waarbij apparaten met minder dan $256\unit{MB}$ RAM maximaal drie megapixels foto's kunnen importeren op het \code{canvas}.
+Apparaten met $256\unit{MB}$ RAM of meer kunnen foto's tot vijf megapixels importeren op het \code{canvas}~\cite{Apple2012}.
+Een gelijkaardige probleem gaat ook op voor Android-apparaten als de foto wordt opgeslaan in de lokale opslag.
+De exacte limieten voor \code{localStorage} en \code{sessionStorage} zijn browser- en versiespecifiek~\cite{Gonzalez2012}.
 Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
-De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen.
-%TODO referentie?
-Alle raamwerken behaalden een score van 5/8.
+De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen~\cite{ViljamiSalminen2012}.
 
 % \paragraph{\st} \score{5}{8}
 % Oudere Android types bieden geen ondersteuning voor de FileReaderAPI.
@@ -408,7 +406,6 @@ Dit was omdat de gebouwde versie een foutenboodschap gaf wanneer de plug-in werd
 \label{sec:evaluatie-ondersteuning-offline}
 
 In tabel \ref{tabel:evaluatie-ondersteuning-offline} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
-
 Offline en opslag is één element van de acht technologieklassen van HTLM5 (zie sectie \ref{sec:html5-css3-js}).
 Om de POC offline beschikbaar te maken is zowel ondersteuning voor \code{manifest} en \code{localStorage} noodzakelijk.
 Beide kenmerken worden door alle beschikbare mobiele besturingssystemen ondersteund~\cite{Deveria2013c}. 

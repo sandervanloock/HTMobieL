@@ -37,7 +37,6 @@ In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een overzicht van deze p
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%TODO: toevoegen over sencha market
 \section{\st}
 \label{sec:raamwerk-st}
 
@@ -87,23 +86,15 @@ De applicatie kan worden gedownload voor Mac, Windows en Linux distributies.
 Deze animaties worden enkel in WebKit-browsers ondersteund.
 De prijs voor één ontwikkelaar bedraagd $\$99$~\cite{Inc.}.
 
-% \subparagraph{Sencha GXT}
-% Sencha GXT is een uitbreiding op Google Web Toolkit (GWT).  
-% De compiler van GWT laat toe applicaties in Java te schrijven en ze te compileren naar geoptimaliseerde,  \term{cross-browser} HTML5 en \js{}.  
-% Sencha GXT voegt grafieken,  \term{widgets}, etc. toe aan GWT.
-% 
-% \subparagraph{Sencha.IO}
-% Deze uitbreiding zorgt voor \term{cloud services} binnen mobiele applicaties.  
-
 \paragraph{Documentatie}
 Alle documentatie voor \st{}~2.1.1 is te vinden op \exturl{docs.sencha.com/touch/2-0}.  
 Een zoekfunctie voor objecten,  eigenschappen en methoden is aanwezig om snel zaken op te zoeken.  
 De meeste functionaliteiten zijn voorzien van codevoorbeelden samen met het resultaat hoe de browser de code rendert.  
-Verder biedt de Sencha website ook hulpmiddelen om \st{} te leren gebruiken.  
-Hier staan handleidingen, introductievideos, enz.
+Alle uitbreidingen die Sencha aanbiedt, kunnen op de Sencha Market teruggevonden worden~\cite{Sencha2013}.
+Verder biedt de Sencha website ook hulpmiddelen om \st{} te leren gebruiken zoals handleidingen, introductievideos, enz.
 
 Een ander handig naslagwerk is de Kitchen Sink~\cite{Inc.2013}.  
-Dit is een webapplicatie,  geschreven in \st{},  die de belangrijkste functionaliteiten bevat samen met de bijhorende code.  
+Dit is een webapplicatie,  geschreven in \st{},  die de belangrijkste functionaliteiten bevat samen met de bijhorende code. 
 
 \paragraph{Marktadoptatie}
 Volgens de Sencha website is 50\% van de Fortune~100 - een lijst van de grootste Amerikaanse bedrijven gerangschikt op jaaromzet - een Sencha-klant~\cite{Inc.}.  
@@ -121,19 +112,16 @@ Omdat het gebruik hiervan per gebruiker verschilt,  worden OEM-licenties op maat
 \subsection{Code en ontwikkeling}
 Alle code moet in \js{} worden geschreven.
 Eén HTML-bestand dient slechts als container om de bestanden in te laden.  
-\st{} valt dus onder \js{}-gebaseerde raamwerken.  
-De keuze voor deze aanpak heeft twee belangrijke motivaties.  
-Enerzijds is \st{} gebouwd op Ext JS,  wat op zich een \js{}-raamwerk is. 
-%TODO beetje magere argumentatie van die referentie 
-Anderzijds zorgt het voor een betere ondersteuning voor toestellen met verschillende resoluties.  
+\st{} valt dus onder \js{}-gebaseerde raamwerken net zoals EXT JS,  waarop \st{} is op verdergebouwd.
+
 Samen met SASS en Compass kan \st{} lay-outs definiëren per apparaat (zie sectie \ref{sec:sencha-aanpasbaarheid}).  
-De \code{Ext.env.Browser} en \code{Ext.env.OS} eigenschappen en \code{Ext.Viewport.getOrientation} en \code{Ext.feature.has} methoden kunnen de vereisten bepalen en de juiste lay-out kiezen~\cite{JohnEClark2012}.
+De \code{Ext.env.Browser} en \code{Ext.env.OS}-eigenschappen en \code{Ext.Viewport.getOrientation}- en \code{Ext.feature.has}-methoden kunnen de vereisten bepalen en de juiste lay-out kiezen~\cite{JohnEClark2012}.
 
 Zoals besproken biedt Sencha de terminal tool Sencha Cmd aan om het de ontwikkelingsproces te vergemakkelijken.  
 
 \paragraph{Debugging}
 De broncode van \st{} kan ingeladen worden met \code{sencha-touch-debug.js} als bibliotheek.  
-Deze versie is niet gecomprimeerd en bevat commentaar en documentatie om makkelijker te zoeken waar in de code de fout zich juist bevindt.
+Deze versie is niet gecomprimeerd en bevat commentaar en documentatie om makkelijker uit te zoeken welke fout werd gemaakt.
 
 \subsection{Functionele kenmerken}
 %Net \st{} heeft functionaliteiten om eenvoudig GI-elementen te genereren.  
@@ -163,8 +151,7 @@ Optioneel kunnen validaties bij de velden worden toegevoegd om validatieregels o
 Een \code{Store} wordt voorzien van een \code{Proxy}.  
 Deze kan data aan de klant- of serverzijde opslaan.  
 Een \code{Proxy} voor opslag aan klantzijde kan zowel in het RAM-geheugen als in lokale opslag van de browser opslaan.  
-%TODO voluit schrijven AJAX
-Een \code{Proxy} voor serveropslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
+Een \code{Proxy} voor serveropslag kan data verzenden voor hetzelfde domein via Asynchronous JavaScript and XML~(AJAX) ) of tussen verschillende domeinen via JSONP.  
 JSONP staat voor JavaScript Object Notation with Padding en is een methode om data op een server in een ander domein op te vragen.
 Een \code{Proxy} kan ook nog voorzien worden van een \code{Reader} die aangeeft hoe de ontvangen data gelezen moet worden.
 
@@ -218,7 +205,7 @@ Deze architectuur vermijdt lange \js{}-bestanden door ze logisch op te delen.
 Modellen groeperen velden tot een beschrijving van data-objecten, \code{Views} definiëren de weergave van componenten en controllers verbinden beide op basis van gebeurtenissen.
 
 In theorie zou het verschil tussen mobiele websites en applicaties enkel in de \code{Views} terug te vinden zijn.  
-Echter,  dit wordt nog niet volledig ondersteund en worden aparte projecten voor deze functionaliteit gepromoot.
+Echter,  dit wordt nog niet volledig ondersteund en daarom worden aparte projecten voor deze functionaliteit gepromoot.
 
 \paragraph{Ondersteuning browser}
 \st{} steunt op de WebKit-browser \term{engine} dus moet de browser deze bevatten.  
@@ -229,8 +216,8 @@ De volgende versie van de Opera browser zal de WebKit \term{engine} wel bevatten
 Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen over de context die gehanteerd wordt (browser, besturingssysteem, toestel, etc.).  
 Verder kan \st{} ook vragen naar de ondersteuning van specifieke kenmerken (audio,  \code{canvas},  CSS3, ...)  analoog als Modernizr~\cite{Modernizr2012}.  
 
-Op de Sencha website zijn voor de belangrijkste browsers en bijhorend besturingssystemen \term{scorecards} voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
-%TODO beetje uitwerken
+Op de website van Sencha zijn voor de belangrijkste browsers en bijhorend besturingssystemen \term{scorecards} voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
+Hoewel geen echte scores worden uitgedeeld, zijn alle belangrijkste kenmerken uitgelicht en uitvoerig besproken. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,7 +241,7 @@ Data-attributen kunnen een HTML-element associëren met \kendo{} of het overeenk
 Alle GI-elementen van \kendo{} Mobile kunnen met data-attributen worden opgebouwd.
 \term{Widgets} van \kendo{} Web kunnen zowel met \js{} als data-attributen geïnitialiseerd worden.
 
-Het laden van het raamwerk kan door heel \kendo{} op te roepen of enkel \kendo{} Mobile met respectievelijk \code{kendo.all.js} of \code{kendo.mobile.js}.
+Het laden van het raamwerk kan door \kendo{} in zijn geheel op te roepen of enkel \kendo{} Mobile met respectievelijk \code{kendo.all.js} of \code{kendo.mobile.js}.
 Elk van de drie luiken - Web, Mobile en DataViz - kan op zichzelf functioneren door hun \js{}-bestand in te laden.
 Er kan wel slecht één van de drie script gelijktijdig gebruikt worden.  
 Wanneer elementen uit verschillende luiken gebruikt worden, moet \code{kendo.all.js} worden gebruikt.
@@ -391,7 +378,7 @@ Ook kan een AJAX-verzoek met jQuery-syntax geformuleerd worden om externe data v
 
 \paragraph{Browserondersteuning}
 Ondersteunde systemen zijn iOS, Android, BlackBerry~OS en Windows Phone~8.
-Alle \temr{widgets}, zoals gebruikt in het raamwerk, ondersteunen \term{progressive enhancement}.
+Alle \term{widgets}, zoals gebruikt in het raamwerk, ondersteunen \term{progressive enhancement}.
 Oudere browsers kunnen zo bestaande inhoud en functionaliteit raadplegen met \term{native} HTML-types indien bepaalde elementen niet worden ondersteund.
 Ook de HTML5-formulierelementen worden opgebouwd met \term{progressive enhancement}.
 
@@ -412,7 +399,8 @@ Om met \jqm{} aan de slag te kunnen, is niets meer nodig dan kennis over HTML, C
 Alle GI-elementen worden geschreven in HTML en aangeduid met data-attributen.
 
 \paragraph{Tools}
-Het is ook mogelijk om gebruik te maken van Codiqa~\cite{Sperry2012} om met \term{drag-and-drop} de GI-elementen op het scherm te zetten. 
+Codiqa~\cite{Sperry2012} is een tool om snel de GGI van de applicatie op te zetten.
+Door \term{drag-and-drop} worden de GI-elementen op het scherm gezet.
 Codiqua zal automatisch op de achtergrond de HTML-code voorzien.
 
 \paragraph{Documentatie}
@@ -466,7 +454,7 @@ Als laatste kunnen deze blokken ook samengevoegd worden tot een accordeon.
 
 \item \textbf{Elementen voor formulieren}
 \jqm{} biedt alle gangbare elementen voor formulieren aan zoals tekstinvoer, een selectie uit een lijst, een zoekveld, een \term{slider} en een \term{switch}. 
-Het raamwerk verplicht zelfs om de \code{<label>}-tag te gebruiken. 
+Het raamwerk verplicht zelfs om de \code{label}-tag te gebruiken. 
 Zo wordt de applicatie toegankelijker gemaakt voor bijvoorbeeld mensen met een schermlezer.
 
 \item \textbf{Lijsten}

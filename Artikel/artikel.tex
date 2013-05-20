@@ -280,7 +280,8 @@ The summation of these five numbers give the score for the framework's popularit
 % \end{equation}
 
 \paragraph{Productivity}
-Both autors implement the POC two different framework and carefully record the time to implement it.  
+%TODO: moeten die 'oude' dingen daar nog inzitten?
+Both authors implement the POC two different framework and carefully record the time to implement it.  
 However,  this time will be influenced by many factors.
 The second implementations will have an advantage because of the gained experience after the first implementation.
 Also,  code reuse and possible incomplete implementations because of the limited functionality of the framework, affect this times in a negative way.
@@ -340,27 +341,22 @@ The summation of scores for each context will give the score for the framework's
 \end{equation}
 
 \paragraph{Performance}
-The download time of an HTML5-application is a major bottleneck for performance.
-Therefor,  the loading time of the POC ($l_{f,c,POC}$) and login application ($l_{f,c,login}$) will be measured on eight devices.
-Also,  the loading time for a cached version of both the POC ($l_{f,c,POC_{cache}}$) and login application ($l_{f,c,login_{cache}}$) will be recorded.
-The summation of these loading times on $8$ devices, provide the average download time.
-
-%TODO links uitlijnen
+The login application will be used as a stress test for the POC.
+On the one hand, the average download time of both the non-cached ($l_{f,c,POC_{cache}}$) and cached version ($l_{f,c,login_{cache}}$) will be taken into account.
+The formula for average download for a framework $f$ is:
 \begin{equation}
 \begin{split}
-\text{Average download time}_f =  \\ \frac{\sum_{c=1}^{8}\left(l_{f,c,POC}+l_{f,c,POC_{cache}}+ l_{f,c,login} + l_{f,c,login_{cache}}\right)}{8}
+ \text{Av. download time}_f= \frac{\sum_{c=1}^{8}{\left(\widehat{l}_{f,c,login}+\widehat{l}_{f,c,login_{cache}}\right)}}{8}
   \label{eq:dowloadtime}
 \end{split}
 \end{equation}
-
-The responsetime of a list with $850$ elements will be measured on each context with two user tests ($\text{experience}_{f,c}$).
-Calculating the responsetime with \js{} is not possible because \sta{} and \lungo{} do not have an event after the elements are rendered.
-The result will be a total ordening of the frameworks per context that indicate the responsiveness.
-The summation of the results will provide a factor to weight the average download time.
-The formula for the framework's performance then becomes:
-
+On the other hand, the user experience by scrolling through a long list of 850 items will be tested.
+This is because the calculation of render times with \js{} was not possible because for \sta{} and \lungo{} as they do not have an event after the elements are rendered.
+The user experience will be measured on each context with two user tests ($\text{User experience}_{f,c}$).
+The result will be a total ordering of the frameworks per context that indicate the responsiveness.
+The performance for a framework $f$ is defined by:
 \begin{equation}
-  \text{Performance}_f =  \frac{\text{Average download time}_f}{\sum_{c=1}^{8}{\text{experience}_{f,c}}}
+\text{Performance}'_r = \frac{\text{Average download time}_f}{\text{User experience}_f}
   \label{eq:performance}
 \end{equation}
 

@@ -451,7 +451,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  \term{Datepickers} worden als \term{widget} aangeboden in \kendo Web.
  Het invoerelement ziet er als volgt uit: \code{<input id=\"{}veld\"{}\/>}.  
  Vervolgens moet het element worden geïnitialiseerd met \code{\$("\#veld").kendoDatePicker}.
- De datepicker is aanpasbaar zoals gevraagd in de POC.
+ De \term{datepicker} is aanpasbaar zoals gevraagd in de POC.
  Het bereik van de selectie kan worden ingeperkt door de \code{min} en \code{max} eigenschap van de \code{kendoDatePicker} te zetten.
  Deze eigenschappen worden bij initialisatie van het object meegegeven.
  Enkel maand- en jaarvelden tonen, kan door de diepte van de \term{datepicker} in te stellen.
@@ -464,7 +464,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Door de dubbele binding tussen formulier en \code{(View) Model} zal ook de inhoud van de formulierelementen worden gewist.
  
 \paragraph{\jqm} 
-Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}-attribuut in HTML5. 
+Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}attribuut in HTML5. 
 Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
 Wat wel opmerkelijk is wanneer een formulier wordt ingevuld, daarna verstuurd en dan wordt teruggegaan, het formulier nog alle waarden bevat. 
 Na het versturen van het formulier, zal het formulier altijd moeten worden leeggemaakt. 
@@ -473,7 +473,7 @@ Dit kan met behulp van \js{} via de \code{reset}-functie op het formulier.
 Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
 Het \code{date} type werd echter niet gebruikt om wille van twee redenen.
 Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013c}.
-Android~2.3 ondersteunt dit niet en de \term{placeholder}-tekst in het veld ontbrak op iOS~6 en Android~4.2.
+Android~2.3 ondersteunt dit niet en de \term{placeholder}tekst in het veld ontbrak op iOS~6 en Android~4.2.
 Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. 
 Zelf een \term{placeholder} instellen is onmogelijk voor een \code{date}-type~\cite{Berjon2012}. 
 Een tweede probleem was het opleggen van het bereik van datums, wat met het \code{date}-type onmogelijk is. 
@@ -1159,7 +1159,7 @@ Na alle elementen te hebben overlopen, moet de lijst ververst worden zodat \jqm{
 
 Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
 Er kunnen hiervoor twee manieren gekozen worden.
-Enerzijds kan worden gebruik gemaakt van de \code{<a>}-tags in HTML.
+Enerzijds kan worden gebruik gemaakt van de \code{a}-tags in HTML.
 Anderzijds kan ieder lijstitem een \code{id} krijgen, waarna een \code{click}-\term{event}  wordt gebonden aan al deze elementen.
 Op basis van de \code{id} kan de uit te voeren actie bepaald worden.
 
@@ -1175,7 +1175,7 @@ Het toegevoegde lijstitem bepaalt de sjabloon van de lijst.
 
 Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het genereren van de items zelf.
 Er kunnen hiervoor twee manieren gekozen worden (zie ook \jqm{}).
-Enerzijds kan worden gebruik gemaakt van de \code{<a>}-tags in HTML.
+Enerzijds kan worden gebruik gemaakt van de \code{a}-tags in HTML.
 Anderzijds kan ieder lijstitem een \code{id} krijgen, waarna een \code{click}-\term{event}  wordt gebonden aan al deze elementen.
 Op basis van de \code{id} kan de uit te voeren actie bepaald worden.
 

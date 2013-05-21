@@ -288,7 +288,6 @@ Daarna worden Internet Explorer Mobile en Opera Mobile kort besproken.
 Het marktaandeel van de genoemde browsers wordt getoond in tabel~\ref{tabel:marktaandeel-browsers}.
 
 Zowel Mobile Safari als de Android browser zijn beide op de WebKit-browser \term{engine} gebaseerd~\cite{Oeflman2011}. 
-%TODO Tim: is dit kort genoeg van uitleg over browser engine?
 Een \term{engine} zorgt ervoor dat de code van de opgehaalde webpagina wordt omgezet naar de webpagina die de gebruiker te zien krijgt. 
 
 \begin{table}[H]
@@ -530,8 +529,6 @@ Daarnaast werd \tmp{} in de literatuur aangehaald doordat het gebruik maakt van 
 Ten tweede werden \kendo{} en \moobile{} via het Internet gevonden~\cite{Bristowe2012}.
 Als laatste werd \davinci{} door Capgemini voorgesteld.
 
-%TODO Tim: raamwerken die niet aanbod gekomen zijn? zoals jqMobi, Jo,...
-
 % paragraaf per framework
 % - welk framework (markup / javascript)
 % - korte geschiedenis en versie
@@ -631,20 +628,22 @@ Om de verschillende mobiele HTML5-raamwerken te kunnen vergelijken is een consis
 Enerzijds bestaat er een ISO-standaard om software te kunnen vergelijken~(\ref{sec:vergelijken-raamwerken}).
 Als laatste werd de gevonden literatuur en blogposts van  vergelijkingen tussen raamwerken geclassificeerd~(\ref{sec:vergelijken-classificatie}).
 
-\subsection{ISO 25010}
-\label{sec:vergelijken-iso}
+\subsection{Software vergelijken}
+HTML5-raamwerken zijn software en om software te vergelijken bestaat er onder andere de ISO 25010 standaard (\ref{sec:vergelijken-iso}) en de AHP-methode (zie sectie \ref{sec:vergelijken-ahp}).  
 
-HTML5-raamwerken zijn software en om software te vergelijken bestaat er de ISO 25010 standaard~\cite{Standard2010}.  
-Hieronder vallen twee modellen:  de productkwaliteit en de kwaliteit van het product in gebruik.  
+
+\subsubsection{ISO 25010}
+\label{sec:vergelijken-iso}
+Onder de ISO 25010-standaard~\cite{Standard2010} vallen twee modellen:  de productkwaliteit en de kwaliteit van het product in gebruik.  
 Beide modellen beschrijven de kwaliteit van software op basis van een aantal categorieën met specifieke kwaliteitseigenschappen. 
 Het beoordelen van de categorieën kan gebeuren op basis van een checklist. 
  
-\subsubsection{Productkwaliteit}
+\paragraph{Productkwaliteit}
 De acht karakteristieken die horen bij dit model zijn: functionele geschiktheid,  betrouwbaarheid,  performantie, efficiëntie, uitwisselbaarheid,  bruikbaarheid,  betrouwbaarheid, beveiligbaarheid,  onderhoudbaarheid en overdraagbaarheid.   
 Niet alle categorieën zijn even toepasbaar op HTML5-raamwerken.  
 Beveiligbaarheid is niet de focus voor mobiele HTML5-raamwerken,  performantie en overdraagbaarheid dan weer wel.
 
-\subsubsection{Kwaliteit in gebruik}
+\paragraph{Kwaliteit in gebruik}
 De vijf karakteristieken voor dit model zijn: effectiviteit,  efficiëntie,  voldoening,  vrijheid van risico en contextdekking. 
 Elke karakteristiek kan toegewezen worden aan verschillende activiteiten van belanghebbenden. 
 Ook hier zijn alle categorieën niet even toepasbaar.  
@@ -654,6 +653,11 @@ De kwaliteit voor een systeem in gebruik wordt bepaald door de kwaliteit van de 
 De belanghebbenden worden opgedeeld in primaire en secundaire gebruikers.  
 De eerste zijn de personen die het systeem gebruiken. 
 De laatste zijn diegene die zorgen voor het onderhoud.
+
+\subsubsection{AHP-methode}
+\label{sec:vergelijken-ahp}
+AHP (Analytic Hierarchy Process)
+%TODO tim uitwerken
 
 \subsection{Classificatie}
 \label{sec:vergelijken-classificatie}
@@ -687,40 +691,7 @@ De criteria die besproken worden zijn:
 
 De auteurs van de blogpost besluiten dat geen enkel raamwerk als het beste kan worden beschouwd.
 Ze stellen dat de keuze voor een bepaald raamwerk varieert van project tot project.
-
-% Een ander voorbeeld is de Mobile Frameworks Comparison van MonoCaffe~\cite{Ayuso2012}.
-% Deze bespreekt volgende raamwerken:
-% \begin{enumerate}
-%   \item \jqm{}
-%   \item \st{} 2
-%   \item \tmp{}
-%   \item JO
-%   \item iUI
-%   \item DHTMLX Touch
-%   \item Wink
-%   \item Bootstrap + jQuery + AngularJS
-% \end{enumerate}
-% 
-% De criteria die MonoCaffe hanteert zijn: 
-% \begin{enumerate}
-%  \item Latest Published Version
-%  \item Supported Platforms
-%  \item Supporter
-%  \item License
-%  \item Paid Support
-%  \item Documentation (API, Examples, Tutorials)
-%  \item Published Books
-%  \item Community
-%  \item Stack Overflow Questions
-%  \item Google Trends Popularity
-%  \item GUI Designer
-%  \item Theme Designer
-%  \item HTML5 Input support
-%  \item Hides browser navigation bar
-%  \item Geolocalization Support
-%  \item Custom controls
-%  \item International support (i18n)
-% \end{enumerate}
+%TODO vision mobile sander
 
 \subsubsection{Puntensysteem}
 \label{sec:manier-puntensysteem}
@@ -743,8 +714,6 @@ Ze worden echter wel bekeken.
 Het gebruik van een \term{proof of concept}~POC of voorbeeldapplicatie probeert raamwerken te vergelijken door ze echt toe te passen.
 Oehlman et Al. vergelijken Jo, \jqt{},  \jqm{} en \st{} door een geosociaal spel te ontwikkelen genaamd Moundz. 
 Deze applicatie maakt gebruik van bestaande sociale locatiegebaseerde netwerken als Foursquare en Gowalla.
-%TODO ik zou dat er uit laten met die mierenwereld
-%Moundz gebruikt \term{check-ins} van gebruikers als middel voor virtueel wereldleiderschap in een mierenwereld.
 Als benchmark werd deze mobiele applicatie eerst zonder raamwerk gebouwd.
 
 De vier besproken raamwerken worden ingeleid met de meest karakteristieke kenmerken en sterktes.

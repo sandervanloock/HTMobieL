@@ -5,8 +5,6 @@ Voor de score van productiviteit wordt naar formule \ref{eq:gebruik} verwezen.
 Voor \st{} werd gebruik gemaakt van versie~2.1.1, voor \kendo{} van versie~2013~Q1, voor \jqm{} van versie~1.3.0 en voor \lungo{} van versie~2.1.
 Per sectie zal iedere uitdaging per raamwerk worden besproken.
 
-%TODO enkel de dingen uitleggen die je hebt gebruikt, dus geen extra info over wat het nog allemaal kan, of dingen die niet in de challenges beschreven staan
-
 \begin{table}[H]
 \centering
 \pgfplotstabletypeset[
@@ -552,16 +550,15 @@ Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code
 Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
 Er bestaat dus geen vlekkeloze mapping tussen een eigenschap van een model en een \code{radiofield}.
 Hetzelfde geldt voor een \code{checkboxfield}.
-Een model kan worden voorzien met eigenschappen met volgende types:
-%TODO moet dat niet met code?
-\begin{itemize}
-  \item auto
-  \item string
-  \item int
-  \item float
-  \item boolean
-  \item date
-\end{itemize}
+% Een model kan worden voorzien met eigenschappen met volgende types:
+% \begin{itemize}
+%   \item \code{auto}
+%   \item \code{string}
+%   \item \code{int}
+%   \item \code{float}
+%   \item \code{boolean}
+%   \item \code{date}
+% \end{itemize}
 Om deze in te vullen moet de \code{setGroupValue} van het veld worden aangesproken.
 
 De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{navigationview} en wordt besproken in \uit{lijsten}.
@@ -894,7 +891,7 @@ Door de extra code die \jqm{} genereert rond deze velden, moest via de DOM de om
 Deze functie kon aangehaakt worden op de \code{highlight} en \code{unhighlight} functies van de plug-in.
 
 \paragraph{\lungo}
-Validatie is niet aanwezig in \lungo{} en er kon ook geen plug-in voor QuoJS gevonden worden~\cite{Ameye2013}.
+Validatie is niet aanwezig in \lungo{} en er kon ook geen plug-in voor QuoJS gevonden worden.
 Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met QuoJS.
 Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \jqm{}), moest alle validatie manueel geprogrammeerd worden. 
 Bij wijze van voorbeeld werd enkel validatie op het loginscherm geprogrammeerd.
@@ -1312,32 +1309,22 @@ Beide acties zullen plaatsvinden in de methode om een uitgave toe te voegen.
 Nadat een uitgaveformulier is verzonden worden de uitgaven uit de \code{localStorage} verwijderd.
 
 
-Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} niet ondersteund.
-De HTML5 Application Cache kan zelf worden aangemaakt.
+Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} zelf niet ondersteund.
+Dit kan opgelost worden met HTML5 Application Cache.
 Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
-%TODO veel herhaling van tekst want dezelfde aanpak zoals bij kendo (geldt ook voor lungo)
 \paragraph{\jqm}
 Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren.
-Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in HTML5.
-Omdat het kan voorkomen dat \code{localStorage} niet wordt ondersteund, werd zelf een \term{fallback} geschreven die de data bijhoudt als \js{}-variabelen.
-Natuurlijk wordt bij het vernieuwen van de applicatie deze data gewist, maar kan de applicatie wel in eenzelfde browsersessie volledig worden gebruikt.
-Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
-
+Net zoals \kendo{} werd lokale opslag gebruikt.
 
 Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code inlaadt.
 Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
 Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gebruikersgegevens werden bewaard.
 
-%TODO oorzaak -> gevolg relatie niet correct. Ze verwijzen in jqm documentatie mss naar appcache maar het is niet zo dat de mogelijkheid van appcache de onbeschikbaarheid impliceert
-Het offline beschikbaar maken van de applicatie wordt vanuit \jqm{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
-Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
+Net zoals \kendo{} werd HTML5 Application Cache gebruikt.
 
 \paragraph{\lungo}
-Het raamwerk biedt zelf functies aan om data op te slaan.
-Intern zal het gebruik maken van \code{localStorage}, wat gespecificeerd is in HTML5.
-Indien het niet ondersteund wordt op het apparaat, zal het raamwerk zelf een \term{fallback} voorzien.
+Het raamwerk biedt zelf functies aan om data lokaal op te slaan.
+Hiervoor kan de \code{Lungo.data.storage.persistent}-methode of \code{Lungo.data.storage.session}-methode gebruikt worden voor respectievelijk de \code{localStorage} en \code{sessionStorage}.
 
-%TODO oorzaak -> gevolg relatie niet correct. Ze verwijzen in jqm documentatie mss naar appcache maar het is niet zo dat de mogelijkheid van appcache de onbeschikbaarheid impliceert
-Het offline beschikbaar maken van de applicatie wordt vanuit \lungo{} zelf niet ondersteund, omdat van de HTML5 Application Cache kan worden gebruik gemaakt.
-Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
+Net zoals \kendo{} werd HTML5 Application Cache gebruikt.

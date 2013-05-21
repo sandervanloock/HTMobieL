@@ -56,10 +56,36 @@ Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{s
 \label{sec:evaluatie-downloadtijd}
 
 De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd}.
+De gemiddelde downloadtijd voor de loginapplicatie als de loginapplicatie uit cache wordt bepaald volgens formule~\ref{eq:totale-downloadtijd} en \ref{eq:totale-gebruikerservaring}.
+De uitkomsten hiervan worden weergegeven in tabel~\ref{tabel:evaluatie-performantie-downloadtijd}.
 Om beter de spreiding van deze downloadtijd op de acht apparaten te kunnen bekijken, wordt op figuur \ref{fig:performantie-login-boxplot} de downloadtijd uitgezet in een boxplot.
 Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de loginapplicatie uit cache.
 
-%TODO tabel met downloadtijd login cache en niet cache
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Performantie,ST,Kendo,jQM,Lungo},
+  columns/Performantie/.style={column name=\textbf{Performantie}, column type={l}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={l}}, 
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/performantie-downloadtijd.csv}
+\caption{Downloadtijd van loginapplicatie voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa). Minder is beter.}
+\label{tabel:evaluatie-performantie-downloadtijd}
+\end{table}
 
 \begin{figure}
   \centering
@@ -112,7 +138,7 @@ Om de score voor gebruikerservaring van een raamwerk te bepalen worden de scores
 
 In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwerk dat de vlotste scrolervaring aanbiedt. In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 
-\begin{table}[H]
+\begin{table}
 \centering
 \pgfplotstabletypeset[
   begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},

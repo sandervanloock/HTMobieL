@@ -1,4 +1,3 @@
-Performantie Metrieken,jQM,ST,Lungo,Kendo
-Google PageSpeed loginapplicatie (score op 100),71,96,82,73
-Grootte loginapplicatie (kB),185.43,247.59,59.75,296.50
-LOC (HTML) loginapplicatie,45,67,68,48
+Performantiemetrieken,jQM,ST,Lungo,Kendo
+Google PageSpeed (score op 100),71,96,82,73
+Grootte (kB),185.43,247.59,59.75,296.50

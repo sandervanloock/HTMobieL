@@ -24,10 +24,10 @@ Een POC die werknemers toelaat onkosten toe te voegen, werd geformaliseerd en op
 Om populariteit te meten werd naar de activiteit van de raamwerken op sociale netwerken gekeken.
 De tijd om een loginapplicatie te ontwikkelen, bepaalde de productiviteit.
 De POC werd onderverdeeld in $13$ uitdagingen en $38$ deeluitdagingen om de functionaliteit van het raamwerk te testen en het gebruikscriterium te quoteren.
-Vervolgens werd een subset van de uitdagingen getest op $8$ verschillende mobiele toestellen om de ondersteuning te controleren.
-Ten slotte bepaalden de laad- en responsetijden van de POC en loginapplicatie de performantie.
+Vervolgens werd een subset van de uitdagingen getest op acht verschillende mobiele toestellen om de ondersteuning te controleren.
+Ten slotte bepaalden de download- en responsetijden van de POC en loginapplicatie de performantie.
 De responsetijden werden opgemeten met gebruikservaringstesten.
-De scores van de $5$ criteria voor de $4$ raamwerken werden in één spinnenweb ondergebracht.
+De scores van de vijf criteria voor de vier raamwerken werden in één spinnenweb ondergebracht.
 
 Na evaluatie is \jqm{} het beste raamwerk op basis van de gekozen criteria, gevolgd door \kendo{}, \lungo{} en \st{}.
 Deze volgorde werd bepaald door de oppervlakte van de vijfhoeken op het spinnenweb te berekenen.
@@ -35,7 +35,7 @@ Deze volgorde werd bepaald door de oppervlakte van de vijfhoeken op het spinnenw
 Dit laatste is echter een nadeel waardoor het minder scoort op gebruik.
 \kendo{} heeft als belangrijkste troef het gebruik doordat het een architectuur afdwingt.
 Het scoort echter ondermaats op performantie door het crashen van lange lijsten op iOS.
-\lungo{} behaald op geen enkel criterium de maximumscore.
+\lungo{} behaalt op geen enkel criterium de maximumscore.
 Het behaalde echter wel de beste downloadtijd bij performantie doordat het raamwerk geoptimaliseerd voor mobiel gebruik.
 \st{} is het minst productief en minst performant in vergelijking met de andere raamwerken.
 Door het afdwingen van een architectuur scoort het quasi evengoed als \kendo{} op vlak van gebruik.
@@ -79,7 +79,7 @@ Hier kan gezocht worden naar de oorzaak van de crash, maar tevens kan ook gezoch
 Anderzijds was er een opmerkbare waarneming bij de performantie van de applicaties uit cache. 
 Zo ligt bijvoorbeeld de gemiddelde downloadtijd van de login uit cache hoger dan deze van de POC voor \jqm{} en \lungo{}. 
 
-Enerzijds kunnen nieuwe raamwerken worden toegevoegd aan de vergelijking.
+Ook kunnen nieuwe raamwerken worden toegevoegd aan de vergelijking.
 Hierdoor vergroot ten eerste de grootte van de vergelijking, maar kan ten tweede ook de methode telkens opnieuw worden getoetst met deze nieuwe raamwerken.
 Daarnaast komen van de reeds vergeleken raamwerken geregeld nieuwe versies uit.
 Zo is het ook mogelijk om de evolutie in de rangschikking van de vier vergeleken raamwerken over de tijd te bekijken.
@@ -87,7 +87,7 @@ Mogelijk kan de rangschikking veranderen bij het uitbrengen van nieuwe versies o
 
 De huidige methode omvat vijf vergelijkingscriteria die worden gedreven door de POC.
 Verder onderzoek kan deze POC uitbreiden met extra kenmerken zoals een lijst wanneer deze naar beneden wordt getrokken, de lijstelementen vernieuwd worden.
-Dit loopt in de lijn om ook andere gebeurtenissen te gebruiken dan alleen maar het \term{tap} \term{event}.
+Dit loopt in de lijn om ook andere gebeurtenissen te gebruiken dan alleen maar de \term{tap} gebeurtenis.
 Andere gebeurtenissen zijn bijvoorbeeld \term{double tap}, \term{swipe}, \term{hold}, maar ook gebeurtenissen waar meerdere vingers voor nodig zijn zoals \term{rotate}.
 Daarnaast is ook de integratie van HTML5-kenmerken zoals GPS, \term{push events}, \term{drag and drop}, video en audio in de raamwerken zeker het onderzoeken waard.
 
@@ -98,11 +98,11 @@ Een andere voorbeeld is dat voor de downloadtijd bij performantie Wifi werd gebr
 Andere verbindingsmogelijkheden zoals 3G kunnen worden gebruikt en hierdoor kunnen andere resultaten bekomen worden.
 Een laatste voorbeeld is de rendertijden die worden gebruikt bij performantie.
 Deze konden niet worden opgemeten bij \st{} en \lungo{}.
-Verder onderzoek zal uitwijzen als dit mogelijk is of niet.
+Aanpassingen aan de broncode zouden het opmeten van rendertijden wel kunnen toelaten.
 Daarnaast kan het voorgestelde alternatief ook verbeterd worden.
 
 Een andere onderzoekspiste is om nieuwe criteria toe te voegen.
-Zo kan enerzijds het criterium uitbreidbaarheid worden onderzocht.
+Zo kan bijvoorbeeld het criterium uitbreidbaarheid worden onderzocht.
 Dit criterium omvat hoe gemakkelijk het gaat om de bestaande applicatie geïmplementeerd in een bepaalde raamwerk uit te breiden.
 Een te onderzoeken hypothese hierbij is dat raamwerken die een architectuur afdwingen beter zullen scoren dan raamwerken zonder architectuur.
 Een bijkomende hypothese is dat de totale score van raamwerken die een architectuur afdwingen zal stijgen en deze van raamwerken zonder architectuur zal dalen.

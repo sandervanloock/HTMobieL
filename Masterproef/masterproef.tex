@@ -83,6 +83,7 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 \usepackage{amsmath} % voor tekst in math
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}} % units in math mode
 \usepackage{wasysym}
+\usepackage{pdfpages}
 
 \newcommand{\term}[1]{\emph{#1}} % engelse term die niet worden vertaald naar het nederlands
 \newcommand{\code}[1]{\texttt{#1}} % code command
@@ -262,7 +263,11 @@ All frameworks provide good support on the evaluated mobile devices.
 \appendix
 \input{app-ondersteuning}
 \input{app-performantie}
-%TODO artikel en poster includen
+\chapter{Wetenschappelijk artikel}
+\includepdf[pages={1-11}]{../Artikel/artikel.pdf}
+\chapter{Poster}
+%TODO poster aanpassen
+%\includepdf[pages={1}]{../Poster/poster.pdf}
 
 \backmatter
 % Na de bijlagen plaatst men nog de bibliografie.

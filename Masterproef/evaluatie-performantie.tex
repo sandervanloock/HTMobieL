@@ -49,7 +49,6 @@ Eerst zal in sectie~\ref{sec:evaluatie-downloadtijd} de gemiddelde downloadtijd 
 Hieropvolgend zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de gebruikerservaring worden besproken.
 Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{sec:evaluatie-performantie-duiding}.
 
-%TODO nielsen maximale responsetijd
 
 %%%%%%%%%%%%%%%%%%
 
@@ -193,34 +192,46 @@ De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklar
 
 
 \paragraph{Downloadtijd POC versus loginapplicatie}
-%TODO Sander bekijken + ongeldigheid nielson bekijken (maximale responstijd niet kunnen meten zie formule (...) geen rendertijd)
 Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
 Voor de gemiddelde downloadtijd per apparaat per raamwerk wordt verwezen naar appendix \ref{app:performantie}.
 
 %%% De cache factor van ST is constant (gemiddeld 1,8)
 %%% De andere raamwerken hebben een beduidend grotere cache factor 
 
-Indien \st{} buiten beschouwen wordt gelaten, duurt het eerste keer laden van de POC gemiddeld 5,73 seconden. 
-Het laden van de versie uit cache duurt slechts gemiddeld 400 milliseconden.
-De eerste keer laden van de loginapplicatie duurt gemiddeld 3,32 seconden.
-Indien deze uit cache komt, duurt dit nog slechts gemiddeld 420 milliseconden.
-Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993} doordat de tijden uit cache onder de seconde blijven.
-Volgens Nielsen dient er wel feedback over het laden te worden gegeven aan de gebruiker.
-Dit neemt de browser voor zich door bij het laden een laadbalk of spinner te tonen.
+De tragere downloadtijd van \st{},  zoals geconcludeerd door de downloadtijd van de login applicatie, wordt bevestigd.
+De verschil van downloadtijden voor de POC wordt nog uitvergroot.
+Het mechanisme voor het updaten van de cache zal \st{} nog meer vertragen bij de POC.
+
+Indien \st{} buiten beschouwen wordt gelaten, duurt het eerste keer laden van de POC gemiddeld $5,73$ s. 
+Het laden van de versie uit cache duurt slechts gemiddeld $400$ ms.
+De eerste keer laden van de loginapplicatie duurt gemiddeld $3,32$ s.
+Indien deze uit cache komt, duurt dit gemiddeld nog slechts gemiddeld $420$ ms.
+
+Formule \ref{eq:performantie-max} van de maximale responsetijd kan niet worden berekend omdat er geen rendertijden voorhanden zijn.
+Indien we enkel de downloadtijd in rekening brengen en \st{} buiten beschouwing laten, kan er gezien worden dat de downloadtijden $< 10\unit{s}}$.
+Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993}.
+De gebruiker zal de vertraging waarnemen maar de aandacht niet verliezen.
+Het initieel laden van de POC implementatie met \st{} moet van een laadscherm worden voorzien omdat de downloadtijd $> 10\unit{s}$.
 
 
 \paragraph{Google Page Speed}
 De score op 100 die Google Page Speed~\cite{Morgan2011} aan de applicatie toekent kan in tabel~\ref{tabel:performantie-verklaring} worden teruggevonden.
 \st{} scoort het best ($96$),  gevolgd door \lungo{} ($82$),  \kendo{}($73$) en \jqm{}($71$).
-% Het enige verschil is dat bij de POC van \kendo{} de afbeeldingen niet optimaal gecomprimeerd zijn.
-% Bij de loginapplicatie van \kendo{} is dit wel gebeurd.
-% Door deze uitbreiding krijgt de loginapplicatie van \kendo{} en beter score dan \jqm{}.
 
-Er kan geconcludeerd worden dat Sencha Cmd de applicatie optimaal weet te bouwen.
+Er kan geconcludeerd worden dat Sencha Cmd de applicatie optimaal weet te bouwen,  er is het minst plaats voor verbetering.
 Hoewel \st{} de meeste tijd vraagt om te laden, zal het na het laden sneller werken.
-Dit wordt bevestigd in de test van gebruikservaring.
+Dit wordt bevestigd in de voorbije testen.
 
-%TODO werkpunten lungo kendo en jqm volgens google bespreken
+Alle implementaties worden aangeraden een tekenset te specificeren en gebruik te maken van het cachegeheugen van de browser.
+Dit laatste is een suggestie om de maximale duur van documenten in de cache een week in de toekomst te zetten.
+De huidige implementaties hebben een vervaldatum van slechts tien minuten.
+Beide werkpunten hebben volgens Google Page Speed een lage prioriteit.
+Alle raamwerken buiten \st{} worden aangeraden om de \js-code uitgesteld te parsen.
+Bij \kendo{} en \jqm{} heeft dit werkpunt een hogere prioriteit in tegenstelling tot \lungo{}.
+Dit komt omdat \lungo{} maar een kleiner aantal bytes moet verwerken.
+De implementatie van \st{} wordt ook aangeraden om vraagtekens uit URLs te verwijderen.
+Dit zou de oorzaak kunnen zijn voor het niet-cachen van bestanden.
+
 
 \paragraph{Downloadgrootte}
 De PCAP-bestanden die werden gebruikt om de downloadtijd op te meten bevatten ook de grootte van de pakketten die moeten worden opgehaald.

@@ -42,12 +42,12 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 \setup{font=lm}
 
 % Hier kun je dan nog andere pakketten laden of eigen definities voorzien
-\usepackage{draftwatermark}
+\usepackage[firstpage]{draftwatermark}
 \SetWatermarkColor[rgb]{0.90,0.90,0.90}
 
 % Tenslotte wordt hyperref gebruikt voor pdf bestanden.
 % Dit mag verwijderd worden voor de af te drukken versie.
-\usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
+%\usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
 
 \usepackage{kulemtx}
 \headstyles{kulemtman}
@@ -91,7 +91,10 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 % zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
 %\renewcommand{\url}[1]{\href{http://#1}{#1}}
 \newcommand{\exturl}[1]{\href{http://#1}{#1}}
-\renewcommand{\url}[1]{\href{#1}{#1}}
+%\renewcommand{\url}[1]{\href{#1}{#1}}
+
+\newcommand{\url}[1]{\href{#1}{#1}}
+\newcommand{\href}[2]{{#1}}
 
 % veelgebruikte woorden, apparaten, uitdagingen
 \input{prelude/namen}
@@ -264,9 +267,9 @@ All frameworks provide good support on the evaluated mobile devices.
 \input{app-ondersteuning}
 \input{app-performantie}
 \chapter{Wetenschappelijk artikel}
-\includepdf[pages={1-11}]{../Artikel/artikel.pdf}
+%\includepdf[pages={1-11}]{../Artikel/artikel.pdf}
 \chapter{Poster}
-\includepdf[pages={1}]{../Poster/htmobiel.pdf}
+%\includepdf[pages={1}]{../Poster/htmobiel.pdf}
 
 \backmatter
 % Na de bijlagen plaatst men nog de bibliografie.

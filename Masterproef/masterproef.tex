@@ -47,7 +47,16 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 
 % Tenslotte wordt hyperref gebruikt voor pdf bestanden.
 % Dit mag verwijderd worden voor de af te drukken versie.
-%\usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
+\usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
+
+% onderstaande commando's enkel gebruiken als je hyperref gebruikt
+\newcommand{\exturl}[1]{\href{http://#1}{#1}}
+\renewcommand{\url}[1]{\href{#1}{#1}}
+
+% onderstaand commando's enkel activeren als je hyperref hebt verwijderd
+%\newcommand{\exturl}[1]{\href{http://#1}{#1}}
+%\newcommand{\url}[1]{\href{#1}{#1}}
+%\newcommand{\href}[2]{{#1}}
 
 \usepackage{kulemtx}
 \headstyles{kulemtman}
@@ -87,14 +96,6 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 
 \newcommand{\term}[1]{\emph{#1}} % engelse term die niet worden vertaald naar het nederlands
 \newcommand{\code}[1]{\texttt{#1}} % code command
-
-% zodat we niet http:// staan hebben in onze tekst, maar de link wel werkt
-%\renewcommand{\url}[1]{\href{http://#1}{#1}}
-\newcommand{\exturl}[1]{\href{http://#1}{#1}}
-%\renewcommand{\url}[1]{\href{#1}{#1}}
-
-\newcommand{\url}[1]{\href{#1}{#1}}
-\newcommand{\href}[2]{{#1}}
 
 % veelgebruikte woorden, apparaten, uitdagingen
 \input{prelude/namen}

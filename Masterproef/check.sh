@@ -1,6 +1,6 @@
 #!/bin/sh
 
-forbiddenWords=(we men je u framework device plugin layout markup)
+forbiddenWords=(we men je u framework device plugin layout markup comptabiliteit)
 unset regexp
 
 for w in ${forbiddenWords[@]};

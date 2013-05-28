@@ -127,7 +127,35 @@ Elk zullen ze de POC in twee verschillende raamwerken maken en daarnaast ook een
 De ene auteur maakt de POC in \jqm{} en \lungo{} en de loginapplicatie in \st{} en \kendo{}.
 De andere zal dan de POC in \st{} en \kendo{} maken en de loginapplicatie in \jqm{} en \lungo{}.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
-De implementatie van de loginapplicatie is een extra test.
+
+% Omdat de POC twee keer moet worden geïmplementeerd, wordt verwacht dat de tweede implementatie sneller zal verlopen.
+% Dit probleem is onafwendbaar en zal bij de evaluatie van de data aangehaald worden.
+% De uren voor de implementatie van de loginapplicatie zal de score correcter maken.
+% 
+% De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en de loginapplicatie ($t_{r,login}$) vormt de score voor de productiviteit:
+% \begin{equation}
+%   \text{Productiviteit}_r = {t_{r,POC} + t_{r,login}}
+%   \label{eq:productiviteit}
+% \end{equation}
+% voor een raamwerk $r$.
+
+%TODO Sander verleden tijd of tt tijd schrijven?  Het zijn onze persoonlijke bevindingen na de implementatie dus vt?
+Er zijn echter vijf redenen waarom de implementaties van de POC geen goede indicatie zijn voor de productivteit.
+Deze werden door de auteurs bevonden wanneer de implementatie in het tweede raamwerk werd uitgevoerd:
+\begin{enumerate}
+\item Betere ervaring met de POC versnelt bij de tweede implementatie het overzicht van vereisten die nodig zijn om te implementeren. 
+\item Een verbeterde ervaring met HTML5-raamwerken had een positieve invloed op de verdere implementaties.
+Dit weerspiegelt zich vooral tussen \jqm{} en \lungo{}.
+Hoewel ze beide op een verschillende \js{}-bibliotheek steunen - respectievelijk jQuery en QuoJS - zijn de gelijkenissen tussen deze twee raamwerken groot.
+Ook leggen ze beide geen architectuur op.
+\item Er kon code,  zoals van de implementatie in \jqm{},  overgenomen worden bij de implementatie van de POC met \lungo{} en \kendo{}.
+\item Er kwamen bij de eerste implementatie problemen met de \term{backend} naar boven.
+Deze waren bij de tweede implementatie reeds opgelost.
+Door het onnauwkeurig opmeten van de tijd kan er geen schatting worden gemaakt van de tijd die aan de problemen van de \term{backend} werden besteed.
+\item Niet de volledige POC kon met \lungo{} en \st{} worden ontwikkeld.
+\end{enumerate}
+
+De implementatie van de loginapplicatie is een alternatieve test van de productiviteit.
 Deze applicatie bevat GI-elementen, validaties,  \term{backend}integratie en een lijst.
 De implementatie van de loginapplicatie kan dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
 Na het aanmelden met deze applicatie zal de gebruiker een lijst van $850$ elementen te zien krijgen.
@@ -136,23 +164,34 @@ De elementen in de lijst zullen voorzien worden van een afbeelding en tekst die 
 Het aantal liedjes in de lijst - $850$ - is een schatting van het maximum aantal liedjes dat ooit is opgenomen~\cite{Zimmy2011}.
 Het kan dus als bovengrens voor dit soort applicaties worden beschouwd.
 De implementatie van deze applicatie zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raamwerk,  één eenvoudige applicatie opgeleverd kan worden.
-Omdat de POC twee keer moet worden geïmplementeerd, wordt verwacht dat de tweede implementatie sneller zal verlopen.
-Dit probleem is onafwendbaar en zal bij de evaluatie van de data aangehaald worden.
-De uren voor de implementatie van de loginapplicatie zal de score correcter maken.
 
-De som van de uren voor het implementeren van de POC ($t_{r,POC}$) en de loginapplicatie ($t_{r,login}$) vormt de score voor de productiviteit:
+% De werkuren van de loginapplicatie bevestigen voorgaande resultaten niet.
+De werkuren van de loginapplicatie bleken niet onderheven aan de vijf opgenoemde redenen waarom de POC geen goede indicatie is:
+\begin{enumerate}
+\item Bij elke implementatie werd met dezelfde achtergrondkennis gestart.  
+De implementatie van de loginapplicatie is triviaal en eenduidig.
+Er geldt dus voor alle raamwerken dat de ervaring met de applicatie reeds hoog was.
+\item Ook werd eerst de implementatie van de POC gemaakt voordat aan de loginapplicatie werd begonnen.
+Hierdoor was de algemene ervaring met HTML5-raamwerken gelijkgesteld.
+\item Er werd geen code gekopieerd. 
+\item Er waren geen problemen met de \term{backend}.
+\item Alle functionaliteit van de loginapplicatie kon met alle vier raamwerken worden gebouwd.
+\end{enumerate}
+Om al deze redenen werd beslist de score voor productiviteit te bepalen door enkel de uren van de login applicatie ($t_{r,login}$) te beschouwen.
+De formule voor productiviteit is dan
 \begin{equation}
-  \text{Productiviteit}_r = {t_{r,POC} + t_{r,login}}
-  \label{eq:productiviteit}
+  \text{Productiviteit}'_r = t_{r,login}
+  \label{eq:productiviteit-enhanced}
 \end{equation}
 voor een raamwerk $r$.
 
-De uitkomsten van dit criterium zullen gestaafd worden door ten eerste het aantal tools te bekijken die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
-Ook zullen de factoren die de leercurve bepalen, worden geschat.
+De uitkomsten van dit criterium zullen gestaafd worden door het aantal lijnen code te presenteren die nodig waren voor zowel de POC als de loginapplicatie te bouwen.
+Ook zullen de factoren die de leercurve bepalen, worden bekeken. 
+
+Ten eerste zullen de tools worden bekeken die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
 Vervolgens zal de kwaliteit en kwantiteit van de documentatie van elk raamwerk worden bekeken.
 De mogelijkheden voor debuggen bepalen ook de productiviteit en zullen worden onderzocht.
-Dan zal gekeken worden naar de aanwezige literatuur van het raamwerk en waar ontwikkelaars met vragen terecht kunnen.
-Ten slotte zullen de lijnen code die nodig waren voor zowel de POC als de loginapplicatie gepresenteerd worden.
+Tot slot zal gekeken worden naar de aanwezige literatuur van het raamwerk en waar ontwikkelaars met vragen terecht kunnen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

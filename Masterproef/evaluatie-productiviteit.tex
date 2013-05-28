@@ -2,7 +2,8 @@
 \label{sec:evaluatie-productiviteit}
 
 In deze sectie zal de productiviteit van de vier raamwerken worden onderzocht.
-Voor de score van productiviteit wordt naar formule \ref{eq:productiviteit} verwezen.
+%Voor de score van productiviteit wordt naar formule \ref{eq:productiviteit} verwezen.
+%TODO Sander: tabel met enkel uren van loginapplicatie
 Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde scores.
 
 \begin{table}[H]
@@ -32,56 +33,76 @@ Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde s
 \label{tabel:evaluatie-productiviteit}
 \end{table}
 
-\lungo{} is de afgetekende winnaar,  gevold door \kendo{} en \jqm{}. 
-\st{} blijkt het minst productief te zijn.
-De productiviteit van \lungo{} stijgt met $71\%$ ten opzichte van \jqm{}.
-De productiviteit van \kendo{} stijgt met $44\%$ ten opzichte van \st{}.
+% \lungo{} is de afgetekende winnaar,  gevold door \kendo{} en \jqm{}. 
+% \st{} blijkt het minst productief te zijn.
+% De productiviteit van \lungo{} stijgt met $71\%$ ten opzichte van \jqm{}.
+% De productiviteit van \kendo{} stijgt met $44\%$ ten opzichte van \st{}.
 
-De belangrijkste factor waarom \lungo{} en \kendo{} beter scoren is omdat beide raamwerken als tweede werden behandeld.
-De POC werd eerst in \jqm{} en \st{} geïmplementeerd.
-Er zijn vijf redenen waarom dit de data sterk beïnvloedt.
-\begin{enumerate}
-\item Betere ervaring met de POC versnelt het overzicht van vereisten die nodig zijn om te implementeren. 
-\item Betere ervaring met HTML5-raamwerken in het algemeen. 
-Dit weerspiegelt zich vooral tussen \jqm{} en \lungo{}.
-Hoewel ze beide op een verschillende \js{}-bibliotheek steunen - respectievelijk jQuery en QuoJS - zijn de gelijkenissen tussen deze twee raamwerken groot.
-\item Er kon ook veel code,  zoals van de implementatie in \jqm{},  overgenomen worden bij de implementatie van de POC met \lungo{} en \kendo{}.
-\item Er kwamen bij de eerste implementatie problemen met de \term{backend} naar boven.
-Deze waren bij de tweede implementatie reeds opgelost.
-Door het onnauwkeurig opmeten van de tijd kan er geen schatting worden gemaakt van de tijd die aan de \term{backend} werd besteed.
-\item Niet de volledige POC kon met \lungo{} en \st{} worden ontwikkeld.
-Hierop zal in sectie \ref{sec:evaluatie-gebruik} verder worden ingegaan.
-\end{enumerate}
-De werkuren van de loginapplicatie bevestigen voorgaande resultaten niet.
-Ze zijn dan ook niet onderheven aan de zonet vijf opgenoemde redenen om wille van:
-\begin{enumerate}
-\item Bij elke implementatie werd met dezelfde achtergrondkennis gestart.  
-De implementatie van de loginapplicatie is triviaal en eenduidig.
-Er geldt dus voor alle raamwerken dat de ervaring met de applicatie reeds hoog was.
-\item Ook werd eerst de implementatie van de POC gemaakt voordat aan de loginapplicatie werd begonnen.
-Hierdoor was de algemene ervaring met HTML5-raamwerken gelijkgesteld.
-\item Er werd geen code gekopieerd. 
-\item Er waren geen problemen met de \term{backend}.
-\item Ten slotte kon alle functionaliteit van de loginapplicatie met alle vier raamwerken worden gebouwd.
-\end{enumerate}
-Om al deze redenen werd beslist de score voor productiviteit aan te passen door enkel de uren van de login applicatie ($t_{r,login}$) te beschouwen.
-De verbeterde formule voor productiviteit is dan
-\begin{equation}
-  \text{Productiviteit}'_r = t_{r,login}
-  \label{eq:productiviteit-enhanced}
-\end{equation}
-voor een raamwerk $r$.
+% De belangrijkste factor waarom \lungo{} en \kendo{} beter scoren is omdat beide raamwerken als tweede werden behandeld.
+% De POC werd eerst in \jqm{} en \st{} geïmplementeerd.
 
-Volgens formule~\ref{eq:productiviteit-enhanced} is \jqm{} productiever dan \lungo{}. 
-De volgorde van \kendo{} en \st{} blijft echter wel behouden.
-De relatieve verschillen tussen \jqm{} en \lungo{} en tussen \st{} en \kendo{} zijn ook verkleind.  
-Respectievelijk een stijging van $11.7\%$ en een daling met $31.8\%$.
-Toch zijn er twee trends vast te stellen: het type raamwerk (\js-gedreven of opmaakgedreven) en het al dan niet afdwingen van een architectuur bepalen de productiviteit.
+
+De uren voor de implementatie van de loginapplicatie tonen dat \jqm{} productiever is dan \lungo{}. 
+Hierna volgt \kendo{} en \st{}.
+De productiviteit van \lungo{} stijgt met $11.7\%$ ten opzichte van \jqm{}.
+De productiviteit van \kendo{} stijgt met $31.8\%$ ten opzichte van \st{}.
+% De relatieve verschillen tussen \jqm{} en \lungo{} en tussen \st{} en \kendo{} zijn ook verkleind.  
+% Respectievelijk een stijging van $11.7\%$ en een daling met $31.8\%$.
+Hieruit volgen twee conclusies: het type raamwerk (\js-gedreven of opmaakgedreven) en het al dan niet afdwingen van een architectuur bepalen de productiviteit.
 Raamwerken zonder architectuur (\jqm{} en \lungo{}) zijn productiever dan raamwerken die een architectuur afdwingen (\st{} en \kendo{}).
 Indien het raamwerk een architectuur afdwingt, dan is een puur \js{}-gedreven raamwerk (in dit geval \st{}) minder productief dan een raamwerk die zowel \js{}- als opmaakgedreven is.
 
+\subsection{Lijnen code}
+In tabel \ref{tabel:evaluatie-gebruik-loc} staan het aantal lijnen effectief geschreven code getoond dat nodig is om de POC en loginapplicatie te maken.
+%TODO Gonzalo beter uitleggen + waarom niet in formule uitleggen
+Het type van het raamwerk (\js- of opmaakgedreven) komt sterk in de tabel naar boven.
+
+\begin{table}[H]
+\centering
+\pgfplotstabletypeset[
+	column type=l,
+	every head row/.style={
+		before row={%
+			\toprule
+			\textbf{Code}
+			& \multicolumn{2}{c}{\textbf{\sta}}
+			& \multicolumn{2}{c}{\textbf{\kendoa}} 
+			& \multicolumn{2}{c}{\textbf{\jqma}}
+			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
+			\cmidrule(r){2-3}
+			\cmidrule(r){4-5}
+			\cmidrule(r){6-7}
+			\cmidrule(r){8-9}
+		},
+		after row=\midrule,
+		},
+  	every last row/.style={
+  		before row=\toprule,
+ 		after row=\bottomrule},
+	columns={Geschreven,ST(poc),ST(login),Kendo(poc),Kendo(login),jQM(poc),jQM(login),Lungo(poc),Lungo(login)},
+	begin table=\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccccccc},
+	end table=\end{tabular*},
+	header=true,
+	skip coltypes=true,
+	columns/Geschreven/.style ={column name=},
+	columns/ST(poc)/.style ={column name=POC},
+	columns/ST(login)/.style={column name=Login},
+	columns/Kendo(poc)/.style ={column name=POC},
+	columns/Kendo(login)/.style={column name=Login},
+	columns/jQM(poc)/.style ={column name=POC},
+	columns/jQM(login)/.style={column name=Login},
+	columns/Lungo(poc)/.style ={column name=POC},
+	columns/Lungo(login)/.style={column name=Login},
+	col sep=comma,
+	string type,
+]{tabellen/gebruik/loc.csv}
+\caption{Overzicht van het aantal lijnen effectief geschreven code.}
+\label{tabel:evaluatie-gebruik-loc}
+\end{table}
+
 \subsection{Duiding}
 In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit verklaren.
+Ze kunnen als factoren worden gezien die de leercurve bepalen.
 
 \paragraph{Tools}
 Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op een grafische tool om het ontwikkelingsproces te vergemakkelijken:  Sencha Architect~\cite{Sencha2012a}.
@@ -158,51 +179,3 @@ Er werden twee vragen gesteld op Google Groups en LungoJS Community, maar hier i
 Voor \st{} en \kendo{} geldt dat ook het forum voor professionele ondersteuning hulpvaardig was.
 Het plaatsen van vragen bij \st{} is onmogelijk zonder betaalde ondersteuning,  \kendo{} laat het stellen van maximaal vijf vragen toe zonder de aankoop van een licentie.
 De meest voorkomende problemen zijn op de fora al aangehaald en gedetailleerd besproken.
-
-
-\paragraph{Lijnen code}
-Als laatste wordt in tabel \ref{tabel:evaluatie-gebruik-loc} het aantal lijnen effectief geschreven code getoond dat nodig is om de POC en loginapplicatie te maken.
-Het type van het raamwerk (\js- of opmaakgedreven) komt sterk in de tabel naar boven.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-	column type=l,
-	every head row/.style={
-		before row={%
-			\toprule
-			\textbf{Code}
-			& \multicolumn{2}{c}{\textbf{\sta}}
-			& \multicolumn{2}{c}{\textbf{\kendoa}} 
-			& \multicolumn{2}{c}{\textbf{\jqma}}
-			& \multicolumn{2}{c}{\textbf{\lungoa}} \\
-			\cmidrule(r){2-3}
-			\cmidrule(r){4-5}
-			\cmidrule(r){6-7}
-			\cmidrule(r){8-9}
-		},
-		after row=\midrule,
-		},
-  	every last row/.style={
-  		before row=\toprule,
- 		after row=\bottomrule},
-	columns={Geschreven,ST(poc),ST(login),Kendo(poc),Kendo(login),jQM(poc),jQM(login),Lungo(poc),Lungo(login)},
-	begin table=\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccccccc},
-	end table=\end{tabular*},
-	header=true,
-	skip coltypes=true,
-	columns/Geschreven/.style ={column name=},
-	columns/ST(poc)/.style ={column name=POC},
-	columns/ST(login)/.style={column name=Login},
-	columns/Kendo(poc)/.style ={column name=POC},
-	columns/Kendo(login)/.style={column name=Login},
-	columns/jQM(poc)/.style ={column name=POC},
-	columns/jQM(login)/.style={column name=Login},
-	columns/Lungo(poc)/.style ={column name=POC},
-	columns/Lungo(login)/.style={column name=Login},
-	col sep=comma,
-	string type,
-]{tabellen/gebruik/loc.csv}
-\caption{Overzicht van het aantal lijnen effectief geschreven code.}
-\label{tabel:evaluatie-gebruik-loc}
-\end{table}

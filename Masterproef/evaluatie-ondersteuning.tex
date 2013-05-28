@@ -105,7 +105,7 @@ Daarom verschilt de maximale score voor ondersteuning per raamwerk.
 Welke uitdagingen door het raamwerk konden worden geïmplementeerd werd in het vorige criterium geduid.
 De maximale scores voor \st{},  \kendo{},  \jqm{} en \lungo{} zijn respectievelijk $96$, $104$, $104$ en $80$.
 De score voor ondersteuning is respectievelijk $83$, $92$, $95$ en $62$.
-Wanneer we de relatieve score per raamwerk bekijken heeft \st{} een score van $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo $78\%$.
+Wanneer we de relatieve score per raamwerk bekijken heeft \st{} een score van $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo{} $78\%$.
 Er kan dus meteen geconcludeerd worden dat de raamwerken buiten \lungo{} behoorlijk hoog scoren.
 Dit wil zeggen dat de keuze voor één van de drie raamwerken onafhankelijk is van de ondersteuning.
 Dezelfde apparaten worden door de verschillende raamwerken ondersteund of niet.
@@ -144,7 +144,7 @@ De implementatie van \jqm{} en \lungo{} steunt op CSS3.
 Het soort apparaat (smartphone of tablet) werd op alle toestellen behalve de \gtab correct herkend.
 Door de lage resolutie van de \gtab{} werd deze als smartphone gecategoriseerd op \st{},  \jqm{} en \lungo{}.
 Bij \jqm{} en \lungo{} geldt dit niet wanneer de applicatie liggend wordt opgestart.
-\kendo{} herkende in zowel in staande als liggende modus de \gtab{} wel correct.
+\kendo{} herkende zowel in staande als liggende modus de \gtab{} wel correct.
 
 
 % \paragraph{\st} \score{7}{8}
@@ -230,7 +230,7 @@ De schakelaar die \st{} voorziet, werkte op elk toestel.
 \paragraph{\kendo}
 Alle Android toestellen toonden een wit kader bij \term{read-only} \term{widgets}.
 Deze zijn te zien wanneer het overzicht van een ingevoerde uitgave wordt opgevraagd.
-Dit ondankt de invoervelden standaard HTML-invoer zijn.
+Dit ondanks de invoervelden standaard HTML-invoer zijn.
 Het raamwerk moet de waarden van de \term{widgets} in de \term{read-only} invoerelementen invullen.
 Deze functionaliteit werkt enkel op iOS-toestellen.
 De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen e-mailtoetsenbord getoond wordt.
@@ -284,13 +284,13 @@ Op de \htc{} werden bij \lungo{} de suggesties dubbel op het scherm aan de gebru
 De scores voor \uit{afbeelding} zijn gelijk voor alle toestellen.
 \kendo{}, \jqm{} en \lungo{} gebruiken dezelfde aanpak om deze uitdaging te implementeren.
 Deze aanpak steunt op de FileReaderAPI en wordt enkel vanaf Android versie 3 en iOS versie 6 ondersteund~\cite{Deveria2013c}.
-Ook de plug-in de \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
+Ook de plug-in die \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
 Hierdoor zullen de \htc{},  \gtab{} en \ipadi{} deze uitdaging in de vier raamwerken niet ondersteunen.
 
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
 Dit is een gekende limiet van iOS waarbij apparaten met minder dan $256\unit{MB}$ RAM maximaal drie megapixels foto's kunnen importeren op het \code{canvas}.
 Apparaten met $256\unit{MB}$ RAM of meer kunnen foto's tot vijf megapixels importeren op het \code{canvas}~\cite{Apple2012}.
-Een gelijkaardige probleem gaat ook op voor Android-apparaten als de foto wordt opgeslaan in de lokale opslag.
+Een gelijkaardig probleem gaat ook op voor Android-apparaten als de foto wordt opgeslaan in de lokale opslag.
 De exacte limieten voor \code{localStorage} en \code{sessionStorage} zijn browser- en versiespecifiek~\cite{Gonzalez2012}.
 Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
 De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen~\cite{ViljamiSalminen2012}.

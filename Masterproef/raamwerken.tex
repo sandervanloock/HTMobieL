@@ -14,9 +14,10 @@ Doordat \tmp{} een volledige make-over ondergaat in de zomer van 2013 leek het d
 \moobile{} werd ook uitgesloten door de nog zeer jonge versie van het raamwerk tijdens het onderzoek.
 \jqt{} is slechts een plug-in voor \jqm{} en \st{} is hierop verder gebouwd waardoor niet voor \jqt{} werd gekozen.
 Als laatste werd besloten om \davinci{} uit te sluiten door de gebrekkige Engelstalige documentatie van dit Koreaans raamwerk.
+Het vierde en laatste onderzochte raamwerk werd daarom \lungo{}.
 
 Zoals besproken in \ref{sec:mobiele-html5-raamwerken} kunnen raamwerken worden gecategoriseerd volgens twee aanpakken, namelijk opmaakgedreven en \js{}-gedreven~\cite{Oeflman2011}. 
-Bij een opmaakgedreven aanpal zijn er drie strategieën om webapplicaties te maken~\cite{Broulik2012}. 
+Bij een opmaakgedreven aanpak zijn er drie strategieën om webapplicaties te maken~\cite{Broulik2012}. 
 Een eerste is om de volledige applicatie in één webpagina te schrijven. 
 De vele schermen van de webapplicatie zijn dan allemaal samengebracht op eenzelfde webpagina. 
 Het voordeel bij deze aanpak is dat er initieel minder verzoeken zijn naar de server omdat alles in één bestand wordt opgehaald. 
@@ -40,6 +41,7 @@ In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een overzicht van deze p
 \section{\st}
 \label{sec:raamwerk-st}
 
+%TODO andere volgorde, geen kopie pasta
 \st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël. 
 Ext JS is een \js{}-raamwerk voor de ontwikkeling van webapplicaties. 
 jQuery Touch is een jQuery plug-in voor mobiele webontwikkeling.  
@@ -60,19 +62,20 @@ Deze worden hieronder opgelijst~\cite{Inc.}.
 Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een grafische gebruikersinterface~(GGI) en \term{drag-and-drop} commando's~\cite{Sencha2012a}.  
 De applicatie kan worden gedownload voor Mac, Windows en Linux distributies.
 Sencha Architect kan voor 30 dagen uitgeprobeerd worden,  daarna moet een licentie worden aangekocht.
-De prijs voor één ontwikkelaar bedraagd $\$399$~\cite{Inc.}.
+De prijs voor één ontwikkelaar bedraagt $\$399$~\cite{Inc.}.
 
 \subparagraph{Sencha Cmd}
 Deze tool vergemakkelijkt de ontwikkeling van \st{} applicaties door middel van commando's die vanuit de terminal kunnen worden uitgevoerd~\cite{Sencha2012}.
 Sencha Cmd is beschikbaar voor Mac, Windows en Linux distributies.
 Het kan initiële applicaties opzetten,  bestanden toevoegen en de applicatie bouwen en uitrollen.
-De applicatie kan ook gebouwd worden naar een \term{native} applicatie voor iOS en Android door de webapplicatie om te vormen.
+De applicatie kan ook gebouwd worden als een \term{native} applicatie voor iOS en Android door de webapplicatie om te vormen.
 De tool is gratis op de Sencha website te downloaden~\cite{Inc.}.
 
-Een applicatie,  zoals geinitialiseerd door Sencha Cmd,  moet alle benodigde \js-, en CSS-bestanden in een JSON-bestand onderbrengen.
+Een applicatie,  zoals geïnitialiseerd door Sencha Cmd,  moet alle benodigde \js-, en CSS-bestanden in een JSON-bestand onderbrengen.
 Een \code{microloader} zal de afhankelijke bestanden automatisch laden bij het opstarten van de applicatie.
 
 Het bouwen en uitrollen van een applicatie kan op vier niveaus:
+%TODO moeten die termen niet met hoofdletter?
 \begin{description}
   \item [testing] maakt een testapplicatie om de kwaliteit te testen.  \js- en CSS-bestanden worden samengevoegd maar niet verkleind om makkelijk te debuggen
   \item [package] maakt een zelfstandige applicatie die verspreidbaar is en vanop een bestandensyteem,  zonder webserver,  kan lopen.
@@ -84,7 +87,7 @@ Het bouwen en uitrollen van een applicatie kan op vier niveaus:
 Dit is een desktopapplicatie om CSS3-animaties te ontwerpen~\cite{Sencha2012b}.  
 De applicatie kan worden gedownload voor Mac, Windows en Linux distributies.
 Deze animaties worden enkel in WebKit-browsers ondersteund.
-De prijs voor één ontwikkelaar bedraagd $\$99$~\cite{Inc.}.
+De prijs voor één ontwikkelaar bedraagt $\$99$~\cite{Inc.}.
 
 \paragraph{Documentatie}
 Alle documentatie voor \st{}~2.1.1 is te vinden op \exturl{docs.sencha.com/touch/2-0}.  
@@ -112,7 +115,7 @@ Omdat het gebruik hiervan per gebruiker verschilt,  worden OEM-licenties op maat
 \subsection{Code en ontwikkeling}
 Alle code moet in \js{} worden geschreven.
 Eén HTML-bestand dient slechts als container om de bestanden in te laden.  
-\st{} valt dus onder \js{}-gebaseerde raamwerken net zoals Ext JS,  waarop \st{} is op verdergebouwd.
+\st{} valt dus onder \js{}-gebaseerde raamwerken net zoals Ext JS,  waarop \st{} is  verdergebouwd.
 
 Samen met SASS en Compass kan \st{} lay-outs definiëren per apparaat (zie sectie \ref{sec:sencha-aanpasbaarheid}).  
 De \code{Ext.env.Browser} en \code{Ext.env.OS}-eigenschappen en \code{Ext.Viewport.getOrientation}- en \code{Ext.feature.has}-methoden kunnen de vereisten bepalen en de juiste lay-out kiezen~\cite{JohnEClark2012}.
@@ -142,7 +145,7 @@ Voor een opsomming van alle componenten wordt verwezen naar de documentatie~\cit
 
 \paragraph{Model}
 Data kan intern worden voorgesteld met \code{Models}.  
-Dit is iets wat hoort bij de MVC-architectuur (zie sectie \ref{sec:sencha-programeerbaarheid}).  
+Dit is iets wat hoort bij de MVC-architectuur (zie sectie \ref{sec:sencha-programmeerbaarheid}).  
 Een model specificeert een lijst van velden waarbij een veld een naam en een type heeft.  
 Optioneel kunnen validaties bij de velden worden toegevoegd om validatieregels op de velden af te dwingen.  
 
@@ -151,13 +154,13 @@ Optioneel kunnen validaties bij de velden worden toegevoegd om validatieregels o
 Een \code{Store} wordt voorzien van een \code{Proxy}.  
 Deze kan data aan de klant- of serverzijde opslaan.  
 Een \code{Proxy} voor opslag aan klantzijde kan zowel in het RAM-geheugen als in lokale opslag van de browser opslaan.  
-Een \code{Proxy} voor serveropslag kan data verzenden voor hetzelfde domein via Asynchronous JavaScript and XML~(AJAX) ) of tussen verschillende domeinen via JSONP.  
+Een \code{Proxy} voor serveropslag kan data verzenden voor hetzelfde domein via Asynchronous JavaScript and XML~(AJAX) of tussen verschillende domeinen via JSONP.  
 JSONP staat voor JavaScript Object Notation with Padding en is een methode om data op een server in een ander domein op te vragen.
 Een \code{Proxy} kan ook nog voorzien worden van een \code{Reader} die aangeeft hoe de ontvangen data gelezen moet worden.
 
 \paragraph{View}
 Een \code{View} is de benaming voor objecten die aan de gebruiker kunnen worden getoond.  
-Een voorbeeld hiervan zijn lijsten,  waar instanties van een \code{Store} kan worden weergegeven.  
+Een voorbeeld hiervan zijn lijsten,  waar instanties van een \code{Store} kunnen worden weergegeven.  
 Zo'n lijst kan makkelijk gefilterd of gesorteerd worden op basis van velden uit het model.
 Hiervoor moeten \code{Filters} of \code{Sorters} aan de \code{Store} worden toegevoegd. 
 De lay-out van één lijstitem bepalen kan via een \code{XTemplate}.  
@@ -165,7 +168,7 @@ Het sjabloon bepaalt de HTML-structuur van elk item.
 Alle gedefinieerde velden van het model kunnen in de template worden opgeroepen of gemanipuleerd.
 
 \paragraph{Controllers} 
-De \code{Controllers} zijn maken de binding tussen \code{Models} en \code{Views}.
+De \code{Controllers} maken de binding tussen \code{Models} en \code{Views}.
 Ze kunnen gebeurtenissen opvangen en bijhorende operaties uitvoeren.
 Hierdoor is navigatie door de applicatie mogelijk en kunnen alle componenten gemanipuleerd worden.
 \code{Controllers} worden ook gebruikt bij de initialisatie van de applicatie.
@@ -199,7 +202,7 @@ Thema's van \st{} bestaan allemaal uit een set van \term{mixins}.
 Door zelf \term{mixins} te creëren of reeds bestaande te manipuleren kunnen eigen thema's gecreëerd worden en ze aan de \code{ui}-waarde van een component toegekend worden.
 
 \paragraph{Programmeerbaarheid}
-\label{sec:sencha-programeerbaarheid}
+\label{sec:sencha-programmeerbaarheid}
 Zoals reeds aangehaald ondersteund \st{} de MVC-architectuur.  
 Deze architectuur vermijdt lange \js{}-bestanden door ze logisch op te delen.  
 Modellen groeperen velden tot een beschrijving van data-objecten, \code{Views} definiëren de weergave van componenten en controllers verbinden beide op basis van gebeurtenissen.
@@ -224,6 +227,7 @@ Hoewel geen echte scores worden uitgedeeld, zijn alle belangrijkste kenmerken ui
 
 \section{\kendo}
 \label{sec:raamwerk-kendo}
+%TODO andere volgorde, geen kopie pasta
 \kendo{} is een raamwerk van de hand van Telerik en werd stabiel vrijgegeven in novermber 2011.
 Het bestaat uit drie luiken:  Web, Mobile en DataViz.  
 Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
@@ -237,13 +241,13 @@ Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerike}.
 
 \paragraph{Programmeertaal}
 \kendo{} is zowel \js{}- en opmaakgedreven. 
-Data-attributen kunnen een HTML-element associëren met \kendo{} of het overeenkomstige jQuery-object met \js{} het het element initialiseren.
+Data-attributen kunnen een HTML-element associëren met \kendo{} of het overeenkomstige jQuery-object met \js{} het element initialiseren.
 Alle GI-elementen van \kendo{} Mobile kunnen met data-attributen worden opgebouwd.
 \term{Widgets} van \kendo{} Web kunnen zowel met \js{} als data-attributen geïnitialiseerd worden.
 
 Het laden van het raamwerk kan door \kendo{} in zijn geheel op te roepen of enkel \kendo{} Mobile met respectievelijk \code{kendo.all.js} of \code{kendo.mobile.js}.
 Elk van de drie luiken - Web, Mobile en DataViz - kan op zichzelf functioneren door hun \js{}-bestand in te laden.
-Er kan wel slecht één van de drie script gelijktijdig gebruikt worden.  
+Er kan wel slecht één van de drie scripts gelijktijdig gebruikt worden.  
 Wanneer elementen uit verschillende luiken gebruikt worden, moet \code{kendo.all.js} worden gebruikt.
 Een alternatieve oplossing is het inladen van één luik en alle benodigde \js{}-bestanden te genereren met de \js{} Download Builder te vinden op de \kendo{} website~\cite{Telerike}.
 Hier kunnen de vereiste elementen geselecteerd worden en wordt het \js{}-bestand gegenereerd.
@@ -260,7 +264,7 @@ Voor \kendo{} Mobile kan een verschillende lay-out bepaald worden voor alle onde
 Twee belangrijke secties van de documentatie zijn de API en Getting Started~\cite{Telerikd}.
 Beide kunnen op elkaar gemapt worden omdat alle objecten van \kendo{} die in de API worden aangehaald ook in een pagina onder \term{Getting Started} worden besproken.
 Deze laatste probeert met meer woorden en voorbeelden uit te leggen wat het object juist inhoudt.
-Verder staan er bij de documentatie nog handleidingen die complexere functionaliteit uit de doeken doet.
+Verder staan er bij de documentatie nog handleidingen die complexere functionaliteit uit de doeken doen.
 Ook zijn er demo's die live voorbeelden tonen samen met de code die nodig is om het voorbeeld te maken.
 
 \paragraph{Marktadoptatie}
@@ -289,6 +293,7 @@ Navigatie naar een ander bestand kan door de bestandsnaam als parameter op te ge
 \subsection{Functionele kenmerken}
 \label{sec:kendo-functioneel}
 \kendo{} steunt op de (Model-View-View Model) MVVM-architectuur,  wat de functionele kenmerken sterk beïnvloedt.
+%TODO 1 klassensysteem of meerdere klassensystemen?
 Alle objecten maken deel uit van klassensysteem die van elkaar overerven.
 
 \paragraph{UI-elementen}
@@ -340,7 +345,7 @@ Deze wordt aangegeven in de \code{data-bind}-tag.
   \item \code{text}
   \item \code{value}
   \item \code{visible}
-\end{itemize}.
+\end{itemize}
 Als een gebonden eigenschap wijzigt - door gebruikersinvoer of programmatisch - zal het overeenkomstige veld in het \code{ObservableObject} ook wijzigen.
 
 \paragraph{Model}
@@ -371,7 +376,7 @@ Bij de ontwikkeling van een \code{ListView} met data van een externe databron ka
 Het \kendo{}-pakket bevat ook tien extra thema's die een alternatieve lay-out bepalen.
 Deze zijn elk nog persoonlijk aan te passen met de Mobile ThemeBuilder zoals beschreven in de sectie \ref{sec:kendo-omkadering}.
 
-\paragraph{Programeerbaarheid}
+\paragraph{Programmeerbaarheid}
 Een kennis van zowel HTML als \js{} is vereist om met dit raamwerk aan de slag te kunnen.
 Het raamwerk is gebouwd op de jQuery bibliotheek en maakt dus vaak van jQuery's \term{selectors} gebruik.
 Ook kan een AJAX-verzoek met jQuery-syntax geformuleerd worden om externe data voor een \code{DataSource} op te halen.
@@ -387,6 +392,7 @@ Ook de HTML5-formulierelementen worden opgebouwd met \term{progressive enhanceme
 
 \section{\jqm}
 \label{sec:raamwerk-jqm}
+%TODO andere volgorde, geen kopie pasta
 \jqm{} is een opmaakgedreven raamwerk dat werd aangekondigd in 2010 en hoofdzakelijk GI-elementen aanbiedt~\cite{Resig2010}.
 In november 2011 werd versie~1.0 uitgebracht~\cite{Parker2011} en een jaar later werd in oktober versie~1.2 uitgebracht~\cite{Parker2012}. 
 Op het moment van schrijven zit \jqm{} aan versie~1.3.1~\cite{Parker2013b}. 
@@ -494,13 +500,14 @@ Hierdoor wordt in principe ieder apparaat ondersteunt door het raamwerk, maar za
 Om dit te verduidelijken deelt \jqm{} browsers op in drie verschillende klassen: A, B en C~\cite{JQuery2012d}. 
 Hierbij krijgt een klasse~A browser de volledige ervaring met AJAX-gebaseerde paginaovergangen.
 Bij een browser van klasse~B wordt geen AJAX ondersteund.
-Indien met een klasse~C browser heeft, wordt enkel een basiservaring aangeboden die nog steeds functioneel is.
+Als laatste wordt bij een klasse~C browser enkel een basiservaring aangeboden die nog steeds functioneel is.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{\lungo}
 \label{sec:raamwerk-lungo}
+%TODO andere volgorde, geen kopie pasta
 \lungo{} is een opmaakgedreven raamwerk waarbij versie~1.0 uitkwam in 2011~\cite{TapQuo2011}.
 Het raamwerk wordt onderhouden door TapQuo dat een Spaans bedrijf is, gespecialiseerd rond mobiele gebruikerservaring~\cite{TapQuo2013a}.
 \lungo{} is afhankelijk van een \js{}-bibliotheek, namelijk \quo{}.
@@ -533,7 +540,7 @@ De auteurs hebben tot op het moment van schrijven geen antwoord ontvangen.
 \paragraph{Licenties}
 Het raamwerk wordt onder de GNU GPLv3-licentie vrijgegeven.
 Daarnaast is een commerciële versie ook mogelijk.
-Voor duiding omtrent deze laatste genoemde werd contact opgenomen met TapQuo via e-mail.
+Voor duiding omtrent deze laatst genoemde werd contact opgenomen met TapQuo via e-mail.
 De auteurs hebben tot op het moment van schrijven geen antwoord ontvangen.
 
 \subsection{Code en ontwikkeling}
@@ -541,7 +548,7 @@ Zoals gezegd wordt een \lungo{}-applicatie geprogrammeerd vanuit geannoteerde HT
 Er wordt geen programmeerstijl zoals MVC afgedwongen.
 
 Om de verschillende schermen te scheiden wordt gebruik gemaakt van \code{article}- en \code{section}-tags die specifiek zijn voor HTML5.
-Analoog wordt ook voor de kop- en voettekst de \code{header}- en \code{footer}-tags gebruikt.
+Analoog worden ook voor de kop- en voettekst de \code{header}- en \code{footer}-tags gebruikt.
 
 Enerzijds kan de volledige applicatie op één webpagina worden geprogrammeerd.
 Daarnaast biedt \lungo{} ook de mogelijkheid om de verschillende schermen op afzonderlijke pagina's op te slaan.
@@ -586,7 +593,7 @@ Het raamwerk voorziet voor beide acties de mogelijkheid om een eigen functie hie
 Hier wordt uitgebreid ingegaan op de navigatie doorheen de applicatie vanuit \js{}.
 Het is mogelijk om binnen eenzelfde artikel tussen verschillende secties te navigeren alsook van artikel te veranderen.
 Daarnaast is het mogelijk om vanuit \js{} de zijnavigatie te tonen.
-Dit navigatie wordt zichtbaar door links bovenaan te klikken.
+Deze navigatie wordt zichtbaar door links bovenaan te klikken.
 Als laatste voorziet \lungo{} een terugkeerfunctionaliteit, vergelijkbaar met de functie \code{history.back} uit \js{}.
 
 \item \textbf{Service }
@@ -594,13 +601,13 @@ Versturen van HTTP-verzoeken kan vanuit \lungo{} zelf.
 Zowel HTTP GET als HTTP POST zijn mogelijk.
 Het raamwerk kan omgaan met tekst, XML, JSON en HTML als antwoord.
 Er is ook een verkorte notatie indien het antwoord JSON is.
-Als laatste biedt \lungo{} ook de mogelijkheid om het antwoord van de HTTP-verzoek te cachen, waarbij de maximale tijd moeten worden opgegeven.
+Als laatste biedt \lungo{} ook de mogelijkheid om het antwoord van het HTTP-verzoek te cachen, waarbij de maximale tijd moeten worden opgegeven.
 Indien de oproep nog eens gebeurt en de maximale tijd niet verstreken is, zal \lungo{} geen HTTP-oproep versturen, maar het opgeslagen antwoord gebruiken.
 
 \item \textbf{View }
 Hier worden \js{}-methoden aangeboden om het uitzicht binnen een \code{article} te bepalen.
 Zo kan de titel worden aangepast of van sectie binnen het artikel worden veranderd.
-Daarnaast wordt ook ingegaan op het tonen en verbergen van de zijnaviatie.
+Daarnaast wordt ook ingegaan op het tonen en verbergen van de zijnavigatie.
  
 \end{enumerate}
 
@@ -615,7 +622,7 @@ TapQuo biedt zelf geen tools aan om de kleuren of het uitzicht van de applicatie
 Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijven.
 
 \paragraph{Programmeerbaarheid}
-\label{sec:lungo-programeerbaarheid}
+\label{sec:lungo-programmeerbaarheid}
 \lungo{} dwingt geen enkel ontwerppatroon af.
 Voor de echte functionaliteit wordt beroep gedaan op \js{}.
 Daarbij is de ontwikkelaar vrij hoe hij te werk gaat en kan gebruik maken van de \lungo{} API. 

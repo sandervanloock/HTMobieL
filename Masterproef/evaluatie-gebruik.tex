@@ -308,8 +308,8 @@ Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt a
 Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
 
 Het laadscherm wordt in samenwerking met de AJAX-verzoeken gebruikt.
-Net voor de AJAX-verzoek zal het laadscherm worden getoond en in de \term{callback} van de AJAX-verzoek zal het worden verborgen.
-Er treedt zich echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-verzoeken.
+Net voor het AJAX-verzoek zal het laadscherm worden getoond en in de \term{callback} van het AJAX-verzoek zal het worden verborgen.
+Er treedt echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-verzoeken.
 Volgens de documentatie verbergt de functie \code{Lungo.Notification.hide} het huidige laadscherm of dialoogvenster. 
 Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt.
 Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet wordt getoond.
@@ -380,7 +380,7 @@ Ook optievelden of schakelaars kunnen hier aan het formulier worden toegevoegd.
 %   \item \code{fieldset}
 % \end{itemize}
 
-%Tekst-, e-mail en nummervelden werden gaangemaakt met de eerste drie velden.
+%Tekst-, e-mail en nummervelden werden aangemaakt met de eerste drie velden.
 Bij het renderen worden deze tot HTML5-invoertypes omgevormd en bijgevolg zullen op mobiele toestellen bijhorende toetsenborden getoond worden.
 Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap \code{placeholder}.
 
@@ -414,6 +414,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Door de dubbele binding tussen het formulier en het \code{(View) Model} zal ook de inhoud van de formulierelementen worden gewist.
  
 \paragraph{\jqm} 
+%TODO van of aan elkaar placeholderattribuut
 Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}attribuut in HTML5. 
 Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
 Wat wel opmerkelijk is wanneer een formulier wordt ingevuld, daarna verstuurd en dan wordt teruggegaan, het formulier nog alle waarden bevat. 
@@ -421,7 +422,7 @@ Na het versturen van het formulier, zal het formulier altijd moeten worden leegg
 Dit kan met behulp van \js{} via de \code{reset}-functie op het formulier.
  
 Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
-Het \code{date} type werd echter niet gebruikt om wille van twee redenen.
+Het \code{date} type werd echter niet gebruikt omwille van twee redenen.
 Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013c}.
 Android~2.3 ondersteunt dit niet en de \term{placeholder}tekst in het veld ontbrak op iOS~6 en Android~4.2.
 Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. 
@@ -432,7 +433,7 @@ Het veld heeft dan wel het type \code{text}.
 Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
 Dit wordt belet door ook nog eens een datumvalidatie (zie \ref{sec:evaluatie-gebruik-validatie}) te doen op dit tekstveld mocht de plug-in het niet hebben afgedwongen.
  
-Het was ook nodig om enkel de maand en jaar in te geven als datum, dus zonder dag.
+Het was ook nodig om enkel de maand en het jaar in te geven als datum, dus zonder dag.
 Ook hier kon niet het \code{date}-type gebruikt worden, omdat daar ook een dag voor nodig is. 
 Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
 De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
@@ -788,7 +789,7 @@ De \kendo{} \code{validator} is compatibel met deze HTML5-validaties en controle
 Het definiëren van een eigen validatieregel kan door een \js-functie aan de \code{validator} toe te voegen.
 % De validatiecontrole starten kan door de \code{validate}-methode op de \code{validator} op te roepen.
 Bij het controleren van invoerelementen worden altijd eerst de standaard validatieregels gecontoleerd,  daarna de eigen validatieregels.
-De volgorde waarin de controles worden uitgevoerd ligt vast en zal stoppen zodra één controle mislukt.
+De volgorde waarin de controles worden uitgevoerd, ligt vast en zal stoppen zodra één controle mislukt.
 
 Validatieberichten kunnen voor standaard validaties door het raamwerk zelf worden opgebouwd.
 Deze kunnen worden overschreven door zelf een bericht aan het invoerelement toe te kennen.
@@ -874,8 +875,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden.
 De plug-in maakt een nieuw invoerelement beschikbaar dat in een formulier kan worden gebruikt.
-
-Dit element maakt gebruikt van het HTML5 \code{canvas} en retourneert de handtekening als Base64-tekst.
+Dit element maakt gebruik van het HTML5 \code{canvas} en retourneert de handtekening als Base64-tekst.
 
 \paragraph{\kendo}
 Aangezien \kendo{} steunt op de jQuery bibliotheek is \kendo{} ook compatibel met jQuery plug-ins.
@@ -949,7 +949,7 @@ Na het encoderen kan de JSON-data aan het verzoek worden gekoppeld.
 
 \paragraph{\kendo}
 Om asynchrone verzoeken naar de \term{backend} te implementeren, moet een \code{DataSource} worden gebruikt.
-Dit object voorzien CRUD-operaties voor zowel lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
+Dit object voorziet CRUD-operaties voor zowel lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
 De \code{transport} eigenschap kan de configuraties bevatten om data te creëren (\code{create} eigenschap),  lezen (\code{read} eigenschap),  verwijderen (\code{destroy} eigenschap) en op te waarderen (\code{update} eigenschap).
 Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax}-methode van de jQuery bibliotheek.
 
@@ -967,7 +967,7 @@ Het maken van oproepen via AJAX gebeurt door jQuery.
 Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
 Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
 
-In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-verzoek ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
+In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in het AJAX-verzoek ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
 Hierdoor is de functie \code{parseJSON} niet nodig en kan er direct met het antwoord worden omgaan.
 
 Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
@@ -976,7 +976,7 @@ Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeur
 
 Het versturen van JSON is gelijkaardig met het versturen van andere data.
 Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
-Daarna zal in de AJAX-verzoek moeten worden aangegeven  dat de inhoud JSON is.
+Daarna zal in het AJAX-verzoek moeten worden aangegeven  dat de inhoud JSON is.
 Dit gebeurt door \code{contentType:"{}application/json"} te schrijven bij het AJAX-verzoek.
 
 \paragraph{\lungo}
@@ -1211,7 +1211,7 @@ De applicatie zal dan meteen naar het startscherm navigeren.
 
 Om onverzonden uitgaven lokaal op te slaan, moeten de uitgaven ook aan een \code{Store} met lokale \code{Proxy} worden toegevoegd.
 De uitgaven worden dan automatisch naar de \code{localStorage} weggeschreven.
-De controle op onverzonde uitgaven wordt herleid tot het controleren van data in de \code{Store}.
+De controle op onverzonden uitgaven wordt herleid tot het controleren van data in de \code{Store}.
 Het verwijderen van onverzonden lokale uitgaven kan door de data in de \code{Store} te wissen.
 
 De applicatie offline beschikbaar maken wordt ondersteund door Sencha Cmd~\cite{Sencha2012}.
@@ -1227,7 +1227,7 @@ Na het aanmelden zullen alle gegevens van de werknemer geserialiseerd worden opg
 Deze gegevens zitten in een \code{OservableObject} en kunnen met de \code{toJSON}-methode als JSON-object worden verkregen.
 Het serialiseren zelf kan via de JSON-bibliotheek.
 Wanneer het inlogscherm wordt getoond, zal gecontroleerd worden of er gegevens van een werknemer lokaal beschikbaar zijn.
-Indien dit het geval is, wordt automatisch naar naar het startscherm genavigeerd en de \code{DataSource} met informatie van de gebruiker ingevuld.
+Indien dit het geval is, wordt automatisch naar het startscherm genavigeerd en de \code{DataSource} met informatie van de gebruiker ingevuld.
 
 Een uitgave toevoegen moet zowel aan een \code{DataSource} als in de \code{localStorage} gebeuren.
 Nadat een uitgaveformulier is verzonden, worden de uitgaven uit beide plekken verwijderd.

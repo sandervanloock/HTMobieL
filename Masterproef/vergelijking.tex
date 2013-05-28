@@ -364,48 +364,82 @@ Indien de acht contexten alle uitdagingen en deeluitdagingen correct weergeven z
 
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
-Performantie kan worden opgesplitst in twee verschillende factoren: downloadtijden en rendertijden.
+Performantie wordt opgesplitst in twee verschillende factoren: downloadtijd en gebruikerservaring.
+De eerstgenoemde meet hoelang het duurt om de webapplicatie te downloaden.
+De laatstgenoemde meet hoe vlot het gaat om door een lange lijst van 850 elementen te scrollen.
 Zoals in sectie~\ref{sec:vergelijking-productiviteit} werd verteld, wordt de loginapplicatie als stresstest gebruikt om de performantie te testen.
 Ook geldt dat er wordt verwacht dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
 %TODO waarom? verder verduidelijken
 Dit is in tegenstelling tot de loginapplicatie die wel in de vier raamwerken kan worden geïmplementeerd.
 Hierdoor zal de POC niet worden gebruikt.
+De downloadtijden en gebruikerservaring zullen op acht verschillende apparaten worden opgemeten.
+Dit zijn dezelfde apparaten als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
 
+\subsubsection{Gemiddelde downloadtijd}
 Bij de downloadtijden onderscheiden zich twee gevallen die samen de totale downloadtijd bepalen.
-Eerste zal de downloadtijd van de loginapplicatie worden bekeken ($\widehat{l}_{r,c,login}$). 
-Vervolgens zal de tijd worden opgemeten om de loginapplicatie uit het cachegeheugen te downloaden ($\widehat{l}_{r,c,login_{cache}}$).
+%TODO 'gemiddelde' downloadtijd?
+Eerste zal de downloadtijd van de loginapplicatie worden bekeken~($\widehat{l}_{r,c,login}$). 
+Vervolgens zal de tijd worden opgemeten om de loginapplicatie uit het cachegeheugen te downloaden~($\widehat{l}_{r,c,login_{cache}}$).
 
 Het opmeten van de downloadtijden zal met TCPdump~\cite{Tcpdump2010} gebeuren, zoals werd voorgesteld door Thair~\cite{Thair2011}.
-Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot concerteren.
+Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot connecteren.
 Wanneer de meting wordt gestart, zal op het apparaat naar de applicatie gesurft worden waarna de meting wordt beëindigd. 
 De uitvoer van TCPdump is een PCAP-bestand die de HTTP-trafiek bevat.
 Deze zal via PCAP Web Performance Analyzer~\cite{SongL.bmcquadeMdsteele2010} worden omgezet naar een HAR-file, waarna een HTTP-waterval zal worden getoond.
 Hieruit kan de totale downloadtijd worden gehaald van de gedownloade bestanden voor die applicatie.
 
-De rendertijd zal gemeten worden met de tijd die het raamwerk nodig heeft om GI-elementen te renderen.
-Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
-De tijd die het raamwerk nodig heeft om de lijst de renderen ($\widehat{l}_{r,c,lijst}$) kan gemeten worden met \js-code.
-
-De downloadtijden en rendertijden zullen op acht verschillende apparaten worden opgemeten.
-Dit zijn dezelfde apparaten als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
-De gemiddelde laad- en rendertijd voor een raamwerk wordt bepaald door de som van de gemiddelde download -en rendertijden per apparaat.
-Zowel de laad- als rendertijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
+De gemiddelde downloadtijd voor een raamwerk wordt bepaald door de som van de gemiddelde downloadtijden per apparaat.
+Deze downloadtijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
 \begin{equation}
   \text{Gemiddelde downloadtijd}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}}{8}
     \label{eq:totale-downloadtijd}
 \end{equation}
-\begin{equation}
-  \text{Gemiddelde rendertijd}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}}{8}
-  \label{eq:totale-gebruikerservaring}
-\end{equation}
-De performantie wordt bepaald door de gemiddelde laad- en rendertijden te delen door het aantal apparaten.
-De formule voor het performantiecriterium wordt dan:
-\begin{equation}
-  \text{Performantie}_r= \text{Gemiddelde downloadtijd}_r + \text{Gemiddelde rendertijd}_r
-  \label{eq:performantie}
-\end{equation}
-voor een raamwerk $r$.
 
+\subsubsection{Gebruikerservaring}
+Eerst werd voorgesteld om de rendertijd te bepalen in plaats van de gebruikerservaring.
+Dit is de tijd die het raamwerk nodig heeft om de GI-elementen te renderen.
+Hiervoor wordt een lijst van $850$ elementen gebruikt die getoond wordt na aanmelden op de loginapplicatie.
+De tijd die het raamwerk nodig heeft om de lijst de renderen kan gemeten worden met \js-code.
+
+%\begin{equation}
+%  \text{Gemiddelde rendertijd}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}}{8}
+%  \label{eq:totale-gebruikerservaring}
+%\end{equation}
+
+De rendertijd kon via \js{} enkel worden opgemeten in \jqm{} en \kendo{}.
+Bij de twee andere raamwerken werden de betreffende gebeurtenissen niet gevonden om correct de tijd op te meten.
+Doordat er maar data voor twee raamwerken voor handen was, werd de rendertijd vervangen door de gebruikerservaring van een lijst.
+Deze bestaat eruit de vlotheid van het scrollen door de lijst van 850 lijstelementen voor de vier raamwerken op de acht apparaten te vergelijken.
+Per apparaat wordt een score van 1, 2, 3 of 4 uitgedeeld aan de raamwerken.
+Hierbij is 4 de beste score wat overeenkomt met het vlotste scrollen door de lijst relatief ten opzichte van de drie andere raamwerken.
+Deze test werd uitgevoerd door twee personen.
+
+Om de score voor gebruikerservaring van een raamwerk te bepalen worden de scores voor dat raamwerk op ieder apparaat opgeteld. De formule voor gebruikerservaring voor een raamwerk $r$ wordt:
+\begin{equation}
+  \text{Gebruikerservaring}_r = \sum_{c=1}^{8}{\text{ervaring}_{r,c}}
+  \label{eq:performantie-gebruikservaring}
+\end{equation}
+In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwerk dat de vlotste scrolervaring aanbiedt. 
+
+\subsubsection{Totaal}
+De performantie wordt bepaald door de gemiddelde downloadtijd en de gebruikerservaring.
+De opzet van de formule is om een raamwerk dat slecht scoort op de gemiddelde downloadtijd, maar sterk scoort op gebruikerservaring, een middelmatige score te geven.
+Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de gemiddelde downloadtijd gedeeld door de gebruikerservaring. De nieuwe formule voor de score voor de performantie wordt:
+\begin{equation}
+  \text{Performantie}_r = \frac{\text{Gemiddelde downloadtijd}_r}{\text{Gebruikerservaring}_r}
+  \label{eq:performantie-enhanced}
+\end{equation}
+van een raamwerk $r$. 
+
+%De formule voor het performantiecriterium wordt dan:
+%\begin{equation}
+%  \text{Performantie}_r= \text{Gemiddelde downloadtijd}_r + \text{Gemiddelde rendertijd}_r
+%  \label{eq:performantie}
+%\end{equation}
+%voor een raamwerk $r$.
+
+
+%TODO dus hoe zit dat dan met die maximale responsetijd, want we zeggen nu duidelijk dat we geen responsetijd meer hebben..
 De responsetijd van de applicatie kan niet met deze formule worden getoetst.
 De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen.
 Er geldt dat:

@@ -51,7 +51,7 @@ Voor beide dient een datum en projectcode te worden opgegeven.
 De eerstgenoemde is een \term{datepicker} die teruggaat tot twee maanden in de tijd.
 De laatstgenoemde bevat automatische aanvulling, maar de werknemer is niet verplicht om een projectcode uit de aanvulling te selecteren.
 Daarnaast dient het type en bedrag van de onkost, alsook een bewijsstuk te worden opgegeven.
-Bij een buitenlands onkost moet de munteenheid worden opgegeven, waarna de applicatie deze automatisch omvormt naar euro.
+Bij een buitenlandse onkost moet de munteenheid worden opgegeven, waarna de applicatie deze automatisch omvormt naar euro.
 Het scherm voor het toevoegen van een buitenlandse onkost wordt getoond op figuur \ref{fig:poc}. 
 Net zoals bij stap één geldt ook hier validatie op de formuliervelden.
 
@@ -67,7 +67,7 @@ Deze bevat een overzicht van de onkosten met bijhorende bewijsstukken, alsook de
 \section{Criteria}
 \label{sec:vergelijking-criteria}
 
-In deze sectie zullen de actieve criteria toelicht worden die zullen worden toegepast om de raamwerken te vergelijken.
+In deze sectie zullen de actieve criteria toegelicht worden die zullen worden toegepast om de raamwerken te vergelijken.
 In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die in de literatuur worden toegepast.
 Elementen van deze technieken zullen terugkomen in de voorgestelde methode om de raamwerken te evalueren.
 Sectie \ref{sec:raamwerken-tabel} bevatte de passieve vergelijkingscriteria die raamwerken vergeleken met informatie over het raamwerk zelf.
@@ -77,7 +77,7 @@ Elk raamwerk krijgt voor elk criterium een score afgeleid uit een formule.
 Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-spinnenweb}).
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
 De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuningscriterium drijven.  
-Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteit bevat die van een normale applicatie verwacht.
+Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteiten bevat die van een normale applicatie verwacht worden.
 Zo is de POC representatief om een volledige vergelijking te kunnen maken.
 
 \subsection{Populariteit}
@@ -202,6 +202,8 @@ Tot slot zal gekeken worden naar de aanwezige literatuur van het raamwerk en waa
 De POC kan onderverdeeld worden in $13$ uitdagingen die onderverdeeld zijn in $38$ deeluitdagingen.
 Alle uitdagingen en deeluitdagingen zijn in tabel~\ref{tabel:uitdagingen} te vinden.
 
+%TODO uitleggen hoe we aan die tabel komen? wat is de link met de POC?
+
 \pgfplotstabletypeset[
   begin table=\begin{longtable}{l},
   end table=\caption{$13$ uitdagingen onderverdeeld in $38$ deeluitdagingen voor gebruik.}\label{tabel:uitdagingen}\end{longtable},
@@ -218,7 +220,7 @@ Alle uitdagingen en deeluitdagingen zijn in tabel~\ref{tabel:uitdagingen} te vin
     after row=\bottomrule}
 ]{tabellen/uitdagingen.csv}
 
-De wijze waarop het raamwerk de uitdaging aangaat zal een score bepalen.
+De wijze waarop het raamwerk de uitdaging aangaat zal de score bepalen.
 Er onderscheiden zich drie gevallen.
 De hoogste score ($2$) wordt toegekend wanneer de functionaliteit aangeboden wordt door het raamwerk. 
 Een lagere score ($1$) betekent dat een plug-in moet worden gezocht.
@@ -239,7 +241,7 @@ Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $U_{r,i}$ van raa
     \textbf{Score} & \textbf{Verklaring}\\
     \midrule
     $U_{r,i} = 2$ & Ondersteund door het raamwerk\\
-    $U_{r,i} = 1$ & Een plug-in is of kenmerk van HTML5 is nodig\\
+    $U_{r,i} = 1$ & Een plug-in of kenmerk van HTML5 is nodig\\
     $U_{r,i} = 0$ & Eigen implementatie of hack of niet geïmplementeerd\\ 
     \bottomrule
   \end{tabular}
@@ -275,7 +277,7 @@ Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen en v
 Enkel de standaard browser van het besturingssysteem zal beschouwd worden.
 Voor Android toestellen is dit de Android browser of Chrome.  
 Vanaf versie 4.0 wordt Chrome als standaard browser beschouwd~\cite{Wimberly2008}.
-Voor iOS is Mobile Safari de standaard browser
+Voor iOS is Mobile Safari de standaard browser.
 
 
 Een context wordt gedefinieerd als één bepaalde configuratie van toestel, besturingssysteem en browser.
@@ -339,7 +341,7 @@ Deze worden in tabel \ref{tabel:toestellen-hci} weergegeven.
  \label{tabel:toestellen-hci}
  \end{table}
  
-De keuze van de acht contexten waarop ondersteuning wordt getest, is voornamelijk bepaald door het beschikbaarheid van de apparaten op het Departement Computerwetenschappen van de KU Leuven.
+De keuze van de acht contexten waarop ondersteuning wordt getest, is voornamelijk bepaald door de beschikbaarheid van de apparaten op het Departement Computerwetenschappen van de KU Leuven.
 Er werd een evenwichtige keuze gemaakt tussen besturingssysteem,  browser en type apparaat.
 Er werd gekozen voor vier Android en vier iOS apparaten.
 Bij de vier Android apparaten zijn er twee met een Android browser en twee met Chrome browser.
@@ -362,8 +364,9 @@ Indien de acht contexten alle uitdagingen en deeluitdagingen correct weergeven z
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
 Performantie kan worden opgesplitst in twee verschillende factoren: downloadtijden en rendertijden.
-Zoals in sectie~\ref{sec:vergelijking-productiviteit} werd verteld, wordt de loginapplicatie als stresstest gebruikt om te performantie te testen.
+Zoals in sectie~\ref{sec:vergelijking-productiviteit} werd verteld, wordt de loginapplicatie als stresstest gebruikt om de performantie te testen.
 Ook geldt dat er wordt verwacht dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
+%TODO waarom? verder verduidelijken
 Dit is in tegenstelling tot de loginapplicatie die wel in de vier raamwerken kan worden geïmplementeerd.
 Hierdoor zal de POC niet worden gebruikt.
 
@@ -403,13 +406,14 @@ De formule voor het performantiecriterium wordt dan:
 voor een raamwerk $r$.
 
 De responsetijd van de applicatie kan niet met deze formule worden getoetst.
-De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen, dan geldt:
+De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen.
+Er geldt dat:
 \begin{equation}
   \text{Maximale reponsetijd}_r= \frac{\sum\limits_{c=1}^{8}\left(\widehat{l}_{r,c,login} + \widehat{l}_{r,c,lijst}\right)}{8}
   \label{eq:performantie-max}
 \end{equation}
 
-Deze maximale responsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd van Jakob Nielsen~\cite{Nielsen1993}:  
+Deze maximale responsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd door Jakob Nielsen~\cite{Nielsen1993}:  
 \begin{itemize}
 \item $\text{Maximale responsetijd}_r < 0.1\unit{s}$: de gebruiker heeft het gevoel dat het systeem direct reageert.
 \item $\text{Maximale responsetijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.

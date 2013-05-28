@@ -2,36 +2,15 @@
 \documentclass[master=cws,dutch,masteroption={vs,gs},inputenc=utf8]{kulemt}
 \setup{title={Vergelijkende studie van raamwerken voor de ontwikkeling van mobiele HTML5-applicaties},
   author={Tim Ameye\and Sander Van Loock},
-  promotor={Prof.\,dr.\,ir.\ E. Duval},
+  promotor={Prof.\,dr.\,ir.\ E. Duval}, 
   %TODO titels van assesoren
-  assessor={M. Denecker\and F. Van Assche},
+  assessor={Prof.\,dr.\,M.\ Denecker\and F. Van Assche},
   assistant={Ir.\ G.~Parra}} %TODO jan en jannik toevoegen?
 % De volgende \setup mag verwijderd worden als geen fiche gewenst is.
 \setup{filingcard,
   translatedtitle={Comparative study of frameworks for the development of mobile HTML5 applications},
   udc=621.3, %TODO nummer vragen aan gonzalo
-  shortabstract={Ontwikkelaars van mobiele applicaties worden geconfronteerd met de variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
-Dit komt doordat een applicatie wordt geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
-Een oplossing hiervoor is het maken van een mobiele webapplicatie, gebruikmakend van HTML5.
-Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden die helpen bij de functionaliteit van de applicatie en de elementen voor de gebruikersinterface. 
-Door de variëteit aan mobiele HTML5-raamwerken, dringt een grondige vergelijking zich op om te weten welk raamwerk nu het beste is.
-Dit werk vergelijkt \st{}, \kendo{}, \jqm{} en \lungo{} op basis van vijf vergelijkingscriteria.
-Het eerst criterium vormt de populariteit waarbij naar de activiteit van de raamwerken op sociale netwerken wordt gekeken.
-Ten tweede wordt de productiviteit opgemeten om aan te tonen hoe lang het duurt om met een raamwerk vertrouwd te raken en er daadwerkelijk iets mee te maken.
-Als derde criterium wordt het gebruik van de raamwerken bekeken waarbij gekeken wordt welke elementen door het raamwerk zelf of een plug-in worden aangeboden.
-Het vierde criterium bekijkt de ondersteuning door de raamwerken op acht apparaten uit te testen.
-Het laatste criterium betreft de performantie.
-Hierbij zal enerzijds de downloadtijd en anderzijds de gebruikerservaring bekeken worden.
-De vergelijking toont aan dat \jqm{} het beste raamwerk is.
-Daarna volgen \kendo{}, \lungo{} en \st{} op een respectievelijke tweede, derde en vierde plaats.
-\jqm{} heeft als belangrijkste troeven de hoge productiviteit en performantie doordat het enerzijds zeer goed gedocumenteerd is en anderzijds geen architectuur afdwingt.
-Dit laatste is echter een nadeel waardoor het minder scoort op gebruik.
-\kendo{} heeft als belangrijkste troef het gebruik doordat het MVVM als architectuur afdwingt.
-Het scoort echter ondermaats op performantie.  % door het crashen van lange lijsten op iOS.
-\lungo{} behaalde enkel de maximumscore voor performantie doordat het raamwerk geoptimaliseerd is voor mobiel gebruik.
-\st{} is het minst productief en performant in vergelijking met de andere raamwerken.
-Door het afdwingen van een architectuur scoort het quasi evengoed als \kendo{} op vlak van gebruik.
-Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte mobiele apparaten.}
+  shortabstract={} % TODO copy paste van samenvatting
 }
 % Verwijder de "%" op de volgende lijn als je de kaft wil afdrukken
 %\setup{coverpageonly}
@@ -43,14 +22,15 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 \setup{font=lm}
 
 % Hier kun je dan nog andere pakketten laden of eigen definities voorzien
-\usepackage[firstpage]{draftwatermark}
-\SetWatermarkColor[rgb]{0.90,0.90,0.90}
+%\usepackage[firstpage]{draftwatermark}
+%\SetWatermarkColor[rgb]{0.90,0.90,0.90}
 
 % Tenslotte wordt hyperref gebruikt voor pdf bestanden.
 % Dit mag verwijderd worden voor de af te drukken versie.
 \usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
 
 % onderstaande commando's enkel gebruiken als je hyperref gebruikt
+%TODO zorgt ervoor dat onze referenties niet worden afgebroken.
 \newcommand{\exturl}[1]{\href{http://#1}{#1}}
 \renewcommand{\url}[1]{\href{#1}{#1}}
 
@@ -113,9 +93,7 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 % \end{preface}
 
 \chapter*{Voorwoord - Tim}
-%   Dit is mijn dankwoord om iedereen te danken die mij bezig gehouden heeft.
-%   Hierbij dank ik mijn promotor, mijn begeleider en de voltallige jury.
-%   Ook mijn familie heeft mij erg gesteund natuurlijk.
+%TODO
 
 \chapter*{Voorwoord - Sander}
 %prof duval
@@ -128,8 +106,8 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 
 \tableofcontents*
 
-\begin{abstract} % Tim
-Ontwikkelaars van mobiele applicaties worden geconfronteerd met de variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
+\begin{abstract}
+Ontwikkelaars van mobiele applicaties worden geconfronteerd met een variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
 Dit komt doordat een applicatie wordt geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
 Een oplossing hiervoor is het maken van een mobiele webapplicatie, gebruikmakend van HTML5.
 Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden die helpen bij de functionaliteit van de applicatie en de elementen voor de gebruikersinterface. 
@@ -138,6 +116,7 @@ Door de variëteit aan mobiele HTML5-raamwerken, dringt een grondige vergelijkin
 Dit werk vergelijkt \st{}, \kendo{}, \jqm{} en \lungo{} op basis van vijf vergelijkingscriteria.
 Het eerst criterium vormt de populariteit waarbij naar de activiteit van de raamwerken op sociale netwerken wordt gekeken.
 Ten tweede wordt de productiviteit opgemeten om aan te tonen hoe lang het duurt om met een raamwerk vertrouwd te raken en er daadwerkelijk iets mee te maken.
+%TODO bekeken gekeken + zin duidelijker maken, want nu is die niet duidelijk
 Als derde criterium wordt het gebruik van de raamwerken bekeken waarbij gekeken wordt welke elementen door het raamwerk zelf of een plug-in worden aangeboden.
 Het vierde criterium bekijkt de ondersteuning door de raamwerken op acht apparaten uit te testen.
 Het laatste criterium betreft de performantie.
@@ -146,9 +125,9 @@ Hierbij zal enerzijds de downloadtijd en anderzijds de gebruikerservaring bekeke
 De vergelijking toont aan dat \jqm{} het beste raamwerk is.
 Daarna volgen \kendo{}, \lungo{} en \st{} op een respectievelijke tweede, derde en vierde plaats.
 \jqm{} heeft als belangrijkste troef de hoge productiviteit doordat het enerzijds zeer goed gedocumenteerd is en anderzijds geen architectuur afdwingt.
-Dit laatste is echter een nadeel waardoor het minder scoort op gebruik.
-\kendo{} heeft als belangrijkste troef het gebruik doordat het MVVM als architectuur afdwingt.
-Het scoort echter ondermaats op performantie.  % door het crashen van lange lijsten op iOS.
+Dit laatste is echter ook een nadeel omdat het hierdoor minder scoort op gebruik.
+\kendo{} heeft als belangrijkste troef het gebruik doordat het Model-View-View Model als architectuur afdwingt.
+Het scoort echter ondermaats op performantie.
 \lungo{} behaalde enkel de maximumscore voor performantie doordat het raamwerk geoptimaliseerd is voor mobiel gebruik.
 \st{} is het minst productief en performant in vergelijking met de andere raamwerken.
 Door het afdwingen van een architectuur scoort het quasi evengoed als \kendo{} op vlak van gebruik.
@@ -157,7 +136,7 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 
 
 \selectlanguage{english}
-\begin{abstract} % Sander
+\begin{abstract}
 Developers of mobile applications are confronted with a variety of mobile operating systems that are present on smartphones and tablets.
 This is because an application has to be programmed in a language specific for the operating system.
 A solution is the development of mobile web applications using HTML5.
@@ -174,11 +153,11 @@ The last criterion is performance and will look at download time and user experi
 The comparison shows that \jqm{} is the best framework.
 Then, \kendo{},  \lungo{} and \st{} follow on respectively second, third and forth place.
 \jqm{} has a high productivity as major advantage because on the one hand it is well-documented and on the other hand it does not impose an architecture.
-The latter,  however,  is a disadvantage when looking at the usability.
+The latter,  however,  is also a disadvantage when looking at the usability.
 \kendo{} has the MVVM architecture as most important advantage.
-However,  it scores below average on performance.   % because it crashes on iOS when loading long lists.
+However,  it scores below average on performance.   
 \lungo{} only achieved a maximum score for performance because the framework is optimised for mobile usage.
-\st{} is the least productive and performant in comparison with other frameworks.
+\st{} is the least productive and performant in comparison with the other frameworks.
 By enforcing an architecture,  it scores almost as good as \kendo{} regarding usability.
 All frameworks provide good support on the evaluated mobile devices.
 

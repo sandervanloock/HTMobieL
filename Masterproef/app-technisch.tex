@@ -1,42 +1,13 @@
-\chapter{Technisch}
+\chapter{Gebruik}
 \label{app:technisch}
 
-%TODO inleiding
+In deze appendix wordt technisch uitgelegd hoe de verschillende uitdagingen werden geïmplementeerd in de verschillende raamwerken. 
+Dit wordt gedaan door iedere uitdaging een voor een af te gaan.
 
 %%%%%%%%
 
-\subsection{\uit{anatomie}}
+\section*{\uit{anatomie}}
 \label{sec:evaluatie-gebruik-anatomie-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-anatomie} worden de resultaten getoond van de drie deeluitdagingen van \uit{anatomie}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/anatomie.csv}
-\caption{Gebruik van \uit{anatomie} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-anatomie-app}
-\end{table}
 
 \paragraph{\st}
 Het opbouwen van een \code{View} in \st{} gebeurt hiërarchisch met containers.
@@ -83,7 +54,7 @@ De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebrui
 Om de onderkoptekst te implementeren, werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen.
 Dit schoof echter de inhoud van de pagina niet mee naar onder. 
 De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
-Deze extra titel wordt ook gebruikt op naar het menu voor de smartphone te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
+Deze extra titel wordt ook gebruikt op naar het menu voor de smartphone te gaan (zie \ref{sec:evaluatie-gebruik-toestel-app}).
 
 Standaard is er een tabbalk aanwezig in \jqm, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
 Daarom werd gekozen voor \code{fieldset} met twee opties.
@@ -112,38 +83,8 @@ Het veranderen van de kleur van knoppen gebeurt in CSS waarbij de achtergrondkle
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{toestel}}
+\section*{\uit{toestel}}
 \label{sec:evaluatie-gebruik-toestel-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-toestel-app} worden de resultaten getoond van de drie deeluitdagingen van \uit{toestel}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/toestel.csv}
-\caption{Gebruik van \uit{toestel} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-toestel-app}
-\end{table}
 
 \paragraph{\st}
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
@@ -155,7 +96,7 @@ Zo geeft \code{Ext.os.is.Android} terug of Android het gebruikte besturingssyste
 Het opvragen en herkennen van browser en (HTML5-)kenmerken gebeurt op een analoge manier.
 
 
-\st{} voorziet vijf lay-outs die aan een component kunnen worden toegekend:
+\st{} voorziet vijf lay-outs die aan een component kunnen worden toegekend.
 % \begin{description}
 %  \item [\code{HBox}] plaatst de componenten horizontaal naast elkaar.
 %  \item [\code{VBox}] plaatst de componenten verticaal onder elkaar.
@@ -180,7 +121,7 @@ De verschillende schermen binnen een \code{Splitview} moeten als \code{Pane} wor
 Een \code{Pane} is \code{View} die op zichzelf staat en bij \code{Splitviews} moet worden gebruikt.
 Het scherm van de \code{Splitview} dat moet wijzigen door het menu, moet met het \code{data-target} attribuut bij de knop worden gedefinieerd.
 
-De tablet lay-out standaard gebruikt.
+De tablet lay-out wordt standaard gebruikt.
 Om de smartphone lay-out te verkrijgen moeten drie aanpassingen gebeuren.
 Beide \code{Panes} van de \code{Splitview} moeten als aparte \code{View} worden toegevoegd.
 Dit als vervanging van de \code{Splitview}.
@@ -216,38 +157,8 @@ Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de appli
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{laadscherm}} 
+\section*{\uit{laadscherm}} 
 \label{sec:evaluatie-gebruik-laadscherm-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-laadscherm-app} worden de resultaten getoond van de twee deeluitdagingen van \uit{laadscherm}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/laadscherm.csv}
-\caption{Gebruik van \uit{laadscherm} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-laadscherm-app}
-\end{table}
 
 \paragraph{\st}
 Een laadscherm tonen kan door een masker met \code{xtype} \code{loadmask} op de huidige \code{View} te plaatsen.
@@ -290,8 +201,8 @@ Een laadscherm of dialoogvenster tonen gebeurt met eenzelfde functie die wordt a
 Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
 
 Het laadscherm wordt in samenwerking met de AJAX-verzoeken gebruikt.
-Net voor de AJAX-verzoek zal het laadscherm worden getoond en in de \term{callback} van de AJAX-verzoek zal het worden verborgen.
-Er treedt zich echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-verzoeken.
+Net voor het AJAX-verzoek zal het laadscherm worden getoond en in de \term{callback} van het AJAX-verzoek zal het worden verborgen.
+Er treedt echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-verzoeken.
 Volgens de documentatie verbergt de functie \code{Lungo.Notification.hide} het huidige laadscherm of dialoogvenster. 
 Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt.
 Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet wordt getoond.
@@ -306,38 +217,8 @@ Deze zullen respectievelijk een groene en rode kleur hebben.
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{formulieren}}
+\section*{\uit{formulieren}}
 \label{sec:evaluatie-gebruik-formulieren-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-formulieren-app} worden de resultaten getoond van de zeven deeluitdaging van \uit{formulieren}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/formulieren.csv}
-\caption{Gebruik van \uit{formulieren} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-formulieren-app}
-\end{table}
 
 \paragraph{\st} 
 % Placeholders, text, email and number fields are supported by the framework and can be easily created.  
@@ -362,11 +243,12 @@ Volgende velden worden onder andere in \st{} aangeboden: \code{textfield},  \cod
 %   \item \code{fieldset}
 % \end{itemize}
 
-Tekst-, e-mail en nummervelden werden gaangemaakt met de eerste drie velden.
+Tekst-, e-mail en nummervelden werden aangemaakt met de eerste drie velden.
 Bij het renderen worden deze tot HTML5-invoertypes omgevormd en bijgevolg zullen op mobiele toestellen bijhorende toetsenborden getoond worden.
 Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap \code{placeholder} en de waarde aan de gewenste \term{placeholder} gelijk te stellen. 
 Een label toevoegen verloopt analoog,  deze weglaten zal geen label renderen.
 
+%TODO werkwoord
 Optievelden toevoegen kan door objecten met het \code{xtype} \code{selectfield},  een schakelaar met \code{xtype} \code{togglefield}.
 
 Een aangepaste \term{datepicker} maken is niet voorzien.
@@ -400,6 +282,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
 %  \end{itemize}
 %  
  Optievelden toevoegen volgt de HTML-werkwijze door \code{radio} als invoertype in te stellen.
+ %TODO zin eens herlezen, is iets raars
  Het aanmaken van een schakelaar kan door aan invoerelement van het type \code{checked} het \code{data-role} attribuut aan \code{switch} gelijk te stellen.
 
  \term{Datepickers} worden als \term{widget} aangeboden in \kendo Web.
@@ -414,10 +297,12 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Het wissen van formulieren steunt op de MVVM-architectuur.
  Een formulier kan worden gebonden aan een \code{(View) Model}.
  De waarde van elk formulierelement komt dan overeen met de waarde van een eigenschap van dat \code{(View) Model} met dezelfde naam.
+ %TODO zin op het einde, klopt dat?
  Wanneer een uitgave wordt toegevoegd, zal de huidige waarde van het \code{(View) Model} wordt het \code{(View) Model} gereset.
  Door de dubbele binding tussen formulier en \code{(View) Model} zal ook de inhoud van de formulierelementen worden gewist.
  
 \paragraph{\jqm} 
+%TODO van of aan elkaar placeholderattribuut
 Voor het toevoegen van \term{placeholders} in de formuliervelden kon beroep worden gedaan op het \code{placeholder}attribuut in HTML5. 
 Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
 Wat wel opmerkelijk is wanneer een formulier wordt ingevuld, daarna verstuurd en dan wordt teruggegaan, het formulier nog alle waarden bevat. 
@@ -425,7 +310,7 @@ Na het versturen van het formulier, zal het formulier altijd moeten worden leegg
 Dit kan met behulp van \js{} via de \code{reset}-functie op het formulier.
  
 Voor de types van de formuliervelden werd beroep gedaan op de volgende types: \code{text}, \code{number} en \code{email}. 
-Het \code{date} type werd echter niet gebruikt om wille van twee redenen.
+Het \code{date} type werd echter niet gebruikt omwille van twee redenen.
 Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013c}.
 Android~2.3 ondersteunt dit niet en de \term{placeholder}tekst in het veld ontbrak op iOS~6 en Android~4.2.
 Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. 
@@ -436,7 +321,7 @@ Het veld heeft dan wel het type \code{text}.
 Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
 Dit wordt belet door ook nog eens een datumvalidatie (zie \ref{sec:evaluatie-gebruik-validatie-app}) te doen op dit tekstveld mocht de plug-in het niet hebben afgedwongen.
  
-Het was ook nodig om enkel de maand en jaar in te geven als datum, dus zonder dag.
+Het was ook nodig om enkel de maand en het jaar in te geven als datum, dus zonder dag.
 Ook hier kon niet het \code{date}-type gebruikt worden, omdat daar ook een dag voor nodig is. 
 Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
 De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
@@ -463,38 +348,8 @@ Het legen van een formulier gebeurt in \lungo{} door de \code{reset}-functie in 
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{vullen}}
+\section*{\uit{vullen}}
 \label{sec:evaluatie-gebruik-vullen-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-vullen-app} worden de resultaten getoond van de twee deeluitdaging van \uit{vullen}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/vullen.csv}
-\caption{Gebruik van \uit{vullen} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-vullen-app}
-\end{table}
 
 \paragraph{\st}
 Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
@@ -530,7 +385,7 @@ Een \code{(View Model} wordt in \kendo{} \code{ObservableObject} genoemd.
 Een \code{Model} heet \code{Model} en erft over van een \code{ObservableObject}.
 Deze laatste breidt een \code{ObservableObject} uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
 In wat volgt zal aangenomen worden dat een \code{ObservableObject} wordt gebruikt in plaats van een \code{Model},  tenzij anders vermeld.
-Om een formulier met data te vullen is het de taak van de programmeur de velden van het \code{ObservableObject} van de correct waarden te voorzien.
+Om een formulier met data te vullen is het de taak van de programmeur de velden van het \code{ObservableObject} van de correcte waarden te voorzien.
 De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 
 
@@ -567,38 +422,8 @@ Daar worden de niet-benodigde lijstitems verwijderd en wordt de \code{select} ze
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{autoaanvullen}}
+\section*{\uit{autoaanvullen}}
 \label{sec:evaluatie-gebruik-autoaanvullen-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-autoaanvullen-app} worden de resultaten getoond van de twee deeluitdagingen van \uit{autoaanvullen}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/autoaanvullen.csv}
-\caption{Gebruik van \uit{autoaanvullen} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-autoaanvullen-app}
-\end{table}
 
 \paragraph{\st}
 Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
@@ -649,38 +474,8 @@ Deze maakten namelijk gebruik van \code{li}-items binnen een \code{ul}-tag waard
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{afbeelding}}
+\section*{\uit{afbeelding}}
 \label{sec:evaluatie-gebruik-afbeelding-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-afbeelding-app} worden de resultaten getoond van de drie deeluitdagingen van \uit{afbeelding}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/afbeelding.csv}
-\caption{Gebruik van \uit{afbeelding} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-afbeelding-app}
-\end{table}
 
 \paragraph{\st}
 Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden.
@@ -725,39 +520,8 @@ De methode om een afbeelding om te vormen naar Base64 is volledig analoog met di
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{validatie}}
+\section*{\uit{validatie}}
 \label{sec:evaluatie-gebruik-validatie-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-validatie-app} worden de resultaten getoond van de vier deeluitdaging van \uit{validatie}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/validatie.csv}
-\caption{Gebruik van \uit{validatie} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-validatie-app}
-\end{table}
 
 \paragraph{\st}
 Een model kan worden voorzien van validatieregels.
@@ -807,7 +571,7 @@ Eigen condities kunnen als validatieregels worden geformuleerd als \js-functie d
 Deze functie kan aan de set van regels van een \code{validator} worden toegevoegd.
 De validatiecontrole starten kan door de \code{validate}-methode op de \code{validator} op te roepen.
 Bij het controleren van invoerelementen worden altijd eerst de standaard validatieregels gecontoleerd,  daarna de eigen validatieregels.
-De volgorde waarin de controles worden uitgevoerd ligt vast en zal stoppen zodra één controle mislukt.
+De volgorde waarin de controles worden uitgevoerd, ligt vast en zal stoppen zodra één controle mislukt.
 
 Validatieberichten kunnen voor standaard validaties door het raamwerk zelf worden opgebouwd.
 Deze kunnen worden overschreven door zelf een data-attribuut \code{validationMessage} aan het invoerelement toe te kennen.
@@ -858,44 +622,13 @@ Bij een foutief gevalideerd veld werd een CSS-klasse toegevoegd die zorgde voor 
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{handtekening}}
+\section*{\uit{handtekening}}
 \label{sec:evaluatie-gebruik-handtekening-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-handtekening-app} worden de resultaten getoond van de deeluitdaging van \uit{handtekening}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/handtekening.csv}
-\caption{Gebruik van \uit{handtekening} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-handtekening-app}
-\end{table}
 
 \paragraph{\st}
 Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden.
 De plug-in maakt een nieuw \code{xtype} \code{signaturefield} beschikbaar dat als veld in een formulier kan worden gebruikt.
-
-Deze maakt gebruikt van het HTML5 \code{canvas} en retourneert de handtekening als Base64 tekst.
+Deze maakt gebruik van het HTML5 \code{canvas} en retourneert de handtekening als Base64 tekst.
 
 \paragraph{\kendo}
 Aangezien \kendo{} steunt op de jQuery bibliotheek is \kendo{} ook compatibel met jQuery plug-ins.
@@ -918,38 +651,8 @@ Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applic
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{ajax}}
+\section*{\uit{ajax}}
 \label{sec:evaluatie-gebruik-ajax-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-ajax-app} worden de resultaten getoond van de vier deeluitdagingen van \uit{ajax}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/ajax.csv}
-\caption{Gebruik van \uit{ajax} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-ajax-app}
-\end{table}
 
 \paragraph{\st}
 AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{Stores} worden uitgevoerd.
@@ -969,7 +672,7 @@ Data kan via \code{Ext.encode} naar JSON worden geëncodeerd en via de \code{jso
 
 \paragraph{\kendo}
 Om asynchrone verzoeken naar de \term{backend} te implementeren, moet een \code{DataSource} worden gebruikt.
-Dit object voorzien CRUD-operaties op zowel lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
+Dit object voorziet CRUD-operaties op zowel lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
 De \code{transport} eigenschap kan de configuraties bevatten om data te creëren (\code{create} eigenschap),  lezen (\code{read} eigenschap),  verwijderen (\code{destroy} eigenschap) en op te waarderen (\code{update} eigenschap).
 Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax} methode van jQuery.
 
@@ -987,7 +690,7 @@ Het maken van oproepen via AJAX gebeurt door jQuery.
 Dit gebeurt met de functie \code{\$.ajax} waar onder andere kan ingesteld worden wat het te verwachten antwoord is (zoals tekst, JSON of XML). 
 Bij het succesvol uitvoeren van de oproep wordt de \code{succes}-functie opgeroepen, bij faling de \code{error}-functie waarna een relevante foutboodschap wordt getoond.
 
-In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in de AJAX-verzoek ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
+In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in het AJAX-verzoek ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
 Hierdoor is de functie \code{parseJSON} niet nodig en kan er direct met het antwoord worden omgaan.
 
 Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
@@ -996,7 +699,7 @@ Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeur
 
 Het versturen van JSON is gelijkaardig met het versturen van andere data.
 Eerst zal de JSON-data moeten worden omgezet naar een string, wat gebeurt door \code{JSON.stringify}.
-Daarna zal in de AJAX-verzoek moeten worden aangegeven  dat de inhoud JSON is.
+Daarna zal in het AJAX-verzoek moeten worden aangegeven  dat de inhoud JSON is.
 Dit gebeurt door \code{contentType:"{}application/json"} te schrijven bij het AJAX-verzoek.
 
 \paragraph{\lungo}
@@ -1017,43 +720,13 @@ Aangezien dit een fout was in de bibliotheek werd het \js-bestand zelf aangepast
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{lijsten}}
+\section*{\uit{lijsten}}
 \label{sec:evaluatie-gebruik-lijsten-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-lijsten-app} worden de resultaten getoond van de drie deeluitdagingen van \uit{lijsten}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/lijsten.csv}
-\caption{Gebruik van \uit{lijsten} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-lijsten-app}
-\end{table}
 
 \paragraph{\st}
 Een lijst kan voorzien worden van een sjabloon.
-Dit is een instantie van de \code{Ext.XTemplate} klasse zijn.
-Hier kunnen HTML-tags de lay-out van de lijstelementen vastleggen of kan er \js-code worden uitvoeren.
+Dit is een instantie van de \code{Ext.XTemplate} klasse.
+Hier kunnen HTML-tags de lay-out van de lijstelementen vastleggen of kan er \js-code worden uitgevoerd.
 % De functionaliteiten van \code{Ext.XTemplate} zijn:
 % \begin{itemize}
 %   \item Doorlopen van een rij.
@@ -1066,10 +739,10 @@ Het formateren van een datum kan door de \code{date}-methode van \code{Ext.util.
 
 Zoals reeds besproken bij \uit{vullen}, kan een formulier worden ingevuld met een \code{Navigationview}.
 Deze \code{View} heeft een \code{push} en \code{pop} methode om een \code{View} op een \code{stack} te plaatsen of af te halen.
-Om een \code{View} te tonen die hoort bij een lijstelement wordt gebruik gemaakt van deze \code{Vavigationview} en de \code{push}-methode.
+Om een \code{View} te tonen die hoort bij een lijstelement wordt gebruik gemaakt van deze \code{Navigationview} en de \code{push}-methode.
 De lijst wordt in een \code{Navigationview} ingesloten.
 Het aanklikken van een lijstelement veroorzaakt een \code{disclosure} gebeurtenis.
-Een \code{Controller} kan deze gebeurtenis opvangen en de \code{push} methode op de \code{Vavigationview} oproepen.
+Een \code{Controller} kan deze gebeurtenis opvangen en de \code{push} methode op de \code{Navigationview} oproepen.
 De methode kan geparameteriseerd worden met een modelinstantie, analoog als de \code{setRecord} methode van een formulierpaneel.
 Automatisch zal een \term{back} knop worden gegenereerd die na aanklikken de \code{pop} methode zal oproepen.
 
@@ -1077,12 +750,12 @@ Het sorteren van een lijst kan automatisch met een \code{Store}.
 Een \code{Store} kan aan een lijst worden gekoppeld zodat alle modelinstanties van de \code{Store} in de lijst worden weergegeven.
 De \code{Store} moet dan voorzien worden van een \code{Sorter}.
 Deze kan modelinstanties van een \code{Store} sorteren op basis van eigenschappen van het bijhorende model.
-Ook kan de richting van sorteren kan worden geconfigureerd.
+Ook kan de richting van sorteren worden geconfigureerd.
 Een \code{Store} sorteren kan ook expliciet door de \code{sort} methode op de \code{Store} op te roepen.
 
 \paragraph{\kendo}
 Lijsten worden met een \code{listview} als \code{data-role} weergegeven.
-Wanneer lijsten met een \code{DataSource} gebonden worden zullen alle instanties van de \code{DataSource} als element in de lijst verschijnen.
+Wanneer lijsten met een \code{DataSource} gebonden worden, zullen alle instanties van de \code{DataSource} als element in de lijst verschijnen.
 Het koppelen van een \js-rij en \code{Listview} kan door te binden op basis van de \code{source} eigenschap.
 Deze methodiek is uitvoerig op de \kendo{} documentatie beschreven.
 
@@ -1138,38 +811,8 @@ De functie \code{Lungo.Core.orderByProperty} maakt het mogelijk om te sorteren v
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{pdf}}
+\section*{\uit{pdf}}
 \label{sec:evaluatie-gebruik-pdf-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-pdf-app} worden de resultaten getoond van de twee deeluitdagingen van \uit{pdf}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/pdf.csv}
-\caption{Gebruik van \uit{pdf} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-pdf-app}
-\end{table}
 
 \paragraph{\st}
 Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden.
@@ -1196,38 +839,8 @@ De implementatie voor het tonen van het PDF-bestand is analoog als de implementa
 
 %%%%%%%%%%%%%
 
-\subsection{\uit{offline}}
+\section*{\uit{offline}}
 \label{sec:evaluatie-gebruik-offline-app}
-
-In tabel \ref{tabel:evaluatie-gebruik-offline-app} worden de resultaten getoond van de twee deeluitdagingen van \uit{offline}.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
-
-\begin{table}[H]
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Uitdaging,Max,ST(abs),Kendo(abs),jQM(abs),Lungo(abs)},
-  columns/Uitdaging/.style={column name=\textbf{Uitdaging}, column type={l}},
-  columns/Max/.style={column name=\textbf{Max}, column type={l}},    
-  columns/jQM(abs)/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST(abs)/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo(abs)/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo(abs)/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/gebruik/offline.csv}
-\caption{Gebruik van \uit{offline} voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-gebruik-offline-app}
-\end{table}
 
 \paragraph{\st}
 Zoals besproken bij \uit{ajax} kan een \code{Store} voozien worden van een \code{Proxy} die data opslaat aan klantzijde.
@@ -1242,7 +855,7 @@ De applicatie zal dan meteen naar het startscherm navigeren.
 
 Om onverzonden uitgaven lokaal op te slaan, moeten de uitgaven ook aan een \code{Store} met lokale \code{Proxy} worden toegevoegd.
 Deze worden dan automatisch naar de \code{localStorage} weggeschreven.
-De controle op onverzonde uitgaven wordt herleid tot het controleren van data in de \code{Store}.
+De controle op onverzonden uitgaven wordt herleid tot het controleren van data in de \code{Store}.
 Het verwijderen van onverzonden lokale uitgaven kan door de data in de \code{Store} te wissen.
 
 De applicatie offline beschikbaar maken wordt ondersteund door Sencha Cmd~\cite{Sencha2012}.
@@ -1258,7 +871,7 @@ Na het aanmelden zullen alle gegevens van de werknemer geserialiseerd worden opg
 Deze gegevens zitten in een \code{OservableObject} en kunnen met de \code{toJSON}-methode als JSON-object worden verkregen.
 Het serialiseren zelf kan via de \code{JSON.stringify}-methode.
 Wanneer het aanmeldscherm wordt getoond, zal gecontroleerd worden of er gegevens van een werknemer lokaal beschikbaar zijn.
-Indien dit het geval is, wordt automatisch naar naar het startscherm genavigeerd.
+Indien dit het geval is, wordt automatisch naar het startscherm genavigeerd.
 
 Wanneer een uitgave wordt toegevoegd zal deze aan een \code{DataSource} en in de \code{localStorage} worden toegevoegd.
 Beide acties zullen plaatsvinden in de methode om een uitgave toe te voegen.

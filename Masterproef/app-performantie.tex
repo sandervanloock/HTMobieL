@@ -11,8 +11,6 @@ In deze appendix wordt een gedetailleerd overzicht gegeven van de performantie v
 
 \section{\st}
 \label{app:performantie-st}
-Op figuur~\ref{fig:performantie-st} worden de gemiddelde downloadtijd van \st{} getoond op elk apparaat.0.75
-
 \begin{figure}
   \centering
   \includegraphics[width=0.75\textwidth]{figuren/performance-st.pdf}
@@ -20,23 +18,24 @@ Op figuur~\ref{fig:performantie-st} worden de gemiddelde downloadtijd van \st{} 
   \label{fig:performantie-st}
 \end{figure}
 
+Op figuur~\ref{fig:performantie-st} wordt de gemiddelde downloadtijd van \st{} getoond op elk apparaat.
 Voor de POC is een dalende downloadtijd waarneembaar wanneer het Android-apparaat recenter wordt.
 De downloadtijd van de POC op de \gs{} duurde gemiddeld $31.43$s.
 Gemiddeld moeten Android toestellen $5$ seconden langer laden in vergelijking met iOS toestellen.
-Dit gemiddelde wordt sterk beinvloed door de trage downloadtijd van de \gs{}.
+Dit gemiddelde wordt sterk beïnvloed door de trage downloadtijd van de \gs{}.
 
 \st{} heeft een andere aanpak voor het cachen van een applicatie door de introductie van een \term{Delta-update} mechanisme.
 Dit mechanisme wil voorkomen dat bij een kleine aanpassing in de code,  alle bestanden opnieuw moeten worden opgehaald die in het \term{manifest} bestand staan opgelijst.
-De \term{Micro-loader} is verantwoordelijk voor het asynchroon ophalen van all benodigde \js{}- en CSS-bestanden.
+De \term{Micro-loader} is verantwoordelijk voor het asynchroon ophalen van alle benodigde \js{}- en CSS-bestanden.
 Na het bouwen van een applicatie met Sencha Cmd,  zullen de gewijzigde bestanden gearchiveerd worden en worden de veranderingen tussen elke versie opgeslagen.
 Na het laden van de applicatie, zal de \code{Micro-loader} met een GET-verzoek controleren op wijzigingen.
 Dit GET-verzoek zal de grootste tijd voor zijn rekening nemen bij de downloadtijden bij applicaties uit de cache.
 \st{} heeft er dus voor gekozen om aan performantie in te boeten ten voordele van het update mechanisme~\cite{Nguyen2012}.
 
-
 Een laatste opmerking die bij \st{} moet worden gemaakt, is dat AJAX-verzoeken van een \code{proxy} naar een ander domein altijd vooraf worden gegaan met een OPTIONS-verzoek.
 Dit is een verzoek om informatie over de beschikbare opties van het communicatiekanaal op te vragen.
 Standaard zet \st{} de \code{X-Requested-With} op XMLHttpRequest en hierdoor zal de browser een OPTIONS-verzoek als \term{preflight} sturen.
+
 %Setting custom headers on XHR requests triggers a preflight request. %http://remysharp.com/2011/04/21/getting-cors-working/
 %http://stackoverflow.com/questions/10236056/when-loading-a-store-in-sencha-touch-2-how-can-i-stop-the-additional-options-ht
 % POST /resources/userService/login?_dc=1368367749599 HTTP/1.1
@@ -69,7 +68,6 @@ Standaard zet \st{} de \code{X-Requested-With} op XMLHttpRequest en hierdoor zal
 
 \section{\kendo}
 \label{app:performantie-kendo}
-Op figuur~\ref{fig:performantie-kendo} worden de gemiddelde downloadtijd van \kendo{} getoond op elk apparaat.
 
 \begin{figure}
   \centering
@@ -78,17 +76,16 @@ Op figuur~\ref{fig:performantie-kendo} worden de gemiddelde downloadtijd van \ke
   \label{fig:performantie-kendo}
 \end{figure}
 
-De \gtab{} vertoond de hoogste downloadtijd,  gevolgd door de \iphoneiii{} en \htc.
+Op figuur~\ref{fig:performantie-kendo} worden de gemiddelde downloadtijd van \kendo{} getoond op elk apparaat.
+De \gtab{} vertoont de hoogste downloadtijd,  gevolgd door de \iphoneiii{} en \htc.
 Opmerkelijk is dat de gecachete versie van de loginapplicatie op de \nexus{} $10$ keer trager laadt dan de gecachete versie van de POC.
 Het ophalen van een gecachete applicatie werkt bij de \gs{} het traagst.
-
 Bij \kendo{} is er geen opmerkelijk verschil waarneembaar tussen Android en iOS toestellen (Android gemiddeld slechts $60$ms trager).
 
 %%%%%%%%
 
 \section{\jqm}
 \label{app:performantie-jqm}
-Op figuur~\ref{fig:performantie-jqm} worden de gemiddelde downloadtijd van \jqm{} getoond op elk apparaat.
 
 \begin{figure}
   \centering
@@ -97,15 +94,16 @@ Op figuur~\ref{fig:performantie-jqm} worden de gemiddelde downloadtijd van \jqm{
   \label{fig:performantie-jqm}
 \end{figure}
 
+Op figuur~\ref{fig:performantie-jqm} wordt de gemiddelde downloadtijd van \jqm{} getoond op elk apparaat.
 Voor de POC is een dalende downloadtijd waarneembaar wanneer de Android-versies op het apparaat recenter worden.
-iPads dalen in de downloadtijd als het apparaat recenter word, daarentegen stijgt de downloadtijd bij iPhones.
+iPads dalen in de downloadtijd als het apparaat recenter wordt, daarentegen stijgt de downloadtijd bij iPhones.
 Er zijn minimale verschillen bij de POC uit cache, waarbij het het langste duurt op de \iphoneiv{}.
 
 Als de loginapplicatie wordt bekeken, wordt hetzelfde waargenomen als voor de POC.
 Enkel bij de Android-apparaten wordt de downloadtijd trager, naarmate het toestel recenter wordt. 
 Dit is in tegenstelling tot de POC.
 Enkel de \nexus{} volgt deze trend niet.
-Op de \nexus{} wordt de loginappliactie zelfs even snel gedownload als de POC.
+Op de \nexus{} wordt de loginapplicatie zelfs even snel gedownload als de POC.
 Een opmerkelijke waarneming is dat het op de \nexus{} langer duurt om de loginapplicatie uit cache te laden dan de volledige POC uit cache.
 
 %%%%%%%%
@@ -120,9 +118,9 @@ Een opmerkelijke waarneming is dat het op de \nexus{} langer duurt om de loginap
   \label{fig:performantie-lungo}
 \end{figure}
 
-Bij \lungo{} is er geen begrijpbare trend waarneembaar voor Android.
-Wel is er opmerkelijke waarneming op de \gs{}, waarbij de downloadtijden uit cache langer duren dan 1 seconde, terwijl op alle apparaten deze tijden rond de 0,25 seconden liggen.
-
+Op figuur~\ref{fig:performantie-lungo} wordt de gemiddelde downloadtijd van \lungo{} getoond op elk apparaat.
+Er is geen begrijpbare trend waarneembaar voor Android.
+Wel is er een opmerkelijke waarneming op de \gs{}, waarbij de downloadtijden uit cache langer duren dan 1 seconde, terwijl op alle apparaten deze tijden rond de 0,25 seconden liggen.
 Bij iOS daalt de downloadtijd als het toestel recenter is.
 Zo is de downloadtijd op \ipadiii{} sneller dan \ipadi{}.
 Het geldt ook zo dat \iphoneiv{} sneller download dan \iphoneiii{}.

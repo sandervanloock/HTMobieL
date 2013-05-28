@@ -1,3 +1,4 @@
+%TODO: naar vergelijkingshoofdstuk brengen
 \section{Performantie}
 \label{sec:evaluatie-performantie}
 
@@ -56,7 +57,7 @@ Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{s
 \label{sec:evaluatie-downloadtijd}
 
 De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd}.
-De gemiddelde downloadtijd voor de loginapplicatie als de loginapplicatie uit cache wordt bepaald volgens formule~\ref{eq:totale-downloadtijd} en \ref{eq:totale-gebruikerservaring}.
+De gemiddelde downloadtijd voor de loginapplicatie als de loginapplicatie uit cache worden bepaald volgens formule~\ref{eq:totale-downloadtijd} en \ref{eq:totale-gebruikerservaring}.
 De uitkomsten hiervan worden weergegeven in tabel~\ref{tabel:evaluatie-performantie-downloadtijd}.
 Om beter de spreiding van deze downloadtijd op de acht apparaten te kunnen bekijken, wordt op figuur \ref{fig:performantie-login-boxplot} de downloadtijd uitgezet in een boxplot.
 Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de loginapplicatie uit cache.
@@ -107,12 +108,12 @@ Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de logi
 \jqm{} en \kendo{} behalen respectievelijk een tweede en derde plaats.
 \lungo{} is zelfs meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
 Deze drie raamwerken behalen quasi dezelfde downloadtijd.
-\kendo{} en \st{} nemen respectievelijk voorlaatste en laatste plaats in.
+\st{} behaalt de laatste plaats.
 Dit wordt verklaard door het gebruik van een architectuur waardoor een grotere \js{}-code dient te worden gedownload ten opzichte van raamwerken die geen architectuur afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
 
 \paragraph{Loginapplicatie uit cache}
 Als naar de versie uit cache wordt gekeken, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde (zie figuur \ref{fig:performantie-login-cache}).
-Daarentegen behaalt \st{} telkens een vele tragere tijd.
+Daarentegen behaalt \st{} telkens een veel tragere tijd.
 Enerzijds komt dit doordat de drie eerstgenoemde raamwerken enkel gebruik maken van HTML5 Application Cache.
 \st{} gebruikt daarnaast ook nog een eigen mechanisme waardoor de grotere downloadtijd wordt verklaard (zie \ref{app:performantie-st}).
 Anderzijds gebruiken de drie eerstgenoemde raamwerken Yeoman om de applicatie te bouwen.
@@ -126,7 +127,7 @@ De rendertijd via \js{} kon enkel worden opgemeten in \jqm{} en \kendo{}.
 Bij de twee andere raamwerken werden de betreffende gebeurtenissen niet gevonden om correct de tijd op te meten.
 Doordat er maar data voor twee raamwerken voor handen was, werd deze methode vervangen door de gebruikerservaring van lijst.
 Deze bestaat eruit de vlotheid van het scrollen door de lijst van 850 lijstelementen voor de vier raamwerken op de acht apparaten te vergelijken.
-Per apparaat word een score van 1, 2, 3 of 4 uitgedeeld aan de raamwerken.
+Per apparaat wordt een score van 1, 2, 3 of 4 uitgedeeld aan de raamwerken.
 Hierbij is 4 de beste score wat overeenkomt met het vlotste scrollen door de lijst relatief ten opzichte van de drie andere raamwerken.
 Deze test werd uitgevoerd door twee personen.
 
@@ -225,13 +226,13 @@ Voor de gemiddelde downloadtijd per apparaat per raamwerk wordt verwezen naar ap
 %%% De andere raamwerken hebben een beduidend grotere cache factor 
 
 De tragere downloadtijd van \st{},  zoals geconcludeerd door de downloadtijd van de login applicatie, wordt bevestigd.
-De verschil van downloadtijden voor de POC wordt nog uitvergroot.
+Het verschil van downloadtijden voor de POC wordt nog uitvergroot.
 Het mechanisme voor het updaten van de cache zal \st{} nog meer vertragen bij de POC.
 
-Indien \st{} buiten beschouwen wordt gelaten, duurt het eerste keer laden van de POC gemiddeld $5,73$ s. 
-Het laden van de versie uit cache duurt slechts gemiddeld $400$ ms.
-De eerste keer laden van de loginapplicatie duurt gemiddeld $3,32$ s.
-Indien deze uit cache komt, duurt dit gemiddeld nog slechts gemiddeld $420$ ms.
+Indien \st{} buiten beschouwing wordt gelaten, duurt de eerste keer laden van de POC gemiddeld $5,73\unit{s}$. 
+Het laden van de versie uit cache duurt slechts gemiddeld $400\unit{ms}$.
+De eerste keer laden van de loginapplicatie duurt gemiddeld $3,32\unit{s}$.
+Indien deze uit cache komt, duurt dit gemiddeld nog slechts gemiddeld $420\unit{ms}$.
 
 Formule \ref{eq:performantie-max} van de maximale responsetijd kan niet worden berekend omdat er geen rendertijden voorhanden zijn.
 Indien we enkel de downloadtijd in rekening brengen en \st{} buiten beschouwing laten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$.
@@ -261,7 +262,7 @@ Dit zou de oorzaak kunnen zijn voor het niet-cachen van bestanden.
 
 \paragraph{Downloadgrootte}
 De PCAP-bestanden die werden gebruikt om de downloadtijd op te meten bevatten ook de grootte van de pakketten die moeten worden opgehaald.
-Omdat pakketten verloren gaan zullen ontvangen bestanden incompleet zijn en moeten ze worden herverzonden.
+Omdat pakketten verloren gaan, zullen ontvangen bestanden incompleet zijn en moeten ze worden herverzonden.
 Hierdoor zal het aantal ontvangen bytes variëren van meting tot meting.
 De performantietesten werden op acht toestellen uitgevoerd en elke test werd drie keer uitgevoerd.
 Het gemiddelde van alle downloadgroottes bepaalt de grootte zoals deze kan worden teruggevonden in tabel~\ref{tabel:performantie-verklaring}.

@@ -1,7 +1,7 @@
 #!/bin/sh
 total=0
 
-for f in "masterproef" "inleiding" "literatuurstudie" "raamwerken" "vergelijking" "evaluatie-populariteit" "evaluatie-productiviteit" "evaluatie-gebruik" "evaluatie-ondersteuning" "evaluatie-performantie" "evaluatie-spinnenweb" "besluit" "app-ondersteuning" "app-performantie"
+for f in "masterproef" "inleiding" "literatuurstudie" "raamwerken" "vergelijking" "evaluatie-populariteit" "evaluatie-productiviteit" "evaluatie-gebruik" "evaluatie-ondersteuning" "evaluatie-performantie" "evaluatie-spinnenweb" "besluit" "app-ondersteuning" "app-performantie" "app-technisch"
 do
 	# -c count
 	# -i case insensitive

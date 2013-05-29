@@ -18,7 +18,7 @@ Eerst wordt ingegaan op twee soorten mobiele apparaten, namelijk de smartphone e
 Daarna wordt stilgestaan bij de kenmerken van deze apparaten~\cite{PhilDutson2012}.
 Andere mobiele apparaten zoals de \term{e-reader} en Personal Digital Assistant~(PDA) worden buiten beschouwing gelaten.
 
-%TODO meerwaarde van de figuur?
+%TODO meerwaarde van de figuur? Tim: verscheidenheid illustreren, voor meeste mensen die geen smartphone/tablet hebben. caption uitvoeriger uitschrijven? bv. van links naar rechts de OS'es erbij zetten? 
 \begin{figure}
   \centering
   \includegraphics[height=0.6\textwidth]{figuren/mobile-devices.jpg}
@@ -70,9 +70,13 @@ Sommige bevatten zelfs twee camera's.
 De camera vooraan is veelal van mindere kwaliteit en wordt gebruikt om videogesprekken te voeren. 
 Achteraan het apparaat zit dan een camera met hogere resolutie om foto's van betere kwaliteit te kunnen maken.
 
-%TODO augmented reality + beter uitwerken (te vaag)
-Twee voorbeelden van toepassingen van de camera zijn toegevoegde realiteit en het inscannen van barcodes.
-Bij het eerstgenoemde wordt informatie toegevoegd aan het beeld dat door de camera wordt geregistreerd.
+%TODO augmented reality + beter uitwerken (te vaag) Tim: ok?
+Twee voorbeelden van toepassingen van de camera zijn toegevoegde realiteit (\term{augmented reality}) en het inscannen van barcodes.
+Bij het eerstgenoemde kijkt de gebruiker met de camera van zijn mobiel apparaat naar de wereld.
+Op het scherm wordt het beeld live getoond en wordt hieraan extra informatie toegevoegd.
+Zo kan bijvoorbeeld een gebruiker naar een berglandschap kijken en zal toegevoegde realiteit ervoor zorgen dat de namen van de toppen van de bergen verschijnen.
+Hierdoor ziet de gebruiker extra informatie die hij anders niet kreeg als hij gewoon naar dit berglandschap keek.
+
 Het laatstgenoemde wordt bijvoorbeeld gebruikt om de Quick Response Code (QR-code) in te scannen en te zien wat deze betekent.
 Zo een code kan tekst bevatten, een link naar een website, een telefoonnummer, enzovoort. 
 
@@ -116,7 +120,7 @@ Doordat het wat kan duren vooraleer de locatie is vastgesteld via GPS, kan het m
 \section{Mobiele besturingssystemen}
 \label{sec:mobiele-besturingssystemen}
 Net zoals er een brede waaier bestaat aan besturingssystemen voor computers, geldt dit ook zo voor mobiele apparaten. 
-%TODO herschrijven, windows phone bestaat al langer, maar gewoon onder nieuwe naam (nieuwe branding)
+%TODO herschrijven, windows phone bestaat al langer, maar gewoon onder nieuwe naam (nieuwe branding) Tim: is windows phone eigenlijk belangrijk, want we doen daar niets mee?
 In deze sectie wordt een overzicht gegeven van mobiele besturingssystemen met een significant marktaandeel~\cite{David2011, Hales2012} zoals iOS en Android, maar ook een nieuwkomer op de markt, namelijk Windows Phone.
 iOS en Android haalden respectievelijk 14,9\% en 75,0\% in het derde kwartaal van 2012.
 Windows Phone haalt 2\% van het marktaandeel binnen in datzelfde kwartaal~\cite{Protalinski2012}.
@@ -219,10 +223,9 @@ Een andere aanpak is een \term{native} applicatie.
 Deze wordt geprogrammeerd in een programmeertaal specifiek aan het besturingssysteem.
 Daarna wordt de applicatie opgeladen naar een winkel (bv. App Store voor iOS).
 Het concept van een winkel komt er doordat het mobiel apparaat reeds met voorgeïnstalleerde applicaties wordt gekocht en de gebruiker nadien zelf nog extra applicaties kan toevoegen.
-%TODO GSM = netwerk
+%TODO GSM = netwerk Tim: zin gewoon weg?
 Dit is in tegenstelling tot een traditionele GSM, waar de gebruiker beperkt was tot enkel de geïnstalleerde applicaties. 
-%TODO de zinnen hangen niet correct aan elkaar, verschillende view (gebruiker, ontwikkelaar)
-De winkel kan ook instaan voor kwaliteitscontrole op de opgeladen applicaties.
+De ontwikkelaar laadt zijn applicatie op naar de winkel, waarna de winkel deze kan onderwerpen aan een kwaliteitscontrole.
 Eenmaal gepubliceerd op de winkel kunnen gebruikers de applicatie downloaden en installeren op hun apparaat.
 
 Als laatste kan een mix van de twee gemaakt worden en dat wordt een hybride applicatie genoemd.
@@ -274,8 +277,7 @@ Om een applicatie voor beide te schrijven, dient de code in twee verschillende p
 Het voordeel van een hybride applicatie is dat ze de problemen van webapplicaties oplossen met de voordelen van \term{native} applicaties.
 Hierdoor kunnen specifieke kenmerken van het mobiel apparaat benaderd worden die vanuit een pure webapplicatie niet konden worden benaderd.
 %TODO waarom?
-%TODO december 2013 moet nog komen?
-Daarentegen is HTML5 vanaf december 2013 in \term{candidate recommendation} gegaan~\cite{Jacobs2012}.
+Daarentegen is HTML5 vanaf december~2012 in \term{candidate recommendation} gegaan~\cite{Jacobs2012}.
 Dit impliceert de opkomende ondersteuning van HTML5 in hedendaagse browsers.
 Hierdoor zullen hybride applicaties waarschijnlijk achterhaald worden naar mate de tijd vordert.
 
@@ -346,6 +348,7 @@ Deze gebruikt dezelfde \term{engine} als Internet Explorer 10.
 \term{WebSockets}, \term{Web Workers}, \term{Application Cache} en \term{IndexedDB} worden hierin ondersteund~\cite{Hales2012}.
 Deze kenmerken worden in meer detail uitgelegd in sectie~\ref{sec:html5-css3-js}.
 
+%TODO: moet ik die browser vermelden? is dat nodig? was toen omdat hij de beste browser was, maar nu niet meer
 \paragraph{Opera Mobile/Mini}
 %TODO klopt niet meer, is nu blackberry 10
 Op het moment van schrijven is Opera Mobile 12.10 de beste mobiele HTML5-browser~\cite{Sights2012}. 
@@ -448,7 +451,7 @@ Deze drie ideeën worden hieronder kort toegelicht.
 
 \paragraph{Kenmerken detecteren}
 Er kan zelf worden opgezocht welke kenmerken op welke apparaten werken. 
-%TODO staat MacDonald2011 referentie (HTML5 missing manual) op zn plaats?
+%TODO staat MacDonald2011 referentie (HTML5 missing manual) op zn plaats? Tim: de tekst komt uit MacDonald2011
 Dit kan bijvoorbeeld gecontroleerd worden op websites Can I Use en Mobile HTML5 Compatibility~\cite{Deveria2013c,Firtman2013a,MacDonald2011}. 
 
 Wat nog handiger is, is om op het apparaat zelf te detecteren of het gewenste kenmerk beschikbaar is. 
@@ -476,8 +479,8 @@ Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implemente
 \subsection{CSS3}
 \label{ref:css3}
 CSS3 zorgt voor de presentatie en is het hart van webdesign. 
-%TODO onderstaande zin
-Net HTML5 heeft CSS3 hetzelfde probleem als aankomt op de ondersteuning bij browsers~\cite{MacDonald2011}. 
+%TODO onderstaande zin. Tim: ok?
+Net zoals HTML5 heeft CSS3 hetzelfde probleem als het aankomt op de ondersteuning bij browsers~\cite{MacDonald2011}. 
 Ook hier is er dus een brede waaier aan kenmerken die nog niet overal worden ondersteund. 
 Kenmerken die enkel in een bepaalde browser ondersteund worden, worden voorafgaan door een browserprefix (zoals \code{-webkit-} voor WebKit gebaseerde browsers en \code{-o-} voor Opera).
 

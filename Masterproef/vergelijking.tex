@@ -76,12 +76,14 @@ Vijf criteria zullen worden gebruikt: populariteit (\ref{sec:vergelijking-popula
 Elk raamwerk krijgt voor elk criterium een score afgeleid uit een formule. 
 Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-spinnenweb}).
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
+%TODO productiviteit laten vallen?  Laatste zin?
 De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuningscriterium drijven.  
 Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteiten bevat die van een normale applicatie verwacht worden.
 Zo is de POC representatief om een volledige vergelijking te kunnen maken.
 
 \subsection{Populariteit}
 \label{sec:vergelijking-populariteit}
+%TODO beter argumenteren populariteitscriterium
 De populariteit van een raamwerk kan in cijfers worden uitgedrukt door gebruik te maken van sociale netwerken. 
 Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en \term{forkers} van \gh{},  vragen op \so{} en aantal vind-ik-leuks van \fb{}~\cite{Sarrafi2012a,Ayuso2012}. 
 
@@ -90,13 +92,14 @@ Raamwerken die niet op GitHub te vinden zijn krijgen nul voor zowel het aantal s
 Een alternatief hield de interpolatie van de GitHub data van de overige raamwerken in.
 Omdat deze aanpak het raamwerk onterecht zou bevoordelen, is hier niet voor gekozen.
 
-De som van Twitter volgers ($T_r$), \gh{} sterren ($S_r$), \gh{} \term{forkers} ($F_r$), \so{} vragen ($SO_r$) en \fb{} vind-ik-leuks ($FB_r$) vormt de score voor het gemeenschapscriterium:
+De som van Twitter volgers ($T_r$), \gh{} sterren ($S_r$), \gh{} \term{forkers} ($F_r$), \so{} vragen ($SO_r$) en \fb{} vind-ik-leuks ($FB_r$) vormt de score voor het populariteitscriteriumcriterium:
 \begin{equation}
   \text{Populariteit}_r=T_r+S_r+F_r+SO_r+FB_r
   \label{eq:populariteit}
 \end{equation}
 voor een raamwerk $r$.
 
+%TODO als figuur in evaluatie wordt weggelaten, ook deze zin
 Omdat deze gegevens zeer dynamisch zijn, zullen verschillende metingen in de tijd de evolutie van de data weergeven.
 Ook zullen de uitkomsten van dit criterium worden vergeleken met data geleverd door Google Trends~\cite{Google2012a}.
 Deze webapplicatie toont de evolutie van zoektermen op Google op een schaal van 100, waarbij 100 overeenkomt met de grootste zoekinteresse.
@@ -120,6 +123,7 @@ De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste e
 \subsection{Productiviteit}
 \label{sec:vergelijking-productiviteit}
 De productiviteit moet een indicatie geven hoe lang het duurt om met het raamwerk vertrouwd te raken en iets nuttig te kunnen bouwen.
+%TODO deze zin weglaten?
 De auteurs zullen het raamwerk testen met een implementatie van de POC.
 %TODO wel verschillende mensen !
 Er wordt verondersteld dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
@@ -144,9 +148,9 @@ De tijd die nodig is om de volledige POC te implementeren is een indicatie voor 
 Er zijn echter vijf redenen waarom de implementaties van de POC geen goede indicatie zijn voor de productivteit.
 Deze werden door de auteurs bevonden wanneer de implementatie in het tweede raamwerk werd uitgevoerd:
 \begin{enumerate}
-\item Betere ervaring met de POC versnelt bij de tweede implementatie het overzicht van vereisten die nodig zijn om te implementeren. 
+\item Betere ervaring met de POC versnelt bij de tweede implementatie het overzicht van vereisten die moeten worden geïmplementeerd. 
 \item Een verbeterde ervaring met HTML5-raamwerken had een positieve invloed op de verdere implementaties.
-Dit weerspiegelt zich vooral tussen \jqm{} en \lungo{}.
+Dit weerspiegelde zich vooral tussen \jqm{} en \lungo{}.
 Hoewel ze beide op een verschillende \js{}-bibliotheek steunen - respectievelijk jQuery en QuoJS - zijn de gelijkenissen tussen deze twee raamwerken groot.
 Ook leggen ze beide geen architectuur op.
 \item Er kon code,  zoals van de implementatie in \jqm{},  overgenomen worden bij de implementatie van de POC met \lungo{} en \kendo{}.
@@ -157,41 +161,41 @@ Door het onnauwkeurig opmeten van de tijd kan er geen schatting worden gemaakt v
 \end{enumerate}
 
 De implementatie van de loginapplicatie is een alternatieve test van de productiviteit.
-Deze applicatie bevat GI-elementen, validaties,  \term{backend}integratie en een lijst.
+Deze applicatie bevat GI-elementen, validaties,  \term{backend} integratie en een lijst.
 De implementatie van de loginapplicatie kan dus als voldoende steekproef beschouwd worden om ervaring met een raamwerk te testen.
 Na het aanmelden met deze applicatie zal de gebruiker een lijst van $850$ elementen te zien krijgen.
 Deze lijst is bedoeld als stresstest om de performantie te testen (zie sectie \ref{sec:vergelijking-performantie}).
-De elementen in de lijst zullen voorzien worden van een afbeelding en tekst die een potentiële muziekapplicatie voorstellen.
-Het aantal liedjes in de lijst - $850$ - is een schatting van het maximum aantal liedjes dat ooit is opgenomen~\cite{Zimmy2011}.
+De elementen in de lijst zullen voorzien worden van een afbeelding en tekst.
+De lijst kan als een potentiële muziekapplicatie gezien worden waarbij de afbeelding en tekst naar liedjes verwijzen.
+Het aantal elementen in de lijst - $850$ - is een schatting van het maximum aantal liedjes dat ooit is opgenomen~\cite{Zimmy2011}.
 Het kan dus als bovengrens voor dit soort applicaties worden beschouwd.
 De implementatie van deze applicatie zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raamwerk,  één eenvoudige applicatie opgeleverd kan worden.
 
 % De werkuren van de loginapplicatie bevestigen voorgaande resultaten niet.
-De werkuren van de loginapplicatie bleken niet onderheven aan de vijf opgenoemde redenen waarom de POC geen goede indicatie is:
+De werkuren van de loginapplicatie bleken niet onderheven aan de vijf zonet opgenoemde tegenargumenten:
 \begin{enumerate}
 \item Bij elke implementatie werd met dezelfde achtergrondkennis gestart.  
 De implementatie van de loginapplicatie is triviaal en eenduidig.
 Er geldt dus voor alle raamwerken dat de ervaring met de applicatie reeds hoog was.
-\item Ook werd eerst de implementatie van de POC gemaakt voordat aan de loginapplicatie werd begonnen.
-Hierdoor was de algemene ervaring met HTML5-raamwerken gelijkgesteld.
+\item Eerst werd de implementatie van de POC gemaakt voordat aan de loginapplicatie werd begonnen.
+Hierdoor was de algemene ervaring met HTML5-raamwerken reeds groot.
 \item Er werd geen code gekopieerd. 
 \item Er waren geen problemen met de \term{backend}.
 \item Alle functionaliteit van de loginapplicatie kon met alle vier raamwerken worden gebouwd.
 \end{enumerate}
 Om al deze redenen werd beslist de score voor productiviteit te bepalen door enkel de uren van de login applicatie ($t_{r,login}$) te beschouwen.
-De formule voor productiviteit is dan
+De formule voor productiviteit is dan:
 \begin{equation}
-  \text{Productiviteit}'_r = t_{r,login}
+  \text{Productiviteit}_r = t_{r,login}
   \label{eq:productiviteit-enhanced}
 \end{equation}
 voor een raamwerk $r$.
 
 De uitkomsten van dit criterium zullen gestaafd worden door het aantal lijnen code te presenteren die nodig waren voor zowel de POC als de loginapplicatie te bouwen.
 Ook zullen de factoren die de leercurve bepalen, worden bekeken. 
-
-Ten eerste zullen de tools worden bekeken die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
+Dit zijn ten eerste de tools die de programmeur kan gebruiken om eenvoudiger te ontwikkelen.
 Vervolgens zal de kwaliteit en kwantiteit van de documentatie van elk raamwerk worden bekeken.
-De mogelijkheden voor debuggen bepalen ook de productiviteit en zullen worden onderzocht.
+De mogelijkheden voor debuggen bepalen ook de leercurve en zullen worden onderzocht.
 Tot slot zal gekeken worden naar de aanwezige literatuur van het raamwerk en waar ontwikkelaars met vragen terecht kunnen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -277,9 +281,8 @@ De implementatie hiervan zal uitsluitend uit \js{}-code bestaan.
 Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen en verschillende besturingssystemen ondersteund.
 Enkel de standaard browser van het besturingssysteem zal beschouwd worden.
 Voor Android toestellen is dit de Android browser of Chrome.  
-Vanaf versie 4.0 wordt Chrome als standaard browser beschouwd~\cite{Wimberly2008}.
+Vanaf Android~4.0 wordt Chrome als standaard browser beschouwd~\cite{Wimberly2008}.
 Voor iOS is Mobile Safari de standaard browser.
-
 
 Een context wordt gedefinieerd als één bepaalde configuratie van toestel, besturingssysteem en browser.
 In elke context zal de functionaliteit van de POC op ondersteuning worden getest.
@@ -302,7 +305,7 @@ Zo kan bijvoorbeeld op een apparaat getest worden of auto-aanvullen werkt.
 Uitdaging \uit{autoaanvullen} bevat als deeluitdagingen het ophalen van suggesties en het tonen van een dropdownmenu.
 De werking van de uitdaging is een combinatie van beide en zal dus enkel slagen als beide worden ondersteund.
 De deeluitdagingen van \uit{formulieren} en \uit{offline} kunnen wel op ondersteuning worden getest.
-De twee deeluitdagingen van \term{datepicker} die bij \uit{formulieren} horen, zullen echter wel worden samengenomen zodat enkel een \term{datepicker} op zich en niet een aanpasbare \term{datepicker} op ondersteuning wordt gecontroleerd.
+De twee deeluitdagingen van \term{datepicker} die bij \uit{formulieren} horen, zullen echter worden samengenomen zodat enkel een \term{datepicker} op zich en niet een aanpasbare \term{datepicker} op ondersteuning wordt gecontroleerd.
 
 
 Het is belangrijk dat het raamwerk en niet een eigen implementatie op ondersteuning wordt getest.
@@ -376,12 +379,15 @@ Eerste zal de downloadtijd van de loginapplicatie worden bekeken ($\widehat{l}_{
 Vervolgens zal de tijd worden opgemeten om de loginapplicatie uit het cachegeheugen te downloaden ($\widehat{l}_{r,c,login_{cache}}$).
 
 Het opmeten van de downloadtijden zal met TCPdump~\cite{Tcpdump2010} gebeuren, zoals werd voorgesteld door Thair~\cite{Thair2011}.
-Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot concerteren.
+%TODO connecteren met WiFi (niet met 3G ofzo)
+Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot connecteren.
+%TODO iets zeggen dat de meting na 3 subjectieve seconden wordt beendigd :) Zeker beter vermelden wanneer de meting wordt beendigd
 Wanneer de meting wordt gestart, zal op het apparaat naar de applicatie gesurft worden waarna de meting wordt beëindigd. 
 De uitvoer van TCPdump is een PCAP-bestand die de HTTP-trafiek bevat.
 Deze zal via PCAP Web Performance Analyzer~\cite{SongL.bmcquadeMdsteele2010} worden omgezet naar een HAR-file, waarna een HTTP-waterval zal worden getoond.
 Hieruit kan de totale downloadtijd worden gehaald van de gedownloade bestanden voor die applicatie.
 
+%TODO nieuwe formule hier vermelden
 De rendertijd zal gemeten worden met de tijd die het raamwerk nodig heeft om GI-elementen te renderen.
 Hiervoor zal de lijst van $850$ elementen worden gebruikt die getoond wordt na aanmelden op de loginapplicatie.
 De tijd die het raamwerk nodig heeft om de lijst de renderen ($\widehat{l}_{r,c,lijst}$) kan gemeten worden met \js-code.

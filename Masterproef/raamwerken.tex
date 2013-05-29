@@ -17,7 +17,6 @@ Hierdoor werd niet voor \jqt{} gekozen.
 Als laatste werd besloten om \davinci{} uit te sluiten door de gebrekkige Engelstalige documentatie van dit Koreaans raamwerk.
 Het vierde en laatste onderzochte raamwerk werd daarom \lungo{}.
 
-%TODO nog vermelden dat dit geen ``algemeen aanvaarde'' categorisatie is?  Het is voor ons gemakkelijk..
 Zoals besproken in \ref{sec:mobiele-html5-raamwerken} kunnen raamwerken worden gecategoriseerd volgens twee aanpakken, namelijk opmaakgedreven en \js{}-gedreven~\cite{Oeflman2011}. 
 Bij een opmaakgedreven aanpak zijn er drie strategieën om webapplicaties te maken~\cite{Broulik2012}. 
 Een eerste is om de volledige applicatie in één webpagina te schrijven. 
@@ -67,8 +66,7 @@ Sencha Architect kan voor 30 dagen uitgeprobeerd worden,  daarna moet een licent
 De prijs voor één ontwikkelaar bedraagt $\$399$~\cite{Inc.}.
 
 \subparagraph{Sencha Cmd}
-%TODO een terminal is "toestel, waarmee een computer op afstand interactief is te bedienen", misschien beter command line tool?
-Deze tool vergemakkelijkt de ontwikkeling van \st{} applicaties door middel van commando's die vanuit de terminal kunnen worden uitgevoerd~\cite{Sencha2012}.
+Deze tool vergemakkelijkt de ontwikkeling van \st{} applicaties door middel van commando's die vanuit de \term{command-line} kunnen worden uitgevoerd~\cite{Sencha2012}.
 Sencha Cmd is beschikbaar voor Mac, Windows en Linux distributies.
 Het kan initiële applicaties opzetten,  bestanden toevoegen en de applicatie bouwen en uitrollen.
 De applicatie kan ook omgevormd worden tot een \term{native} applicatie voor iOS en Android.
@@ -78,12 +76,11 @@ Een applicatie,  zoals geïnitialiseerd door Sencha Cmd,  moet alle benodigde \j
 Een \code{microloader} zal de afhankelijke bestanden automatisch laden bij het opstarten van de applicatie.
 
 Het bouwen en uitrollen van een applicatie kan op vier niveaus:
-%TODO moeten die termen niet met hoofdletter? Sander http://docs.sencha.com/touch/2.1.1/#!/guide/command_app
 \begin{description}
-  \item [testing] maakt een testapplicatie om de kwaliteit te testen.  \js- en CSS-bestanden worden samengevoegd maar niet verkleind om makkelijk te debuggen
-  \item [package] maakt een zelfstandige applicatie die verspreidbaar is en vanop een bestandensyteem,  zonder webserver,  kan lopen.
-  \item [production] maakt een applicatie die op een webserver beschikbaar wordt gemaakt waarvan de \js-, en CSS- bestanden zijn samengevoegd en verkleind.  Het maakt de applicatie ook offline beschikbaar door gebruik te maken van de Applicatie Cache van HTML5.  Ook is het mogelijk de applicatie op te waarderen naar een nieuwe versie via het Delta Update mechanisme.
-  \item [native] maakt een \term{native} applicatie die op het Android of iOS besturingssysteem kan lopen.
+  \item [\code{testing}] maakt een testapplicatie om de kwaliteit te testen.  \js- en CSS-bestanden worden samengevoegd maar niet verkleind om makkelijk te debuggen.
+  \item [\code{package}] maakt een zelfstandige applicatie die verspreidbaar is en vanop een bestandensyteem,  zonder webserver,  kan lopen.
+  \item [\code{production}] maakt een applicatie die op een webserver beschikbaar wordt gemaakt waarvan de \js-, en CSS- bestanden zijn samengevoegd en verkleind.  Het maakt de applicatie ook offline beschikbaar door gebruik te maken van de Applicatie Cache van HTML5.  Ook is het mogelijk de applicatie op te waarderen naar een nieuwe versie via het Delta Update mechanisme.
+  \item [\code{native}] maakt een \term{native} applicatie die op het Android of iOS besturingssysteem kan lopen.
 \end{description}
 
 \subparagraph{Sencha Animator}
@@ -247,8 +244,8 @@ Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerike}.
 
 \paragraph{Programmeertaal}
 \kendo{} is zowel \js{}- en opmaakgedreven. 
-%TODO zin uit elkaar halen, voelt raar aan dat laatste stuk
-Data-attributen kunnen een HTML-element associëren met \kendo{} of het overeenkomstige jQuery-object kan met \js{} worden geïnitialiseerd.
+Data-attributen kunnen een HTML-element associëren met \kendo{}.
+Ook kan een jQuery-selector in \js{} met \kendo{} worden gebonden.
 Alle GI-elementen van \kendo{} Mobile kunnen met data-attributen worden opgebouwd.
 \term{Widgets} van \kendo{} Web kunnen zowel met \js{} als data-attributen geïnitialiseerd worden.
 
@@ -384,7 +381,7 @@ Deze zijn elk nog persoonlijk aan te passen met de Mobile ThemeBuilder zoals bes
 
 \paragraph{Programmeerbaarheid}
 Een kennis van zowel HTML als \js{} is vereist om met dit raamwerk aan de slag te kunnen.
-Het raamwerk is gebouwd op de jQuery-bibliotheek en maakt dus vaak van jQuery's \term{selectors} gebruik.
+Het raamwerk is gebouwd op de jQuery-bibliotheek en maakt dus vaak van jQuery-\term{selectors} gebruik.
 Ook kan een AJAX-verzoek met jQuery-syntax geformuleerd worden om externe data voor een \code{DataSource} op te halen.
 
 \paragraph{Browserondersteuning}
@@ -401,7 +398,7 @@ Ook de HTML5-formulierelementen worden opgebouwd met \term{progressive enhanceme
 \jqm{} is een opmaakgedreven raamwerk dat hoofdzakelijk GI-elementen aanbiedt.
 Het werd aangekondigd in 2010~\cite{Resig2010} en in november 2011 werd versie~1.0 uitgebracht~\cite{Parker2011}.
 Een jaar later werd in oktober versie~1.2 uitgebracht~\cite{Parker2012} en op het moment van schrijven zit \jqm{} aan versie~1.3.1~\cite{Parker2013b}. 
-Het raamwerk is afhankelijk van jQuery Core dat een \js{}-bibliotheek is.
+Het raamwerk is afhankelijk van jQuery dat een \js{}-bibliotheek is.
 Beide worden beheerd door het jQuery Project~\ref{JQuery2012}. 
 \jqm{} wordt door onder andere Adobe, BlackBerry en Mozilla gesponsord~\cite{JQuery2012a}.
 
@@ -419,9 +416,8 @@ Codiqua zal automatisch op de achtergrond de HTML-code voorzien.
 Op de documentatiesite van versie~1.2~\cite{JQuery2012b} is een catalogus te vinden van alle mogelijke elementen waarover \jqm{} beschikt. 
 Door de broncode van een voorbeeld te bekijken, kan worden gekeken welke code moet worden geschreven om tot dat resultaat te komen.
 
-Naast de GI-elementen is er ook documentatie over de API. 
-%TODO ik struikel nog over initiële configuraties :)
-Deze gaat over initiële configuraties, gebeurtenissen en methodes die kunnen worden gebruikt.
+Naast de GI-elementen is er ook documentatie over de API.
+Deze gaat over gebeurtenissen en methoden die kunnen worden gebruikt en het configureren van standaardwaarden.
 
 \paragraph{Marktadoptatie}
 Op de website van \jqm{} wordt een reeks applicaties getoond die gemaakt zijn met hun raamwerk. 
@@ -456,8 +452,7 @@ Daarnaast is het ook mogelijk om navigatiebalken te maken.
 Aan zowel de werk- als navigatiebalken kunnen iconen worden toegevoegd.
 
 \item \textbf{Knoppen}
-%TODO inhoudsgedeelte blijft raar
-Het is ook mogelijk om knoppen te plaatsen in het inhoudsgedeelte. 
+Het is mogelijk om knoppen te plaatsen op het scherm. 
 Ook hier is er terug een variëteit aan mogelijkheden: grote of kleine, met iconen of zonder, gegroepeerd of niet. 
 
 \item \textbf{Inhoud vormgeven}
@@ -467,9 +462,7 @@ Daarnaast zijn er ook nog opklapbare blokken ter beschikking.
 Als laatste kunnen deze blokken ook samengevoegd worden tot een accordeon. 
 
 \item \textbf{Elementen voor formulieren}
-%TODO gangbare elementen? & nederlands voor slider
-\jqm{} biedt alle gangbare elementen voor formulieren aan zoals tekstinvoer, een selectie uit een lijst, een zoekveld, een \term{slider} en een schakelaar. 
-%TODO niet consistent met score voor U14 formulieren
+\jqm{} biedt alle elementen voor formulieren aan zoals tekstinvoer, een selectie uit een lijst, een zoekveld, een \term{slider} en een schakelaar. 
 Het raamwerk verplicht zelfs om de \code{label}-tag te gebruiken. 
 Zo wordt de applicatie toegankelijker gemaakt voor bijvoorbeeld mensen met een schermlezer.
 
@@ -490,20 +483,16 @@ Deze webpagina bevat allemaal \code{div}-verpakkingen voor ieder scherm.
 
 \paragraph{Aanpasbaarheid}
 Er is keuze uit vijf kleurenthema's die kunnen worden toegepast op de gehele applicatie of enkel op bepaalde elementen. 
-%TODO subjectieve zin? gesproken taal?
-Om een applicatie echt te laten onderscheiden van de andere, is een eigen kleurthema noodzakelijk. 
-Hier is \jqm{} op voorzien door hun \term{stylesheet} op te delen in twee delen: thema's en structuur. 
 Een ontwikkelaar kan ook enkel de structuur downloaden en zelf het thema in CSS schrijven. 
 Doordat dit laatste heel wat inspanning vraagt, hebben de ontwikkelaars van \jqm{} ook een tool ter beschikking gesteld, namelijk ThemeRoller~\cite{JQuery2012c}. 
 Hiermee worden de kleuren naar een voorbeeldapplicatie gesleept, waarna de overeenkomstige \term{stylesheet} kan worden gedownload.
 
 \paragraph{Programmeerbaarheid}
-Bij het programmeren in \jqm{} wordt geen enkel ontwerppatroon afgedwongen. 
-De code voor de GI-elementen wordt tenslotte als HTML5-code geschreven. 
-%TODO moet die Core daarbij? Dan mss altijd doen als we jQuery-bibliotheek schrijven
-Voor de echte functionaliteit wordt beroep gedaan op \js{} en meer bepaald op de jQuery Core bibliotheek. 
+Bij het programmeren in \jqm{} wordt geen enkel architectuur afgedwongen. 
+De code voor de GI-elementen wordt tenslotte als HTML5-code geschreven.
+Voor de echte functionaliteit wordt beroep gedaan op \js{} en meer bepaald op de jQuery-bibliotheek. 
 %TODO is het erg dat patroon/architectuur/stijl/... door elkaar worden gebruikt?  Ik probeer alleen architectuur te gebruiken
-Ook deze dwingt geen ontwerppatroon af.
+Ook deze dwingt geen architectuur af.
 
 \paragraph{Browserondersteuning}
 \label{sec:jqm-browser-support}
@@ -520,7 +509,6 @@ Als laatste wordt bij een klasse~C browser enkel een basiservaring aangeboden di
 
 \section{\lungo}
 \label{sec:raamwerk-lungo}
-%TODO andere volgorde, geen kopie pasta
 \lungo{} is een opmaakgedreven raamwerk onderhouden door TapQuo dat een Spaans bedrijf is gespecialiseerd in mobiele gebruikerservaring~\cite{TapQuo2013a}.
 Het raamwerk biedt vooral GI-elementen aan en is afhankelijk van een \js{}-bibliotheek, namelijk \quo{}~\cite{TapQuo2013}.
 Versie~1.0 kwam uit in 2011~\cite{TapQuo2011} en op het moment van schrijven zit \lungo{} aan versie~2.1~\cite{TapQuo2013}.
@@ -535,13 +523,11 @@ Functionele vereisten kunnen worden geschreven in \js{}.
 
 \paragraph{Tools}
 Er worden geen specifieke tools door TapQuo aangeboden om de ontwikkeling te versnellen.
-%TODO ook kendo heeft dit nu? Dit dan ook bij kendo zetten?
-Wel kan er gebruik worden gemaakt van Twitter Bower~\cite{Twitter2013} die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren.
-Dit komt door de aanwezigheid van het bestand \code{component.json} op \gh{} dat Bower gebruikt.
+% Wel kan er gebruik worden gemaakt van Twitter Bower~\cite{Twitter2013} die helpt om de bestanden van het \lungo{}-raamwerk tezamen met de \quo{}-bibliotheek te beheren.
+% Dit komt door de aanwezigheid van het bestand \code{component.json} op \gh{} dat Bower gebruikt.
 
 \paragraph{Documentatie}
-%TODO bij evaluatie productiveit zeggen we wel dat er geen boilerplate code op de documentatie staat!
-Op de documentatiesite~\cite{Lungo2013} wordt eerst getoond hoe het geraamte van een typische \lungo{}-applicatie er uitziet.
+Op de documentatiesite~\cite{Lungo2013} wordt eerst getoond hoe het structuur van een \lungo{}-applicatie er uitziet.
 Vervolgens zijn er nog acht andere pagina's die de aangeboden GI-elementen en API uitleggen.
 Op de documentatiepagina's is altijd eerst de broncode te zien.
 Er kan dan boven de broncode op een knop geklikt worden, waarna een live voorbeeld wordt getoond.
@@ -557,7 +543,7 @@ Daarnaast is een commerciële versie ook mogelijk~\cite{TapQuo2013d}.
 
 \subsection{Code en ontwikkeling}
 Zoals gezegd wordt een \lungo{}-applicatie geprogrammeerd vanuit geannoteerde HTML-code door middel van CSS-klassen en data-attributen.
-Er wordt geen programmeerstijl zoals MVC afgedwongen.
+Er wordt geen architectuur zoals MVC afgedwongen.
 
 Om de verschillende schermen te scheiden wordt gebruik gemaakt van \code{article}- en \code{section}-tags die specifiek zijn voor HTML5.
 Analoog worden ook voor de kop- en voettekst de \code{header}- en \code{footer}-tags gebruikt.
@@ -573,9 +559,9 @@ De documentatiepagina is opgedeeld in negen groepen die hieronder kort worden aa
 \begin{enumerate}
 
 \item \textbf{Prototype} 
-Hierop worden GI-elementen, navigatie, formulieren, scrollen, lijsten en data-attributen aangehaald. 
-%TODO ``bij het naar beneden trekken van een lijst waarbij de data automatisch wordt herladen'' bondiger volgens sven?  Zit ook in kendo dus niet suuuuuuuper opmerkelijk
-Opmerkelijk is de directe ondersteuning door het raamwerk bij het naar beneden trekken van een lijst waarbij de data automatisch wordt herladen.
+Hierop worden GI-elementen, navigatie, formulieren, scrollen, lijsten en data-attributen aangehaald.
+Ook is er directe ondersteuning door het raamwerk voor Pull&Refresh.
+Dit is lijst die de data automatisch herlaadt wanneer de lijst naar beneden wordt getrokken.
 
 \item \textbf{Core }
 Hier worden functies aangehaald die het raamwerk zelf intern gebruikt.
@@ -600,14 +586,12 @@ Er worden standaard verschillende dialoogvensters aangeboden voor fout-, succes-
 Deze dialoogvensters zijn voorzien van een specifieke lay-out.
 Zo zal een fout- en succesboodschap respectievelijk een rode en groene achtergrondkleur hebben.
 Een ander type venster dat wordt aangeboden is een bevestigingsvenster waarbij een vraag wordt gesteld aan de gebruiker waar ja of nee op geantwoord kan worden.
-%TODO hieraan aan
-Het raamwerk voorziet voor beide acties de mogelijkheid om een eigen functie hieraan aan te koppelen.
+Het raamwerk voorziet voor beide acties de mogelijkheid om hier een eigen functie aan te koppelen.
  
 \item \textbf{Routing }
 Hier wordt ingegaan op de navigatie doorheen de applicatie vanuit \js{}.
 Het is mogelijk om binnen eenzelfde artikel tussen verschillende secties te navigeren alsook van artikel te veranderen.
-%TODO ``de zijnavigatie'' moet deze niet eerst gemaakt worden ofzo? Of is die altijd standaard aanwezig?
-Daarnaast is het mogelijk om vanuit \js{} de zijnavigatie te tonen.
+Daarnaast is het mogelijk om vanuit \js{} een zijnavigatie te tonen.
 Deze navigatie wordt zichtbaar door links bovenaan te klikken.
 Als laatste voorziet \lungo{} een terugkeerfunctionaliteit, vergelijkbaar met de functie \code{history.back} uit \js{}.
 
@@ -638,11 +622,11 @@ Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijve
 
 \paragraph{Programmeerbaarheid}
 \label{sec:lungo-programmeerbaarheid}
-\lungo{} dwingt geen enkel ontwerppatroon af.
+\lungo{} dwingt geen enkele architectuur af.
 Voor de echte functionaliteit wordt beroep gedaan op \js{}.
 Daarbij is de ontwikkelaar vrij hoe hij te werk gaat en kan gebruik maken van de \lungo{} API. 
 Voor aanpassingen die van toepassing zijn op DOM-manipulatie, is de ontwikkelaar aangewezen op \quo{}.
-Ook deze dwingt geen ontwerppatroon af.
+Ook deze dwingt geen architectuur af.
 
 \paragraph{Ondersteuning browser}
 TapQuo geeft aan op hun website dat ze ondersteuning bieden voor iOS, Android, Blackberry~OS en FirefoxOS.

@@ -10,7 +10,7 @@ De criteria die worden voorgesteld, zullen voortaan actieve criteria worden geno
 \section{POC}
 \label{sec:vergelijking-poc}
 In samenspraak met Capgemini werd gekozen om een \term{proof of concept}~(POC) op te stellen.
-%TODO hier refereren en reflecteren over POC in literatuur
+%TODO hier refereren en reflecteren over POC in literatuur (tim)
 Dit is een idee waarbij de uitvoerbaarheid in de verschillende raamwerken kan worden nagegaan.
 Verschillende vergaderingen werden georganiseerd om tot een idee te komen dat vooral in de bedrijfswereld van toepassing is.
 Het uiteindelijke idee is een applicatie die het mogelijk maakt voor werknemers om hun onkosten via hun mobiel apparaat door te sturen.
@@ -72,26 +72,28 @@ Deze bevat een overzicht van de onkosten met bijhorende bewijsstukken, alsook de
 In deze sectie zullen de actieve criteria toegelicht worden die zullen worden toegepast om de raamwerken te vergelijken.
 In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die in de literatuur worden toegepast.
 Elementen van deze technieken zullen terugkomen in de voorgestelde methode om de raamwerken te evalueren.
-%TODO in elke sectie van een criteria een referentie naar literatuur (zie drive document) + reflecteren met ISO
+%TODO in elke sectie van een criteria een referentie naar literatuur (zie drive document) + reflecteren met ISO (sander)
 Sectie \ref{sec:raamwerken-tabel} bevatte de passieve vergelijkingscriteria die raamwerken vergeleken met informatie over het raamwerk zelf.
 
 Vijf criteria zullen worden gebruikt: populariteit (\ref{sec:vergelijking-populariteit}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
-%TODO refereren naar puntensysteem literatuur + AHP gewichten zijn voor alle criteria gelijk
+%TODO refereren naar puntensysteem literatuur + AHP gewichten zijn voor alle criteria gelijk (tim)
 Elk raamwerk krijgt voor elk criterium een score afgeleid uit een formule. 
 Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-spinnenweb}).
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
-%TODO productiviteit laten vallen?  Laatste zin?
-De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuningscriterium drijven.  
+De implementatie van deze POC zal het gebruiks- en ondersteuningscriterium drijven.  
 Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteiten bevat die van een normale applicatie verwacht worden.
-Zo is de POC representatief om een volledige vergelijking te kunnen maken.
 
-%TODO populariteit in visionmobile gebruiken bij onze criteria
+%TODO populariteit in visionmobile gebruiken bij onze criteria (sander)
 \subsection{Populariteit}
 \label{sec:vergelijking-populariteit}
-%TODO referenties zijn naar blogposts
-De populariteit van een raamwerk is belangrijke factor want het bepaalt de gemeenschap en levendigheid van het raamwerk.
+%TODO referenties zijn naar blogposts (sander)
+De populariteit van een raamwerk is een belangrijke factor want het bepaalt de gemeenschap en levendigheid van het raamwerk.
 Het is in cijfers uit te drukken door gebruik te maken van sociale netwerken. 
-Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en \term{forkers} van \gh{},  vragen op \so{} en aantal vind-ik-leuks van \fb{}~\cite{Sarrafi2012a,Ayuso2012}.
+Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en \term{forkers} van \gh{},  vragen op \so{} en aantal vind-ik-leuks van \fb{}.
+%Community: Saffari (codefession)
+%SO en google trends: Ayuso (monocaffe)
+%\cite{Hales2012}: twitter en github forkers and watchers
+%facebook zelf
 
 GitHub kan worden gezien als een sociaal netwerk voor programmeurs~\cite{Catone2008} en bepaalt dus de actieve gemeenschap rond het raamwerk.
 Raamwerken die niet op GitHub te vinden zijn krijgen nul voor zowel het aantal sterren en \term{forkers}.
@@ -105,7 +107,6 @@ De som van Twitter volgers ($T_r$), \gh{} sterren ($S_r$), \gh{} \term{forkers} 
 \end{equation}
 voor een raamwerk $r$.
 
-%TODO als figuur in evaluatie wordt weggelaten, ook deze zin
 Omdat deze gegevens zeer dynamisch zijn, zullen verschillende metingen in de tijd de evolutie van de data weergeven.
 Ook zullen de uitkomsten van dit criterium worden vergeleken met data geleverd door Google Trends~\cite{Google2012a}.
 Deze webapplicatie toont de evolutie van zoektermen op Google op een schaal van 100, waarbij 100 overeenkomt met de grootste zoekinteresse.
@@ -129,18 +130,17 @@ De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste e
 \subsection{Productiviteit}
 \label{sec:vergelijking-productiviteit}
 De productiviteit moet berekend hoe lang het duurt om met het raamwerk vertrouwd te raken en iets nuttig te kunnen bouwen.
-Dit is belangrijk want bedrijven willen zo mogelijk tijd verliezen om met nieuwe technolgieën aan de slag te kunnen.
-%TODO deze zin weglaten?
-De auteurs zullen het raamwerk testen met een implementatie van de POC.
-%TODO wel verschillende mensen !
-Er wordt verondersteld dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
+Dit is belangrijk want bedrijven willen zo min mogelijk tijd verliezen om met nieuwe technolgieën aan de slag te kunnen.
+In de ISO 25010-standaard is de categorie van bruikbaarheid vergelijkbaar met dit criterium
 
-Elk zullen ze de POC in twee verschillende raamwerken maken en daarnaast ook een extra loginapplicatie in twee andere raamwerken.
-%TODO Ook in de vergelijking van Burris werd een loginapplicatie gekozen om \st{} en \jqm{} te vergelijken~\cite{Burris}.
-%In de ISO 25010-standaard is de categorie van bruikbaarheid vergelijkbaar met dit criterium
+De auteurs zullen elk de POC in twee verschillende raamwerken maken en daarnaast ook een extra loginapplicatie in twee andere raamwerken.
 De ene auteur maakt de POC in \jqm{} en \lungo{} en de loginapplicatie in \st{} en \kendo{}.
 De andere zal dan de POC in \st{} en \kendo{} maken en de loginapplicatie in \jqm{} en \lungo{}.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
+Er wordt verondersteld dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
+Toch kunnen beide onderling verschillen in efficiëntie,  waardoor de productiviteit verschilt.
+Dit probleem is inherent aan dit criterium.
+Toch is het belangijk om een schatting op deze manier te kunnen maken.
 
 % Omdat de POC twee keer moet worden geïmplementeerd, wordt verwacht dat de tweede implementatie sneller zal verlopen.
 % Dit probleem is onafwendbaar en zal bij de evaluatie van de data aangehaald worden.
@@ -153,9 +153,8 @@ De tijd die nodig is om de volledige POC te implementeren is een indicatie voor 
 % \end{equation}
 % voor een raamwerk $r$.
 
-%TODO Sander verleden tijd of tt tijd schrijven?  Het zijn onze persoonlijke bevindingen na de implementatie dus vt?
 Er zijn echter vijf redenen waarom de implementaties van de POC geen goede indicatie zijn voor de productivteit.
-Deze werden door de auteurs bevonden wanneer de implementatie in het tweede raamwerk werd uitgevoerd:
+Deze werden door de auteurs ervaren wanneer de implementatie in het tweede raamwerk werd uitgevoerd:
 \begin{enumerate}
 \item Betere ervaring met de POC versnelt bij de tweede implementatie het overzicht van vereisten die moeten worden geïmplementeerd. 
 \item Een verbeterde ervaring met HTML5-raamwerken had een positieve invloed op de verdere implementaties.
@@ -180,8 +179,7 @@ Het aantal elementen in de lijst - $850$ - is een schatting van het maximum aant
 Het kan dus als bovengrens voor dit soort applicaties worden beschouwd.
 De implementatie van deze applicatie zal een indicatie geven hoe snel,  zonder al te veel voorkennis van het raamwerk,  één eenvoudige applicatie opgeleverd kan worden.
 
-% De werkuren van de loginapplicatie bevestigen voorgaande resultaten niet.
-De werkuren van de loginapplicatie bleken niet onderheven aan de vijf zonet opgenoemde tegenargumenten:
+De werkuren van de loginapplicatie bleken niet onderheven aan de vijf zonet opgenoemde redenen:
 \begin{enumerate}
 \item Bij elke implementatie werd met dezelfde achtergrondkennis gestart.  
 De implementatie van de loginapplicatie is triviaal en eenduidig.
@@ -193,6 +191,8 @@ Hierdoor was de algemene ervaring met HTML5-raamwerken reeds groot.
 \item Alle functionaliteit van de loginapplicatie kon met alle vier raamwerken worden gebouwd.
 \end{enumerate}
 Om al deze redenen werd beslist de score voor productiviteit te bepalen door enkel de uren van de login applicatie ($t_{r,login}$) te beschouwen.
+Ook in de vergelijking van Burris werd voor een loginapplicatie gekozen~\cite{Burris}.
+Deze vergelijkt enkel \st{} en \jqm{}.
 De formule voor productiviteit is dan:
 \begin{equation}
   \text{Productiviteit}_r = t_{r,login}
@@ -212,11 +212,9 @@ Tot slot zal gekeken worden naar de aanwezige literatuur van het raamwerk en waa
 
 \subsection{Gebruik}
 \label{sec:vergelijking-gebruik}
-%TODO zoveel mogelijk features of plug-ins van een raamwerk zijn belangrijk want dan kan je meer met een raamwerk doen
 Dit criterium moet weergeven welke functionaliteit of plug-ins het raamwerk kan bieden.
-Hier meer functionaliteiten het raamwerken te bieden heeft,  hoe bruikbaarder het is.
-%TODO geen refs naar blog
-%Bij de ISO 25010-standaard probeert de categorie functionele geschiktheid dezelfde eigenschappen te testen
+Hier meer functionaliteiten het raamwerken te bieden heeft,  hoe minder de programmeur zelf moet schrijven en hoe bruikbaarder het raamwerk wordt.
+Ook de ISO 25010-standaard probeert het gebruik met de categorie functionele geschiktheid te testen.
 
 Uit de \term{mockup} schermen en de bijhorende functionele vereisten werden $13$ uitdagingen met in totaal $38$ deeluitdagingen geëxtraheerd.
 Alle functionaliteit die potentieel door een raamwerk kan worden geleverd en in de POC wordt gebruikt, zit in een uitdaging vervat.  
@@ -290,9 +288,8 @@ Omdat er $38$ deeluitdagingen zijn, kan een raamwerk voor dit criterium maximaal
 \subsection{Ondersteuning}
 \label{sec:vergelijking-ondersteuning}
 Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen en verschillende besturingssystemen ondersteund.
-Het is belangrijk dat een zo breed mogelijk publiek met éénzelfde applicatie kan worden aangesproken.
-%TODO De Cross Platform Capabilities zoals beschreven in op de Codefessions blogpost~\cite{Sarrafi2012a} geven een score aan raamwerken om gelijkaardige redenen.
-% De categorie overdraagbaarheid van de ISO 25010-standaard beschrijft ook de mate waarin een systeem, product of component effectief en efficiënt overgezet kan worden van één hardware, software of andere operationele of gebruiksomgeving naar een andere.
+Het is belangrijk dat een zo breed mogelijk publiek met éénzelfde applicatie kan worden bereikt.
+De ISO 25010-standaard beschrijft ook de overdraagbaarheid naar verschillende platformen.
 
 Enkel de standaard browser van het besturingssysteem zal beschouwd worden.
 Voor Android toestellen is dit de Android browser of Chrome.  
@@ -330,6 +327,7 @@ Hierdoor is het aantal uitdagingen of deeluitdagingen die getest worden afhankel
 
 
 De score van een uitdaging of deeluitdaging kan $1$ of $0$ zijn, respectievelijk een correcte of foutieve uitvoering.
+De Cross Platform Capabilities zoals beschreven in op de Codefessions blogpost~\cite{Sarrafi2012a} geven een score aan raamwerken op een gelijkaardige manier.
 In totaal zullen acht contexten worden gebruikt.
 Deze worden in tabel \ref{tabel:toestellen-hci} weergegeven.
 
@@ -383,52 +381,52 @@ Indien de acht contexten alle uitdagingen en deeluitdagingen correct weergeven z
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
 Performantie wordt opgesplitst in twee verschillende factoren: downloadtijd en gebruikerservaring.
-Het is noodzakelijk dat een applicatie zowel snel wordt gedownload als gebruikerservaring is.
-%TODO refs naar blogs en ISO
+Het is noodzakelijk dat een applicatie zowel snel wordt gedownload als vlot is in gebruikerservaring.
+De ISO 25010-standaard gebruikt voor de eerstgenoemde de categorie prestatie-efficiëntie om snelheid en middelenbeslag op te meten.
 
-De eerstgenoemde meet hoelang het duurt om de webapplicatie te downloaden.
-De laatstgenoemde meet hoe vlot het gaat om door een lange lijst van 850 elementen te scrollen.
+De downloadtijd meet hoelang het duurt om de webapplicatie te downloaden.
+De gebruikerservaring meet hoe vlot het gaat om door een lange lijst van 850 elementen te scrollen.
 Zoals in sectie~\ref{sec:vergelijking-productiviteit} werd verteld, wordt de loginapplicatie als stresstest gebruikt om de performantie te testen.
-Ook geldt dat er wordt verwacht dat niet de volledige POC in ieder raamwerk zal kunnen worden geïmplementeerd. 
-%TODO waarom? verder verduidelijken
+De volledige POC kon niet in ieder raamwerk worden geïmplementeerd omdat de raamwerken niet alle kenmerken konden aanbieden.
 Dit is in tegenstelling tot de loginapplicatie die wel in de vier raamwerken kan worden geïmplementeerd.
-Hierdoor zal de POC niet worden gebruikt.
+Hierdoor zal de POC niet worden gebruikt in dit criterium.
 De downloadtijden en gebruikerservaring zullen op acht verschillende apparaten worden opgemeten.
 Dit zijn dezelfde apparaten als bij het ondersteuningscriterium (zie tabel \ref{tabel:toestellen-hci}).
 
 \subsubsection{Gemiddelde downloadtijd}
 Bij de downloadtijden onderscheiden zich twee gevallen die samen de totale downloadtijd bepalen.
-%TODO 'gemiddelde' downloadtijd?
-Eerste zal de downloadtijd van de loginapplicatie worden bekeken~($\widehat{l}_{r,c,login}$). 
+Eerste zal de  downloadtijd van de loginapplicatie worden bekeken~($\widehat{l}_{r,c,login}$). 
 Vervolgens zal de tijd worden opgemeten om de loginapplicatie uit het cachegeheugen te downloaden~($\widehat{l}_{r,c,login_{cache}}$).
+Deze downloadtijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
 
 Het opmeten van de downloadtijden zal met TCPdump~\cite{Tcpdump2010} gebeuren, zoals werd voorgesteld door Thair~\cite{Thair2011}.
-%TODO connecteren met WiFi (niet met 3G ofzo)
-Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot connecteren.
-%TODO iets zeggen dat de meting na 3 subjectieve seconden wordt beendigd :) Zeker beter vermelden wanneer de meting wordt beendigd
-Wanneer de meting wordt gestart, zal op het apparaat naar de applicatie gesurft worden waarna de meting wordt beëindigd. 
+Hiervoor wordt een laptop als hotspot ingesteld en zullen de acht apparaten op deze hotspot connecteren via WiFi.
+Wanneer de meting wordt gestart, zal op het apparaat naar de applicatie gesurft worden.
+Nadat alle bestanden zijn ingeladen wordt de meting beëindigd. 
 De uitvoer van TCPdump is een PCAP-bestand die de HTTP-trafiek bevat.
 Deze zal via PCAP Web Performance Analyzer~\cite{SongL.bmcquadeMdsteele2010} worden omgezet naar een HAR-file, waarna een HTTP-waterval zal worden getoond.
 Hieruit kan de totale downloadtijd worden gehaald van de gedownloade bestanden voor die applicatie.
 
-
-De gemiddelde downloadtijd voor een raamwerk wordt bepaald door de som van de gemiddelde downloadtijden per apparaat.
-Deze downloadtijden zullen voldoende keren per apparaat moeten worden uitgevoerd om een betrouwbare meting te bekomen.
+De gemiddelde downloadtijd voor een raamwerk wordt bepaald door de som van de gemiddelde downloadtijden per apparaat:
 \begin{equation}
   \text{Gemiddelde downloadtijd}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,login}+\widehat{l}_{r,c,login_{cache}}\right)}}{8}
     \label{eq:totale-downloadtijd}
 \end{equation}
+voor een raamwerk $r$ en context $c$.
 
 \subsubsection{Gebruikerservaring}
-Eerst werd voorgesteld om de rendertijd te bepalen in plaats van de gebruikerservaring.
-Dit is de tijd die het raamwerk nodig heeft om de GI-elementen te renderen.
+Eerst werd voorgesteld om de rendertijd ($\left(\widehat{l}_{r,c,lijst}\right)}$) te bepalen in plaats van de gebruikerservaring.
+De rendertijd is de tijd die het raamwerk nodig heeft om de GI-elementen te renderen.
 Hiervoor wordt een lijst van $850$ elementen gebruikt die getoond wordt na aanmelden op de loginapplicatie.
 De tijd die het raamwerk nodig heeft om de lijst de renderen kan gemeten worden met \js-code.
+Net zoals de downloadtijden zullen deze voldoende keren per apparaat moeten worden uitgevoerd.
 
-%\begin{equation}
-%  \text{Gemiddelde rendertijd}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}}{8}
-%  \label{eq:totale-gebruikerservaring}
-%\end{equation}
+De gemiddelde rendertijd is:
+\begin{equation}
+ \text{Gemiddelde rendertijd}_r= \frac{\sum\limits_{c=1}^{8}{\left(\widehat{l}_{r,c,lijst}\right)}}{8}
+ \label{eq:totale-gebruikerservaring}
+\end{equation}
+voor een raamwerk $r$ en context $c$.
 
 De rendertijd kon via \js{} enkel worden opgemeten in \jqm{} en \kendo{}.
 Bij de twee andere raamwerken werden de betreffende gebeurtenissen niet gevonden om correct de tijd op te meten.
@@ -443,6 +441,7 @@ Om de score voor gebruikerservaring van een raamwerk te bepalen worden de scores
   \text{Gebruikerservaring}_r = \sum_{c=1}^{8}{\text{ervaring}_{r,c}}
   \label{eq:performantie-gebruikservaring}
 \end{equation}
+
 In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwerk dat de vlotste scrolervaring aanbiedt. 
 
 \subsubsection{Totaal}
@@ -464,9 +463,8 @@ van een raamwerk $r$.
 
 
 %TODO dus hoe zit dat dan met die maximale responsetijd, want we zeggen nu duidelijk dat we geen responsetijd meer hebben..
-De responsetijd van de applicatie kan niet met deze formule worden getoetst.
-De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen.
-Er geldt dat:
+%De responsetijd van de applicatie kan niet met deze formule worden getoetst.
+De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen:
 \begin{equation}
   \text{Maximale reponsetijd}_r= \frac{\sum\limits_{c=1}^{8}\left(\widehat{l}_{r,c,login} + \widehat{l}_{r,c,lijst}\right)}{8}
   \label{eq:performantie-max}
@@ -478,6 +476,9 @@ Deze maximale responsetijd kan gecategoriseerd worden met limieten uitgedrukt in
 \item $\text{Maximale responsetijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
 \item $\text{Maximale responsetijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
 \end{itemize}
+
+De maximale responsetijd kan echter niet worden berekend omdat er geen rendertijden bij \st{} en \lungo{} kunnen worden berekend.
+Indien de rendertijd uit de formule wordt weggelaten,  blijft de maximale responsetijd een schatting voor de limiet van Nielsen.
 
 Om de scores van het performantiecriterium te staven zal de downloadgrootte van de loginapplicatie worden bekeken.
 Daarnaast zal ook de gemiddelde downloadtijd van de POC en de loginapplicatie met elkaar worden vergeleken.

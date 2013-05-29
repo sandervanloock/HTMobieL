@@ -85,11 +85,13 @@ De implementatie van deze POC zal het productiviteits-, gebruiks- en ondersteuni
 Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteiten bevat die van een normale applicatie verwacht worden.
 Zo is de POC representatief om een volledige vergelijking te kunnen maken.
 
+%TODO populariteit in visionmobile gebruiken bij onze criteria
 \subsection{Populariteit}
 \label{sec:vergelijking-populariteit}
-%TODO populariteit is een factor voor de gemeenschap en ``levendigheid'' van het raamwerk
-De populariteit van een raamwerk kan in cijfers worden uitgedrukt door gebruik te maken van sociale netwerken. 
-Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en \term{forkers} van \gh{},  vragen op \so{} en aantal vind-ik-leuks van \fb{}~\cite{Sarrafi2012a,Ayuso2012}. 
+%TODO referenties zijn naar blogposts
+De populariteit van een raamwerk is belangrijke factor want het bepaalt de gemeenschap en levendigheid van het raamwerk.
+Het is in cijfers uit te drukken door gebruik te maken van sociale netwerken. 
+Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en \term{forkers} van \gh{},  vragen op \so{} en aantal vind-ik-leuks van \fb{}~\cite{Sarrafi2012a,Ayuso2012}.
 
 GitHub kan worden gezien als een sociaal netwerk voor programmeurs~\cite{Catone2008} en bepaalt dus de actieve gemeenschap rond het raamwerk.
 Raamwerken die niet op GitHub te vinden zijn krijgen nul voor zowel het aantal sterren en \term{forkers}.
@@ -126,14 +128,16 @@ De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste e
 
 \subsection{Productiviteit}
 \label{sec:vergelijking-productiviteit}
-Hoe lang het duurt om met het raamwerk vertrouwd te raken en iets nuttig te kunnen bouwen kan met productiviteit berekend worden.
-%TODO time is money (minder is beter)
+De productiviteit moet berekend hoe lang het duurt om met het raamwerk vertrouwd te raken en iets nuttig te kunnen bouwen.
+Dit is belangrijk want bedrijven willen zo mogelijk tijd verliezen om met nieuwe technolgieën aan de slag te kunnen.
 %TODO deze zin weglaten?
 De auteurs zullen het raamwerk testen met een implementatie van de POC.
 %TODO wel verschillende mensen !
 Er wordt verondersteld dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
 
 Elk zullen ze de POC in twee verschillende raamwerken maken en daarnaast ook een extra loginapplicatie in twee andere raamwerken.
+%TODO Ook in de vergelijking van Burris werd een loginapplicatie gekozen om \st{} en \jqm{} te vergelijken~\cite{Burris}.
+%In de ISO 25010-standaard is de categorie van bruikbaarheid vergelijkbaar met dit criterium
 De ene auteur maakt de POC in \jqm{} en \lungo{} en de loginapplicatie in \st{} en \kendo{}.
 De andere zal dan de POC in \st{} en \kendo{} maken en de loginapplicatie in \jqm{} en \lungo{}.
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
@@ -209,6 +213,11 @@ Tot slot zal gekeken worden naar de aanwezige literatuur van het raamwerk en waa
 \subsection{Gebruik}
 \label{sec:vergelijking-gebruik}
 %TODO zoveel mogelijk features of plug-ins van een raamwerk zijn belangrijk want dan kan je meer met een raamwerk doen
+Dit criterium moet weergeven welke functionaliteit of plug-ins het raamwerk kan bieden.
+Hier meer functionaliteiten het raamwerken te bieden heeft,  hoe bruikbaarder het is.
+%TODO geen refs naar blog
+%Bij de ISO 25010-standaard probeert de categorie functionele geschiktheid dezelfde eigenschappen te testen
+
 Uit de \term{mockup} schermen en de bijhorende functionele vereisten werden $13$ uitdagingen met in totaal $38$ deeluitdagingen geëxtraheerd.
 Alle functionaliteit die potentieel door een raamwerk kan worden geleverd en in de POC wordt gebruikt, zit in een uitdaging vervat.  
 Echter, een voorbeeld van functionaliteit van de POC die niet in een uitdaging zit, is de omzetting van \term{identifiers} naar een tekstuele vorm.
@@ -281,7 +290,10 @@ Omdat er $38$ deeluitdagingen zijn, kan een raamwerk voor dit criterium maximaal
 \subsection{Ondersteuning}
 \label{sec:vergelijking-ondersteuning}
 Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen en verschillende besturingssystemen ondersteund.
-%TODO het is belangrijk dat een zo breed mogelijk publiek wordt aangesproken
+Het is belangrijk dat een zo breed mogelijk publiek met éénzelfde applicatie kan worden aangesproken.
+%TODO De Cross Platform Capabilities zoals beschreven in op de Codefessions blogpost~\cite{Sarrafi2012a} geven een score aan raamwerken om gelijkaardige redenen.
+% De categorie overdraagbaarheid van de ISO 25010-standaard beschrijft ook de mate waarin een systeem, product of component effectief en efficiënt overgezet kan worden van één hardware, software of andere operationele of gebruiksomgeving naar een andere.
+
 Enkel de standaard browser van het besturingssysteem zal beschouwd worden.
 Voor Android toestellen is dit de Android browser of Chrome.  
 Vanaf Android~4.0 wordt Chrome als standaard browser beschouwd~\cite{Wimberly2008}.
@@ -371,7 +383,9 @@ Indien de acht contexten alle uitdagingen en deeluitdagingen correct weergeven z
 \subsection{Performantie}
 \label{sec:vergelijking-performantie}
 Performantie wordt opgesplitst in twee verschillende factoren: downloadtijd en gebruikerservaring.
-%TODO een applicatie moet zowel snel downloaden als bruikbaar zijn.
+Het is noodzakelijk dat een applicatie zowel snel wordt gedownload als gebruikerservaring is.
+%TODO refs naar blogs en ISO
+
 De eerstgenoemde meet hoelang het duurt om de webapplicatie te downloaden.
 De laatstgenoemde meet hoe vlot het gaat om door een lange lijst van 850 elementen te scrollen.
 Zoals in sectie~\ref{sec:vergelijking-productiviteit} werd verteld, wordt de loginapplicatie als stresstest gebruikt om de performantie te testen.

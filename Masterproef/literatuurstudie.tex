@@ -1,7 +1,7 @@
 \chapter{Literatuurstudie}
 \label{chap:literatuurstudie}
-%TODO 'bekijken'
-In dit hoofdstuk wordt gestart met het bekijken welke mobiele apparaten er allemaal bestaan (\ref{sec:mobiele-apparaten}). 
+
+In dit hoofdstuk bekijkt welke mobiele apparaten er allemaal bestaan (\ref{sec:mobiele-apparaten}). 
 Vervolgens wordt er gekeken wat er onder de motorkap van deze apparaten zit, namelijk welke mobiele besturingssystemen (\ref{sec:mobiele-besturingssystemen}), welke mobiele applicaties (\ref{sec:mobiele-applicaties}) en welke mobiele webbrowsers (\ref{sec:mobiele-webbrowsers}) er bestaan. 
 Daarna komen de drie bouwblokken van het web aan bod (\ref{sec:html5-css3-js}), namelijk HTML, CSS en \js{}.
 Hierna wordt ingegaan op bestaande mobiele HTML5-raamwerken (\ref{sec:mobiele-html5-raamwerken}).  
@@ -13,12 +13,13 @@ Ten slotte worden verschillende, reeds bestaande manieren om raamwerken te verge
 \section{Mobiele apparaten}
 \label{sec:mobiele-apparaten}
 Mobiele apparaten bestaan in alle soorten en maten, met weinig of veel opties, voor weinig of veel geld zoals wordt geïllustreerd op figuur \ref{fig:devices}. 
+%TODO native look-and-feel introduceren
 Het verdient daarom de aandacht om deze diversiteit onder de loep te nemen. 
 Eerst wordt ingegaan op twee soorten mobiele apparaten, namelijk de smartphone en tablet~\cite{GCF2013}.
 Daarna wordt stilgestaan bij de kenmerken van deze apparaten~\cite{PhilDutson2012}.
 Andere mobiele apparaten zoals de \term{e-reader} en Personal Digital Assistant~(PDA) worden buiten beschouwing gelaten.
 
-%TODO meerwaarde van de figuur? Tim: verscheidenheid illustreren, voor meeste mensen die geen smartphone/tablet hebben. caption uitvoeriger uitschrijven? bv. van links naar rechts de OS'es erbij zetten? 
+%TODO verscheidenheid illustreren, voor meeste mensen die geen smartphone/tablet hebben. caption uitvoeriger uitschrijven? bv. van links naar rechts de OS'es erbij zetten? 
 \begin{figure}
   \centering
   \includegraphics[height=0.6\textwidth]{figuren/mobile-devices.jpg}
@@ -41,8 +42,7 @@ Er dient echter wel opgemerkt te worden dat tien jaar voordien, Microsoft al eer
 \subsection{Kenmerken}
 Door de vele verschillende soorten en modellen mobiele apparaten, is het nodig om op een hoog niveau te bekijken over welke kenmerken deze allemaal (kunnen) beschikken. 
 Bij deze bespreking wordt ingegaan op de voornaamste kenmerken van smartphones en tablets. 
-%TODO kenmerken en tekst?
-De kenmerken en tekst zijn gebaseerd op Phil Dutson~\cite{PhilDutson2012}.
+De kenmerken en bijhorende uitleg zijn gebaseerd op Phil Dutson~\cite{PhilDutson2012}.
 
 \subsubsection{Resolutie en PPI}
 Een eerste kenmerk waar vooral Apple met haar Retina graag mee uitpakt, is de resolutie. 
@@ -70,19 +70,16 @@ Sommige bevatten zelfs twee camera's.
 De camera vooraan is veelal van mindere kwaliteit en wordt gebruikt om videogesprekken te voeren. 
 Achteraan het apparaat zit dan een camera met hogere resolutie om foto's van betere kwaliteit te kunnen maken.
 
-%TODO augmented reality + beter uitwerken (te vaag) Tim: ok?
 Twee voorbeelden van toepassingen van de camera zijn toegevoegde realiteit (\term{augmented reality}) en het inscannen van barcodes.
 Bij het eerstgenoemde kijkt de gebruiker met de camera van zijn mobiel apparaat naar de wereld.
 Op het scherm wordt het beeld live getoond en wordt hieraan extra informatie toegevoegd.
-Zo kan bijvoorbeeld een gebruiker naar een berglandschap kijken en zal toegevoegde realiteit ervoor zorgen dat de namen van de toppen van de bergen verschijnen.
-Hierdoor ziet de gebruiker extra informatie die hij anders niet kreeg als hij gewoon naar dit berglandschap keek.
+Zo kan bijvoorbeeld een mobiel apparaat dat naar een persoon wordt gericht, ervoor zorgen dat er extra informatie over deze persoon verschijnt.
 
 Het laatstgenoemde wordt bijvoorbeeld gebruikt om de Quick Response Code (QR-code) in te scannen en te zien wat deze betekent.
 Zo een code kan tekst bevatten, een link naar een website, een telefoonnummer, enzovoort. 
 
 \subsubsection{Verbinding}
-%TODO eerste zin herschrijven
-Iedereen wil zoveel mogelijk met elkaar en het Internet verbonden zijn en dit kan ook op mobiele apparaten. 
+Mobiele apparaten zijn in staat met elkaar en met het Internet verbonden te zijn.
 Enerzijds kan gebruik worden gemaakt van mobiel Internet en anderzijds van draadloos Internet.
 Daarnaast kan data ook uitgewisseld worden tussen apparaten, zonder hiervoor het Internet te gebruiken.
 Een voorbeeld hiervan is Bluetooth dat een draadloze verbinding op korte afstand opzet.
@@ -90,8 +87,7 @@ Een voorbeeld hiervan is Bluetooth dat een draadloze verbinding op korte afstand
 \paragraph{Mobiel Internet}
 Om dit in perspectief te plaatsen wordt eerst even teruggegaan in de tijd van mobiele communicatie.
 In de jaren '80 was er 1G, de eerste generatie mobiele telefonie, waarbij gesprekken analoog werden verzonden.
-%TODO SMS tekstberichten?
-2G gebruikte daarentegen een digitaal netwerk, waarbij nieuwe diensten zoals SMS tekstberichten beschikbaar werden~\cite{Miami2008}.
+2G gebruikte daarentegen een digitaal netwerk, waarbij nieuwe diensten zoals Short Message Service (SMS) beschikbaar werden~\cite{Miami2008}.
 
 Op de overgang van 2G naar 3G worden General Packet Radio Service~(GPRS) en Enhanced Data Rates for GSM Evolution~(EDGE) geplaatst.
 GPRS is een uitbereiding op 2G waarbij data over het mobiele netwerk kan worden uitgewisseld.
@@ -120,13 +116,12 @@ Doordat het wat kan duren vooraleer de locatie is vastgesteld via GPS, kan het m
 \section{Mobiele besturingssystemen}
 \label{sec:mobiele-besturingssystemen}
 Net zoals er een brede waaier bestaat aan besturingssystemen voor computers, geldt dit ook zo voor mobiele apparaten. 
-%TODO herschrijven, windows phone bestaat al langer, maar gewoon onder nieuwe naam (nieuwe branding) Tim: is windows phone eigenlijk belangrijk, want we doen daar niets mee?
+%TODO herschrijven, windows phone bestaat al langer, maar gewoon onder nieuwe naam (nieuwe branding) 
 In deze sectie wordt een overzicht gegeven van mobiele besturingssystemen met een significant marktaandeel~\cite{David2011, Hales2012} zoals iOS en Android, maar ook een nieuwkomer op de markt, namelijk Windows Phone.
 iOS en Android haalden respectievelijk 14,9\% en 75,0\% in het derde kwartaal van 2012.
 Windows Phone haalt 2\% van het marktaandeel binnen in datzelfde kwartaal~\cite{Protalinski2012}.
 
-%TODO over de winkel praten?
-Bij ieder besturingssysteem zal ook over de winkel gepraat worden waar applicaties kunnen worden gevonden.
+Bij ieder besturingssysteem zal ook over de winkel besproken worden waar applicaties kunnen worden gevonden.
 Net zoals programma's geïnstalleerd worden op een computer, kan dit ook voor mobiele apparaten.
 Deze aangeboden applicaties worden verzameld in een winkel waarna de gebruiker ze, al dan niet gratis, kan downloaden en installeren.
 De winkel kan de kwaliteit van deze applicaties hoog houden door regels op te leggen aan de ontwikkelaars (zie \ref{sec:mobiele-applicaties}).
@@ -195,9 +190,8 @@ Op tabel \ref{tabel:marktaandeel-ios-android} is het marktaandeel te zien van de
 Het is duidelijk dat Android~2.x bijna de helft van het marktaandeel inneemt.
 Applicaties worden gedownload van Google Play,  de winkel van Android. 
 De controle op de kwaliteit van de aangeboden applicaties is minder strikt dan die van Apple.
-De applicaties moeten aan een aantal algemene regels voldoen, maar het basisconcept is dat van permissies~\cite{Android2013b}.
-%TODO permissie: anders omschrijven?
-Als een ontwikkelaar in zijn applicatie bijvoorbeeld wil gebruik maken van de SMS-berichten van de gebruiker, zal hij eerst de permissie moeten krijgen van de gebruiker.
+De applicaties moeten aan een aantal algemene regels voldoen, maar het basisconcept is dat van machtigingen~\cite{Android2013b}.
+Als een ontwikkelaar in zijn applicatie bijvoorbeeld wil gebruik maken van de SMS-berichten van de gebruiker, zal hij eerst de machtiging moeten krijgen van de gebruiker.
 Dit gebeurt net voor de installatie van de applicatie op Google Play.
 Indien de gebruiker hier niet mee akkoord gaat, kan hij de applicatie niet downloaden~\cite{Android2013a}.
 Android bevat de Android browser als standaard browser (zie \ref{sec:android-browser}).
@@ -219,12 +213,10 @@ Er zijn drie mogelijkheden om mobiele applicaties te maken~\cite{Accenture2012,H
 Deze wordt geprogrammeerd gebruikmakend van een webtechnologie zoals HTML5 (zie \ref{sec:html5-css3-js}) en wordt geopend vanuit een webbrowser. 
 
 Een andere aanpak is een \term{native} applicatie. 
-%TODO SDK ipv programmeertaal?
-Deze wordt geprogrammeerd in een programmeertaal specifiek aan het besturingssysteem.
+Deze wordt geprogrammeerd in een SDK specifiek aan het besturingssysteem.
 Daarna wordt de applicatie opgeladen naar een winkel (bv. App Store voor iOS).
 Het concept van een winkel komt er doordat het mobiel apparaat reeds met voorgeïnstalleerde applicaties wordt gekocht en de gebruiker nadien zelf nog extra applicaties kan toevoegen.
-%TODO GSM = netwerk Tim: zin gewoon weg?
-Dit is in tegenstelling tot een traditionele GSM, waar de gebruiker beperkt was tot enkel de geïnstalleerde applicaties. 
+Dit is in tegenstelling tot een \term{feature phone}, waar de gebruiker beperkt was tot enkel de geïnstalleerde applicaties. 
 De ontwikkelaar laadt zijn applicatie op naar de winkel, waarna de winkel deze kan onderwerpen aan een kwaliteitscontrole.
 Eenmaal gepubliceerd op de winkel kunnen gebruikers de applicatie downloaden en installeren op hun apparaat.
 
@@ -264,11 +256,9 @@ Zo kunnen \term{native} applicaties gemakkelijker CPU-intensieve encryptie uitvo
 Als laatste kan worden opgemerkt dat het gebruik van een winkel (bv. App Store) voor het aanbieden van een applicatie een voordeel is.
 Ten eerste maakt een winkel het distribueren van de applicatie gemakkelijker.
 Ten tweede zorgt de winkel voor de correcte uitbetaling als gebruikers de applicatie downloaden.
-%TODO kwaliteit: algemener
-Als laatste controleert de winkel de kwaliteit van de applicaties, wat niet het geval is voor webapplicaties.
+Als laatste controleert de winkelt de applicatie, wat niet het geval is voor webapplicaties.
 
-%TODO weeral: SDK ipv taal
-Zoals opgemerkt bij webapplicaties ligt het nadeel bij \term{native} applicaties dat deze worden geprogrammeerd in een taal specifiek tot het besturingssysteem.
+Zoals opgemerkt bij webapplicaties ligt het nadeel bij \term{native} applicaties dat deze worden geprogrammeerd met behulp van een SDK specifiek tot het besturingssysteem.
 Voorbeelden hiervan zijn Objective-C voor iOS en Java voor Android.
 Om een applicatie voor beide te schrijven, dient de code in twee verschillende programmeertalen te worden geschreven én te worden onderhouden.
 
@@ -276,7 +266,7 @@ Om een applicatie voor beide te schrijven, dient de code in twee verschillende p
 \label{sec:literatuur-hydribe}
 Het voordeel van een hybride applicatie is dat ze de problemen van webapplicaties oplossen met de voordelen van \term{native} applicaties.
 Hierdoor kunnen specifieke kenmerken van het mobiel apparaat benaderd worden die vanuit een pure webapplicatie niet konden worden benaderd.
-%TODO waarom?
+Dit komt omdat hybride raamwerken een API gebruiken die toegang heeft tot de hardware van het apparaat.
 Daarentegen is HTML5 vanaf december~2012 in \term{candidate recommendation} gegaan~\cite{Jacobs2012}.
 Dit impliceert de opkomende ondersteuning van HTML5 in hedendaagse browsers.
 Hierdoor zullen hybride applicaties waarschijnlijk achterhaald worden naar mate de tijd vordert.
@@ -332,8 +322,7 @@ Een \term{engine} zorgt ervoor dat de code van de opgehaalde webpagina wordt omg
 \label{sec:mobile-safari}
 Deze webbrowser van Apple zit standaard bij iOS en kan ook enkel op dit besturingssysteem worden gebruikt. 
 Apple heeft veel moeite gedaan om telkens de laatste nieuwe specificaties van HTML5 in zijn webbrowsers te implementeren~\cite{Hales2012}. 
-%TODO wetenschappelijker maken
-Natuurlijk zal dit ook te maken hebben met het feit dat ze geen Adobe Flash~\cite{Adobe2013} meer ondersteunen op hun iPods, iPhones en iPads~\cite{Jobs2010}.
+Verder biedt Apple vanaf 2010 geen ondersteuning meer voor Adobe Flash~\cite{Adobe2013} op hun iPods, iPhones en iPads~\cite{Jobs2010}.
 
 \paragraph{Android browser}
 \label{sec:android-browser}
@@ -348,9 +337,8 @@ Deze gebruikt dezelfde \term{engine} als Internet Explorer 10.
 \term{WebSockets}, \term{Web Workers}, \term{Application Cache} en \term{IndexedDB} worden hierin ondersteund~\cite{Hales2012}.
 Deze kenmerken worden in meer detail uitgelegd in sectie~\ref{sec:html5-css3-js}.
 
-%TODO: moet ik die browser vermelden? is dat nodig? was toen omdat hij de beste browser was, maar nu niet meer
+%TODO: weglaten (tim)
 \paragraph{Opera Mobile/Mini}
-%TODO klopt niet meer, is nu blackberry 10
 Op het moment van schrijven is Opera Mobile 12.10 de beste mobiele HTML5-browser~\cite{Sights2012}. 
 Opera heeft eigenlijk twee aparte browsers, namelijk Opera Mobile en Opera Mini. 
 Bij deze laatste staat de browser \term{engine} op servers van Opera, waardoor het niet het mobiel apparaat is die de webpagina verwerkt. 
@@ -379,9 +367,7 @@ Als reactie van het W3C werd hierop  een nieuwe versie, namelijk XHTML 2, uitgeb
 De manier waarop webpagina's werden geschreven veranderde doordat vele tags waren veranderd of verwijderd. 
 Daarenboven sleepte deze nieuwe standaard maar aan en aan, wat ook niet in hun voordeel was. 
 
-%TODO hieronder is het onduidelijk wat er gezegd wordt
-In plaats van te onderzoeken wat er mis was met HTML, wat XHTML probeerde te doen, werd in 2004 onderzocht wat er ontbrak. 
-Opera Software, Mozilla Foundation en Apple vormden de WHATWG (Web Hypertext Application Technology Working Group). 
+In 2004 werd WHATWG (Web Hypertext Application Technology Working Group) door Opera Software, Mozilla Foundation en Apple gevormd. 
 Ze wilden HTML niet vervangen, maar uitbreiden en die manier moest achterwaarts compatibel zijn. 
 Na reflectie geloofde ook het W3C in deze aanpak, weliswaar op hun eigen manier.  
 Zo werd HTML5 geboren, waarbij versie~5 refereert naar waar de vorige versie, HTML~4.01, gestopt was.
@@ -399,8 +385,7 @@ De eerste is achterwaartse compatibiliteit.
 De standaard mag geen veranderingen invoeren die oudere pagina's zou doen breken. 
 Ten tweede moet de standaard geen nieuwe specificaties afdwingen die door de meerderheid op een andere manier worden gedaan. 
 Als laatste moeten de specificaties ook een praktisch nut hebben. 
-%TODO herschrijven
-Dit betekent dat daar waar veel vraag naar is, ook het beste opweegt om in de specificaties op te nemen.
+Waar veel vraag naar is, weegt het best op om in de specificaties opgenomen te worden.
 
 \subsubsection{Acht technologieklassen}
 HTML5 kan ook bekeken worden volgens acht technologieklassen~\cite{W3C2012}. 
@@ -438,21 +423,16 @@ Hierdoor moet de webpagina niet meer voortdurend de server raadplegen, wat veel 
 Webapplicaties kunnen meer en meer kenmerken zoals camera en GPS aanspreken net zoals \term{native} applicaties dat kunnen. 
 \end{enumerate}
 
-%TODO geolocatie nog niet aangehaald?
-Er dient opgemerkt te worden dat aangehaalde klassen zoals CSS3 en geolocatie niet tot de specificaties van HTML5 behoren. 
-Toch worden ze onder de koepel van HTML5 gezien~\cite{MacDonald2011}.
-
 \subsubsection{Kenmerken detecteren en opvullen}
 Door enerzijds de levendigheid van HTML5 en anderzijds het verdeelde landschap van browsers en besturingssystemen, worden niet alle kenmerken van HTML5 overal ondersteund. 
 Hierdoor zal ten eerste moeten worden gedetecteerd of het kenmerk al dan niet wordt ondersteund.
 Ten tweede, indien het kenmerk niet wordt ondersteund, zal het moeten worden opgevuld met een vervanger.
 Ten derde zal deze aanpak ook vervat worden in de werking van de raamwerken (zie hoofdstuk \ref{chap:raamwerken}) onder de vorm van \emph{progressive enhancement} en \emph{graceful degradation}.
-Deze drie ideeën worden hieronder kort toegelicht.
+Deze drie ideeën worden hieronder kort toegelicht~\cite{MacDonald2011}.
 
 \paragraph{Kenmerken detecteren}
-Er kan zelf worden opgezocht welke kenmerken op welke apparaten werken. 
-%TODO staat MacDonald2011 referentie (HTML5 missing manual) op zn plaats? Tim: de tekst komt uit MacDonald2011
-Dit kan bijvoorbeeld gecontroleerd worden op websites Can I Use en Mobile HTML5 Compatibility~\cite{Deveria2013c,Firtman2013a,MacDonald2011}. 
+Er kan zelf worden opgezocht welke kenmerken op welke apparaten werken.
+Dit kan bijvoorbeeld gecontroleerd worden op websites Can I Use~\cite{Deveria2013c} en Mobile HTML5 Compatibility~\cite{Firtman2013a}. 
 
 Wat nog handiger is, is om op het apparaat zelf te detecteren of het gewenste kenmerk beschikbaar is. 
 Een tool die hiervoor kan worden gebruikt, is Modernizr~\cite{Modernizr2012}. 
@@ -463,7 +443,7 @@ Wanneer eenmaal gedetecteerd is dat een kenmerk niet aanwezig is, zijn er twee m
 Een voorbeeld van dit eerste kan gebeuren bij het gebruiken van de \code{video}-tag. 
 Indien dit niet wordt ondersteund, kan worden teruggevallen op de Adobe Flash plug-in~\cite{Adobe2013}. 
 Voor het simuleren van een kenmerk wordt gebruik gemaakt van \term{polyfills}. 
-Dit zijn alternatieven op basis van \js{} waarbij de \term{native} functionaliteit die normaal aanwezig moet zijn, geëmuleerd wordt~\cite{MacDonald2011,Weyl2011}.
+Dit zijn alternatieven op basis van \js{} waarbij de \term{native} functionaliteit die normaal aanwezig moet zijn, geëmuleerd wordt~\cite{Weyl2011}.
 
 \paragraph{Progressive enhancement en graceful degradation}
 \label{par:progressive-enhancement}
@@ -479,7 +459,6 @@ Daarna, als de ontwikkelaar nog tijd heeft, gaat hij \term{fallbacks} implemente
 \subsection{CSS3}
 \label{ref:css3}
 CSS3 zorgt voor de presentatie en is het hart van webdesign. 
-%TODO onderstaande zin. Tim: ok?
 Net zoals HTML5 heeft CSS3 hetzelfde probleem als het aankomt op de ondersteuning bij browsers~\cite{MacDonald2011}. 
 Ook hier is er dus een brede waaier aan kenmerken die nog niet overal worden ondersteund. 
 Kenmerken die enkel in een bepaalde browser ondersteund worden, worden voorafgaan door een browserprefix (zoals \code{-webkit-} voor WebKit gebaseerde browsers en \code{-o-} voor Opera).
@@ -513,12 +492,7 @@ Waar vroeger enkel gewerkt kon worden met veilige lettertypes voor het web, is h
 \subsection{\js}
 \label{ref:javascript}
 \js{} gaat terug tot in 1995, toen LiveScript genoemd~\cite{McFarland2011}. 
-%TODO gesproken taal, beter maken
-Het heeft een lange weg afgelegd tot nu en is niet altijd even ernstig genomen. 
-Dit kwam omdat er niet werd ingezien wat er allemaal mee kon worden gedaan. 
-
-Op dit moment is het maar al te duidelijk waar \js{} in uitblinkt: het aanpassen van het \term{document object model}~(DOM)~\cite{PhilDutson2012}. 
-Dit is een API voor HTML-documenten~\cite{Hegaret2004}. 
+Het is in staat het \term{document object model}~(DOM) aan te passen~\cite{PhilDutson2012},  dat is een API voor HTML-documenten~\cite{Hegaret2004}. 
 Hierdoor kunnen dynamische interfaces gecreëerd worden, kan op gebeurtenissen - zoals ergens op klikken - onmiddellijk gereageerd worden en is de website dan ook meer bruikbaar geworden door deze directe feedback~\cite{McFarland2011}.
 
 Het schrijven van \js{} is niet gemakkelijk om twee redenen~\cite{McFarland2011}. 
@@ -540,8 +514,7 @@ Het is ook mogelijk om deze bibliotheek uit te breiden met verscheidene plug-ins
 
 Om het ontwikkelingsproces van mobiele HTML5-applicaties te versnellen, worden raamwerken aangeboden die helpen bij de functionaliteit van de applicatie en de elementen voor de gebruikersinterface.
 In deze sectie wordt ingezoomd op bestaande mobiele HTML5-raamwerken die gebruik maken van de laatste nieuwe technologieën zoals HTML5, CSS3 en \js{}.
-%TODO als paddenstoelen...
-Doordat deze raamwerken als paddestoelen uit de grond schieten, is het onmogelijk om deze allemaal te bespreken en te vergelijken.
+Doordat deze raamwerken er in overvloed zijn, is het onmogelijk om deze allemaal te bespreken en te vergelijken.
 Hierdoor werden acht raamwerken geselecteerd waarvan uiteindelijk vier raamwerken gedetailleerd besproken en vergeleken zullen worden.
 
 Raamwerken kunnen worden gecategoriseerd volgens twee aanpakken, namelijk opmaakgedreven en \js{}-gedreven~\cite{Oeflman2011}.
@@ -571,7 +544,6 @@ Dit betekent dat de code wordt vrijgegeven als \term{open-source} en dat deze te
 \st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël.
 Ext JS kan als de voorganger van \st{} worden beschouwd. 
 \st{} is net als Ext JS een \js{}-gedreven raamwerk met een MVC-architectuur.
-%TODO aanpassen: gratis - commerciële context Sander ok?
 \st{} biedt een commerciële licentie waarbij het bedrijf in kwestie de broncode niet publiek mag maken.  
 Een \term{open-source} versie van \st{} laat dit wel toe.
 Het gebruik van deze versie vereist wel dat de applicatie zijn broncode deelt (zelf onder een GNU GPLv3-licentie).
@@ -611,11 +583,7 @@ De GI-elementen bootsen de lay-out van een iOS-apparaat na.
 \paragraph{\kendo} % SANDER
 \kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
 Eind 2011 werd de eerste stabiele versie vrijgegeven.
-% Buiten \kendo{} is Telerik voornamelijk gericht op tools voor de ontwikkelaar.
-% Zo ontwikkelen ze DevTools dat een grafische gebruikersinterface aanbiedt bij de ontwikkeling binnen een .NET omgeving.
-% Ze voorzien ook Icenium voor de ontwikkeling van hybride applicaties en kan als de tegenhanger van \kendo{} gezien worden.
 Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-%TODO native look-and-feel bij afbeelding 1 introduceren
 \term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
 \kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur (Model-View-View Model) dat steunt op de jQuery-bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
@@ -744,11 +712,10 @@ Het raamwerk dat de minste lijnen code vereist voor een simpele applicatie, krij
 Hierbij moeten wel alle bestanden gerekend worden die het raamwerk nodig heeft om functioneel te zijn. 
 In zekere zin overlapt dit criterium dus met de \term{proof of concept} werkwijze.
 Licenties krijgen een score van 0 tot 5 waarbij 0 betekent dat het niet beschikbaar is voor een individuele ontwikkelaar en 5 dat het raamwerk \term{open-source} en gratis te gebruiken is. 
-%TODO is het wel duidelijk dat we die tabel niet tonen, maar er gewoon over vertellen?
-Andere factoren zoals omkadering en uitbreidbaarheid worden niet in de vergelijkingstabel opgenomen omdat ze afhangen van de interesse van de gebruiker.  
+Andere factoren zoals omkadering en uitbreidbaarheid worden niet in de vergelijking opgenomen omdat ze afhangen van de interesse van de gebruiker.  
 Ze worden echter wel bekeken.
 
-%TODO populariteit in visionmobile gebruiken bij onze criteria
+
 Het rapport over Cross-platform Developer Tools van Vision Mobile~\cite{Mobile2012} vergelijkt $15$ raamwerken om hybride applicaties te maken.
 Hierbij is ook het raamwerk van Sencha opgenomen.
 In deze vergelijkingsmethode worden de tools voorgesteld op basis van negen criteria:  kosten,  aantal ondersteunde platformen,  performantie,  leercurve,  ervaring met ontwikkeling en debugging,  toegang tot hardware API,  GI-functionaliteiten,  applicatie publicatie en professionele ondersteuning.
@@ -787,7 +754,7 @@ In de tabel wordt een vergelijking weergegeven van onder andere beschikbare them
 
 Een alternatief is de Mobile Frameworks Comparison Chart van Falk waar 43 raamwerken in een vergelijkingstabel zijn opgenomen~\cite{Falk2011}. 
 De vergelijkingscriteria worden opgedeeld in compatibiliteit met het besturingssysteem,  doel van de applicatie,  taal voor ontwikkeling,  hardware-interactie,  GI,  licenties en overige.  
-Deze laatste categorie bevat de criteria of er al-dan-niet een Software Development Kit~(SDK) beschikbaar is, encryptie ondersteund wordt en of advertenties worden ondersteund.  
+Deze laatste categorie bevat de criteria of er al-dan-niet een SDK beschikbaar is, encryptie ondersteund wordt en of advertenties worden ondersteund.  
 Handig hierbij is dat de webpagina een stappenplan voorziet waarin per categorie alle vereisten ingevuld kunnen worden.  
 De resultaten zijn dan de raamwerken die compatibel zijn met deze vereisten.
 

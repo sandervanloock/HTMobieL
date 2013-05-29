@@ -1,19 +1,6 @@
-%TODO: naar vergelijkingshoofdstuk brengen
 \section{Performantie}
 \label{sec:evaluatie-performantie}
-
-Voordat de performantie kan worden besproken, zal formule~\ref{eq:performantie} om de performantie te berekenen, moeten worden herschreven.
-Dit komt doordat de rendertijd zal worden vervangen door de gebruikerservaring van een subjectieve lijsttest.
-De motivatie is hiervoor te vinden in sectie~\ref{sec:evaluatie-gebruikerservaring}. 
-
-De opzet van de nieuwe formule is om een raamwerk dat slecht scoort op de gemiddelde downloadtijd (zie formule~\ref{eq:totale-downloadtijd}), maar sterk scoort op gebruikerservaring, een middelmatige score te geven.
-Aangezien deze laatste geen eenheid heeft en de eerstgenoemde uitgedrukt wordt in seconden, wordt de gemiddelde downloadtijd gedeeld door de gebruikerservaring. De nieuwe formule voor de score voor de performantie wordt:
-\begin{equation}
-  \text{Performantie}'_r = \frac{\text{Gemiddelde downloadtijd}_r}{\text{Gebruikerservaring}_r}
-  \label{eq:performantie-enhanced}
-\end{equation}
-van een raamwerk $r$. 
-De bekomen data voor de vier raamwerken aan de hand van deze nieuwe formule wordt weergegeven in tabel \ref{tabel:evaluatie-performantie}.
+De bekomen data voor de vier raamwerken aan de hand van formule~\ref{eq:performantie-enhanced} wordt weergegeven in tabel \ref{tabel:evaluatie-performantie}.
 Voor de score van performantie geldt hoe kleiner, hoe beter.
 \begin{table}[H]
 \centering
@@ -123,21 +110,7 @@ De webapplicaties gemaakt in \st{} gebruiken daarentegen Sencha Cmd.
 
 \subsection{Gebruikerservaring}
 \label{sec:evaluatie-gebruikerservaring}
-De rendertijd via \js{} kon enkel worden opgemeten in \jqm{} en \kendo{}.
-Bij de twee andere raamwerken werden de betreffende gebeurtenissen niet gevonden om correct de tijd op te meten.
-Doordat er maar data voor twee raamwerken voor handen was, werd deze methode vervangen door de gebruikerservaring van lijst.
-Deze bestaat eruit de vlotheid van het scrollen door de lijst van 850 lijstelementen voor de vier raamwerken op de acht apparaten te vergelijken.
-Per apparaat wordt een score van 1, 2, 3 of 4 uitgedeeld aan de raamwerken.
-Hierbij is 4 de beste score wat overeenkomt met het vlotste scrollen door de lijst relatief ten opzichte van de drie andere raamwerken.
-Deze test werd uitgevoerd door twee personen.
-
-Om de score voor gebruikerservaring van een raamwerk te bepalen worden de scores voor dat raamwerk op ieder apparaat opgeteld. De formule voor gebruikerservaring voor een raamwerk $r$ wordt:
-\begin{equation}
-  \text{Gebruikerservaring}'_r = \sum_{c=1}^{8}{\text{ervaring}_{r,c}}
-  \label{eq:performantie-gebruikservaring}
-\end{equation}
-
-In het bekomen eindklassement komt de hoogste totaalscore overeen met het raamwerk dat de vlotste scrolervaring aanbiedt. In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
+In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 
 \begin{table}
 \centering
@@ -174,7 +147,6 @@ De reden waarom alsook de grens van het aantal lijstelementen wanneer \kendo{} c
 Een mogelijke denkpiste is dat \kendo{} een overhead genereerd die het maximale toegelaten geheugen voor het iOS-besturingssysteem overschrijdt.
 Op Android toestellen kon de \kendo{} lijst echter wel worden getoond.
 De score van \kendo{} is dus slechts voor vier apparaten.
-
 
 %%%%%%%%%%%%%%%%%%
 

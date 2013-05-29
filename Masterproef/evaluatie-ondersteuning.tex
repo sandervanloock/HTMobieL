@@ -1,7 +1,7 @@
 \section{Ondersteuning}
 \label{sec:evaluatie-ondersteuning}
 
-%TODO ref formule
+%TODO ref formule (tim)
 In deze sectie zal de ondersteuning van de raamwerken op mobiele apparaten worden onderzocht.
 In de secties \ref{sec:evaluatie-ondersteuning-toestel} tot \ref{sec:evaluatie-ondersteuning-offline} zal iedere uitdaging per raamwerk uitvoerig worden besproken.
 Voor de score van ondersteuning wordt naar formule \ref{eq:ondersteuning} verwezen.
@@ -106,8 +106,7 @@ Daarom verschilt de maximale score voor ondersteuning per raamwerk.
 Welke uitdagingen door het raamwerk konden worden geïmplementeerd werd in het vorige criterium geduid.
 De maximale scores voor \st{},  \kendo{},  \jqm{} en \lungo{} zijn respectievelijk $96$, $104$, $104$ en $80$.
 De score voor ondersteuning is respectievelijk $83$, $92$, $95$ en $62$.
-%TODO we
-Wanneer we de relatieve score per raamwerk bekijken heeft \st{} een score van $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo{} $78\%$.
+Wanneer de relatieve score per raamwerk bekeken wordt, heeft \st{} een score van $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo{} $78\%$.
 Er kan dus meteen geconcludeerd worden dat de raamwerken buiten \lungo{} behoorlijk hoog scoren.
 Dit wil zeggen dat de keuze voor één van de drie raamwerken onafhankelijk is van de ondersteuning.
 Dezelfde apparaten worden door de verschillende raamwerken ondersteund of niet.
@@ -121,8 +120,7 @@ De grootste problemen werden bij formulieren waargenomen.
 Ook kon er niet genavigeerd worden doorheen de volledige POC op de \htc{} en \gtab{}. 
 Dit komt doordat de \term{tap} gebeurtenis werd gebruikt om te navigeren.
 Op de \htc{} en \gtab{} werden deze echter niet afgevuurd.
-%TODO schrijfwijze dubbel klikeffect?
-Op de andere toestellen had dit een dubbel klikeffect.
+Op de andere toestellen had dit een dubbelklikeffect.
 Hierdoor gebeurde de eerste klik op het huidig scherm en de tweede klik op het volgende.
 Zo kan het bijvoorbeeld gebeuren dat een menu op het volgende scherm al openklapt, zonder dat de gebruiker dit verwachtte.
 
@@ -174,7 +172,7 @@ Bij \jqm{} en \lungo{} geldt dit niet wanneer de applicatie liggend wordt opgest
 In tabel \ref{tabel:evaluatie-ondersteuning-formulieren} worden de resultaten getoond van de vijf deeluitdagingen van \uit{formulieren}.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
-%TODO in tabel staat U4.4 aangepaste datepicker maar dit moet gewoon een datepicker zijn
+%TODO in tabel staat U4.4 aangepaste datepicker maar dit moet gewoon een datepicker zijn (extra commando voor datepicker) (tim)
 \begin{table}
 \centering
 \resizebox{14cm}{!} {
@@ -221,7 +219,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-%TODO score 3/8 voor zowel 4.1 en 4.3?
 Alle smartphones en de \gtab{} vertoonden een probleem bij de labels van de \code{optie}knoppen.
 Deze zijn nodig om het type van uitgave te selecteren bij het aanmaken van een nieuwe uitgave.
 Alle labels buiten \term{Hotel} en \term{Restaurant} zijn te lang om in de voorziene ruimte weer te geven.
@@ -249,19 +246,16 @@ De schakelaar en optievelden werkten op elk apparaat.
 Op iedere deeluitdaging behaalt \jqm{} de maximumscore.
 Het scrollen in de \term{datepicker} werkte echter niet vloeiend op de \htc{} en \gtab{}, maar de functionaliteit werkte wel.
 Op de \ipadi{} werd opgemerkt dat door de lokale instellingen, een scheidingsteken voor de duizendtallen werd gebruikt voor het getal in het nummerveld.
-%TODO geldt voor alle frameworks
-Als laatste bleken er verschillende implementaties van de \js{}-functie \code{new Date(dateString)} doorheen de apparaten.
-%TODO welke problemen?
-Als \code{dateString} werd het patroon \code{jaar/maand/dag} uiteindelijk gebruikt, want het patroon \code{jaar-maand-dag} gaf op de \htc{} en \gtab{} anders problemen.
+%Als laatste bleken er verschillende implementaties van de \js{}-functie \code{new Date(dateString)} doorheen de apparaten.
+Als \code{dateString} werd het patroon \code{jaar/maand/dag} uiteindelijk gebruikt, want het patroon \code{jaar-maand-dag} gaf op de \htc{} en \gtab{} een ongeldige datum.
 De schakelaar en optievelden werkten op elk apparaat.
 
 \paragraph{\lungo}
-%TODO U4.1 heeft 8/8?
 De slechtste ondersteuning was op de \htc{} en \gtab{}.
 Met deze toestellen kon zeer moeilijk op de velden worden geklikt.
 Soms lukte dit, soms lukte dit niet.
-%TODO U 4.2 heeft 6/8?
-Daarenboven kwam er geen aangepast toetsenbord voor een formulierveld van het type e-mail.
+Dit wordt niet in de punten gereflecteerd.
+Daarenboven kwam er op deze apparaten geen aangepast toetsenbord voor een formulierveld van het type e-mail.
 De aangepaste \term{datepicker} werkte op ieder toestel, wat in schril contrast staat met de schakelaar die op geen enkel toestel correct werkte.
 Deze laatste deed verschillende acties naargelang geklikt of ge\term{swipe}d werd op de schakelaar.
 

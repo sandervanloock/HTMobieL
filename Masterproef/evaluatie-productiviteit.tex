@@ -3,7 +3,7 @@
 
 In deze sectie zal de productiviteit van de vier raamwerken worden onderzocht.
 %Voor de score van productiviteit wordt naar formule \ref{eq:productiviteit} verwezen.
-%TODO Sander: tabel met enkel uren van loginapplicatie
+%TODO Sander: tabel met enkel uren van loginapplicatie (sander)
 Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde scores.
 
 \begin{table}
@@ -33,33 +33,29 @@ Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde s
 \label{tabel:evaluatie-productiviteit}
 \end{table}
 
-% \lungo{} is de afgetekende winnaar,  gevold door \kendo{} en \jqm{}. 
-% \st{} blijkt het minst productief te zijn.
-% De productiviteit van \lungo{} stijgt met $71\%$ ten opzichte van \jqm{}.
-% De productiviteit van \kendo{} stijgt met $44\%$ ten opzichte van \st{}.
-
-% De belangrijkste factor waarom \lungo{} en \kendo{} beter scoren is omdat beide raamwerken als tweede werden behandeld.
-% De POC werd eerst in \jqm{} en \st{} geïmplementeerd.
-
-
 De uren voor de implementatie van de loginapplicatie tonen dat \jqm{} productiever is dan \lungo{}. 
 Hierna volgt \kendo{} en \st{}.
-De productiviteit van \lungo{} stijgt met $11.7\%$ ten opzichte van \jqm{}.
-De productiviteit van \kendo{} stijgt met $31.8\%$ ten opzichte van \st{}.
-%TODO: ofwel die stijgingen in % ergens in een tabel zetten?
-% De relatieve verschillen tussen \jqm{} en \lungo{} en tussen \st{} en \kendo{} zijn ook verkleind.  
-% Respectievelijk een stijging van $11.7\%$ en een daling met $31.8\%$.
-Hieruit volgen twee conclusies: het type raamwerk (\js-gedreven of opmaakgedreven) en het al dan niet afdwingen van een architectuur bepalen de productiviteit.
+Er zijn twee conclusies: het type raamwerk (\js-gedreven of opmaakgedreven) en het al dan niet afdwingen van een architectuur bepalen de productiviteit.
 Raamwerken zonder architectuur (\jqm{} en \lungo{}) zijn productiever dan raamwerken die een architectuur afdwingen (\st{} en \kendo{}).
 Indien het raamwerk een architectuur afdwingt, dan is een puur \js{}-gedreven raamwerk (in dit geval \st{}) minder productief dan een raamwerk die zowel \js{}- als opmaakgedreven is.
+De productiviteit van \kendo{} is $31.8\%$ groter ten opzichte van \st{}.
 
-\subsection{Lijnen code}
+\subsection{Duiding}
+In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit verklaren.
+
+\paragraph{Lijnen code} 
+
+
 In tabel \ref{tabel:evaluatie-gebruik-loc} staan het aantal lijnen effectief geschreven code getoond dat nodig is om de POC en loginapplicatie te maken.
 %TODO bij de loginapplicatie komen de LOC overeen met productiviteit
-% bij POC tussen kui en jqm is som van html en js lager bij kui. Veel minder schrijven maar minder productief dan jqm.
+% bij POC tussen kui en jqm is som van html en js lager bij kui. Veel minder schrijven maar minder productief dan jqm. (Sander)
+
+%TODO waarom niet in formule?
+% is duiding verklaart de uren (per
 
 Het type van het raamwerk (\js- of opmaakgedreven) komt sterk in de tabel naar boven.
 
+%TODO gonzalo: hours includen 
 \begin{table}
 \centering
 \pgfplotstabletypeset[
@@ -102,10 +98,6 @@ Het type van het raamwerk (\js- of opmaakgedreven) komt sterk in de tabel naar b
 \caption{Overzicht van het aantal lijnen effectief geschreven code.}
 \label{tabel:evaluatie-gebruik-loc}
 \end{table}
-
-\subsection{Duiding}
-In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit verklaren.
-Ze kunnen als factoren worden gezien die de leercurve bepalen.
 
 \paragraph{Tools}
 Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op een grafische tool om het ontwikkelingsproces te vergemakkelijken:  Sencha Architect~\cite{Sencha2012a}.
@@ -156,18 +148,16 @@ Alle kenmerken van \lungo{} worden met codevoorbeelden verduidelijkt.
 Sommige voorbeelden zijn echter incorrect.
 
 \paragraph{Debugging}
-%Het zoeken naar bugs in de code verliep bij elk raamwerk gelijkaardig.
 De applicatie werd lokaal uitgerold en in de Web Inspector van Chrome gedebugd.
-%TODO USB voluit en in lijst?
-Debuggen op de apparaten kon door deze te connecteren met de computer via USB.
+Debuggen op de apparaten kon door deze te connecteren met de computer via Universal Serial Bus (USB).
 Enkel Android toestellen met een Chrome browser kunnen worden gedebugd met de Web Inspector van het apparaat.
 Debuggen op iOS toestellen kan op een Mac met dezelfde Web Inspector maar in de Safari browser.
 Dit werkt echter niet op \ipadi{}.
 
 \paragraph{Literatuur}
 Zowel \jqm{} als \st{} werden vaak in de literatuur aangehaald.
-%TODO referentie safaribooks?  Ik wil zeggen dat het boek volledig over het raamwerk gaat en niet enkel voorkomt in het boek. Is dat dan zo voldoende?
-Op Safari Books Online kunnen 13 boeken teruggevonden worden die volledig op \jqm{} zijn toegespitst.
+%TODO referentie safaribooks?  (sander)
+Op Safari Books Online kunnen 13 boeken teruggevonden worden die uitsluitend \jqm{} behandelen.
 Het boek van Dutson in de Sam Teach Yourself serie werd gebruikt om met \jqm{} vertrouwd te geraken~\cite{PhilDutson2012}.
 Ook Pro jQuery Mobile van Broulik~\cite{Broulik2012} werd gelezen maar dit is nagenoeg een kopie van de documentatie en bevat bijgevolg niet veel extra informatie.
 Vier boeken over \st{} kunnen op Safari Books Online worden teruggevonden.

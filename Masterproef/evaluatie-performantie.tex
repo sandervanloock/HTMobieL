@@ -1,5 +1,7 @@
 \section{Performantie}
 \label{sec:evaluatie-performantie}
+
+%TODO eq (tim)
 De bekomen data voor de vier raamwerken aan de hand van formule~\ref{eq:performantie-enhanced} wordt weergegeven in tabel \ref{tabel:evaluatie-performantie}.
 Voor de score van performantie geldt hoe kleiner, hoe beter.
 \begin{table}
@@ -43,6 +45,7 @@ Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{s
 \subsection{Gemiddelde downloadtijd}
 \label{sec:evaluatie-downloadtijd}
 
+%TODO gonzalo: beschrijven formules
 De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd}.
 De gemiddelde downloadtijd voor de loginapplicatie als de loginapplicatie uit cache worden bepaald volgens formule~\ref{eq:totale-downloadtijd} en \ref{eq:totale-gebruikerservaring}.
 De uitkomsten hiervan worden weergegeven in tabel~\ref{tabel:evaluatie-performantie-downloadtijd}.
@@ -155,6 +158,7 @@ De score van \kendo{} is dus slechts voor vier apparaten.
 
 In wat volgt zullen metrieken worden besproken die de score van de performantie zullen duiden.
 De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklaring} en figuur \ref{fig:performantie}.
+%TODO Gonzalo wat in tabel en figuur te zien?
 
 \begin{table}
 \centering
@@ -207,8 +211,7 @@ De eerste keer laden van de loginapplicatie duurt gemiddeld $3,32\unit{s}$.
 Indien deze uit cache komt, duurt dit gemiddeld nog slechts gemiddeld $420\unit{ms}$.
 
 
-%TODO we
-Indien we enkel de downloadtijd in rekening brengen en \st{} buiten beschouwing laten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$.
+Indien enkel de downloadtijd in rekening wordt gebracht en \st{} buiten beschouwing wordt gelaten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$.
 Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993}.
 De gebruiker zal de vertraging waarnemen maar de aandacht niet verliezen.
 Het initieel laden van de POC implementatie met \st{} moet van een laadscherm worden voorzien omdat de downloadtijd $> 10\unit{s}$.

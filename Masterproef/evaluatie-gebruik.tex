@@ -4,7 +4,7 @@
 
 %TODO losstaande zinnen: plakken bij het vorige?
 
-%TODO alleen-lezen ipv read only zal de leesbaarheid ook vergemakkelijken
+%TODO alleen-lezen ipv read only zal de leesbaarheid ook vergemakkelijken (tim)
 
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
@@ -105,8 +105,7 @@ De \code{items} eigenschap bevat dan een lijst van \code{Views} met een titel wa
 Knoppen van kleur veranderen kan door de \code{style} eigenschap van een knop te zetten.
 
 \paragraph{\kendo}
-%TODO ik weet dat je het over <section> hebt, maar is dat nu nog wel duidelijk? in de volgende zin spreek je ook algemeen over tags ipv specifiek die kop- en voet-tag
-Het skelet van een \code{View} kan in een HTML-sectie worden geschreven.
+Het skelet van een \code{View} kan binnen een HTML-tag worden geschreven.
 Kop- en/of voetteksten toevoegen kan door in het skelet de bijhorende HTML-tags te gebruiken.
 \code{Header}-tags kunnen niet genest worden, dus zijn onderkopteksten niet mogelijk in \kendo{}.
 
@@ -134,9 +133,7 @@ Standaard is er een tabbalk aanwezig in \jqm, maar de POC impliceerde een tabbal
 Daarom werd gekozen voor een formulierveld met twee opties.
 
 ThemeRoller~\cite{JQuery2012c} werd gebruikt om de knoppen groen te maken.
-%TODO onderstaande zin ook 'technisch'? 
-Men sleept in deze webapplicatie de groene kleur op de knop en daarna kan de bijhorende CSS-code worden gedownload. 
-Door daarna de knop te annoteren wordt het betreffende thema geactiveerd. 
+Door daarna de knop te annoteren met de bekomen CSS-klasse, wordt het betreffende thema geactiveerd. 
 Om de knop blauw te maken was er geen nood aan een aanpassing.
 Blauw is al één van de standaard thema's en kon dus direct worden gebruikt.
 
@@ -292,8 +289,8 @@ De dialoogvensters kunnen met gelijknamige functies opgeroepen worden,  waarbij 
 Het raamwerk biedt methoden om het laadscherm te tonen of te verbergen.
 De laadtekst voor alle laadschermen wordt opgegeven bij de initialisatie van de applicatie.
 
-%TODO is dat niet te technisch?
-Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd (niet te verwarren met het \code{View Model} van de MVVM-architectuur).
+Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd.
+Dit is niet hetzelfde met de View Model component van de MVVM-architectuur.
 % Het attribuut \code{data-role} moet \code{modelview} als waarde hebben om een HTML-fragment als dialoogvenster te definiëren.
 % Dit fragment kan kop- en/of voetteksten bevatten.
 Het is mogelijk een \code{ModelView} in \js{} te selecteren en bijhorende methoden op te roepen.
@@ -316,7 +313,6 @@ De parameters bevatten de titel, omschrijving, tijd op het scherm en de functie 
 Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
 Deze zullen respectievelijk een groene en rode kleur hebben.
 
-%TODO is dit dan iets specifiek technisch?
 Het laadscherm wordt in samenwerking met de AJAX-verzoeken gebruikt.
 Net voor het AJAX-verzoek zal het laadscherm worden getoond en in de \term{callback} van het AJAX-verzoek zal het worden verborgen.
 Er treedt echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-verzoeken.
@@ -385,8 +381,7 @@ Ook optievelden of schakelaars kunnen hier aan het formulier worden toegevoegd.
 % \end{itemize}
 
 %Tekst-, e-mail en nummervelden werden aangemaakt met de eerste drie velden.
-%TODO dat neigt naar evaluatie, nee? is ook voor iedereen van toepassing?
-Bij het renderen worden deze tot HTML5-invoertypes omgevormd en bijgevolg zullen op mobiele toestellen bijhorende toetsenborden getoond worden.
+Bij het renderen worden deze tot HTML5-invoertypes omgevormd.
 Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap \code{placeholder}.
 
 \st{} voorziet een \term{datepicker} maar deze is niet aanpasbaar volgens de vereisten van de POC.
@@ -399,47 +394,38 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
 
 \paragraph{\kendo}
 %TODO kan via data-attributen punt en misschien die 2 zinnen samennemen HTML5 data-attributen?
- Formulierelementen definiëren kan via data-attributen door gebruik te maken van de opmaakgedreven aanpak van \kendo.
- Deze methodologie volgt sterk de HTML5-standaard.
+ Formulierelementen definiëren kan via attributen door gebruik te maken van de opmaakgedreven aanpak van \kendo.
 %  Het \code{placeholder}attribuut kan een \term{placeholder} definiëren,  het vermijden van \code{label}-tags zal geen labels genereren.
 %  Het type van het formulierelement moet met het \code{type} attribuut worden gedefinieerd.
-%TODO worden onder andere ondersteund = werden gebruikt?
- Volgende types worden onder andere door \kendo{} ondersteund:  \code{text}, \code{email}, \code{number} en \code{radio}.
+ Volgende HTML5-invoertypes worden onder andere door \kendo{} ondersteund:  \code{text}, \code{email}, \code{number} en \code{radio}.
  HTML5 voorziet het invoertype \code{range} voor een veld met beperkte invoer maar \kendo{} heeft een \code{Switch} om een schakelaar te maken.
 
  \term{Datepickers} worden als \term{widget} aangeboden in \kendo{} Web.
-%TODO door een minimum en maximum op te geven?
- Het bereik van de selectie kan worden ingeperkt door de \code{min} en \code{max} eigenschap te zetten.
+ Het bereik van de selectie kan worden ingeperkt door de minimum en maximum eigenschap te zetten.
  Enkel maand- en jaarvelden tonen, kan door de diepte van de \term{datepicker} in te stellen.
-%TODO technisch?
- Hiervoor moet de eigenschap \code{depth} aan \code{year} worden gelijkgesteld.
  Deze eigenschappen worden bij initialisatie van het object meegegeven.
  
-%TODO de code '(View) Model' vind ik al redelijk technisch. je vertelt ook over die binding van formulierelementen, maar dat is pas nodig in een andere challenge. die laatste zin is precies de hele 'clou' van het verhaal
  Het wissen van formulieren steunt op de MVVM-architectuur.
- Een formulier kan worden gebonden aan een \code{(View) Model}.
- De waarde van elk formulierelement komt dan overeen met de waarde van een eigenschap van dat \code{(View) Model} met dezelfde naam.
- Wanneer een uitgave wordt toegevoegd, zal de huidige waarde van het \code{(View) Model} worden gereset.
- Door de dubbele binding tussen het formulier en het \code{(View) Model} zal ook de inhoud van de formulierelementen worden gewist.
+ Een formulier kan worden gebonden aan een (View) Model.
+ %De waarde van elk formulierelement komt dan overeen met de waarde van een eigenschap van dat (View) Model met dezelfde naam.
+ Wanneer een uitgave wordt toegevoegd, zal de huidige waarde van het (View) Model worden gereset.
+ Door de dubbele binding tussen het formulier en het (View) Model zal ook de inhoud van de formulierelementen worden gewist.
  
 \paragraph{\jqm} 
-%TODO van of aan elkaar placeholderattribuut
-Voor het toevoegen van \term{placeholders} in de formuliervelden werd beroep gedaan op het \code{placeholder}attribuut in HTML5. 
+Voor het toevoegen van \term{placeholders} in de formuliervelden werd beroep gedaan op het \code{placeholder} attribuut in HTML5. 
 Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
 Als er wordt teruggekeerd naar het formulier nadat het verzonden is, bevat het nog alle waarden. 
 Na het versturen van het formulier, wordt het leeggemaakt met behulp van de \code{reset}-functie in \js{}.
  
 Voor de types van de formuliervelden werd beroep gedaan op de HTML-invoertypes. 
 Het type voor een datum werd echter niet gebruikt omwille van twee redenen.
-%TODO reden geldt voor iedereen? mss ergens anders plaatsen?
 Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013c}.
-Android~2.3 ondersteunt dit niet en de \term{placeholder}tekst in het veld ontbrak op iOS~6 en Android~4.2.
+Android~2.3 ondersteunt dit niet en de \term{placeholder} tekst in het veld ontbrak op iOS~6 en Android~4.2.
 Hierdoor weet de gebruiker in eerste instantie niet wat hij hier moet invullen. 
 Zelf een \term{placeholder} instellen is onmogelijk~\cite{Berjon2012}. 
 Een tweede probleem was het opleggen van het bereik van datums, wat ook onmogelijk is. 
-Beide problemen werden opgelost door gebruik te maken van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van \jqm{}. 
-%TODO hieronder houden in tekst?
-Het veld heeft dan wel tekst als type.
+Beide problemen werden opgelost door gebruik te maken van de Date \& Time Picker van Mobiscroll~\cite{Mobiscroll2013} die ook aangepaste lay-out heeft conform met die van \jqm{}.
+Het veld heeft dan wel tekst als invoertype.
 Het is dus in principe mogelijk om iets anders dan een datum in te geven. 
 Dit wordt belet door ook nog eens een datumvalidatie (zie \ref{sec:evaluatie-gebruik-validatie}) te doen op dit tekstveld mocht de plug-in het niet hebben afgedwongen.
  
@@ -468,8 +454,7 @@ De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaa
 
 Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een \term{dropdown}menu. 
 Een schakelaar daarentegen werd dan weer wel aangeboden.
-%TODO of gewoon zeggen 'het gebeurt via js?'
-Het legen van een formulier gebeurt in \lungo{} door de \code{reset}-functie in \js{} op te roepen op dat formulier.
+Het legen van een formulier gebeurt door de \code{reset}-functie in \js{} op te roepen op dat formulier.
 
 %%%%%%%%%%%%%
 
@@ -512,9 +497,8 @@ Twee verschillende methoden worden in de POC gebruikt.
 De eerste methode zal een formulier vullen door er een instantie van een model aan toe te kennen.
 \st{} zal automatisch de velden invullen waarbij de naam gelijk is aan de eigenschap van het model.
 Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op schakelaars.
-%TODO wat bedoel je met apart invullen?
 Er bestaat echter geen exacte mapping tussen een model en een \code{radio}- of \code{select}veld.
-Deze moeten apart worden ingevuld.
+Deze moeten apart worden ingevuld door een extra methode op te roepen.
 % Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
 % Er bestaat geen exacte mapping tussen een eigenschap van een model en een \code{radiofield}.
 
@@ -530,19 +514,16 @@ Deze moeten apart worden ingevuld.
 % Om deze in te vullen moet de \code{setGroupValue} van het veld worden aangesproken.
 
 De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{Navigationview} en wordt besproken in \uit{lijsten}.
-%TODO veel code
 De \code{readOnly} eigenschap bepaalt de aanpasbaarheid van formulierelementen.
-Bij \code{radio}- en \code{select}velden heet deze eigenschap \code{disabled}.
+Bij \code{radio}velden heet deze eigenschap \code{disabled}.
 
 
 \paragraph{\kendo}
 Het invullen van een formulier steunt op de MVVM-architectuur en is gelijkaardig aan het resetten van een formulier.
-%TODO ik begrijp dit hier zelf niet. die laatste twee zinnen zijn voor mij genoeg?
-De dubbele binding tussen een formulier en \code{(View) Model} wordt met een HTML-tag aangegeven.
-Een \code{(View Model} wordt in \kendo{} \code{ObservableObject} genoemd.
-Een \code{Model} heet \code{Model} en erft over van een \code{ObservableObject}.
-Deze laatste breidt een \code{ObservableObject} uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
-In wat volgt zal aangenomen worden dat een \code{ObservableObject} wordt gebruikt in plaats van een \code{Model},  tenzij anders vermeld.
+De dubbele binding tussen een formulier en (View) Model wordt met een HTML-tag aangegeven.
+Een (View) Model wordt in \kendo{} \code{ObservableObject} genoemd.
+Een \code{Model} breidt een \code{ObservableObject} uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
+In wat volgt zal aangenomen worden dat een \code{ObservableObject} wordt gebruikt in plaats van een \code{Model}.
 Om een formulier met data te vullen is het de taak van de programmeur de eigenschappen van het \code{ObservableObject} van de gewenste waarden te voorzien.
 De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 
@@ -554,7 +535,7 @@ De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd.
 Hierdoor moet ieder formulierveld worden gezocht om daarna zijn waarde in te stellen.
 Bij een dropdownmenu en selectieveld kan deze methode niet worden gebruikt.
-%TODO te vage abstractie misschien?
+%TODO te vage abstractie misschien? (tim) juiste optie selecteren
 Daar dient de programmeer geavanceerdere code te schrijven.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
@@ -613,7 +594,7 @@ Dit element kan een \code{Proxy} definiëren die de server aanspreekt om suggest
 
 De \term{backend} van de POC geeft bij een bepaalde invoer suggesties in een JSON-rij terug.
 De rij is voorzien van een sleutel, maar alle elementen van de rij hebben er geen.
-%TODO ik vind die opsomming nu niet meer zo relevant, de clou is dat de aangeboden opties het niet toelaten
+%TODO verplaatsen naar ajax (sander)
 \st{} voorziet drie methoden om de resultaten van een \code{Proxy} te parsen naar modelinstanties:
 \begin{description}
  \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
@@ -626,11 +607,11 @@ Hierdoor kon geen klikbare dropdownmenu worden getoond.
 \paragraph{\kendo}
 Het automatisch aanvullen van een formulierelement wordt als \term{widget} door \kendo{} Web aangeboden.
 Suggesties van het element kunnen zowel door een lokale als externe bron worden aangeleverd.
-%TODO enkel vertellen wat relevant is? ook op het einde code met alle mogelijkheden, je gebruikt enkel 'startswith' neem ik aan?
+%TODO enkel vertellen wat relevant is? Sander
 Externe suggesties moeten via een \code{DataSource} worden ingeladen.
 Een \code{DataSource} ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
 Buiten een \code{DataSource} kan het minimale aantal suggesties en een filter worden opgegeven.
-De filter bepaalt de methode om suggesties op te halen en kan \code{startswith}, \code{endswith} of \code{contains} zijn.
+De filter bepaalt de methode om suggesties op te halen en kan \code{startswith} zijn.
 
 \paragraph{\jqm}
 Indien er wordt gebruik gemaakt van versie~1.2 is een plug-in nodig om auto-aanvulling te bekomen.
@@ -684,8 +665,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\st}
 Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden.
-%TODO beetje rare zin, wrs ook voor die negatievorm van hetgene je eigenlijk nodig hebt voor de POC
-De plug-in is generiek voor het opladen van elk type bestand,  niet uitsluitend afbeeldingen.
+De plug-in is generiek voor het opladen van elk type bestand.
 % Na het toevoegen van de plug-in wordt het \code{xtype} \code{img} beschikbaar voor \st{} componenten.
 
 De plug-in voorziet twee modes voor het opladen van bestanden: lokaal of extern.
@@ -699,27 +679,21 @@ De succesfunctie krijgt de Base64-tekst mee en kan een voorbeeld van de afbeeldi
 
 \paragraph{\kendo}
 \kendo{} Web biedt een \term{widget} aan die het opladen van bestanden toelaat.
-%TODO mode (Eng) = modus (Ned), dus modi ipv modes. anders mss gewoon 'manieren'
-Deze \term{widget} kan in twee modes worden gebruikt: synchroon of asynchroon.
+Deze \term{widget} kan in twee modi worden gebruikt: synchroon of asynchroon.
 In synchrone mode wordt het formulier samen met de afbeelding verzonden als een uitgave wordt toegevoegd.
 In asynchrone mode gebeurt het opladen meteen na het selecteren van de afbeelding.
 Deze methode steunt op de HTML5 FileReaderAPI.
 Omdat een voorbeeld van de afbeelding werd gevraagd, is de asynchrone oplossing gekozen.	
-%TODO gewoon zeggen wat je hebt gebruikt, al die andere mogelijkheden vertel je al in het hoofdstuk raamwerken?
-\kendo{} voorziet \term{backend}integratie met ASP.NET MVC,  JSP en PHP.
-Voor deze drie technologieën is een implementatie beschikbaar om het opladen van bestanden aan serverzijde af te handelen.
-%TODO dus enkel onderstaande zin vind ik relevant
+Voor ASP.NET MVC,  JSP en PHP is een implementatie beschikbaar om het opladen van bestanden aan serverzijde af te handelen.
 Er werd gekozen om de PHP-implementatie te gebruiken.
-%TODO ik zo die succes callback weglaten, en dat met die andere zin binden
-Wanneer een afbeelding succesvol is opgeladen, wordt de \code{success callback} opgeroepen met het bestand als parameter.
-Het bestand wordt met een \code{FileReaderAPI} gelezen,  aan een \code{canvas} toegevoegd en naar Base64 omgezet met de \code{toDataURL}-methode.
+Wanneer een afbeelding succesvol is opgeladen, wordt het bestand met een \code{FileReaderAPI} gelezen,  aan een \code{canvas} toegevoegd en naar Base64 omgezet met de \code{toDataURL}-methode.
 
 \paragraph{\jqm}
 Het toevoegen van een afbeelding gebeurt door het bestandstype als invoertype aan het formulierveld toe te voegen. 
 In versie~1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
 Het omvormen van de afbeelding naar Base64 is analoog aan \kendo{}.
 
-%TODO algemene tekst die voor iedereen van toepassing is?
+%TODO specifiek voor jqm en lungo tim
 Het voorvertonen van de geüploade afbeelding hangt af van het mobiele besturingssysteem.
 Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
 Het is natuurlijk ook mogelijk om de voorvertoning na conversie zelf te tonen op het scherm.
@@ -766,9 +740,8 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-%TODO zeggen die twee zinnen, niet 2x hetzelfde, maar de ene algemeen en de andere technischer?
 Een model kan worden voorzien van validatieregels.
-Deze regels worden in een rij aan de \code{validations}eigenschap van een model toegekend.
+Deze regels worden in een rij aan de \code{validations} eigenschap van een model toegekend.
 % Volgende validatieregels zijn ingebouwd:
 % \begin{description}
 %   \item [presence] verzekert dat het veld een waarde heeft waarbij nul als geldig wordt beschouwd,  lege tekst niet.
@@ -777,7 +750,6 @@ Deze regels worden in een rij aan de \code{validations}eigenschap van een model 
 %   \item [inclusion] verzekert dat de waarde van een veld gelijk is aan een element van een gespecificeerde set.
 %   \item [exclusion] verzekert dat de waarde van een veld zeker niet gelijk is aan een element van een gespecificeerde set.
 % \end{description}
-%TODO in het begin redelijk technisch, ook met die exacte reguliere expressie enzo
 Verplichte velden moeten worden aangeduid met \code{presence}.
 De controle op geldige e-mailadressen kan door \code{email} als validatieregel aan het invoerelement toe te kennen. 
 Controleren op een nummer kan met \code{format} en de \code{\textbackslash{}d+} reguliere expressie. 
@@ -806,11 +778,9 @@ Het \code{required} attribuut maakt de velden verplicht, \code{email} en \code{n
 De \kendo{} \code{validator} is compatibel met deze HTML5-validaties en controleert de validatieregels van invoerelementen.
 Het definiëren van een eigen validatieregel kan door een \js-functie aan de \code{validator} toe te voegen.
 % De validatiecontrole starten kan door de \code{validate}-methode op de \code{validator} op te roepen.
-%TODO is dat relevant, gewoon werking van validation uit te doeken doen? bij ST zeg je zoiets niet dacht ik
 Bij het controleren van invoerelementen worden altijd eerst de standaard validatieregels gecontroleerd,  daarna de eigen validatieregels.
 De volgorde waarin de controles worden uitgevoerd, ligt vast en zal stoppen zodra één controle mislukt.
 
-%TODO veel zeggen wat je 'kan' doen, maar wat heb je gedaan? wat heb je gebruikt?
 Validatieberichten kunnen voor standaard validaties door het raamwerk zelf worden opgebouwd.
 Deze kunnen worden overschreven door zelf een bericht aan het invoerelement toe te kennen.
 Bij eigen validatieregels kan een bericht per validatieregel worden gespecificeerd.
@@ -821,7 +791,7 @@ Deze zal het validatiebericht naast het invalide formulierelement plaatsen.
 
 Een venster tonen waarbij alle foutboodschappen zijn samengevat is ook niet standaard aanwezig.
 De volledige foutboodschap moet worden geconstrueerd door foutboodschappen,  zoals teruggegeven door de \code{validator}, te concateneren.
-Hoe een dialoogvenster gemaakt wordt werd in \uit{laadscherm} besproken.
+Hoe een dialoogvenster gemaakt wordt, werd in sectie \ref{sec:evaluatie-gebruik-laadscherm} besproken.
 
 \paragraph{\jqm}
 Validatie is niet standaard aanwezig in \jqm. 
@@ -951,7 +921,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-%TODO heel veel 'kan' en uitleg wat er allemaal aanwezig is, maar wat heb je nu gebruikt?
 AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{Stores} worden uitgevoerd.
 De expliciete oproep is gelijkaardig aan de \code{\$.ajax}-methode van de jQuery bibliotheek.
 Een enige uitzondering is te vinden bij AJAX-verzoeken naar een ander domein.
@@ -961,6 +930,7 @@ De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{Stores}.
 Een \code{Store} wordt voorzien van een \code{Proxy}.  
 Deze kan data aan de klant- of serverzijde opslaan.  
 Een \code{Proxy} voor opslag aan klantzijde kan zowel in het RAM-geheugen als de lokale opslag van de browser opslaan.  
+%TODO AJAX ook voor cross domain gebruikt (sander)
 Een \code{Proxy} voor serveropslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
 Hierbij kunnen \code{Readers} en \code{Writers} geconfigureerd worden om data van de server te lezen of naar de server te schrijven.
 
@@ -973,7 +943,6 @@ Dit object voorziet CRUD-operaties voor zowel lokale (\js-objecten en \js-rijen)
 De \code{transport} eigenschap kan de configuraties bevatten om data te creëren (\code{create} eigenschap),  lezen (\code{read} eigenschap),  verwijderen (\code{destroy} eigenschap) en op te waarderen (\code{update} eigenschap).
 Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax}-methode van de jQuery bibliotheek.
 
-%TODO wat heb je nu gebruikt bij de implementatie? of beide?
 Hoe data moet worden geparset, staat gedefinieerd in de \code{schema} eigenschap van de \code{DataSource}.
 Zowel JSON als XML worden ondersteund.
 Aan een \code{schema} kan een \code{Model} worden toegekend.
@@ -1063,8 +1032,7 @@ Hier kunnen HTML-tags de lay-out van de lijstelementen vastleggen of kan er \js-
 %   \item Eigen functies in het sjabloon oproepen.
 % \end{itemize}
 
-Zoals reeds besproken bij \uit{vullen}, kan een formulier worden ingevuld met een \code{Navigationview}.
-%TODO redelijk technisch?
+Zoals reeds besproken in sectie \ref{sec:evaluatie-gebruik-vullen}, kan een formulier worden ingevuld met een \code{Navigationview}.
 Deze \code{View} heeft een \code{push}- en \code{pop}-methode om een \code{View} op een \code{stack} te plaatsen of af te halen.
 Om een \code{View} te tonen die hoort bij een lijstelement, wordt gebruik gemaakt van deze \code{Navigationview} en de \code{push}-methode.
 
@@ -1074,7 +1042,6 @@ Hierdoor zal de nieuwe \code{View} worden gevuld met waarden van de modelinstant
 Automatisch zal er ook een \term{back} knop worden gegenereerd die na aanklikken de \code{pop}-methode zal oproepen.
 
 Een \code{Store} kan aan een lijst worden gekoppeld zodat alle modelinstanties van de \code{Store} in de lijst worden weergegeven.
-%TODO twee zinnen, 2x hetzelfde?
 Het sorteren van een lijst kan automatisch door de \code{Store} te voorzien van een \code{Sorter}.
 Deze kan modelinstanties van een \code{Store} sorteren op basis van eigenschappen van het bijhorende model.
 Ook kan de richting van sorteren kan worden geconfigureerd.
@@ -1091,7 +1058,6 @@ De sjablonen hebben toegang tot de velden van de modelinstanties en kunnen \js-f
 
 De link van elk lijstelement moet in het sjabloon worden gedefinieerd.
 Om de elementen uit het uitgavenoverzicht te linken, werd gebruik gemaakt van een geparameteriseerde \code{View}.
-%TODO is dat niet allemaal wat technisch?
 Dit laat toe om parameters in de link naar de \code{View} op te geven,  analoog aan HTTP GET-verzoeken.
 De functie zal een \code{ObservableObject} laden met data op basis van de meegegeven parameter.
 Dit \code{ObservableObject} is gekoppeld aan een formulier en zal dus automatisch worden ingevuld zodra het object wordt geïnitialiseerd.
@@ -1213,7 +1179,6 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-%TODO redelijk technisch, mss luchtiger maken ouzo?
 Zoals besproken bij \uit{ajax} kan een \code{Store} voozien worden van een \code{Proxy} die data lokaal opslaat aan klantzijde.
 Deze \code{Store} maakt gebruik van de HTML5 \code{localStorage}.
 Om gegevens van een gebruiker en onverzonden onkosten lokaal te bewaren moeten twee \code{Stores} met deze \code{Proxy} worden gedefinieerd.
@@ -1244,7 +1209,6 @@ Het serialiseren zelf kan via de JSON-bibliotheek.
 Wanneer het inlogscherm wordt getoond, zal gecontroleerd worden of er gegevens van een werknemer lokaal beschikbaar zijn.
 Indien dit het geval is, wordt automatisch naar het startscherm genavigeerd en de \code{DataSource} met informatie van de gebruiker ingevuld.
 
-%TODO wat heb je gebruikt?
 Een uitgave toevoegen moet zowel aan een \code{DataSource} als in de \code{localStorage} gebeuren.
 Nadat een uitgaveformulier is verzonden, worden de uitgaven uit beide plekken verwijderd.
 

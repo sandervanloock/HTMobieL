@@ -1,16 +1,15 @@
-%TODO namen van vergelijkingscriteria bekijken (gebruik en ondersteunign)
-%TODO overal [H] verwijderen, dat lost die spacing problemen op
+%TODO usability eruit halen
+%TODO overal [H] verwijderen, dat lost die spacing problemen op ok (TIM doet dit)
 \documentclass[master=cws,dutch,masteroption={vs,gs},inputenc=utf8]{kulemt}
 \setup{title={Vergelijkende studie van raamwerken voor de ontwikkeling van mobiele HTML5-applicaties},
   author={Tim Ameye\and Sander Van Loock},
-  promotor={Prof.\,dr.\,ir.\ E. Duval}, 
-  %TODO titels van assessoren
+  promotor={Prof.\,dr.\,ir.\ E. Duval},
   assessor={Prof.\,dr.\,M.\ Denecker\and F. Van Assche},
   assistant={Ir.\ G.~Parra}} %TODO jan en jannik toevoegen?
 % De volgende \setup mag verwijderd worden als geen fiche gewenst is.
 \setup{filingcard,
   translatedtitle={Comparative study of frameworks for the development of mobile HTML5 applications},
-  udc=621.3, %TODO nummer vragen aan gonzalo
+  udc=681.3,
   shortabstract={} % TODO copy paste van samenvatting
 }
 % Verwijder de "%" op de volgende lijn als je de kaft wil afdrukken
@@ -25,17 +24,6 @@
 % Tenslotte wordt hyperref gebruikt voor pdf bestanden.
 % Dit mag verwijderd worden voor de af te drukken versie.
 \usepackage[pdfusetitle,colorlinks,plainpages=false]{hyperref}
-
-% onderstaande commando's enkel gebruiken als je hyperref gebruikt
-%TODO zorgt ervoor dat onze referenties niet worden afgebroken.
-\newcommand{\exturl}[1]{\href{http://#1}{#1}}
-\renewcommand{\url}[1]{\href{#1}{#1}}
-
-% onderstaand commando's enkel activeren als je hyperref hebt verwijderd
-%\newcommand{\exturl}[1]{\href{http://#1}{#1}}
-%\newcommand{\url}[1]{\href{#1}{#1}}
-%\newcommand{\href}[2]{{#1}}
-
 \usepackage{kulemtx}
 \headstyles{kulemtman}
 
@@ -108,18 +96,17 @@
 Ontwikkelaars van mobiele applicaties worden geconfronteerd met een variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
 Dit komt doordat een applicatie wordt geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
 %TODO Gonzalo zin
-De ontwikkeling van mobiele webapplicatie, gebruikmakend van HTML5, kan als oplossing gezien worden
-%TODO onderstaande zin:  helpen bij de functionaliteit (...) en elementen... (idem bij engels)
-Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden die helpen bij de functionaliteit van de applicatie en de elementen voor de gebruikersinterface. 
+De ontwikkeling van mobiele webapplicatie, gebruikmakend van HTML5, is een mogelijke oplossing.
+Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden.
+Deze helpen zowel bij het toevoegen van functionaliteit als de elementen voor de gebruikersinterface. 
 
 Door de variëteit aan mobiele HTML5-raamwerken, dringt een grondige vergelijking zich op om te weten welk raamwerk nu het beste is.
 Dit werk vergelijkt \st{}, \kendo{}, \jqm{} en \lungo{} op basis van vijf vergelijkingscriteria:  populariteit,  productiviteit,  gebruik,  ondersteuning en performantie.
 Populariteit kijkt naar de activiteit van de raamwerken op sociale netwerken.
 Productiviteit wordt opgemeten om aan te tonen hoe lang het duurt om met een raamwerk vertrouwd te raken en er daadwerkelijk iets mee te maken.
-%TODO bekeken gekeken + zin duidelijker maken, want nu is die niet duidelijk Sander ok?
-Vervolgens wordt het gebruik van de raamwerken bekeken door te kijken naar welke elementen door het raamwerk zelf of door een plug-in worden aangeboden.
-Het ondersteuningscriterium test de elementen van het raamwerk op acht apparaten.
-Performantie zal enerzijds de downloadtijd en anderzijds de gebruikerservaring bekijken.
+Het gebruik van de raamwerken bekijkt de elementen die het raamwerk aanbiedt.
+Ondersteuning test de elementen van het raamwerk op verschillende apparaten.
+Performantie meet enerzijds de downloadtijd en anderzijds de gebruikerservaring.
 
 De vergelijking toont aan dat \jqm{} het beste raamwerk is.
 Daarna volgen \kendo{}, \lungo{} en \st{} op een respectievelijke tweede, derde en vierde plaats.
@@ -141,19 +128,20 @@ Developers of mobile applications are confronted with a variety of mobile operat
 This is because an application has to be programmed in a specific language for the operating system.
 %TODO gonzalo, zin bekijken
 Developing mobile web applications using HTML5 can be a solution for this problem.
-To speed up development,  frameworks are presented that help with the functionality of the application and elements of the user interface.
+To speed up development,  frameworks are presented.
+These help to add functionality and elements for the user interface.
 
 Because of the variety of mobile HTML5 frameworks,  a thorough comparative study is necessary.
 This thesis compares \st{}, \kendo{}, \jqm{} and \lungo{} based on five comparison criteria:  popularity,  productivity,  usability,  support and performance.
 Popularity looks at the activity of frameworks on social networks.
 Productivity is determinded by measuring how long it takes to get acquainted with the framework.
-Next,  the usability of the framework is studied by looking which elements or plugins are offered by the framework.
-The support criterion tests the elements of the framework on eight devices.
-Performance will look at download time and user experience.
+Next,  the usability of the framework is studied by looking which elements are offered by the framework.
+The support tests the elements of the framework on different devices.
+Performance measures the download time and user experience.
 
 The comparison shows that \jqm{} is the best framework.
 Followed by, \kendo{},  \lungo{} and \st{} respectively.
-\jqm{} is high productivity,  a major advantage because on the one hand it is well-documented and on the other hand it does not impose an architecture.
+\jqm{} is highly productive,  a major advantage because on the one hand it is well-documented and on the other hand it does not impose an architecture.
 The latter,  however,  becomes a disadvantage when looking at the usability.
 \kendo{} has the Model-View-View Model architecture as most important advantage.
 However,  it scores below average on performance.   

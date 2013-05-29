@@ -1,6 +1,6 @@
 #!/bin/sh
 
-forbiddenWords=(we men je u framework device plugin layout markup comptabiliteit methodes gebruikservaring gebruikservaringtest gebruikerservaringtest paddenstoelen)
+forbiddenWords=(we men je u framework device plugin layout markup comptabiliteit methodes gebruikservaring gebruikservaringtest gebruikerservaringtest paddenstoelen selectoren)
 unset regexp
 
 for w in ${forbiddenWords[@]};

@@ -615,6 +615,7 @@ Eind 2011 werd de eerste stabiele versie vrijgegeven.
 % Zo ontwikkelen ze DevTools dat een grafische gebruikersinterface aanbiedt bij de ontwikkeling binnen een .NET omgeving.
 % Ze voorzien ook Icenium voor de ontwikkeling van hybride applicaties en kan als de tegenhanger van \kendo{} gezien worden.
 Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
+%TODO native look-and-feel bij afbeelding 1 introduceren
 \term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
 \kendo{} is een \js{}-gedreven raamwerk met een MVVM-architectuur (Model-View-View Model) dat steunt op de jQuery-bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
@@ -652,12 +653,17 @@ Alle documentatie is momenteel nog niet vertaald van het Koreaans naar het Engel
 \section{Vergelijken van raamwerken} 
 \label{sec:vergelijken-raamwerken}
 Om de verschillende mobiele HTML5-raamwerken te kunnen vergelijken is een consistente manier nodig.
-Eerst worden standaarden zoals de ISO 25010 en de AHP-methode bekeken~(\ref{sec:vergelijken-raamwerken}).
-Vervolgens worden de vergelijkingen van raamwerken zoals gevonden in de literatuur en blogposts geclassificeerd ~(\ref{sec:vergelijken-classificatie}).
+%TODO nadenken over andere formuleren?
+HTML5-raamwerken zijn software en om software te vergelijken bestaat er standaarden.
+Deze worden in sectie \ref{sec:vergelijken-standaarden}) besproken.
+Daarna worden de vergelijkingen van raamwerken zoals gevonden in de literatuur en blogposts geclassificeerd ~(\ref{sec:vergelijken-classificatie}).
 
 \subsection{Software vergelijken}
-HTML5-raamwerken zijn software en om software te vergelijken bestaat er onder andere de ISO 25010 standaard (\ref{sec:vergelijken-iso}) en de AHP-methode (zie sectie \ref{sec:vergelijken-ahp}).  
-
+\label{sec:vergelijken-standaarden}
+Hier worden de ISO 25010-standaard (\ref{sec:vergelijken-iso}) en de AHP-methode (zie sectie \ref{sec:vergelijken-ahp}) gepresenteerd.  
+Uit de thesis van ... die zelf een raamwerk probeerde maken voor ... werd de ISO 25010-standaard aangehaald.%TODO referentie
+De paper van Jadhav et al.~\cite{Jadhav2009} bespreken evaluatietechnieken voor het selecteren van softwarepakketten.
+Hierin staat dat de AHP-methode wijd gebruikt is bij de evaluatie van softwarepaketten.
 
 \subsubsection{ISO 25010}
 \label{sec:vergelijken-iso}
@@ -666,12 +672,14 @@ Beide modellen beschrijven de kwaliteit van software op basis van een aantal cat
 Het beoordelen van de categorieën kan gebeuren op basis van een checklist. 
  
 \paragraph{Productkwaliteit}
-De acht karakteristieken die horen bij dit model zijn: functionele geschiktheid,  betrouwbaarheid,  performantie, efficiëntie, uitwisselbaarheid,  bruikbaarheid,  betrouwbaarheid, beveiligbaarheid,  onderhoudbaarheid en overdraagbaarheid.   
+De acht karakteristieken die horen bij dit model zijn: functionele geschiktheid,  prestatie-efficiëntie, uitwisselbaarheid,  bruikbaarheid,  betrouwbaarheid, beveiligbaarheid,  onderhoudbaarheid en overdraagbaarheid.   
+%TODO verder uitschrijven http://nl.wikipedia.org/wiki/ISO_25010
 Niet alle categorieën zijn even toepasbaar op HTML5-raamwerken.  
 Beveiligbaarheid is niet de focus voor mobiele HTML5-raamwerken,  performantie en overdraagbaarheid dan weer wel.
 
 \paragraph{Kwaliteit in gebruik}
 De vijf karakteristieken voor dit model zijn: effectiviteit,  efficiëntie,  voldoening,  vrijheid van risico en contextdekking. 
+%TODO verder uitschrijven http://nl.wikipedia.org/wiki/ISO_25010
 Elke karakteristiek kan toegewezen worden aan verschillende activiteiten van belanghebbenden. 
 Ook hier zijn alle categorieën niet even toepasbaar.  
 Het risico dat een mobiele webapplicatie met zich meebrengt is niet van belang,  het moet vooral efficiënt zijn en aan de vereisten voldoen.
@@ -681,10 +689,10 @@ De belanghebbenden worden opgedeeld in primaire en secundaire gebruikers.
 De eerste zijn de personen die het systeem gebruiken. 
 De laatste zijn diegene die zorgen voor het onderhoud.
 
-%TODO waarom niet gekozen, ... (zie blad opmerkigen gonzalo)
+%TODO enquete vermelden
 \subsubsection{AHP-methode}
 \label{sec:vergelijken-ahp}
-De Analytic Hierarchy Process (AHP) methode werd ontwikkeld door Saaty en wordt gebruikt voor het vergelijken van softwarepaketten~\cite{Jadhav2009}.
+De Analytic Hierarchy Process (AHP) methode werd ontwikkeld door Saaty en wordt gebruikt voor het vergelijken van softwarepaketten. %TODO referentie ahp
 Ze is gebaseerd op een hiërarchie van criteria waarbij de bovenste laag zich bezighoudt met het doel van het selectieproces (bv. kies een softwarepakket).
 Op de tussenlaag worden de criteria voorgesteld (bv. ondersteuning en performantie).
 De onderstaande laag bevat de kandidaten (bv. de verschillende softwarepakketten).

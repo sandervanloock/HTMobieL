@@ -219,35 +219,32 @@ o = polar(ca,angw*ones(1,c),magw);
 % set color of the lines
 for ii = 1:c; set(o(ii),'color',col(ii,:),'linewidth',2.25); end
 
-figure;
-hold on;
-
 % calculate the area of the pentagons
 f1 = magw(:,1);
 [x,y] = pol2cart(angw,f1);
-C1 = convhull(x,y);
-plot(x(C1),y(C1),'color',col(1,:));
+%C1 = convhull(x,y);
+%plot(x(C1),y(C1),'color',col(1,:));
 A = polyarea(x, y)
-polyarea(x(C1),y(C1))
+%polyarea(x(C1),y(C1))
 f2 = magw(:,2);
 [x,y] = pol2cart(angw,f2);
-C2 = convhull(x,y);
-plot(x(C2),y(C2),'color',col(2,:));
+%C2 = convhull(x,y);
+%plot(x(C2),y(C2),'color',col(2,:));
 A2 = polyarea(x, y)
-polyarea(x(C2),y(C2i))
+%polyarea(x(C2),y(C2))
 f3 = magw(:,3);
 [x,y] = pol2cart(angw,f3);
-C3 = convhull(x,y);
-plot(x(C3),y(C3),'color',col(3,:));
+%C3 = convhull(x,y);
+%plot(x(C3),y(C3),'color',col(3,:));
 A3 = polyarea(x, y)
-polyarea(x(C3),y(C3))
+%polyarea(x(C3),y(C3))
 f4 = magw(:,4);
 [x,y] = pol2cart(angw,f4);
-C4 = convhull(x,y);
-plot(x(C4),y(C4),'color',col(4,:));
+%C4 = convhull(x,y);
+%plot(x(C4),y(C4),'color',col(4,:));
 A4 = polyarea(x, y)
-polyarea(x(C4),y(C4))
-legend('Sencha Touch','Kendo UI','jQuery Mobile','Lungo');
+%polyarea(x(C4),y(C4))
+%legend('Sencha Touch','Kendo UI','jQuery Mobile','Lungo');
 
 
 

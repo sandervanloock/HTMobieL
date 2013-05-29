@@ -21,7 +21,7 @@ Mfinal = Mfinal(:,[1:1-1,2,1+1:2-1,1,2+1:end]);
 Mfinal = Mfinal(:,[1:2-1,4,2+1:4-1,2,4+1:end]);
 %swap lungo(3) en jqm(4)
 %Minitial = Minitial(:,[1:3-1,4,3+1:4-1,3,4+1:end])
-Mfinal = Mfinal(:,[1:3-1,4,3+1:4-1,3,4+1:end])
+Mfinal = Mfinal(:,[1:3-1,4,3+1:4-1,3,4+1:end]);
 %volgorde aanpassen:  Populariteit > Gebruik > Ondersteuning >
 %Productiviteit > performantie
 %Minitial([2 3],:) = Minitial([3 2],:);
@@ -34,6 +34,8 @@ Mfinal([2 5],:) = Mfinal([5 2],:);
 % plot = spider(Minitial,'',[],{'Populariteit' ''; 'Performantie' ''; 'Productiviteit' '';'Ondersteuning' '';'Gebruik' ''},{'Sencha Touch' 'Kendo UI' 'jQuery Mobile' 'Lungo' },s(1));
 % saveas(plot,'../figuren/spidergraph-initial.pdf');
 % system('pdfcrop ../figuren/spidergraph-initial.pdf ../figuren/spidergraph-initial.pdf');
+
+Sum = [sum(Mfinal(:,1)) sum(Mfinal(:,2)) sum(Mfinal(:,3)) sum(Mfinal(:,4))]./5
 
 
 figure; clf; set(gcf,'color','w'); s = zeros(1,4);

@@ -97,13 +97,22 @@ Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de logi
 \lungo{} is meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
 Deze drie raamwerken behalen quasi dezelfde downloadtijd.
 \st{} is het traagst.
-De grootte van de bibliotheek domineert de werkelijk geschreven code van de loginapplicatie.
-Hierdoor bepaalt de grootte van de bibliotheek van het raamwerk (zie tabel~\ref{tabel:raamwerken-tabel}) het merendeel van de totale downloadgrootte.
-Raamwerken met een ontwerppatroon hebben een grotere \js{}-bestand.
-Pure \js{}-gedreven raamwerken moeten alle HTML-code ter plaatse genereren, hierdoor is hun bibliotheek ook groter dan andere raamwerken.
-De verwachting is dat downloadgrootte evenredig is met de downloadtijd.
+De verwachting is dat de downloadtijd evenredig is met de downloadgrootte van de applicatie.
+De afhankelijkheden van het raamwerk nemen het merendeel in van de totale downloadgrootte.
+Dit komt omdat er voor de loginapplicatie relatief weinig code moest worden geschreven.
+Tabel \ref{tabel:evaluatie-performantie-groottes} toont voor alle raamwerken de grootte van de afhankelijkheden die nodig zijn om de loginapplicatie op te zetten.
+De implementatie van \jqm{} gebruikt een plug-in voor validaties, vandaar dat ook de grootte van deze plug-in is opgenomen.
+Deze gegevens omvatten drie conclusies.
+Ten eerste kan gezien worden dat \lungo{} is geoptimaliseerd voor mobiele ontwikkeling.
+Verder is het al dan niet aanwezig zijn van een ontwerppatroon niet uit grootte van de \js{}-bestanden af te leiden.
+\kendo{} en \jqm{} hebben namelijk beide afhankelijkheden die ongeveer even groot zijn.
+Ten slotte kan geconcludeerd worden dat \st{} de meeste \js-code gebruikt in zijn afhankelijkheden.
+Dit komt omdat \st{} een \js-gedreven raamwerk is waarbij alle HTML-code ter plaatse moet worden gegenereerd.
 
-%TODO tabel updaten + besluit herbekijken
+De verwachte evenredigheid tussen downloadtijd (zie figuur \ref{fig:performantie-login-boxplot}) en downloadgrootte (zie tabel \ref{tabel:evaluatie-performantie-groottes}) wordt bevestigd door \kendo{}, \jqm{} en \lungo{}.
+\st{} gebruikte uitgesteld parsen van \js{}-code (zie sectie \ref{sec:evaluatie-performantie-duiding}).
+Hierdoor zal de browser niet moeten wachten op het parsen en dus sneller alle afhankelijkheden downloaden.
+
 \begin{table}
 \centering
 \pgfplotstabletypeset[
@@ -126,7 +135,7 @@ De verwachting is dat downloadgrootte evenredig is met de downloadtijd.
   	before row=\midrule,
     after row=\bottomrule}
 ]{tabellen/bibliotheken.csv}
-\caption{Groottes.}
+\caption{Grootte van de afhankelijkheden van de raamwerken voor het implementeren van de loginapplicatie.}
 \label{tabel:evaluatie-performantie-groottes}
 \end{table}
 
@@ -234,12 +243,12 @@ Anderzijds wordt op figuur~\ref{fig:performantie} de gemiddelde downloadtijd get
 Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
 Voor de gemiddelde downloadtijd per apparaat en per raamwerk wordt verwezen naar appendix \ref{app:performantie}.
 
-%%% De cache factor van ST is constant (gemiddeld 1,8)
-%%% De andere raamwerken hebben een beduidend grotere cache factor 
 
-De tragere downloadtijd van \st{},  zoals geconcludeerd door de downloadtijd van de login applicatie, wordt bevestigd.
-Het verschil van downloadtijden voor de POC wordt nog uitvergroot.
-Het mechanisme voor het updaten van de cache zal \st{} nog meer vertragen bij de POC.
+De tragere downloadtijd van \st{},  zoals geconcludeerd in sectie \ref{sec:evaluatie-downloadtijd}, wordt hier bevestigd.
+De verschillen tussen \st{} en de andere raamwerken zijn groter bij de POC dan bij de loginapplicatie.
+Dit komt omdat bij de loginapplicatie een afhankelijkheid met het strikt minimale (\code{sencha-touch.js}) werd gebruikt.  
+Het volledige raamwerk (\code{sencha-touch-all.js}) werd daarentegen bij de POC gebruikt.
+Het Delta Update mechanisme voor het updaten van de cache zal \st{} nog meer vertragen bij de POC.
 
 Indien \st{} buiten beschouwing wordt gelaten, duurt de eerste keer laden van de POC gemiddeld $5,73\unit{s}$. 
 Het laden van de versie uit cache duurt slechts gemiddeld $400\unit{ms}$.
@@ -264,6 +273,7 @@ Dit laatste is een suggestie om de maximale duur van documenten in de cache een 
 De huidige implementaties hebben een vervaldatum van slechts tien minuten.
 Beide werkpunten hebben volgens Google Page Speed een lage prioriteit.
 Alle raamwerken buiten \st{} worden aangeraden om de \js-code uitgesteld te parsen.
+Dit is inherent aan de raamwerken en niet aan de tool die de applicatie bouwt.
 Bij \kendo{} en \jqm{} heeft dit werkpunt een hogere prioriteit in tegenstelling tot \lungo{}.
 Dit komt omdat \lungo{} maar een kleiner aantal bytes moet verwerken.
 De implementatie van \st{} wordt ook aangeraden om vraagtekens uit URLs te verwijderen.

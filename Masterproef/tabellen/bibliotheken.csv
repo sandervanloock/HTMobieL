@@ -1,4 +1,5 @@
 Bibliotheek,ST,Kendo,jQM,Lungo
-Grootte JS (kB),2764.8,810.10,141.14,27.31
-Grootte CSS (kB),245.7,168.40,92.07,84.93
-Totaal,3010.5,978.5,233.2112890625,112.2353515625
+Grootte JS bibliotheek (kB),506.1,280.2,277.5,47.8
+Grootte JS plug-ins (kB),0,0,38.1,0
+Grootte CSS (kB),214.1,199.1,136,115.8
+Totaal,720.2,479.3,451.6,163.6

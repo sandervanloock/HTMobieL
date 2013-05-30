@@ -3,34 +3,32 @@
 
 In deze sectie zal de productiviteit van de vier raamwerken worden onderzocht.
 %Voor de score van productiviteit wordt naar formule \ref{eq:productiviteit} verwezen.
-%TODO Sander: tabel met enkel uren van loginapplicatie (sander)
 Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde scores.
 
 \begin{table}
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Productiviteit,ST,Kendo,jQM,Lungo},
-  columns/Productiviteit/.style={column name=\textbf{Productiviteit}, column type={l}},  
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-  	before row=\midrule,
-    after row=\bottomrule}
-]{tabellen/productiviteit.csv}
-\caption{Overzicht van productiviteit voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
-\label{tabel:evaluatie-productiviteit}
+  \centering
+  \pgfplotstabletypeset[
+    begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+    end table=\end{tabular},
+    skip coltypes=true,
+    col sep=comma,
+    string type,
+    header=true,
+    columns={Productiviteit,ST,Kendo,jQM,Lungo},
+    columns/Productiviteit/.style={column name=\textbf{Productiviteit} (Uren), column type={l}},  
+    columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+    columns/ST/.style={column name=\textbf{\sta}, column type={c}},
+    columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
+    columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
+    columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+    every head row/.style={
+      before row=\toprule,
+      after row=\midrule},
+    every last row/.style={
+      after row=\bottomrule}
+  ]{tabellen/productiviteit-en.csv}
+  \caption{Overzicht van productiviteit voor \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) en \lungo{}~(\lungoa).}
+  \label{tabel:evaluatie-productiviteit}
 \end{table}
 
 De uren voor de implementatie van de loginapplicatie tonen dat \jqm{} productiever is dan \lungo{}. 
@@ -44,18 +42,22 @@ De productiviteit van \kendo{} is $31.8\%$ groter ten opzichte van \st{}.
 In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit verklaren.
 
 \paragraph{Lijnen code} 
-
-
 In tabel \ref{tabel:evaluatie-gebruik-loc} staan het aantal lijnen effectief geschreven code getoond dat nodig is om de POC en loginapplicatie te maken.
-%TODO bij de loginapplicatie komen de LOC overeen met productiviteit
-% bij POC tussen kui en jqm is som van html en js lager bij kui. Veel minder schrijven maar minder productief dan jqm. (Sander)
+Zowel HTML-, \js{} als CSS-code zijn geteld.
+
+Dezelfde conclusies van vorige de vorige sectie worden bevestigd met het aantal lijnen code:  de meest productieve raamwerken vereisen het minst aantal lijnen code.
+Hetzelfde geldt niet bij als naar het aantal lijen geschreven code bij de implementatie van de POC wordt gekeken.
+\kendo{} vraagt minder lijnen code in vergelijking met de andere raamwerken.
+Er kan worden geconcludeerd dat bij een grotere applicatie,  het MVVM-ontwerppatroon van \kendo{} het aantal lijnen code reduceert.
+Door de grotere complexiteit zal het schrijven van deze code echter meer tijd vergen in vergelijking met opmaakgedreven raamwerken.
+Een opmerking over de data van \st{} en \lungo{} moet worden gemaakt:  niet alle functionaliteit van de POC kon worden geïmplementeerd dus zijn de bijhorende lijnen code onvolledig.
+
 
 %TODO waarom niet in formule?
-% is duiding verklaart de uren (per
+% niet zo dat aantal uren implemlentatie het aantal lijen verklaard want lijnen code hangt af van architectuur, niet van uren implementatie
 
-Het type van het raamwerk (\js- of opmaakgedreven) komt sterk in de tabel naar boven.
 
-%TODO gonzalo: hours includen 
+
 \begin{table}
 \centering
 \pgfplotstabletypeset[
@@ -156,8 +158,7 @@ Dit werkt echter niet op \ipadi{}.
 
 \paragraph{Literatuur}
 Zowel \jqm{} als \st{} werden vaak in de literatuur aangehaald.
-%TODO referentie safaribooks?  (sander)
-Op Safari Books Online kunnen 13 boeken teruggevonden worden die uitsluitend \jqm{} behandelen.
+Op Safari Books Online kunnen 13 boeken teruggevonden worden die uitsluitend \jqm{} behandelen~\cite{O'Reilly2013}.
 Het boek van Dutson in de Sam Teach Yourself serie werd gebruikt om met \jqm{} vertrouwd te geraken~\cite{PhilDutson2012}.
 Ook Pro jQuery Mobile van Broulik~\cite{Broulik2012} werd gelezen maar dit is nagenoeg een kopie van de documentatie en bevat bijgevolg niet veel extra informatie.
 Vier boeken over \st{} kunnen op Safari Books Online worden teruggevonden.

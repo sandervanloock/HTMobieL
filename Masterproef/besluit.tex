@@ -5,15 +5,13 @@
 % - wat we gedaan hebben, onze doelen, hebben we de beste gevonden?
 % - we hebben dat gevonden, ….
 
-%TODO 'beide bevatten' rare constructie
-Deze thesistekst bestaat uit twee grote doelstellingen die de titel beide bevatten.
-%TODO creeren weg
-Een eerste doel is het creëren van een methodologie om HTML5-raamwerken met elkaar te vergelijken.
+Deze thesistekst bestaat uit twee doelstellingen.
+Een eerste doel is het definiëren van een methodologie om HTML5-raamwerken met elkaar te vergelijken.
 Het tweede doel omvat de effectieve vergelijking van de raamwerken zelf.
 
 De uitgelichte raamwerken zijn \st{}, \kendo{},  \jqm{} en \lungo{}.
 \st{} bouwt op het MVC-ontwerppatroon en is \js-gedreven.
-Het raamwerk is gratis binnen een commerciële context.
+Het raamwerk is gratis en heeft zowel een commerciële als \term{open-source} licentie.
 \kendo{} dwingt het MVVM-ontwerppatroon af en is zowel \js- als opmaakgedreven.
 Een licentie voor het gebruik van \kendo{} kost $\$699$.
 \jqm{} en \lungo{} hebben geen ontwerppatroon en zijn beide opmaakgedreven.
@@ -27,18 +25,19 @@ Om populariteit te meten werd naar de activiteit van de raamwerken op sociale ne
 De tijd om een loginapplicatie te ontwikkelen, bepaalde de productiviteit.
 De POC werd onderverdeeld in $13$ uitdagingen en $38$ deeluitdagingen om de functionaliteit van het raamwerk te testen en het gebruikscriterium te quoteren.
 Vervolgens werd een subset van de uitdagingen getest op acht verschillende mobiele toestellen om de ondersteuning te controleren.
+%TODO responsetijden?
 Ten slotte bepaalden de download- en responsetijden van de POC en loginapplicatie de performantie.
 De responsetijden werden vervangen door een gebruikerservaring.
 De scores van de vijf criteria voor de vier raamwerken werden in één spinnenweb ondergebracht.
 
 Na evaluatie is \jqm{} het beste raamwerk op basis van de gekozen criteria, gevolgd door \kendo{}, \lungo{} en \st{}.
-Deze volgorde werd bepaald door de oppervlakte van de vijfhoeken op het spinnenweb te berekenen.
+Deze volgorde werd bepaald door de scores van alle criteria op te tellen.
 \jqm{} heeft als belangrijkste troeven de hoge productiviteit en performantie doordat het enerzijds zeer goed gedocumenteerd is en anderzijds geen ontwerppatroon afdwingt.
 Dit laatste is echter een nadeel waardoor het minder scoort op gebruik.
 \kendo{} heeft als belangrijkste troef het gebruik doordat het een ontwerppatroon afdwingt.
 Het scoort echter ondermaats op performantie door het crashen van lange lijsten op iOS.
 \lungo{} behaalt op geen enkel criterium de maximumscore.
-Het behaalde echter wel de beste downloadtijd bij performantie doordat het raamwerk geoptimaliseerd voor mobiel gebruik.
+Het behaalde echter wel de beste downloadtijd bij performantie doordat het raamwerk is geoptimaliseerd voor mobiel gebruik.
 \st{} is het minst productief en minst performant in vergelijking met de andere raamwerken.
 Daarentegen scoort \st{} het best op het vlak van gebruikerservaring.
 Door het afdwingen van een ontwerppatroon scoort het quasi evengoed als \kendo{} op vlak van gebruik.
@@ -47,29 +46,30 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning.
 
 \section{Geleerde lessen} % 1 pagina 
 Bij het uitvoeren van een vergelijkende studie is de keuze van de vergelijkingscriteria bepalend voor het resultaat van het onderzoek.
-%TODO onderstaande zin anders formuleren
-Daarbij is het belangrijk om niet meteen het warm water uit te vinden.
+Daarbij is het belangrijk om reeds bestaande literatuur grondig te controleren.
 Zo werd er in het begin te specifiek naar papers gezocht omtrent het vergelijken van HTML5-raamwerken.
 Meer algemene methodologieën om software te vergelijken moesten worden gezocht waaruit criteria konden worden hergebruikt.
+%TODO ahp hier toevoegen?
 
 Bij het opzetten van criteria is het van groot belang dat de manier waarop deze criteria zullen worden getoetst, zeer gedetailleerd worden neergeschreven.
 De exacte formules van de criteria werden pas tijdens de evaluatie vastgelegd.
 Pas dan werd de nood van een formele notatie duidelijk.
 Ook is het belangrijk om op voorhand de elementen van een vergelijkende studie uit te testen alvorens de vergelijkingscriteria vast te leggen.
 Hierdoor kunnen iteraties over de criteria vermeden worden als blijkt dat ze niet toepasbaar zijn.
+%TODO nog relevant?
 De nieuwe formules voor het productiviteits- en performantiecriterium hadden hierdoor vermeden kunnen worden.
 Een initiële vertrouwdheid met de raamwerken had er ook voor gezorgd dat de criteria meer kenmerken van de raamwerken zouden bevatten.
-De raamwerken die steunen op een ontwerppatroon konden op die manier meer bevoordeeld worden door een uitbreidbaarheidscriterium te introduceren.
+De raamwerken die steunen op een ontwerppatroon konden op die manier meer bevoordeeld worden door bijvoorbeeld een uitbreidbaarheidscriterium te introduceren.
 
 %TODO 3x het woordje tijd, herschrijven
 Een andere geleerde les is dat er in het uitvoeren van de evaluatie veel tijd kruipt.
-Echter in het interpreteren en begrijpen van de resultaten kruipt zowaar nog meer tijd.
+Echter, het interpreteren en begrijpen van de resultaten duurde zowaar nog langer.
 Ook het opsporen en verbeteren van eigen fouten is zeer tijdsrovend.
 Door op een consistente en gestructureerde methode de evaluatie te voltooien, moet het aantal fouten tot een minimum worden beperkt.
 
 Er werden tot slot nog twee praktische zaken geleerd.
 Het opmeten van tijd en het gebruik van logboeken vereist een zekere vorm van discipline.
-Het opmeten van tijd was noodzakelijk om de productiviteit van het raamwerk te toetsen.
+Het eerste was noodzakelijk om de productiviteit van het raamwerk te toetsen.
 De tijdbudgetten die nodig waren moesten gemakkelijk kunnen worden gereconstrueerd.
 De logboeken werden gebruikt bij de implementatie van de POC en moesten bij de evaluatie het gebruikscriterium drijven.
 Een tweede praktisch punt gaat over de samenwerking tussen beide auteurs.
@@ -104,10 +104,12 @@ Andere verbindingsmogelijkheden zoals 3G kunnen worden gebruikt en hierdoor kunn
 Een laatste voorbeeld is de rendertijden die worden gebruikt bij performantie.
 Deze konden niet worden opgemeten bij \st{} en \lungo{}.
 Aanpassingen aan de broncode zouden het opmeten van rendertijden wel kunnen toelaten.
+%TODO alternatief nogeens vermelden?
 Daarnaast kan het voorgestelde alternatief ook verbeterd worden.
 
 Een andere onderzoekspiste is om nieuwe criteria toe te voegen.
 Zo kan bijvoorbeeld het criterium uitbreidbaarheid worden onderzocht.
+%TODO ref naar ISO?
 Dit criterium omvat hoe gemakkelijk het gaat om de bestaande applicatie geïmplementeerd in een bepaald raamwerk uit te breiden.
 Een te onderzoeken hypothese hierbij is dat raamwerken die een ontwerppatroon afdwingen beter zullen scoren dan raamwerken zonder ontwerppatroon.
 Een bijkomende hypothese is dat de totale score van raamwerken die een ontwerppatroon afdwingen zal stijgen en deze van raamwerken zonder ontwerppatroon zal dalen.

@@ -518,7 +518,7 @@ Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd.
 Hierdoor moet ieder formulierveld worden gezocht om daarna zijn waarde in te stellen.
 %TODO dropdownmenu = selectieveld?
 Bij een dropdownmenu en selectieveld kan deze methode niet worden gebruikt.
-%TODO te vage abstractie misschien? (tim) juiste optie selecteren
+Om de waarde in te stellen, moet de gewenste optie worden gezocht en daaraan het \code{selected}-attribuut worden toegevoegd.
 Daar dient de programmeer geavanceerdere code te schrijven.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
@@ -668,15 +668,14 @@ Het toevoegen van een afbeelding gebeurt door het bestandstype als invoertype aa
 In versie~1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
 Het omvormen van de afbeelding naar Base64 is analoog aan \kendo{}.
 
-%TODO specifiek voor jqm en lungo tim
 Het voorvertonen van de geüploade afbeelding hangt af van het mobiele besturingssysteem.
-Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond.
+Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond in het invoerveld.
 Het is natuurlijk ook mogelijk om de voorvertoning na conversie zelf te tonen op het scherm.
 Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
 
 \paragraph{\lungo}
 Een afbeelding kiezen gebeurt door aan het formulierveld het bestandstype toe te voegen.
-De methode om een afbeelding om te vormen naar Base64 is volledig analoog met die van \kendo{}.
+De methode om een afbeelding om te vormen naar Base64 en deze voor te vertonen is volledig analoog met die van \jqm{}.
 
 %%%%%%%%%%%%%
 

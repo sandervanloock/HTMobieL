@@ -38,7 +38,7 @@ Dit wordt verklaard doordat de eerste twee raamwerken geen ontwerppatroon afdwin
 
 Eerst zal in sectie~\ref{sec:evaluatie-downloadtijd} de gemiddelde downloadtijd gedetailleerd worden besproken.
 Hieropvolgend zal in sectie~\ref{sec:evaluatie-gebruikerservaring} de gebruikerservaring worden besproken.
-Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{sec:evaluatie-performantie-duiding}.
+Als laatste wordt in sectie~\ref{sec:evaluatie-performantie-duiding} de performantie getoetst aan andere metrieken.
 
 
 %%%%%%%%%%%%%%%%%%
@@ -92,17 +92,21 @@ Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de logi
 \end{figure}
 
 \paragraph{Loginapplicatie}
+%TODO vanaf hier niet over plaatsen maar over ``snelste downloadtijd'' spreken?
 \lungo{} behaalt de eerste plaats (zie figuur \ref{fig:performantie-login}).
 \jqm{} en \kendo{} behalen respectievelijk een tweede en derde plaats.
-\lungo{} is zelfs meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
+\lungo{} is meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
 Deze drie raamwerken behalen quasi dezelfde downloadtijd.
 \st{} behaalt de laatste plaats.
+%TODO kendo heeft toch ook een ontwerppatroon dus mss anders verwoorden
+%js bibliotheek van sencha is groter want alle html moet gerenderd worden, bij kui is dit niet zo.  Het type raamerk speelt dus ook een rol
 Dit wordt verklaard door het gebruik van een ontwerppatroon waardoor een grotere \js{}-code dient te worden gedownload ten opzichte van raamwerken die geen ontwerppatroon afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
 
 \paragraph{Loginapplicatie uit cache}
 Als naar de versie uit cache wordt gekeken, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde (zie figuur \ref{fig:performantie-login-cache}).
 Daarentegen behaalt \st{} telkens een veel tragere tijd.
 Enerzijds komt dit doordat de drie eerstgenoemde raamwerken enkel gebruik maken van HTML5 Application Cache.
+%TODO is dit cachemechanimse niet iets crucialer en past het niet beter hier ipv appendix?
 \st{} gebruikt daarnaast ook nog een eigen mechanisme waardoor de grotere downloadtijd wordt verklaard (zie \ref{app:performantie-st}).
 Anderzijds gebruiken de drie eerstgenoemde raamwerken Yeoman om de applicatie te bouwen.
 De webapplicaties gemaakt in \st{} gebruiken daarentegen Sencha Cmd.
@@ -140,6 +144,7 @@ De webapplicaties gemaakt in \st{} gebruiken daarentegen Sencha Cmd.
 
 In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 \st{} behaalt de maximale score.
+%TODO het vlotst ging volgens de auteurs?
 Dit wil zeggen dat op alle toestellen het scrollen door de lijst van \st{} het vlotst ging.
 \jqm{} werd zes keer als tweede beste beoordeeld. 
 Op de \htc{} liep \kendo{} vlotter,  op de \ipadi{} was \lungo{} nummer twee.
@@ -194,7 +199,7 @@ Anderzijds wordt op figuur~\ref{fig:performantie} de gemiddelde downloadtijd get
 %TODO POC is raar getypset in de PDF
 \paragraph{Downloadtijd POC versus loginapplicatie}
 Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
-Voor de gemiddelde downloadtijd per apparaat per raamwerk wordt verwezen naar appendix \ref{app:performantie}.
+Voor de gemiddelde downloadtijd per apparaat en per raamwerk wordt verwezen naar appendix \ref{app:performantie}.
 
 %%% De cache factor van ST is constant (gemiddeld 1,8)
 %%% De andere raamwerken hebben een beduidend grotere cache factor 
@@ -208,9 +213,8 @@ Het laden van de versie uit cache duurt slechts gemiddeld $400\unit{ms}$.
 De eerste keer laden van de loginapplicatie duurt gemiddeld $3,32\unit{s}$.
 Indien deze uit cache komt, duurt dit gemiddeld nog slechts gemiddeld $420\unit{ms}$.
 
-
-Indien enkel de downloadtijd in rekening wordt gebracht en \st{} buiten beschouwing wordt gelaten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$.
-Dit zijn aanvaardbare tijden volgens Jakob Nielsen~\cite{Nielsen1993}.
+%TODO experten zo ok?
+Indien enkel de downloadtijd in rekening wordt gebracht en \st{} buiten beschouwing wordt gelaten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$,  dit zijn aanvaardbare tijden volgens experten~\cite{Nielsen1993}.
 De gebruiker zal de vertraging waarnemen maar de aandacht niet verliezen.
 Het initieel laden van de POC implementatie met \st{} moet van een laadscherm worden voorzien omdat de downloadtijd $> 10\unit{s}$.
 
@@ -220,10 +224,10 @@ De score op 100 die Google Page Speed~\cite{Morgan2011} aan de applicatie toeken
 \st{} scoort het best ($96$),  gevolgd door \lungo{} ($82$),  \kendo{}($73$) en \jqm{}($71$).
 
 Er kan geconcludeerd worden dat Sencha Cmd de applicatie optimaal weet te bouwen,  er is het minst plaats voor verbetering.
-Hoewel \st{} de meeste tijd vraagt om te laden, zal het na het laden sneller werken.
+Hoewel \st{} de meeste tijd vraagt om te laden, zal het hierna sneller werken.
 Dit wordt bevestigd in de voorbije testen.
 
-Alle implementaties worden aangeraden een tekenset te specificeren en gebruik te maken van het cachegeheugen van de browser.
+Alle implementaties worden door Google Page Speed aangeraden een tekenset te specificeren en gebruik te maken van het cachegeheugen van de browser.
 Dit laatste is een suggestie om de maximale duur van documenten in de cache een week in de toekomst te zetten.
 De huidige implementaties hebben een vervaldatum van slechts tien minuten.
 Beide werkpunten hebben volgens Google Page Speed een lage prioriteit.
@@ -233,21 +237,10 @@ Dit komt omdat \lungo{} maar een kleiner aantal bytes moet verwerken.
 De implementatie van \st{} wordt ook aangeraden om vraagtekens uit URLs te verwijderen.
 Dit zou de oorzaak kunnen zijn voor het niet-cachen van bestanden.
 
-
 \paragraph{Downloadgrootte}
-De PCAP-bestanden die werden gebruikt om de downloadtijd op te meten bevatten ook de grootte van de pakketten die moeten worden opgehaald.
+De PCAP-bestanden die werden gebruikt om de downloadtijd op te meten, bevatten ook de grootte van de pakketten die moeten worden opgehaald.
 Omdat pakketten verloren gaan, zullen ontvangen bestanden incompleet zijn en moeten ze worden herverzonden.
 Hierdoor zal het aantal ontvangen bytes variëren van meting tot meting.
 De performantietesten werden op acht toestellen uitgevoerd en elke test werd drie keer uitgevoerd.
 Het gemiddelde van alle downloadgroottes bepaalt de grootte zoals deze kan worden teruggevonden in tabel~\ref{tabel:performantie-verklaring}.
 \kendo{} moest de meeste data ophalen ($296.50$~kB),  gevolgd door \st{} ($247.59$~kB), \jqm{} ($185.43$~kB) en \lungo{} ($59.75$~kB).
-%Opmerkelijk is dat \lungo{} meer data moet ophalen maar toch een snellere downloadtijd behaald.
-% Ook het verschil in downloadgrootte tussen de POC en loginapplicatie is opmerkelijk.
-% Bij \jqm{} kan slechts een daling van $4.74\%$ worden waargenomen.
-% \st{} en \lungo{} waren gelijkaardig en de downloadgrootte daalde respectievelijk met $78.02\%$ en $76.01\%$.
-% De reductie in data bij \kendo{} was $45.30\%$.
-
-% Bij alle applicaties werd de \js{}- en CSS-code verkleind en samengevoegd.
-% De HTML-code werd niet gewijzigd.
-% Tabel~\ref{tabel:performantie-verklaring} bevat het aantal lijnen HTML-code dat moest worden opgehaald.
-%Hieruit is duidelijk te zien welke raamwerken opmaakgedreven zijn.

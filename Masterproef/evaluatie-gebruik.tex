@@ -186,11 +186,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\st}
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
-\st{} kan zowel besturingssysteem, browser als ondersteunde (HTML5-)kenmerken opvragen en herkennen.
-%Het besturingssysteem kan bevraagd worden via \code{Ext.os.name}.
-% Deze methode herkent onder andere Android, iOS, Windows en BlackBerry~OS.
-% Er kan ook gebruik worden gemaakt van de \term{singleton} klasse \code{Ext.os.is}.
-% Het opvragen en herkennen van browser en (HTML5-)kenmerken gebeurt op een analoge manier.
+Het kan zowel besturingssysteem, browser als ondersteunde (HTML5-)kenmerken opvragen en herkennen.
 
 De creatie van de tablet lay-out steunt op de \code{HBox} lay-out die componenten horizontaal naast elkaar plaatst.
 %De \code{flex} eigenschap van deze lay-out definieert de ratio van de groottes van beide componenten.
@@ -307,12 +303,13 @@ Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
 Door zelf het dialoogvenster met \jqm{} aan te maken, kon de lay-out gemakkelijker worden aangepast.
 
 \paragraph{\lungo}
-Een laadscherm of dialoogvenster tonen gebeurt met dezelfde functie.
+Een laadscherm of dialoogvenster tonen, gebeurt met dezelfde functie.
 Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
 De parameters bevatten de titel, omschrijving, tijd op het scherm en de functie die wordt opgeroepen bij het sluiten van het venster.
 Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
 Deze zullen respectievelijk een groene en rode kleur hebben.
 
+%TODO mss toch te technisch
 Het laadscherm wordt in samenwerking met de AJAX-verzoeken gebruikt.
 Net voor het AJAX-verzoek zal het laadscherm worden getoond en in de \term{callback} van het AJAX-verzoek zal het worden verborgen.
 Er treedt echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-verzoeken.
@@ -393,7 +390,6 @@ Het leegmaken van een formulier gebeurt niet automatisch wanneer het verzonden w
 Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden opgeroepen.
 
 \paragraph{\kendo}
-%TODO kan via data-attributen punt en misschien die 2 zinnen samennemen HTML5 data-attributen?
  Formulierelementen definiëren kan via attributen door gebruik te maken van de opmaakgedreven aanpak van \kendo.
 %  Het \code{placeholder}attribuut kan een \term{placeholder} definiëren,  het vermijden van \code{label}-tags zal geen labels genereren.
 %  Het type van het formulierelement moet met het \code{type} attribuut worden gedefinieerd.
@@ -442,6 +438,7 @@ Het toevoegen van \term{placeholders} in de formuliervelden gebeurt met het HTML
 In \lungo{} zijn labels niet verplicht.
 Indien deze niet gewenst zijn, kunnen deze gewoon uit de HMTL5-code weggelaten worden.
 
+%TODO beide zinnen 2x zelfde
 Voor de types van de formuliervelden werd beroep gedaan op de HTML-invoertypes. 
 
 Gelijkaardig met \jqm{} werden de types van de formuliervelden geïmplementeerd door HTML-invoertypes. 
@@ -452,7 +449,7 @@ De plug-in laat echter niet toe om een bereik op te geven.
 De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
 De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
 
-Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een \term{dropdown}menu. 
+Een optieveld werd niet aangeboden door \lungo{} en werd vervangen door een dropdownmenu. 
 Een schakelaar daarentegen werd dan weer wel aangeboden.
 Het legen van een formulier gebeurt door de \code{reset}-functie in \js{} op te roepen op dat formulier.
 
@@ -497,21 +494,8 @@ Twee verschillende methoden worden in de POC gebruikt.
 De eerste methode zal een formulier vullen door er een instantie van een model aan toe te kennen.
 \st{} zal automatisch de velden invullen waarbij de naam gelijk is aan de eigenschap van het model.
 Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op schakelaars.
-Er bestaat echter geen exacte mapping tussen een model en een \code{radio}- of \code{select}veld.
+Er bestaat echter geen exacte mapping tussen een model en \code{radio}velden.
 Deze moeten apart worden ingevuld door een extra methode op te roepen.
-% Een opmerking over het invullen van een \code{radiofield} moet worden gemaakt.
-% Er bestaat geen exacte mapping tussen een eigenschap van een model en een \code{radiofield}.
-
-% % Een model kan worden voorzien met eigenschappen met volgende types:
-% % \begin{itemize}
-% %   \item \code{auto}
-% %   \item \code{string}
-% %   \item \code{int}
-% %   \item \code{float}
-% %   \item \code{boolean}
-% %   \item \code{date}
-% % \end{itemize}
-% Om deze in te vullen moet de \code{setGroupValue} van het veld worden aangesproken.
 
 De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{Navigationview} en wordt besproken in \uit{lijsten}.
 De \code{readOnly} eigenschap bepaalt de aanpasbaarheid van formulierelementen.
@@ -521,24 +505,24 @@ Bij \code{radio}velden heet deze eigenschap \code{disabled}.
 \paragraph{\kendo}
 Het invullen van een formulier steunt op het MVVM-ontwerppatroon en is gelijkaardig aan het resetten van een formulier.
 De dubbele binding tussen een formulier en (View) Model wordt met een HTML-tag aangegeven.
-Een (View) Model wordt in \kendo{} \code{ObservableObject} genoemd.
+Een View Model wordt in \kendo{} \code{ObservableObject} genoemd.
 Een \code{Model} breidt een \code{ObservableObject} uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
-In wat volgt zal aangenomen worden dat een \code{ObservableObject} wordt gebruikt in plaats van een \code{Model}.
+%In wat volgt zal aangenomen worden dat een \code{ObservableObject} wordt gebruikt in plaats van een \code{Model}.
 Om een formulier met data te vullen is het de taak van de programmeur de eigenschappen van het \code{ObservableObject} van de gewenste waarden te voorzien.
 De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 
-\term{Read-only} velden moeten als data-attribuut in het formulierelement worden gespecificeerd.
-% Alle invoertypes buiten \code{radio}- en \code{select}knoppen gebruiken hiervoor het \code{readOnly} sleutelwoord.
-% \code{Radio}- en \code{select}knoppen worden onbeschikbaar gemaakt met het \code{disabled} sleutelwoord.
+\term{Read-only} velden moeten als attribuut in het formulierelement worden gespecificeerd.
 
 \paragraph{\jqm}
 Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd.
 Hierdoor moet ieder formulierveld worden gezocht om daarna zijn waarde in te stellen.
+%TODO dropdownmenu = selectieveld?
 Bij een dropdownmenu en selectieveld kan deze methode niet worden gebruikt.
 %TODO te vage abstractie misschien? (tim) juiste optie selecteren
 Daar dient de programmeer geavanceerdere code te schrijven.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
+%TODO ik net dat ge met HTML5 net zo goed het attribuut disabled kunt toevoegen en het werkt ook..
 Dit geldt voor alle types van velden, behalve voor selectievelden waar een omweg wordt gemaakt door de niet-benodigde opties uit de selectie te verwijderen.
 
 \paragraph{\lungo}
@@ -594,28 +578,19 @@ Dit element kan een \code{Proxy} definiëren die de server aanspreekt om suggest
 
 De \term{backend} van de POC geeft bij een bepaalde invoer suggesties in een JSON-rij terug.
 De rij is voorzien van een sleutel, maar alle elementen van de rij hebben er geen.
-%TODO verplaatsen naar ajax (sander)
-\st{} voorziet drie methoden om de resultaten van een \code{Proxy} te parsen naar modelinstanties:
-\begin{description}
- \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
- \item [\code{XmlReader}] parst XML-tags naar model velden.
- \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
-\end{description}
-Geen van voorgaande methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
+Geen van voorgaande de beschikbare methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
 Hierdoor kon geen klikbare dropdownmenu worden getoond.
 
 \paragraph{\kendo}
 Het automatisch aanvullen van een formulierelement wordt als \term{widget} door \kendo{} Web aangeboden.
 Suggesties van het element kunnen zowel door een lokale als externe bron worden aangeleverd.
-%TODO enkel vertellen wat relevant is? Sander
 Externe suggesties moeten via een \code{DataSource} worden ingeladen.
-Een \code{DataSource} ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
 Buiten een \code{DataSource} kan het minimale aantal suggesties en een filter worden opgegeven.
 De filter bepaalt de methode om suggesties op te halen en kan \code{startswith} zijn.
 
 \paragraph{\jqm}
 Indien er wordt gebruik gemaakt van versie~1.2 is een plug-in nodig om auto-aanvulling te bekomen.
-Hiervoor kan de plug-in van Andy Matthews worden gebruikt die zowel met lokale data als data op afstand kan werken~\cite{Matthews2013}. 
+Hiervoor kan de plug-in van Andy Matthews worden gebruikt die zowel met lokale data als externe data kan werken~\cite{Matthews2013}. 
 Sinds versie~1.3 voorziet \jqm{} deze functionaliteit zelf~\cite{JQuery2013c}.
 De filterfunctie moet zelf worden geschreven, maar door de voorbeeldcode op de site kon deze worden overgenomen.
 
@@ -685,7 +660,7 @@ In asynchrone mode gebeurt het opladen meteen na het selecteren van de afbeeldin
 Deze methode steunt op de HTML5 FileReaderAPI.
 Omdat een voorbeeld van de afbeelding werd gevraagd, is de asynchrone oplossing gekozen.	
 Voor ASP.NET MVC,  JSP en PHP is een implementatie beschikbaar om het opladen van bestanden aan serverzijde af te handelen.
-Er werd gekozen om de PHP-implementatie te gebruiken.
+Er werd gekozen om de PHP-implementatie te gebruiken omdat deze technologie meer vertrouwd was.
 Wanneer een afbeelding succesvol is opgeladen, wordt het bestand met een \code{FileReaderAPI} gelezen,  aan een \code{canvas} toegevoegd en naar Base64 omgezet met de \code{toDataURL}-methode.
 
 \paragraph{\jqm}
@@ -797,6 +772,7 @@ Hoe een dialoogvenster gemaakt wordt, werd in sectie \ref{sec:evaluatie-gebruik-
 Validatie is niet standaard aanwezig in \jqm. 
 Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required}-attribuut in HTML5. 
 Dit werd niet gedaan om twee redenen.
+%TODO moet ik bij kendo vermelden dat de HTML5 attributen worden gebruikt maar het framework ze omvormt zodat het wel ondersteund is?
 Enerzijds is hiervoor geen ondersteuning voor mobiele browsers~\cite{Deveria2013c}. 
 Anderzijds is het ook nodig om de velden te valideren op hun waarde.
 Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
@@ -809,6 +785,7 @@ Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde opt
 Deze afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
 
 De plug-in toont standaard een foutboodschap onder het foute formulierveld.
+%TODO is een api niet meestal gedocumenteerd?
 Door de uitgebreide API van de plug-in die ook gedocumenteerd is, konden alle foutboodschappen samen in één dialoogvenster worden weergegeven.
 
 De plug-in annoteert de foute velden met een CSS-klasse.
@@ -880,6 +857,7 @@ Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekeni
 Dezelfde aanpak als bij \kendo{} werd gevolgd.
 
 \paragraph{\lungo}
+%TODO twee zinnen nogal contradictorisch.  Een plugin zou dus wel degelijk mogelijk zijn,  je hebt er gewoon niet voor gekozen?
 Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook geen plug-in worden gevonden.
 Er kan echter worden gebruik gemaakt van plug-ins die op andere \js{}-bibliotheken dan QuoJS steunen, maar de auteurs besloten om deze niet te beschouwen.
 Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applicatie.
@@ -928,24 +906,26 @@ Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de ei
 
 De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{Stores}.
 Een \code{Store} wordt voorzien van een \code{Proxy}.  
-Deze kan data aan de klant- of serverzijde opslaan.  
-Een \code{Proxy} voor opslag aan klantzijde kan zowel in het RAM-geheugen als de lokale opslag van de browser opslaan.  
-%TODO AJAX ook voor cross domain gebruikt (sander)
-Een \code{Proxy} voor serveropslag kan data verzenden via AJAX (zelfde domein) of JSONP (verschillende domeinen).  
-Hierbij kunnen \code{Readers} en \code{Writers} geconfigureerd worden om data van de server te lezen of naar de server te schrijven.
+Een \code{Proxy} kan de \term{localStorage} van de browser gebruiken of data verzenden via AJAX.  
+Hierbij kunnen \code{Readers} geconfigureerd worden om data van de server te lezen of naar de server te schrijven.
+\st{} voorziet drie methoden om de resultaten van een \code{Proxy} te parsen naar modelinstanties:
+\begin{description}
+ \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
+ \item [\code{XmlReader}] parst XML-tags naar model velden.
+ \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
+\end{description}
 
 Het verzenden van een JSON-\term{payload} moet met een expliciet AJAX-verzoek gebeuren.
 Na het encoderen kan de JSON-data aan het verzoek worden gekoppeld.
 
 \paragraph{\kendo}
 Om asynchrone verzoeken naar de \term{backend} te implementeren, moet een \code{DataSource} worden gebruikt.
-Dit object voorziet CRUD-operaties voor zowel lokale (\js-objecten en \js-rijen) als externe data (XML, JSON, JSONP).
-De \code{transport} eigenschap kan de configuraties bevatten om data te creëren (\code{create} eigenschap),  lezen (\code{read} eigenschap),  verwijderen (\code{destroy} eigenschap) en op te waarderen (\code{update} eigenschap).
-Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax}-methode van de jQuery bibliotheek.
+Deze bevat een \code{transport} eigenschap die data kan creëren (\code{create} eigenschap),  lezen (\code{read} eigenschap),  verwijderen (\code{destroy} eigenschap) en op te waarderen (\code{update} eigenschap).
+Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax}-methode van de jQuery-bibliotheek.
 
 Hoe data moet worden geparset, staat gedefinieerd in de \code{schema} eigenschap van de \code{DataSource}.
 Zowel JSON als XML worden ondersteund.
-Aan een \code{schema} kan een \code{Model} worden toegekend.
+Aan een \code{schema} kan een (View) Model worden toegekend.
 Er onderscheiden zich twee gevallen:  een bestaand \code{ObservableObject} kan met data worden geladen of nieuwe instanties van een \code{Model} kunnen worden aangemaakt.
 Het eerste geval zal de velden van één \code{ObservableObject} wijzigen als CRUD-operaties worden uitgevoerd.
 De eigenschap moet dan aan het \code{ObservableObject} worden gelijkgesteld.
@@ -1076,11 +1056,12 @@ Er komt geen functionaliteit van het raamwerk om data te sorteren.
 Eerst moet zelf een vergelijkingsfunctie in \js{} worden geschreven, waarna die aan de sorteerfunctie van \js{} wordt meegegeven.
 
 \paragraph{\lungo}
+%TODO twee refs naar jqm.  Mss krijgen lezers na een tijdje wel de indruk dat ze op dezelfde library steunen ofzo.  
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
 Net zoals bij \jqm{} wordt één voor één een item toegevoegd aan de lijst met behulp van \quo{}.
 Het is daarentegen niet nodig om de lijst te verversen.
 
-Ook de gegenereerde lijstitems klikbaar te maken, wordt dezelfde manier  als \jqm{} gebruikt.
+Ook de gegenereerde lijstitems klikbaar te maken, wordt zoals \jqm{} gedaan.
 Dit gebeurt bij het genereren van de items zelf en op basis van een unieke \term{identifier} die de uit te voeren actie bepaald.
 
 Het sorteren van data gebeurt door de aangeboden functies van het raamwerk zelf.
@@ -1222,7 +1203,7 @@ Net zoals \kendo{} werden lokale opslag en HTML5 Application Cache gebruikt.
 
 Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code inlaadt.
 Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
-Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gebruikersgegevens werden bewaard.
+Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gegevens werden bewaard.
 
 \paragraph{\lungo}
 Het raamwerk biedt zelf functies aan om data lokaal op te slaan.

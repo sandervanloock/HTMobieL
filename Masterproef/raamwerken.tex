@@ -41,9 +41,8 @@ In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een overzicht van deze p
 
 \section{\st}
 \label{sec:raamwerk-st}
-
-%TODO andere volgorde, geen kopie pasta
-\st{} wordt ontwikkeld door Sencha,  een bedrijf dat in 2010 is ontstaan als een samensmelting van Ext JS,  jQuery Touch en Raphaël. 
+\st{} wordt ontwikkeld door Sencha.
+Dit een bedrijf is in 2010 is ontstaan als een samensmelting van drie raamwerken:  Ext JS, jQuery Touch en Raphaël. 
 Ext JS is een \js{}-raamwerk voor de ontwikkeling van webapplicaties. 
 jQuery Touch is een jQuery plug-in voor mobiele webontwikkeling.  
 Het steunt op WebKit en voegt \term{touch events} toe aan jQuery.  
@@ -230,12 +229,11 @@ Hoewel geen echte scores worden uitgedeeld, zijn alle belangrijkste kenmerken ui
 
 \section{\kendo}
 \label{sec:raamwerk-kendo}
-%TODO andere volgorde, geen kopie pasta
-\kendo{} is een raamwerk van de hand van Telerik en werd stabiel vrijgegeven in novermber 2011.
-Het bestaat uit drie luiken:  Web, Mobile en DataViz.  
-%TODO widget uitleggen
-Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
+\kendo{} is een raamwerk van het Duitse Telerik en in novermber 2011 gelanceerd.
+Het vergemakkelijkt de ontwikkeling van webapplicaties en bestaat uit drie luiken.
+\kendo{} Web is gericht op de ontwikkeling van desktop- en mobiele applicaties,  \kendo{} Mobile voegt een \term{native look-and-feel} toe aan mobiele applicaties en \kendo{} DataViz zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
 \kendo{} is zowel een \js{}- als opmaakgedreven raamwerk en heeft een (Model-View-View Model) MVVM-ontwerppatroon dat steunt op de jQuery-bibliotheek.
+Het raamwerk biedt \term{widgets} aan voor meer geavanceerde functionaliteit, die onderliggend een plug-in van jQuery voorstellen.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig de \term{backend} te integreren aan de klantzijde.
 ASP.NET MVC,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend}integratie.
 Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerike}. 
@@ -326,7 +324,7 @@ De eerste kan het scherm in twee \code{Views} splitsen,  vaak gebruikt bij appli
 De tweede definieert een verzameling van pagina's die met \term{swipe} bewegingen gelinkt zijn.
 
 \paragraph{View Model}
-Het \code{View Model} behoort tot de kern van \kendo{} en wordt \code{ObservableObject} genoemd.
+Het View Model behoort tot de kern van \kendo{} en wordt \code{ObservableObject} genoemd.
 Dit is een \js{}-object dat kan gebonden worden aan abonnees.
 Het ondersteunt het monitoren van wijzigingen en verwittigt elke abonnee wanneer een wijziging zich voordoet.
 Een \code{ObservableObject} kan aan een \code{View} worden toegekend door het in de \code{data-model}-tag te vermelden.
@@ -360,7 +358,7 @@ De \code{DataSource} is een \kendo{} object voor de opslag van lokale of externe
 Deze ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
 Het \code{schema}-attribuut legt de structuur van de data in de \code{DataSource} vast.
 Bij externe databronnen bepaalt het hoe binnenkomende data geparset moet worden om aan de opgelegde structuur te voldoen.
-Een \code{schema} kan ook van een \code{Model} worden voorzien of zelf een \code{Model} beschrijven.
+Een \code{schema} kan van een \code{Model} worden voorzien of zelf een \code{Model} beschrijven.
 In het eerste geval zullen de waarde van het toegekende \code{Model} na CRUD-operaties worden aangepast.
 In het andere geval zal de \code{DataSource} instanties van het beschreven \code{Model} bevatten en manipuleren.
 

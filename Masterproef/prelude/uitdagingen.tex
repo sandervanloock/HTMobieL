@@ -19,6 +19,8 @@
     	U4.4:~Aangepaste \term{datepicker} met bereik van data%
   	\else\ifnum\pdf@strcmp{#1}{formulieren-monthpicker}=0
 		U4.5:~Aangepaste \term{datepicker} met enkel maand- en jaarveld%
+	\else\ifnum\pdf@strcmp{#1}{formulieren-picker}=0
+    	U4.4:~\term{Datepicker}%
   	\else\ifnum\pdf@strcmp{#1}{formulieren-schakelaar}=0
 		U4.6:~Schakelaar%
   	\else\ifnum\pdf@strcmp{#1}{formulieren-wissen}=0
@@ -52,7 +54,7 @@
   	\fi\fi\fi\fi\fi
   	\fi\fi\fi\fi\fi
   	\fi\fi\fi\fi\fi
-  	\fi\fi
+  	\fi\fi\fi
 }
 
 \newcommand{\chal}[1]{
@@ -74,6 +76,8 @@
     	C4.4:~Custom datepicker with data range%
   	\else\ifnum\pdf@strcmp{#1}{formulieren-monthpicker}=0
 		C4.5:~Custom datepicker only with month and year%
+  	\else\ifnum\pdf@strcmp{#1}{formulieren-picker}=0
+		C4.4:~Datepicker%		
   	\else\ifnum\pdf@strcmp{#1}{formulieren-schakelaar}=0
 		C4.6:~Flip switch%
   	\else\ifnum\pdf@strcmp{#1}{formulieren-wissen}=0

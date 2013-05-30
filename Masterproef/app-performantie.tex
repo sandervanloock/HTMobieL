@@ -24,15 +24,7 @@ De downloadtijd van de POC op de \gs{} duurde gemiddeld $31.43$s.
 Gemiddeld moeten Android toestellen $5$ seconden langer laden in vergelijking met iOS toestellen.
 Dit gemiddelde wordt sterk beïnvloed door de trage downloadtijd van de \gs{}.
 
-\st{} heeft een andere aanpak voor het cachen van een applicatie door de introductie van een \term{Delta-update} mechanisme.
-Dit mechanisme wil voorkomen dat bij een kleine aanpassing in de code,  alle bestanden opnieuw moeten worden opgehaald die in het \term{manifest} bestand staan opgelijst.
-De \term{Micro-loader} is verantwoordelijk voor het asynchroon ophalen van alle benodigde \js{}- en CSS-bestanden.
-Na het bouwen van een applicatie met Sencha Cmd,  zullen de gewijzigde bestanden gearchiveerd worden en worden de veranderingen tussen elke versie opgeslagen.
-Na het laden van de applicatie, zal de \code{Micro-loader} met een GET-verzoek controleren op wijzigingen.
-Dit GET-verzoek zal de grootste tijd voor zijn rekening nemen bij de downloadtijden bij applicaties uit de cache.
-\st{} heeft er dus voor gekozen om aan performantie in te boeten ten voordele van het update mechanisme~\cite{Nguyen2012}.
-
-Een laatste opmerking die bij \st{} moet worden gemaakt, is dat AJAX-verzoeken van een \code{proxy} naar een ander domein altijd vooraf worden gegaan met een OPTIONS-verzoek.
+Een opmerking die bij \st{} moet worden gemaakt, is dat AJAX-verzoeken van een \code{proxy} naar een ander domein altijd vooraf worden gegaan met een OPTIONS-verzoek.
 Dit is een verzoek om informatie over de beschikbare opties van het communicatiekanaal op te vragen.
 Standaard zet \st{} de \code{X-Requested-With} op XMLHttpRequest en hierdoor zal de browser een OPTIONS-verzoek als \term{preflight} sturen.
 

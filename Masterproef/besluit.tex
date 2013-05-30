@@ -19,15 +19,14 @@ Beide raamwerken zijn \term{open-source}.
 
 Vijf criteria werden gekozen om de vergelijkende studie uit te voeren:  populariteit,  productiviteit,  gebruik,  ondersteuning en performantie.
 Elk criterium werd voorzien van een formule om een score te berekenen voor het criterium.
-%TODO gonzalo why poc
-Een POC die werknemers toelaat onkosten toe te voegen, werd geformaliseerd en op zoveel mogelijk vlakken getest met de opgelegde criteria.
+In samenspraak met Capgemini werd een POC opgesteld die werknemers toelaat onkosten toe te voegen.
+Deze werd gebruikt om het gebruik en de ondersteuning te drijven.  
 Om populariteit te meten werd naar de activiteit van de raamwerken op sociale netwerken gekeken.
 De tijd om een loginapplicatie te ontwikkelen, bepaalde de productiviteit.
-De POC werd onderverdeeld in $13$ uitdagingen en $38$ deeluitdagingen om de functionaliteit van het raamwerk te testen en het gebruikscriterium te quoteren.
+De POC werd onderverdeeld in $13$ uitdagingen en $38$ deeluitdagingen om de functionaliteit van het raamwerk te testen en het gebruik te quoteren.
 Vervolgens werd een subset van de uitdagingen getest op acht verschillende mobiele toestellen om de ondersteuning te controleren.
-%TODO responsetijden?
-Ten slotte bepaalden de download- en responsetijden van de POC en loginapplicatie de performantie.
-De responsetijden werden vervangen door een gebruikerservaring.
+Ten slotte bepaalden de downloadtijd en de gebruikerservaring van de loginapplicatie de performantie.
+De gebruikerservaring bepaalt hoe vlot het gaat om door een lange lijst te scrollen.
 De scores van de vijf criteria voor de vier raamwerken werden in één spinnenweb ondergebracht.
 
 Na evaluatie is \jqm{} het beste raamwerk op basis van de gekozen criteria, gevolgd door \kendo{}, \lungo{} en \st{}.
@@ -49,20 +48,17 @@ Bij het uitvoeren van een vergelijkende studie is de keuze van de vergelijkingsc
 Daarbij is het belangrijk om reeds bestaande literatuur grondig te controleren.
 Zo werd er in het begin te specifiek naar papers gezocht omtrent het vergelijken van HTML5-raamwerken.
 Meer algemene methodologieën om software te vergelijken moesten worden gezocht waaruit criteria konden worden hergebruikt.
-%TODO ahp hier toevoegen?
 
 Bij het opzetten van criteria is het van groot belang dat de manier waarop deze criteria zullen worden getoetst, zeer gedetailleerd worden neergeschreven.
 De exacte formules van de criteria werden pas tijdens de evaluatie vastgelegd.
 Pas dan werd de nood van een formele notatie duidelijk.
 Ook is het belangrijk om op voorhand de elementen van een vergelijkende studie uit te testen alvorens de vergelijkingscriteria vast te leggen.
 Hierdoor kunnen iteraties over de criteria vermeden worden als blijkt dat ze niet toepasbaar zijn.
-%TODO nog relevant?
-De nieuwe formules voor het productiviteits- en performantiecriterium hadden hierdoor vermeden kunnen worden.
 Een initiële vertrouwdheid met de raamwerken had er ook voor gezorgd dat de criteria meer kenmerken van de raamwerken zouden bevatten.
 De raamwerken die steunen op een ontwerppatroon konden op die manier meer bevoordeeld worden door bijvoorbeeld een uitbreidbaarheidscriterium te introduceren.
+%TODO ref naar ISO?
 
-%TODO 3x het woordje tijd, herschrijven
-Een andere geleerde les is dat er in het uitvoeren van de evaluatie veel tijd kruipt.
+Een andere geleerde les is dat er in het uitvoeren van de evaluatie veel werk kruipt.
 Echter, het interpreteren en begrijpen van de resultaten duurde zowaar nog langer.
 Ook het opsporen en verbeteren van eigen fouten is zeer tijdsrovend.
 Door op een consistente en gestructureerde methode de evaluatie te voltooien, moet het aantal fouten tot een minimum worden beperkt.
@@ -104,13 +100,11 @@ Andere verbindingsmogelijkheden zoals 3G kunnen worden gebruikt en hierdoor kunn
 Een derde voorbeeld is de rendertijden die worden gebruikt bij performantie.
 Deze konden niet worden opgemeten bij \st{} en \lungo{}.
 Aanpassingen aan de broncode zouden het opmeten van rendertijden wel kunnen toelaten.
-%TODO alternatief nogeens vermelden?
-Daarnaast kan het voorgestelde alternatief ook verbeterd worden.
+Daarnaast kan het gebruikte alternatief dat bepaalt hoe vlot het gaat om door een lange lijst te scrollen, ook verbeterd worden.
 Als laatste kunnen ook de lijnen effectief geschreven code worden gebruikt bij productiviteit. 
 
 Een andere onderzoekspiste is om nieuwe criteria toe te voegen.
 Zo kan bijvoorbeeld het criterium uitbreidbaarheid worden onderzocht.
-%TODO ref naar ISO?
 Dit criterium omvat hoe gemakkelijk het gaat om de bestaande applicatie geïmplementeerd in een bepaald raamwerk uit te breiden.
 Een te onderzoeken hypothese hierbij is dat raamwerken die een ontwerppatroon afdwingen beter zullen scoren dan raamwerken zonder ontwerppatroon.
 Een bijkomende hypothese is dat de totale score van raamwerken die een ontwerppatroon afdwingen zal stijgen en deze van raamwerken zonder ontwerppatroon zal dalen.

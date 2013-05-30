@@ -125,7 +125,7 @@ De verwachting is dat downloadgrootte evenredig is met de downloadtijd.
   every last row/.style={
   	before row=\midrule,
     after row=\bottomrule}
-]{tabellen/bibliotheek.csv}
+]{tabellen/bibliotheken.csv}
 \caption{Groottes.}
 \label{tabel:evaluatie-performantie-groottes}
 \end{table}
@@ -135,9 +135,15 @@ De verwachting is dat downloadgrootte evenredig is met de downloadtijd.
 Als naar de versie uit cache wordt gekeken, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde (zie figuur \ref{fig:performantie-login-cache}).
 Daarentegen behaalt \st{} telkens een veel tragere tijd.
 Enerzijds komt dit doordat de drie eerstgenoemde raamwerken enkel gebruik maken van HTML5 Application Cache.
-%TODO is dit cachemechanimse niet iets crucialer en past het niet beter hier ipv appendix?
-\st{} gebruikt daarnaast ook nog een eigen mechanisme waardoor de grotere downloadtijd wordt verklaard (zie \ref{app:performantie-st}).
-Anderzijds gebruiken de drie eerstgenoemde raamwerken Yeoman om de applicatie te bouwen.
+\st{} voegt het Delta Update mechanisme toe aan HTML5 Application Cache.
+Dit mechanisme wil voorkomen dat bij een kleine aanpassing in de code,  alle bestanden opnieuw moeten worden opgehaald die in het \term{manifest} bestand staan opgelijst.
+De \term{Micro-loader} is verantwoordelijk voor het asynchroon ophalen van alle benodigde \js{}- en CSS-bestanden.
+Na het bouwen van een applicatie met Sencha Cmd,  zullen de gewijzigde bestanden gearchiveerd worden en worden de veranderingen tussen elke versie opgeslagen.
+Na het laden van de applicatie, zal de \code{Micro-loader} met een GET-verzoek controleren op wijzigingen.
+Dit GET-verzoek zal de grootste tijd voor zijn rekening nemen bij de downloadtijden bij applicaties uit de cache.
+\st{} heeft er dus voor gekozen om aan performantie in te boeten ten voordele van het update mechanisme~\cite{Nguyen2012}.
+
+\kendo{}, \jqm{} en \lungo{} gebruiken Yeoman om de applicatie te bouwen.
 De webapplicaties gemaakt in \st{} gebruiken daarentegen Sencha Cmd.
 
 %%%%%%%%%%%%%%%%%%
@@ -173,8 +179,7 @@ De webapplicaties gemaakt in \st{} gebruiken daarentegen Sencha Cmd.
 
 In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 \st{} behaalt de maximale score.
-%TODO het vlotst ging volgens de auteurs?
-Dit wil zeggen dat op alle toestellen het scrollen door de lijst van \st{} het vlotst ging.
+Dit wil zeggen dat op alle toestellen het scrollen door de lijst van \st{} het vlotst werd ervaren.
 \jqm{} werd zes keer als tweede beste beoordeeld. 
 Op de \htc{} liep \kendo{} vlotter,  op de \ipadi{} was \lungo{} nummer twee.
 De lijst genereren met \kendo{} op iOS-toestellen was onmogelijk omdat de applicatie de browser liet crashen.
@@ -225,7 +230,6 @@ Anderzijds wordt op figuur~\ref{fig:performantie} de gemiddelde downloadtijd get
  \label{fig:performantie}
 \end{figure}
 
-%TODO POC is raar getypset in de PDF
 \paragraph{Downloadtijd POC versus loginapplicatie}
 Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
 Voor de gemiddelde downloadtijd per apparaat en per raamwerk wordt verwezen naar appendix \ref{app:performantie}.
@@ -243,7 +247,7 @@ De eerste keer laden van de loginapplicatie duurt gemiddeld $3,32\unit{s}$.
 Indien deze uit cache komt, duurt dit gemiddeld nog slechts gemiddeld $420\unit{ms}$.
 
 %TODO experten zo ok?
-Indien enkel de downloadtijd in rekening wordt gebracht en \st{} buiten beschouwing wordt gelaten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$,  dit zijn aanvaardbare tijden volgens experten~\cite{Nielsen1993}.
+Indien enkel de downloadtijd in rekening wordt gebracht en \st{} buiten beschouwing wordt gelaten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$,  dit zijn aanvaardbare tijden in domein van gebruiksvriendelijkheid~\cite{Nielsen1993}.
 De gebruiker zal de vertraging waarnemen maar de aandacht niet verliezen.
 Het initieel laden van de POC implementatie met \st{} moet van een laadscherm worden voorzien omdat de downloadtijd $> 10\unit{s}$.
 

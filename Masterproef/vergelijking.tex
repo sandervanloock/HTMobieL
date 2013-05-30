@@ -11,7 +11,6 @@ De criteria die worden voorgesteld, zullen voortaan actieve criteria worden geno
 \label{sec:vergelijking-poc}
 In samenspraak met Capgemini werd gekozen om een \term{proof of concept}~(POC) op te stellen.
 Dit is een idee waarmee de uitvoerbaarheid in de verschillende raamwerken kan worden nagegaan.
-%TODO hier refereren en reflecteren over POC in literatuur (tim), Tim: ok?
 Oehlman et al.~\cite{Oeflman2011} gebruikten ook een POC om raamwerken te vergelijken.
 
 Verschillende vergaderingen werden georganiseerd met Capgemini om tot een idee te komen dat vooral in de bedrijfswereld van toepassing is.
@@ -73,30 +72,29 @@ Deze bevat een overzicht van de onkosten met bijhorende bewijsstukken, alsook de
 In deze sectie zullen de actieve criteria toegelicht worden die zullen worden toegepast om de raamwerken te vergelijken.
 In sectie \ref{sec:vergelijken-raamwerken} werden reeds technieken besproken die in de literatuur worden toegepast.
 Elementen van deze technieken zullen terugkomen in de voorgestelde methode om de raamwerken te evalueren.
-%TODO in elke sectie van een criteria een referentie naar literatuur (zie drive document) + reflecteren met ISO (sander)
 Sectie \ref{sec:raamwerken-tabel} bevatte de passieve vergelijkingscriteria die raamwerken vergeleken met informatie over het raamwerk zelf.
 
 Vijf criteria zullen worden gebruikt: populariteit (\ref{sec:vergelijking-populariteit}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
-%TODO refereren naar puntensysteem literatuur(tim), Tim: ok?
 Elk raamwerk krijgt voor elk criterium een score afgeleid uit een formule. 
 De opzet van deze formules is vergelijkbaar met de opzet van het puntensysteem dat werd gebruikt op een blogpost van Codefessions~\cite{Sarrafi2012a}. 
 Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-spinnenweb}).
-%TODO ref spinnenweb heb ik ook teruggevonden, is dit ok?
-Het weergeven van de scores in een spinnenweb kwam door Capgemini.
+Capgemini moedigde het gebruik van een spinnenweb aan om de vergelijking te visualiseren.
 Ze verwezen naar een blogpost waarbij een spinnenweb werd gebruikt om \term{native} en webapplicaties met elkaar te vergelijken~\cite{Jeroen2012}.
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
 De implementatie van deze POC zal het gebruiks- en ondersteuningscriterium drijven.  
 Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteiten bevat die van een normale applicatie verwacht worden.
 
-%TODO populariteit in visionmobile gebruiken bij onze criteria:  er staat alleen percentages van het aantal developers dat welke tools gebruiken..
+%TODO -alternatief AHP, nadeel is
+% 1) redo evaluate (puntje 2 van paper \cite{Saaty1980}) is grootste nadeel als er een nieuw criteria wordt toegevoegd, bij ons kan je er een gewoon inklikken. we willen een goeie methode creëren.
+% 2) we zijn een thesis met 2, dus dan gingen we altijd tezamen moeten zitten voor evaluatie. want de vergelijking is relatief t.o.v. elkaar.
+
 \subsection{Populariteit}
 \label{sec:vergelijking-populariteit}
 De populariteit van een raamwerk is een belangrijke factor want het bepaalt de gemeenschap en levendigheid van het raamwerk.
 De definitie van gemeenschap op de blogpost van Codefessions~\cite{Sarrafi2012a} zegt ook dat dit een belangrijke factor is omdat het de toekomstige ontwikkeling en de hulp bij het gebruik van het raamwerk aantoont. 
 De populariteit kan in cijfers worden uitgedrukt door gebruik te maken van sociale netwerken. 
-Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en \term{forkers} van \gh{},  vragen op \so{} en aantal vind-ik-leuks van \fb{}~\cite{Hales2012,Ayuso2012}.
-%TODO wat is het beste? refs of drie extra zinnen?
-De eerste drie termen worden ook in HTML5 and JavaScript Web Apps van Hales bekeken wanneer HTML5-raamwerken worden voorgesteld~\cite{Hales2012}.
+Een tabel zal voorzien worden met in de rijen het aantal volgers op Twitter, sterren en \term{forkers} van \gh{},  vragen op \so{} en aantal vind-ik-leuks van \fb{}.
+Twitter en \gh{} worden ook in HTML5 and JavaScript Web Apps van Hales bekeken wanneer HTML5-raamwerken worden voorgesteld~\cite{Hales2012}.
 \so{} vragen worden als criterium op een blogpost van Monocaffe gebruikt om mobiele raamwerken te vergelijken~\cite{Ayuso2012}.  
 Het aantal vind-ik-leuks van \fb{} werd zelf geïntroduceerd.
 
@@ -144,9 +142,8 @@ De andere zal dan de POC in \st{} en \kendo{} maken en de loginapplicatie in \jq
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
 Er wordt verondersteld dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
 Toch kunnen beide onderling verschillen in efficiëntie,  waardoor de productiviteit verschilt.
-%TODO geen eenduidige manier + perceptie, Tim: ok?
 Dit probleem is inherent aan dit criterium doordat er geen eenduidige manier is om productiviteit te bepalen.
-Toch is het belangrijk om een perceptie van dit criterium te kunnen maken op basis van de voorgestelde schatting.
+Toch is het belangrijk om een schatting op deze manier te kunnen maken.
 
 % Omdat de POC twee keer moet worden geïmplementeerd, wordt verwacht dat de tweede implementatie sneller zal verlopen.
 % Dit probleem is onafwendbaar en zal bij de evaluatie van de data aangehaald worden.
@@ -295,10 +292,9 @@ Omdat er $38$ deeluitdagingen zijn, kan een raamwerk voor dit criterium maximaal
 \label{sec:vergelijking-ondersteuning}
 Dit criterium moet weergeven hoe goed het raamwerk verschillende toestellen en verschillende besturingssystemen ondersteund.
 Het is belangrijk dat een zo breed mogelijk publiek met éénzelfde applicatie kan worden bereikt.
-%TODO deze reden geldig?
-Het ondersteunen van verschillende platformen werd door meer dan $75\%$ van de ondervraagde ontwikkelaars in het Vision Mobile rapport aangehaald als hoofdreden om \term{cross-platform} tools te gebruiken.~\cite{Mobile2012} 
-De ISO 25010-standaard beschrijft ook de overdraagbaarheid naar verschillende platformen.
-
+Net zoals webapplicaties willen \term{cross-platform} tools zo veel mogelijk platformen bereiken.
+Dit werd door meer dan $75\%$ van de ondervraagde ontwikkelaars in het Vision Mobile rapport aangehaald als hoofdreden om \term{cross-platform} tools te gebruiken~\cite{Mobile2012}. 
+Ook de ISO 25010-standaard beschrijft de overdraagbaarheid naar verschillende platformen.
 
 Enkel de standaard browser van het besturingssysteem zal beschouwd worden.
 Voor Android toestellen is dit de Android browser of Chrome.  

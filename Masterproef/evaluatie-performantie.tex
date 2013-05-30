@@ -1,9 +1,10 @@
 \section{Performantie}
 \label{sec:evaluatie-performantie}
 
-%TODO eq (tim)
-De bekomen data voor de vier raamwerken aan de hand van formule~\ref{eq:performantie-enhanced} wordt weergegeven in tabel \ref{tabel:evaluatie-performantie}.
+De bekomen performantie voor de vier raamwerken wordt weergegeven in tabel \ref{tabel:evaluatie-performantie}.
+De performantie wordt bepaald volgens formule~\ref{eq:performantie-enhanced} die de gemiddelde downloadtijd en de gebruikerservaring bevat.
 Voor de score van performantie geldt hoe kleiner, hoe beter.
+
 \begin{table}
 \centering
 \pgfplotstabletypeset[
@@ -44,12 +45,9 @@ Als laatste wordt de performantie getoetst aan andere metrieken in sectie~\ref{s
 
 \subsection{Gemiddelde downloadtijd}
 \label{sec:evaluatie-downloadtijd}
-
-%TODO gonzalo: beschrijven formules
-De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd}.
-De gemiddelde downloadtijd voor de loginapplicatie als de loginapplicatie uit cache worden bepaald volgens formule~\ref{eq:totale-downloadtijd} en \ref{eq:totale-gebruikerservaring}.
+De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd} die zowel de loginapplicatie als de loginapplicatie uit cache in rekening neemt.
 De uitkomsten hiervan worden weergegeven in tabel~\ref{tabel:evaluatie-performantie-downloadtijd}.
-Om beter de spreiding van deze downloadtijd op de acht apparaten te kunnen bekijken, wordt op figuur \ref{fig:performantie-login-boxplot} de downloadtijd uitgezet in een boxplot.
+Om de spreiding van deze downloadtijd op de acht apparaten beter te kunnen bekijken, wordt op figuur \ref{fig:performantie-login-boxplot} de downloadtijd uitgezet in een boxplot.
 Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de loginapplicatie uit cache.
 
 \begin{table}
@@ -113,7 +111,6 @@ De webapplicaties gemaakt in \st{} gebruiken daarentegen Sencha Cmd.
 
 \subsection{Gebruikerservaring}
 \label{sec:evaluatie-gebruikerservaring}
-In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 
 \begin{table}
 \centering
@@ -141,6 +138,7 @@ In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalsc
 \label{tabel:evaluatie-performantie-gebruikerservaring}
 \end{table}
 
+In tabel \ref{tabel:evaluatie-performantie-gebruikerservaring} wordt de totaalscore voor de gebruikerservaring getoond.
 \st{} behaalt de maximale score.
 Dit wil zeggen dat op alle toestellen het scrollen door de lijst van \st{} het vlotst ging.
 \jqm{} werd zes keer als tweede beste beoordeeld. 
@@ -157,8 +155,8 @@ De score van \kendo{} is dus slechts voor vier apparaten.
 \label{sec:evaluatie-performantie-duiding}
 
 In wat volgt zullen metrieken worden besproken die de score van de performantie zullen duiden.
-De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklaring} en figuur \ref{fig:performantie}.
-%TODO Gonzalo wat in tabel en figuur te zien?
+De data van de metrieken is enerzijds weergegeven in tabel~\ref{tabel:performantie-verklaring} die de score met Google PageSpeed en grootte toont.
+Anderzijds wordt op figuur~\ref{fig:performantie} de gemiddelde downloadtijd getoond voor zowel de POC als loginapplicatie.
 
 \begin{table}
 \centering
@@ -193,7 +191,7 @@ De data van de metrieken is weergegeven in tabel~\ref{tabel:performantie-verklar
  \label{fig:performantie}
 \end{figure}
 
-
+%TODO POC is raar getypset in de PDF
 \paragraph{Downloadtijd POC versus loginapplicatie}
 Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
 Voor de gemiddelde downloadtijd per apparaat per raamwerk wordt verwezen naar appendix \ref{app:performantie}.

@@ -92,15 +92,44 @@ Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de logi
 \end{figure}
 
 \paragraph{Loginapplicatie}
-%TODO vanaf hier niet over plaatsen maar over ``snelste downloadtijd'' spreken?
-\lungo{} behaalt de eerste plaats (zie figuur \ref{fig:performantie-login}).
-\jqm{} en \kendo{} behalen respectievelijk een tweede en derde plaats.
+\lungo{} behaalt de snelste downloadtijd (zie figuur \ref{fig:performantie-login}).
+\jqm{} en \kendo{} behalen respectievelijk een tweede en derde snelste downloadtijd.
 \lungo{} is meer dan de helft sneller dan \jqm{}, \kendo{} of \st{}.
 Deze drie raamwerken behalen quasi dezelfde downloadtijd.
-\st{} behaalt de laatste plaats.
-%TODO kendo heeft toch ook een ontwerppatroon dus mss anders verwoorden
-%js bibliotheek van sencha is groter want alle html moet gerenderd worden, bij kui is dit niet zo.  Het type raamerk speelt dus ook een rol
-Dit wordt verklaard door het gebruik van een ontwerppatroon waardoor een grotere \js{}-code dient te worden gedownload ten opzichte van raamwerken die geen ontwerppatroon afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
+\st{} is het traagst.
+De grootte van de bibliotheek domineert de werkelijk geschreven code van de loginapplicatie.
+Hierdoor bepaalt de grootte van de bibliotheek van het raamwerk (zie tabel \ref{tabel:raamwerken-tabel}) het merendeel van de totale downloadgrootte.
+Raamwerken met een ontwerppatroon hebben een grotere \js{}-bestand.
+Pure \js{}-gedreven raamwerken moeten alle HTML-code ter plaatse genereren, hierdoor is hun bibliotheek ook groter dan andere raamwerken.
+De verwachting is dat downloadgrootte evenredig is met de downloadtijd.
+
+%TODO tabel updaten + besluit herbekijken
+\begin{table}
+\centering
+\pgfplotstabletypeset[
+  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  end table=\end{tabular},
+  skip coltypes=true,
+  col sep=comma,
+  string type,
+  header=true,
+  columns={Bibliotheek,ST,Kendo,jQM,Lungo},
+  columns/Bibliotheek/.style={column name=\textbf{Bibliotheek}, column type={l}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={l}}, 
+  every head row/.style={
+    before row=\toprule,
+    after row=\midrule},
+  every last row/.style={
+  	before row=\midrule,
+    after row=\bottomrule}
+]{tabellen/bibliotheek.csv}
+\caption{Groottes.}
+\label{tabel:evaluatie-performantie-groottes}
+\end{table}
+
 
 \paragraph{Loginapplicatie uit cache}
 Als naar de versie uit cache wordt gekeken, scoren \kendo{}, \jqm{} en \lungo{} hetzelfde (zie figuur \ref{fig:performantie-login-cache}).

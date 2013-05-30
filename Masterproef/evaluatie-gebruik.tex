@@ -1,9 +1,4 @@
-%TODO evolutie bij het implementeren hier vertellen of dat enkel in technisch report?
-
-%TODO mijn algemene ervaring is jij (sander) overal veel 'kan' staat hebt en ik gewoon schrijf in een vorm van 'het is zo geïmplementeerd'. eigenlijk zou er bij gebruik toch maar dingen mogen staan die we effectief hebben gebruikt en dan vind ik die 'kan' wat raar. ik denk dat die 'kan' overal weg mag? wat denk je?
-
 %TODO losstaande zinnen: plakken bij het vorige?
-
 %TODO alleen-lezen ipv read only zal de leesbaarheid ook vergemakkelijken (tim)
 
 \section{Gebruik}
@@ -308,15 +303,8 @@ De parameters bevatten de titel, omschrijving, tijd op het scherm en de functie 
 Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
 Deze zullen respectievelijk een groene en rode kleur hebben.
 
-%TODO mss toch te technisch
-Het laadscherm wordt in samenwerking met de AJAX-verzoeken gebruikt.
-Net voor het AJAX-verzoek zal het laadscherm worden getoond en in de \term{callback} van het AJAX-verzoek zal het worden verborgen.
-Er treedt echter een probleem op wanneer deze manier gebruikt wordt in een ketting van AJAX-verzoeken.
-Volgens de documentatie verbergt de functie het huidige laadscherm of dialoogvenster. 
-Uit ervaring blijkt dat wanneer eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, het dialoogvenster niet verschijnt.
-Dit betekent dus dat de verbergfunctie ervoor zorgt dat het dialoogvenster niet wordt getoond.
-Een oplossing hiervoor is om bij een ketting van vensters, nooit de vensters tussenin te sluiten.
-Wanneer zowel een laadscherm als dialoogvenster worden geopend, zal enkel dat laatste getoond worden.
+Als eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, verschijnt het dialoogvenster niet.
+Een oplossing hiervoor is om het laadscherm niet te verbergen, waardoor enkel het dialoogvenster zal worden getoond.
 
 %%%%%%%%%%%%%
 
@@ -437,12 +425,9 @@ Het toevoegen van \term{placeholders} in de formuliervelden gebeurt met het HTML
 In \lungo{} zijn labels niet verplicht.
 Indien deze niet gewenst zijn, kunnen deze gewoon uit de HMTL5-code weggelaten worden.
 
-%TODO beide zinnen 2x zelfde
-Voor de types van de formuliervelden werd beroep gedaan op de HTML-invoertypes. 
-
-Gelijkaardig met \jqm{} werden de types van de formuliervelden geïmplementeerd door HTML-invoertypes. 
+Voor de types van de formuliervelden werd beroep gedaan op de HTML-invoertypes, gelijkaardig met \kendo{}.
 Door de twee aangehaalde problemen werd een plug-in gebruikt om de functionaliteit met datums op te lossen.
-De \code{date-picker} werd gebruikt van de plug-in pagina van Lungo zelf~\cite{TapQuo2013b}.
+De \code{date-picker} werd gebruikt van de plug-in pagina van \lungo{} zelf~\cite{TapQuo2013b}.
 Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \term{datepicker} te openen en de aangeklikte datum in het formulierveld te zetten.
 De plug-in laat echter niet toe om een bereik op te geven.
 De datum met enkel een maand en jaar diende handmatig geprogrammeerd te worden omdat de aangeboden plug-in hiervoor geen ondersteuning bood.
@@ -515,19 +500,16 @@ De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 \paragraph{\jqm}
 Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd.
 Hierdoor moet ieder formulierveld worden gezocht om daarna zijn waarde in te stellen.
-%TODO dropdownmenu = selectieveld?
-Bij een dropdownmenu en selectieveld kan deze methode niet worden gebruikt.
-Om de waarde in te stellen, moet de gewenste optie worden gezocht en daaraan het \code{selected}-attribuut worden toegevoegd.
-Daar dient de programmeer geavanceerdere code te schrijven.
+Bij een dropdownmenu en \code{radio} velden kan deze methode niet worden gebruikt.
+Voor de eerstgenoemde moet de gewenste optie worden gezocht en daaraan het \code{selected}-attribuut of \code{checked}-attribuut moeten worden toegevoegd.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
-%TODO ik net dat ge met HTML5 net zo goed het attribuut disabled kunt toevoegen en het werkt ook..
-Dit geldt voor alle types van velden, behalve voor selectievelden waar een omweg wordt gemaakt door de niet-benodigde opties uit de selectie te verwijderen.
+Dit geldt voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} moeten worden gebruikt.
+De andere niet-benodigde items worden uit de lijst verwijderd.
 
 \paragraph{\lungo}
 Velden vullen met data dient handmatig te gebeuren door eerst het formulierveld op te zoeken en daarna de waarde te zetten.
 Deze waarde moet tekst zijn, waardoor bijvoorbeeld getallen eerst moeten worden omgevormd.
-In tegenstelling tot \jqm{}, kan deze functie ook gebruikt worden voor dropdownmenu's.
 Geoptimaliseerde mobiele lay-out voor selectievelden is niet aanwezig in \lungo.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
@@ -674,7 +656,8 @@ Bij iOS zouden er dan twee voorvertoningen te zien zijn op hetzelfde scherm.
 
 \paragraph{\lungo}
 Een afbeelding kiezen gebeurt door aan het formulierveld het bestandstype toe te voegen.
-De methode om een afbeelding om te vormen naar Base64 en deze voor te vertonen is volledig analoog met die van \jqm{}.
+De methode om een afbeelding om te vormen naar Base64 is analoog met \kendo{}.
+Het voorvertonen van de geüploade afbeelding gebruikt dezelfde aanpak als \jqm{}.
 
 %%%%%%%%%%%%%
 
@@ -748,7 +731,9 @@ Het \kendo{}-raamwerk ondersteunt de validaties zoals aangeboden binnen HTML5.
 % \end{description}
 %Deze validaties moeten binnen het data-attribuut van het formulierelement worden aangebracht.
 Het \code{required} attribuut maakt de velden verplicht, \code{email} en \code{number} als invoertype zullen de opgegeven waarden controleren op geldigheid.
-De \kendo{} \code{validator} is compatibel met deze HTML5-validaties en controleert de validatieregels van invoerelementen.
+De \kendo{} \code{validator} gebruikt attributen van HTML5-validaties.
+HTML5-validatie wordt echter niet ondersteund op mobiele browsers~\cite{Deveria2013c}. 
+\kendo{} zal de HTML5-attributen omvormen tot een validatie in \js{}. 
 Het definiëren van een eigen validatieregel kan door een \js-functie aan de \code{validator} toe te voegen.
 % De validatiecontrole starten kan door de \code{validate}-methode op de \code{validator} op te roepen.
 Bij het controleren van invoerelementen worden altijd eerst de standaard validatieregels gecontroleerd,  daarna de eigen validatieregels.
@@ -770,8 +755,7 @@ Hoe een dialoogvenster gemaakt wordt, werd in sectie \ref{sec:evaluatie-gebruik-
 Validatie is niet standaard aanwezig in \jqm. 
 Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required}-attribuut in HTML5. 
 Dit werd niet gedaan om twee redenen.
-%TODO moet ik bij kendo vermelden dat de HTML5 attributen worden gebruikt maar het framework ze omvormt zodat het wel ondersteund is?
-Enerzijds is hiervoor geen ondersteuning voor mobiele browsers~\cite{Deveria2013c}. 
+Enerzijds is hiervoor geen ondersteuning voor mobiele browsers, zoals opgemerkt bij \kendo{}. 
 Anderzijds is het ook nodig om de velden te valideren op hun waarde.
 Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
 Deze lost beide problemen op.
@@ -783,8 +767,7 @@ Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde opt
 Deze afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
 
 De plug-in toont standaard een foutboodschap onder het foute formulierveld.
-%TODO is een api niet meestal gedocumenteerd?
-Door de uitgebreide API van de plug-in die ook gedocumenteerd is, konden alle foutboodschappen samen in één dialoogvenster worden weergegeven.
+Door de uitvoerig documentatie van de plug-in, konden alle foutboodschappen samen in één dialoogvenster worden weergegeven.
 
 De plug-in annoteert de foute velden met een CSS-klasse.
 Hierdoor kon de rode rand in CSS worden geprogrammeerd. 
@@ -794,7 +777,7 @@ Als oplossing moest de omvattende code worden geannoteerd.
 \paragraph{\lungo}
 Validatie is niet aanwezig in \lungo{} en er kon ook geen plug-in voor QuoJS gevonden worden.
 Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met \quo{}.
-Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \jqm{}), moest alle validatie manueel geprogrammeerd worden. 
+Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \kendo{}), moest alle validatie manueel geprogrammeerd worden. 
 Bij wijze van voorbeeld werd enkel validatie op het loginscherm geprogrammeerd.
 Validatie op de rest van de formulieren doorheen de POC is volgens dezelfde werkwijze mogelijk, maar werd niet geïmplementeerd.
 
@@ -855,11 +838,7 @@ Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekeni
 Dezelfde aanpak voor het omvormen naar Base64 bij \kendo{} werd gevolgd.
 
 \paragraph{\lungo}
-%TODO twee zinnen nogal contradictorisch.  Een plugin zou dus wel degelijk mogelijk zijn,  je hebt er gewoon niet voor gekozen?
 Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook geen plug-in worden gevonden.
-Er kan echter worden gebruik gemaakt van plug-ins die op andere \js{}-bibliotheken dan QuoJS steunen, maar de auteurs besloten om deze niet te beschouwen.
-Daarenboven zouden er dan ook twee \js{}-bibliotheken aanwezig zijn in de applicatie.
-
 
 %%%%%%%%%%%%%
 
@@ -1054,9 +1033,8 @@ Er komt geen functionaliteit van het raamwerk om data te sorteren.
 Eerst moet zelf een vergelijkingsfunctie in \js{} worden geschreven, waarna die aan de sorteerfunctie van \js{} wordt meegegeven.
 
 \paragraph{\lungo}
-%TODO twee refs naar jqm.  Mss krijgen lezers na een tijdje wel de indruk dat ze op dezelfde library steunen ofzo.  
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
-Net zoals bij \jqm{} wordt één voor één een item toegevoegd aan de lijst met behulp van \quo{}.
+Items worden één voor één toegevoegd aan de lijst met behulp van \quo{}.
 Het is daarentegen niet nodig om de lijst te verversen.
 
 Ook de gegenereerde lijstitems klikbaar te maken, wordt zoals \jqm{} gedaan.
@@ -1064,7 +1042,6 @@ Dit gebeurt bij het genereren van de items zelf en op basis van een unieke \term
 
 Het sorteren van data gebeurt door de aangeboden functies van het raamwerk zelf.
 Deze maken het mogelijk om te sorteren volgens een bepaalde eigenschap, zowel oplopend als aflopend.
-
 
 %%%%%%%%%%%%%
 

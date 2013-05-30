@@ -1,7 +1,7 @@
 \chapter{Literatuurstudie}
 \label{chap:literatuurstudie}
 
-In dit hoofdstuk bekijkt welke mobiele apparaten er allemaal bestaan (\ref{sec:mobiele-apparaten}). 
+Dit hoofdstuk bekijkt welke mobiele apparaten er allemaal bestaan (\ref{sec:mobiele-apparaten}). 
 Vervolgens wordt er gekeken wat er onder de motorkap van deze apparaten zit, namelijk welke mobiele besturingssystemen (\ref{sec:mobiele-besturingssystemen}), welke mobiele applicaties (\ref{sec:mobiele-applicaties}) en welke mobiele webbrowsers (\ref{sec:mobiele-webbrowsers}) er bestaan. 
 Daarna komen de drie bouwblokken van het web aan bod (\ref{sec:html5-css3-js}), namelijk HTML, CSS en \js{}.
 Hierna wordt ingegaan op bestaande mobiele HTML5-raamwerken (\ref{sec:mobiele-html5-raamwerken}).  
@@ -13,17 +13,16 @@ Ten slotte worden verschillende, reeds bestaande manieren om raamwerken te verge
 \section{Mobiele apparaten}
 \label{sec:mobiele-apparaten}
 Mobiele apparaten bestaan in alle soorten en maten, met weinig of veel opties, voor weinig of veel geld zoals wordt geïllustreerd op figuur \ref{fig:devices}. 
-%TODO native look-and-feel introduceren
+%TODO is dat niet raar om hier over native look-and-feel iets uit te leggen? beter bij mobile Oss?
 Het verdient daarom de aandacht om deze diversiteit onder de loep te nemen. 
 Eerst wordt ingegaan op twee soorten mobiele apparaten, namelijk de smartphone en tablet~\cite{GCF2013}.
 Daarna wordt stilgestaan bij de kenmerken van deze apparaten~\cite{PhilDutson2012}.
 Andere mobiele apparaten zoals de \term{e-reader} en Personal Digital Assistant~(PDA) worden buiten beschouwing gelaten.
 
-%TODO verscheidenheid illustreren, voor meeste mensen die geen smartphone/tablet hebben. caption uitvoeriger uitschrijven? bv. van links naar rechts de OS'es erbij zetten? 
 \begin{figure}
   \centering
   \includegraphics[height=0.6\textwidth]{figuren/mobile-devices.jpg}
-  \caption{Verschillende mobiele apparaten~\cite{Grady2013}.}
+  \caption{Verschillende mobiele apparaten. De bovenste rij zijn tablets met v.l.n.r. iOS en Android als besturingssysteem. De onderste rij zijn smartphones met v.l.n.r. Symbian, Windows Phone, Android, iOS en BlackBerry~OS als besturingssysteem~\cite{Grady2013}.}
   \label{fig:devices}
 \end{figure}
 
@@ -125,6 +124,12 @@ Bij ieder besturingssysteem zal ook over de winkel besproken worden waar applica
 Net zoals programma's geïnstalleerd worden op een computer, kan dit ook voor mobiele apparaten.
 Deze aangeboden applicaties worden verzameld in een winkel waarna de gebruiker ze, al dan niet gratis, kan downloaden en installeren.
 De winkel kan de kwaliteit van deze applicaties hoog houden door regels op te leggen aan de ontwikkelaars (zie \ref{sec:mobiele-applicaties}).
+
+%TODO hier staat het nieuwe stukje over native look-and-feel, ok?
+Zoals op figuur~\ref{fig:devices} te zien is, verschillen mobiele besturingssystemen ook door hun grafische gebruikersinterface~(GGI).
+Deze worden hieronder niet besproken, maar het is duidelijk dat iOS, Android en Windows Phone er verschillend uitzien.
+Ook de manier waarop de gebruiker gaat interageren met het mobiel besturingssysteem is verschillend.
+Deze verschillen op vlak van uitzicht en interactie wordt gebundeld in de term \term{native look-and-feel} van het mobiel besturingssysteem.
 
 \begin{table}
 \centering
@@ -584,7 +589,8 @@ De GI-elementen bootsen de lay-out van een iOS-apparaat na.
 \kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
 Eind 2011 werd de eerste stabiele versie vrijgegeven.
 Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
+%TODO ik doe deze zin hier dus weg, ok? (native look-and-feel zelf bootst de huisstijl niet na, het IS gewoon de huisstijl, het is de webapplicatie die de native look-and-feel nabootst)
+%\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
 \kendo{} is een \js{}-gedreven raamwerk met een MVVM-ontwerppatroon (Model-View-View Model) dat steunt op de jQuery-bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
 ASP.NET MVC,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend}integratie.

@@ -1,17 +1,39 @@
-%TODO architectuur ook in artikel vervangen door design pattern? Poster: Architectuur => ontwerppatroon
-%TODO commandos uitdagingen zoals gebruikt in tekst
 %TODO tabellen met cijfers links uitlijnen
 \documentclass[master=cws,dutch,masteroption={vs,gs},inputenc=utf8]{kulemt}
 \setup{title={Vergelijkende studie van raamwerken voor de ontwikkeling van mobiele HTML5-applicaties},
   author={Tim Ameye\and Sander Van Loock},
   promotor={Prof.\,dr.\,ir.\ E. Duval},
   assessor={Prof.\,dr.\,M.\ Denecker\and F. Van Assche},
-  assistant={Ir.\ G.~Parra}} %TODO jan en jannik toevoegen?
+  assistant={Ir.\ G.~Parra}} 
 % De volgende \setup mag verwijderd worden als geen fiche gewenst is.
 \setup{filingcard,
   translatedtitle={Comparative study of frameworks for the development of mobile HTML5 applications},
   udc=681.3,
-  shortabstract={} % TODO copy paste van samenvatting
+  shortabstract={Ontwikkelaars van mobiele applicaties worden geconfronteerd met een variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
+Dit komt doordat een applicatie wordt geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
+De ontwikkeling van mobiele webapplicaties, gebruikmakend van HTML5, is een mogelijke oplossing hiervoor.
+Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden.
+Deze helpen zowel bij het toevoegen van functionaliteit als de elementen voor de gebruikersinterface.
+Door de variëteit aan mobiele HTML5-raamwerken, dringt een grondige vergelijking zich op om te weten welk raamwerk nu het beste is.
+Dit werk vergelijkt \st{}, \kendo{}, \jqm{} en \lungo{} op basis van vijf vergelijkingscriteria:  populariteit,  productiviteit,  gebruik,  ondersteuning en performantie.
+Populariteit kijkt naar de activiteit van de raamwerken op sociale netwerken.
+Productiviteit wordt opgemeten om aan te tonen hoe lang het duurt om met een raamwerk vertrouwd te raken en er daadwerkelijk iets mee te maken.
+Het gebruik van de raamwerken bekijkt de elementen die het raamwerk aanbiedt.
+Ondersteuning test de elementen van het raamwerk op verschillende apparaten.
+Performantie meet enerzijds de downloadtijd en anderzijds de gebruikerservaring.
+De laatstgenoemde meet hoe vlot het gaat om door een lange lijst te scrollen.
+De vergelijking toont aan dat \jqm{} het beste raamwerk is.
+Daarna volgen \kendo{}, \lungo{} en \st{} op een respectievelijke tweede, derde en vierde plaats.
+\jqm{} heeft als belangrijkste troef de hoge productiviteit doordat het enerzijds zeer goed gedocumenteerd is en anderzijds geen ontwerppatroon afdwingt.
+Dit laatste is echter ook een nadeel omdat het hierdoor minder scoort op gebruik.
+\kendo{} heeft als belangrijkste troef het gebruik doordat het een ontwerppatroon afdwingt.
+Het scoort echter ondermaats op performantie.
+\lungo{} behaalde enkel de maximumscore voor performantie doordat het raamwerk geoptimaliseerd is voor mobiel gebruik.
+\st{} is het minst productief en performant in vergelijking met de andere raamwerken.
+Daarentegen scoort \st{} het best op het vlak van gebruikerservaring.
+Door het afdwingen van een ontwerppatroon scoort het quasi evengoed als \kendo{} op vlak van gebruik.
+Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte mobiele apparaten.
+}
 }
 % Verwijder de "%" op de volgende lijn als je de kaft wil afdrukken
 %\setup{coverpageonly}
@@ -80,7 +102,7 @@
 % \end{preface}
 
 \chapter*{Voorwoord - Tim}
-%TODO
+%TODO jan en jannik 
 
 \chapter*{Voorwoord - Sander}
 %TODO
@@ -97,8 +119,7 @@
 \begin{abstract}
 Ontwikkelaars van mobiele applicaties worden geconfronteerd met een variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
 Dit komt doordat een applicatie wordt geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
-%TODO Gonzalo zin
-De ontwikkeling van mobiele webapplicatie, gebruikmakend van HTML5, is een mogelijke oplossing.
+De ontwikkeling van mobiele webapplicaties, gebruikmakend van HTML5, is een mogelijke oplossing hiervoor.
 Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden.
 Deze helpen zowel bij het toevoegen van functionaliteit als de elementen voor de gebruikersinterface. 
 
@@ -129,7 +150,6 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 \begin{abstract}
 Developers of mobile applications are confronted with a variety of mobile operating systems that are present on smartphones and tablets.
 This is because an application has to be programmed in a specific language for the operating system.
-%TODO gonzalo, zin bekijken
 Developing mobile web applications using HTML5 can be a solution for this problem.
 To speed up development,  frameworks are presented.
 These help to add functionality and elements for the user interface.
@@ -137,7 +157,7 @@ These help to add functionality and elements for the user interface.
 Because of the variety of mobile HTML5 frameworks,  a thorough comparative study is necessary.
 This thesis compares \st{}, \kendo{}, \jqm{} and \lungo{} based on five comparison criteria:  popularity,  productivity,  usage,  support and performance.
 Popularity looks at the activity of frameworks on social networks.
-Productivity is determinded by measuring how long it takes to get acquainted with the framework.
+Productivity is determined by measuring how long it takes to get acquainted with the framework.
 Next,  the usage of the framework is studied by looking which elements are offered by the framework.
 The support tests the elements of the framework on different devices.
 Performance measures the download time and user experience.
@@ -159,7 +179,6 @@ All frameworks supported the evaluated mobile devices.
 \end{abstract}
 \selectlanguage{dutch}
 
-%TODO mag ik in de caption ook iedere keer de naam zelf (dus niet afkorting) \jqm, \st, \kendo, \lungo wegdoen?
 % Een lijst van figuren en tabellen is optioneel
 \listoffigures
 \listoftables
@@ -239,7 +258,7 @@ All frameworks supported the evaluated mobile devices.
 %% Bijlagen
 \appendixpage*          
 \appendix
-%TODO poster aanpassen
+%TODO poster aanpassen: Poster: Architectuur => ontwerppatroon
 \chapter{Poster}
 \includepdf[pages={1}]{../Poster/htmobiel.pdf}
 \chapter{Wetenschappelijk artikel}

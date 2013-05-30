@@ -10,10 +10,8 @@ Daarna zullen deze vijf vergelijkingscriteria in sectie~\ref{sec:evaluatie-spinn
 \label{sec:evaluatie-populariteit}
 
 De populariteit van de vier raamwerken op 8 mei 2013 wordt weergegeven in tabel~\ref{tabel:evaluatie-populariteit}. 
-%TODO ref naar formule (tim), Tim: ok? is precies een exacte herhaling..
-Voor de score van populariteit wordt naar formule \ref{eq:populariteit} verwezen die de som neemt van Twitter volgers, \gh{} sterren, \gh{} \term{forkers}, \so{} vragen en \fb{} vind-ik-leuks.
+Voor de score van populariteit op basis van sociale netwerken, wordt naar formule \ref{eq:populariteit} verwezen.
 
-%TODO ik zie dat de twitter tweets in de totaalscore worden opgenomen, terwijl er in het vergelijkingshoofdstuk niets daarover staat in de formule?
 \begin{table}
 \centering
 \pgfplotstabletypeset[
@@ -25,10 +23,10 @@ Voor de score van populariteit wordt naar formule \ref{eq:populariteit} verwezen
   header=true,
   columns={Populariteit,ST,Kendo,jQM,Lungo},
   columns/Populariteit/.style={column name=\textbf{Populariteit}, column type={l}},  
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
+  columns/jQM/.style={column name=\textbf{\jqma}, column type={r}},
+  columns/ST/.style={column name=\textbf{\sta}, column type={r}},
+  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={r}},
+  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={r}},
   every head row/.style={
     before row=\toprule,
     after row=\midrule},

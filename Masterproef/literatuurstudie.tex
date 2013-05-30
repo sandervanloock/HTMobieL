@@ -13,13 +13,11 @@ Ten slotte worden verschillende, reeds bestaande manieren om raamwerken te verge
 \section{Mobiele apparaten}
 \label{sec:mobiele-apparaten}
 Mobiele apparaten bestaan in alle soorten en maten, met weinig of veel opties, voor weinig of veel geld zoals wordt geïllustreerd op figuur \ref{fig:devices}. 
-%TODO is dat niet raar om hier over native look-and-feel iets uit te leggen? beter bij mobile OSs?
 Het verdient daarom de aandacht om deze diversiteit onder de loep te nemen. 
 Eerst wordt ingegaan op twee soorten mobiele apparaten, namelijk de smartphone en tablet~\cite{GCF2013}.
 Daarna wordt stilgestaan bij de kenmerken van deze apparaten~\cite{PhilDutson2012}.
 Andere mobiele apparaten zoals de \term{e-reader} en Personal Digital Assistant~(PDA) worden buiten beschouwing gelaten.
 
-%TODO misschien raar om dan in caption al over OSs te vertellen?
 \begin{figure}
   \centering
   \includegraphics[height=0.6\textwidth]{figuren/mobile-devices.jpg}
@@ -128,7 +126,7 @@ De winkel kan de kwaliteit van deze applicaties hoog houden door regels op te le
 Zoals op figuur~\ref{fig:devices} te zien is, verschillen mobiele besturingssystemen ook door hun grafische gebruikersinterface~(GGI).
 Deze worden hieronder niet besproken, maar het is duidelijk dat iOS, Android en Windows Phone er verschillend uitzien.
 Ook de manier waarop de gebruiker gaat interageren met het mobiel besturingssysteem is verschillend.
-Deze verschillen op vlak van uitzicht en interactie wordt gebundeld in de term \term{native look-and-feel} van het mobiel besturingssysteem.
+Beide verschillen worden gebundeld in de term \term{native look-and-feel} van het mobiel besturingssysteem.
 
 \begin{table}
 \centering
@@ -586,9 +584,7 @@ De GI-elementen bootsen de lay-out van een iOS-apparaat na.
 \paragraph{\kendo} % SANDER
 \kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
 Eind 2011 werd de eerste stabiele versie vrijgegeven.
-Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-%TODO ik doe deze zin hier dus weg, ok? (native look-and-feel zelf bootst de huisstijl niet na, het IS gewoon de huisstijl, het is de webapplicatie die de native look-and-feel nabootst)
-%\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
+Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
 \kendo{} is een \js{}-gedreven raamwerk met een MVVM-ontwerppatroon (Model-View-View Model) dat steunt op de jQuery-bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
 ASP.NET MVC,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend}integratie.
@@ -597,7 +593,7 @@ Zonder \term{backend} integratie zijn de kosten met $\$300$ verminderd.
 Op het moment van schrijven is \kendo{} aan versie 2013 Q2~\cite{Telerike}.
 
 \paragraph{\moobile} % TIM
-\moobile{} is een jong raamwerk dat op het moment van schrijven aan versie~0.2.1 zit sinds de eerste \term{commit} op GitHub in 2011~\cite{Dery2013}.
+\moobile{} is een jong raamwerk dat op het moment van schrijven aan versie~0.2.1 zit sinds de eerste \term{commit} op \gh{} in 2011~\cite{Dery2013}.
 Het raamwerk is \js{}-gedreven, volgt het MVC-ontwerppatroon en wordt onderhouden door de Canadees Jean-Philippe Déry.
 Zelf biedt \moobile{} voornamelijk GI-elementen aan, maar deze blijven (voorlopig) beperkt tot zeven componenten en drie schermovergangen~\cite{Dery2013}.
 \moobile{} mist echter ondersteuning voor formulieren.
@@ -612,7 +608,6 @@ De nadruk bij dit raamwerk ligt voornamelijk bij de generatie van code in een WY
 De gebruiker kan GI-elementen via \term{drag-and-drop} aan de applicatie toevoegen.
 Het binden van data kan door op een visuele manier de mapping tussen GI en data weer te geven.
 Het testen van de applicatie kan op een bijgeleverde emulator die de applicatie op verschillende lay-outs kan weergeven.
-%TODO is dit dan nog altijd architectuur?
 Het raamwerk gebruikt een open architectuur dat compatibel is met andere \term{open-source} bibliotheken zoals jQuery~\cite{JQuery2013a}, KnockOut~\cite{KnockOut2013} en Backbone~\cite{Backbone2013}.
 \davinci{} Animator kan worden gebruikt om animaties op basis van HTML5 en CSS3 te maken in een grafische omgeving.
 In SNU Research Park te Seoul worden beide tools ontwikkeld.
@@ -634,9 +629,9 @@ Daarna worden de vergelijkingen van raamwerken zoals gevonden in de literatuur e
 \subsection{Software vergelijken}
 \label{sec:vergelijken-standaarden}
 Hier worden de ISO 25010-standaard (\ref{sec:vergelijken-iso}) en de AHP-methode (zie sectie \ref{sec:vergelijken-ahp}) gepresenteerd.  
-Uit de thesis van ... die zelf een raamwerk probeerde maken voor ... werd de ISO 25010-standaard aangehaald.%TODO referentie
+Uit de thesis van Guelinckx~\cite{Guelinckx2012} die zelf een raamwerk probeert te maken, werd de ISO~25010-standaard aangehaald om software te beoordelen.
 De paper van Jadhav et al.~\cite{Jadhav2009} bespreken evaluatietechnieken voor het selecteren van softwarepakketten.
-Hierin staat dat de AHP-methode wijd gebruikt is bij de evaluatie van softwarepaketten.
+Hierin staat dat de AHP-methode wijd gebruikt is bij de evaluatie van softwarepakketten.
 
 \subsubsection{ISO 25010}
 \label{sec:vergelijken-iso}
@@ -657,7 +652,6 @@ De betekenis van deze categorieën wordt hieronder toegelicht.
  \item Onderhoudbaarheid is de mate waarin een softwaresysteem gewijzigd kan worden door de beheerders.
  \item Overdraagbaarheid is de mate waarin een systeem, product of component overgezet kan worden van één hardware, software of andere operationele of gebruiksomgeving naar een andere.
 \end{itemize}
-cus voor mobiele HTML5-raamwerken,  performantie en overdraagbaarheid dan weer wel.
 
 \paragraph{Kwaliteit in gebruik}
 De vijf categorieën voor dit model zijn: effectiviteit,  efficiëntie,  voldoening,  vrijheid van risico en contextdekking. 
@@ -675,7 +669,6 @@ De belanghebbenden worden opgedeeld in primaire en secundaire gebruikers.
 De eerste zijn de personen die het systeem actief gebruiken. 
 De laatste zijn diegene die zorgen voor het onderhoud.
 
-%TODO enquete vermelden + ahp methode pas laat onder aandacht van de auteurs gekomen en dus niet verder in thesis gebruikt.
 \subsubsection{AHP-methode}
 \label{sec:vergelijken-ahp}
 De Analytic Hierarchy Process (AHP) methode werd ontwikkeld door Saaty~\cite{Saaty1980} en wordt gebruikt voor het vergelijken van softwarepaketten.
@@ -683,6 +676,11 @@ Ze is gebaseerd op een hiërarchie van criteria waarbij de bovenste laag zich be
 Op de tussenlaag worden de criteria voorgesteld (bv. ondersteuning en performantie).
 De onderstaande laag bevat de kandidaten (bv. de verschillende softwarepakketten).
 Op iedere laag worden er aan de verschillende elementen prioriteiten toegekend.
+
+%TODO uitwerken
+% decision makers moeten prioriteiten toekennen aan criteria + paarsgewijze vergelijking waarbij vaste scores (1-9) worden gegeven
+% daaruit volgt dan de beste volgens de scores van geprioriteerde  criteria 
+
 
 \subsection{Classificatie}
 \label{sec:vergelijken-classificatie}
@@ -752,8 +750,7 @@ Als benchmark werd deze mobiele applicatie eerst zonder raamwerk gebouwd.
 De vier besproken raamwerken worden ingeleid met de meest karakteristieke kenmerken en sterktes.
 Vervolgens wordt een vereenvoudigde versie van Moundz omgevormd tot een applicatie geïmplementeerd in elk raamwerk.
 Bij elke transformatie wordt stap voor stap uitgelegd welke veranderingen de originele code moet ondergaan.
-%TODO architectuur moet hier dan ook veranderen naar ontwerppatroon? 
-Hierbij wordt de werking en architectuur van het raamwerk toegelicht.
+Hierbij wordt de werking en gebruik van het raamwerk toegelicht.
 
 Een ander voorbeeld van het gebruik van een POC staat in Mobile JavaScript Application Development van Kosmaczewski~\cite{Kosmaczewski2012}.
 Hier wordt een takenlijst ontwikkeld in PhoneGap, \st{} en \jqm{}.

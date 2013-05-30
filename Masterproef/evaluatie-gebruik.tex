@@ -124,7 +124,8 @@ Daarnaast werd de voettekst gefixeerd aan de onderkant van het scherm en de bijh
 Voor dit laatste werd gebruik gemaakt van de zogenaamde \term{grid} die \jqm{}~1.3 zelf aanbiedt. 
 De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebruik te maken van de CSS3 Media Queries.
 
-Om de onderkoptekst te implementeren, werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen.
+%Om de onderkoptekst te implementeren, werd eerst geprobeerd om bovenaan een lijst met enkel één lijstdeler te plaatsen.
+De onderkoptekst werd eerst geïmplementeerd met een lijst met enkel één lijstdeler.
 Dit schoof echter de inhoud van de pagina niet mee naar onder. 
 De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
 Deze extra titel wordt ook gebruikt op naar het menu voor de smartphone te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
@@ -208,24 +209,24 @@ Om de smartphone lay-out te verkrijgen moet de \code{Splitview} door standaard \
 \paragraph{\jqm}
 Het raamwerk biedt zelf geen functies aan om te herkennen of het toestel een smartphone of tablet is.
 In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
-Eerst werd gezocht naar plug-ins aan de hand van een blogpost~\cite{Deering2012}, wat leidde tot: Splitview~\cite{Rahman2013}, SimpleSplitView~\cite{Yared2013} en Multiview~\cite{Franck2012}. 
-Deze drie mogelijke kanshebbers hadden elk hun tekorten. 
+Drie plug-ins~\cite{Rahman2013,Yared2013,Franck2012} werden gevonden via een blogpost~\cite{Deering2012} en getest.
+Elk hadden ze hun tekorten. 
 Zo was de eerste destructief ten opzichte van het raamwerk.
 Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als er moet worden geüpdatet naar een nieuwe versie. 
 De tweede plug-in werkte enkel tot versie 1.0.1.
 De laatste plug-in paste zich niet aan aan de veranderende afmetingen van de browser. 
 
-Uiteindelijk werd van een plug-in afgestapt doordat werd aangetoond hoe via CSS3 Media Queries hetzelfde kon worden bereikt~\cite{Hadlock2012}. 
-Ook uit de documentatie van versie~1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
-Daarnaast wordt op de documentatiesite van \jqm{}~1.2 al een gelijkaardige lay-out gebruikt~\cite{JQuery2012b}. 
-De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 Media Queries en de documentatiesite van \jqm{}~1.2.
+Uiteindelijk werden CSS3 Media Queries gebruikt~\cite{Hadlock2012,JQuery2013e}. 
+%Ook uit de documentatie van versie~1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
+%Daarnaast wordt op de documentatiesite van \jqm{}~1.2 al een gelijkaardige lay-out gebruikt~\cite{JQuery2012b}. 
+%De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 Media Queries en de documentatiesite van \jqm{}~1.2.
 Bij CSS3 Media Queries moet zelf een breekpunt (uitgedrukt in pixels) worden opgegeven wanneer dient geschakeld te worden tussen smartphone lay-out of tablet lay-out.
 
 Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt getoond.
 
 \paragraph{\lungo}
 Het raamwerk biedt enkel een functie aan om te weten of het huidige apparaat mobiel is.
-QuoJS biedt daarenboven de mogelijkheid om de breedte en hoogte van het scherm terug te geven.
+\quo{} biedt daarenboven de mogelijkheid om de breedte en hoogte van het scherm terug te geven.
 Dit betekent dat de ontwikkelaar nog altijd zelf instaat voor de bepaling of het een smartphone of tablet is.
 Als oplossing werd gebruik gemaakt van CSS3 Media Queries, met dezelfde aanpak als \jqm{}.
 
@@ -297,10 +298,8 @@ Een attribuut moet dan wel weergeven dat de link naar een \code{ModelView} gaat.
 Het standaard laadscherm is enkel een laadindicator die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
 Door de opties in de API te gebruiken, komt de laadindicator duidelijk naar voor door een zwarte achtergrond en kan er ook tekst worden ondergezet.
 
-Om gemakkelijk dialoogvensters te tonen, werd eerst gebruik gemaakt van DateBox~\cite{Sage2013} als plug-in.
-Uiteindelijk bleek de plug-in niet zo gemakkelijk aanpasbaar en daarenboven zijn dialoogvensters standaard in \jqm{} aanwezig.
-Het is dan ook helemaal niet nodig om hiervoor een plug-in te gebruiken.
-Door zelf het dialoogvenster met \jqm{} aan te maken, kon de lay-out gemakkelijker worden aangepast.
+Eerst werd een plugin~\cite{Sage2013} gebruikt om een dialoogvenster te tonen, maar deze was slecht aanpasbaar.
+Uiteindelijk werden de dialoogvensters van \jqm{} gebruikt zodat de lay-out gemakkelijker kon worden aangepast.
 
 \paragraph{\lungo}
 Een laadscherm of dialoogvenster tonen, gebeurt met dezelfde functie.
@@ -665,7 +664,7 @@ Wanneer een afbeelding succesvol is opgeladen, wordt het bestand met een \code{F
 
 \paragraph{\jqm}
 Het toevoegen van een afbeelding gebeurt door het bestandstype als invoertype aan het formulierveld toe te voegen. 
-In versie~1.2 wordt dit veld nog niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
+In versie~1.2 wordt dit veld niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
 Het omvormen van de afbeelding naar Base64 is analoog aan \kendo{}.
 
 Het voorvertonen van de geüploade afbeelding hangt af van het mobiele besturingssysteem.
@@ -794,7 +793,7 @@ Als oplossing moest de omvattende code worden geannoteerd.
 
 \paragraph{\lungo}
 Validatie is niet aanwezig in \lungo{} en er kon ook geen plug-in voor QuoJS gevonden worden.
-Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met QuoJS.
+Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vormen en deze te laten werken met \quo{}.
 Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \jqm{}), moest alle validatie manueel geprogrammeerd worden. 
 Bij wijze van voorbeeld werd enkel validatie op het loginscherm geprogrammeerd.
 Validatie op de rest van de formulieren doorheen de POC is volgens dezelfde werkwijze mogelijk, maar werd niet geïmplementeerd.
@@ -850,10 +849,10 @@ Hierdoor kan de Base64-string bekomen worden die naar de \term{backend} moet wor
 
 \paragraph{\jqm}
 Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat \jqm{} dit niet standaard aanbiedt. 
-Eerst werd gewerkt met Signature Pad van Thomas Bradley~\cite{Bradley2013}. 
-Door de lange tijd die werd besteed aan het aanpassen van de lay-out, werd overgestapt naar jSignature van Willow Systems~\cite{Systems2013}. 
+De eerst gevonden plug-in~\cite{Bradley2013} werd niet gebruikt wegens problemen met het aanpassen van de lay-out.
+Uiteindelijk werd jSignature van Willow Systems~\cite{Systems2013} gebruikt.
 Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
-Dezelfde aanpak als bij \kendo{} werd gevolgd.
+Dezelfde aanpak voor het omvormen naar Base64 bij \kendo{} werd gevolgd.
 
 \paragraph{\lungo}
 %TODO twee zinnen nogal contradictorisch.  Een plugin zou dus wel degelijk mogelijk zijn,  je hebt er gewoon niet voor gekozen?

@@ -6,7 +6,7 @@ Afhankelijke bibliotheken,/,jQuery,jQuery,QuoJS
 Grootte JS (kB),2764.80,810.10,141.14,27.31
 Grootte CSS (kB),245.70,168.40,92.07,84.93
 Type,JavaScript-gedreven,JavaScript- en opmaakgedreven,Opmaakgedreven,Opmaakgedreven
-Architectuur,MVC,MVVM,/,/
+Ontwerppatroon,MVC,MVVM,/,/
 Licentie,GNU GPLv3 \& commercieel,commercieel,MIT,GNU GPLv3 \& commercieel
 Licentiekost,gratis,\$699,gratis,gratis
 Professionele ondersteuning,ja,ja,nee,nee

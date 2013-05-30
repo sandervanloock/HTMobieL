@@ -41,11 +41,11 @@ Per sectie zal iedere uitdaging per raamwerk worden besproken.
 \end{table}
 
 Het raamwerk dat het beste scoort bij gebruik is \kendo{}, kort gevolgd door \st{}.
-Dit kan grotendeels door de aanwezigheid van een architectuur, respectievelijk MVVM en MVC, worden verklaard.
-Het ontbreken van een architectuur bij de andere twee raamwerken resulteert in een omslachtige aanpak, waardoor punten worden verloren.
+Dit kan grotendeels door de aanwezigheid van een ontwerppatroon, respectievelijk MVVM en MVC, worden verklaard.
+Het ontbreken van een ontwerppatroon bij de andere twee raamwerken resulteert in een omslachtige aanpak, waardoor punten worden verloren.
 Opmerkelijk is de perfecte score van \kendo{} voor formulieren, maar de mindere ondersteuning voor offline dan \st{}.
 \jqm{} behaalt de helft met wat overschot.
-Op het vlak om data automatisch in te laden in velden of lijsten, scoort het nul door het ontbreken van een architectuur. 
+Op het vlak om data automatisch in te laden in velden of lijsten, scoort het nul door het ontbreken van een ontwerppatroon. 
 Als laatste komt \lungo{} dat een onvoldoende behaalt.
 Dezelfde pijnpunten van \jqm{} zijn ook geldig voor \lungo{}.
 Daarenboven is er bij \lungo{} een totaal gebrek aan formuliervalidatie en aan de meer geavanceerdere formulierelementen.
@@ -290,7 +290,7 @@ Het raamwerk biedt methoden om het laadscherm te tonen of te verbergen.
 De laadtekst voor alle laadschermen wordt opgegeven bij de initialisatie van de applicatie.
 
 Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd.
-Dit is niet hetzelfde met de View Model component van de MVVM-architectuur.
+Dit is niet hetzelfde als de View Model component van het MVVM-ontwerppatroon.
 % Het attribuut \code{data-role} moet \code{modelview} als waarde hebben om een HTML-fragment als dialoogvenster te definiëren.
 % Dit fragment kan kop- en/of voetteksten bevatten.
 Het is mogelijk een \code{ModelView} in \js{} te selecteren en bijhorende methoden op te roepen.
@@ -405,7 +405,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Enkel maand- en jaarvelden tonen, kan door de diepte van de \term{datepicker} in te stellen.
  Deze eigenschappen worden bij initialisatie van het object meegegeven.
  
- Het wissen van formulieren steunt op de MVVM-architectuur.
+ Het wissen van formulieren steunt op het MVVM-ontwerppatroon.
  Een formulier kan worden gebonden aan een (View) Model.
  %De waarde van elk formulierelement komt dan overeen met de waarde van een eigenschap van dat (View) Model met dezelfde naam.
  Wanneer een uitgave wordt toegevoegd, zal de huidige waarde van het (View) Model worden gereset.
@@ -492,7 +492,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
+Het invullen van een formulier wordt ondersteund door het MVC-ontwerppatroon.
 Twee verschillende methoden worden in de POC gebruikt.
 De eerste methode zal een formulier vullen door er een instantie van een model aan toe te kennen.
 \st{} zal automatisch de velden invullen waarbij de naam gelijk is aan de eigenschap van het model.
@@ -519,7 +519,7 @@ Bij \code{radio}velden heet deze eigenschap \code{disabled}.
 
 
 \paragraph{\kendo}
-Het invullen van een formulier steunt op de MVVM-architectuur en is gelijkaardig aan het resetten van een formulier.
+Het invullen van een formulier steunt op het MVVM-ontwerppatroon en is gelijkaardig aan het resetten van een formulier.
 De dubbele binding tussen een formulier en (View) Model wordt met een HTML-tag aangegeven.
 Een (View) Model wordt in \kendo{} \code{ObservableObject} genoemd.
 Een \code{Model} breidt een \code{ObservableObject} uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  

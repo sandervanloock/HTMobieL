@@ -181,7 +181,7 @@ Een \code{Application}-object wordt na initialisatie van een \kendo{}-applicatie
 Hierop kunnen de \code{showLoading} en \code{hideLoading} methoden worden opgeroepen om de animatie van het laadscherm te tonen of te verbergen.
 
 %dialoogvenster
-Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd (niet te verwarren met het \code{View Model} van de MVVM-architectuur).
+Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd (niet te verwarren met het \code{View Model} van het MVVM-ontwerppatroon).
 Het attribuut \code{data-role} moet \code{modelview} als waarde hebben om een HTML-fragment als dialoogvenster te definiëren.
 Dit fragment kan kop- en/of voetteksten bevatten.
 Het is mogelijk het \code{ModelView} in \js{} te selecteren met \code{\$("\#veld").data("kendoMobileModalView")}.
@@ -294,7 +294,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Enkel maand- en jaarvelden tonen, kan door de diepte van de \term{datepicker} in te stellen.
  Hiervoor moet de eigenschap \code{depth} aan \code{year} worden gelijkgesteld.
  
- Het wissen van formulieren steunt op de MVVM-architectuur.
+ Het wissen van formulieren steunt op het MVVM-ontwerppatroon.
  Een formulier kan worden gebonden aan een \code{(View) Model}.
  De waarde van elk formulierelement komt dan overeen met de waarde van een eigenschap van dat \code{(View) Model} met dezelfde naam.
  Wanneer een uitgave wordt toegevoegd, zal de huidige waarde van het \code{(View) Model} worden gereset.
@@ -351,7 +351,7 @@ Het legen van een formulier gebeurt in \lungo{} door de \code{reset}-functie in 
 \label{sec:evaluatie-gebruik-vullen-app}
 
 \paragraph{\st}
-Het invullen van een formulier wordt ondersteund door de MVC-architectuur.
+Het invullen van een formulier wordt ondersteund door het MVC-ontwerppatroon.
 Twee verschillende methoden worden in de POC gebruikt.
 Een eerste maakt gebruik van de \code{setRecord}-methode van een \code{Formpanel}.
 De modelinstantie die het formulier zal invullen moet als parameter worden meegeven.
@@ -378,7 +378,7 @@ Bij \code{radiofields} en \code{checkboxfields} heet deze eigenschap \code{disab
 
 
 \paragraph{\kendo}
-Het invullen van een formulier steunt op de MVVM-architectuur en is gelijkaardig aan het resetten van een formulier.
+Het invullen van een formulier steunt op het MVVM-ontwerppatroon en is gelijkaardig aan het resetten van een formulier.
 De dubbele binding tussen een formulier en \code{(View) Model} wordt met de HTML-tag \code{data-model} aangegeven.
 Een \code{(View Model} wordt in \kendo{} \code{ObservableObject} genoemd.
 Een \code{Model} heet \code{Model} en erft over van een \code{ObservableObject}.

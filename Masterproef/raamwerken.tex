@@ -148,7 +148,7 @@ Voor een opsomming van alle componenten wordt verwezen naar de documentatie~\cit
 
 \paragraph{Model}
 Data kan intern worden voorgesteld met \code{Models}.  
-Dit is iets wat hoort bij de MVC-architectuur (zie sectie \ref{sec:sencha-programmeerbaarheid}).  
+Dit is iets wat hoort bij het MVC-ontwerppatroon (zie sectie \ref{sec:sencha-programmeerbaarheid}).  
 Een model specificeert een lijst van velden waarbij een veld een naam en een type heeft.  
 Optioneel kunnen validaties bij de velden worden toegevoegd om validatieregels op de velden af te dwingen.  
 
@@ -206,8 +206,8 @@ Door zelf \term{mixins} te creëren of reeds bestaande te manipuleren kunnen eig
 
 \paragraph{Programmeerbaarheid}
 \label{sec:sencha-programmeerbaarheid}
-Zoals reeds aangehaald ondersteund \st{} de MVC-architectuur.  
-Deze architectuur vermijdt lange \js{}-bestanden door ze logisch op te delen.  
+Zoals reeds aangehaald ondersteund \st{} het MVC-ontwerppatroon.  
+Dit ontwerppatroon vermijdt lange \js{}-bestanden door ze logisch op te delen.  
 Modellen groeperen velden tot een beschrijving van data-objecten, \code{Views} definiëren de weergave van componenten en \code{Controllers} verbinden beide op basis van gebeurtenissen.
 
 In theorie zou het verschil tussen mobiele websites en applicaties enkel in de \code{Views} terug te vinden zijn.  
@@ -235,7 +235,7 @@ Hoewel geen echte scores worden uitgedeeld, zijn alle belangrijkste kenmerken ui
 Het bestaat uit drie luiken:  Web, Mobile en DataViz.  
 %TODO widget uitleggen
 Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-\kendo{} is zowel een \js{}- als opmaakgedreven raamwerk en heeft een (Model-View-View Model) MVVM-architectuur dat steunt op de jQuery-bibliotheek.
+\kendo{} is zowel een \js{}- als opmaakgedreven raamwerk en heeft een (Model-View-View Model) MVVM-ontwerppatroon dat steunt op de jQuery-bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig de \term{backend} te integreren aan de klantzijde.
 ASP.NET MVC,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend}integratie.
 Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerike}. 
@@ -297,7 +297,7 @@ Navigatie naar een ander bestand kan door de bestandsnaam als parameter op te ge
 
 \subsection{Functionele kenmerken}
 \label{sec:kendo-functioneel}
-\kendo{} steunt op de (Model-View-View Model) MVVM-architectuur,  wat de functionele kenmerken sterk beïnvloedt.
+\kendo{} steunt op het (Model-View-View Model) MVVM-ontwerppatroon,  wat de functionele kenmerken sterk beïnvloedt.
 Alle objecten maken deel uit van een klassensysteem.
 
 \paragraph{UI-elementen}
@@ -311,7 +311,7 @@ Dit maakt het mogelijk om gemeenschappelijke acties aan een groep van knoppen to
 Een \code{TabStrip} is een alternatief waar tabs in de voettekst het scherm kunnen laten variëren.
 
 \paragraph{View}
-Schermen worden voorgesteld met \code{Views},  analoog als bij de MVC-architectuur.
+Schermen worden voorgesteld met \code{Views},  analoog als bij het MVC-ontwerppatroon.
 Een \code{View} aanduiden gebeurt door het attribuut \code{data-role} aan \code{view} gelijk te stellen.
 \code{Views} kunnen met een lay-out worden voorzien met de \code{data-layout}-tag.
 Een \code{Layout} bepaalt de vormgeving van een \code{View} en kan hergebruikt worden.
@@ -489,11 +489,10 @@ Doordat dit laatste heel wat inspanning vraagt, hebben de ontwikkelaars van \jqm
 Hiermee worden de kleuren naar een voorbeeldapplicatie gesleept, waarna de overeenkomstige \term{stylesheet} kan worden gedownload.
 
 \paragraph{Programmeerbaarheid}
-Bij het programmeren in \jqm{} wordt geen enkel architectuur afgedwongen. 
+Bij het programmeren in \jqm{} wordt geen enkel ontwerppatroon afgedwongen. 
 De code voor de GI-elementen wordt tenslotte als HTML5-code geschreven.
 Voor de echte functionaliteit wordt beroep gedaan op \js{} en meer bepaald op de jQuery-bibliotheek. 
-%TODO is het erg dat patroon/architectuur/stijl/... door elkaar worden gebruikt?  Ik probeer alleen architectuur te gebruiken
-Ook deze dwingt geen architectuur af.
+Ook deze dwingt geen ontwerppatroon af.
 
 \paragraph{Browserondersteuning}
 \label{sec:jqm-browser-support}
@@ -544,7 +543,7 @@ Daarnaast is een commerciële versie ook mogelijk~\cite{TapQuo2013d}.
 
 \subsection{Code en ontwikkeling}
 Zoals gezegd wordt een \lungo{}-applicatie geprogrammeerd vanuit geannoteerde HTML-code door middel van CSS-klassen en data-attributen.
-Er wordt geen architectuur zoals MVC afgedwongen.
+Er wordt geen ontwerppatroon zoals MVC afgedwongen.
 
 Om de verschillende schermen te scheiden wordt gebruik gemaakt van \code{article}- en \code{section}-tags die specifiek zijn voor HTML5.
 Analoog worden ook voor de kop- en voettekst de \code{header}- en \code{footer}-tags gebruikt.
@@ -561,7 +560,7 @@ De documentatiepagina is opgedeeld in negen groepen die hieronder kort worden aa
 
 \item \textbf{Prototype} 
 Hierop worden GI-elementen, navigatie, formulieren, scrollen, lijsten en data-attributen aangehaald.
-Ook is er directe ondersteuning door het raamwerk voor Pull&Refresh.
+Ook is er directe ondersteuning door het raamwerk voor Pull\&Refresh.
 Dit is lijst die de data automatisch herlaadt wanneer de lijst naar beneden wordt getrokken.
 
 \item \textbf{Core }
@@ -623,11 +622,11 @@ Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijve
 
 \paragraph{Programmeerbaarheid}
 \label{sec:lungo-programmeerbaarheid}
-\lungo{} dwingt geen enkele architectuur af.
+\lungo{} dwingt geen enkel ontwerppatroon af.
 Voor de echte functionaliteit wordt beroep gedaan op \js{}.
 Daarbij is de ontwikkelaar vrij hoe hij te werk gaat en kan gebruik maken van de \lungo{} API. 
 Voor aanpassingen die van toepassing zijn op DOM-manipulatie, is de ontwikkelaar aangewezen op \quo{}.
-Ook deze dwingt geen architectuur af.
+Ook deze dwingt geen ontwerppatroon af.
 
 \paragraph{Ondersteuning browser}
 TapQuo geeft aan op hun website dat ze ondersteuning bieden voor iOS, Android, Blackberry~OS en FirefoxOS.

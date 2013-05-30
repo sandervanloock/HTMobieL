@@ -1,7 +1,7 @@
 \chapter{Literatuurstudie}
 \label{chap:literatuurstudie}
 
-In dit hoofdstuk bekijkt welke mobiele apparaten er allemaal bestaan (\ref{sec:mobiele-apparaten}). 
+Dit hoofdstuk bekijkt welke mobiele apparaten er allemaal bestaan (\ref{sec:mobiele-apparaten}). 
 Vervolgens wordt er gekeken wat er onder de motorkap van deze apparaten zit, namelijk welke mobiele besturingssystemen (\ref{sec:mobiele-besturingssystemen}), welke mobiele applicaties (\ref{sec:mobiele-applicaties}) en welke mobiele webbrowsers (\ref{sec:mobiele-webbrowsers}) er bestaan. 
 Daarna komen de drie bouwblokken van het web aan bod (\ref{sec:html5-css3-js}), namelijk HTML, CSS en \js{}.
 Hierna wordt ingegaan op bestaande mobiele HTML5-raamwerken (\ref{sec:mobiele-html5-raamwerken}).  
@@ -13,17 +13,17 @@ Ten slotte worden verschillende, reeds bestaande manieren om raamwerken te verge
 \section{Mobiele apparaten}
 \label{sec:mobiele-apparaten}
 Mobiele apparaten bestaan in alle soorten en maten, met weinig of veel opties, voor weinig of veel geld zoals wordt geïllustreerd op figuur \ref{fig:devices}. 
-%TODO native look-and-feel introduceren
+%TODO is dat niet raar om hier over native look-and-feel iets uit te leggen? beter bij mobile OSs?
 Het verdient daarom de aandacht om deze diversiteit onder de loep te nemen. 
 Eerst wordt ingegaan op twee soorten mobiele apparaten, namelijk de smartphone en tablet~\cite{GCF2013}.
 Daarna wordt stilgestaan bij de kenmerken van deze apparaten~\cite{PhilDutson2012}.
 Andere mobiele apparaten zoals de \term{e-reader} en Personal Digital Assistant~(PDA) worden buiten beschouwing gelaten.
 
-%TODO verscheidenheid illustreren, voor meeste mensen die geen smartphone/tablet hebben. caption uitvoeriger uitschrijven? bv. van links naar rechts de OS'es erbij zetten? 
+%TODO misschien raar om dan in caption al over OSs te vertellen?
 \begin{figure}
   \centering
   \includegraphics[height=0.6\textwidth]{figuren/mobile-devices.jpg}
-  \caption{Verschillende mobiele apparaten~\cite{Grady2013}.}
+  \caption{Verschillende mobiele apparaten. De bovenste rij zijn tablets met v.l.n.r. iOS en Android als besturingssysteem. De onderste rij zijn smartphones met v.l.n.r. Symbian, Windows Phone, Android, iOS en BlackBerry~OS als besturingssysteem~\cite{Grady2013}.}
   \label{fig:devices}
 \end{figure}
 
@@ -116,20 +116,24 @@ Doordat het wat kan duren vooraleer de locatie is vastgesteld via GPS, kan het m
 \section{Mobiele besturingssystemen}
 \label{sec:mobiele-besturingssystemen}
 Net zoals er een brede waaier bestaat aan besturingssystemen voor computers, geldt dit ook zo voor mobiele apparaten. 
-%TODO herschrijven, windows phone bestaat al langer, maar gewoon onder nieuwe naam (nieuwe branding) 
-In deze sectie wordt een overzicht gegeven van mobiele besturingssystemen met een significant marktaandeel~\cite{David2011, Hales2012} zoals iOS en Android, maar ook een nieuwkomer op de markt, namelijk Windows Phone.
+In deze sectie wordt een overzicht gegeven van mobiele besturingssystemen met een significant marktaandeel~\cite{David2011, Hales2012}, namelijk iOS en Android.
 iOS en Android haalden respectievelijk 14,9\% en 75,0\% in het derde kwartaal van 2012.
-Windows Phone haalt 2\% van het marktaandeel binnen in datzelfde kwartaal~\cite{Protalinski2012}.
+Vervolgens wordt ook Windows Phone besproken dat 2\% van het marktaandeel binnenhaalt in datzelfde kwartaal~\cite{Protalinski2012}.
 
 Bij ieder besturingssysteem zal ook over de winkel besproken worden waar applicaties kunnen worden gevonden.
 Net zoals programma's geïnstalleerd worden op een computer, kan dit ook voor mobiele apparaten.
 Deze aangeboden applicaties worden verzameld in een winkel waarna de gebruiker ze, al dan niet gratis, kan downloaden en installeren.
 De winkel kan de kwaliteit van deze applicaties hoog houden door regels op te leggen aan de ontwikkelaars (zie \ref{sec:mobiele-applicaties}).
 
-\begin{table}[t]
+Zoals op figuur~\ref{fig:devices} te zien is, verschillen mobiele besturingssystemen ook door hun grafische gebruikersinterface~(GGI).
+Deze worden hieronder niet besproken, maar het is duidelijk dat iOS, Android en Windows Phone er verschillend uitzien.
+Ook de manier waarop de gebruiker gaat interageren met het mobiel besturingssysteem is verschillend.
+Deze verschillen op vlak van uitzicht en interactie wordt gebundeld in de term \term{native look-and-feel} van het mobiel besturingssysteem.
+
+\begin{table}
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{l l},
+  begin table=\begin{tabular}{l r},
   end table=\end{tabular},
   col sep=comma,
   header=true,
@@ -146,7 +150,7 @@ De winkel kan de kwaliteit van deze applicaties hoog houden door regels op te le
 ]{tabellen/ios.csv}
 \quad
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{l l},
+  begin table=\begin{tabular}{l r},
   end table=\end{tabular},
   col sep=comma,
   header=true,
@@ -299,7 +303,7 @@ Een \term{engine} zorgt ervoor dat de code van de opgehaalde webpagina wordt omg
 \begin{table}
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{l l},
+  begin table=\begin{tabular}{l r},
   end table=\end{tabular},
   col sep=comma,
   header=true,
@@ -337,12 +341,11 @@ Deze gebruikt dezelfde \term{engine} als Internet Explorer 10.
 \term{WebSockets}, \term{Web Workers}, \term{Application Cache} en \term{IndexedDB} worden hierin ondersteund~\cite{Hales2012}.
 Deze kenmerken worden in meer detail uitgelegd in sectie~\ref{sec:html5-css3-js}.
 
-%TODO: weglaten (tim)
-\paragraph{Opera Mobile/Mini}
-Op het moment van schrijven is Opera Mobile 12.10 de beste mobiele HTML5-browser~\cite{Sights2012}. 
-Opera heeft eigenlijk twee aparte browsers, namelijk Opera Mobile en Opera Mini. 
-Bij deze laatste staat de browser \term{engine} op servers van Opera, waardoor het niet het mobiel apparaat is die de webpagina verwerkt. 
-De server zal, na verwerking, deze webpagina op een gecomprimeerde manier doorsturen naar de browser op het apparaat~\cite{PhilDutson2012}.
+%\paragraph{Opera Mobile/Mini}
+%Op het moment van schrijven is Opera Mobile 12.10 de beste mobiele HTML5-browser~\cite{Sights2012}. 
+%Opera heeft eigenlijk twee aparte browsers, namelijk Opera Mobile en Opera Mini. 
+%Bij deze laatste staat de browser \term{engine} op servers van Opera, waardoor het niet het mobiel apparaat is die de webpagina verwerkt. 
+%De server zal, na verwerking, deze webpagina op een gecomprimeerde manier doorsturen naar de browser op het apparaat~\cite{PhilDutson2012}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -584,7 +587,8 @@ De GI-elementen bootsen de lay-out van een iOS-apparaat na.
 \kendo{} is een raamwerk van de hand van Telerik en bestaat uit drie luiken:  Web, Mobile en DataViz.
 Eind 2011 werd de eerste stabiele versie vrijgegeven.
 Het eerste is gericht op de ontwikkeling van desktop- en mobiele applicaties,  het tweede voegt een \term{native look-and-feel} toe aan mobiele applicaties en het laatste zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
+%TODO ik doe deze zin hier dus weg, ok? (native look-and-feel zelf bootst de huisstijl niet na, het IS gewoon de huisstijl, het is de webapplicatie die de native look-and-feel nabootst)
+%\term{Native look-and-feel} staat voor het nabootsen van de huisstijl van het platform waarop de applicatie draait.
 \kendo{} is een \js{}-gedreven raamwerk met een MVVM-ontwerppatroon (Model-View-View Model) dat steunt op de jQuery-bibliotheek.
 Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig een \term{backend} te integreren aan de klantzijde.
 ASP.NET MVC,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend}integratie.
@@ -608,6 +612,7 @@ De nadruk bij dit raamwerk ligt voornamelijk bij de generatie van code in een WY
 De gebruiker kan GI-elementen via \term{drag-and-drop} aan de applicatie toevoegen.
 Het binden van data kan door op een visuele manier de mapping tussen GI en data weer te geven.
 Het testen van de applicatie kan op een bijgeleverde emulator die de applicatie op verschillende lay-outs kan weergeven.
+%TODO is dit dan nog altijd architectuur?
 Het raamwerk gebruikt een open architectuur dat compatibel is met andere \term{open-source} bibliotheken zoals jQuery~\cite{JQuery2013a}, KnockOut~\cite{KnockOut2013} en Backbone~\cite{Backbone2013}.
 \davinci{} Animator kan worden gebruikt om animaties op basis van HTML5 en CSS3 te maken in een grafische omgeving.
 In SNU Research Park te Seoul worden beide tools ontwikkeld.
@@ -673,7 +678,7 @@ De laatste zijn diegene die zorgen voor het onderhoud.
 %TODO enquete vermelden + ahp methode pas laat onder aandacht van de auteurs gekomen en dus niet verder in thesis gebruikt.
 \subsubsection{AHP-methode}
 \label{sec:vergelijken-ahp}
-De Analytic Hierarchy Process (AHP) methode werd ontwikkeld door Saaty en wordt gebruikt voor het vergelijken van softwarepaketten. %TODO referentie ahp
+De Analytic Hierarchy Process (AHP) methode werd ontwikkeld door Saaty~\cite{Saaty1980} en wordt gebruikt voor het vergelijken van softwarepaketten.
 Ze is gebaseerd op een hiërarchie van criteria waarbij de bovenste laag zich bezighoudt met het doel van het selectieproces (bv. kies een softwarepakket).
 Op de tussenlaag worden de criteria voorgesteld (bv. ondersteuning en performantie).
 De onderstaande laag bevat de kandidaten (bv. de verschillende softwarepakketten).
@@ -740,13 +745,14 @@ De bespreking van elke tool sluit af door de belangrijkste criteria samen te vat
 \subsubsection{Proof of concept}
 \label{sec:manier-poc}
 Het gebruik van een \term{proof of concept}~POC of voorbeeldapplicatie probeert raamwerken te vergelijken door ze echt toe te passen.
-Oehlman et al. vergelijken Jo, \jqt{},  \jqm{} en \st{} door een geosociaal spel te ontwikkelen genaamd Moundz. 
+Oehlman et al.~\cite{Oeflman2011} vergelijken Jo, \jqt{},  \jqm{} en \st{} door een geosociaal spel te ontwikkelen genaamd Moundz. 
 Deze applicatie maakt gebruik van bestaande sociale locatiegebaseerde netwerken als Foursquare en Gowalla.
 Als benchmark werd deze mobiele applicatie eerst zonder raamwerk gebouwd.
 
 De vier besproken raamwerken worden ingeleid met de meest karakteristieke kenmerken en sterktes.
 Vervolgens wordt een vereenvoudigde versie van Moundz omgevormd tot een applicatie geïmplementeerd in elk raamwerk.
 Bij elke transformatie wordt stap voor stap uitgelegd welke veranderingen de originele code moet ondergaan.
+%TODO architectuur moet hier dan ook veranderen naar ontwerppatroon? 
 Hierbij wordt de werking en architectuur van het raamwerk toegelicht.
 
 Een ander voorbeeld van het gebruik van een POC staat in Mobile JavaScript Application Development van Kosmaczewski~\cite{Kosmaczewski2012}.

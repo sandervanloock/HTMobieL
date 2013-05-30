@@ -1,8 +1,8 @@
 \chapter{Vergelijkingscriteria}
 \label{chap:vergelijkingscriteria}
 
-Dit hoofdstuk bekijkt hoe de mobiele HTML5 raamwerken actief zullen worden vergeleken.
-Hoofdzakelijk zal dit gebeuren aan de hand van een \term{proof of concept}~(POC).
+Dit hoofdstuk bekijkt hoe de mobiele HTML5-raamwerken actief zullen worden vergeleken.
+Hoofdzakelijk zal dit gebeuren aan de hand van een \term{proof of concept}.
 Deze wordt geïntroduceerd in sectie \ref{sec:vergelijking-poc} en zal hoofdzakelijk de gekozen vergelijkingscriteria in sectie \ref{sec:vergelijking-criteria} drijven.
 De criteria die worden voorgesteld, zullen voortaan actieve criteria worden genoemd.
 
@@ -10,12 +10,13 @@ De criteria die worden voorgesteld, zullen voortaan actieve criteria worden geno
 \section{POC}
 \label{sec:vergelijking-poc}
 In samenspraak met Capgemini werd gekozen om een \term{proof of concept}~(POC) op te stellen.
-%TODO hier refereren en reflecteren over POC in literatuur (tim)
-Dit is een idee waarbij de uitvoerbaarheid in de verschillende raamwerken kan worden nagegaan.
-Verschillende vergaderingen werden georganiseerd om tot een idee te komen dat vooral in de bedrijfswereld van toepassing is.
-Het uiteindelijke idee is een applicatie die het mogelijk maakt voor werknemers om hun onkosten via hun mobiel apparaat door te sturen.
+Dit is een idee waarmee de uitvoerbaarheid in de verschillende raamwerken kan worden nagegaan.
+%TODO hier refereren en reflecteren over POC in literatuur (tim), Tim: ok?
+Oehlman et al.~\cite{Oeflman2011} gebruikten ook een POC om raamwerken te vergelijken.
 
-Het idee werd uitgewerkt door Capgemini en geleverd aan de auteurs als \term{mockup}.
+Verschillende vergaderingen werden georganiseerd met Capgemini om tot een idee te komen dat vooral in de bedrijfswereld van toepassing is.
+Het uiteindelijke idee is een applicatie die het mogelijk maakt voor werknemers om hun onkosten via hun mobiel apparaat door te sturen.
+Dit werd uitgewerkt door Capgemini en geleverd aan de auteurs als \term{mockup}.
 Dit is een voorstelling van de applicatie als een reeks schermen zoals deze er zullen uitzien op een apparaat. 
 Een voorbeeld van zo een scherm is te vinden op figuur~\ref{fig:poc}. 
 Naast de schermen staan de functionele vereisten die op het scherm van toepassing zijn.
@@ -76,9 +77,13 @@ Elementen van deze technieken zullen terugkomen in de voorgestelde methode om de
 Sectie \ref{sec:raamwerken-tabel} bevatte de passieve vergelijkingscriteria die raamwerken vergeleken met informatie over het raamwerk zelf.
 
 Vijf criteria zullen worden gebruikt: populariteit (\ref{sec:vergelijking-populariteit}), productiviteit (\ref{sec:vergelijking-productiviteit}), gebruik (\ref{sec:vergelijking-gebruik}), ondersteuning (\ref{sec:vergelijking-ondersteuning}) en performantie (\ref{sec:vergelijking-performantie}). 
-%TODO refereren naar puntensysteem literatuur(tim)
+%TODO refereren naar puntensysteem literatuur(tim), Tim: ok?
 Elk raamwerk krijgt voor elk criterium een score afgeleid uit een formule. 
+De opzet van deze formules is vergelijkbaar met de opzet van het puntensysteem dat werd gebruikt op een blogpost van Codefessions~\cite{Sarrafi2012a}. 
 Deze scores zullen in een spinnenweb worden ondergebracht (zie sectie \ref{sec:vergelijking-spinnenweb}).
+%TODO ref spinnenweb heb ik ook teruggevonden, is dit ok?
+Het weergeven van de scores in een spinnenweb kwam door Capgemini.
+Ze verwezen naar een blogpost waarbij een spinnenweb werd gebruikt om \term{native} en webapplicaties met elkaar te vergelijken~\cite{Jeroen2012}.
 Zoals hierboven vermeld zal een POC gebruikt worden bij de vergelijking.
 De implementatie van deze POC zal het gebruiks- en ondersteuningscriterium drijven.  
 Dit komt omdat Capgemini de POC zo heeft opgesteld dat het de verschillende functionaliteiten bevat die van een normale applicatie verwacht worden.
@@ -129,10 +134,16 @@ De auteurs zijn van mening dat de tweede zienswijze correcter is dan de eerste e
 
 \subsection{Productiviteit}
 \label{sec:vergelijking-productiviteit}
+<<<<<<< HEAD
 %TODO geen eenduidige manier + perceptie
 De productiviteit moet berekend hoe lang het duurt om met het raamwerk vertrouwd te raken en iets nuttig te kunnen bouwen.
 Dit is belangrijk want bedrijven willen zo min mogelijk tijd verliezen om met nieuwe technolgieën aan de slag te kunnen.
 In de ISO 25010-standaard zijn de categorieën bruikbaarheid en efficiëntie vergelijkbaar met dit criterium.
+=======
+De productiviteit moet weergeven hoe lang het duurt om met het raamwerk vertrouwd te raken en iets nuttig te kunnen bouwen.
+Dit is belangrijk omdat bedrijven zo min mogelijk tijd willen verliezen om met nieuwe technologieën aan de slag te kunnen.
+In de ISO 25010-standaard is de categorie van bruikbaarheid vergelijkbaar met dit criterium.
+>>>>>>> 7dfc9551e36544fb734dc1617aa4a92206ad715a
 
 De auteurs zullen elk de POC in twee verschillende raamwerken maken en daarnaast ook een extra loginapplicatie in twee andere raamwerken.
 De ene auteur maakt de POC in \jqm{} en \lungo{} en de loginapplicatie in \st{} en \kendo{}.
@@ -140,8 +151,9 @@ De andere zal dan de POC in \st{} en \kendo{} maken en de loginapplicatie in \jq
 De tijd die nodig is om de volledige POC te implementeren is een indicatie voor de productiviteit. 
 Er wordt verondersteld dat de auteurs over een gemeenschappelijke technische achtergrond beschikken.
 Toch kunnen beide onderling verschillen in efficiëntie,  waardoor de productiviteit verschilt.
-Dit probleem is inherent aan dit criterium.
-Toch is het belangijk om een schatting op deze manier te kunnen maken.
+%TODO geen eenduidige manier + perceptie, Tim: ok?
+Dit probleem is inherent aan dit criterium doordat er geen eenduidige manier is om productiviteit te bepalen.
+Toch is het belangrijk om een perceptie van dit criterium te kunnen maken op basis van de voorgestelde schatting.
 
 % Omdat de POC twee keer moet worden geïmplementeerd, wordt verwacht dat de tweede implementatie sneller zal verlopen.
 % Dit probleem is onafwendbaar en zal bij de evaluatie van de data aangehaald worden.
@@ -154,7 +166,7 @@ Toch is het belangijk om een schatting op deze manier te kunnen maken.
 % \end{equation}
 % voor een raamwerk $r$.
 
-Er zijn echter vijf redenen waarom de implementaties van de POC geen goede indicatie zijn voor de productivteit.
+Er zijn echter vijf redenen waarom de implementaties van de POC geen goede indicatie zijn voor de productiviteit.
 Deze werden door de auteurs ervaren wanneer de implementatie in het tweede raamwerk werd uitgevoerd:
 \begin{enumerate}
 \item Betere ervaring met de POC versnelt bij de tweede implementatie het overzicht van vereisten die moeten worden geïmplementeerd. 
@@ -265,7 +277,7 @@ Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $U_{r,i}$ van raa
     $U_{r,i} = 0$ & Eigen implementatie of hack of niet geïmplementeerd\\ 
     \bottomrule
   \end{tabular}
-  \caption{Beoordeling uitdagingen gebruikscriterium}
+  \caption{Beoordeling van uitdagingen voor gebruik.}
   \label{tabel:scores-uitdagingen}
 \end{table}
 

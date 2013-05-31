@@ -596,8 +596,8 @@ If the likes are left out of popularity, \kendoa{} and \jqma{} switch places.
 \label{sec:evaluation-productivity}
 
 This section will investigate the productivity of the different frameworks.
-Table~\ref{tabel:evaluatie-productiviteit} contains the hours to implement the POC and login application for each framework.
-The hours of the login application determine the score for this criterion.
+Table~\ref{tabel:evaluatie-productiviteit} contains the hours to implement the login application for each framework.
+This determine the score for this criterion.
 The data shows that \jqma{} is the winner,  followed by \lungo{} en \kendoa{}.
 \sta{} is the least productive.
 
@@ -637,14 +637,14 @@ There are also other factors that influence the productivity.
 Firstly,  tools can speed up the production process.
 Sencha provides Sencha Architect,  a graphical environment to visualy build applications.
 Version~2.1 of Sencha Architect was used to build the views but was not of much use to build more sophisticated functionality.
-Secondly,  boilarplate code can be used to initialize a new project.
+Secondly,  boilarplate code should be used to initialize a new project.
 All frameworks beside \lungo{} describe such code in their documentation.
 \sta{} even offers Sencha Cmd to automate this process.
 Also, the quality and quantity of the documentation influence the productivity.
 A well-engineered search functionality,  real-time code examples and a structured classification is crucial for an optimal documentation.
-\kendoa{} is the only framework where the documentation has all three components.  
+No framework has a documentaion that excels in all three components.  
 An other determinant factor is the available literature.
-Safari Books Online contains $13$ books that specifically discuss \jqma{},  \lungo{} has no books at all.
+Safari Books Online contains $13$ books that specifically discuss \jqma{},  \lungo{} has no books at all~~\cite{O'Reilly2013}.
 The final factor contains the virtual places where a developer can ask questions.
 \so{} or fora are examples of such places.
 As presented in the previous criterion,  \jqma{} excels in the amount of \so{} questions.
@@ -657,7 +657,6 @@ Although no questions can be asked without a license,  frequently asked question
 \label{sec:evaluation-usage}
 In this section the usage is evaluated by evaluating 13 challenges.
 The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
-
 
 \begin{table}[!b]
 \centering
@@ -731,10 +730,10 @@ The total score per challenge can be found in table~\ref{tabel:evaluatie-usage}.
 
 
 The best framework in usage is \kendoa{}, followed closely by \sta{}.
-This can be explained because they both enforce an architecture, namely MVVM and MVC respectively.
+This can be explained because they both enforce an architecture, MVVM and MVC respectively.
 The lack of enforcing an architecture by the two other frameworks result in a laborious approach, where points are lost due to the lack of features by the framework.
 \chal{validatie} and \chal{vullen} are an example of this.
-\kendoa{} obtains the maximum score for \chal{formulieren}, but has a smaller score for \chal{offline} than \sta.
+Remarkable is the maximum score of \kendoa{} for \chal{formulieren} and the lower score for \chal{offline} in comparison with \sta.
 
 \jqma{} has a bit more than half of the maximum score.
 It gets zero points on \chal{vullen} and \chal{lijsten}.
@@ -742,15 +741,15 @@ This is because of the lack of enforcing an architecture, the developer has to d
 
 The last place goes to \lungo{} that fails the usage criterion.
 The same problems of \jqma{} are also applicable for \lungo{}.
-Furthermore it gets a zero for \chal{validatie} and also has problems with the more advanced form elements in \chal{formulieren}.
+Furthermore \lungo{} gets a zero for \chal{validatie} and also has problems with the more advanced form elements in \chal{formulieren}.
 One has to have the luck of finding a plugin or implement the functionality by hand.
 
-It can be generally stated that each of the four frameworks has great support for\chal{laadscherm}.
+It can be generally stated that each of the four frameworks have great support for\chal{laadscherm}.
 \chal{ajax} is also fully supported by each framework, except for one particular case with \lungo{}.
 \quo{} did not correctly process a request with JSON as payload.
 To fetch the PDF however in \chal{pdf}, most framework have trouble if this is done via AJAX request because AJAX is not the preferred way for fetching raw data.
 Hacky implementations like submitting a hidden form in \jqma{}, \kendoa{} and \lungo{} solve the problem.
-In \sta{}, a plugin was used but it used a GET request to retrieve the PDF.
+In \sta{}, a plugin was used but it issued a GET request to retrieve the PDF.
 A parameterized POST request was required instead.
 
 The following five challenges are not always supported by each framework.
@@ -767,31 +766,28 @@ Only \kendoa{} accomplishes both date and month pickers with a specified range.
 
 No framework has support for \chal{handtekening}.
 A plugin was found for every framework except for \lungo{}.
-\chal{afbeelding} also suffers from the same problem, especially when the image has to be converted to base64.
-In \sta{} a plugin could be used, but with the other three frameworks, this has to be programmed manually using the HTML5 FileReaderAPI and canvas. 
+\chal{afbeelding} also suffers from the same problem, especially when the image has to be converted to Base64.
+In \sta{} a plugin could be used, but with the other three frameworks, this has to be programmed manually using the HTML5 FileReaderAPI and \code{canvas}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Support} % 1 blz
 \label{sec:evaluation-support}
 
-This section will evaluate the support of the frameworks on $8$ mobile devices.
-The formula for this criterion can be found in equation~\ref{eq:ondersteuning}.
+This section will evaluate the support of the frameworks on eight mobile devices.
+The formula for this criterion can be found in equation~\ref{eq:ondersteuning} were the summation of the support on all devices is explained.
 The scores for the four frameworks are summarized in table~\ref{tabel:evaluatie-ondersteuning-u}.
-
 
 As mentioned in section \ref{sec:comparisoncriteria},  only the functionality of the framework is tested so custom or hacky implementations are not checked for support.
 This is the reason why the maximum score for each framework is different.
 The challenges that could be implemented using the framework are described in the previous criterion.
 The maximum scores for \sta{},  \kendoa{},  \jqma{} and \lungo{} are respectively $96$, $104$, $104$ and $80$.
-Their result for support is respectively $83$, $91$, $95$ and $62$.
+Their result for support is respectively $83$, $92$, $95$ and $62$.
 Looking at a relative scores,  \sta{} supports $86\%$,  \kendoa{} $88\%$,  \jqma{} $91\%$ and \lungo{} $78\%$.
-A first conclusion is that all the first tree frameworks have a remarkable high score.
+A first conclusion is that the first tree frameworks have a remarkable high score.
 The reason why the scores are more or less identical is that the frameworks all depend on the same underlying technology,  HTML5.
-Altough differences are small,  \jqma{} provides the best support,  followed by \kendoa{} and \sta{}.
-\lungo{} has the least support.
 The major problems for \lungo{} can be found in \chal{formulieren}.
-The navigation through the POC did not work on the Android 2.3 devices. 
+The navigation through the POC did not work on Android 2.3 devices. 
 The tap event was used to implement the navigation, but did not fire when tapping.
 On the other devices, the tap event resulted in a double tap.
 Therefor each tap also resulted in a tap on the next screen which can result in an undesirable action.
@@ -832,18 +828,24 @@ This can be explained with the large hetrogenity between Android devices.
 
 Only \sta{} and \kendoa{} provide methods to query the context.
 \jqma{} and \lungo{} implemented this feature with CSS3 Media Queries.
-This implementations worked on $7$ of $8$ devices except for the \gtab.
+This implementations worked on all devices except for the \gtab.
 However,  \kendoa{} was able to recognize this device as a tablet and achieved the maximum score.
-Uploading an image requires support for both the local storage and FileReaderAPI.  
+Regarding forms,  each framework had some specific issues.
+The labels from \sta{} were abbreviated with ellipses on low resolution devices.
+Read-only field were white in the \kendoa{} implementation.
+The only problem with \jqma{} was the absence of the virtual email keyboard for email fields,  but this applied to all framework. 
+\lungo{} lagged on Android 2.3 devices and the switch did not work at all.
+Uploading an image requires support for both the \code{localStorage} and FileReaderAPI.  
 Also the \code{file} input type is necessary to indicate the upload component.
-The four implementations of this challenge all fail for the \htc{}, \gtab{} and \ipadi{} because the lack of support for one or more of these dependencies~\cite{Deveria2013c}.
-HTML5 provides features for form validation but non of the $8$ devices support these features.
+The four implementations of this challenge all fail for the \htc{}, \gtab{} and \ipadi{} because the lack of support for one or more of these dependencies~\cite{Deveria2013c,ViljamiSalminen2012}.
+HTML5 provides features for form validation but non of the eight devices support these features.
 All frameworks, however,  implement a custom validation mechanism that is supported on each device.
-All four implementations for the signature depend on the \code{canvas} feature of HTML5 and is supported for each device.
+All four implementations for the signature depend on the \code{canvas} feature of HTML5.
+This is supported for each device~\cite{Deveria2013c}.
 \kendoa{}, \jqma{} and \lungo{} reuse the code to implement \chal{pdf}.
 \sta{} has a plugin available that depend on the PDF.JS,  a PDF-renderer from Mozilla~\cite{Gal2010}.
 The first implementation failed to work on the \gs{} while latter implementation showed the PDF successfully.
-Finally, offline capabilities are also supported on all $8$ devices~\cite{Deveria2013c} so each framework achieved the maximum score.
+Finally, offline capabilities are also supported on all eight devices~\cite{Deveria2013c} so each framework achieved the maximum score.
 
 
 \begin{figure}[t]
@@ -876,15 +878,20 @@ This is in contrast to \kendoa{} and \sta{} that take respectively third  and la
 \paragraph{Average download time}
 Figure \ref{fig:performantie-login-boxplot} shows the download time of the login application and the login application from cache for the four frameworks. 
 
-\lungo{} takes first place and \jqma{} and \kendoa{} take the second and third place respectively.
-\lungo{} is about half of the time faster than \jqma{}, \kendoa{} or \sta{}.
-Those three frameworks nearly have the same download time.
-The reason that \kendoa{} and \sta{} are respectively second last and last is because they enforce an architecture and therefore the libraries to download are bigger than those of \lungo{} and \jqma{}.
+\lungo{} has the fastest downloadtime.
+\jqm{},  \kendoa{} en \sta{} have respectively the second, third and fourth fastest downloadtime.
+\lungo{} is about half of the time faster than the other three frameworks.
+The downloadtimes of \kendoa{}, \jqma{} and \lungo{} are proportional to the downloadsize of the framework's resources.
+\lungo{} is optimized for mobile development and needs the least resources when looking at \js code.
+The \js dependencies of \kendoa{} and \jqma{} are more or less equal in size although the one imposes an architecture and the other does not.
+Finally,  \sta{} uses the most \js code because it is \js driven.
+However,  \sta{} uses postponed parsing of \js so the browser can download all \js resources faster.
 
 When viewing the login application from cache, \kendoa{}, \jqma{} and \lungo{} have about the same download time.
 However \st{} has a much higher download time when using the cached version.
 The first reason is that the first three frameworks are only using HTML5 Application Cache.
-\sta{} also uses its own caching mechanism in addition to HTML5 Application Cache.
+\sta{} also uses the Delta Update mechanism in addition to HTML5 Application Cache.
+When the application is updated,  this mechanism will only download the updated code instead of all the files that are declaired in the manifest file.
 The second reason is that the applications in the first three frameworks are compiled using Yeoman~\cite{Yeoman2013} and \st{} with Sencha Cmd~\cite{Sencha2012}.
 
 %%%%%%%%%%%%%%%%%%
@@ -893,8 +900,6 @@ The second reason is that the applications in the first three frameworks are com
 Table \ref{tabel:evaluatie-performantie-gebruikerservaring} shows the user experience.
 \sta{} takes first place with the maximal score.
 This means that the scroll experience was best on all the devices.
-\jqma{} was voted six time the second best for user experience.
-\kendoa{} was better on the \htc{} and \lungo{} on the \ipadiii{}.
 The generation of the 850 list items was impossible for \kendoa{} on all the iOS devices.
 The browser crashed on these devices and returned to the home screen.
 %De reden alsook de grens waarom \kendo{} niet crasht op iOS-toestellen werd door tijdsbudget niet gecontroleerd.
@@ -935,7 +940,7 @@ In contrast, list generation did work on all Android devices.
 
 Figure \ref{fig:spidergraph} shows the spider graph with the scores for the five criteria for the four frameworks.
 
-\jqma{} has the largest area ($1.76$) and is the winner following our criteria.
+\jqma{} has the best overal score ($86\%$) and is the winner following our criteria.
 One of the major factors that makes \jqma{} successful is that it does not enforces an architecture.
 This decreases the learning curve in favour of productivity.
 Also,  the extensive documentation and large community make \jqma{} more productive.
@@ -945,34 +950,35 @@ First,  the framework provides less functionality but many plugins and HTML5-fea
 Secondly,  the HTML-code that needs to be written is verbose.
 This complicates the linking of HTML with \js{} code.
 
-\kendoa{} is second with an area of $1.31$.
+\kendoa{} is second with a total score of $73\%$.
 The MVVM architecture makes \kendoa{} more usable but less productive in comparison with \jqma{}.
-However,  the MVVM architecture seems more intuitive than MVC of \sta{}.
+However,  the MVVM architecture seems more intuitive than the MVC architecture of \sta{}.
 The main drawback of \kendoa{},  which can not be seen on the figure, is the high license cost.
 The expectation that open-source frameworks are more popular is not reflected in the popularity scores.
 \kendoa{} is also the least performant.
 The crashes on iOS devices caused a decrease in the user experience tests and hence a drop in performance.
-The native look-and-feel and corresponding benefits are not been studied although it is an important factor for \kendoa{} in particular.
+The native look-and-feel and corresponding benefits are not been studied although this feature is stressed by the \kendoa{} company.
 
-\lungo{} has an area of $0.90$ and claims the third place.
+\lungo{} has a score of $64\%$ and claims the third place.
 In tree out of five criteria,  \lungo{} is last.
 Again, no architecture is imposed which can be seen in productivity and usage.
-However,  the advantage in productivity is smaller and disadvantage in usage is larger in comparison with \sta{} and \kendoa{}.
-The lack of familiarity,  as can be seen with the popularity,  is an explanation of these differences.
+However,  the advantage in productivity is smaller in comparison with \jqm{} because of the limited documentation.
+Also, the disadvantage in usage is larger because not as much functionality or plugins as with \jqma{} could be found.
 A positive aspect is that \lungo{} achieved the best download times.  
 This is because \quo{},  the \js-library of \lungo{},  is optimised for mobile devices.
 The user experience tests weakened the score for performance
 
 
-\sta {} has an area of $0.75$ and is the worst framework following these criteria.
+\sta {} has a final score of $61\%$ and is the worst framework following these criteria.
 The combination of the MVC architecture and the fact that it is \js-driven makes \sta{} both the least productive and least performant in comparison to the other frameworks.
 All HTML code is generated by the framework and therefor the \js-files are very large.
-As a result,  the download times were remarkably large.
-The user experience tests gave an opposite result because after the initial download time,  \sta{} had the fastest response times.
+Also,  \sta{} uses the Delta Update mechanism to update files from the cache.
+As a result,  the download times were remarkably larger.
+The user experience tests gave an opposite result because after the long download time,  \sta{} had the fastest response times.
 The tools provided by Sencha to support the developper are not able to close the gap in productivity.
 The tools require a learning process on their own.
 As a last remark,  \sta{} is depending on the WebKit engine.
-Devices with a default browser that do not contain this engine can not use it.
+Devices with a default browser that do not contain this engine, can not be used with \sta{}.
 
 \begin{figure}
   \centering
@@ -992,23 +998,23 @@ An example for the latter is to search why the 850 list items of \kendoa{} crash
 Furthermore research can be done to know the limit of list items when it starts crashing.
 
 Secondly, one can add new frameworks to the comparison.
-This will enlarge the comparison itself, but will also keep checking the method of comparing.
-Furthermore, new versions of the compared framework will be published.
-It may also be worth plotting the comparison over time.
+This will enlarge the comparison itself, but will also keep checking the comparison method.
+Furthermore, new versions of the frameworks will be published.
+It may also be worth evaluating the comparison over time.
 This is because the ranking can change due to new features in framework or new plugins.
 
 Thirdly, the five criteria are driven by the POC.
-This POC can be further extended with extra features like a list that when it is pulled down, it automatically refreshes and fetches the new list items.
+This POC can be further extended with extra features like pull-to-refresh list
 Similar to this action, one can also use other events than the tap event.
 Examples of these are double tap, swipe, hold, and also events that require multiple fingers like a rotate event.
-Furthermore the integration of HTML5 features likes GPS, push events, drag and drop, video and audio in frameworks can be researched.
+Furthermore the integration of HTML5 features in frameworks likes GPS, push events, drag and drop, video and audio can be researched.
 
 Fourthly, new criteria can be added to the comparison.
-It is off interest to incorporate extensibility which states how easy it is to extend an existing application.
-A hypothesis is that frameworks that enforce an architecture will have better extensibility than frameworks who do not.
-Furthermore this new criterion could change the current ranking of the four frameworks.
+It is off interest to incorporate extensibility which states how easy it is to extend an existing application, similar as the portability category of the ISO 25010 standard.
+A hypothesis is that frameworks that enforce an architecture will have better extensibility than others.
+This new criterion could change the current ranking of the four frameworks.
 Another possible new criterion is to look at the final result of the application created by the framework.
-Some frameworks make applications that imitate the nativeness of the OS where they are viewed.
+Some frameworks make applications that imitate the nativeness of the current OS.
 Other frameworks make application with an out-of-the-box modern lay-out.
 
 Lastly, one can take a step back and research how web applications cope with battery usage.
@@ -1032,7 +1038,7 @@ This paper described a comparative study between \sta{},  \kendoa{},  \jqma{} an
 
 Five criteria were chosen to execute the comparative study:  popularity,  productivity,  usage,  support and performance.
 Each criterion was provided with a formula to calculate a score for the criterion.
-A POC was formalised and checked with the criteria in as many ways as possible.
+A POC was formalised and to drive the usage and device criterion.
 The activity of the framework on social networks, determined the popularity.
 The productivity was measured by time tracking to implementing a login application.
 The POC was subdivided in $13$ challenges and $38$ subchallenges to test the usage of the framework.
@@ -1043,12 +1049,13 @@ All the scores were plotted in a spidergraph.
 
 The comparison shows that \jqma{} is the best framework.
 Then, \kendoa{},  \lungo{} and \sta{} follow on respectively second, third and forth place.
-\jqma{} has a high productivity and performance as major advantages because on the one hand it is well-documented and on the other hand it does not impose an architecture.
+\jqma{} is highly productive and performant because on the one hand it is well-documented and on the other hand it does not impose an architecture.
 The latter,  however,  is a disadvantage when looking at the usage.
 \kendoa{} has the MVVM architecture as most important advantage.
 However,  it scores below average on performance.
 \lungo{} only achieved a maximum score for perfomance because the framework is optimized for mobile usage.
 \sta{} is the least productive and performant in comparison with other frameworks.
+By contract,  \sta{} scores the best in user experience.
 By enforcing an architecture,  it scores almost as good as \kendo{} regarding usage.
 All frameworks provide good support on the devices.
 

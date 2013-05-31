@@ -1,3 +1,6 @@
+%TODO challenges uitleggen
+%TODO devices introduceren? ondersteuning blijft vaag
+
 %%%% ijcai11.tex
 
 %TEKST: \sta \jqma \kendoa \lungo
@@ -84,6 +87,7 @@
 % page charge instructions.
 % Put where the files are available in the appropriate places.
 
+%TODO emailadres
 \title{Comparative study of frameworks for \\ the development of mobile HTML5 applications}
 \author{Tim Ameye \\ tim.ameye@student.kuleuven.be \\ Departement Computerwetenschappen \\ KU Leuven \And Sander Van Loock \\ sander.vanloock1@student.kuleuven.be \\ Departement Computerwetenschappen \\ KU Leuven}
 \begin{document}
@@ -382,6 +386,8 @@ This was not possible because \sta{} and \lungo{} do not have an event after the
 \section{Frameworks} % (0.5 blz per framework + tabel)
 \label{sec:frameworks}
 This section introduces the compared mobile HTML5 frameworks: \st{}, \kendo{}, \jqm{} and \lungo{}.
+Frameworks can be categorised in two approaches: mark-up driven and \js{} driven~\cite{Oeflman2011}.
+
 There are three ways of writing a HTML5 application for markup-driven frameworks~\cite{Broulik2012}. 
 The first one is to write the full application on one single web page.
 The advantage is that there are initially less requests to the server.
@@ -394,7 +400,7 @@ Lastly, one can mix the two above to find an optimum by putting the most likely 
 \label{sec:frameworks-sencha-touch}
 
 \st{}~(\sta{}) is a framework developed by Sencha,  a company founded in 2010 as a composition of Ext JS, jQuery Touch and Raphaël.  
-The first stable version of \sta{} was officialy released in November 2010.
+The first stable version of \sta{} was officially released in November 2010.
 Ext JS is a JavaScript framework for the development of HTML5 applications.  
 jQuery Touch is a jQuery plugin for mobile development that adds touch events to jQuery and depends on the WebKit engine.  
 Finally,  Raphaël, is a JavaScript library for vector drawings.  
@@ -405,7 +411,7 @@ As at the time of writing,  \sta{} is at version 2.2~\cite{Inc.}.
 The documentation describes all objects and features,  some with code examples and live previews~\cite{Inc.2013a}.
 The key concepts of \sta{} are explained in tutorials:  some are texts, some are videos.  
 
-A usefull tool to discover the \sta{} features is the Kitchen Sink~\cite{Inc.2013}.  
+A useful tool to discover the \sta{} features is the Kitchen Sink~\cite{Inc.2013}.  
 This is a HTML5-application that lines up all possibilities of the framework combined with the corresponding code.
 
 \paragraph{License}
@@ -424,7 +430,6 @@ Models group fields to data objects,  views define how the content is presented 
 Just like object-oriented programming,  those objects are part of a class system.  
 Classes can be defined and/or created.  
 Single inheritance and overriding is also possible.    
-
 To enhance performance,  it is the programmer's task to create components before they are used.  
 In this way,  the programmer partially determines the performance of the application.
 
@@ -443,10 +448,10 @@ Also,  it is possible to query specific features,  comparable with Modernizer~\c
 \label{sec:frameworks-kendo}
 
 \kendo{} (\kendoa{}) is a framework from Telerik,  launched in November 2011 and consists of three layers:  Web,  Mobile and DataViz.
-The first focusses on the development of webapplications,  the second makes them mobile and the last facilitates data representation.
+The first focusses on the development of web applications,  the second makes them mobile and the last facilitates data representation.
 \kendoa{} is a hybrid form of JavaScript and markup-driven frameworks.
 It is build upon the (Model-View-View Model) MVVM architecture and requires the jQuery library.
-At the time of writing,  \kendoa{} is at version 2013 Q1~\cite{Telerike}. 
+At the time of writing,  \kendoa{} is at version 2013 Q2~\cite{Telerike}. 
 
 \paragraph{Documentation}
 Two important sections from the documentation are the API and Getting Started~\cite{Telerikd}.
@@ -454,7 +459,7 @@ Both sections follow the same structure and each feature from the API is explain
 Also,  every feature can be viewed in a demo with the corresponding code.
 
 \paragraph{License}
-A license for \kendoa{} Complete costs $\$699$ per developper.
+A license for \kendoa{} Complete costs $\$699$ per developer.
 Each layer can be bought separately for a different license fee.
 \kendoa{} also provides server-side wrappers that can automatically create client-side JavaScript code.
 At the time of writing, PHP,  JSP and ASP.NET MVC are supported as server-side technologies.
@@ -487,7 +492,7 @@ The styling of forms,  for example,  will still work on older platforms, but the
 
 \jqm{}~(\jqma{}) is a mobile HTML5 UI framework that was announced in 2010~\cite{Resig2010}. 
 In November 2011 version~1.0 was released~\cite{Parker2011} and one year later in October, version~1.2 was released~\cite{Parker2012}. 
-As at the time of writing, \jqma{} released version~1.3.1 \cite{Parker2013b}.
+As at the time of writing, \jqma{} released version~1.3.1~\cite{Parker2013b}.
 The framework is controlled by the jQuery Project that also manages jQuery. 
 The latter is a JavaScript library where \jqma{} is depending on~\cite{JQuery2012}. 
 \jqma{} is among other things sponsored by Adobe, Nokia, BlackBerry and Mozilla~\cite{JQuery2012a}.
@@ -521,7 +526,7 @@ Lastly in a C-graded browser, the application has a basic, non-enhanced HTML exp
 \subsection{\lungo} % (0.5 blz Tim)
 \label{sec:frameworks-lungo}
 
-\lungo{} is a markup-driven framework of which version~1.0 appeared in 2011~\cite{TapQuo2011}.
+\lungo{}~(\lungoa) is a markup-driven framework of which version~1.0 appeared in 2011~\cite{TapQuo2011}.
 The framework is maintained by the Spanish company TapQuo that is specialised in mobile user experience~\cite{TapQuo2013a}.
 \lungo{} depends on  \quo{} which is a \js{} library optimised for mobile.
 %\lungo{} biedt vooral GI-elementen aan, maar daarnaast zijn er ook \term{wrappers} voor cache, opslag en SQL beschikbaar~\cite{TapQuo2013}.
@@ -585,7 +590,7 @@ This section evaluates the four mobile HTML5 frameworks by five criteria, namely
     after row=\bottomrule}
 ]{../Masterproef/tabellen/populariteit.csv}
 }
-\caption{Popularity for \st{}~(\sta), \kendo{}~(\kendoa), \jqm{}~(\jqma) and \lungo{}~(\lungoa).}
+\caption{Popularity on May 8, 2013.}
 \label{tabel:evaluatie-popularity}
 \end{table}
 

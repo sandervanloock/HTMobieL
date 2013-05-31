@@ -215,7 +215,7 @@ This implies the upcoming support of HTML5 in contemporary browsers and that hyb
 \section{Related Work} % Sander 0.25 pg
 \label{sec:related-work}
 
-In the literature, many frameworks are presented, but not compared.
+In the literature, many frameworks are presented, but not often compared.
 If they do get compared, none of them are scientifically published or use a proof of concept (POC) to validate their comparison.  
 The idea of using a POC is not new.  
 Oehlman~\cite{Oeflman2011} and Kosmaczewski~\cite{Kosmaczewski2012},  for example,  use a small geosocial game and todo list application respectively to present mobile HTML5 frameworks.
@@ -241,7 +241,7 @@ The assessment of the categories is done by a checklist.
 %HTML5 frameworks could also be assessed with this standard but it is not very applicable.
 %Security,  for example,  is not an issue for framework vendors.
 Jadhav et al.~\cite{Jadhav2009} discusses evaluation techniques to select software.
-A widely used technique is the use of the analytic hierarchy process (AHP) developed by Saaty~\cite{Saaty1980}.
+A widely used technique is the use of the analytic hierarchy process~(AHP) developed by Saaty~\cite{Saaty1980}.
 It uses a hierarchy where the top layer represents the goal, the intermediate layer represents the criteria and the bottom layer represents the candidates.
 Firstly priorities are given to the criteria and secondly the candidates are compared pairwise.
 
@@ -251,49 +251,74 @@ Firstly priorities are given to the criteria and secondly the candidates are com
 \section{Comparison criteria} %Sander 0.75 pg
 \label{sec:comparisoncriteria}
 
-The comparison study of frameworks for mobile HTML5-applications will be driven by a proof of concept (POC).  
+The comparison study of frameworks for mobile HTML5-applications will be driven by a proof of concept (POC), like Oehlman et al.~\cite{Oeflman2011}.
 This POC encompasses an application that allows employees to attach, sign and submit expenses to their employer.
 Afterwards, the employee can view the uploaded expenses and download them as PDF.
 
 Five important criteria will be used:  popularity,  productivity,  usage,  support and performance. 
-The POC can be used in all but the first.   
-A methodology that results in a score for each criterion will be described below.  
+The POC will be used for usage and support.   
+A login application, that is a small subset of the POC, will be used for productivity and performance.
+ 
+The ISO 25010 standard is represented in all criteria but popularity.
+AHP was not used because of two reasons.
+Firstly when new criteria or candidates are added, a re-evaluation of all the candidates is needed~\cite{Jadhav2009}. 
+Our method does not suffer from this problem.
+Secondly, AHP uses pairwise comparison.
+Our method lets researchers evaluate frameworks without taking the other frameworks into calculation. 
+%TODO is dit ook nodig in paper?
+%Een laatste opmerking is bij AHP gewichten aan de criteria worden gegeven.
+%De voorgestelde methode stelt ieder criterium gelijk, maar het is echter mogelijk om hier van af te wijken.
+
+The proposed methodology that results in a score for each criterion will be described below.  
 Per criterion,  a table or graph will be provided to give an overview of the total scores
-At the final stage,  these scores will be plotted in a spider graph~\cite{Few2005}.   
+At the final stage, these scores will be plotted in a spider graph.
+This representation similar to a blogpost that compared native versus web applications~\cite{Jeroen2012}.   
 
 \paragraph{Popularity}
 Social networks provide a good indication to determine the popularity that goes with the framework.  
-%\cite{Sarrafi2012a,Ayuso2012} use 
-Twitter followers,  GitHub stars,  GitHub forkers,  Stack Overflow questions and Facebook likes will be recorded.
+It is also an indication of the future the framework has~\cite{Sarrafi2012a}.
+Twitter followers,  \gh{} stars,  \gh{} forkers,  Stack Overflow questions and \fb{} likes will be recorded.
+Hales~\cite{Hales2012} used Twitter and \gh{} and Monocaffe~\cite{Ayuso2012} used \so{}.
 The summation of these five numbers give the score for the framework's popularity.  
-
 % \begin{equation}
 %   POP_f = T_f+S_f+F_f+SO_f+FB_f
 %   \label{eq:populariteit}
 % \end{equation}
 
 \paragraph{Productivity}
-Both authors implement the POC partially in two different framework and carefully record the time to implement it. 
-The partial implementation contains the POC's login that loads a long list.
+Productivity reflects how long it takes to get used to a framework and to implement something useful.
+This is because companies do not want to spend a lot of time in using new technologies.
+Furthermore, the ISO 25010 standard uses usability the check the efficiency of reaching goals with software.
+
+Both authors implement the login application and carefully record the time to implement it. 
+The login application contains the POC's login and loads a long list afterwards.
 The time to implement the login application gives the score for the framework's productivity. 
 
-Both authors also implement the POC in two different frameworks.
+Both authors also implement the full POC in two different frameworks.
 However,  this time was influenced by many factors.
 The second implementations will have an advantage because of the gained experience after the first implementation.
 Also,  code reuse and possible incomplete implementations because of the limited functionality of the framework, affect this times in a negative way.
-
+The implementation of the login application does not suffer from these factors.
 % \begin{equation}
 %   PROD_f = t_{f,login}
 %   \label{eq:productiviteit}
 % \end{equation}
 
 \paragraph{Usage}
-The POC will be subdivided in $13$ challenges and $38$ subchallenges.  
-The score of this criterion will depend on the completion of the challenges by the framework.  
-The assessment of the challenges can be found in table~\ref{table:challenges-scores}.  
-The total of all challenges gives the score for the framework's usage.
+Usage reflects which features are supported by the framework.
+The more features a framework has, the less code the developer needs to write himself.
+Furthermore, the ISO 25010 standard also tries the same with functional suitability.
 
-\begin{table}[h]	
+The POC will be subdivided in $13$ challenges with a total of $38$ sub challenges.  
+The score of this criterion will depend on the completion of these challenges by the framework.  
+The assessment of the challenges can be found in table~\ref{table:challenges-scores}.  
+The total of all challenges gives the score for the usage of framework~$f$:
+\begin{equation}
+  \text{Usage}_f = \sum_{i=1}^{38}{\left(C_{f,i}\right)}
+  \label{eq:gebruik}
+\end{equation}
+
+\begin{table}	
 \centering
 \begin{tabular}{ll}
 \toprule
@@ -308,24 +333,21 @@ $C_{f,i} = 0$ & No, custom or hacky implementation\\
 \label{table:challenges-scores}
 \end{table}
 
-\begin{equation}
-  \text{Usage}_f = \sum_{i=1}^{38}{\left(C_{f,i}\right)}
-  \label{eq:gebruik}
-\end{equation}
-
 \paragraph{Support}
-This criterion indicates the correct functionality of the POC implementation on different contexts.
-A context is a combination of a particular operating system, device and browser.
+This criterion reflects the support on different devices and mobile OSs.
+It is important that the framework has the widest possible support.
+Furthermore, the ISO 25010 standard describes portability to different platforms.
+
+A context is defined as a combination of a particular mobile OS, device and browser.
 Both Android and iOS, smartphones and tablets will be checked.
-Only native browsers will be looked at.
+The used browser will be the native browser of the mobile OS (see section~\ref{sec:introduction}).
 In total, eight contexts will be checked for support.
 %,  similar as the cross-platform capabilities of~\cite{Sarrafi2012a}.  
 In each context,  a subset of the challenges from the previous criterion will be checked.  
-These are the challenges where the framework actually provided an implementation ($C_{r,i} > 0$).
+Only the challenges where the framework actually provided an implementation ($C_{r,i} > 0$) are checked for support.
 If the challenge works as expected then $C_{f,c,i} = 1$.
 If some part of the challenge is infeasible then $C_{f,c,i} = 0$.
 The summation of scores for each context will give the score for the framework's support.
-
 \begin{equation}
   \text{Support}_f = \sum_{c=1}^{8}{\left(\sum\limits_{i=1}^{N_f}C_{f,c,i}\right)}
   \label{eq:ondersteuning}
@@ -333,23 +355,25 @@ The summation of scores for each context will give the score for the framework's
 
 \paragraph{Performance}
 The login application will be used as a stress test for the POC.
-On the one hand, the average download time of both the non-cached ($l_{f,c,login}$) and cached version ($l_{f,c,login_{cache}}$) will be taken into account.
-The formula for average download for a framework $f$ is:
+It is important that a web application is both fast in downloading as it is smooth in user experience.
+Furthermore, the ISO 25010 uses the former in performance efficiency to asses the speed and used resources.
 
+On the one hand, the average download time of both the non-cached ($l_{\widehat{f},c,login}$) and cached version ($l_{\widehat{f},c,login_{cache}}$) of the login application will be taken into account.
+The average download time for a framework $f$ is:
 \begin{equation*}
    \text{Average download time}_f= \frac{\sum_{c=1}^{8}{\left(\widehat{l}_{f,c,login}+\widehat{l}_{f,c,login_{cache}}\right)}}{8}
 \end{equation*}
 On the other hand, the user experience by scrolling through a long list of 850 items will be tested.
 The user experience will be measured on each context with two user tests ($\text{User experience}_{f}$).
-The result will be a total ordening of the frameworks per context that indicate the responsiveness.
+The result will be a total ordening of the frameworks per context that indicate the smoothness.
 The performance for a framework $f$ is defined by:
-
 \begin{equation}
 \text{Performance}'_f = \frac{\text{Average download time}_f}{\text{User experience}_f}
   \label{eq:performantie-enhanced}
 \end{equation}
 
-Initially the render times would be added to the download times to get the total performance.
+Initially, render times would have measure the time to render the $850$ list items.
+This would be added to the download time to get the total performance.
 This was not possible because \sta{} and \lungo{} do not have an event after the elements are rendered.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -42,35 +42,35 @@ In de laatste sectie (\ref{sec:raamwerken-tabel}) wordt een overzicht van deze p
 \section{\st}
 \label{sec:raamwerk-st}
 \st{}~(\sta{}) wordt ontwikkeld door Sencha.
-Dit een bedrijf is in 2010 is ontstaan als een samensmelting van drie raamwerken:  Ext JS, jQuery Touch en Raphaël. 
-Ext JS is een \js{}-raamwerk voor de ontwikkeling van webapplicaties. 
+Dit bedrijf is in 2010 ontstaan als een samensmelting van Ext JS, jQuery Touch en Raphaël. 
+Ext~JS is een \js{}-raamwerk voor de ontwikkeling van webapplicaties. 
 jQuery Touch is een jQuery plug-in voor mobiele webontwikkeling.  
 Het steunt op WebKit en voegt \term{touch events} toe aan jQuery.  
 Raphaël,  ten slotte,  is een \js{}-bibliotheek voor vectortekeningen. 
 Op het moment van schrijven is \st{} aan versie 2.2~\cite{Inc.}.  
 De eerste stabiele versie werd in november 2010 voorgesteld.
+
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
 \st{} is \js{}-gedreven, dus alle functionaliteit wordt in \js{} geïmplementeerd. 
 Alle HTML-code wordt bij het bekijken van de pagina gegenereerd.  
 
 \paragraph{Tools}
-Naast \st{} levert Sencha nog producten die \st{} uitbreiden om het ontwikkelingsproces te versnellen.
+Naast \st{} levert Sencha nog producten die het ontwikkelingsproces versnellen.
 Deze worden hieronder opgelijst~\cite{Inc.}.  
 
 \subparagraph{Sencha Architect}
-Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop} commando's~\cite{Sencha2012a}.  
+Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop}~\cite{Sencha2012a}.  
 De applicatie kan worden gedownload voor Mac, Windows en Linux distributies.
 Sencha Architect kan voor 30 dagen uitgeprobeerd worden,  daarna moet een licentie worden aangekocht.
 De prijs voor één ontwikkelaar bedraagt $\$399$~\cite{Inc.}.
 
 \subparagraph{Sencha Cmd}
-Deze tool vergemakkelijkt de ontwikkeling van \st{} applicaties door middel van commando's die vanuit de \term{command-line} kunnen worden uitgevoerd~\cite{Sencha2012}.
+Deze tool vergemakkelijkt de ontwikkeling van \st{} applicaties door middel van commando's die vanuit een \term{command-line interface} kunnen worden uitgevoerd~\cite{Sencha2012}.
 Sencha Cmd is beschikbaar voor Mac, Windows en Linux distributies.
 Het kan initiële applicaties opzetten,  bestanden toevoegen en de applicatie bouwen en uitrollen.
 De applicatie kan ook omgevormd worden tot een \term{native} applicatie voor iOS en Android.
 De tool is gratis op de Sencha website te downloaden~\cite{Inc.}.
-
 Een applicatie,  zoals geïnitialiseerd door Sencha Cmd,  moet alle benodigde \js-, en CSS-bestanden in een JSON-bestand onderbrengen.
 Een \code{microloader} zal de afhankelijke bestanden automatisch laden bij het opstarten van de applicatie.
 
@@ -78,8 +78,8 @@ Het bouwen en uitrollen van een applicatie kan op vier niveaus:
 \begin{description}
   \item [\code{testing}] maakt een testapplicatie om de kwaliteit te testen.  \js- en CSS-bestanden worden samengevoegd maar niet verkleind om makkelijk te debuggen.
   \item [\code{package}] maakt een zelfstandige applicatie die verspreidbaar is en vanop een bestandensyteem,  zonder webserver,  kan lopen.
-  \item [\code{production}] maakt een applicatie die op een webserver beschikbaar wordt gemaakt waarvan de \js-, en CSS- bestanden zijn samengevoegd en verkleind.  Het maakt de applicatie ook offline beschikbaar door gebruik te maken van de Applicatie Cache van HTML5.  Ook is het mogelijk de applicatie op te waarderen naar een nieuwe versie via het Delta Update mechanisme.
-  \item [\code{native}] maakt een \term{native} applicatie die op het Android of iOS besturingssysteem kan lopen.
+  \item [\code{production}] maakt een applicatie die op een webserver beschikbaar wordt gemaakt waarvan de \js- en CSS-bestanden zijn samengevoegd en verkleind.  Het maakt de applicatie ook offline beschikbaar door gebruik te maken van de Applicatie Cache van HTML5.  Ook is het mogelijk de applicatie op te waarderen naar een nieuwe versie via het Delta Update mechanisme. Dit mechanisme wil voorkomen dat bij een kleine aanpassing in de code, alle bestanden opnieuw moeten worden gedownload.
+  \item [\code{native}] maakt een \term{native} applicatie die op het Android- of iOS-besturingssysteem kan lopen.
 \end{description}
 
 \subparagraph{Sencha Animator}
@@ -92,7 +92,7 @@ De prijs voor één ontwikkelaar bedraagt $\$99$~\cite{Inc.}.
 %Alle documentatie voor \st{}~2.1.1 is te vinden op \exturl{docs.sencha.com/touch/2-0}.  
 Een zoekfunctie voor objecten,  eigenschappen en methoden is in de documentatie aanwezig om snel zaken op te zoeken.  
 De meeste functionaliteiten zijn voorzien van codevoorbeelden samen met het resultaat hoe de browser de code rendert.  
-Alle uitbreidingen die Sencha aanbiedt, kunnen op de Sencha Market teruggevonden worden~\cite{Sencha2013}.
+Alle plug-ins die Sencha aanbiedt, kunnen op de Sencha Market teruggevonden worden~\cite{Sencha2013}.
 Verder biedt de Sencha website ook hulpmiddelen om \st{} te leren gebruiken zoals handleidingen, introductievideos, enz.
 
 Een ander handig naslagwerk is de Kitchen Sink~\cite{Inc.2013}.  
@@ -119,7 +119,8 @@ Alle code moet in \js{} worden geschreven.
 Eén HTML-bestand dient slechts als container om de bestanden in te laden.  
 \st{} valt dus onder \js{}-gebaseerde raamwerken net zoals Ext JS,  waarop \st{} is verdergebouwd.
 
-Samen met SASS (Syntactically Awesome Stylesheets) en Compass kan \st{} lay-outs definiëren per apparaat (zie sectie \ref{sec:sencha-aanpasbaarheid}).  
+Samen met SASS (Syntactically Awesome Stylesheets) en Compass kan \st{} lay-outs definiëren per apparaat.
+SASS breidt CSS uit met variabelen,  geneste structuren, \term{mixins} en overerving~\cite{Eppstein2013}.    
 De \code{Ext.env.Browser} en \code{Ext.env.OS}-eigenschappen en \code{Ext.Viewport.getOrientation}- en \code{Ext.feature.has}-methoden kunnen de context opvragen en de juiste lay-out kiezen~\cite{JohnEClark2012}.
 
 %Zoals besproken biedt Sencha de terminal tool Sencha Cmd aan om het de ontwikkelingsproces te vergemakkelijken.  
@@ -158,12 +159,12 @@ Deze kan data aan de klant- of serverzijde opslaan.
 Een \code{Proxy} voor opslag aan klantzijde kan zowel in het RAM-geheugen als in lokale opslag van de browser opslaan.  
 Een \code{Proxy} voor serveropslag kan data verzenden naar hetzelfde domein via AJAX of tussen verschillende domeinen via JSONP.  
 JSONP staat voor JavaScript Object Notation with Padding en is een methode om data op een server in een ander domein op te vragen.
-Een \code{Proxy} kan ook nog voorzien worden van een \code{Reader} die aangeeft hoe de ontvangen data gelezen moet worden.
+Een \code{Proxy} kan ook nog voorzien worden van een \code{Reader} of \code{Writer} die aangeeft hoe de ontvangen data gelezen of geschreven moet worden.
 
 \paragraph{View}
-Een \code{View} is de benaming voor objecten die aan de gebruiker kunnen worden getoond.  
+\code{Views} zijn objecten die aan de gebruiker kunnen worden getoond.  
 Een voorbeeld hiervan zijn lijsten,  waar instanties van een \code{Store} kunnen worden weergegeven.  
-Zo een lijst kan makkelijk gefilterd of gesorteerd worden op basis van velden uit het model.
+Zo een lijst kan gefilterd of gesorteerd worden op basis van velden uit het model.
 Hiervoor moeten \code{Filters} of \code{Sorters} aan de \code{Store} worden toegevoegd. 
 De lay-out van één lijstitem bepalen kan via een \code{XTemplate}.  
 Het sjabloon bepaalt de HTML-structuur van elk item.  
@@ -177,7 +178,7 @@ Hierdoor is navigatie door de applicatie mogelijk en kunnen alle componenten gem
 
 \subsection{Niet-functionele kenmerken}
 \paragraph{Performantie}
-In vergelijking met versie~1.1 van \st{} is de performantie gestegen om wille van verschillende factoren.  
+In vergelijking met versie~1.1 van \st{} is de performantie gestegen omwille van verschillende factoren.  
 De introductie van het klassensysteem,  zoals besproken in de vorige sectie,  laat toe objecten dynamisch te laden. 
 Het grote verschil tussen \code{Ext.define} en \code{Ext.create} is dat objecten enkel in het geheugen worden geladen na creatie.  
 Het is dus de taak van de programmeur om objecten enkel te construeren wanneer ze nodig zijn.
@@ -191,21 +192,20 @@ Elke component binnen het raamwerk moet overerven van \code{Ext.Component}, dat 
 De waarde hiervan is een CSS-klasse die bepaald hoe de component er zal uitzien.  
 \st{} heeft al twee CSS-klassen voorzien:  \code{light} en \code{dark}.  
 Andere componenten kunnen deze lijst uitbreiden.  
-Een knop kan bijvoorbeeld \code{normal},  \code{back},  \code{round},  \code{small},  \code{action} of \code{forward} als \code{ui} waarde hebben.
+Een knop kan bijvoorbeeld \code{normal},  \code{back},  \code{round},  \code{small},  \code{action} of \code{forward} als \code{ui}-waarde hebben.
 
 Het is ook mogelijk om eigen waarden voor \code{ui} te definiëren of de standaarden van \st{} aan te passen.  
 SASS en Compass maken dit mogelijk door eigen CSS-bestanden aan te maken.  
-SASS breidt CSS uit met variabelen,  geneste structuren, \term{mixins} en overerving~\cite{Eppstein2013}.  
 \term{Mixins} groeperen enkele CSS-eigenschappen en kunnen worden hergebruikt.  
 Compass is een raamwerk bovenop SASS en CSS.  
 Het compileert SCSS (Sassy CSS) naar CSS-bestanden~\cite{Eppstein2013a}.        
 
 Thema's van \st{} bestaan allemaal uit een set van \term{mixins}.  
-Door zelf \term{mixins} te creëren of reeds bestaande te manipuleren kunnen eigen thema's gecreëerd worden en ze aan de \code{ui} waarde van een component toegekend worden.
+Door zelf \term{mixins} te creëren of reeds bestaande te manipuleren kunnen eigen thema's gecreëerd worden en ze aan de \code{ui}-waarde van een component toegekend worden.
 
 \paragraph{Programmeerbaarheid}
 \label{sec:sencha-programmeerbaarheid}
-Zoals reeds aangehaald ondersteund \st{} het MVC-ontwerppatroon.  
+Zoals reeds aangehaald ondersteunt \st{} het MVC-ontwerppatroon.  
 Dit ontwerppatroon vermijdt lange \js{}-bestanden door ze logisch op te delen.  
 Modellen groeperen velden tot een beschrijving van data-objecten, \code{Views} definiëren de weergave van componenten en \code{Controllers} verbinden beide op basis van gebeurtenissen.
 
@@ -215,13 +215,12 @@ Echter,  dit wordt nog niet volledig ondersteund en daarom worden aparte project
 \paragraph{Ondersteuning browser}
 \st{} steunt op de WebKit-browser \term{engine} dus moet de browser deze bevatten.  
 Hoewel dit bij de meeste browsers geen probleem meer vormt, vallen toch enkele populaire browsers uit de boot.  
-\st{} is bijvoorbeeld niet compatibel met Windows Phone.
-De volgende versie van de Opera browser zal de WebKit \term{engine} wel bevatten~\cite{Wokke2013}, een trend dat de meeste browser verkopers zullen (moeten) volgen.
+\st{} is bijvoorbeeld niet compatibel met bijvoorbeeld Internet Explorer Mobile.
 
 % Zoals reeds vermeld zijn er ook methoden voorzien om informatie op te vragen over de context die gehanteerd wordt (browser, besturingssysteem, toestel, etc.).  
 % Verder kan \st{} ook vragen naar de ondersteuning van specifieke kenmerken (audio,  \code{canvas},  CSS3, ...)  analoog als Modernizr~\cite{Modernizr2012}.  
 
-Op de website van Sencha zijn voor de belangrijkste browsers en bijhorend besturingssystemen \term{scorecards} voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
+Op de website van Sencha zijn voor de belangrijkste browsers en besturingssystemen \term{scorecards} voorzien om hun compatibiliteit met HTLM5 en \st{} te bespreken~\cite{Inc.}.
 Hoewel geen echte scores worden uitgedeeld, zijn alle belangrijkste kenmerken uitgelicht en uitvoerig besproken. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -229,14 +228,14 @@ Hoewel geen echte scores worden uitgedeeld, zijn alle belangrijkste kenmerken ui
 
 \section{\kendo}
 \label{sec:raamwerk-kendo}
-\kendo{}~(\kendoa{}) is een raamwerk van het Duitse Telerik en in novermber 2011 gelanceerd.
+\kendo{}~(\kendoa{}) is een raamwerk van het Duitse Telerik en in november 2011 gelanceerd.
 Het vergemakkelijkt de ontwikkeling van webapplicaties en bestaat uit drie luiken.
 \kendo{} Web is gericht op de ontwikkeling van desktop- en mobiele applicaties,  \kendo{} Mobile voegt een \term{native look-and-feel} toe aan mobiele applicaties en \kendo{} DataViz zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
-\kendo{} is zowel een \js{}- als opmaakgedreven raamwerk en heeft een (Model-View-View Model) MVVM-ontwerppatroon dat steunt op de jQuery-bibliotheek.
-Het raamwerk biedt \term{widgets} aan voor meer geavanceerde functionaliteit, die onderliggend een plug-in van jQuery voorstellen.
-Verder heeft de ontwikkelaar ook de mogelijkheid om eenvoudig de \term{backend} te integreren aan de klantzijde.
-ASP.NET MVC,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend}integratie.
-Op het moment van schrijven is \kendo{} aan versie 2013 Q1~\cite{Telerike}. 
+\kendo{} is zowel een \js{}- als opmaakgedreven raamwerk en heeft een Model-View-View Model (MVVM) ontwerppatroon dat steunt op de jQuery-bibliotheek.
+Het raamwerk biedt \term{widgets} aan voor meer geavanceerde functionaliteit, die onderliggend een plug-in in jQuery voorstellen.
+Verder heeft de ontwikkelaar ook de mogelijkheid om de \term{backend} te integreren met de klantzijde.
+ASP.NET MVC,  PHP en JSP zijn momenteel de ondersteunde technologieën voor \term{backend} integratie.
+Op het moment van schrijven is \kendo{} aan versie 2013 Q2~\cite{Telerike}. 
 
 \subsection{Omkadering}
 \label{sec:kendo-omkadering}
@@ -252,9 +251,10 @@ Het laden van het raamwerk kan door \kendo{} in zijn geheel op te roepen of enke
 Elk van de drie luiken - Web, Mobile en DataViz - kan op zichzelf functioneren door hun \js{}-bestand in te laden.
 Er kan wel slecht één van de drie scripts gelijktijdig gebruikt worden.  
 Wanneer elementen uit verschillende luiken gebruikt worden, moet \code{kendo.all.js} worden gebruikt.
-Een alternatieve oplossing is het inladen van één luik en alle benodigde \js{}-bestanden te genereren met de \js{} Download Builder te vinden op de \kendo{} website~\cite{Telerike}.
+Een alternatieve oplossing is het inladen van één luik en een \js{}-bestand met de benodigde componenten.
+Dit bestand is te genereren met de \js{} Download Builder die te vinden is op de \kendo{} website~\cite{Telerike}.
 Hier kunnen de vereiste elementen geselecteerd worden en wordt het \js{}-bestand gegenereerd.
-Op een analoge wijze, kan de programmeur kiezen tussen verschillende CSS-bestanden:  \code{kendo.all.css} en \code{kendo.mobile.css}.
+Op een analoge wijze kan de programmeur kiezen tussen verschillende CSS-bestanden:  \code{kendo.all.css} en \code{kendo.mobile.css}.
 
 \paragraph{Tools}
 Op de \kendo{} website staan drie webapplicaties vermeld die Telerik aanbiedt om de programmeur te ondersteunen.
@@ -265,7 +265,7 @@ Voor \kendo{} Mobile kan een verschillende lay-out bepaald worden voor alle onde
 
 \paragraph{Documentatie}
 Twee belangrijke secties van de documentatie zijn de API en Getting Started~\cite{Telerikd}.
-Beide kunnen op elkaar gemapt worden omdat alle objecten van \kendo{} die in de API worden aangehaald ook in een pagina onder \term{Getting Started} worden besproken.
+Beide kunnen op elkaar gemapt worden omdat alle objecten van \kendo{} die in de API worden aangehaald ook in een pagina onder Getting Started worden besproken.
 Deze laatste probeert met meer woorden en voorbeelden uit te leggen wat het object juist inhoudt.
 Verder staan er bij de documentatie nog handleidingen die complexere functionaliteit uit de doeken doen.
 Ook zijn er demo's die live voorbeelden tonen samen met de code die nodig is om het voorbeeld te maken.
@@ -278,7 +278,7 @@ Een licentie voor \kendo{} Complete kost $\$699$ per ontwikkelaar.
 Voor \term{backend} ondersteuning in PHP,  JSP of ASP.NET MVC moet $\$300$ meer betaald worden.
 Hierbij zijn één jaar updates mogelijk en wordt professionele ondersteuning aangeboden met een responsetijd onder de 48 uur.
 Een licentie met \term{backend} integratie garandeert professionele ondersteuning binnen de 24 uur.
-Voor \kendo{} Web,  Mobile en DataViz bestaan ook een aparte licenties voor respectievelijk $\$399$,  $\$199$ en $\$399$~\cite{Telerike}.
+Voor \kendo{} Web,  Mobile en DataViz bestaan ook aparte licenties voor respectievelijk $\$399$,  $\$199$ en $\$399$~\cite{Telerike}.
 
 \subsection{Code en ontwikkeling}
 %Zoals reeds vermeld moet de programmeur zowel \js{}- als HTML-code schrijven. 
@@ -288,28 +288,28 @@ De initialisatie van een applicatie moet onderaan in de HTML-pagina gebeuren.
 Hier kunnen parameters meegegeven worden die bijvoorbeeld de stijl van één platform vastleggen of het initiële scherm bepalen.
 
 De navigatie naar een scherm gebeurt op basis van de \term{identifier} van dat scherm.
-Standaard navigeert \kendo{} naar het eerste gedefinieerde scherm van een webpagina.
+Standaard navigeert \kendo{} naar het eerst gedefinieerde scherm in de pagina.
 Een ander scherm kan in diezelfde pagina of in een ander bestand staan.
 Een lokale navigatie wordt herkend door een \term{hashtag} die voor de \term{identifier} van het scherm wordt geplaatst als parameter van de \code{navigate}-methode.
 Navigatie naar een ander bestand kan door de bestandsnaam als parameter op te geven.
 
 \subsection{Functionele kenmerken}
 \label{sec:kendo-functioneel}
-\kendo{} steunt op het (Model-View-View Model) MVVM-ontwerppatroon,  wat de functionele kenmerken sterk beïnvloedt.
+\kendo{} steunt op het MVVM-ontwerppatroon,  wat de functionele kenmerken sterk beïnvloedt.
 Alle objecten maken deel uit van een klassensysteem.
 
 \paragraph{UI-elementen}
 Formulieren volgen de HTML5-norm. 
-Deze elementen zijn wel enkel functioneel vanaf iOS versie~5 en Android versie~4.  
+Deze elementen zijn wel enkel functioneel vanaf iOS~5 en Android~4.  
 De stijl van de elementen op andere platformen zal werken, maar is beperkt tot enkel tekstinvoer~\cite{Telerike}.
 
-Het toevoegen van knoppen kan zowel met de \code{button}-tag als met standaard hyperlinks (\code{a}).
+Het toevoegen van knoppen kan zowel met de \code{button}-tag als met standaard hyperlinks.
 Knoppen kunnen ook samengevoegd worden tot een \code{ButtonGroup}.
 Dit maakt het mogelijk om gemeenschappelijke acties aan een groep van knoppen toe te kennen om bijvoorbeeld een menu te maken.
 Een \code{TabStrip} is een alternatief waar tabs in de voettekst het scherm kunnen laten variëren.
 
 \paragraph{View}
-Schermen worden voorgesteld met \code{Views},  analoog als bij het MVC-ontwerppatroon.
+Analoog als het MVC-ontwerppatroon,  worden schermen voorgesteld met \code{Views}.
 Een \code{View} aanduiden gebeurt door het attribuut \code{data-role} aan \code{view} gelijk te stellen.
 \code{Views} kunnen met een lay-out worden voorzien met de \code{data-layout}-tag.
 Een \code{Layout} bepaalt de vormgeving van een \code{View} en kan hergebruikt worden.
@@ -331,33 +331,33 @@ Een \code{ObservableObject} kan aan een \code{View} worden toegekend door het in
 
 Er zijn verschillende bindingen	 mogelijk tussen een \code{View} en \code{ObservableObject}.
 Deze wordt aangegeven in de \code{data-bind}-tag.
-\kendo{} ondersteunt een binding met volgende eigenschappen:  
-\begin{itemize}
-  \item \code{attr}
-  \item \code{checked}
-  \item \code{clicked}
-  \item \code{custom}
-  \item \code{disabled}
-  \item \code{enabled}
-  \item \code{events}
-  \item \code{html}
-  \item \code{invisible}
-  \item \code{source}
-  \item \code{style}
-  \item \code{text}
-  \item \code{value}
-  \item \code{visible}
-\end{itemize}
+%\kendo{} ondersteunt een binding met volgende eigenschappen:  
+%\begin{itemize}
+%  \item \code{attr}
+%  \item \code{checked}
+%  \item \code{clicked}
+%  \item \code{custom}
+%  \item \code{disabled}
+%  \item \code{enabled}
+%  \item \code{events}
+%  \item \code{html}
+%  \item \code{invisible}
+%  \item \code{source}
+%  \item \code{style}
+%  \item \code{text}
+%  \item \code{value}
+%  \item \code{visible}
+%\end{itemize}
 Als een gebonden eigenschap wijzigt - door gebruikersinvoer of programmatisch - zal het overeenkomstige veld in het \code{ObservableObject} ook wijzigen.
 
 \paragraph{Model}
 Het \code{Model} erft over van \code{ObservableObject} en breidt het uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
 Velden kunnen van het type \code{string, number, boolean} of \code{date} zijn.
 Ook kunnen de velden verder beschreven worden door bijvoorbeeld een standaard waarde of validatie toe te voegen.
-De \code{DataSource} is een \kendo{} object voor de opslag van lokale of externe data.  
+De \code{DataSource} is een \kendo{}-object voor de opslag van lokale of externe data.  
 Deze ondersteunt alle CRUD (\term{Create, Read, Update en Delete}) operaties en het sorteren, pagineren, filteren, groeperen en aggregeren van data.
 Het \code{schema}-attribuut legt de structuur van de data in de \code{DataSource} vast.
-Bij externe databronnen bepaalt het hoe binnenkomende data geparset moet worden om aan de opgelegde structuur te voldoen.
+Bij externe databronnen bepaalt het hoe binnenkomende data geparset moet worden om aan een opgelegde structuur te voldoen.
 Een \code{schema} kan van een \code{Model} worden voorzien of zelf een \code{Model} beschrijven.
 In het eerste geval zullen de waarde van het toegekende \code{Model} na CRUD-operaties worden aangepast.
 In het andere geval zal de \code{DataSource} instanties van het beschreven \code{Model} bevatten en manipuleren.
@@ -384,7 +384,7 @@ Het raamwerk is gebouwd op de jQuery-bibliotheek en maakt dus vaak van jQuery-\t
 Ook kan een AJAX-verzoek met jQuery-syntax geformuleerd worden om externe data voor een \code{DataSource} op te halen.
 
 \paragraph{Browserondersteuning}
-Ondersteunde systemen zijn iOS, Android, BlackBerry~OS en Windows Phone~8.
+Ondersteunde systemen zijn iOS, Android, Windows Phone~8 en BlackBerry~OS.
 Alle \term{widgets}, zoals gebruikt in het raamwerk, ondersteunen \term{progressive enhancement}.
 Oudere browsers kunnen zo bestaande inhoud en functionaliteit raadplegen met \term{native} HTML-types indien bepaalde elementen niet worden ondersteund.
 Ook de HTML5-formulierelementen worden opgebouwd met \term{progressive enhancement}.
@@ -398,22 +398,25 @@ Ook de HTML5-formulierelementen worden opgebouwd met \term{progressive enhanceme
 Het werd aangekondigd in 2010~\cite{Resig2010} en in november 2011 werd versie~1.0 uitgebracht~\cite{Parker2011}.
 Een jaar later werd in oktober versie~1.2 uitgebracht~\cite{Parker2012} en op het moment van schrijven zit \jqm{} aan versie~1.3.1~\cite{Parker2013b}. 
 Het raamwerk is afhankelijk van jQuery dat een \js{}-bibliotheek is.
-Beide worden beheerd door het jQuery Project~\ref{JQuery2012}. 
+Beide worden beheerd door het jQuery Project~\cite{JQuery2012}. 
 \jqm{} wordt door onder andere Adobe, BlackBerry en Mozilla gesponsord~\cite{JQuery2012a}.
 
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
-Om met \jqm{} aan de slag te kunnen, is niets meer nodig dan kennis over HTML, CSS en \js{}. 
+Om met \jqm{} aan de slag te kunnen, is er kennis nodig over HTML, CSS en \js{}. 
 Alle GI-elementen worden geschreven in HTML en aangeduid met data-attributen.
+Functionele vereisten kunnen worden geschreven in \js{}.
 
 \paragraph{Tools}
 Codiqa~\cite{Sperry2012} is een tool om snel de GGI van de applicatie op te zetten.
 Door \term{drag-and-drop} worden de GI-elementen op het scherm gezet.
-Codiqua zal automatisch op de achtergrond de HTML-code voorzien.
+Codiqua zal automatisch op de achtergrond de HTML- en CSS-code voorzien.
+Daarnaast biedt \jqm{} ook ThemeRoller~\cite{JQuery2012c} aan om het standaard kleurenthema aan te passen. 
+Hiermee worden kleuren naar een voorbeeldapplicatie gesleept, waarna het overeenkomstige CSS-bestand kan worden gedownload.
 
 \paragraph{Documentatie}
 Op de documentatiesite van versie~1.2~\cite{JQuery2012b} is een catalogus te vinden van alle mogelijke elementen waarover \jqm{} beschikt. 
-Door de broncode van een voorbeeld te bekijken, kan worden gekeken welke code moet worden geschreven om tot dat resultaat te komen.
+Door de broncode van een voorbeeld te bekijken, kan de code worden geschreven om tot dat resultaat te komen.
 
 Naast de GI-elementen is er ook documentatie over de API.
 Deze gaat over gebeurtenissen en methoden die kunnen worden gebruikt en het configureren van standaardwaarden.
@@ -461,15 +464,15 @@ Daarnaast zijn er ook nog opklapbare blokken ter beschikking.
 Als laatste kunnen deze blokken ook samengevoegd worden tot een accordeon. 
 
 \item \textbf{Elementen voor formulieren}
-\jqm{} biedt alle elementen voor formulieren aan zoals tekstinvoer, een selectie uit een lijst, een zoekveld, een \term{slider} en een schakelaar. 
-Het raamwerk verplicht zelfs om de \code{label}-tag te gebruiken. 
+\jqm{} biedt elementen voor formulieren aan zoals tekstinvoer, een dropdownmenu, een zoekveld, een \term{slider} en een schakelaar. 
+Het raamwerk verplicht om de \code{label}-tag te gebruiken. 
 Zo wordt de applicatie toegankelijker gemaakt voor bijvoorbeeld mensen met een schermlezer.
 
 \item \textbf{Lijsten}
 Een laatste categorie GI-elementen die \jqm{} aanbiedt, zijn lijsten. 
 Deze gaan van standaard ongeordende lijsten tot lijsten met alle soorten decoraties als iconen, afbeeldingen, telbubbels en verdelers. 
 Het is ook mogelijk om in deze lijsten te zoeken. 
-Hiervoor dient de gebruiker enkel één data attribuut toe te voegen, waarna het raamwerk de implementatie voorziet. 
+Hiervoor dient de ontwikkelaar enkel één data-attribuut toe te voegen, waarna het raamwerk de implementatie voorziet. 
 \end{enumerate}
 
 \subsection{Niet-functionele kenmerken}
@@ -483,11 +486,10 @@ Deze webpagina bevat allemaal \code{div}-verpakkingen voor ieder scherm.
 \paragraph{Aanpasbaarheid}
 Er is keuze uit vijf kleurenthema's die kunnen worden toegepast op de gehele applicatie of enkel op bepaalde elementen. 
 Een ontwikkelaar kan ook enkel de structuur downloaden en zelf het thema in CSS schrijven. 
-Doordat dit laatste heel wat inspanning vraagt, hebben de ontwikkelaars van \jqm{} ook een tool ter beschikking gesteld, namelijk ThemeRoller~\cite{JQuery2012c}. 
-Hiermee worden de kleuren naar een voorbeeldapplicatie gesleept, waarna de overeenkomstige \term{stylesheet} kan worden gedownload.
+Doordat dit laatste heel wat inspanning vraagt, kunnen ontwikkelaars hiervoor ThemeRoller~\cite{JQuery2012c} gebruiken. 
 
 \paragraph{Programmeerbaarheid}
-Bij het programmeren in \jqm{} wordt geen enkel ontwerppatroon afgedwongen. 
+Bij het programmeren in \jqm{} wordt geen ontwerppatroon afgedwongen. 
 De code voor de GI-elementen wordt tenslotte als HTML5-code geschreven.
 Voor de echte functionaliteit wordt beroep gedaan op \js{} en meer bepaald op de jQuery-bibliotheek. 
 Ook deze dwingt geen ontwerppatroon af.
@@ -515,7 +517,7 @@ Versie~1.0 kwam uit in 2011~\cite{TapQuo2011} en op het moment van schrijven zit
 
 \subsection{Omkadering}
 \paragraph{Programmeertaal}
-Er is niets meer nodig dan kennis over HTML, CSS en \js{}.
+Er is kennis nodig van HTML, CSS en \js{}.
 De GI-elementen worden geschreven in HTML en aangeduid aan de hand van zowel CSS-klassen en data-attributen.
 Functionele vereisten kunnen worden geschreven in \js{}.
 
@@ -529,7 +531,6 @@ Op de documentatiesite~\cite{Lungo2013} wordt eerst getoond hoe het structuur va
 Vervolgens zijn er nog acht andere pagina's die de aangeboden GI-elementen en API uitleggen.
 Op de documentatiepagina's is altijd eerst de broncode te zien.
 Er kan dan boven de broncode op een knop geklikt worden, waarna een live voorbeeld wordt getoond.
-De documentatiesite~\cite{TapQuo2013c} van de onderliggende \js{}-bibliotheek bestaat uit uitleg over de API.
 
 \paragraph{Marktadoptatie}
 Doordat geen informatie te vinden is op de site van \lungo{} werd een e-mail gestuurd met de vraag welke bedrijven \lungo{} gebruiken of in welke projecten van TapQuo zelf \lungo{} werd gebruikt.
@@ -552,14 +553,14 @@ Hierbij moet enkel de code binnen de \code{body}-tag worden opgeslagen.
 Daarna wordt bij de initialisatie van \lungo{} gedefinieerd welke afzonderlijke pagina's asynchroon dienen te worden opgehaald.
 
 \subsection{Functionele kenmerken}
-De documentatiepagina is opgedeeld in negen groepen die hieronder kort worden aangehaald.
+De documentatiepagina~\cite{Lungo2013} is opgedeeld in negen groepen die hieronder kort worden aangehaald.
 
 \begin{enumerate}
 
 \item \textbf{Prototype} 
 Hierop worden GI-elementen, navigatie, formulieren, scrollen, lijsten en data-attributen aangehaald.
 Ook is er directe ondersteuning door het raamwerk voor Pull\&Refresh.
-Dit is lijst die de data automatisch herlaadt wanneer de lijst naar beneden wordt getrokken.
+Dit is een lijst die de data automatisch herlaadt wanneer de lijst naar beneden wordt getrokken.
 
 \item \textbf{Core }
 Hier worden functies aangehaald die het raamwerk zelf intern gebruikt.
@@ -567,9 +568,9 @@ Een voorbeeld hiervan is de \code{Lungo.Core.isMobile}-functie die controleert o
 Een ander voorbeeld is de aanwezigheid van een sorteer- en zoekfunctie voor rijen.
 
 \item \textbf{Data }
-Zoals aangehaald in de inleiding biedt het raamwerk \term{wrappers} voor cache, opslag en SQL.
+Het raamwerk biedt \term{wrappers} voor cache, opslag en SQL.
 De ontwikkelaar dient dus zelf geen \code{if-then-else}-constructies op te stellen of een bepaald kenmerk ondersteund wordt of niet, het raamwerk neemt dat voor zijn rekening.
-Indien het apparaat het kenmerk niet ondersteund, voorziet \lungo{} een \term{fallback}.
+Indien het apparaat het kenmerk niet ondersteunt, voorziet \lungo{} een \term{fallback}.
 
 \item \textbf{DOM }
 Het manipuleren van de DOM gebeurt door de \quo{}-bibliotheek.
@@ -577,13 +578,13 @@ Hiervoor wordt gerefereerd naar de documentatie van \quo{}~\cite{TapQuo2013c}.
 Zelf biedt \lungo{} enkel ondersteuning voor gebeurtenissen bij het laden en ontladen van pagina's binnen de applicatie.
 
 \item \textbf{Element }
-Toevoegen van een telbubbel, vooruitgangsbalk, laadbalk, automatisch herladen bij het naar beneden trekken van lijst en een fotocarousel zijn programmeerbaar en manipuleerbaar via de \lungo{} API vanuit \js{}. 
+Toevoegen van een telbubbel, vooruitgangsbalk, laadbalk, Pull\&Refresh en een fotocarousel zijn programmeerbaar en manipuleerbaar via de \lungo{} API vanuit \js{}. 
 
 \item \textbf{Notification }
 Er worden standaard verschillende dialoogvensters aangeboden voor fout-, succes- en infomeldingen.
 Deze dialoogvensters zijn voorzien van een specifieke lay-out.
 Zo zal een fout- en succesboodschap respectievelijk een rode en groene achtergrondkleur hebben.
-Een ander type venster dat wordt aangeboden is een bevestigingsvenster waarbij een vraag wordt gesteld aan de gebruiker waar ja of nee op geantwoord kan worden.
+Een ander type venster dat wordt aangeboden is een bevestigingsvenster waarbij een vraag wordt gesteld aan de gebruiker waar ja of nee op geantwoord wordt.
 Het raamwerk voorziet voor beide acties de mogelijkheid om hier een eigen functie aan te koppelen.
  
 \item \textbf{Routing }
@@ -598,8 +599,8 @@ Versturen van HTTP-verzoeken kan vanuit \lungo{} zelf.
 Zowel HTTP GET als HTTP POST zijn mogelijk.
 Het raamwerk kan omgaan met tekst, XML, JSON en HTML als antwoord.
 Er is ook een verkorte notatie indien het antwoord JSON is.
-Als laatste biedt \lungo{} ook de mogelijkheid om het antwoord van het HTTP-verzoek te cachen, waarbij de maximale tijd moeten worden opgegeven.
-Indien de oproep nog eens gebeurt en de maximale tijd niet verstreken is, zal \lungo{} geen HTTP-oproep versturen, maar het opgeslagen antwoord gebruiken.
+Als laatste biedt \lungo{} ook de mogelijkheid om het antwoord van het HTTP-verzoek te cachen, waarbij de maximale tijd moet worden opgegeven.
+Indien de oproep nog eens gebeurt en de maximale tijd niet verstreken is, zal \lungo{} geen HTTP-verzoek versturen, maar het opgeslagen antwoord gebruiken.
 
 \item \textbf{View }
 Hier worden \js{}-methoden aangeboden om het uitzicht binnen een \code{article} te bepalen.
@@ -622,12 +623,12 @@ Hierdoor zal een ontwikkelaar zelf aangewezen zijn om eigen CSS-code te schrijve
 \label{sec:lungo-programmeerbaarheid}
 \lungo{} dwingt geen enkel ontwerppatroon af.
 Voor de echte functionaliteit wordt beroep gedaan op \js{}.
-Daarbij is de ontwikkelaar vrij hoe hij te werk gaat en kan gebruik maken van de \lungo{} API. 
+Daarbij is de ontwikkelaar vrij hoe hij te werk gaat en kan hij gebruik maken van de \lungo{} API. 
 Voor aanpassingen die van toepassing zijn op DOM-manipulatie, is de ontwikkelaar aangewezen op \quo{}.
 Ook deze dwingt geen ontwerppatroon af.
 
 \paragraph{Ondersteuning browser}
-TapQuo geeft aan op hun website dat ze ondersteuning bieden voor iOS, Android, Blackberry~OS en FirefoxOS.
+TapQuo geeft aan op hun website dat ze ondersteuning bieden voor iOS, Android, Blackberry~OS en Firefox~OS.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

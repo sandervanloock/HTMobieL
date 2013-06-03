@@ -8,9 +8,9 @@ Ontwerppatroon,MVC,MVVM,/,/
 Licentie,GNU GPLv3 \& commercieel,commercieel,MIT,GNU GPLv3 \& commercieel
 Licentiekost,gratis,\$699,gratis,gratis
 Professionele ondersteuning,ja,ja,nee,nee
-Kosten ondersteuning,\$299,\$699 (zit in licentiekost),/,/
+Kosten ondersteuning,\$299,ja (zit in licentiekost),/,/
 \term{Native look-and-feel},nee ,ja,nee,nee
-Inpakken tot native applicatie,ja,nee,nee,nee
+Inpakken tot \term{native} applicatie,ja,nee,nee,nee
 Tools voor GI,Sencha Architect,nee,Codiqa,nee
 Tools voor thema,nee ,Mobile ThemeBuilder,ThemeRoller voor jQuery Mobile,nee
 Tools voor uitrollen,Sencha Cmd,nee,nee,nee

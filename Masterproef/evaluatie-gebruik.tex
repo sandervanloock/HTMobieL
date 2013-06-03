@@ -90,7 +90,6 @@ Dit kan dan dienst doen als kop- en voettekst.
 Een cascade van kopteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
 Een \code{Toolbar} kan voorzien worden van een titel door de \code{title}-eigenschap in te vullen.
 Knoppen aan een \code{Toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items}-eigenschap toe te voegen.
-
 Het toevoegen van een tabbar verloopt analoog.
 De \code{items}-eigenschap bevat dan een lijst van \code{Views} met een titel waarbij de \code{View} zichtbaar wordt als op de titel wordt gedrukt.
 Knoppen van kleur veranderen kan door de \code{style}-eigenschap van een knop te zetten.
@@ -99,7 +98,6 @@ Knoppen van kleur veranderen kan door de \code{style}-eigenschap van een knop te
 Het skelet van een \code{View} kan binnen een HTML-tag worden geschreven.
 Kop- en/of voetteksten toevoegen kan door in het skelet de bijhorende HTML-tags te gebruiken.
 \code{Header}-tags kunnen niet genest worden, dus zijn onderkopteksten niet mogelijk.
-
 Een tabbar moet met een \code{Buttongroup} worden gemaakt,  dit is een lijst van knoppen.
 Na deze lijst moeten de bijhorende \code{Views} worden geschreven.
 De \code{Buttongroup} voorziet een gebeurtenis bij het selecteren van een knop.
@@ -122,7 +120,6 @@ Deze extra titel wordt ook gebruikt om naar het menu voor de smartphone te gaan 
 
 Standaard is er een tabbalk aanwezig in \jqm, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
 Daarom werd gekozen voor een formulierveld met twee opties.
-
 ThemeRoller~\cite{JQuery2012c} werd gebruikt om de knoppen groen te maken.
 Door daarna de knop te annoteren met de bekomen CSS-klasse, wordt het betreffende thema geactiveerd. 
 Om de knop blauw te maken was er geen nood aan een aanpassing.
@@ -133,7 +130,6 @@ Het tonen van kop- en voettekst gebeurt door de verschillende schermen van de ap
 Dit is in tegenstelling tot \jqm{} waarbij wordt gebruik gemaakt van data-attributen.
 In de voettekst kunnen door CSS-regels de twee logo's links en rechts uitgelijnd worden.
 De onderkoptekst werd met een omweg bekomen door een lijst te maken met slechts één lijstitem.
-
 Het maken van een tabbar is standaard aanwezig in \lungo{}.
 De tabbar wordt getoond over de volledige breedte en komt onmiddellijk onder de koptekst en dus boven de onderkoptekst.
 Dit in tegenstelling tot het gevraagde in de POC waar de tabbar onder de onderkoptekst diende te komen.
@@ -177,7 +173,6 @@ Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
 Het kan zowel besturingssysteem, browser als ondersteunde (HTML5-)kenmerken opvragen en herkennen.
-
 De creatie van de tablet lay-out steunt op de \code{HBox}-lay-out die componenten horizontaal naast elkaar plaatst.
 %De \code{flex} eigenschap van deze lay-out definieert de ratio van de groottes van beide componenten.
 De creatie van de smartphone lay-out maakt het menu in de linkse component van de lay-out onzichtbaar.
@@ -203,7 +198,6 @@ Zo was de eerste destructief ten opzichte van het raamwerk.
 Dit betekent dat de bestanden van het raamwerk zelf werden aangepast, wat het moeilijker maakt als er moet worden geüpdatet naar een nieuwe versie. 
 De tweede plug-in werkte enkel tot versie 1.0.1.
 De laatste plug-in paste zich niet aan aan de veranderende afmetingen van de browser. 
-
 Uiteindelijk werden CSS3 Media Queries gebruikt~\cite{Hadlock2012,JQuery2013e}. 
 Bij CSS3 Media Queries moet zelf een breekpunt (uitgedrukt in pixels) worden opgegeven wanneer dient geschakeld te worden tussen smartphone lay-out of tablet lay-out.
 Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt getoond.
@@ -263,7 +257,6 @@ De dialoogvensters kunnen met gelijknamige functies opgeroepen worden,  waarbij 
 %Een \code{Application}-object wordt na initialisatie van een \kendo{}-applicatie aangemaakt.
 Het raamwerk biedt methoden om het laadscherm te tonen of te verbergen.
 De laadtekst voor alle laadschermen wordt opgegeven bij de initialisatie van de applicatie.
-
 Een dialoogvenster wordt in \kendo{} \code{ModelView} genoemd.
 Dit is niet hetzelfde als de View Model component van het MVVM-ontwerppatroon.
 % Het attribuut \code{data-role} moet \code{modelview} als waarde hebben om een HTML-fragment als dialoogvenster te definiëren.
@@ -275,7 +268,6 @@ Een attribuut moet dan wel weergeven dat de link naar een \code{ModelView} gaat.
 \paragraph{\jqm}
 Het standaard laadscherm is enkel een laadindicator die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
 Door de opties in de API te gebruiken, komt de laadindicator duidelijk naar voor door een zwarte achtergrond en kan er ook tekst worden ondergezet.
-
 Eerst werd een plug-in~\cite{Sage2013} gebruikt om een dialoogvenster te tonen, maar deze was slecht aanpasbaar.
 Uiteindelijk werden de dialoogvensters van \jqm{} gebruikt zodat de lay-out gemakkelijker kon worden aangepast.
 
@@ -285,7 +277,6 @@ Indien er geen parameters worden meegegeven, zal een laadscherm getoond worden.
 De parameters bevatten de titel, omschrijving, tijd op het scherm en de functie die wordt opgeroepen bij het sluiten van het venster.
 Daarnaast worden er ook specifieke dialoogvensters aangeboden om een succes- of foutmelding te tonen.
 Deze zullen respectievelijk een groene en rode kleur hebben.
-
 Als eerst een laadscherm wordt getoond, daarna wordt verborgen en daarna een dialoogvenster wordt getoond, verschijnt het dialoogvenster niet.
 Een oplossing hiervoor is om het laadscherm niet te verbergen, waardoor enkel het dialoogvenster zal worden getoond.
 
@@ -333,20 +324,6 @@ Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Een formulier kan in \st{} aan een \code{Formpanel} worden toegevoegd.
 Dit object kan op zijn beurt voorzien worden van onder andere tekst-, e-mail- en nummervelden.
 Ook optievelden of schakelaars kunnen hier aan het formulier worden toegevoegd.
-%Volgende velden worden onder andere in \st{} aangeboden: \code{textfield},  \code{emailfield}	,  \code{numberfield}, \code{selectfield} en \code{togglefield}.
-% \begin{itemize}
-%   \item \code{textfield}
-%   \item \code{numberfield}
-%   \item \code{emailfield}			
-%   \item \code{textareafield}
-%   \item \code{hiddenfield}
-%   \item \code{radiofield}
-%   \item \code{checkboxfield}
-%   \item \code{selectfield}
-%   \item \code{togglefield}
-%   \item \code{fieldset}
-% \end{itemize}
-%Tekst-, e-mail en nummervelden werden aangemaakt met de eerste drie velden.
 Bij het renderen worden deze tot HTML5-invoertypes omgevormd.
 Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap \code{placeholder}.
 
@@ -354,7 +331,6 @@ Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap
 Wel kan een begin- en eindjaar van de \term{datepicker} worden geconfigureerd.
 Een \term{datepicker} maken waarbij het bereik kleiner is dan een jaar, is niet mogelijk.
 Ook is het onmogelijk om enkel een maand- en jaarveld te tonen.
-
 Het leegmaken van een formulier gebeurt niet automatisch wanneer het verzonden wordt.
 Hiervoor moet de \code{reset}-methode op het bijhorende \code{Formpanel} worden opgeroepen.
 
@@ -372,7 +348,6 @@ Hiervoor moet de \code{reset}-methode op het bijhorende \code{Formpanel} worden 
  
  Het wissen van formulieren steunt op het MVVM-ontwerppatroon.
  Een formulier kan worden gebonden aan een (View) Model.
- %De waarde van elk formulierelement komt dan overeen met de waarde van een eigenschap van dat (View) Model met dezelfde naam.
  Wanneer een uitgave wordt toegevoegd, zal de huidige waarde van het (View) Model worden gereset.
  Door de dubbele binding tussen het formulier en het (View) Model zal ook de inhoud van de formulierelementen worden gewist.
  
@@ -474,7 +449,6 @@ Een \code{Model} breidt een \code{ObservableObject} uit met de mogelijkheid om s
 %In wat volgt zal aangenomen worden dat een \code{ObservableObject} wordt gebruikt in plaats van een \code{Model}.
 Om een formulier met data te vullen is het de taak van de programmeur de eigenschappen van het \code{ObservableObject} van de gewenste waarden te voorzien.
 De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
-
 \term{Read-only} velden moeten als attribuut in het formulierelement worden gespecificeerd.
 
 \paragraph{\jqm}
@@ -482,7 +456,6 @@ Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd.
 Hierdoor moet ieder formulierveld worden gezocht om daarna zijn waarde in te stellen.
 Bij een dropdownmenu en \code{radio}-velden kan deze methode niet worden gebruikt.
 Voor de eerstgenoemde moet de gewenste optie worden gezocht en daaraan het \code{selected}- of \code{checked}-attribuut moeten worden toegevoegd.
-
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
 Dit geldt voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} moeten worden gebruikt.
 De andere niet-benodigde items worden uit de lijst verwijderd.
@@ -491,7 +464,6 @@ De andere niet-benodigde items worden uit de lijst verwijderd.
 Velden vullen met data dient handmatig te gebeuren door eerst het formulierveld op te zoeken en daarna de waarde te zetten.
 Deze waarde moet tekst zijn, waardoor bijvoorbeeld getallen eerst moeten worden omgevormd.
 Geoptimaliseerde mobiele lay-out voor \code{radio}-types is niet aanwezig in \lungo.
-
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
 Dit gaat voor alle types van velden, behalve voor dropdownmenu's.
 Daar worden de niet-benodigde opties uit de selectie verwijderd.
@@ -536,7 +508,6 @@ Het automatisch aanvullen van een formulierelement steunt op een plug-in van Taj
 Deze plug-in is niet op de Sencha Market terug te vinden.
 Het toevoegen van de plug-in zal een invoerelement beschikbaar maken dat suggesties met een dropdownmenu weergeeft.
 Dit element kan een \code{Proxy} definiëren die de \term{backend} aanspreekt om suggesties asynchroon op te halen.
-
 De \term{backend} van de POC geeft bij een bepaalde invoer suggesties in een JSON-rij terug.
 De rij is voorzien van een sleutel, maar alle elementen van de rij hebben er geen.
 Geen van de beschikbare methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
@@ -626,7 +597,6 @@ Wanneer een afbeelding succesvol is opgeladen, wordt het bestand met een \code{F
 Het toevoegen van een afbeelding gebeurt door het bestandstype als invoertype aan het formulierveld toe te voegen. 
 In versie~1.2 wordt dit veld niet opgemaakt met lay-out, maar dit gebeurt wel in versie 1.3~\cite{JQuery2013d}. 
 Het omvormen van de afbeelding naar Base64 is analoog aan \kendo{}.
-
 Het voorvertonen van de geüploade afbeelding hangt af van het mobiele besturingssysteem.
 Zo wordt op iOS~6 een miniatuurafbeelding getoond, terwijl op Android de bestandsnaam wordt getoond in het invoerveld.
 Het is natuurlijk ook mogelijk om de voorvertoning na conversie zelf te tonen op het scherm.
@@ -695,7 +665,6 @@ Dit is een functie die de programmeur zelf bepaalt en \code{true} of \code{false
 
 Het opbouwen van een foutboodschap kan door te itereren over de fouten die na validatie worden teruggegeven.
 Een specifieke foutboodschap kan aan elke validatieregel worden toegekend.
-
 Incorrecte formulierelementen aanduiden met een rode rand wordt niet door \st{} ondersteund.
 Foutief ingevulde formulierelementen moeten na validatie met een eigen CSS-klasse worden aangevuld.
 
@@ -716,7 +685,6 @@ Het definiëren van een eigen validatieregel kan door een \js-functie aan de \co
 % De validatiecontrole starten kan door de \code{validate}-methode op de \code{validator} op te roepen.
 Bij het controleren van invoerelementen worden altijd eerst de standaard validatieregels gecontroleerd,  daarna de eigen validatieregels.
 De volgorde waarin de controles worden uitgevoerd, ligt vast en zal stoppen zodra één controle mislukt.
-
 Validatieberichten kunnen voor standaard validaties door het raamwerk zelf worden opgebouwd.
 Deze kunnen worden overschreven door zelf een bericht aan het invoerelement toe te kennen.
 Bij eigen validatieregels kan een bericht per validatieregel worden gespecificeerd.
@@ -724,7 +692,6 @@ Bij eigen validatieregels kan een bericht per validatieregel worden gespecificee
 Incorrecte formulierelementen aanduiden met een rode rand wordt niet door \kendo{} ondersteund.
 De standaard implementatie voorziet een \code{tooltip} per incorrect veld.
 Deze zal het validatiebericht naast het invalide formulierelement plaatsen. 
-
 Een venster tonen waarbij alle foutboodschappen zijn samengevat is ook niet standaard aanwezig.
 De volledige foutboodschap moet worden geconstrueerd door foutboodschappen,  zoals teruggegeven door de \code{validator}, te concateneren.
 Hoe een dialoogvenster gemaakt wordt, werd in sectie \ref{sec:evaluatie-gebruik-laadscherm} besproken.
@@ -735,14 +702,12 @@ Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required
 Doordat er geen ondersteuning is voor mobiele browsers, zoals opgemerkt bij \kendo{}, werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
 Deze kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code en anderzijds door programmatie met \js{}. 
 Beide aanpakken werden gebruikt doorheen de implementatie. 
-
 De plug-in bevat alle gevraagde validatieregels.
 Daarnaast was het nodig dat een veld verplicht was enkel indien een bepaalde optie was aangevinkt.
 Deze afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
 
 De plug-in toont standaard een foutboodschap onder het foute formulierveld.
 Door de uitvoerig documentatie van de plug-in, konden alle foutboodschappen samen in één dialoogvenster worden weergegeven.
-
 De plug-in annoteert de incorrecte velden met een CSS-klasse.
 Hierdoor kon de rode rand in CSS worden geprogrammeerd. 
 Voor \code{radio}-velden en dropdownmenu's gaf dit problemen door de extra code die \jqm{} genereert rond deze velden.
@@ -754,7 +719,6 @@ Er werd geprobeerd om bestaande plug-ins voor andere \js{}-bibliotheken om te vo
 Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon worden gedaan op HTML5-validatie (zie \kendo{}), moest alle validatie manueel geprogrammeerd worden. 
 Bij wijze van voorbeeld werd enkel validatie op het loginscherm geprogrammeerd.
 Validatie op de rest van de formulieren doorheen de POC is volgens dezelfde werkwijze mogelijk, maar werd niet geïmplementeerd.
-
 Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute velden werden ook zelf geprogrammeerd.
 Bij een incorrect veld werd een CSS-klasse toegevoegd die zorgde voor een rode rand.
 
@@ -865,7 +829,6 @@ Hierbij kunnen \code{Readers} geconfigureerd worden om data van de server te lez
  \item [\code{XmlReader}] parst XML-tags naar velden van een model.
  \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
 \end{description}
-
 Het verzenden van een JSON-\term{payload} moet met een expliciet AJAX-verzoek gebeuren.
 Na het encoderen kan de JSON-data aan het verzoek worden gekoppeld.
 
@@ -882,7 +845,6 @@ Het eerste geval zal de velden van één \code{ObservableObject} wijzigen als CR
 De eigenschap moet dan aan het \code{ObservableObject} worden gelijkgesteld.
 Het tweede geval zal de instanties van een \code{Model} wijzigen als CRUD-operaties worden uitgevoerd.
 Hiervoor moet het model in de \code{schema}-eigenschap worden gedefinieerd.
-
 Een \code{OservableObject} kan met de \code{toJSON}-methode als JSON-object worden verkregen.
 Het serialiseren kan via \code{JSON.stringify} en deze kan met een AJAX-verzoek worden verstuurd.
 
@@ -892,13 +854,6 @@ Bij de oproep wordt ingesteld wat het te verwachten antwoord is (tekst, JSON of 
 Met tekst en JSON kan onmiddellijk worden omgegaan.
 Gegevens uit XML halen vraagt meer werk doordat \term{selectors} moet worden gebruikt.
 
-%In jQuery is de functie \code{parseJSON} aanwezig, maar aangezien in het AJAX-verzoek ingesteld wordt dat JSON wordt verwacht, parst jQuery al automatisch het antwoord. 
-%Hierdoor is de functie \code{parseJSON} niet nodig en kan er direct met het antwoord worden omgaan.
-
-%Net zoals bij JSON het geval was, is het ook niet nodig om expliciet de \code{parseXML}-functie te gebruiken. 
-%Het doorlopen en opvragen van gegevens uit het XML-bestand vraagt meer werk. 
-%Waar er bij JSON direct kon worden omgegaan met de data, moet bij XML dat gebeuren aan de hand van \term{selectors}.
-
 Het versturen van JSON is gelijkaardig met het versturen van andere data.
 Eerst moet de JSON-data worden omgezet naar tekst, wat gebeurt door \code{JSON.stringify}.
 Daarna moet in het AJAX-verzoek worden aangegeven dat de inhoud JSON is, wat gebeurt door \code{contentType:"{}application/json"}.
@@ -906,8 +861,6 @@ Daarna moet in het AJAX-verzoek worden aangegeven dat de inhoud JSON is, wat geb
 \paragraph{\lungo}
 Standaard biedt \lungo{} functies aan voor het ophalen en versturen van data via AJAX.
 Deze functies zullen intern de functies van \quo{} oproepen.
-%De URL, de data, de \term{callback} en het type dienen hierbij te worden opgegeven.
-%De laatstgenoemde kan tekst, JSON, XML of HTML zijn.
 Tekst en JSON kunnen onmiddellijk worden gebruikt.
 Voor XML dient er gebruik te worden gemaakt van de \term{selector} in \quo{} om de gevraagde data op te zoeken.
 
@@ -957,15 +910,6 @@ Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Een lijst kan voorzien worden van een sjabloon.
 Hier kunnen HTML-tags de lay-out van de lijstelementen vastleggen of kan er \js-code worden uitvoeren.
-% De functionaliteiten van \code{Ext.XTemplate} zijn:
-% \begin{itemize}
-%   \item Doorlopen van een rij.
-%   \item Conditionele processen met basis operatoren.
-%   \item Ondersteuning voor basis wiskundige operaties.
-%   \item Uitvoeren van willekeurige \js-code.
-%   \item Eigen functies in het sjabloon oproepen.
-% \end{itemize}
-
 Zoals reeds besproken in sectie \ref{sec:evaluatie-gebruik-vullen}, kan een formulier worden ingevuld met een \code{Navigationview}.
 Deze \code{View} heeft een \code{push}- en \code{pop}-methode om een \code{View} op een stapel te plaatsen of af te halen.
 Om een \code{View} te tonen die hoort bij een lijstelement, wordt gebruik gemaakt van deze \code{Navigationview} en de \code{push}-methode.
@@ -985,7 +929,6 @@ Lijsten worden met een \code{Listview} gemaakt en kunnen worden gebonden met een
 Hierdoor zullen alle instanties van de \code{DataSource} als element in de lijst verschijnen.
 Ook kan een \js-rij aan een \code{Listview} worden gebonden op basis van de \code{source}-eigenschap.
 Deze methodiek is uitvoerig in de documentatie beschreven.
-
 De opmaak van lijsten kan met \code{Templates} worden uitgedrukt.
 Dit zijn sjablonen die met specifieke scripts in een HTML-bestand worden geschreven.
 De sjablonen hebben toegang tot de velden van de modelinstanties en kunnen \js-functies uitvoeren.
@@ -1001,10 +944,8 @@ Het sorteren van een lijst kan door de \code{DataSource} die aan de lijst is gek
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
 Via jQuery wordt één voor één een item toegevoegd aan de lijst.
 Na alle elementen te hebben toegevoegd, moet de lijst ververst worden zodat \jqm{} de correcte lay-out toepast op de volledige lijst
-
 Het klikbaar maken van de gegenereerde lijstitems gebeurt bij het toevoegen van de items zelf.
 Ieder lijstitem krijgt een unieke \term{identifier} waarmee de uit te voeren actie wordt bepaald.
-
 Er komt geen functionaliteit van het raamwerk om data te sorteren.
 Eerst moet zelf een vergelijkingsfunctie in \js{} worden geschreven, waarna die aan de sorteerfunctie van \js{} wordt meegegeven.
 
@@ -1012,10 +953,8 @@ Eerst moet zelf een vergelijkingsfunctie in \js{} worden geschreven, waarna die 
 Het laden van data in een lijst dient zelf geprogrammeerd te worden.
 Items worden één voor één toegevoegd aan de lijst met behulp van \quo{}.
 Het is daarentegen niet nodig om de lijst te verversen.
-
 Om de gegenereerde lijstitems klikbaar te maken, wordt de werkwijze van \jqm{} gebruikt.
 Dit gebeurt bij het genereren van de items zelf en op basis van een unieke \term{identifier} die de uit te voeren actie bepaald.
-
 Het sorteren van data gebeurt door de aangeboden functies van het raamwerk zelf.
 Deze maken het mogelijk om te sorteren volgens een bepaalde eigenschap, zowel oplopend als aflopend.
 
@@ -1058,7 +997,6 @@ Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Het tonen van een PDF steunt op een plug-in van Fiedler~\cite{Fiedler2012} en kan op de Sencha Market gevonden worden.
 De PDF zal in een paneel met een koptekst worden getoond.
 Het paneel toont één pagina van het PDF-bestand,  de koptekst bevat de navigatie naar andere pagina's.
-
 Om de plug-in in de POC te gebruiken, waren echter twee aanpassingen noodzakelijk.
 Het PDF-bestand moet via een POST-verzoek worden opgehaald waarbij parameters het exacte PDF-bestand aanduiden.
 Ook moest er een terugknop in de koptekst van het paneel worden aangebracht om terug naar het overzicht van doorgestuurde formulieren te gaan.
@@ -1138,7 +1076,6 @@ Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd do
 Na het aanmelden zullen alle gegevens van de werknemer geserialiseerd worden opgeslagen.
 Wanneer het inlogscherm wordt getoond, zal gecontroleerd worden of er gegevens van een werknemer lokaal beschikbaar zijn.
 Indien dit het geval is, wordt automatisch naar het startscherm genavigeerd en de \code{DataSource} met informatie van de gebruiker ingevuld.
-
 Een uitgave toevoegen moet zowel aan een \code{DataSource} als in de \code{localStorage} gebeuren.
 Nadat een uitgaveformulier is verzonden, worden de uitgaven uit beide plaatsen verwijderd.
 
@@ -1149,7 +1086,6 @@ Om het proces te vergemakkelijken werd het \code{manifest}-bestand gegenereerd a
 \paragraph{\jqm}
 Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren of de applicatie offline beschikbaar te maken.
 Net zoals \kendo{} werden lokale opslag en HTML5 Application Cache gebruikt.
-
 Het startscherm werd als eerste scherm gekozen, omdat \jqm{} altijd het eerste scherm in de HTML-code inlaadt.
 Indien gemerkt wordt dat de gebruiker niet aangemeld was, dan wordt hij doorverwezen naar het inlogscherm.
 Hierdoor zal, als de applicatie offline is, de gebruiker kunnen navigeren doorheen de applicatie doordat zijn gegevens werden bewaard.

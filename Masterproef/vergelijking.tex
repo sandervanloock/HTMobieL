@@ -232,6 +232,7 @@ Echter, een voorbeeld van functionaliteit van de POC die niet in een uitdaging z
 Dit is geen interessante functionaliteit omdat het eigen is aan de POC zelf.
 Alle uitdagingen en deeluitdagingen zijn in tabel~\ref{tabel:uitdagingen} te vinden.
 
+\newpage 
 \pgfplotstabletypeset[
   begin table=\begin{longtable}{l},
   end table=\caption{$13$ uitdagingen onderverdeeld in $38$ deeluitdagingen voor gebruik.}\label{tabel:uitdagingen}\end{longtable},
@@ -261,7 +262,7 @@ Dit zal leiden tot een $0$ score.
 Wanneer CSS-code wordt gebruikt om de uitdaging te implementeren, zal de laagste score worden toegekend.
 Het gebruik van CSS3 wordt echter als kenmerk van HTML5 gezien en vervolgens met $1$ gequoteerd.
 Tabel \ref{tabel:scores-uitdagingen} toont de mogelijke scores $U_{r,i}$ van raamwerk $r$ en voor uitdaging $i$.
-\begin{table}[b]	
+\begin{table}[b]
   \centering
   \begin{tabular}{ll}
     \toprule
@@ -463,7 +464,7 @@ De opzet van de formule is om een raamwerk dat slecht scoort op de gemiddelde do
 Beide factoren hebben een andere eenheid waardoor deze niet kunnen worden opgeteld.
 Daardoor werd gekozen om gebruikerservaring als gewicht voor gemiddelde downloadtijd te zien.
 Voor de gemiddelde downloadtijd geldt hoe kleiner, hoe beter.
-Dit geldt niet voor de gebruikerservaring waardoor de geïnverteerd gebruikerservaring als gewicht werd gebruikt.
+Dit geldt niet voor de gebruikerservaring waardoor de geïnverteerd gebruikerservaring als gewicht wordt gebruikt.
 De formule voor de score voor de performantie wordt:
 \begin{equation}
   \text{Performantie}_r = \frac{\text{Gemiddelde downloadtijd}_r}{\text{Gebruikerservaring}_r}
@@ -491,7 +492,7 @@ Deze maximale responstijd kan gecategoriseerd worden met limieten uitgedrukt in 
 \item $\text{Maximale responstijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
 \end{itemize}
 
-De maximale responstijd kan echter niet worden berekend omdat er geen rendertijden bij \st{} en \lungo{} kunnen worden berekend.
+De maximale responstijd kan echter niet worden berekend omdat er geen rendertijden bij \st{} en \lungo{} kunnen worden opgemeten.
 Indien de rendertijd uit de formule wordt weggelaten,  blijft de maximale responstijd een schatting voor de limiet van Nielsen.
 
 Om de scores van het performantiecriterium te duiden zal de gemiddelde downloadtijd van de POC en de loginapplicatie met elkaar worden vergeleken.

@@ -232,7 +232,7 @@ Hoewel geen echte scores worden uitgedeeld, zijn alle belangrijkste kenmerken ui
 \label{sec:raamwerk-kendo}
 \kendo{}~(\kendoa{}) is een raamwerk van het Duitse Telerik en in november 2011 gelanceerd.
 Het vergemakkelijkt de ontwikkeling van webapplicaties en bestaat uit drie luiken.
-\kendo{} Web is gericht op de ontwikkeling van desktop- en mobiele applicaties,  \kendo{} Mobile voegt een \term{native look-and-feel} toe aan mobiele applicaties en \kendo{} DataViz zorgt voor datavisualisatie met HTML5- en \js{}-technologie.
+\kendo{} Web is gericht op de ontwikkeling van desktop- en mobiele applicaties,  \kendo{} Mobile voegt een \term{native look-and-feel} toe aan mobiele applicaties en \kendo{} DataViz zorgt voor datavisualisatie met HTML5 en \js{}.
 \kendo{} is zowel een \js{}- als opmaakgedreven raamwerk en heeft een Model-View-View Model (MVVM) ontwerppatroon dat steunt op de jQuery-bibliotheek.
 Het raamwerk biedt \term{widgets} aan voor meer geavanceerde functionaliteit, die onderliggend een plug-in in jQuery voorstellen.
 Verder heeft de ontwikkelaar ook de mogelijkheid om de \term{backend} te integreren met de klantzijde.
@@ -254,12 +254,12 @@ Elk van de drie luiken - Web, Mobile en DataViz - kan op zichzelf functioneren d
 Er kan wel slecht één van de drie scripts gelijktijdig gebruikt worden.  
 Wanneer elementen uit verschillende luiken gebruikt worden, moet \code{kendo.all.js} worden gebruikt.
 Een alternatieve oplossing is het inladen van één luik en een \js{}-bestand met de benodigde componenten.
-Dit bestand is te genereren met de \js{} Download Builder die te vinden is op de \kendo{} website~\cite{Telerike}.
+Dit bestand is te genereren met de \js{} Download Builder die te vinden is op de \kendo{}-website~\cite{Telerike}.
 Hier kunnen de vereiste elementen geselecteerd worden en wordt het \js{}-bestand gegenereerd.
 Op een analoge wijze kan de programmeur kiezen tussen verschillende CSS-bestanden:  \code{kendo.all.css} en \code{kendo.mobile.css}.
 
 \paragraph{Tools}
-Op de \kendo{} website staan drie webapplicaties vermeld die Telerik aanbiedt om de programmeur te ondersteunen.
+Op de \kendo{}-website staan drie webapplicaties vermeld die Telerik aanbiedt om de programmeur te ondersteunen.
 De eerste is \kendo{} Dojo~\cite{Telerika},  een interactieve leeromgeving om met \kendo{} vertrouwd te raken.
 De gebruiker kan de basis van \kendo{} leren kennen met geleide handleidingen en uitvoerbare voorbeelden.
 De twee andere webapplicaties zijn een ThemeBuilder voor Web en Mobile die op een grafische manier CSS-bestanden kunnen genereren~\cite{Telerikb,Telerikc}.
@@ -285,7 +285,7 @@ Voor \kendo{} Web,  Mobile en DataViz bestaan ook aparte licenties voor respecti
 \subsection{Code en ontwikkeling}
 %Zoals reeds vermeld moet de programmeur zowel \js{}- als HTML-code schrijven. 
 %De \js{}- en CSS-bestanden van het raamwerk moeten in de projectfolder worden gekopieerd respectievelijk in een \term{js}- en \term{styles}-map.
-\kendo{} steunt op de jQuery-bibliotheek en deze moet ingeladen worden voor het \kendo{} raamwerk zelf wordt aangeroepen.
+\kendo{} steunt op de jQuery-bibliotheek en deze moet ingeladen worden voor het \kendo{}-raamwerk zelf wordt aangeroepen.
 De initialisatie van een applicatie moet onderaan in de HTML-pagina gebeuren.	
 Hier kunnen parameters meegegeven worden die bijvoorbeeld de stijl van één platform vastleggen of het initiële scherm bepalen.
 
@@ -300,7 +300,7 @@ Navigatie naar een ander bestand kan door de bestandsnaam als parameter op te ge
 \kendo{} steunt op het MVVM-ontwerppatroon,  wat de functionele kenmerken sterk beïnvloedt.
 Alle objecten maken deel uit van een klassensysteem.
 
-\paragraph{UI-elementen}
+\paragraph{GI-elementen}
 Formulieren volgen de HTML5-norm. 
 Deze elementen zijn wel enkel functioneel vanaf iOS~5 en Android~4.  
 De stijl van de elementen op andere platformen zal werken, maar is beperkt tot enkel tekstinvoer~\cite{Telerike}.

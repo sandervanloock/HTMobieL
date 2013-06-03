@@ -5,6 +5,8 @@ In deze sectie zal de ondersteuning van de raamwerken op mobiele apparaten worde
 In de secties \ref{sec:evaluatie-ondersteuning-toestel} tot \ref{sec:evaluatie-ondersteuning-offline} zal iedere uitdaging per raamwerk uitvoerig worden besproken.
 Voor de score van ondersteuning wordt naar formule \ref{eq:ondersteuning} verwezen waar de som van de ondersteuning op alle acht apparaten wordt gemaakt.
 De scores van de vier raamwerken wordt samengevat per uitdaging in tabel~\ref{tabel:evaluatie-ondersteuning-u}.
+Een ander zicht op diezelfde data wordt bekomen door de ondersteuning van de vier raamwerken samen te vatten per apparaat.
+Deze weergave wordt getoond in tabel~\ref{tabel:evaluatie-ondersteuning-a}.
 Voor een gedetailleerd overzicht van de ondersteuning per apparaat wordt verwezen naar appendix~\ref{app:ondersteuning}.
 
 %\begin{landscape}
@@ -32,7 +34,7 @@ Voor een gedetailleerd overzicht van de ondersteuning per apparaat wordt verweze
   		before row=\toprule,
  		after row=\bottomrule},
 	columns={Uitdaging,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
-	begin table=\begin{tabular}{lcccccccc},
+	begin table=\begin{tabular}{p{7.5cm}cccccccc},
 	end table=\end{tabular},
 	header=true,
 	skip coltypes=true,
@@ -54,11 +56,9 @@ Voor een gedetailleerd overzicht van de ondersteuning per apparaat wordt verweze
 \end{table}
 %\end{landscape}
 
-Een ander zicht op diezelfde data wordt bekomen door de ondersteuning van de vier raamwerken samen te vatten per apparaat.
-Deze weergave wordt getoond in tabel~\ref{tabel:evaluatie-ondersteuning-a}.
-
 \begin{table}
 \centering
+\resizebox{14cm}{!} {
 \pgfplotstabletypeset[
 	column type=l,
 	every head row/.style={
@@ -80,8 +80,8 @@ Deze weergave wordt getoond in tabel~\ref{tabel:evaluatie-ondersteuning-a}.
   		before row=\toprule,
  		after row=\bottomrule},
 columns={Apparaat,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(abs),Lungo(max)},
-	begin table=\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccccccc},
-	end table=\end{tabular*},
+	begin table=\begin{tabular}{p{7.5cm}cccccccc},
+	end table=\end{tabular},
 	header=true,
 	skip coltypes=true,
 	columns/Apparaat/.style ={column name=},
@@ -96,6 +96,7 @@ columns={Apparaat,ST(abs),ST(max),Kendo(abs),Kendo(max),jQM(abs),jQM(max),Lungo(
 	col sep=comma,
 	string type,
 ]{tabellen/ondersteuning-a.csv}
+}
 \caption{Ondersteuning per apparaat.}
 \label{tabel:evaluatie-ondersteuning-a}
 \end{table}
@@ -106,12 +107,11 @@ Welke uitdagingen door het raamwerk konden worden geïmplementeerd werd in het v
 De maximale scores voor \st{},  \kendo{},  \jqm{} en \lungo{} zijn respectievelijk $96$, $104$, $104$ en $80$.
 De score voor ondersteuning is respectievelijk $83$, $92$, $95$ en $62$.
 Wanneer de relatieve score per raamwerk bekeken wordt, heeft \st{} een score van $86\%$,  \kendo{} $88\%$,  \jqm{} $91\%$ en \lungo{} $78\%$.
-Er kan dus meteen geconcludeerd worden dat de raamwerken buiten \lungo{} behoorlijk hoog scoren.
-Dit wil zeggen dat de keuze voor één van de drie raamwerken onafhankelijk is van de ondersteuning.
-Dezelfde apparaten worden door de verschillende raamwerken ondersteund of niet.
-Dit komt doordat de raamwerken allemaal steunen op dezelfde onderliggende technologie, namelijk HTLM5.
 Hoewel de verschillen klein zijn kan gezegd worden dat \jqm{} de beste ondersteuning biedt,  gevolgd door een \kendo{} en \st{}.
-\lungo{} biedt de minste ondersteuning.
+Er kan geconcludeerd worden dat de raamwerken buiten \lungo{} behoorlijk hoog scoren.
+Dit wil zeggen dat de keuze voor één van de drie raamwerken onafhankelijk is van de ondersteuning.
+De verschillende raamwerken ondersteunen dezelfde apparaten.
+Dit komt doordat de raamwerken allemaal steunen op dezelfde onderliggende technologie, namelijk HTLM5.
 
 Alle raamwerken buiten \lungo{} ondersteunen gemiddeld $88\%$ van de geïmplementeerde uitdagingen.
 \lungo{} ondersteunt slechts $78\%$ van de geïmplementeerde uitdagingen.
@@ -125,14 +125,15 @@ Zo kan het bijvoorbeeld gebeuren dat een menu op het volgende scherm al openklap
 
 Android 2.3 toestellen - \htc{} en \gtab{} - hebben het minste ondersteuning.
 Android 4 en iOS toestellen scoren gemiddeld $95\%$.
-De gemiddelde score bij alle Android toestellen is $79\%$ in tegenstelling tot een $95\%$ ondersteuning op iOS toestellen.
+De gemiddelde score bij alle Android-toestellen is $79\%$ in tegenstelling tot $95\%$ ondersteuning op iOS-toestellen.
 Er moet opgemerkt worden dat enkel versie $5$ en $6$ van iOS werd getest (zie tabel \ref{tabel:toestellen-hci}).
 Van alle acht apparaten is de \iphoneiii{} het oudst (officiële voorstelling in juni 2009) gevolgd door de \gs{} (officiële voorstelling in maart 2010)~\cite{Staff2009,Gideon2010}.
-Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android-toestellen dit minder vaak aanbieden ten opzichte van iOS toestellen.
-De reden hiervoor is de grotere heterogeniteit tussen Android toestellen.
+Hoewel beide apparaten opgewaardeerd zijn naar een recenter besturingssysteem, is de trend dat Android-toestellen dit minder vaak aanbieden ten opzichte van iOS-toestellen.
+De reden hiervoor is de grotere heterogeniteit tussen Android-toestellen.
 
 
-Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline opslag op alle beschikbare apparaten.
+Een opmerkelijk resultaat is de maximale ondersteuning van formuliervalidatie en handtekening voor alle raamwerken behalve \lungo{}.
+Als laatste ondersteunen alle raamwerken offline opslag op alle beschikbare apparaten.
 
 
 %%%%%%%%%%%%%
@@ -141,10 +142,10 @@ Een opmerkelijk resultaat is de ondersteuning van formuliervalidatie en offline 
 
 \st{} en \kendo{} voorzien methoden om de context waarin de applicatie wordt uitgevoerd,  op te vragen.
 De implementatie van \jqm{} en \lungo{} steunt op CSS3.
-Het soort apparaat (smartphone of tablet) werd op alle toestellen behalve de \gtab correct herkend.
+Het soort apparaat (smartphone of tablet) werd op alle toestellen behalve de \gtab{} correct herkend.
 Door de lage resolutie werd deze als smartphone gecategoriseerd op \st{},  \jqm{} en \lungo{}.
 Bij \jqm{} en \lungo{} geldt dit niet wanneer de applicatie liggend wordt opgestart.
-\kendo{} herkende zowel in staande als liggende modus de \gtab{} wel correct.
+Daarentegen herkende \kendo{} de \gtab{} als tablet zowel in staande als liggende modus.
 
 
 % \paragraph{\st} \score{7}{8}
@@ -170,6 +171,7 @@ Bij \jqm{} en \lungo{} geldt dit niet wanneer de applicatie liggend wordt opgest
 
 In tabel \ref{tabel:evaluatie-ondersteuning-formulieren} worden de resultaten getoond van de vijf deeluitdagingen.
 Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+De tweede deeluitdaging faalt bij ieder raamwerk op de \htc{} en \gtab{} aangezien geen e-mailtoetsenbord getoond wordt.
 
 \begin{table}
 \centering
@@ -217,23 +219,20 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Alle smartphones en de \gtab{} vertoonden een probleem bij de labels van de \code{optie}knoppen.
+Alle smartphones en de \gtab{} vertoonden een probleem bij de labels van de \code{option}-knoppen.
 Deze zijn nodig om het type van uitgave te selecteren bij het aanmaken van een nieuwe uitgave.
 Alle labels buiten \term{Hotel} en \term{Restaurant} zijn te lang om in de voorziene ruimte weer te geven.
 \st{} kort deze af met ellipsen waardoor niet de volledige naam leesbaar is.
 Dit kan tot verwarring leiden.
 In liggende mode worden sommige labels wel zichtbaar.
-De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen e-mailtoetsenbord getoond wordt.
-De schakelaar die \st{} voorziet, werkte op elk toestel.
+De \term{datepicker} en schakelaar die \st{} voorziet, werkten op elk toestel.
 
 
 \paragraph{\kendo}
-Alle Android toestellen toonden een wit kader bij \term{read-only} \term{widgets}.
+Alle Android-toestellen toonden een wit kader bij \term{read-only} invoervelden waarbij de waarde uit een \term{widgets} kwam.
 Deze zijn te zien wanneer het overzicht van een ingevoerde uitgave wordt opgevraagd.
-Dit ondanks de invoervelden standaard HTML-invoer zijn.
 Het raamwerk moet de waarden van de \term{widgets} in de \term{read-only} invoerelementen invullen.
-Deze functionaliteit werkt enkel op iOS-toestellen.
-De tweede deeluitdaging faalt bij de \htc{} en \gtab{} aangezien geen e-mailtoetsenbord getoond wordt.
+Deze functionaliteit werkte wel op iOS-toestellen.
 Het openen van \term{datepicker} bij \kendo{} vindt plaats als de gebruiker op het icoontje in het invoerveld klikt.
 Indien op de datum wordt geklikt zal de gebruiker de datum tekstueel aanpassen.  
 Hiervoor moet het correcte formaat worden gebruikt.
@@ -253,7 +252,6 @@ De slechtste ondersteuning was op de \htc{} en \gtab{}.
 Met deze toestellen kon zeer moeilijk op de velden worden geklikt.
 Soms lukte dit, soms lukte dit niet.
 Dit wordt niet in de punten gereflecteerd.
-Daarenboven kwam er op deze apparaten geen aangepast toetsenbord voor een formulierveld van het type e-mail.
 De aangepaste \term{datepicker} werkte op ieder toestel, wat in schril contrast staat met de schakelaar die op geen enkel toestel correct werkte.
 Deze laatste deed verschillende acties naargelang geklikt of ge\term{swipe}d werd op de schakelaar.
 
@@ -261,7 +259,7 @@ Deze laatste deed verschillende acties naargelang geklikt of ge\term{swipe}d wer
 \subsection{\uit{autoaanvullen}}
 \label{sec:evaluatie-ondersteuning-autoaanvullen}
 
-\st{} kon deze uitdaging niet implementeren en dit werd bijgevold niet op ondersteuning getest.
+\st{} kon deze uitdaging niet implementeren en dit werd bijgevolg niet op ondersteuning getest.
 \kendo{} en \jqm{} behaalde beide de maximum score.
 Op de \htc{} werden bij \lungo{} de suggesties dubbel op het scherm aan de gebruiker getoond.
 
@@ -284,14 +282,14 @@ Op de \htc{} werden bij \lungo{} de suggesties dubbel op het scherm aan de gebru
 
 De scores zijn gelijk voor alle toestellen.
 \kendo{}, \jqm{} en \lungo{} gebruiken dezelfde aanpak om deze uitdaging te implementeren.
-Deze aanpak steunt op de FileReaderAPI en wordt enkel vanaf Android versie 3 en iOS versie 6 ondersteund~\cite{Deveria2013c}.
+Deze aanpak steunt op de FileReaderAPI en wordt enkel vanaf Android~3 en iOS~6 ondersteund~\cite{Deveria2013c}.
 Ook de plug-in die \st{} gebruikt voor deze uitdaging maakt gebruik van deze API.
 Hierdoor zullen de \htc{},  \gtab{} en \ipadi{} deze uitdaging in de vier raamwerken niet ondersteunen.
 
 Er dient opgemerkt te worden dat de hoge resolutie camera aan de achterkant van de \ipadiii{}, \iphoneiii{} en \iphoneiv{} niet kon worden gebruikt.
 Dit is een gekende limiet van iOS waarbij apparaten met minder dan $256\unit{MB}$ RAM maximaal drie megapixels foto's kunnen importeren op het \code{canvas}.
 Apparaten met $256\unit{MB}$ RAM of meer kunnen foto's tot vijf megapixels importeren op het \code{canvas}~\cite{Apple2012}.
-Een gelijkaardig probleem gaat ook op voor Android apparaten als de foto wordt opgeslaan in de lokale opslag.
+Een gelijkaardig probleem gaat ook op voor Android-apparaten als de foto wordt opgeslagen in de lokale opslag.
 De exacte limieten voor \code{localStorage} en \code{sessionStorage} zijn browser- en versiespecifiek~\cite{Gonzalez2012}.
 Hierdoor moet de camera aan de voorkant worden gebruikt of een afbeelding met lagere resolutie worden gekozen.
 De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{file} en zal het opladen van een afbeelding dus ook niet ondersteunen~\cite{ViljamiSalminen2012}.
@@ -318,11 +316,10 @@ De \ipadi{} biedt geen ondersteuning voor het formulierveld van het type \code{f
 \subsection{\uit{validatie}}
 \label{sec:evaluatie-ondersteuning-validatie}
 
-HTML5 formuliervalidatie wordt op geen enkel beschikbaar mobiel besturingssysteem ondersteund~\cite{Deveria2013c}.
+HTML5-formuliervalidatie wordt op geen enkel beschikbaar mobiel besturingssysteem ondersteund~\cite{Deveria2013c}.
 Elke implementatie van deze uitdaging werd door alle toestellen ondersteund.
-Dit wil zeggen dat alle raamwerken een alternatief voorzien dat wel op alle toestellen werkt.
 
-Een specifiek mobiel probleem bij \lungo{} was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
+Een specifiek mobiel probleem bij \jqm{} was dat bij het tonen van het dialoogvenster, de plug-in op de achtergrond de cursor op het eerste veld zette. 
 Hierdoor verscheen het toetsenbord op het scherm van het mobiele apparaat wanneer het dialoogvenster tevoorschijn kwam, wat niet de bedoeling is. 
 Dit werd opgelost door \code{focusInvalid:false} in te stellen.
 
@@ -345,8 +342,7 @@ Dit werd opgelost door \code{focusInvalid:false} in te stellen.
 \kendo{} en \jqm{} hanteren dezelfde plug-in om deze uitdaging te implementeren.
 Onderliggend steunt deze op het \code{canvas} kenmerk van HTML5.
 De plug-in die \st{} gebruikt is ook afhankelijk van dit kenmerk.
-Alle onderzochte toestellen ondersteunen de \code{canvas}~\cite{Deveria2013c} en de drie raamwerken behalen vervolgens de maximumscore 8/8. 
-
+Alle onderzochte toestellen ondersteunen de \code{canvas}~\cite{Deveria2013c} en de drie raamwerken behalen vervolgens de maximumscore. 
 Omdat bij \lungo{} geen plug-in werd gevonden voor deze uitdaging, kon ook de ondersteuning niet worden onderzocht.
 
 % \paragraph{\st} \score{8}{8}
@@ -378,11 +374,11 @@ De score voor deze drie raamwerken is dus 5/8.
 Deze plug-in maakt gebruik van PDF.JS,  een PDF-renderer van Mozilla~\cite{Gal2010}.
 PDF.JS is geïmplementeerd met \js{} en HTML5.
 Het \code{canvas} kenmerk en ondersteuning voor de SVG (Scalable Vector Graphics) API is noodzakelijk.
-Slechts vanaf Android 3.0 wordt dit laatste ondersteund.
+Slechts vanaf Android~3 wordt dit laatste ondersteund.
 Alle gecontroleerde versies van iOS ondersteunen dit wel~\cite{Deveria2013c}.
 Het tonen van een PDF werkt dus niet op de \htc{} en \gtab{}.
-Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie van \st{} die niet gebouwd was met Sencha Cmd.
-Dit was omdat de gebouwde versie een foutenboodschap gaf wanneer de plug-in werd aangesproken.
+Een belangrijke opmerking is dat de ondersteuning van deze uitdaging werd getest op een implementatie die niet gebouwd was met Sencha Cmd.
+Dit was omdat de gebouwde versie een foutboodschap gaf wanneer de plug-in werd aangesproken.
 \st{} haalt een score van 6/8 omdat de \gs{} deze uitdaging wel ondersteunt in tegenstelling tot de drie andere raamwerken.
 
 % \paragraph{\st} \score{6}{8}

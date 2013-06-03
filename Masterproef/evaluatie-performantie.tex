@@ -31,9 +31,10 @@ Voor de score van performantie geldt hoe kleiner, hoe beter.
 \label{tabel:evaluatie-performantie}
 \end{table}
 
-Het is duidelijk dat op vlak van performantie \lungo{} het beste scoort, kort gevolgd door \jqm{} en \st{}.
+Op vlak van performantie scoort \lungo{} het beste, kort gevolgd door \jqm{} en \st{}.
+\kendo{} heeft een beduidend lage score en is hierdoor laatst.
 Dit wordt verklaard doordat de eerste twee raamwerken geen ontwerppatroon afdwingen waardoor er ook een kleinere \js{}-code dient te worden gedownload ten opzichte van raamwerken die wel een ontwerppatroon afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
-\kendo{} en \st{} komen respectievelijk op de voorlaatste en laatste plaats.
+
 \st{} scoort het slechtst op gemiddelde downloadtijd, maar behaalt de beste score op gebruikerservaring.
 
 Eerst zal in sectie~\ref{sec:evaluatie-downloadtijd} de gemiddelde downloadtijd gedetailleerd worden besproken.
@@ -60,7 +61,7 @@ Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de logi
   string type,
   header=true,
   columns={Performantie,ST,Kendo,jQM,Lungo},
-  columns/Performantie/.style={column name=\textbf{Performantie}, column type={l}},
+  columns/Performantie/.style={column name=\textbf{Downloadtijden}, column type={l}},
   columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
   columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
   columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   

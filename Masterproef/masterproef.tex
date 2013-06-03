@@ -10,11 +10,11 @@
   translatedtitle={Comparative study of frameworks for the development of mobile HTML5 applications},
   udc=681.3,
   shortabstract={Ontwikkelaars van mobiele applicaties worden geconfronteerd met een variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
-Dit komt doordat een applicatie wordt geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
+Dit komt doordat een applicatie dient te worden geprogrammeerd aan de hand van een Software Development Kit~(SDK) die specifiek is voor het besturingssysteem.
 De ontwikkeling van mobiele webapplicaties, gebruikmakend van HTML5, is een mogelijke oplossing hiervoor.
 Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden.
-Deze helpen zowel bij het toevoegen van functionaliteit als de elementen voor de gebruikersinterface.
-Door de variëteit aan mobiele HTML5-raamwerken, dringt een grondige vergelijking zich op om te weten welk raamwerk nu het beste is.
+Deze helpen zowel bij het toevoegen van functionaliteit als de elementen voor de gebruikersinterface. 
+Door de variëteit aan mobiele HTML5-raamwerken dringt een grondige vergelijking zich op.
 Dit werk vergelijkt \st{}, \kendo{}, \jqm{} en \lungo{} op basis van vijf vergelijkingscriteria:  populariteit,  productiviteit,  gebruik,  ondersteuning en performantie.
 Populariteit kijkt naar de activiteit van de raamwerken op sociale netwerken.
 Productiviteit wordt opgemeten om aan te tonen hoe lang het duurt om met een raamwerk vertrouwd te raken en er daadwerkelijk iets mee te maken.
@@ -24,13 +24,13 @@ Er wordt een evenwichtige keuze gemaakt tussen Android, iOS, smartphone en table
 Performantie meet enerzijds de downloadtijd en anderzijds de gebruikerservaring.
 De laatstgenoemde bepaalt hoe vlot het gaat om door een lange lijst te scrollen.
 De vergelijking toont aan dat \jqm{} het beste raamwerk is.
-Daarna volgen \kendo{}, \lungo{} en \st{} op een respectievelijke tweede, derde en vierde plaats.
+Daarna volgen \kendo{}, \lungo{} en \st{}.
 \jqm{} heeft als belangrijkste troef de hoge productiviteit doordat het enerzijds zeer goed gedocumenteerd is en anderzijds geen ontwerppatroon afdwingt.
 Dit laatste is echter ook een nadeel omdat het hierdoor minder scoort op gebruik.
-\kendo{} heeft als belangrijkste troef het gebruik doordat het een ontwerppatroon afdwingt.
+\kendo{} heeft als troef het gebruik doordat het een ontwerppatroon afdwingt.
 Het scoort echter ondermaats op performantie.
-\lungo{} behaalde enkel de maximumscore voor performantie doordat het raamwerk geoptimaliseerd is voor mobiel gebruik.
-\st{} is het minst productief en performant in vergelijking met de andere raamwerken.
+\lungo{} behaalde enkel de maximumscore voor performantie doordat \quo{}, de \js{}-bibliotheek van \lungo{},  geoptimaliseerd is voor mobiele apparaten.
+\st{} is het minst productief en performant.
 Daarentegen scoort \st{} het best op het vlak van gebruikerservaring.
 Door het afdwingen van een ontwerppatroon scoort het quasi evengoed als \kendo{} op vlak van gebruik.
 Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte mobiele apparaten.
@@ -73,8 +73,7 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 \usepackage{pgfplotstable} %nodig voor CSV to Latex
 \usepackage{booktabs} % voor lay-out comparisontable
 \usepackage{float} %floating tabellen onderdrukken
-\usepackage{pdflscape} %tabel in landscape zetten
-\usepackage{rotating}
+\usepackage{lscape} %tabel in landscape zetten
 \usepackage{enumitem}
 \usepackage{longtable} %tabel over meerdere pagina's
 \usepackage{graphicx} %breedte tabel
@@ -88,7 +87,7 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 \newcommand{\term}[1]{\emph{#1}} % engelse term die niet worden vertaald naar het nederlands
 \newcommand{\code}[1]{\texttt{#1}} % code command
 
-\hyphenation{platform-onafhankelijke}
+\hyphenation{platform-onafhankelijke ontwerp-patroon}
 
 % veelgebruikte woorden, apparaten, uitdagingen
 \input{prelude/namen}
@@ -103,6 +102,7 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 %   Ook mijn familie heeft mij erg gesteund natuurlijk.
 % \end{preface}
 
+%TODO: voorwoord vs. dankwoord
 \chapter*{Voorwoord - Tim}
 Ik wil in eerste plaats mijn promotor prof. E.~Duval en het bedrijf Capgemini bedanken voor het interessante onderwerp.
 Daarnaast wil ik G.~Parra bedanken voor de wekelijkse meetings en de vele inzichten die hij verschafte doorheen het academiejaar.
@@ -142,12 +142,12 @@ Je was een fijne collega,  ik wens je het allerbeste voor je doctoraat!
 
 \begin{abstract}
 Ontwikkelaars van mobiele applicaties worden geconfronteerd met een variëteit aan mobiele besturingssystemen die op smartphones en tablets aanwezig zijn.
-Dit komt doordat een applicatie wordt geprogrammeerd in een programmeertaal die specifiek is aan het besturingssysteem.
+Dit komt doordat een applicatie dient te worden geprogrammeerd aan de hand van een Software Development Kit~(SDK) die specifiek is voor het besturingssysteem.
 De ontwikkeling van mobiele webapplicaties, gebruikmakend van HTML5, is een mogelijke oplossing hiervoor.
 Om het ontwikkelingsproces van deze mobiele HTML5-applicaties te versnellen worden raamwerken aangeboden.
 Deze helpen zowel bij het toevoegen van functionaliteit als de elementen voor de gebruikersinterface. 
 
-Door de variëteit aan mobiele HTML5-raamwerken, dringt een grondige vergelijking zich op om te weten welk raamwerk nu het beste is.
+Door de variëteit aan mobiele HTML5-raamwerken dringt een grondige vergelijking zich op.
 Dit werk vergelijkt \st{}, \kendo{}, \jqm{} en \lungo{} op basis van vijf vergelijkingscriteria:  populariteit,  productiviteit,  gebruik,  ondersteuning en performantie.
 Populariteit kijkt naar de activiteit van de raamwerken op sociale netwerken.
 Productiviteit wordt opgemeten om aan te tonen hoe lang het duurt om met een raamwerk vertrouwd te raken en er daadwerkelijk iets mee te maken.
@@ -158,13 +158,13 @@ Performantie meet enerzijds de downloadtijd en anderzijds de gebruikerservaring.
 De laatstgenoemde bepaalt hoe vlot het gaat om door een lange lijst te scrollen.
 
 De vergelijking toont aan dat \jqm{} het beste raamwerk is.
-Daarna volgen \kendo{}, \lungo{} en \st{} op een respectievelijke tweede, derde en vierde plaats.
+Daarna volgen \kendo{}, \lungo{} en \st{}.
 \jqm{} heeft als belangrijkste troef de hoge productiviteit doordat het enerzijds zeer goed gedocumenteerd is en anderzijds geen ontwerppatroon afdwingt.
 Dit laatste is echter ook een nadeel omdat het hierdoor minder scoort op gebruik.
-\kendo{} heeft als belangrijkste troef het gebruik doordat het een ontwerppatroon afdwingt.
+\kendo{} heeft als troef het gebruik doordat het een ontwerppatroon afdwingt.
 Het scoort echter ondermaats op performantie.
-\lungo{} behaalde enkel de maximumscore voor performantie doordat het raamwerk geoptimaliseerd is voor mobiel gebruik.
-\st{} is het minst productief en performant in vergelijking met de andere raamwerken.
+\lungo{} behaalde enkel de maximumscore voor performantie doordat \quo{}, de \js{}-bibliotheek van \lungo{},  geoptimaliseerd is voor mobiele apparaten.
+\st{} is het minst productief en performant.
 Daarentegen scoort \st{} het best op het vlak van gebruikerservaring.
 Door het afdwingen van een ontwerppatroon scoort het quasi evengoed als \kendo{} op vlak van gebruik.
 Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte mobiele apparaten.
@@ -174,7 +174,7 @@ Alle onderzochte raamwerken scoren zeer goed op ondersteuning op de onderzochte 
 \selectlanguage{english}
 \begin{abstract}
 Developers of mobile applications are confronted with a variety of mobile operating systems that are present on smartphones and tablets.
-This is because an application has to be programmed in a specific language for the operating system.
+This is because an application has to be programmed with a Software Development Kit~(SDK) specific for the operating system.
 Developing mobile web applications using HTML5 can be a solution for this problem.
 To speed up development,  frameworks are presented.
 These help to add functionality and elements for the user interface.
@@ -182,25 +182,23 @@ These help to add functionality and elements for the user interface.
 Because of the variety of mobile HTML5 frameworks,  a thorough comparative study is necessary.
 This thesis compares \st{}, \kendo{}, \jqm{} and \lungo{} based on five comparison criteria:  popularity,  productivity,  usage,  support and performance.
 Popularity looks at the activity of frameworks on social networks.
-Productivity is determined by measuring how long it takes to get acquainted with the framework.
-Next,  the usage of the framework is studied by looking which elements are offered by the framework.
-The support tests the elements of the framework on eight different devices.
+Productivity is determined by measuring how long it takes to get acquainted with the framework and build something useful. 
+Next, usage of the framework is studied by looking which elements are offered by the framework.
+Support tests the elements of the framework on eight different devices.
 A good balance is made between Android, iOS, smartphone and tablet.
 Performance measures the download time and user experience.
-The latter determines the smoothness of scrolling through a long list.
+The latter is determined by the smoothness of scrolling through a long list.
 
-The comparison shows that \jqm{} is the best framework.
-Followed by, \kendo{},  \lungo{} and \st{} respectively.
+The comparison shows that \jqm{} is the best framework followed by \kendo{},  \lungo{} and \st{}.
 \jqm{} is highly productive,  a major advantage because on the one hand it is well-documented and on the other hand it does not impose an architecture.
 The latter,  however,  becomes a disadvantage when looking at the usage.
-\kendo{} has an architecture as most important advantage.
-However,  it scores below average on performance.   
-\lungo{} only achieved a maximum score for performance because the framework is optimised for mobile usage.
-
-\st{} is the least productive and performant in comparison with the other frameworks.
+\kendo{} has usage as most important advantage because it imposes an architecture.
+However,  it scores inferior on performance.   
+\lungo{} only achieves a maximum score for performance because \quo{},  the underlying \js-library,  is optimized for mobile devices.
+\st{} is the least productive and performant.
 By contrast,  \st{} scores the best in user experience.
 By enforcing an architecture,  it scores almost as good as \kendo{} regarding usage.
-All frameworks supported the evaluated mobile devices.
+All frameworks score good for support on the evaluated mobile devices.
 
 \end{abstract}
 \selectlanguage{dutch}
@@ -218,7 +216,8 @@ All frameworks supported the evaluated mobile devices.
      AHP & Analytic Hierarchy Process \\
      AJAX & Asynchronous JavaScript And XML \\
      API & Application Programming Interface \\
-     CORS & Cross-origin resource sharing \\
+     CORS & Cross-Origin Resource Sharing \\
+     CPU & Central Processing Unit \\
      CRUD & Create Read Update Destroy \\
      CSS(3) & Cascading Style Sheets (3) \\
      DOM & Document Object Model \\
@@ -228,8 +227,6 @@ All frameworks supported the evaluated mobile devices.
      GPRS & General Packet Radio Service \\
      GPS & Global Positioning System \\
      GPU & Graphics Processing Unit \\
-     GUI & Graphical User Interface \\
-     GWT & Google Web Toolkit \\
      HSDPA & High-Speed Downlink Packet Access \\
      HTML(5) & HyperText Markup Language (5) \\
      IDE & Integrated Development Environment \\
@@ -249,9 +246,8 @@ All frameworks supported the evaluated mobile devices.
      PPI & Pixels Per Inch \\
      QR & Quick Response \\
      RAM & Random Access Memory \\
-     RIA & Rich Internet Application \\
      RWD & Responsive Web Design \\
-     SASS & Syntactically Awesome Stylesheets \\
+     SASS & Syntactically Awesome StyleSheets \\
      SDK & Software Development Kit \\
      SEO & Search Engine Optimization \\
      SMS & Short Message Service \\

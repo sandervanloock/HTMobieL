@@ -15,7 +15,7 @@ do
 		# -n 		show line number
 		# -i 		case insensitive
 		# -e 		regular expression
-		cat "$f.tex" | grep --color -n -i -e $1
+		cat "$f.tex" | grep --color -i -n -e $1
 	fi
 	
 done

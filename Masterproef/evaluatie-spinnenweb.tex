@@ -5,6 +5,8 @@ Figuur \ref{fig:spinnenweb-final} toont een overzicht van de scores van de vier 
 De formules van de vergelijkingscriteria voor het plotten van het spinnenweb kunnen teruggevonden worden in sectie \ref{sec:vergelijking-spinnenweb}.
 Daar werden de gerelativeerde formules voorgesteld om een score tussen $0$ en $1$ te bekomen.
 Ook werden de formules voor productiviteit en performantie geïnverteerd omdat voor deze criteria geldt:  hoe lager de score, hoe beter het raamwerk.
+In wat volgt zullen de raamwerken besproken worden volgens de totale score voor alle criteria.
+Hiervoor werd formule \ref{eq:rel-totaal} gebruikt waar de scores van de criteria werden opgeteld.
 
 \begin{figure}
   \centering
@@ -12,8 +14,6 @@ Ook werden de formules voor productiviteit en performantie geïnverteerd omdat v
   \caption{Overzicht met de vijf vergelijkingscriteria.}
   \label{fig:spinnenweb-final}
 \end{figure}
-
-
 
 % De oppervlakten van de vier vijfhoeken is de volgende:
 % \begin{description}
@@ -23,24 +23,18 @@ Ook werden de formules voor productiviteit en performantie geïnverteerd omdat v
 %  \item [\lungo{}] $0.90$ 0.636930206334082
 %  \item [\st{}] $0.76$  0.613893381347723
 % \end{description}
-     
-              
 
-In wat volgt zullen de raamwerken besproken worden volgens de total score voor alle criteria.
-Hiervoor werd formule \ref{eq:rel-totaal} gebruikt waar de scores van de criteria worden opgeteld.
-
-
-\jqm{} heeft de beste score ($86\%$) en is de winnaar.
+\jqm{} heeft de beste score~($86\%$) en is de winnaar.
 Een van de belangrijkste factoren die \jqm{} tot winnaar maakt is het feit dat er geen ontwerppatroon wordt afgedwongen.
 Dit maakt dat de leercurve veel lager ligt ten voordele van de productiviteit.
-Ook een betere documentatie en omkadering maakt \jqm{} productiever.
+Ook een goede documentatie en omkadering maakt \jqm{} productiever.
 De grotere populariteit in vergelijking met \lungo{} maakt \jqm{} aantrekkelijker als er geen ontwerppatroon noodzakelijk is.
 De afwezigheid van een ontwerppatroon brengt echter twee nadelen met zich mee.
 Ten eerst zal het raamwerk minder functionaliteit kunnen aanbieden.
 Door plug-ins en HTML5-kenmerken zal dit gebrek aan functionaliteit toch beperkt blijven.
-Een tweede nadeel is de code die moet geschreven worden bij gebruik van het \jqm{} raamwerk.
+Een tweede nadeel is de code die moet geschreven worden.
 \jqm{} is opmaakgedreven waarbij veel HTML-code moet worden geschreven met grote verbositeit.
-Dit maakt het linken van HTML- met \js{}-code moeilijker.
+Dit maakt het linken van HTML- met \js{}-code gevoelig voor fouten.
 
 % jQM volgt % Waarom kiezen voor jqm:
 % +/- geen architectuur (
@@ -56,7 +50,7 @@ De score van de productiviteit bevindt zich onder de helft maar in vergelijking 
 Het grote nadeel van \kendo{},  wat niet in het spinnenweb kan worden gezien,  is de hoge kost voor een licentie.
 Het feit dat \kendo{} niet \term{open-source} is, reflecteert zich echter niet in de populariteit.
 Van alle vier raamwerken is \kendo{} het minst performant.
-De downloadtijden waren lager in vergelijking met \st{} maar de crashes op iOS-toestellen zorgden voor een lage gebruikservaring.
+De downloadtijden waren sneller in vergelijking met \st{} maar de crashes op iOS-toestellen zorgden voor een lage gebruikerservaring.
 Het feit dat \kendo{} een \term{native look-and-feel} aanbiedt is een belangrijk kenmerk maar dit kan ook niet op het spinnenweb worden teruggevonden.
 De iOS-lay-out is sterk gelijkend op de echte iOS-lay-out.
 Dit was bij Android minder geslaagd.
@@ -73,7 +67,7 @@ Er is geen ontwerppatroon opgelegd en weer kan dit voor- en nadeel zowel in prod
 De voordelen bij productiviteit zijn echter minder dan bij \jqm{} omdat de ondersteuning en documentatie minimaal is.
 De nadelen bij gebruik zijn dan weer uitvergroot omdat er niet zoveel functionaliteit en plug-ins als bij \jqm{} konden worden teruggevonden.
 Positief is dan weer dat \lungo{} de beste downloadtijden behaalde omdat \quo{}, de \js{}-bibliotheek van \lungo{},  geoptimaliseerd is voor mobiele apparaten.
-De testen op gebruikservaring zwakte de performantie van \lungo{} af.
+De testen op gebruikerservaring zwakte de performantie van \lungo{} af.
 \lungo{} is veruit het minst populair.
 Dit kan zowel met de literatuur als met sociale netwerken bevestigd worden.
 
@@ -86,9 +80,9 @@ Dit kan zowel met de literatuur als met sociale netwerken bevestigd worden.
 \st{} is volgens de gekozen criteria het slechtste raamwerk ($61\%$).
 De combinatie van het MVC-ontwerppatroon en \js-gedreven opmaak maken \st{} zowel het minst productief als minst performant in vergelijking met de andere raamwerken.
 Alle HTML-code wordt door het raamwerk zelf aangemaakt waardoor de \js-bestanden zeer groot zijn.
-De downloadtijden waren dan ook opmerkelijk langer door het Delta Update mechanisme.
-De gebruikservaring gaf echter het tegenovergestelde resultaat want na de lange downloadtijd reageerde \st{} het beste.
-De tools die Sencha aanbiedt om ontwikkelaars te helpen (Sencha Architect en Sencha Cmd) blijken niet voldoende om het verschil met andere raamwerken te verkleinen.
+De downloadtijden waren ook opmerkelijk trager door het Delta Update mechanisme.
+De gebruikerservaring gaf echter het tegenovergestelde resultaat want na de lange downloadtijd reageerde \st{} het beste.
+De tools die Sencha aanbiedt om ontwikkelaars te helpen (Sencha Architect en Sencha Cmd) blijken niet voldoende om het verschil in productiviteit met andere raamwerken te verkleinen.
 Met de tools leren werken, is een leerproces op zich.
 Hoewel de ondersteuning van \st{} hoog is, moet er opgemerkt worden dat het afhankelijk is van de WebKit \term{engine}.
 Toestellen met een standaard browser die deze \term{engine} niet bevatten, zoals Windows Phone,  kunnen \st{} niet gebruiken.

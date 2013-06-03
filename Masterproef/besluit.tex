@@ -18,29 +18,29 @@ Een licentie voor het gebruik van \kendo{} kost $\$699$.
 Beide raamwerken zijn \term{open-source}.
 
 Vijf criteria werden gekozen om de vergelijkende studie uit te voeren:  populariteit,  productiviteit,  gebruik,  ondersteuning en performantie.
-Elk criterium werd voorzien van een formule om een score te berekenen voor het criterium.
+Elk criterium werd voorzien van een formule om een score te berekenen.
 In samenspraak met Capgemini werd een POC opgesteld die werknemers toelaat onkosten toe te voegen.
 Deze werd gebruikt om het gebruik en de ondersteuning te drijven.  
 Om populariteit te meten werd naar de activiteit van de raamwerken op sociale netwerken gekeken.
 De tijd om een loginapplicatie te ontwikkelen, bepaalde de productiviteit.
-De POC werd onderverdeeld in $13$ uitdagingen en $38$ deeluitdagingen om de functionaliteit van het raamwerk te testen en het gebruik te quoteren.
+Deze applicatie is een subset van de POC dat is aangevuld met een lange lijst.
+De POC werd onderverdeeld in $13$ uitdagingen met in totaal $38$ deeluitdagingen om de functionaliteit van het raamwerk te testen en het gebruik te quoteren.
 Vervolgens werd een subset van de uitdagingen getest op acht verschillende mobiele toestellen om de ondersteuning te controleren.
+Er werd een evenwichtige keuze gemaakt tussen Android, iOS, smartphone en tablet.
 Ten slotte bepaalden de downloadtijd en de gebruikerservaring van de loginapplicatie de performantie.
 De gebruikerservaring bepaalt hoe vlot het gaat om door een lange lijst te scrollen.
 De scores van de vijf criteria voor de vier raamwerken werden in één spinnenweb ondergebracht.
 
 Na evaluatie is \jqm{} het beste raamwerk op basis van de gekozen criteria, gevolgd door \kendo{}, \lungo{} en \st{}.
 Deze volgorde werd bepaald door de scores van alle criteria op te tellen.
-\jqm{} heeft als belangrijkste troeven de hoge productiviteit en performantie doordat het enerzijds zeer goed gedocumenteerd is en anderzijds geen ontwerppatroon afdwingt.
+\jqm{} heeft als belangrijkste troef de hoge productiviteit doordat het enerzijds goed gedocumenteerd is en anderzijds geen ontwerppatroon afdwingt.
 Dit laatste is echter een nadeel waardoor het minder scoort op gebruik.
 \kendo{} heeft als belangrijkste troef het gebruik doordat het een ontwerppatroon afdwingt.
 Het scoort echter ondermaats op performantie door het crashen van lange lijsten op iOS.
-\lungo{} behaalt op geen enkel criterium de maximumscore.
-Het behaalde echter wel de beste downloadtijd bij performantie doordat het raamwerk is geoptimaliseerd voor mobiel gebruik.
-\st{} is het minst productief en minst performant in vergelijking met de andere raamwerken.
+\lungo{} behaalt de snelste downloadtijd doordat  \quo{}, de \js{}-bibliotheek van \lungo{},  geoptimaliseerd is voor mobiele apparaten.\st{} is het minst productief en minst performant in vergelijking met de andere raamwerken.
 Daarentegen scoort \st{} het best op het vlak van gebruikerservaring.
 Door het afdwingen van een ontwerppatroon scoort het quasi evengoed als \kendo{} op vlak van gebruik.
-Alle onderzochte raamwerken scoren zeer goed op ondersteuning.
+Alle onderzochte raamwerken scoren goed op ondersteuning op de onderzochte apparaten.
 
 
 \section{Geleerde lessen} % 1 pagina 
@@ -59,7 +59,7 @@ De raamwerken die steunen op een ontwerppatroon konden op die manier meer bevoor
 
 Een andere geleerde les is dat er in het uitvoeren van de evaluatie veel werk kruipt.
 Echter, het interpreteren en begrijpen van de resultaten duurde zowaar nog langer.
-Ook het opsporen en verbeteren van eigen fouten is zeer tijdsrovend.
+Ook het opsporen en verbeteren van eigen fouten is zeer tijdrovend.
 Door op een consistente en gestructureerde methode de evaluatie te voltooien, moet het aantal fouten tot een minimum worden beperkt.
 
 Er werden tot slot nog twee praktische zaken geleerd.
@@ -70,14 +70,14 @@ De logboeken werden gebruikt bij de implementatie van de POC en moesten bij de e
 Een tweede praktisch punt gaat over de samenwerking tussen beide auteurs.
 Het is geen gemakkelijke opgave om als twee individuen continu op gelijke hoogte te zitten.
 Dit vraagt enorm veel onderlinge gesprekken met duidelijke communicatie.
-Discipline, sociale netwerken en andere technologieën zoals Google Drive en \gh{} hielpen de communicatie te verbeteren.
+Discipline, sociale netwerken en technologieën zoals Google Drive en \gh{} hielpen de samenwerking te verbeteren.
 
 \section{Verder onderzoek} % 1 pagina % Tim
 Er kan verder gezocht worden naar de oorzaak waarom bepaalde zaken zeer opmerkelijk waren of waarom ze niet lukten tijdens de vergelijking.
 Zo was er enerzijds de crash van de 850 lijstitems van \kendo{} op iOS.
 Hier kan gezocht worden naar de oorzaak van de crash, maar tevens kan ook gezocht worden naar de grens van het aantal lijstitems waarbij dat het wel lukt.
 Anderzijds was er een opmerkelijke waarneming bij de performantie van de applicaties uit cache. 
-Zo ligt bijvoorbeeld de gemiddelde downloadtijd van de login uit cache hoger dan deze van de POC voor \jqm{} en \lungo{}. 
+Zo ligt bijvoorbeeld de gemiddelde downloadtijd van de loginapplicatie uit cache hoger dan deze van de POC voor \jqm{} en \lungo{}. 
 
 Ook kunnen nieuwe raamwerken worden toegevoegd aan de vergelijking.
 Hierdoor vergroot ten eerste de grootte van de vergelijking, maar kan ten tweede ook de methode telkens opnieuw worden getoetst met deze nieuwe raamwerken.
@@ -89,14 +89,14 @@ De huidige methode omvat vijf vergelijkingscriteria die worden gedreven door de 
 Verder onderzoek kan deze POC uitbreiden met extra kenmerken zoals Pull\&Refresh.
 Dit loopt in de lijn om ook andere gebeurtenissen te gebruiken dan alleen maar de \term{tap} gebeurtenis.
 Andere gebeurtenissen zijn bijvoorbeeld \term{double tap}, \term{swipe}, \term{hold}, maar ook gebeurtenissen waar meerdere vingers voor nodig zijn zoals \term{rotate}.
-Daarnaast is ook de integratie van HTML5-kenmerken zoals GPS, \term{push events}, \term{drag and drop}, video en audio in de raamwerken zeker het onderzoeken waard.
+Daarnaast is ook de integratie van HTML5-kenmerken zoals GPS, \term{push events}, \term{drag-and-drop}, video en audio in de raamwerken zeker het onderzoeken waard.
 
 Naast het toevoegen van extra kenmerken aan de POC, kunnen criteria ook op andere manieren gecontroleerd worden.
 Nu worden bij ondersteuning enkel apparaten met een Android- of iOS-besturingssysteem gebruikt.
 Dit kan worden vervangen of uitgebreid naar andere besturingssystemen zoals Windows Phone en BlackBerry~OS.
-Een andere voorbeeld is dat voor de downloadtijd bij performantie Wifi werd gebruikt voor de verbinding.
+Een andere voorbeeld is dat voor de downloadtijd bij performantie WiFi werd gebruikt voor de verbinding.
 Andere verbindingsmogelijkheden zoals 3G kunnen worden gebruikt en hierdoor kunnen andere resultaten bekomen worden.
-Een derde voorbeeld is de rendertijden die worden gebruikt bij performantie.
+Een derde voorbeeld zijn de rendertijden die niet konden worden gebruikt bij performantie.
 Deze konden niet worden opgemeten bij \st{} en \lungo{}.
 Aanpassingen aan de broncode zouden het opmeten van rendertijden wel kunnen toelaten.
 Daarnaast kan het gebruikte alternatief dat bepaalt hoe vlot het gaat om door een lange lijst te scrollen, ook verbeterd worden.
@@ -112,7 +112,7 @@ Mogelijk kan de rangschikking van de vier onderzochte raamwerken veranderen.
 Anderzijds kan ook een criterium worden toegevoegd die kijkt naar het finale resultaat van het raamwerk.
 Zo kunnen bepaalde raamwerken de \term{native look-and-feel} van mobiele besturingssystemen  nabootsen, andere raamwerken bieden dan weer standaard een frisse hedendaagse lay-out.
 
-Andere onderzoeksvragen kunnen een stap terugnemen door bijvoorbeeld af te vragen of het baterijverbruik door webapplicaties een probleem vormt.
+Andere onderzoeksvragen kunnen een stap terugnemen door bijvoorbeeld af te vragen of het batterijverbruik door webapplicaties een probleem vormt.
 De bekomen data kan worden vergeleken met \term{native} en hybride applicaties.
 Deze laatste vergelijking kan zelfs veralgemeend worden waardoor een vergelijking tussen web-, \term{native} en hybride applicaties zich opdringt. 
 

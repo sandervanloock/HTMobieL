@@ -20,11 +20,11 @@ In deze appendix wordt een gedetailleerd overzicht gegeven van de performantie v
 
 Op figuur~\ref{fig:performantie-st} wordt de gemiddelde downloadtijd van \st{} getoond op elk apparaat.
 Voor de POC is een dalende downloadtijd waarneembaar wanneer het Android-apparaat recenter wordt.
-De downloadtijd van de POC op de \gs{} duurde gemiddeld $31.43$s.
-Gemiddeld moeten Android toestellen $5$ seconden langer laden in vergelijking met iOS toestellen.
+De downloadtijd van de POC op de \gs{} duurde gemiddeld $31.43\unit{s}$.
+Gemiddeld moeten Android-toestellen $5\unit{s}$ langer laden in vergelijking met iOS-toestellen.
 Dit gemiddelde wordt sterk beïnvloed door de trage downloadtijd van de \gs{}.
 
-Een opmerking die bij \st{} moet worden gemaakt, is dat AJAX-verzoeken van een \code{proxy} naar een ander domein altijd vooraf worden gegaan met een OPTIONS-verzoek.
+Een opmerking die bij \st{} moet worden gemaakt, is dat AJAX-verzoeken van een \code{Proxy} naar een ander domein altijd vooraf worden gegaan met een OPTIONS-verzoek.
 Dit is een verzoek om informatie over de beschikbare opties van het communicatiekanaal op te vragen.
 Standaard zet \st{} de \code{X-Requested-With} op XMLHttpRequest en hierdoor zal de browser een OPTIONS-verzoek als \term{preflight} sturen.
 
@@ -70,9 +70,10 @@ Standaard zet \st{} de \code{X-Requested-With} op XMLHttpRequest en hierdoor zal
 
 Op figuur~\ref{fig:performantie-kendo} worden de gemiddelde downloadtijd van \kendo{} getoond op elk apparaat.
 De \gtab{} vertoont de hoogste downloadtijd,  gevolgd door de \iphoneiii{} en \htc.
-Opmerkelijk is dat de gecachete versie van de loginapplicatie op de \nexus{} $10$ keer trager laadt dan de gecachete versie van de POC.
-Het ophalen van een gecachete applicatie werkt bij de \gs{} het traagst.
-Bij \kendo{} is er geen opmerkelijk verschil waarneembaar tussen Android en iOS toestellen (Android gemiddeld slechts $60$ms trager).
+Opmerkelijk is dat de loginapplicatie uit cache op de \nexus{} tien keer trager laadt dan de POC uit cache.
+Het ophalen van een applicatie uit cache werkt bij de \gs{} het traagst.
+Bij \kendo{} is er geen opmerkelijk verschil waarneembaar tussen Android- en iOS-toestellen.
+Android gemiddeld slechts $60\unit{ms}$ trager.
 
 %%%%%%%%
 
@@ -88,14 +89,12 @@ Bij \kendo{} is er geen opmerkelijk verschil waarneembaar tussen Android en iOS 
 
 Op figuur~\ref{fig:performantie-jqm} wordt de gemiddelde downloadtijd van \jqm{} getoond op elk apparaat.
 Voor de POC is een dalende downloadtijd waarneembaar wanneer de Android-versies op het apparaat recenter worden.
-iPads dalen in de downloadtijd als het apparaat recenter wordt, daarentegen stijgt de downloadtijd bij iPhones.
-Er zijn minimale verschillen bij de POC uit cache, waarbij het het langste duurt op de \iphoneiv{}.
+iPads dalen in downloadtijd als het apparaat recenter wordt, daarentegen stijgt de downloadtijd bij iPhones.
 
 Als de loginapplicatie wordt bekeken, wordt hetzelfde waargenomen als voor de POC.
-Enkel bij de Android-apparaten wordt de downloadtijd trager, naarmate het toestel recenter wordt. 
-Dit is in tegenstelling tot de POC.
+Enkel bij de Android-apparaten wordt de downloadtijd trager, naarmate de Android-versie recenter wordt, wat in tegenstelling is tot de POC.
 Enkel de \nexus{} volgt deze trend niet.
-Op de \nexus{} wordt de loginapplicatie zelfs even snel gedownload als de POC.
+Op de \nexus{} wordt de loginapplicatie ongeveer even snel gedownload als de POC.
 Een opmerkelijke waarneming is dat het op de \nexus{} langer duurt om de loginapplicatie uit cache te laden dan de volledige POC uit cache.
 
 %%%%%%%%
@@ -103,19 +102,19 @@ Een opmerkelijke waarneming is dat het op de \nexus{} langer duurt om de loginap
 \section*{\lungo}
 \label{app:performantie-lungo}
 
-\begin{figure}
+Op figuur~\ref{fig:performantie-lungo} wordt de gemiddelde downloadtijd van \lungo{} getoond op elk apparaat.
+Er is geen opmerkelijke trend waarneembaar voor Android.
+Wel is er een opmerkelijke waarneming op de \gs{}, waarbij de downloadtijden uit cache langer duren dan $1\unit{s}$, terwijl op alle apparaten deze tijden rond de $0,25\unit{s}$ liggen.
+Bij iOS daalt de downloadtijd als het toestel recenter is.
+Zo is de downloadtijd op \ipadiii{} sneller dan \ipadi{}.
+Het geldt ook zo dat de \iphoneiv{} sneller downloadt dan de \iphoneiii{}.
+
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\textwidth]{figuren/performance-lungo.pdf}
   \caption{Gemiddelde downloadtijd van \lungo{} voor POC,  POC uit cache,  loginapplicatie en loginapplicatie uit cache voor elk apparaat.}
   \label{fig:performantie-lungo}
 \end{figure}
-
-Op figuur~\ref{fig:performantie-lungo} wordt de gemiddelde downloadtijd van \lungo{} getoond op elk apparaat.
-Er is geen begrijpbare trend waarneembaar voor Android.
-Wel is er een opmerkelijke waarneming op de \gs{}, waarbij de downloadtijden uit cache langer duren dan 1 seconde, terwijl op alle apparaten deze tijden rond de 0,25 seconden liggen.
-Bij iOS daalt de downloadtijd als het toestel recenter is.
-Zo is de downloadtijd op \ipadiii{} sneller dan \ipadi{}.
-Het geldt ook zo dat \iphoneiv{} sneller download dan \iphoneiii{}.
 
 %%% Local Variables: 
 %%% mode: latex

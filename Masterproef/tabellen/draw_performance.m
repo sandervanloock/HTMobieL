@@ -17,7 +17,7 @@ ylabel('tijd (s)')
 saveas(gca,'../figuren/performantie-login-cache.pdf');
 system('pdfcrop ../figuren/performantie-login-cache.pdf ../figuren/performantie-login-cache.pdf');
 
-M = csvread('performantie-downloadtijd.csv',1,1,[1 1 4 4]);
+M = csvread('performantie-poc-vs-login.csv',1,1,[1 1 4 4]);
 %swap jqm(1) en st(2) => st,jqm,lungo,kendo
 M = M(:,[1:1-1,2,1+1:2-1,1,2+1:end]);
 %swap jqm(2) en kendo(4) => st,kendo,lungo,jqm

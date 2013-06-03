@@ -3,7 +3,7 @@
 
 In deze sectie zal de productiviteit van de vier raamwerken worden onderzocht.
 Voor de score van productiviteit wordt naar formule \ref{eq:productiviteit-enhanced} verwezen waarbij de uren gewerkt aan de loginapplicatie in rekening worden gebracht. 
-Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde scores.
+Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de uren gespendeerd aan de loginapplicatie.
 
 \begin{table}
   \centering
@@ -15,7 +15,7 @@ Tabel~\ref{tabel:evaluatie-productiviteit} bevat een overzicht van de behaalde s
     string type,
     header=true,
     columns={Productiviteit,ST,Kendo,jQM,Lungo},
-    columns/Productiviteit/.style={column name=\textbf{Productiviteit} (Uren), column type={l}},  
+    columns/Productiviteit/.style={column name=\textbf{Productiviteit}, column type={l}},  
     columns/ST/.style={column name=\textbf{\sta}, column type={c}},
     columns/ST/.style={column name=\textbf{\sta}, column type={c}},
     columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
@@ -35,20 +35,19 @@ De uren voor de implementatie van de loginapplicatie tonen dat \jqm{} productiev
 Hierna volgt \kendo{} en \st{}.
 Er zijn twee conclusies: het type raamwerk (\js-gedreven of opmaakgedreven) en het al dan niet afdwingen van een ontwerppatroon bepalen de productiviteit.
 Raamwerken zonder ontwerppatroon (\jqm{} en \lungo{}) zijn productiever dan raamwerken die een ontwerppatroon afdwingen (\st{} en \kendo{}).
-Indien het raamwerk een ontwerppatroon afdwingt, dan is een puur \js{}-gedreven raamwerk (in dit geval \st{}) minder productief dan een raamwerk die zowel \js{}- als opmaakgedreven is.
+Indien het raamwerk een ontwerppatroon afdwingt, dan is een puur \js{}-gedreven raamwerk (in dit geval \st{}) minder productief dan een raamwerk dat zowel \js{}- als opmaakgedreven is.
 De productiviteit van \kendo{} is $31.8\%$ groter ten opzichte van \st{}.
 
 \subsection{Duiding}
-In wat volgt zullen andere factoren worden besproken die de verschillen in productiviteit verklaren.
+In wat volgt zullen factoren worden besproken die de verschillen in productiviteit verklaren.
 
 \paragraph{Lijnen code} 
-In tabel \ref{tabel:evaluatie-gebruik-loc} staan het aantal lijnen effectief geschreven code getoond dat nodig is om de POC en loginapplicatie te maken.
-Zowel HTML-, \js{} als CSS-code zijn geteld.
-
-Dezelfde conclusies van vorige de vorige sectie worden bevestigd met het aantal lijnen code:  de meest productieve raamwerken vereisen het minst aantal lijnen code.
-Hetzelfde geldt niet bij als naar het aantal lijnen geschreven code bij de implementatie van de POC wordt gekeken.
+In tabel \ref{tabel:evaluatie-gebruik-loc} staan het aantal lijnen effectief geschreven code  die nodig waren om de POC en loginapplicatie te maken.
+Zowel HTML-, \js{}- als CSS-code werden geteld.
+De conclusies voor productiviteit worden bevestigd met het aantal lijnen code:  de meest productieve raamwerken vereisen het minst aantal lijnen code.
+Hetzelfde geldt niet als naar het aantal lijnen geschreven code bij de implementatie van de POC wordt gekeken.
 \kendo{} vraagt minder lijnen code in vergelijking met de andere raamwerken.
-Er kan worden geconcludeerd dat bij een grotere applicatie,  het MVVM-ontwerppatroon van \kendo{} het aantal lijnen code reduceert.
+Er kan worden geconcludeerd dat bij een grotere applicatie het MVVM-ontwerppatroon van \kendo{} het aantal lijnen code reduceert.
 Door de grotere complexiteit zal het schrijven van deze code echter meer tijd vergen in vergelijking met opmaakgedreven raamwerken.
 Een opmerking over de data van \st{} en \lungo{} moet worden gemaakt:  niet alle functionaliteit van de POC kon worden geïmplementeerd dus zijn de bijhorende lijnen code onvolledig.
 
@@ -97,18 +96,18 @@ Een opmerking over de data van \st{} en \lungo{} moet worden gemaakt:  niet alle
 
 \paragraph{Tools}
 Enkel bij de ontwikkeling met \st{} kon beroep worden gedaan op een grafische tool om het ontwikkelingsproces te vergemakkelijken:  Sencha Architect~\cite{Sencha2012a}.
-Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop} commando's.  
-Bij de ontwikkeling van de POC werd Sencha Architect versie 2.1 gebruikt voor een tijdsduur van $21$ dagen.
+Dit is een desktopapplicatie die het ontwikkelingsproces vergemakkelijkt met een GGI en \term{drag-and-drop}.  
+Bij de ontwikkeling van de POC werd Sencha Architect versie~2.1 gebruikt.
 Het grootste voordeel van Sencha Architect kon bij de ontwikkeling van \code{Views} worden gevonden.
 De \code{Views} kunnen specifiek voor mobiele schermen worden geoptimaliseerd, dit zowel voor staande als liggende apparaten.
 Na enkele dagen werd er overgeschakeld op PhpStorm~\cite{JetBrains2012} als Integrated Development Environment~(IDE).
 De voornaamste reden hiervoor was de beperkte bruikbaarheid van Sencha Architect voor de ontwikkeling van meer geavanceerde functionaliteit.
 PhpStorm werd ook gebruikt bij de ontwikkeling met andere raamwerken en biedt ondersteuning voor zowel Windows, Mac als Linux.
 Een voordeel bij het gebruik van deze IDE is onder andere de automatische code-aanvulling.
-Daarnaast toont de IDE hints voor het optimaliseren van \js{}-code die specifiek gebruikt maakt van de jQuery bibliotheek.
+Daarnaast toont de IDE hints voor het optimaliseren van \js{}-code die specifiek gebruik maakt van de jQuery-bibliotheek.
 
 Als laatste werd Yeoman~\cite{Yeoman2013} gebruikt bij \kendo{}, \jqm{} en \lungo{} om applicaties te bouwen.
-\kendo{} en \lungo{} konden gebruik maken van Twitter Bower~\cite{Twitter2013} om de bestanden van \gh{}-\term{repository} toe te voegen.
+\kendo{} en \lungo{} konden gebruik maken van Twitter Bower~\cite{Twitter2013} om de bestanden van de \gh{}-\term{repository} toe te voegen.
 Bij \st{} werd Sencha Cmd gebruikt om de applicatie te bouwen.
 
 \paragraph{Boilerplate code}
@@ -116,8 +115,8 @@ Bij \st{} werd Sencha Cmd gebruikt om de applicatie te bouwen.
 \st{} biedt een tool voor het initialiseren van een nieuwe applicatie,  Sencha Cmd~\cite{Sencha2012}.
 Deze tool kan de initiële applicaties opzetten,  bestanden toevoegen en de applicatie bouwen en uitrollen.
 Na de geautomatiseerde initialisatie van een project zijn de gemaakte folders en bestanden echter niet geheel duidelijk.
-Een nieuwe \code{Controller},  \code{Store},  \code{Model} of \code{View} genereren kan manueel of automatisch met Sencha Cmd.
-Bij de manuele aanpak moet het nieuwe \js-bestand in de juiste folder worden ondergebracht.
+Een nieuwe \code{Controller},  \code{Store},  \code{Model} of \code{View} genereren kan met of zonder Sencha Cmd.
+Zonder Sencha Cmd moeten het nieuwe \js-bestand in de juiste folder worden ondergebracht.
 \st{} legt een strenge structuur van folders op die ongewijzigd moet blijven opdat de applicatie zou werken.
 Dit leidde bij aanvang van de implementatie tot veel verwarring.
 
@@ -138,7 +137,7 @@ De zoekfunctie van de documentatie is niet optimaal en hierdoor werd deze maar w
 De documentatie van \jqm{}~1.2 bevat geen zoekfunctie en codevoorbeelden.
 Hierdoor moet naar de broncode worden gekeken om de code van een kenmerk te begrijpen.
 Een voordeel van de \jqm{} documentatie is dat deze zelf met \jqm{} is gebouwd.
-Een belangrijke opmerking is dat de \jqm{}~1.3 wel een zoekfunctie en codevoorbeelden in zijn documentatie heeft opgenomen.
+Een belangrijke opmerking is dat \jqm{}~1.3 wel een zoekfunctie en codevoorbeelden in zijn documentatie heeft opgenomen.
 De documentatie van \lungo{} is zeer beknopt en daarenboven bestaat deze van \quo{} uit slechts één pagina.
 Alle kenmerken van \lungo{} worden met codevoorbeelden verduidelijkt.
 Sommige voorbeelden zijn echter incorrect.
@@ -147,7 +146,7 @@ Sommige voorbeelden zijn echter incorrect.
 De applicatie werd lokaal uitgerold en in de Web Inspector van Chrome gedebugd.
 Debuggen op de apparaten kon door deze te connecteren met de computer via Universal Serial Bus (USB).
 Enkel Android toestellen met een Chrome browser kunnen worden gedebugd met de Web Inspector van het apparaat.
-Debuggen op iOS toestellen kan op een Mac met dezelfde Web Inspector maar in de Safari browser.
+Debuggen op iOS-toestellen kan op een Mac met dezelfde Web Inspector maar in de Safari browser.
 Dit werkt echter niet op \ipadi{}.
 
 \paragraph{Literatuur}

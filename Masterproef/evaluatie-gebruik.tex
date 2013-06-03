@@ -1,10 +1,9 @@
 %TODO losstaande zinnen: plakken bij het vorige?
-%TODO alleen-lezen ipv read only zal de leesbaarheid ook vergemakkelijken (tim)
 
 \section{Gebruik}
 \label{sec:evaluatie-gebruik}
 Het gebruik van de vier raamwerken wordt samengevat voor de $13$ uitdagingen in tabel \ref{tabel:evaluatie-gebruik}.
-Voor de score van productiviteit wordt naar formule \ref{eq:gebruik} verwezen.
+Voor de score van gebruik wordt naar formule \ref{eq:gebruik} verwezen waarbij de scores van alle uitdagingen worden opgeteld.
 Voor \st{} werd gebruik gemaakt van versie~2.1.1, voor \kendo{} van versie~2013~Q1, voor \jqm{} van versie~1.3.0 en voor \lungo{} van versie~2.1.
 Per sectie zal iedere uitdaging per raamwerk worden besproken.
 
@@ -38,7 +37,7 @@ Per sectie zal iedere uitdaging per raamwerk worden besproken.
 Het raamwerk dat het beste scoort bij gebruik is \kendo{}, kort gevolgd door \st{}.
 Dit kan grotendeels door de aanwezigheid van een ontwerppatroon, respectievelijk MVVM en MVC, worden verklaard.
 Het ontbreken van een ontwerppatroon bij de andere twee raamwerken resulteert in een omslachtige aanpak, waardoor punten worden verloren.
-Opmerkelijk is de perfecte score van \kendo{} voor formulieren, maar de mindere ondersteuning voor offline dan \st{}.
+Opmerkelijk is de perfecte score van \kendo{} voor formulieren en de mindere ondersteuning voor offline in vergelijking met \st{}.
 \jqm{} behaalt de helft met wat overschot.
 Op het vlak om data automatisch in te laden in velden of lijsten, scoort het nul door het ontbreken van een ontwerppatroon. 
 Als laatste komt \lungo{} dat een onvoldoende behaalt.
@@ -56,7 +55,7 @@ Ook laadschermen en dialoogvensters zijn bij ieder raamwerk volledig aanwezig.
 \label{sec:evaluatie-gebruik-anatomie}
 
 In tabel \ref{tabel:evaluatie-gebruik-anatomie} worden de resultaten getoond van de drie deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -96,19 +95,17 @@ Knoppen aan een \code{Toolbar} toevoegen kan door een lijst van \code{buttons} a
 
 Het toevoegen van een tabbar verloopt analoog.
 De \code{items} eigenschap bevat dan een lijst van \code{Views} met een titel waarbij de \code{View} zichtbaar wordt als op de titel wordt gedrukt.
-
 Knoppen van kleur veranderen kan door de \code{style} eigenschap van een knop te zetten.
 
 \paragraph{\kendo}
 Het skelet van een \code{View} kan binnen een HTML-tag worden geschreven.
 Kop- en/of voetteksten toevoegen kan door in het skelet de bijhorende HTML-tags te gebruiken.
-\code{Header}-tags kunnen niet genest worden, dus zijn onderkopteksten niet mogelijk in \kendo{}.
+\code{Header}-tags kunnen niet genest worden, dus zijn onderkopteksten niet mogelijk.
 
 Een tabbar moet met een \code{Buttongroup} worden gemaakt,  dit is een lijst van knoppen.
 Na deze lijst moeten de bijhorende \code{Views} worden geschreven.
-De \code{Buttongroup} voorziet een gebeurtenis bij het selecteren van het knop.
+De \code{Buttongroup} voorziet een gebeurtenis bij het selecteren van een knop.
 Hier moet de overeenkomstige \code{View} zichtbaar worden gemaakt met behulp van CSS-manipulaties.
-
 De kleur van een knop wijzigen kan door een nieuwe CSS-klasse aan de knop toe te kennen.
 
 \paragraph{\jqm}
@@ -123,7 +120,7 @@ De voettekst wordt niet getoond op een smartphone, wat wordt bekomen door gebrui
 De onderkoptekst werd eerst geïmplementeerd met een lijst met enkel één lijstdeler.
 Dit schoof echter de inhoud van de pagina niet mee naar onder. 
 De uiteindelijke oplossing kwam vanuit de documentatie om dit met behulp van de CSS-klasse \code{ui-bar} te implementeren~\cite{JQuery2013b}. 
-Deze extra titel wordt ook gebruikt op naar het menu voor de smartphone te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
+Deze extra titel wordt ook gebruikt om naar het menu voor de smartphone te gaan (zie \ref{sec:evaluatie-gebruik-toestel}).
 
 Standaard is er een tabbalk aanwezig in \jqm, maar de POC impliceerde een tabbalk die niet de volledige breedte innam.
 Daarom werd gekozen voor een formulierveld met twee opties.
@@ -142,7 +139,6 @@ De onderkoptekst werd met een omweg bekomen door een lijst te maken met slechts 
 Het maken van een tabbar is standaard aanwezig in \lungo{}.
 De tabbar wordt getoond over de volledige breedte en komt onmiddellijk onder de koptekst en dus boven de onderkoptekst.
 Dit in tegenstelling tot het gevraagde in de POC waar de tabbar onder de onderkoptekst diende te komen.
-
 Het veranderen van de kleur van knoppen gebeurt in CSS waarbij de achtergrondkleur van de knop kan worden aangepast.
 
 %%%%%%%%%%%%%
@@ -151,7 +147,7 @@ Het veranderen van de kleur van knoppen gebeurt in CSS waarbij de achtergrondkle
 \label{sec:evaluatie-gebruik-toestel}
 
 In tabel \ref{tabel:evaluatie-gebruik-toestel} worden de resultaten getoond van de drie deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -194,7 +190,6 @@ Hiervoor werd een extra knop in de koptekst toegevoegd.
 \paragraph{\kendo}
 Ook \kendo{} kan de context waarin de applicatie wordt uitgevoerd, opvragen.
 %Een onderscheid maken tussen smartphone of tablet kan met \code{Kendo.support.tablet}.
-
 % mss kort woordje bij splitview zoals je deed bij ST voor Hbox
 De lay-out van de tablet is mogelijk met een \code{Splitview}.
 Deze \code{View} is specifiek voor tablets en kan het scherm horizontaal of verticaal opdelen.
@@ -203,7 +198,7 @@ Om de smartphone lay-out te verkrijgen moet de \code{Splitview} door standaard \
 
 \paragraph{\jqm}
 Het raamwerk biedt zelf geen functies aan om te herkennen of het toestel een smartphone of tablet is.
-In \jqm{} is er ook geen functionaliteit aanwezig om een menu te tonen voor tablets, maar niet voor smartphones. 
+In \jqm{} is er ook geen functionaliteit aanwezig om een menu in te schakelen op tablets.
 Drie plug-ins~\cite{Rahman2013,Yared2013,Franck2012} werden gevonden via een blogpost~\cite{Deering2012} en getest.
 Elk hadden ze hun tekorten. 
 Zo was de eerste destructief ten opzichte van het raamwerk.
@@ -212,11 +207,7 @@ De tweede plug-in werkte enkel tot versie 1.0.1.
 De laatste plug-in paste zich niet aan aan de veranderende afmetingen van de browser. 
 
 Uiteindelijk werden CSS3 Media Queries gebruikt~\cite{Hadlock2012,JQuery2013e}. 
-%Ook uit de documentatie van versie~1.3 \cite{JQuery2013e} blijkt dat dit de correcte manier is om hiermee om te gaan.
-%Daarnaast wordt op de documentatiesite van \jqm{}~1.2 al een gelijkaardige lay-out gebruikt~\cite{JQuery2012b}. 
-%De uiteindelijke oplossing voor het probleem kwam voort uit het idee van CSS3 Media Queries en de documentatiesite van \jqm{}~1.2.
 Bij CSS3 Media Queries moet zelf een breekpunt (uitgedrukt in pixels) worden opgegeven wanneer dient geschakeld te worden tussen smartphone lay-out of tablet lay-out.
-
 Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt getoond.
 
 \paragraph{\lungo}
@@ -224,7 +215,6 @@ Het raamwerk biedt enkel een functie aan om te weten of het huidige apparaat mob
 \quo{} biedt daarenboven de mogelijkheid om de breedte en hoogte van het scherm terug te geven.
 Dit betekent dat de ontwikkelaar nog altijd zelf instaat voor de bepaling of het een smartphone of tablet is.
 Als oplossing werd gebruik gemaakt van CSS3 Media Queries, met dezelfde aanpak als \jqm{}.
-
 Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de applicatie op een tablet wordt getoond.
 
 %%%%%%%%%%%%%
@@ -233,7 +223,7 @@ Het smartphonemenu is altijd geactiveerd en kan ook worden gebruikt als de appli
 \label{sec:evaluatie-gebruik-laadscherm}
 
 In tabel \ref{tabel:evaluatie-gebruik-laadscherm} worden de resultaten getoond van de twee deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -265,12 +255,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Een laadscherm tonen kan door een masker op de huidige \code{View} te plaatsen.
 Dit masker kan een bericht bevatten dat de laadtekst voorstelt.
-%Het tonen van een masker kan door de \code{setMasked} methode op een \code{View} op te roepen.
-%Ook kan er met de \term{singleton} klasse \code{Ext.Viewport} die de zichtbare \code{View} voorstelt, gewerkt worden.
-%Hierop de \code{setMasked} methode oproepen, verzekert dat het laadscherm bovenop alle andere schermen wordt geplaatst.
-
-%De \code{Ext.Msg} \term{singleton} klasse bevat alle methoden om dialoogvensters weer te geven.
-\st{} biedt drie standaarden van dialoogvensters aan: \code{alert}, \code{promt} en \code{confirm}.
+\st{} biedt drie standaarden van dialoogvensters aan: \code{alert}, \code{prompt} en \code{confirm}.
 De eerste laat de gebruiker een bericht zien,  de tweede vraagt de gebruiker om invoer en de laatste vraagt bevestiging aan de gebruiker.
 De dialoogvensters kunnen met gelijknamige functies opgeroepen worden,  waarbij parameters de knoppen, titel en tekst bepalen.
 % Een meer generieke aanpak is het oproepen van de \code{show}-methode op \code{Ext.Msg}.
@@ -293,7 +278,7 @@ Een attribuut moet dan wel weergeven dat de link naar een \code{ModelView} gaat.
 Het standaard laadscherm is enkel een laadindicator die ronddraait, die niet opvallend aanwezig is en zonder tekst eronder.
 Door de opties in de API te gebruiken, komt de laadindicator duidelijk naar voor door een zwarte achtergrond en kan er ook tekst worden ondergezet.
 
-Eerst werd een plugin~\cite{Sage2013} gebruikt om een dialoogvenster te tonen, maar deze was slecht aanpasbaar.
+Eerst werd een plug-in~\cite{Sage2013} gebruikt om een dialoogvenster te tonen, maar deze was slecht aanpasbaar.
 Uiteindelijk werden de dialoogvensters van \jqm{} gebruikt zodat de lay-out gemakkelijker kon worden aangepast.
 
 \paragraph{\lungo}
@@ -312,7 +297,7 @@ Een oplossing hiervoor is om het laadscherm niet te verbergen, waardoor enkel he
 \label{sec:evaluatie-gebruik-formulieren}
 
 In tabel \ref{tabel:evaluatie-gebruik-formulieren} worden de resultaten getoond van de zeven deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -348,7 +333,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 % It is impossible to ignore the days field and only years can be delimited.  
 % Clearing the form after it was send, has to be programmed manually.
 Een formulier kan in \st{} aan een \code{Formpanel} worden toegevoegd.
-Dit object kan op zijn beurt voorzien worden van onder andere tekst-, e-mail en nummervelden.
+Dit object kan op zijn beurt voorzien worden van onder andere tekst-, e-mail- en nummervelden.
 Ook optievelden of schakelaars kunnen hier aan het formulier worden toegevoegd.
 %Volgende velden worden onder andere in \st{} aangeboden: \code{textfield},  \code{emailfield}	,  \code{numberfield}, \code{selectfield} en \code{togglefield}.
 % \begin{itemize}
@@ -363,7 +348,6 @@ Ook optievelden of schakelaars kunnen hier aan het formulier worden toegevoegd.
 %   \item \code{togglefield}
 %   \item \code{fieldset}
 % \end{itemize}
-
 %Tekst-, e-mail en nummervelden werden aangemaakt met de eerste drie velden.
 Bij het renderen worden deze tot HTML5-invoertypes omgevormd.
 Een \term{placeholder} toevoegen kan door een veld te voorzien met de eigenschap \code{placeholder}.
@@ -374,7 +358,7 @@ Een \term{datepicker} maken waarbij het bereik kleiner is dan een jaar, is niet 
 Ook is het onmogelijk om enkel een maand- en jaarveld te tonen.
 
 Het leegmaken van een formulier gebeurt niet automatisch wanneer het verzonden wordt.
-Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden opgeroepen.
+Hiervoor moet de \code{reset}-methode op het bijhorende \code{Formpanel} worden opgeroepen.
 
 \paragraph{\kendo}
  Formulierelementen definiëren kan via attributen door gebruik te maken van de opmaakgedreven aanpak van \kendo.
@@ -385,7 +369,7 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
 
  \term{Datepickers} worden als \term{widget} aangeboden in \kendo{} Web.
  Het bereik van de selectie kan worden ingeperkt door de minimum en maximum eigenschap te zetten.
- Enkel maand- en jaarvelden tonen, kan door de diepte van de \term{datepicker} in te stellen.
+ Enkel maand- en jaarvelden tonen kan door de diepte van de \term{datepicker} in te stellen.
  Deze eigenschappen worden bij initialisatie van het object meegegeven.
  
  Het wissen van formulieren steunt op het MVVM-ontwerppatroon.
@@ -395,12 +379,12 @@ Hiervoor moet de \code{reset} methode op het bijhorende \code{Formpanel} worden 
  Door de dubbele binding tussen het formulier en het (View) Model zal ook de inhoud van de formulierelementen worden gewist.
  
 \paragraph{\jqm} 
-Voor het toevoegen van \term{placeholders} in de formuliervelden werd beroep gedaan op het \code{placeholder} attribuut in HTML5. 
+Voor het toevoegen van \term{placeholders} in de formuliervelden werd beroep gedaan op het \code{placeholder} attribuut van HTML5. 
 Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
 Als er wordt teruggekeerd naar het formulier nadat het verzonden is, bevat het nog alle waarden. 
 Na het versturen van het formulier, wordt het leeggemaakt met behulp van de \code{reset}-functie in \js{}.
  
-Voor de types van de formuliervelden werd beroep gedaan op de HTML-invoertypes. 
+Voor de types van de formuliervelden werd beroep gedaan op de HTML-invoertypes, gelijkaardig met \kendo{}.
 Het type voor een datum werd echter niet gebruikt omwille van twee redenen.
 Ten eerste was hiervoor een slechte ondersteuning naar mobiele browsers toe~\cite{Deveria2013c}.
 Android~2.3 ondersteunt dit niet en de \term{placeholder} tekst in het veld ontbrak op iOS~6 en Android~4.2.
@@ -417,7 +401,6 @@ Ook hier kon niet het \code{date}-type gebruikt worden, omdat daar ook een dag v
 Daardoor werden de maanden handmatig geprogrammeerd als vaste lijstitems. 
 De jaren zijn dynamisch en zijn telkens dit jaar, het volgende en het vorige jaar. 
 Deze functionaliteit kon ook met de plug-in van Mobiscroll worden verwezenlijkt.
-
 Als laatste werd zowel het optieveld als de schakelaar door \jqm{} zelf aangeboden en konden direct gebruikt worden. 
  
 \paragraph{\lungo} 
@@ -426,7 +409,7 @@ In \lungo{} zijn labels niet verplicht.
 Indien deze niet gewenst zijn, kunnen deze gewoon uit de HMTL5-code weggelaten worden.
 
 Voor de types van de formuliervelden werd beroep gedaan op de HTML-invoertypes, gelijkaardig met \kendo{}.
-Door de twee aangehaalde problemen werd een plug-in gebruikt om de functionaliteit met datums op te lossen.
+Door de twee aangehaalde problemen bij \jqm{} werd een plug-in gebruikt om de functionaliteit met datums op te lossen.
 De \code{date-picker} werd gebruikt van de plug-in pagina van \lungo{} zelf~\cite{TapQuo2013b}.
 Bij deze plug-in is al voorbeeldcode aanwezig die nodig is om automatisch een \term{datepicker} te openen en de aangeklikte datum in het formulierveld te zetten.
 De plug-in laat echter niet toe om een bereik op te geven.
@@ -443,7 +426,7 @@ Het legen van een formulier gebeurt door de \code{reset}-functie in \js{} op te 
 \label{sec:evaluatie-gebruik-vullen}
 
 In tabel \ref{tabel:evaluatie-gebruik-vullen} worden de resultaten getoond van de twee deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -480,14 +463,13 @@ De eerste methode zal een formulier vullen door er een instantie van een model a
 Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op schakelaars.
 Er bestaat echter geen exacte mapping tussen een model en \code{radio}velden.
 Deze moeten apart worden ingevuld door een extra methode op te roepen.
-
-De tweede methode voor het invullen van formulieren maakt gebruikt van een \code{Navigationview} en wordt besproken in \ref{sec:evaluatie-gebruik-lijsten}.
+De tweede methode voor het invullen van formulieren maakt gebruik van een \code{Navigationview} en wordt besproken in \ref{sec:evaluatie-gebruik-lijsten}.
 De \code{readOnly} eigenschap bepaalt de aanpasbaarheid van formulierelementen.
 Bij \code{radio}velden heet deze eigenschap \code{disabled}.
 
 
 \paragraph{\kendo}
-Het invullen van een formulier steunt op het MVVM-ontwerppatroon en is gelijkaardig aan het resetten van een formulier.
+Het invullen van een formulier steunt op het MVVM-ontwerppatroon.
 De dubbele binding tussen een formulier en (View) Model wordt met een HTML-tag aangegeven.
 Een View Model wordt in \kendo{} \code{ObservableObject} genoemd.
 Een \code{Model} breidt een \code{ObservableObject} uit met de mogelijkheid om schema's,  velden en methoden te definiëren.  
@@ -500,8 +482,8 @@ De gebonden formulierelementen zullen vervolgens automatisch worden ingevuld.
 \paragraph{\jqm}
 Het vullen van formuliervelden wordt niet door \jqm{} geautomatiseerd.
 Hierdoor moet ieder formulierveld worden gezocht om daarna zijn waarde in te stellen.
-Bij een dropdownmenu en \code{radio} velden kan deze methode niet worden gebruikt.
-Voor de eerstgenoemde moet de gewenste optie worden gezocht en daaraan het \code{selected}-attribuut of \code{checked}-attribuut moeten worden toegevoegd.
+Bij een dropdownmenu en \code{radio}-velden kan deze methode niet worden gebruikt.
+Voor de eerstgenoemde moet de gewenste optie worden gezocht en daaraan het \code{selected}- of \code{checked}-attribuut moeten worden toegevoegd.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
 Dit geldt voor alle types van velden, behalve voor \code{radio}-elementen en \code{select}-items waar \code{disabled} moeten worden gebruikt.
@@ -510,10 +492,10 @@ De andere niet-benodigde items worden uit de lijst verwijderd.
 \paragraph{\lungo}
 Velden vullen met data dient handmatig te gebeuren door eerst het formulierveld op te zoeken en daarna de waarde te zetten.
 Deze waarde moet tekst zijn, waardoor bijvoorbeeld getallen eerst moeten worden omgevormd.
-Geoptimaliseerde mobiele lay-out voor selectievelden is niet aanwezig in \lungo.
+Geoptimaliseerde mobiele lay-out voor \code{radio}-types is niet aanwezig in \lungo.
 
 Het \term{read-only} maken van velden gebeurt via het HTML-attribuut \code{readonly}.
-Dit gaat voor alle types van velden, behalve voor selectievelden.
+Dit gaat voor alle types van velden, behalve voor dropdownmenu's.
 Daar worden de niet-benodigde opties uit de selectie verwijderd.
 
 %%%%%%%%%%%%%
@@ -522,7 +504,7 @@ Daar worden de niet-benodigde opties uit de selectie verwijderd.
 \label{sec:evaluatie-gebruik-autoaanvullen}
 
 In tabel \ref{tabel:evaluatie-gebruik-autoaanvullen} worden de resultaten getoond van de twee deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -555,25 +537,25 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Het automatisch aanvullen van een formulierelement steunt op een plug-in van Tajur~\cite{Tajur2012}.
 Deze plug-in is niet op de Sencha Market terug te vinden.
 Het toevoegen van de plug-in zal een invoerelement beschikbaar maken dat suggesties met een dropdownmenu weergeeft.
-Dit element kan een \code{Proxy} definiëren die de server aanspreekt om suggesties asynchroon op te halen.
+Dit element kan een \code{Proxy} definiëren die de \term{backend} aanspreekt om suggesties asynchroon op te halen.
 
 De \term{backend} van de POC geeft bij een bepaalde invoer suggesties in een JSON-rij terug.
 De rij is voorzien van een sleutel, maar alle elementen van de rij hebben er geen.
-Geen van voorgaande de beschikbare methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
-Hierdoor kon geen klikbare dropdownmenu worden getoond.
+Geen van de beschikbare methoden was in staat de rij met suggesties te parsen van rij-element naar modelinstantie.
+Hierdoor kon geen klikbaar dropdownmenu worden getoond.
 
 \paragraph{\kendo}
 Het automatisch aanvullen van een formulierelement wordt als \term{widget} door \kendo{} Web aangeboden.
 Suggesties van het element kunnen zowel door een lokale als externe bron worden aangeleverd.
 Externe suggesties moeten via een \code{DataSource} worden ingeladen.
-Buiten een \code{DataSource} kan het minimale aantal suggesties en een filter worden opgegeven.
+Ook het minimale aantal suggesties en een filter kunnen worden opgegeven.
 De filter bepaalt de methode om suggesties op te halen en kan \code{startswith} zijn.
 
 \paragraph{\jqm}
 Indien er wordt gebruik gemaakt van versie~1.2 is een plug-in nodig om auto-aanvulling te bekomen.
 Hiervoor kan de plug-in van Andy Matthews worden gebruikt die zowel met lokale data als externe data kan werken~\cite{Matthews2013}. 
 Sinds versie~1.3 voorziet \jqm{} deze functionaliteit zelf~\cite{JQuery2013c}.
-De filterfunctie moet zelf worden geschreven, maar door de voorbeeldcode op de site kon deze worden overgenomen.
+De filterfunctie moet zelf worden geschreven, maar code op de site kon als voorbeeld worden overgenomen.
 
 \paragraph{\lungo}
 Standaard biedt \lungo{} geen auto-aanvullig aan, maar wel op zijn site van plug-ins~\cite{TapQuo2013b}.
@@ -590,7 +572,7 @@ Er diende nog één extra CSS-regel te worden toegevoegd om het symbool voor de 
 \label{sec:evaluatie-gebruik-afbeelding}
 
 In tabel \ref{tabel:evaluatie-gebruik-afbeelding} worden de resultaten getoond van de drie deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -623,25 +605,23 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 Het opladen van een afbeelding steunt op een plug-in van Smirnov~\cite{Smirnov2012} en kan in de Sencha Market gevonden worden.
 De plug-in is generiek voor het opladen van elk type bestand.
 % Na het toevoegen van de plug-in wordt het \code{xtype} \code{img} beschikbaar voor \st{} componenten.
-
 De plug-in voorziet twee modes voor het opladen van bestanden: lokaal of extern.
 De eerste laat toe afbeeldingen lokaal of in het DOM als Base64 op te laden.
 De tweede mode zal bestanden naar de externe server versturen.
 De POC vereist de eerste aanpak.
-
-Nadat een bestand is opgeladen zal een gebeurtenissen het slagen of falen van de operatie bepalen.
+Nadat een bestand is opgeladen zal een gebeurtenis het slagen of falen van de operatie bepalen.
 Het is de taak van een \code{Controller} om deze gebeurtenissen op te vangen en te delegeren naar een bijhorende methode.
 De succesfunctie krijgt de Base64-tekst mee en kan een voorbeeld van de afbeelding weergeven.
 
 \paragraph{\kendo}
 \kendo{} Web biedt een \term{widget} aan die het opladen van bestanden toelaat.
 Deze \term{widget} kan in twee modi worden gebruikt: synchroon of asynchroon.
-In synchrone mode wordt het formulier samen met de afbeelding verzonden als een uitgave wordt toegevoegd.
-In asynchrone mode gebeurt het opladen meteen na het selecteren van de afbeelding.
+In synchrone modus wordt het formulier samen met de afbeelding verzonden als een uitgave wordt toegevoegd.
+In asynchrone modus gebeurt het opladen meteen na het selecteren van de afbeelding.
 Deze methode steunt op de HTML5 FileReaderAPI.
 Omdat een voorbeeld van de afbeelding werd gevraagd, is de asynchrone oplossing gekozen.	
 Voor ASP.NET MVC,  JSP en PHP is een implementatie beschikbaar om het opladen van bestanden aan serverzijde af te handelen.
-Er werd gekozen om de PHP-implementatie te gebruiken omdat deze technologie meer vertrouwd was.
+Er werd gekozen om de PHP-implementatie te gebruiken omdat deze technologie reeds gekend was.
 Wanneer een afbeelding succesvol is opgeladen, wordt het bestand met een \code{FileReaderAPI} gelezen,  aan een \code{canvas} toegevoegd en naar Base64 omgezet met de \code{toDataURL}-methode.
 
 \paragraph{\jqm}
@@ -665,7 +645,7 @@ Het voorvertonen van de geüploade afbeelding gebruikt dezelfde aanpak als \jqm{
 \label{sec:evaluatie-gebruik-validatie}
 
 In tabel \ref{tabel:evaluatie-gebruik-validatie} worden de resultaten getoond van de vier deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 
 \begin{table}
@@ -697,7 +677,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \paragraph{\st}
 Een model kan worden voorzien van validatieregels.
-Deze regels worden in een rij aan de \code{validations} eigenschap van een model toegekend.
+Deze regels worden in een rij aan de \code{validations}-eigenschap van een model toegekend.
 % Volgende validatieregels zijn ingebouwd:
 % \begin{description}
 %   \item [presence] verzekert dat het veld een waarde heeft waarbij nul als geldig wordt beschouwd,  lege tekst niet.
@@ -718,7 +698,7 @@ Dit is een functie die de programmeur zelf bepaalt en \code{true} of \code{false
 Het opbouwen van een foutboodschap kan door te itereren over de fouten die na validatie worden teruggegeven.
 Een specifieke foutboodschap kan aan elke validatieregel worden toegekend.
 
-Incorrecte formulierelementen aanduiden met een rode rand, wordt niet door \st{} ondersteund.
+Incorrecte formulierelementen aanduiden met een rode rand wordt niet door \st{} ondersteund.
 Foutief ingevulde formulierelementen moeten na validatie met een eigen CSS-klasse worden aangevuld.
 
 \paragraph{\kendo}
@@ -730,7 +710,7 @@ Het \kendo{}-raamwerk ondersteunt de validaties zoals aangeboden binnen HTML5.
 %   \item [data types] verzekert dat de waarde van een veld gelijk is aan het opgegeven type (e-mail, URL, getal, enz.)
 % \end{description}
 %Deze validaties moeten binnen het data-attribuut van het formulierelement worden aangebracht.
-Het \code{required} attribuut maakt de velden verplicht, \code{email} en \code{number} als invoertype zullen de opgegeven waarden controleren op geldigheid.
+Het \code{required}-attribuut maakt de velden verplicht \code{email} en \code{number} als invoertype zullen de opgegeven waarden controleren op geldigheid.
 De \kendo{} \code{validator} gebruikt attributen van HTML5-validaties.
 HTML5-validatie wordt echter niet ondersteund op mobiele browsers~\cite{Deveria2013c}. 
 \kendo{} zal de HTML5-attributen omvormen tot een validatie in \js{}. 
@@ -754,12 +734,8 @@ Hoe een dialoogvenster gemaakt wordt, werd in sectie \ref{sec:evaluatie-gebruik-
 \paragraph{\jqm}
 Validatie is niet standaard aanwezig in \jqm. 
 Eerst werd geprobeerd om de verplichte velden te voorzien van het \code{required}-attribuut in HTML5. 
-Dit werd niet gedaan om twee redenen.
-Enerzijds is hiervoor geen ondersteuning voor mobiele browsers, zoals opgemerkt bij \kendo{}. 
-Anderzijds is het ook nodig om de velden te valideren op hun waarde.
-Als oplossing werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
-Deze lost beide problemen op.
-De plug-in zelf kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code en anderzijds door programmatie met \js{}. 
+Doordat er geen ondersteuning is voor mobiele browsers, zoals opgemerkt bij \kendo{}, werd de plug-in van Jörn Zaefferer gebruikt~\cite{Zaefferer2013}. 
+Deze kan op twee manieren gebruikt worden: enerzijds annoteren van de formuliervelden met speciale CSS-klassen in de HTML-code en anderzijds door programmatie met \js{}. 
 Beide aanpakken werden gebruikt doorheen de implementatie. 
 
 De plug-in bevat alle gevraagde validatieregels.
@@ -769,9 +745,9 @@ Deze afhankelijkheidsrelatie is standaard aanwezig in de plug-in.
 De plug-in toont standaard een foutboodschap onder het foute formulierveld.
 Door de uitvoerig documentatie van de plug-in, konden alle foutboodschappen samen in één dialoogvenster worden weergegeven.
 
-De plug-in annoteert de foute velden met een CSS-klasse.
+De plug-in annoteert de incorrecte velden met een CSS-klasse.
 Hierdoor kon de rode rand in CSS worden geprogrammeerd. 
-Voor selectievelden en dropdownmenu's gaf dit problemen door de extra code die \jqm{} genereert rond deze velden.
+Voor \code{radio}-velden en dropdownmenu's gaf dit problemen door de extra code die \jqm{} genereert rond deze velden.
 Als oplossing moest de omvattende code worden geannoteerd.
 
 \paragraph{\lungo}
@@ -781,8 +757,8 @@ Aangezien deze manier niet direct een oplossing bracht en er geen beroep kon wor
 Bij wijze van voorbeeld werd enkel validatie op het loginscherm geprogrammeerd.
 Validatie op de rest van de formulieren doorheen de POC is volgens dezelfde werkwijze mogelijk, maar werd niet geïmplementeerd.
 
-Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute velden werd ook zelf geprogrammeerd.
-Bij een foutief gevalideerd veld werd een CSS-klasse toegevoegd die zorgde voor een rode rand.
+Het tonen van foutboodschappen alsook het tonen van een rode rand rond de foute velden werden ook zelf geprogrammeerd.
+Bij een incorrect veld werd een CSS-klasse toegevoegd die zorgde voor een rode rand.
 
 %%%%%%%%%%%%%
 
@@ -790,7 +766,7 @@ Bij een foutief gevalideerd veld werd een CSS-klasse toegevoegd die zorgde voor 
 \label{sec:evaluatie-gebruik-handtekening}
 
 In tabel \ref{tabel:evaluatie-gebruik-handtekening} worden de resultaten getoond van de deeluitdaging.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -822,7 +798,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 Het tekenen van een handtekening steunt op een plug-in van SimFla~\cite{SimFla2011} en is in de Sencha Market te vinden.
 De plug-in maakt een nieuw invoerelement beschikbaar dat in een formulier kan worden gebruikt.
-Dit element maakt gebruik van HTML5 \code{canvas} en retourneert de handtekening als Base64-tekst.
+Dit element maakt gebruik van het HTML5 \code{canvas} en retourneert de handtekening als Base64-tekst.
 
 \paragraph{\kendo}
 Aangezien \kendo{} steunt op de jQuery bibliotheek is \kendo{} ook compatibel met jQuery plug-ins.
@@ -833,9 +809,9 @@ Hierdoor kan de Base64-string bekomen worden die naar de \term{backend} moet wor
 \paragraph{\jqm}
 Er werd gezocht naar een plug-in om deze functionaliteit te bekomen, doordat \jqm{} dit niet standaard aanbiedt. 
 De eerst gevonden plug-in~\cite{Bradley2013} werd niet gebruikt wegens problemen met het aanpassen van de lay-out.
-Uiteindelijk werd jSignature van Willow Systems~\cite{Systems2013} gebruikt.
-Deze laatste gaf ook het voordeel dat de breedte van het gebied om te handtekening in te zetten, zich automatisch naar 100\% schaalde. 
-Dezelfde aanpak voor het omvormen naar Base64 bij \kendo{} werd gevolgd.
+Uiteindelijk werd dezelfde plug-in als bij \kendo{} gebruikt.
+Deze gaf ook het voordeel dat het gebied van de handtekening de volledige schermbreedte innam. 
+Dezelfde aanpak zoals bij \kendo{} werd gevolgd voor het omvormen naar Base64.
 
 \paragraph{\lungo}
 Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook geen plug-in worden gevonden.
@@ -846,7 +822,7 @@ Het maken van een handtekening is niet standaard aanwezig en daarenboven kon ook
 \label{sec:evaluatie-gebruik-ajax}
 
 In tabel \ref{tabel:evaluatie-gebruik-ajax} worden de resultaten getoond van de vier deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -878,17 +854,17 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \paragraph{\st}
 AJAX-verzoeken kunnen zowel expliciet via een directe oproep met \code{Ext.Ajax.request} als impliciet via \code{Stores} worden uitgevoerd.
 De expliciete oproep is gelijkaardig aan de \code{\$.ajax}-methode van de jQuery bibliotheek.
-Een enige uitzondering is te vinden bij AJAX-verzoeken naar een ander domein.
+De enige uitzondering is te vinden bij AJAX-verzoeken naar een ander domein.
 Om aan de CORS-standaarden (Cross-Origin Resource Sharing) te voldoen moet de eigenschap \code{useDefaultXhrHeader} op \code{false} worden gezet.
 
-De tweede,  impliciete,  methode voor AJAX-verzoeken is via \code{Stores}.
+De tweede impliciete methode voor AJAX-verzoeken is via \code{Stores}.
 Een \code{Store} wordt voorzien van een \code{Proxy}.  
-Een \code{Proxy} kan de \term{localStorage} van de browser gebruiken of data verzenden via AJAX.  
-Hierbij kunnen \code{Readers} geconfigureerd worden om data van de server te lezen of naar de server te schrijven.
+Een \code{Proxy} kan data verzenden via AJAX.  
+Hierbij kunnen \code{Readers} geconfigureerd worden om data van de server te lezen.
 \st{} voorziet drie methoden om de resultaten van een \code{Proxy} te parsen naar modelinstanties:
 \begin{description}
- \item [\code{JsonReader}] parst JSON-sleutels naar model velden.
- \item [\code{XmlReader}] parst XML-tags naar model velden.
+ \item [\code{JsonReader}] parst JSON-sleutels naar velden van een model.
+ \item [\code{XmlReader}] parst XML-tags naar velden van een model.
  \item [\code{ArrayReader}] mapt elementen van een rij op velden van een model.
 \end{description}
 
@@ -903,14 +879,17 @@ Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax}-met
 Hoe data moet worden geparset, staat gedefinieerd in de \code{schema} eigenschap van de \code{DataSource}.
 Zowel JSON als XML worden ondersteund.
 Aan een \code{schema} kan een (View) Model worden toegekend.
-Er onderscheiden zich twee gevallen:  een bestaand \code{ObservableObject} kan met data worden geladen of nieuwe instanties van een \code{Model} kunnen worden aangemaakt.
+Er onderscheiden zich twee gevallen:  één bestaand \code{ObservableObject} kan met data worden geladen of nieuwe instanties van een \code{Model} kunnen worden aangemaakt.
 Het eerste geval zal de velden van één \code{ObservableObject} wijzigen als CRUD-operaties worden uitgevoerd.
 De eigenschap moet dan aan het \code{ObservableObject} worden gelijkgesteld.
 Het tweede geval zal de instanties van een \code{Model} wijzigen als CRUD-operaties worden uitgevoerd.
 Hiervoor moet het model in de \code{schema} eigenschap worden gedefinieerd.
 
+Een \code{OservableObject} kan met de \code{toJSON}-methode als JSON-object worden verkregen.
+Het serialiseren kan via \code{JSON.stringify} en deze kan met een AJAX-verzoek worden verstuurd.
+
 \paragraph{\jqm}
-Het maken van oproepen via AJAX gebeurt door jQuery. 
+Het maken van oproepen via AJAX gebeurt door \code{\$.ajax} in jQuery. 
 Bij de oproep wordt ingesteld wat het te verwachten antwoord is (tekst, JSON of XML). 
 Met tekst en JSON kan onmiddellijk worden omgegaan.
 Gegevens uit XML halen vraagt meer werk doordat \term{selectors} moet worden gebruikt.
@@ -948,7 +927,7 @@ Aangezien dit een fout was in de bibliotheek werd het \js-bestand zelf aangepast
 \label{sec:evaluatie-gebruik-lijsten}
 
 In tabel \ref{tabel:evaluatie-gebruik-lijsten} worden de resultaten getoond van de drie deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -1001,24 +980,23 @@ Automatisch zal er ook een \term{back} knop worden gegenereerd die na aanklikken
 Een \code{Store} kan aan een lijst worden gekoppeld zodat alle modelinstanties van de \code{Store} in de lijst worden weergegeven.
 Het sorteren van een lijst kan automatisch door de \code{Store} te voorzien van een \code{Sorter}.
 Deze kan modelinstanties van een \code{Store} sorteren op basis van eigenschappen van het bijhorende model.
-Ook kan de richting van sorteren kan worden geconfigureerd.
+Ook kan de richting van sorteren worden geconfigureerd.
 
 \paragraph{\kendo}
-Lijsten worden met een \code{Listview} gemaakt en kunnen met een \code{DataSource} gebonden worden.
+Lijsten worden met een \code{Listview} gemaakt en kunnen worden gebonden met een \code{DataSource}.
 Hierdoor zullen alle instanties van de \code{DataSource} als element in de lijst verschijnen.
-Het koppelen van een \js-rij en een \code{Listview} kan door te binden op basis van de \code{source} eigenschap.
+Ook kan een \js-rij aan een \code{Listview} worden gebonden op basis van de \code{source}-eigenschap.
 Deze methodiek is uitvoerig in de documentatie beschreven.
 
 De opmaak van lijsten kan met \code{Templates} worden uitgedrukt.
-Dit zijn sjablonen die met specifieke script in een HTML-bestand worden geschreven.
+Dit zijn sjablonen die met specifieke scripts in een HTML-bestand worden geschreven.
 De sjablonen hebben toegang tot de velden van de modelinstanties en kunnen \js-functies uitvoeren.
 
 De link van elk lijstelement moet in het sjabloon worden gedefinieerd.
 Om de elementen uit het uitgavenoverzicht te linken, werd gebruik gemaakt van een geparameteriseerde \code{View}.
 Dit laat toe om parameters in de link naar de \code{View} op te geven,  analoog aan HTTP GET-verzoeken.
 De functie zal een \code{ObservableObject} laden met data op basis van de meegegeven parameter.
-Dit \code{ObservableObject} is gekoppeld aan een formulier en zal dus automatisch worden ingevuld zodra het object wordt geïnitialiseerd.
-
+Dit \code{ObservableObject} is gekoppeld aan een formulier dat automatisch zal worden ingevuld zodra het object wordt geïnitialiseerd.
 Het sorteren van een lijst kan door de \code{DataSource} die aan de lijst is gekoppeld van een sorteereigenschap te voorzien.
 
 \paragraph{\jqm}
@@ -1037,7 +1015,7 @@ Het laden van data in een lijst dient zelf geprogrammeerd te worden.
 Items worden één voor één toegevoegd aan de lijst met behulp van \quo{}.
 Het is daarentegen niet nodig om de lijst te verversen.
 
-Ook de gegenereerde lijstitems klikbaar te maken, wordt zoals \jqm{} gedaan.
+Om de gegenereerde lijstitems klikbaar te maken, wordt de werkwijze van \jqm{} gebruikt.
 Dit gebeurt bij het genereren van de items zelf en op basis van een unieke \term{identifier} die de uit te voeren actie bepaald.
 
 Het sorteren van data gebeurt door de aangeboden functies van het raamwerk zelf.
@@ -1049,7 +1027,7 @@ Deze maken het mogelijk om te sorteren volgens een bepaalde eigenschap, zowel op
 \label{sec:evaluatie-gebruik-pdf}
 
 In tabel \ref{tabel:evaluatie-gebruik-pdf} worden de resultaten getoond van de twee deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -1105,7 +1083,7 @@ De implementatie voor het tonen van het PDF-bestand is analoog als de implementa
 \label{sec:evaluatie-gebruik-offline}
 
 In tabel \ref{tabel:evaluatie-gebruik-offline} worden de resultaten getoond van de twee deeluitdagingen.
-Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
+Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 
 \begin{table}
 \centering
@@ -1135,7 +1113,7 @@ Onder de tabel wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \end{table}
 
 \paragraph{\st}
-Zoals besproken in sectie~\ref{sec:evaluatie-gebruik-ajax} kan een \code{Store} voozien worden van een \code{Proxy} die data lokaal opslaat aan klantzijde.
+Zoals besproken in sectie~\ref{sec:evaluatie-gebruik-ajax} kan een \code{Store} voorzien worden van een \code{Proxy} die data lokaal opslaat aan klantzijde.
 Deze \code{Store} maakt gebruik van de HTML5 \code{localStorage}.
 Om gegevens van een gebruiker en onverzonden onkosten lokaal te bewaren moeten twee \code{Stores} met deze \code{Proxy} worden gedefinieerd.
 Een belangrijke opmerking is dat geen twee \code{Proxies} aan dezelfde \code{Store} kunnen worden toegevoegd.
@@ -1152,7 +1130,7 @@ Het verwijderen van onverzonden lokale uitgaven kan door de data in de \code{Sto
 
 De applicatie offline beschikbaar maken wordt ondersteund door Sencha Cmd~\cite{Sencha2012}.
 Hiervoor moet de applicatie gebouwd worden voor productie (zie sectie \ref{sec:raamwerk-st}).
-De tool zal automatisch een \code{manifest}-bestand aanmaken die alle vereiste bestanden bevat.
+De tool zal automatisch een \code{manifest}-bestand aanmaken die alle vereiste bestanden bevat die offline nodig zijn.
 
 \paragraph{\kendo}
 Vanuit het raamwerk is er geen ondersteuning om gegevens offline te bewaren.
@@ -1160,8 +1138,6 @@ Hiervoor werd gebruik gemaakt van \code{localStorage}, wat gespecificeerd is in 
 Het controleren of \code{localStorage} al dan niet wordt ondersteund, gebeurd door Modernizr~\cite{Modernizr2012}.
 
 Na het aanmelden zullen alle gegevens van de werknemer geserialiseerd worden opgeslagen.
-Deze gegevens zitten in een \code{OservableObject} en kunnen met de \code{toJSON}-methode als JSON-object worden verkregen.
-Het serialiseren zelf kan via de JSON-bibliotheek.
 Wanneer het inlogscherm wordt getoond, zal gecontroleerd worden of er gegevens van een werknemer lokaal beschikbaar zijn.
 Indien dit het geval is, wordt automatisch naar het startscherm genavigeerd en de \code{DataSource} met informatie van de gebruiker ingevuld.
 
@@ -1170,7 +1146,7 @@ Nadat een uitgaveformulier is verzonden, worden de uitgaven uit beide plekken ve
 
 Het offline beschikbaar maken van de applicatie wordt vanuit \kendo{} zelf niet ondersteund.
 Dit kan opgelost worden met HTML5 Application Cache.
-Om het proces te vergemakkelijken werd het \code{manifest}-bestand dat een lijst is van alle offline-bestanden, gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
+Om het proces te vergemakkelijken werd het \code{manifest}-bestand gegenereerd aan de hand van Yeoman~\cite{Yeoman2013}.
 
 \paragraph{\jqm}
 Vanuit het raamwerk komt er standaard geen ondersteuning om gegevens offline te bewaren of de applicatie offline beschikbaar te maken.

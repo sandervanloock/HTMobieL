@@ -4,14 +4,14 @@ Uitdaging,Challenge,jQM,ST,Lungo,Kendo
 \uit{formulieren-placeholders},\chal{formulieren-placeholders},1,1,1,1
 \uit{formulieren-types},\chal{formulieren-types},1,1,1,1
 \uit{formulieren-optieveld},\chal{formulieren-optieveld},1,1,,1
-\uit{formulieren-datepicker},\chal{formulieren-datepicker},1,1,1,1
+\uit{formulieren-picker},\chal{formulieren-picker},1,1,1,1
 \uit{formulieren-schakelaar},\chal{formulieren-schakelaar},1,1,0,1
 \uit{autoaanvullen},\chal{autoaanvullen},1,,1,1
 \uit{afbeelding},\chal{afbeelding},0,0,0,0
-\uit{validatie},\chal{validatie},1,1,1,1
+\uit{validatie},\chal{validatie},1,1,,1
 \uit{handtekening},\chal{handtekening},1,1,,1
 \uit{pdf},\chal{pdf},1,1,1,1
 \uit{offline},\chal{offline},2,2,2,2
 \uit{offline-data},\chal{offline-data},1,1,1,1
 \uit{offline-app},\chal{offline-app},1,1,1,1
-Totaal,Total,12,11,9,12
+Totaal,Total,12,11,8,12

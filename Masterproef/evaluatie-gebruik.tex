@@ -88,12 +88,12 @@ Een component die aan een container kan worden toegevoegd is de \code{Toolbar}.
 Een \code{Toolbar} kan zowel bovenaan als onderaan een container worden vastgezet.
 Dit kan dan dienst doen als kop- en voettekst.
 Een cascade van kopteksten is door de hiërarchische opbouw van containers mogelijk en laat zo onderkopteksten toe.
-Een \code{Toolbar} kan voorzien worden van een titel door de \code{title} eigenschap in te vullen.
-Knoppen aan een \code{Toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items} eigenschap toe te voegen.
+Een \code{Toolbar} kan voorzien worden van een titel door de \code{title}-eigenschap in te vullen.
+Knoppen aan een \code{Toolbar} toevoegen kan door een lijst van \code{buttons} aan de \code{items}-eigenschap toe te voegen.
 
 Het toevoegen van een tabbar verloopt analoog.
-De \code{items} eigenschap bevat dan een lijst van \code{Views} met een titel waarbij de \code{View} zichtbaar wordt als op de titel wordt gedrukt.
-Knoppen van kleur veranderen kan door de \code{style} eigenschap van een knop te zetten.
+De \code{items}-eigenschap bevat dan een lijst van \code{Views} met een titel waarbij de \code{View} zichtbaar wordt als op de titel wordt gedrukt.
+Knoppen van kleur veranderen kan door de \code{style}-eigenschap van een knop te zetten.
 
 \paragraph{\kendo}
 Het skelet van een \code{View} kan binnen een HTML-tag worden geschreven.
@@ -178,7 +178,7 @@ Hieronder wordt per raamwerk verklaard waarom dat resultaat werd behaald.
 \st{} ondersteunt het herkennen van de context waarin de applicatie wordt gebruikt.
 Het kan zowel besturingssysteem, browser als ondersteunde (HTML5-)kenmerken opvragen en herkennen.
 
-De creatie van de tablet lay-out steunt op de \code{HBox} lay-out die componenten horizontaal naast elkaar plaatst.
+De creatie van de tablet lay-out steunt op de \code{HBox}-lay-out die componenten horizontaal naast elkaar plaatst.
 %De \code{flex} eigenschap van deze lay-out definieert de ratio van de groottes van beide componenten.
 De creatie van de smartphone lay-out maakt het menu in de linkse component van de lay-out onzichtbaar.
 %Om naar het menu terug te keren moet een extra knop in de koptekst worden toegevoegd die naar het menu navigeert.
@@ -377,7 +377,7 @@ Hiervoor moet de \code{reset}-methode op het bijhorende \code{Formpanel} worden 
  Door de dubbele binding tussen het formulier en het (View) Model zal ook de inhoud van de formulierelementen worden gewist.
  
 \paragraph{\jqm} 
-Voor het toevoegen van \term{placeholders} in de formuliervelden werd beroep gedaan op het \code{placeholder} attribuut van HTML5. 
+Voor het toevoegen van \term{placeholders} in de formuliervelden werd beroep gedaan op het \code{placeholder}-attribuut van HTML5. 
 Labels zijn verplicht in \jqm{}, maar kunnen onzichtbaar worden gemaakt met de CSS-klasse \code{ui-hide-label}~\cite{JQuery2013}. 
 Als er wordt teruggekeerd naar het formulier nadat het verzonden is, bevat het nog alle waarden. 
 Na het versturen van het formulier, wordt het leeggemaakt met behulp van de \code{reset}-functie in \js{}.
@@ -459,11 +459,11 @@ Twee verschillende methoden worden in de POC gebruikt.
 De eerste methode zal een formulier vullen door er een instantie van een model aan toe te kennen.
 \st{} zal automatisch de velden invullen waarbij de naam gelijk is aan de eigenschap van het model.
 Zo kan tekst op tekstvelden worden gemapt,  nummers op numerieke velden en \code{booleans} op schakelaars.
-Er bestaat echter geen exacte mapping tussen een model en \code{radio}velden.
+Er bestaat echter geen exacte mapping tussen een model en \code{radio}-velden.
 Deze moeten apart worden ingevuld door een extra methode op te roepen.
 De tweede methode voor het invullen van formulieren maakt gebruik van een \code{Navigationview} en wordt besproken in \ref{sec:evaluatie-gebruik-lijsten}.
-De \code{readOnly} eigenschap bepaalt de aanpasbaarheid van formulierelementen.
-Bij \code{radio}velden heet deze eigenschap \code{disabled}.
+De \code{readOnly}-eigenschap bepaalt de aanpasbaarheid van formulierelementen.
+Bij \code{radio}-velden heet deze eigenschap \code{disabled}.
 
 
 \paragraph{\kendo}
@@ -690,7 +690,7 @@ Controleren op een nummer kan met \code{format} en de \code{\textbackslash{}d+} 
 Om een bepaalde modelinstantie te valideren moet de \code{validate}-methode op de instantie worden opgeroepen.
 Om eigen validatieregels toe te laten moet de implementatie van deze methode worden overschreven~\cite{Krause2011}.
 Deze functionaliteit zit dus niet standaard in \st{}.
-Met de nieuwe \code{validate} methode kan een \code{validator} aan een validatieregel worden toegevoegd.
+Met de nieuwe \code{validate}-methode kan een \code{validator} aan een validatieregel worden toegevoegd.
 Dit is een functie die de programmeur zelf bepaalt en \code{true} of \code{false} teruggeeft bij het al dan niet slagen van een conditie.
 
 Het opbouwen van een foutboodschap kan door te itereren over de fouten die na validatie worden teruggegeven.
@@ -871,17 +871,17 @@ Na het encoderen kan de JSON-data aan het verzoek worden gekoppeld.
 
 \paragraph{\kendo}
 Om asynchrone verzoeken naar de \term{backend} te implementeren, moet een \code{DataSource} worden gebruikt.
-Deze bevat een \code{transport} eigenschap die data kan creëren (\code{create} eigenschap),  lezen (\code{read} eigenschap),  verwijderen (\code{destroy} eigenschap) en op te waarderen (\code{update} eigenschap).
+Deze bevat een \code{transport}-eigenschap die data kan creëren (\code{create}-eigenschap),  lezen (\code{read}-eigenschap),  verwijderen (\code{destroy}-eigenschap) en op te waarderen (\code{update}-eigenschap).
 Deze vier eigenschappen moeten geconfigureerd worden zoals de \code{\$.ajax}-methode van de jQuery-bibliotheek.
 
-Hoe data moet worden geparset, staat gedefinieerd in de \code{schema} eigenschap van de \code{DataSource}.
+Hoe data moet worden geparset, staat gedefinieerd in de \code{schema}-eigenschap van de \code{DataSource}.
 Zowel JSON als XML worden ondersteund.
 Aan een \code{schema} kan een (View) Model worden toegekend.
 Er onderscheiden zich twee gevallen:  één bestaand \code{ObservableObject} kan met data worden geladen of nieuwe instanties van een \code{Model} kunnen worden aangemaakt.
 Het eerste geval zal de velden van één \code{ObservableObject} wijzigen als CRUD-operaties worden uitgevoerd.
 De eigenschap moet dan aan het \code{ObservableObject} worden gelijkgesteld.
 Het tweede geval zal de instanties van een \code{Model} wijzigen als CRUD-operaties worden uitgevoerd.
-Hiervoor moet het model in de \code{schema} eigenschap worden gedefinieerd.
+Hiervoor moet het model in de \code{schema}-eigenschap worden gedefinieerd.
 
 Een \code{OservableObject} kan met de \code{toJSON}-methode als JSON-object worden verkregen.
 Het serialiseren kan via \code{JSON.stringify} en deze kan met een AJAX-verzoek worden verstuurd.
@@ -967,7 +967,7 @@ Hier kunnen HTML-tags de lay-out van de lijstelementen vastleggen of kan er \js-
 % \end{itemize}
 
 Zoals reeds besproken in sectie \ref{sec:evaluatie-gebruik-vullen}, kan een formulier worden ingevuld met een \code{Navigationview}.
-Deze \code{View} heeft een \code{push}- en \code{pop}-methode om een \code{View} op een \code{stack} te plaatsen of af te halen.
+Deze \code{View} heeft een \code{push}- en \code{pop}-methode om een \code{View} op een stapel te plaatsen of af te halen.
 Om een \code{View} te tonen die hoort bij een lijstelement, wordt gebruik gemaakt van deze \code{Navigationview} en de \code{push}-methode.
 
 Een \code{Controller} merkt het aanraken van een lijstelement en zal de \code{push}-methode op de \code{Navigationview} oproepen.

@@ -6,7 +6,7 @@ do
 	# -c count
 	# -i case insensitive
 	# -e regular expression
-	nb=`cat $f.tex | grep -c -i -e $1`
+	nb=`cat $f.tex | grep -c -e $1`
 	total=$((total + $nb))
 	echo "==================== $f ($nb matches) ===================="
 
@@ -15,7 +15,7 @@ do
 		# -n 		show line number
 		# -i 		case insensitive
 		# -e 		regular expression
-		cat "$f.tex" | grep --color -n -i -e $1
+		cat "$f.tex" | grep --color -n -e $1
 	fi
 	
 done

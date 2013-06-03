@@ -478,21 +478,21 @@ van een raamwerk $r$.
 %\end{equation}
 %voor een raamwerk $r$.
 
-De maximale responsetijd is wanneer de loginapplicatie niet uit cache wordt geladen:
+De maximale responstijd is wanneer de loginapplicatie niet uit cache wordt geladen:
 \begin{equation}
-  \text{Maximale reponsetijd}_r= \frac{\sum\limits_{c=1}^{8}\left(\widehat{l}_{r,c,login} + \widehat{l}_{r,c,lijst}\right)}{8}
+  \text{Maximale responstijd}_r= \frac{\sum\limits_{c=1}^{8}\left(\widehat{l}_{r,c,login} + \widehat{l}_{r,c,lijst}\right)}{8}
   \label{eq:performantie-max}
 \end{equation}
 
-Deze maximale responsetijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd door Jakob Nielsen~\cite{Nielsen1993}:  
+Deze maximale responstijd kan gecategoriseerd worden met limieten uitgedrukt in seconden zoals opgelegd door Jakob Nielsen~\cite{Nielsen1993}:  
 \begin{itemize}
-\item $\text{Maximale responsetijd}_r < 0.1\unit{s}$: de gebruiker heeft het gevoel dat het systeem direct reageert.
-\item $\text{Maximale responsetijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
-\item $\text{Maximale responsetijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
+\item $\text{Maximale responstijd}_r < 0.1\unit{s}$: de gebruiker heeft het gevoel dat het systeem direct reageert.
+\item $\text{Maximale responstijd}_r < 1\unit{s}$: de gedachtengang van de gebruiker zal niet worden onderbroken, maar hij zal toch een vertraging waarnemen.
+\item $\text{Maximale responstijd}_r < 10\unit{s}$: de limiet om de aandacht van de gebruiker te behouden.
 \end{itemize}
 
-De maximale responsetijd kan echter niet worden berekend omdat er geen rendertijden bij \st{} en \lungo{} kunnen worden berekend.
-Indien de rendertijd uit de formule wordt weggelaten,  blijft de maximale responsetijd een schatting voor de limiet van Nielsen.
+De maximale responstijd kan echter niet worden berekend omdat er geen rendertijden bij \st{} en \lungo{} kunnen worden berekend.
+Indien de rendertijd uit de formule wordt weggelaten,  blijft de maximale responstijd een schatting voor de limiet van Nielsen.
 
 Om de scores van het performantiecriterium te duiden zal de gemiddelde downloadtijd van de POC en de loginapplicatie met elkaar worden vergeleken.
 Ook zullen de resultaten gecontroleerd worden met Google Page Speed~\cite{Morgan2011}. 

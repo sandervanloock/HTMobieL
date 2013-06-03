@@ -8,7 +8,7 @@ Voor de score van performantie geldt hoe kleiner, hoe beter.
 \begin{table}
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  begin table=\begin{tabular}{p{8.5cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
@@ -34,7 +34,6 @@ Voor de score van performantie geldt hoe kleiner, hoe beter.
 Op vlak van performantie scoort \lungo{} het beste, kort gevolgd door \jqm{} en \st{}.
 \kendo{} heeft een beduidend lage score en is hierdoor laatst.
 Dit wordt verklaard doordat de eerste twee raamwerken geen ontwerppatroon afdwingen waardoor er ook een kleinere \js{}-code dient te worden gedownload ten opzichte van raamwerken die wel een ontwerppatroon afdwingen (zie ook tabel \ref{tabel:raamwerken-tabel}).
-
 \st{} scoort het slechtst op gemiddelde downloadtijd, maar behaalt de beste score op gebruikerservaring.
 
 Eerst zal in sectie~\ref{sec:evaluatie-downloadtijd} de gemiddelde downloadtijd gedetailleerd worden besproken.
@@ -46,7 +45,7 @@ Als laatste wordt in sectie~\ref{sec:evaluatie-performantie-duiding} de performa
 
 \subsection{Gemiddelde downloadtijd}
 \label{sec:evaluatie-downloadtijd}
-De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd} die zowel de loginapplicatie als de loginapplicatie uit cache in rekening neemt.
+De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd} die zowel de loginapplicatie als de loginapplicatie uit cache in rekening brengt.
 De uitkomsten hiervan worden weergegeven in tabel~\ref{tabel:evaluatie-performantie-downloadtijd}.
 Om de spreiding van deze downloadtijd op de acht apparaten beter te kunnen bekijken, wordt op figuur \ref{fig:performantie-login-boxplot} de downloadtijd uitgezet in een boxplot.
 Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de loginapplicatie uit cache.
@@ -54,7 +53,7 @@ Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de logi
 \begin{table}
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  begin table=\begin{tabular}{p{8.5cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
@@ -102,9 +101,9 @@ De verwachting is dat de downloadtijd evenredig is met de downloadgrootte van de
 De afhankelijkheden van het raamwerk nemen het merendeel in van de totale downloadgrootte.
 Dit komt omdat er voor de loginapplicatie relatief weinig code moest worden geschreven.
 Tabel \ref{tabel:evaluatie-performantie-groottes} toont voor alle raamwerken de grootte van de afhankelijkheden die nodig zijn om de loginapplicatie op te zetten.
-De implementatie van \jqm{} gebruikt een plug-in voor validaties, vandaar dat ook de grootte van deze plug-in is opgenomen.
+De implementatie van de loginapplicatie in \jqm{} gebruikt een plug-in voor validaties, vandaar dat ook de grootte van deze plug-in is opgenomen.
 Deze gegevens omvatten drie conclusies.
-Ten eerste kan gezien worden dat \lungo{} is geoptimaliseerd voor mobiele ontwikkeling.
+Ten eerste kan gezien worden dat \quo{}, de \js{}-bibliotheek van \lungo{},  geoptimaliseerd is voor mobiele apparaten.
 Verder is het al dan niet aanwezig zijn van een ontwerppatroon niet uit grootte van de \js{}-bestanden af te leiden.
 \kendo{} en \jqm{} hebben namelijk beide afhankelijkheden die ongeveer even groot zijn.
 Ten slotte kan geconcludeerd worden dat \st{} de meeste \js-code gebruikt in zijn afhankelijkheden.
@@ -117,7 +116,7 @@ Hierdoor zal de browser niet moeten wachten op het parsen en dus sneller alle af
 \begin{table}
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  begin table=\begin{tabular}{p{8.5cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
@@ -164,7 +163,7 @@ De webapplicaties gemaakt in \st{} gebruiken daarentegen Sencha Cmd.
 \begin{table}
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
+  begin table=\begin{tabular}{p{8.5cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.8cm} p{0.3cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,
@@ -210,7 +209,7 @@ Anderzijds wordt op figuur~\ref{fig:performantie} de gemiddelde downloadtijd get
 \begin{table}
 \centering
 \pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8cm} p{1cm} p{1cm} p{1cm} p{1cm}},
+  begin table=\begin{tabular}{p{8.5cm} p{1cm} p{1cm} p{1cm} p{1cm}},
   end table=\end{tabular},
   skip coltypes=true,
   col sep=comma,

@@ -45,10 +45,6 @@ Als laatste wordt in sectie~\ref{sec:evaluatie-performantie-duiding} de performa
 
 \subsection{Gemiddelde downloadtijd}
 \label{sec:evaluatie-downloadtijd}
-De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd} die zowel de loginapplicatie als de loginapplicatie uit cache in rekening brengt.
-De uitkomsten hiervan worden weergegeven in tabel~\ref{tabel:evaluatie-performantie-downloadtijd}.
-Om de spreiding van deze downloadtijd op de acht apparaten beter te kunnen bekijken, wordt op figuur \ref{fig:performantie-login-boxplot} de downloadtijd uitgezet in een boxplot.
-Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de loginapplicatie uit cache.
 
 \begin{table}
 \centering
@@ -75,6 +71,12 @@ Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de logi
 \caption{Gemiddelde downloadtijd van de loginapplicatie.}
 \label{tabel:evaluatie-performantie-downloadtijd}
 \end{table}
+
+De gemiddelde downloadtijd wordt bepaald volgens formule \ref{eq:totale-downloadtijd} die zowel de loginapplicatie als de loginapplicatie uit cache in rekening brengt.
+De uitkomsten hiervan worden weergegeven in tabel~\ref{tabel:evaluatie-performantie-downloadtijd}.
+Om de spreiding van deze downloadtijd op de acht apparaten beter te kunnen bekijken, wordt op figuur \ref{fig:performantie-login-boxplot} de downloadtijd uitgezet in een boxplot.
+Voor de bespreking van uitschieters wordt verwezen naar appendix~\ref{app:performantie}. 
+Eerst zal deze van de loginapplicatie worden besproken en vervolgens van de loginapplicatie uit cache.
 
 \begin{figure}
   \centering
@@ -104,13 +106,13 @@ Tabel \ref{tabel:evaluatie-performantie-groottes} toont voor alle raamwerken de 
 De implementatie van de loginapplicatie in \jqm{} gebruikt een plug-in voor validaties, vandaar dat ook de grootte van deze plug-in is opgenomen.
 Deze gegevens omvatten drie conclusies.
 Ten eerste kan gezien worden dat \quo{}, de \js{}-bibliotheek van \lungo{},  geoptimaliseerd is voor mobiele apparaten.
-Verder is het al dan niet aanwezig zijn van een ontwerppatroon niet uit grootte van de \js{}-bestanden af te leiden.
+Verder is het al dan niet aanwezig zijn van een ontwerppatroon niet uit de grootte van de \js{}-bestanden af te leiden.
 \kendo{} en \jqm{} hebben namelijk beide afhankelijkheden die ongeveer even groot zijn.
 Ten slotte kan geconcludeerd worden dat \st{} de meeste \js-code gebruikt in zijn afhankelijkheden.
 Dit komt omdat \st{} een \js-gedreven raamwerk is waarbij alle HTML-code ter plaatse moet worden gegenereerd.
 
 De verwachte evenredigheid tussen downloadtijd (zie figuur \ref{fig:performantie-login-boxplot}) en downloadgrootte (zie tabel \ref{tabel:evaluatie-performantie-groottes}) wordt bevestigd door \kendo{}, \jqm{} en \lungo{}.
-\st{} gebruikte uitgesteld parsen van \js{}-code (zie sectie \ref{sec:evaluatie-performantie-duiding}).
+\st{} gebruikt uitgesteld parsen van \js{}-code (zie sectie \ref{sec:evaluatie-performantie-duiding}).
 Hierdoor zal de browser niet moeten wachten op het parsen en dus sneller alle afhankelijkheden downloaden.
 
 \begin{table}
@@ -123,7 +125,7 @@ Hierdoor zal de browser niet moeten wachten op het parsen en dus sneller alle af
   string type,
   header=true,
   columns={Bibliotheek,ST,Kendo,jQM,Lungo},
-  columns/Bibliotheek/.style={column name=\textbf{Bibliotheek}, column type={l}},
+  columns/Bibliotheek/.style={column name=\textbf{Afhankelijkheden}, column type={l}},
   columns/ST/.style={column name=\textbf{\sta}, column type={l}},  
   columns/jQM/.style={column name=\textbf{\jqma}, column type={l}},    
   columns/Kendo/.style={column name=\textbf{\kendoa}, column type={l}},   
@@ -145,13 +147,12 @@ Als naar de versie uit cache wordt gekeken, scoren \kendo{}, \jqm{} en \lungo{} 
 Daarentegen behaalt \st{} telkens een veel tragere tijd.
 Enerzijds komt dit doordat de drie eerstgenoemde raamwerken enkel gebruik maken van HTML5 Application Cache.
 \st{} voegt het Delta Update mechanisme toe aan HTML5 Application Cache.
-Dit mechanisme wil voorkomen dat bij een kleine aanpassing in de code,  alle bestanden opnieuw moeten worden opgehaald die in het \term{manifest} bestand staan opgelijst.
-De \term{Micro-loader} is verantwoordelijk voor het asynchroon ophalen van alle benodigde \js{}- en CSS-bestanden.
+Dit mechanisme wil voorkomen dat bij een kleine aanpassing in de code,  alle bestanden opnieuw moeten worden opgehaald die in het \code{manifest}-bestand staan opgelijst.
+De \code{microloader} is verantwoordelijk voor het asynchroon ophalen van alle benodigde \js{}- en CSS-bestanden.
 Na het bouwen van een applicatie met Sencha Cmd,  zullen de gewijzigde bestanden gearchiveerd worden en worden de veranderingen tussen elke versie opgeslagen.
-Na het laden van de applicatie, zal de \code{Micro-loader} met een GET-verzoek controleren op wijzigingen.
+Na het laden van de applicatie, zal de \code{microloader} met een GET-verzoek controleren op wijzigingen.
 Dit GET-verzoek zal de grootste tijd voor zijn rekening nemen bij de downloadtijden bij applicaties uit de cache.
 \st{} heeft er dus voor gekozen om aan performantie in te boeten ten voordele van het update mechanisme~\cite{Nguyen2012}.
-
 \kendo{}, \jqm{} en \lungo{} gebruiken Yeoman om de applicatie te bouwen.
 De webapplicaties gemaakt in \st{} gebruiken daarentegen Sencha Cmd.
 
@@ -193,8 +194,8 @@ Dit wil zeggen dat op alle toestellen het scrollen door de lijst van \st{} het v
 Op de \htc{} liep \kendo{} vlotter,  op de \ipadi{} was \lungo{} nummer twee.
 De lijst genereren met \kendo{} op iOS-toestellen was onmogelijk omdat de applicatie de browser liet crashen.
 De reden waarom alsook de grens van het aantal lijstelementen wanneer \kendo{} crasht op iOS-toestellen werd door tijdsbudget niet gecontroleerd.
-Een mogelijke denkpiste is dat \kendo{} een overhead genereerd die het maximale toegelaten geheugen voor het iOS-besturingssysteem overschrijdt.
-Op Android toestellen kon de \kendo{} lijst echter wel worden getoond.
+Een mogelijke denkpiste is dat \kendo{} een overhead genereert die het maximale toegelaten geheugen voor het iOS-besturingssysteem overschrijdt.
+Op Android-toestellen kon de lijst echter wel worden getoond.
 De score van \kendo{} is dus slechts voor vier apparaten.
 
 %%%%%%%%%%%%%%%%%%
@@ -206,43 +207,16 @@ In wat volgt zullen metrieken worden besproken die de score van de performantie 
 De data van de metrieken is enerzijds weergegeven in tabel~\ref{tabel:performantie-verklaring} die de score met Google PageSpeed en grootte toont.
 Anderzijds wordt op figuur~\ref{fig:performantie} de gemiddelde downloadtijd getoond voor zowel de POC als loginapplicatie.
 
-\begin{table}
-\centering
-\pgfplotstabletypeset[
-  begin table=\begin{tabular}{p{8.5cm} p{1cm} p{1cm} p{1cm} p{1cm}},
-  end table=\end{tabular},
-  skip coltypes=true,
-  col sep=comma,
-  string type,
-  header=true,
-  columns={Performantiemetrieken,jQM,ST,Kendo,Lungo},
-  columns/Performantiemetrieken/.style={column name=\textbf{Performantie}, column type={l}},  
-  columns/ST/.style={column name=\textbf{\sta}, column type={c}},
-  columns/jQM/.style={column name=\textbf{\jqma}, column type={c}},
-  columns/Kendo/.style={column name=\textbf{\kendoa}, column type={c}},
-  columns/Lungo/.style={column name=\textbf{\lungoa}, column type={c}},
-  every head row/.style={
-    before row=\toprule,
-    after row=\midrule},
-  every last row/.style={
-    after row=\bottomrule}
-]{tabellen/performantie/performantie-verklaring.csv}
-\caption{Duiding bij performantie van de loginapplicatie.}
-\label{tabel:performantie-verklaring}
-\end{table}
-
-
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{figuren/performance-nl.pdf}
- \caption{Gemiddelde downloadtijd van POC,  POC uit cache,  login en login uit cache voor elk raamwerk.}
+ \caption{Gemiddelde downloadtijd van POC,  POC uit cache,  loginapplicatie en loginapplicatie uit cache voor elk raamwerk.}
  \label{fig:performantie}
 \end{figure}
 
 \paragraph{Downloadtijd POC versus loginapplicatie}
-Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en login, zowel gewoon als uit cache, voor de vier raamwerken getoond.
+Op figuur \ref{fig:performantie} wordt de gemiddelde downloadtijd van de POC en loginapplicatie, zowel gewoon als uit cache, voor de vier raamwerken getoond.
 Voor de gemiddelde downloadtijd per apparaat en per raamwerk wordt verwezen naar appendix \ref{app:performantie}.
-
 
 De tragere downloadtijd van \st{},  zoals geconcludeerd in sectie \ref{sec:evaluatie-downloadtijd}, wordt hier bevestigd.
 De verschillen tussen \st{} en de andere raamwerken zijn groter bij de POC dan bij de loginapplicatie.
@@ -251,19 +225,16 @@ Het volledige raamwerk (\code{sencha-touch-all.js}) werd daarentegen bij de POC 
 Het Delta Update mechanisme voor het updaten van de cache zal \st{} nog meer vertragen bij de POC.
 
 Indien \st{} buiten beschouwing wordt gelaten, duurt de eerste keer laden van de POC gemiddeld $5,73\unit{s}$. 
-Het laden van de versie uit cache duurt slechts gemiddeld $400\unit{ms}$.
+Het laden van de POC uit cache duurt gemiddeld $400\unit{ms}$.
 De eerste keer laden van de loginapplicatie duurt gemiddeld $3,32\unit{s}$.
-Indien deze uit cache komt, duurt dit gemiddeld nog slechts gemiddeld $420\unit{ms}$.
+Indien deze uit cache komt, duurt dit gemiddeld nog $420\unit{ms}$.
 
-Indien enkel de downloadtijd in rekening wordt gebracht en \st{} buiten beschouwing wordt gelaten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$,  dit zijn aanvaardbare tijden in domein van gebruiksvriendelijkheid~\cite{Nielsen1993}.
+Indien enkel de downloadtijd in rekening wordt gebracht en \st{} buiten beschouwing wordt gelaten, kan er gezien worden dat de downloadtijden $< 10\unit{s}$,  dit zijn aanvaardbare tijden in het domein van gebruiksvriendelijkheid~\cite{Nielsen1993}.
 De gebruiker zal de vertraging waarnemen maar de aandacht niet verliezen.
 Het initieel laden van de POC implementatie met \st{} moet van een laadscherm worden voorzien omdat de downloadtijd $> 10\unit{s}$.
 
-
 \paragraph{Google Page Speed}
-De score op 100 die Google Page Speed~\cite{Morgan2011} aan de applicatie toekent kan in tabel~\ref{tabel:performantie-verklaring} worden teruggevonden.
-\st{} scoort het best ($96$),  gevolgd door \lungo{} ($82$),  \kendo{}($73$) en \jqm{}($71$).
-
+De score op 100 die Google Page Speed~\cite{Morgan2011} aan de loginapplicatie toekent is $96$ voor \st{}, gevolgd door \lungo{}~($82$),  \kendo{}~($73$) en \jqm{}~($71$).
 Er kan geconcludeerd worden dat Sencha Cmd de applicatie optimaal weet te bouwen,  er is het minst plaats voor verbetering.
 Hoewel \st{} de meeste tijd vraagt om te laden, zal het hierna sneller werken.
 Dit wordt bevestigd in de voorbije testen.
@@ -278,11 +249,3 @@ Bij \kendo{} en \jqm{} heeft dit werkpunt een hogere prioriteit in tegenstelling
 Dit komt omdat \lungo{} maar een kleiner aantal bytes moet verwerken.
 De implementatie van \st{} wordt ook aangeraden om vraagtekens uit URLs te verwijderen.
 Dit zou de oorzaak kunnen zijn voor het niet-cachen van bestanden.
-
-\paragraph{Downloadgrootte}
-De PCAP-bestanden die werden gebruikt om de downloadtijd op te meten, bevatten ook de grootte van de pakketten die moeten worden opgehaald.
-Omdat pakketten verloren gaan, zullen ontvangen bestanden incompleet zijn en moeten ze worden herverzonden.
-Hierdoor zal het aantal ontvangen bytes variëren van meting tot meting.
-De performantietesten werden op acht toestellen uitgevoerd en elke test werd drie keer uitgevoerd.
-Het gemiddelde van alle downloadgroottes bepaalt de grootte zoals deze kan worden teruggevonden in tabel~\ref{tabel:performantie-verklaring}.
-\kendo{} moest de meeste data ophalen ($296.50$~kB),  gevolgd door \st{} ($247.59$~kB), \jqm{} ($185.43$~kB) en \lungo{} ($59.75$~kB).

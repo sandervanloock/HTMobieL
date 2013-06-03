@@ -415,7 +415,7 @@ Wanneer de meting wordt gestart, zal op het apparaat naar de applicatie gesurft 
 Nadat alle bestanden zijn ingeladen wordt de meting beëindigd. 
 De uitvoer van TCPdump is een PCAP-bestand die de HTTP-trafiek bevat.
 Deze zal via PCAP Web Performance Analyzer~\cite{SongL.bmcquadeMdsteele2010} worden omgezet naar een HAR-file, waarna een HTTP-waterval zal worden getoond.
-Hieruit kan de totale downloadtijd en -grootte worden gehaald.
+Hieruit kan de totale downloadtijd worden gehaald.
 
 De gemiddelde downloadtijd voor een raamwerk wordt bepaald door de som van de gemiddelde downloadtijden per apparaat:
 \begin{equation}
@@ -494,8 +494,7 @@ Deze maximale responsetijd kan gecategoriseerd worden met limieten uitgedrukt in
 De maximale responsetijd kan echter niet worden berekend omdat er geen rendertijden bij \st{} en \lungo{} kunnen worden berekend.
 Indien de rendertijd uit de formule wordt weggelaten,  blijft de maximale responsetijd een schatting voor de limiet van Nielsen.
 
-Om de scores van het performantiecriterium te staven zal de downloadgrootte van de loginapplicatie worden bekeken.
-Daarnaast zal ook de gemiddelde downloadtijd van de POC en de loginapplicatie met elkaar worden vergeleken.
+Om de scores van het performantiecriterium te duiden zal de gemiddelde downloadtijd van de POC en de loginapplicatie met elkaar worden vergeleken.
 Ook zullen de resultaten gecontroleerd worden met Google Page Speed~\cite{Morgan2011}. 
 Deze tool kan de code van een webpagina analyseren en de performantie testen specifiek voor mobiele apparaten.
 Het resultaat is een score op 100 en een lijst van werkpunten om de performantie van de applicatie te verbeteren.

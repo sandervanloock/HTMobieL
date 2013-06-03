@@ -117,7 +117,7 @@ On these mobile devices run mobile operating systems~(OS).
 The two mobile OSs with the greatest market share are iOS and Android with 14.9\% and 75.0\% respectively in Q3 of 2012~\cite{Protalinski2012}.
 These mobile OSs run both on smartphones and tablets.
 Furthermore, they differ in graphical user interface~(GUI) and the way users interact with the OS.
-This is called native look-and-feel.
+This is called native look and feel.
 
 The mobile OS from Apple, called iOS, first appeared in 2007.
 Since then, a new version was released every year with the most recent version being iOS~6.1 which was released in January~2013~\cite{Deitel2012,PhilDutson2012,Apple2013}.
@@ -246,7 +246,7 @@ Priorities are given to the criteria and candidates are compared pairwise.
 \section{Comparison criteria} %Sander 0.75 pg
 \label{sec:comparisoncriteria}
 
-The comparison study of frameworks for mobile HTML5 applications will be driven by a proof of concept (POC), like Oehlman et al.~\cite{Oeflman2011}.
+The comparison study of frameworks for mobile HTML5 applications will be driven by a POC, like Oehlman et al.~\cite{Oeflman2011}.
 This POC encompasses an application that allows employees to attach, sign and submit expenses to their employer.
 Afterwards, the employee can view the uploaded expenses and download them as PDF.
 
@@ -374,9 +374,9 @@ This was not possible because \sta{} and \lungo{} do not have an event after the
 \section{Frameworks} % (0.5 blz per framework + tabel)
 \label{sec:frameworks}
 This section introduces the compared mobile HTML5 frameworks: \st{}, \kendo{}, \jqm{} and \lungo{}.
-Frameworks can be categorised in two approaches: mark-up driven and \js{} driven~\cite{Oeflman2011}.
+Frameworks can be categorised in two approaches: markup driven and \js{} driven~\cite{Oeflman2011}.
 
-There are three ways of writing a HTML5 application for markup-driven frameworks~\cite{Broulik2012}. 
+There are three ways of writing a HTML5 application for markup driven frameworks~\cite{Broulik2012}. 
 The first one is to write the full application on one single web page.
 The advantage is that there are initially less requests to the server.
 The second option is to write a web page for each screen. 
@@ -436,7 +436,7 @@ Also,  it is possible to query specific features,  comparable with Modernizr~\ci
 
 \kendo{} (\kendoa{}) is a framework from Telerik,  launched in November 2011 and consists of three layers:  Web,  Mobile and DataViz.
 The first focusses on the development of web applications,  the second makes them mobile and the last facilitates data representation.
-\kendoa{} is a hybrid form of JavaScript and markup-driven frameworks.
+\kendoa{} is a hybrid form of JavaScript and markup driven frameworks.
 It is build upon the (Model-View-View Model) MVVM architecture and requires the jQuery library.
 At the time of writing,  \kendoa{} is at version 2013 Q2~\cite{Telerike}. 
 
@@ -453,7 +453,7 @@ At the time of writing, PHP,  JSP and ASP.NET MVC are supported as server-side t
 A license for a server-side wrapper costs $\$300$~\cite{Telerike}.
 
 \paragraph{Code and development}
-Both \js{} and HTML code needs to be written because \kendo{} is both \js{} and markup-driven.
+Both \js{} and HTML code needs to be written because \kendo{} is both \js{} and markup driven.
 \kendo{} is dependent on the jQuery library.
 The MVVM architecture is imposed by \kendoa{}.
 The Views and Models are similar like the Views and Models of the MVC architecture from \sta{}.
@@ -464,7 +464,7 @@ Examples of properties are \code{checked,  value} or \code{visible}.
 If a view is bound to a model,  the model is changed when a user changes the content of a view or the view is changed when the model is programmatically updated.
 
 \paragraph{Browser support}
-One of the most important aspects of \kendoa{} is the mimicking of the native look-and-feel of the current operating system.
+One of the most important aspects of \kendoa{} is the mimicking of the native look and feel of the current operating system.
 Supported platforms are iOS,  Android,  BlackBerry~OS and Windows Phone~8.
 
 All widgets from \kendo{} Web support progressive enhancement.
@@ -494,7 +494,7 @@ By checking the source code, one can find out what code to write to get the same
 Furthermore it explains the API on how to configure settings, use events, methods, utilities, data attributes and theme the framework \cite{JQuery2012b}.
 
 \paragraph{Code and development}
-\jqma{} is a markup-driven UI framework and thus provides mainly UI components. 
+\jqma{} is a markup driven UI framework and thus provides mainly UI components. 
 \jqma{} provides six categories of components: pages and dialogs, toolbars, buttons, content formatting, form elements and listviews~\cite{JQuery2012b}. 
 One can obtain these components by writing HTML5 with \jqma{} specific data attributes. 
 When running the application, \jqma{} will add the extra necessary code to correctly show these components by doing progressive enhancement.
@@ -512,7 +512,7 @@ Lastly in a C-graded browser, the application has a basic, non-enhanced HTML exp
 \subsection{\lungo} % (0.5 blz Tim)
 \label{sec:frameworks-lungo}
 
-\lungo{}~(\lungoa) is a markup-driven framework of which version~1.0 appeared in 2011~\cite{TapQuo2011}.
+\lungo{}~(\lungoa) is a markup driven framework of which version~1.0 appeared in 2011~\cite{TapQuo2011}.
 The framework is maintained by the Spanish company TapQuo that is specialised in mobile user experience~\cite{TapQuo2013a}.
 \lungo{} depends on  \quo{} which is a \js{} library optimised for mobile.
 %\lungo{} biedt vooral GI-elementen aan, maar daarnaast zijn er ook \term{wrappers} voor cache, opslag en SQL beschikbaar~\cite{TapQuo2013}.
@@ -853,12 +853,12 @@ The only problem with \jqma{} was the absence of the virtual email keyboard for 
 Uploading an image requires support for both the \code{localStorage} and FileReaderAPI.  
 Also the \code{file} input type is necessary to indicate the upload component.
 The four implementations of this challenge all fail for on iOS~5 and Android~2.3 because the lack of support for one or more of these dependencies~\cite{Deveria2013c,ViljamiSalminen2012}.
-HTML5 provides features for form validation but non of the eight devices support these features.
+HTML5 provides features for form validation but none of the eight devices support these features.
 However, the implementation of form validation in all frameworks but \lungo{} do work.
 All four implementations for the signature depend on the \code{canvas} feature of HTML5.
 This is supported on all devices~\cite{Deveria2013c}.
 \kendoa{}, \jqma{} and \lungo{} reuse the code to implement \chal{pdf}.
-\sta{} has a plugin available that depend on the PDF.JS,  a PDF-renderer from Mozilla~\cite{Gal2010}.
+\sta{} has a plugin available that depend on the PDF.JS,  a PDF renderer from Mozilla~\cite{Gal2010}.
 The first implementation failed to work on the \gs{} while latter implementation showed the PDF successfully.
 Finally, offline capabilities and HTML5 Application Cache are supported on all eight devices~\cite{Deveria2013c} so each framework achieved the maximum score.
 
@@ -972,7 +972,7 @@ The main drawback of \kendoa{},  which can not be seen on the figure, is the hig
 The expectation that open-source frameworks are more popular is not reflected in the popularity scores.
 \kendoa{} is also the least performant.
 The crashes on iOS devices caused a decrease in the user experience tests and hence a drop in performance.
-The native look-and-feel and corresponding benefits are not been studied although this feature is stressed by the \kendoa{} company.
+The native look and feel and corresponding benefits are not been studied although this feature is stressed by the \kendoa{} company.
 
 \lungo{} has a score of $64\%$ and claims the third place.
 In three out of five criteria,  \lungo{} is last.
@@ -1047,8 +1047,8 @@ This comparison can be more generalised by comparing web, native and hybrid appl
 
 This paper described a comparative study between \sta{},  \kendoa{},  \jqma{} and \lungo{}.
 \sta{} is built with the MVC architecture and is \js{} driven.
-\kendoa{} enforces the MVVM architecture and is both \js{} as markup-driven.
-\jqma{} and \lungo{} do not have an architecture and are both markup-driven.
+\kendoa{} enforces the MVVM architecture and is both \js{} as markup driven.
+\jqma{} and \lungo{} do not have an architecture and are both markup driven.
 
 Five criteria were chosen to execute the comparative study:  popularity,  productivity,  usage,  support and performance.
 Each criterion was provided with a formula to calculate a score.
@@ -1056,7 +1056,7 @@ A POC was formalised to drive the usage and support criterion.
 The activity of the framework on social networks determined the popularity.
 The productivity was measured by time tracking the implementation of a login application.
 This application is a subset of the POC extended with a long list.
-The POC was subdivided in $13$ challenges and $38$ subchallenges to test the usage of the framework.
+The POC was subdivided in $13$ challenges with a total of $38$ sub challenges to test the usage of the framework.
 Next,  a subset of these challenges were tested on $8$ different devices to check the support.
 Finally,  the download time and user experience of the login application determined the performance criterion.
 All the scores were plotted in a spider graph.

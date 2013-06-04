@@ -70,7 +70,7 @@ saveas(gca,'../figuren/performance-en.pdf');
 system('pdfcrop ../figuren/performance-en.pdf ../figuren/performance-en.pdf');
 
 apparaten = {'HTCDesireZ', 'GalaxyTab', 'GalaxyS', 'Nexus 7','iPad1 WiFi', 'iPad3 4G WiFi', 'iPhone 3GS', 'iPhone 4S'};
-mylegend = {'POC','POC uit cache','Loginapplicatie','Login applicatie uit cache'};
+mylegend = {'POC','POC uit cache','Loginapplicatie','Loginapplicatie uit cache'};
 
 %jquery mobile performance
 M = csvread('performantie/performantie-jqm.csv',1,2,[1,2,8,5]);

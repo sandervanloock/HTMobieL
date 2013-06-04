@@ -36,7 +36,6 @@ M = M(:,[1:1-1,2,1+1:2-1,1,2+1:end]);
 M = M(:,[1:2-1,4,2+1:4-1,2,4+1:end]);
 %swap lungo(3) en jqm(4)
 M = M(:,[1:3-1,4,3+1:4-1,3,4+1:end]);
-
 M = M';
 
 plot = bar(M');
@@ -65,7 +64,7 @@ set(plot(1),'facecolor',[1 64/255 38/255]);
 set(plot(2),'facecolor',[85/255 156/255 57/255]);
 set(plot(3),'facecolor',[0 71/255 129/255]);
 set(plot(4),'facecolor',[1 209/255 81/255]);
-ylabel('tijd (s)') 
+ylabel('time (s)') 
 legend('Sencha Touch', 'Kendo UI', 'jQuery Mobile', 'Lungo');
 set(gca,'XTickLabelMode', 'manual', 'XTickLabel', mylabels);
 for i=1:4

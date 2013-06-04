@@ -9,13 +9,25 @@ login = login(:,1:4);
 mylabels = {'Sencha Touch','Kendo UI','jQuery Mobile','Lungo'};
 boxplot(login,'colors',[1 64/255 38/255;85/255 156/255 57/255;0 71/255 129/255;1 209/255 81/255],'labels',mylabels);
 ylabel('tijd (s)') 
-saveas(gca,'../figuren/performantie-login.pdf');
-system('pdfcrop ../figuren/performantie-login.pdf ../figuren/performantie-login.pdf');
+saveas(gca,'../figuren/performantie-login-nl.pdf');
+system('pdfcrop ../figuren/performantie-login-nl.pdf ../figuren/performantie-login-nl.pdf');
+figure;
+boxplot(logincache,'colors',[1 64/255 38/255;85/255 156/255 57/255;0 71/255 129/255;1 209/255 81/255],'labels',mylabels);
+ylabel('tijd (s)') 
+saveas(gca,'../figuren/performantie-login-cache-nl.pdf');
+system('pdfcrop ../figuren/performantie-login-cache-nl.pdf ../figuren/performantie-login-cache-nl.pdf');
+
+%ENGLISH boxplots
+
+boxplot(login,'colors',[1 64/255 38/255;85/255 156/255 57/255;0 71/255 129/255;1 209/255 81/255],'labels',mylabels);
+ylabel('time (s)') 
+saveas(gca,'../figuren/performantie-login-en.pdf');
+system('pdfcrop ../figuren/performantie-login-en.pdf ../figuren/performantie-login-en.pdf');
 figure;
 boxplot(logincache,'colors',[1 64/255 38/255;85/255 156/255 57/255;0 71/255 129/255;1 209/255 81/255],'labels',mylabels);
 ylabel('time (s)') 
-saveas(gca,'../figuren/performantie-login-cache.pdf');
-system('pdfcrop ../figuren/performantie-login-cache.pdf ../figuren/performantie-login-cache.pdf');
+saveas(gca,'../figuren/performantie-login-cache-en.pdf');
+system('pdfcrop ../figuren/performantie-login-cache-en.pdf ../figuren/performantie-login-cache-en.pdf');
 
 M = csvread('performantie-poc-vs-login.csv',1,1,[1 1 4 4]);
 %swap jqm(1) en st(2) => st,jqm,lungo,kendo

@@ -1,6 +1,5 @@
 Uitdaging,Challenge,jQM,ST,Lungo,Kendo
 \uit{toestel},\chal{toestel},1,1,1,1
-\uit{formulieren},\chal{formulieren},4,3,2,3
 \uit{formulieren-placeholders},\chal{formulieren-placeholders},1,1,1,0
 \uit{formulieren-types},\chal{formulieren-types},0,0,0,0
 \uit{formulieren-optieveld},\chal{formulieren-optieveld},1,0,,1
@@ -11,7 +10,6 @@ Uitdaging,Challenge,jQM,ST,Lungo,Kendo
 \uit{validatie},\chal{validatie},1,1,,1
 \uit{handtekening},\chal{handtekening},1,1,,1
 \uit{pdf},\chal{pdf},0,0,0,0
-\uit{offline},\chal{offline},2,2,2,2
 \uit{offline-data},\chal{offline-data},1,1,1,1
 \uit{offline-app},\chal{offline-app},1,1,1,1
 Totaal,Total,10,8,5,9

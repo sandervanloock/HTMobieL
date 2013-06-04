@@ -13,7 +13,7 @@ saveas(gca,'../figuren/performantie-login.pdf');
 system('pdfcrop ../figuren/performantie-login.pdf ../figuren/performantie-login.pdf');
 figure;
 boxplot(logincache,'colors',[1 64/255 38/255;85/255 156/255 57/255;0 71/255 129/255;1 209/255 81/255],'labels',mylabels);
-ylabel('tijd (s)') 
+ylabel('time (s)') 
 saveas(gca,'../figuren/performantie-login-cache.pdf');
 system('pdfcrop ../figuren/performantie-login-cache.pdf ../figuren/performantie-login-cache.pdf');
 
